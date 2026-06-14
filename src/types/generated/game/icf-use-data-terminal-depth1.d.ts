@@ -1,0 +1,5 @@
+declare interface UICF_UseDataTerminal_Depth1_C extends UIntelChallengeUseDataTerminal {
+
+}
+declare const UICF_UseDataTerminal_Depth1_C: UICF_UseDataTerminal_Depth1_C;
+

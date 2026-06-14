@@ -1,0 +1,5 @@
+declare interface AITM_BarGlass_Item_WormholeSpecial_C extends AITM_BarGlass_Item_C {
+
+}
+declare const AITM_BarGlass_Item_WormholeSpecial_C: AITM_BarGlass_Item_WormholeSpecial_C;
+

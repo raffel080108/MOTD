@@ -1,0 +1,5 @@
+declare interface UAFE_TP_TemperatureShockDetached_C extends USpawnAtLocationParticleAfflictionEffect {
+
+}
+declare const UAFE_TP_TemperatureShockDetached_C: UAFE_TP_TemperatureShockDetached_C;
+

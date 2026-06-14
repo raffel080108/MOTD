@@ -1,0 +1,12 @@
+.refact
+.vscode
+node_modules
+dist
+release
+assets/temp
+assets/RogueCore/DerivedDataCache
+assets/RogueCore/Intermediate
+assets/RogueCore/Saved
+assets/RogueCore/Build
+assets/RogueCore/Source
+assets/RogueCore/Binaries

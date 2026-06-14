@@ -1,0 +1,47 @@
+declare interface ABP_Spacerig_Spaceball_C extends AGem {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    Spaceballimpact: UFSDAudioComponent;
+    SingleUsable: USingleUsableComponent;
+    SpotLight12: USpotLightComponent;
+    SpotLight11: USpotLightComponent;
+    SpotLight10: USpotLightComponent;
+    SpotLight9: USpotLightComponent;
+    SpotLight8: USpotLightComponent;
+    SpotLight7: USpotLightComponent;
+    SpotLight6: USpotLightComponent;
+    SpotLight5: USpotLightComponent;
+    SpotLight4: USpotLightComponent;
+    SpotLight3: USpotLightComponent;
+    SpotLight1: USpotLightComponent;
+    SpotLight2: USpotLightComponent;
+    UseSphere: USphereComponent;
+    SM_spaceball_01: UStaticMeshComponent;
+    Collision: USphereComponent;
+    Carriable: UCarriableComponent;
+    KickedBy: APlayerCharacter;
+    ImpactNormal: FVector;
+    ImpactPoint: FVector;
+    TraceDirection: FVector;
+    ImpactSound: USoundBase;
+    ThrowForce: FVector;
+    HasShowedTutorial: boolean;
+    LastBounce: UActorComponent;
+    LastUseKey: FName;
+    CanTriggerSound: boolean;
+    test: boolean;
+    UsedByClient(Key: EInputKeys, KickedBy: APlayerCharacter): void;
+    PlayKickAnim(Kicker: APlayerCharacter): void;
+    BndEvt__Carriable_K2Node_ComponentBoundEvent_4_CarriableEvent__DelegateSignature(): void;
+    BndEvt__Carriable_K2Node_ComponentBoundEvent_1_CarriableEvent__DelegateSignature(): void;
+    Throw(Force: FVector): void;
+    BndEvt__Collision_K2Node_ComponentBoundEvent_10_ComponentHitSignature__DelegateSignature(HitComponent: UPrimitiveComponent, OtherActor: AActor, OtherComp: UPrimitiveComponent, NormalImpulse: FVector, Hit: FHitResult): void;
+    BndEvt__Collision_K2Node_ComponentBoundEvent_11_ComponentBeginOverlapSignature__DelegateSignature(OverlappedComponent: UPrimitiveComponent, OtherActor: AActor, OtherComp: UPrimitiveComponent, OtherBodyIndex: number, bFromSweep: boolean, SweepResult: FHitResult): void;
+    BndEvt__SingleUsable_K2Node_ComponentBoundEvent_2_UsedBySignature__DelegateSignature(User: APlayerCharacter, Key: EInputKeys): void;
+    BndEvt__SingleUsable_K2Node_ComponentBoundEvent_6_UsedBySignature__DelegateSignature(User: APlayerCharacter, Key: EInputKeys): void;
+    BndEvt__SingleUsable_K2Node_ComponentBoundEvent_8_UsableChangedSignature__DelegateSignature(CanUse: boolean): void;
+    ShootBall(ChipValue: number): void;
+    BndEvt__BP_Spacerig_Spaceball_SingleUsable_K2Node_ComponentBoundEvent_0_UsedBySignature__DelegateSignature(User: APlayerCharacter, Key: EInputKeys): void;
+    ExecuteUbergraph_BP_Spacerig_Spaceball(EntryPoint: number): void;
+}
+declare const ABP_Spacerig_Spaceball_C: ABP_Spacerig_Spaceball_C;
+

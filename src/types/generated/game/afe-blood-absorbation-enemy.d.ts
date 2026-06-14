@@ -1,0 +1,5 @@
+declare interface UAFE_BloodAbsorbation_Enemy_C extends UBoneParticlesAfflictionEffect {
+
+}
+declare const UAFE_BloodAbsorbation_Enemy_C: UAFE_BloodAbsorbation_Enemy_C;
+

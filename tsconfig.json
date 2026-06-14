@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["esnext"],
+    "moduleResolution": "node16",
+    "module": "node16",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "paths": {
+      "*": ["./src/types/*"]
+    },
+    "types": ["lua-types/5.4"]
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./src/types/**/*.d.ts",
+    "./src/**/*.lua"
+, "src/motd/ui/motd-mod-page-handlerts"  ],
+  "tstl": {
+    "luaTarget": "5.4",
+    "noImplicitGlobalVariables": true,
+    "extension": ".lua",
+    "noImplicitSelf": true,
+  }
+}

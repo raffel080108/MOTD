@@ -1,0 +1,40 @@
+declare interface UITM_Character_Customization_ItemSelector_C extends UUserWidget {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    VerticalBox_Background: UVerticalBox;
+    SelectorGrid: UUniformGridPanel;
+    CustomWidgetsBoxA: UVerticalBox;
+    Basic_ScrollBarBox: UBasic_ScrollBarBox_C;
+    AnimOpen: UWidgetAnimation;
+    MaxColumns: number;
+    MinimumRows: number;
+    CellSize: number;
+    InnerPadding: FMargin;
+    LeftSide: boolean;
+    DesignTime: boolean;
+    SelectorOpen: boolean;
+    OnItemClicked: FITM_Character_Customization_ItemSelector_COnItemClicked;
+    ItemSlot: UITM_Character_Customization_ItemSlot_Base_C;
+    AnimOpenProgress: number;
+    OnSelectorOpenChanged: FITM_Character_Customization_ItemSelector_COnSelectorOpenChanged;
+    OtherSelector: UITM_Character_Customization_ItemSelector_C;
+    ItemChanged(): void;
+    ItemUnhovered(Index: number, Widget: UWidget): void;
+    ItemHovered(Index: number, Widget: UWidget): void;
+    SetAnimOpenProgress(InProgress: number): void;
+    ItemClicked(Index: number, Widget: UWidget): void;
+    SetOpen(InOpen: boolean): void;
+    PadRowWithBlanks(): void;
+    ShowSlot(InSlot: UITM_Character_Customization_ItemSlot_Base_C): void;
+    ClearItems(): void;
+    AddItem(InChildWidget: UWidget, InSelected: boolean, IsNewItem: boolean, FromDLC: UBaseEntitlement, OutEntry: UITM_Character_Customization_ItemSelector_Entry_C, OutItemWidget: UWidget): void;
+    PreConstruct(IsDesignTime: boolean): void;
+    Construct(): void;
+    OnAnimOpenStarted(): void;
+    OnAnimOpenFinished(): void;
+    OnOtherSelectorOpen(IsOpen: boolean): void;
+    ExecuteUbergraph_ITM_Character_Customization_ItemSelector(EntryPoint: number): void;
+    OnSelectorOpenChanged__DelegateSignature(IsOpen: boolean): void;
+    OnItemClicked__DelegateSignature(Index: number, Widget: UWidget): void;
+}
+declare const UITM_Character_Customization_ItemSelector_C: UITM_Character_Customization_ItemSelector_C;
+

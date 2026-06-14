@@ -1,0 +1,5 @@
+declare interface UBP_ExplosiveEnemiesDamageMedium_C extends UDamageComponent {
+
+}
+declare const UBP_ExplosiveEnemiesDamageMedium_C: UBP_ExplosiveEnemiesDamageMedium_C;
+

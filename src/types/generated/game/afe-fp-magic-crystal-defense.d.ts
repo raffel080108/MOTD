@@ -1,0 +1,5 @@
+declare interface UAFE_FP_MagicCrystalDefense_C extends UAttachedParticlesAfflictionEffect {
+
+}
+declare const UAFE_FP_MagicCrystalDefense_C: UAFE_FP_MagicCrystalDefense_C;
+

@@ -1,0 +1,43 @@
+declare interface ULore_List_Element_C extends UUserWidget {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    WidgetSwitcher_Navigation: UWidgetSwitcher;
+    UI_AdvancedLabel_C_1: UUI_AdvancedLabel_C;
+    UI_AdvancedLabel: UUI_AdvancedLabel_C;
+    TextBlock_Subtext: UTextBlock;
+    TextBlock_Header: UTextBlock;
+    Image_DPad: UImage;
+    Image_ArrowUp: UImage;
+    Image_ArrowDown: UImage;
+    Image_Arrow: UImage;
+    CategoryImage: UCategoryImage_C;
+    Button_Outer: UButton;
+    IntroAnim: UWidgetAnimation;
+    FadeOutNavigationIcon: UWidgetAnimation;
+    Header: FText;
+    SubText: FText;
+    BGImage: UTexture2D;
+    BackgroundColor: FLinearColor;
+    FrontImage: UTexture2D;
+    FrontImage_Stretch: boolean;
+    MissionIcon: FObjectiveMissionIcon;
+    IsEnabled: E_MM_ButtonStyle;
+    Index: number;
+    IsSelected: boolean;
+    OnClicked: FLore_List_Element_COnClicked;
+    ShowArrow: boolean;
+    SetData(Header: FText, SubText: FText, BackgroundImage: UTexture2D, BackgroundColor: FLinearColor, FrontImage: UTexture2D, Index: number, MissionIcon: FObjectiveMissionIcon, ShowArrow: boolean, IsEnabled: E_MM_ButtonStyle): void;
+    BndEvt__Button_Outer_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature(): void;
+    BndEvt__Button_Outer_K2Node_ComponentBoundEvent_1_OnButtonHoverEvent__DelegateSignature(): void;
+    BndEvt__Button_Outer_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature(): void;
+    SetSelected(IsSelected: boolean): void;
+    Construct(): void;
+    UpdateBorder(): void;
+    PlayIntroAnim(): void;
+    InputSourceChanged(InputSource: EFSDInputSource): void;
+    HideNavIcon(): void;
+    PreConstruct(IsDesignTime: boolean): void;
+    ExecuteUbergraph_Lore_List_Element(EntryPoint: number): void;
+    OnClicked__DelegateSignature(Index: number): void;
+}
+declare const ULore_List_Element_C: ULore_List_Element_C;
+

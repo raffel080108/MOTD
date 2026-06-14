@@ -1,0 +1,47 @@
+declare interface ABP_FalconeerCharacter_C extends ABP_PlayerCharacter_C {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    TP_ShowroomDrone: USkeletalMeshComponent;
+    TP_Gauntlet: USkeletalMeshComponent;
+    FP_Gauntlet: UFirstPersonSkeletalMeshComponent;
+    BP_BXE_PS_ShockDrone: UBP_Ability_ShockDrone_C;
+    GetGauntletThirdPersonMeshes(): TArray<USkeletalMeshComponent>;
+    GetGauntletFirstPersonMeshes(): TArray<USkeletalMeshComponent>;
+    OnNotifyEnd_8DBA2267417ADC7A400724B9F791F43A(NotifyName: FName): void;
+    OnNotifyBegin_8DBA2267417ADC7A400724B9F791F43A(NotifyName: FName): void;
+    OnInterrupted_8DBA2267417ADC7A400724B9F791F43A(NotifyName: FName): void;
+    OnBlendOut_8DBA2267417ADC7A400724B9F791F43A(NotifyName: FName): void;
+    OnCompleted_8DBA2267417ADC7A400724B9F791F43A(NotifyName: FName): void;
+    OnNotifyEnd_519C9C6848EAD2360AF7138C2F7FDB7D(NotifyName: FName): void;
+    OnNotifyBegin_519C9C6848EAD2360AF7138C2F7FDB7D(NotifyName: FName): void;
+    OnInterrupted_519C9C6848EAD2360AF7138C2F7FDB7D(NotifyName: FName): void;
+    OnBlendOut_519C9C6848EAD2360AF7138C2F7FDB7D(NotifyName: FName): void;
+    OnCompleted_519C9C6848EAD2360AF7138C2F7FDB7D(NotifyName: FName): void;
+    OnNotifyEnd_743432854B3B8D84548C9883C67A5CFD(NotifyName: FName): void;
+    OnNotifyBegin_743432854B3B8D84548C9883C67A5CFD(NotifyName: FName): void;
+    OnInterrupted_743432854B3B8D84548C9883C67A5CFD(NotifyName: FName): void;
+    OnBlendOut_743432854B3B8D84548C9883C67A5CFD(NotifyName: FName): void;
+    OnCompleted_743432854B3B8D84548C9883C67A5CFD(NotifyName: FName): void;
+    OnNotifyEnd_7DB434B84FF76EB13699239DD871E674(NotifyName: FName): void;
+    OnNotifyBegin_7DB434B84FF76EB13699239DD871E674(NotifyName: FName): void;
+    OnInterrupted_7DB434B84FF76EB13699239DD871E674(NotifyName: FName): void;
+    OnBlendOut_7DB434B84FF76EB13699239DD871E674(NotifyName: FName): void;
+    OnCompleted_7DB434B84FF76EB13699239DD871E674(NotifyName: FName): void;
+    OnNotifyEnd_9B938F8A48BFBC7ECDF3D6831DA70151(NotifyName: FName): void;
+    OnNotifyBegin_9B938F8A48BFBC7ECDF3D6831DA70151(NotifyName: FName): void;
+    OnInterrupted_9B938F8A48BFBC7ECDF3D6831DA70151(NotifyName: FName): void;
+    OnBlendOut_9B938F8A48BFBC7ECDF3D6831DA70151(NotifyName: FName): void;
+    OnCompleted_9B938F8A48BFBC7ECDF3D6831DA70151(NotifyName: FName): void;
+    OnNotifyEnd_5AE8606A412D302F1EDC39A108D0793A(NotifyName: FName): void;
+    OnNotifyBegin_5AE8606A412D302F1EDC39A108D0793A(NotifyName: FName): void;
+    OnInterrupted_5AE8606A412D302F1EDC39A108D0793A(NotifyName: FName): void;
+    OnBlendOut_5AE8606A412D302F1EDC39A108D0793A(NotifyName: FName): void;
+    OnCompleted_5AE8606A412D302F1EDC39A108D0793A(NotifyName: FName): void;
+    PlayShowroomSelectionMontage(): void;
+    SetupShowroomCharacter(): void;
+    PlayShowroomIdleBreaks(IsActive: boolean): void;
+    PlayShowroomSpawnMontage(): void;
+    SetShowroomDroneMaterial(DroneMaterialSlot: FName, DroneMaterial: UMaterialInterface): void;
+    ExecuteUbergraph_BP_FalconeerCharacter(EntryPoint: number): void;
+}
+declare const ABP_FalconeerCharacter_C: ABP_FalconeerCharacter_C;
+

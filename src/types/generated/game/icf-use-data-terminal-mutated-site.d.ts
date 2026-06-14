@@ -1,0 +1,5 @@
+declare interface UICF_UseDataTerminalMutatedSite_C extends UIntelChallengeUseDataTerminal {
+
+}
+declare const UICF_UseDataTerminalMutatedSite_C: UICF_UseDataTerminalMutatedSite_C;
+

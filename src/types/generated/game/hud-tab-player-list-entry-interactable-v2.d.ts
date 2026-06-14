@@ -1,0 +1,42 @@
+declare interface UHUD_TabPlayerListEntry_InteractableV2_C extends UFSDUserWidget {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    Overlay_ActionsHover: UOverlay;
+    MuteSwitcher: UWidgetSwitcher;
+    HorizontalBox_Actions: UHorizontalBox;
+    Entry: UHUD_TabPlayerListEntryV2_C;
+    Button_Hover: UButton;
+    BTN_unmute: UBasic_ButtonCutCorner_C;
+    BTN_Respawn_Spacerig: UBasic_ButtonCutCorner_C;
+    BTN_mute: UBasic_ButtonCutCorner_C;
+    BTN_Kick: UBasic_ButtonCutCorner_C;
+    BTN_Gamercard: UBasic_ButtonCutCorner_C;
+    BTN_Build: UBasic_ButtonCutCorner_C;
+    Enter: UWidgetAnimation;
+    PlayerState: AFSDPlayerState;
+    PlayerController: APlayerController;
+    KickReason: FText;
+    bIsHovered: boolean;
+    HoveredChanged: FHUD_TabPlayerListEntry_InteractableV2_CHoveredChanged;
+    OpenBuildClicked: FHUD_TabPlayerListEntry_InteractableV2_COpenBuildClicked;
+    ShowBuildButton: boolean;
+    SetPlayer(State: AFSDPlayerState): void;
+    PreConstruct(IsDesignTime: boolean): void;
+    BndEvt__Button_1_K2Node_ComponentBoundEvent_4_OnButtonHoverEvent__DelegateSignature(): void;
+    BndEvt__Button_1_K2Node_ComponentBoundEvent_5_OnButtonHoverEvent__DelegateSignature(): void;
+    CheckHover(): void;
+    BndEvt__BTN_mute_K2Node_ComponentBoundEvent_0_OnClicked__DelegateSignature(Button: UBasic_ButtonCutCorner_C): void;
+    BndEvt__BTN_unmute_K2Node_ComponentBoundEvent_2_OnClicked__DelegateSignature(Button: UBasic_ButtonCutCorner_C): void;
+    BndEvt__BTN_Gamercard_K2Node_ComponentBoundEvent_7_OnClicked__DelegateSignature(Button: UBasic_ButtonCutCorner_C): void;
+    BndEvt__BTN_Kick_K2Node_ComponentBoundEvent_11_OnClicked__DelegateSignature(Button: UBasic_ButtonCutCorner_C): void;
+    BndEvt__BTN_Respawn_Spacerig_K2Node_ComponentBoundEvent_15_OnClicked__DelegateSignature(Button: UBasic_ButtonCutCorner_C): void;
+    OnPlayerCharacterSpawned_Event(PlayerCharacter: APlayerCharacter): void;
+    OnPlayerSet(): void;
+    OnEnterAnimFinished(): void;
+    Construct(): void;
+    BndEvt__HUD_TabPlayerListEntry_InteractableV2_BTN_Build_K2Node_ComponentBoundEvent_1_OnClicked__DelegateSignature(Button: UBasic_ButtonCutCorner_C): void;
+    ExecuteUbergraph_HUD_TabPlayerListEntry_InteractableV2(EntryPoint: number): void;
+    OpenBuildClicked__DelegateSignature(PlayerWidget: UHUD_TabPlayerListEntry_InteractableV2_C): void;
+    HoveredChanged__DelegateSignature(IsHovered: boolean, PlayerWidget: UHUD_TabPlayerListEntry_InteractableV2_C): void;
+}
+declare const UHUD_TabPlayerListEntry_InteractableV2_C: UHUD_TabPlayerListEntry_InteractableV2_C;
+

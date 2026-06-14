@@ -1,0 +1,5 @@
+declare interface UBP_CharacterTeleportPlacement_C extends UTerrainPlacementComponent {
+
+}
+declare const UBP_CharacterTeleportPlacement_C: UBP_CharacterTeleportPlacement_C;
+

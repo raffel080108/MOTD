@@ -1,0 +1,43 @@
+declare interface UMenu_Enhancements_Shop_C extends UWindowWidget {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    WND_RewardTree: UWND_RewardTree_C;
+    WND_ChipRewardClaim: UWND_ChipRewardClaim_C;
+    UI_Menu_ScreenTitle: UUI_Menu_ScreenTitle_C;
+    TextBlock_MeritCount: UTextBlock;
+    TextBlock_ChipCount: UTextBlock;
+    Image_Window_Gradient: UImage;
+    Image_GradientTop: UImage;
+    Image_GradientBottom: UImage;
+    Image_Background_Solid: UImage;
+    Image_Background_Gradient_1: UImage;
+    Image_Background_Gradient: UImage;
+    HorizontalBox_Currencies: UHorizontalBox;
+    CloseButton: UBasic_ButtonScalable2_C;
+    Button_UnlockAll: UButton;
+    Button_ResetEnhancement: UButton;
+    Button_AddEnhancement: UButton;
+    AnimateCount: UWidgetAnimation;
+    NumberIncrease: UWidgetAnimation;
+    TargetPoints: number;
+    ChangeInPoints: number;
+    Anim_LastCount: number;
+    Anim_CurrCount: number;
+    SequenceEvent__ENTRYPOINTMenu_Enhancements_Shop(): void;
+    CountTick(): void;
+    BndEvt__Menu_Enhancements_Shop_Button_UnlockAll_K2Node_ComponentBoundEvent_0_OnButtonPressedEvent__DelegateSignature(): void;
+    PreConstruct(IsDesignTime: boolean): void;
+    BndEvt__WND_SuitMod_View_CloseButton_K2Node_ComponentBoundEvent_0_OnClicked__DelegateSignature(): void;
+    OnShown(): void;
+    BndEvt__WND_SuitMods_Shop_Button_Reset_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature(): void;
+    BndEvt__WND_SuitMods_Shop_Button_AddShard_K2Node_ComponentBoundEvent_2_OnButtonClickedEvent__DelegateSignature(): void;
+    OnRewardTreeReset_Event(): void;
+    BndEvt__Menu_Enhancements_Shop_WND_ChipRewardClaim_K2Node_ComponentBoundEvent_3_OnClaimed__DelegateSignature(ChipsClaimed: number): void;
+    UpdateNumber(Points: number, change: number): void;
+    UpdateFinished(): void;
+    OnMeritChanged(previousAmount: number, newAmount: number): void;
+    Construct(): void;
+    OnClosed(): void;
+    ExecuteUbergraph_Menu_Enhancements_Shop(EntryPoint: number): void;
+}
+declare const UMenu_Enhancements_Shop_C: UMenu_Enhancements_Shop_C;
+

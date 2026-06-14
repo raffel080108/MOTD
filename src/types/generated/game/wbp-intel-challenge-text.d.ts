@@ -1,0 +1,43 @@
+declare interface UWBP_IntelChallengeText_C extends UUserWidget {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    TextBlock_ChallengeText: UTextBlock;
+    RootSizeBox: USizeBox;
+    IntelChallengePoints: UWBP_IntelChallengePoints_C;
+    ImageCompletedCheckmark: UImage;
+    ImageCompletedBox: UImage;
+    ClaimButton: UBasic_ButtonCutCorner_C;
+    UnlockedAnimation: UWidgetAnimation;
+    ClaimedAnimation: UWidgetAnimation;
+    AllowClaiming: boolean;
+    ForceShowIntel: boolean;
+    ForceHideIntel: boolean;
+    ChallengeState: EIntelChallengeState;
+    Challenge: TSubclassOf<UIntelChallenge>;
+    OnRequestClaimStart: FWBP_IntelChallengeText_COnRequestClaimStart;
+    OnRequestClaim: FWBP_IntelChallengeText_COnRequestClaim;
+    OnHovered: FWBP_IntelChallengeText_COnHovered;
+    OnUnhovered: FWBP_IntelChallengeText_COnUnhovered;
+    IsClaimingChallenge: boolean;
+    CollapseClaimButton: boolean;
+    PlayUnlockAnimation(): void;
+    PrepareUnlockAnimation(): void;
+    GetChallengeText(Challenge: TSubclassOf<UIntelChallenge>, ChallengeState: EIntelChallengeState, Text: FText): void;
+    IsMouseAbove(IsHovering: boolean): void;
+    UpdateClaim(): void;
+    UpdatePoints(): void;
+    UpdateChallenge(): void;
+    SetChallenge(Challenge: TSubclassOf<UIntelChallenge>): void;
+    GetChallenge(Challenge: TSubclassOf<UIntelChallenge>): void;
+    Finished_6EF8B09344FDA42753C77783CD9CC869(): void;
+    PreConstruct(IsDesignTime: boolean): void;
+    BndEvt__ITM_IntelChallengeText_ClaimButton_K2Node_ComponentBoundEvent_1_OnClicked__DelegateSignature(Button: UBasic_ButtonCutCorner_C): void;
+    BndEvt__ITM_IntelChallengeText_ClaimButton_K2Node_ComponentBoundEvent_2_OnHovered__DelegateSignature(): void;
+    BndEvt__ITM_IntelChallengeText_ClaimButton_K2Node_ComponentBoundEvent_3_OnUnhovered__DelegateSignature(): void;
+    ExecuteUbergraph_WBP_IntelChallengeText(EntryPoint: number): void;
+    OnRequestClaimStart__DelegateSignature(Widget: UWBP_IntelChallengeText_C): void;
+    OnUnhovered__DelegateSignature(Widget: UWBP_IntelChallengeText_C): void;
+    OnHovered__DelegateSignature(Widget: UWBP_IntelChallengeText_C): void;
+    OnRequestClaim__DelegateSignature(Widget: UWBP_IntelChallengeText_C): void;
+}
+declare const UWBP_IntelChallengeText_C: UWBP_IntelChallengeText_C;
+

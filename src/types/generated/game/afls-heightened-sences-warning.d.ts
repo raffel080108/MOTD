@@ -1,0 +1,5 @@
+declare interface UAFLS_HeightenedSences_Warning_C extends USoundAfflictionEffect {
+
+}
+declare const UAFLS_HeightenedSences_Warning_C: UAFLS_HeightenedSences_Warning_C;
+

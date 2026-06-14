@@ -1,0 +1,41 @@
+declare interface UITM_DLC_Entry_C extends UUserWidget {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    ShadowBG: UShadowBG_C;
+    Owned_Overlay: UOverlay;
+    Glow_Overlay: UOverlay;
+    DLC_SizeBox: USizeBox;
+    DLC_Movie: UBasic_Image_C;
+    DLC_Button: UButton;
+    DLC_Banner: UImage;
+    ContentSwitcher: UWidgetSwitcher;
+    ButtonCanvas: UCanvasPanel;
+    AnimHover: UWidgetAnimation;
+    AnimFadeInMovie: UWidgetAnimation;
+    AnimClick: UWidgetAnimation;
+    AnimGlow: UWidgetAnimation;
+    DLC: UAdvertisedEntitlement;
+    Width: number;
+    MediaPlayer: UMediaPlayer;
+    MediaTexture: UMediaTexture;
+    MediaSound: UMediaSoundComponent;
+    OnHoverBegin: FITM_DLC_Entry_COnHoverBegin;
+    OnHoverEnd: FITM_DLC_Entry_COnHoverEnd;
+    Movie: UMediaSource;
+    IsHovering: boolean;
+    OnClicked: FITM_DLC_Entry_COnClicked;
+    Hover(InHover: boolean, OutChanged: boolean): void;
+    GetMediaPlayer(MediaPlayer: UMediaPlayer): void;
+    OnLoaded_842E9D344CABB7D6534CBDB978324582(Loaded: UObject): void;
+    Construct(): void;
+    BndEvt__DLC_Button_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature(): void;
+    BndEvt__DLC_Button_K2Node_ComponentBoundEvent_1_OnButtonHoverEvent__DelegateSignature(): void;
+    BndEvt__DLC_Button_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature(): void;
+    Tick(MyGeometry: FGeometry, InDeltaTime: number): void;
+    PreConstruct(IsDesignTime: boolean): void;
+    ExecuteUbergraph_ITM_DLC_Entry(EntryPoint: number): void;
+    OnClicked__DelegateSignature(InEntry: UITM_DLC_Entry_C): void;
+    OnHoverEnd__DelegateSignature(InEntry: UITM_DLC_Entry_C): void;
+    OnHoverBegin__DelegateSignature(InEntry: UITM_DLC_Entry_C): void;
+}
+declare const UITM_DLC_Entry_C: UITM_DLC_Entry_C;
+

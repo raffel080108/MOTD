@@ -1,0 +1,46 @@
+declare interface UWB_RadarMap_SonarRadar_C extends UHUDRadarWidget {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    UI_MaskedImage: UUI_MaskedImage_C;
+    RadarOutline: UImage;
+    RadarMaterial: UImage;
+    RadarCompass: UImage;
+    PlayerBlipsContainer: UCanvasPanel;
+    OverlayRoot: UOverlay;
+    Overlay_Rotater: UOverlay;
+    EnemyBlipsContainer: UCanvasPanel;
+    DetectionRange: number;
+    DetectionRate: number;
+    EnemyTypesTags: FGameplayTagContainer;
+    BlipFadeTime: number;
+    IsRadarEnabled: boolean;
+    DetectedEnemyPositions: TArray<FVector>;
+    EnemyBlips: TArray<UWB_Blip_C>;
+    DetectedPlayerPositions: TArray<FVector>;
+    PlayerBlips: TArray<UWB_Blip_C>;
+    BlipAliveTime: number;
+    DynamicRadarMaterial: UMaterialInstanceDynamic;
+    SonarRadarPerk: UPerkAsset;
+    IsToggledOff: boolean;
+    ExtraDetectedPlayerPositions: TArray<FVector>;
+    GetCombinedPlayerPositions(Combined: TArray<FVector>): void;
+    GetEnemyTypesTag(): FGameplayTagContainer;
+    GetDetectionRange(): number;
+    UpdateSonarAlpha(DeltaSeconds: number): void;
+    ResetSonarAlpha(): void;
+    PushBlipTransforms(Blips: TArray<UWB_Blip_C>, WorldPositions: TArray<FVector>): void;
+    UpdateTransforms(): void;
+    CreateBlipWidgets(Container: UCanvasPanel, IsPlayerWidgets: boolean, WorldPositions: TArray<FVector>, Widgets: TArray<UWB_Blip_C>): void;
+    UpdateBlipWidgets(): void;
+    UpdateWorldPositions(): void;
+    UpdateEnabled(): void;
+    TickSonarPulse(): void;
+    Construct(): void;
+    Tick(MyGeometry: FGeometry, InDeltaTime: number): void;
+    ForceUpdateRadar(): void;
+    AddExtraPlayerPositions(InPlayerPosition: TArray<FVector>): void;
+    ClearExtraPlayerPositions(): void;
+    PreConstruct(IsDesignTime: boolean): void;
+    ExecuteUbergraph_WB_RadarMap_SonarRadar(EntryPoint: number): void;
+}
+declare const UWB_RadarMap_SonarRadar_C: UWB_RadarMap_SonarRadar_C;
+

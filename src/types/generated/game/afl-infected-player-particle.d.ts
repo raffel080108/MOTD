@@ -1,0 +1,5 @@
+declare interface UAFL_InfectedPlayer_Particle_C extends UAttachedParticlesAfflictionEffect {
+
+}
+declare const UAFL_InfectedPlayer_Particle_C: UAFL_InfectedPlayer_Particle_C;
+

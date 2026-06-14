@@ -1,0 +1,5 @@
+declare interface UPS5MockExternalEndpointSettings extends UAudioEndpointSettingsBase {
+
+}
+declare const UPS5MockExternalEndpointSettings: UPS5MockExternalEndpointSettings;
+

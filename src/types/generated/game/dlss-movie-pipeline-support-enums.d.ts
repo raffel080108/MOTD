@@ -1,0 +1,9 @@
+declare const enum EMoviePipelineDLSSQuality {
+    EMoviePipelineDLSSQuality_DLAA = 0,
+    EMoviePipelineDLSSQuality_UltraQuality = 1,
+    EMoviePipelineDLSSQuality_Quality = 2,
+    EMoviePipelineDLSSQuality_Balanced = 3,
+    EMoviePipelineDLSSQuality_Performance = 4,
+    EMoviePipelineDLSSQuality_UltraPerformance = 5
+}
+

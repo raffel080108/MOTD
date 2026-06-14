@@ -1,0 +1,44 @@
+declare interface UOptions_Tab_Audio_C extends UUserWidget {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    Volume_SFX: UOptions_VolumeSlider_C;
+    volume_music: UOptions_VolumeSlider_C;
+    volume_master: UOptions_VolumeSlider_C;
+    Volume_Characters: UOptions_VolumeSlider_C;
+    VoiceChatAudioOutputSource: UBasic_Option_C;
+    OptionVoiceChat: UBasic_Option_C;
+    OptionTinnitusFromExplosions: UBasic_Option_C;
+    Options_VolumeSlider_C_2: UOptions_VolumeSlider_C;
+    Options_VolumeSlider_C: UOptions_VolumeSlider_C;
+    Options_VoiceChatOutputAudioSource_C_0: UOptions_VoiceChatOutputAudioSource_C;
+    Options_VoiceChat_C_0: UOptions_VoiceChat_C;
+    Options_TinnitusFromExplosions: UOptions_TinnitusFromExplosions_C;
+    Options_PushToTalk: UOptions_PushToTalk_C;
+    Options_OutputAudioSource: UOptions_OutputAudioSource_C;
+    Options_MissionControl: UOptions_VolumeSlider_C;
+    Options_InputAudioSource: UOptions_InputAudioSource_C;
+    Options_EnableCritSoundOnDoTs: UOptions_EnableCritSoundOnDoTs_C;
+    Options_EnableCritSound: UOptions_EnableCritSound_C;
+    Options_DuckOnOmegaSpeak: UOptions_DuckOnOmegaSpeak_C;
+    OptionPushToTalk: UBasic_Option_C;
+    OptionDuckWhenMissionControl: UBasic_Option_C;
+    OptionChatVolume_1: UBasic_Option_C;
+    OptionChatVolume: UBasic_Option_C;
+    OPT_EnableCritSoundForDoTs: UBasic_Option_C;
+    OPT_EnableCritSound: UBasic_Option_C;
+    ChooseAudioOutputSource: UBasic_Option_C;
+    ChooseAudioInputSource: UBasic_Option_C;
+    Basic_Option_MissionControl: UBasic_Option_C;
+    Basic_Option_C_1: UBasic_Option_C;
+    Basic_Option_1: UBasic_Option_C;
+    Basic_Option_0: UBasic_Option_C;
+    Basic_Option: UBasic_Option_C;
+    SettingsChanged: FOptions_Tab_Audio_CSettingsChanged;
+    Volume_CharacterVoices: UOptions_VolumeSlider_C;
+    Construct(): void;
+    UINeedsUpdate(): void;
+    ShowOptions(): void;
+    ExecuteUbergraph_Options_Tab_Audio(EntryPoint: number): void;
+    SettingsChanged__DelegateSignature(): void;
+}
+declare const UOptions_Tab_Audio_C: UOptions_Tab_Audio_C;
+

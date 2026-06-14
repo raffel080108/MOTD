@@ -1,0 +1,40 @@
+declare interface AWPN_LaserPointer_C extends ALaserPointerItem {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    FirstPersonWidget: UFirstPersonWidgetComponent;
+    FPTransform: USceneComponent;
+    LightBeam_Cylinder: UStaticMeshComponent;
+    LightBeam: USceneComponent;
+    LaserLight_On_Cue: UAudioComponent;
+    CrosshairAggregator: UCrosshairAggregator;
+    TPTransform: USceneComponent;
+    HUD: UHUD_LaserPointerDisplay_C;
+    Delay: number;
+    BackgroundMaterial: UMaterialInstanceDynamic;
+    BackgroundDefaultColor: FLinearColor;
+    PointsOfInterest: TArray<ABP_PointOfInterest_C>;
+    PreviousPOI: UTexture2D;
+    PreviousPOITime: number;
+    StartStop: UAudioComponent;
+    PreviousLookAtID: FGuid;
+    ToggledVisible: boolean;
+    SetLaserBeamMaterial(InCharacter: APlayerCharacter): void;
+    SetBeamVisibility(bNewVisibility: boolean): void;
+    CanPlacePOI(Location: FVector, Icon: UTexture, Can_Place: boolean): void;
+    UpdateBackgroundColor(): void;
+    SetBackgroundColor(Value: FLinearColor): void;
+    GetPointTransform(PointTransform: FTransform): void;
+    UserConstructionScript(): void;
+    RecieveUnequipped(): void;
+    OnPointOfInterest(targetActor: AActor, TargetLocation: FVector, TargetIcon: UTexture2D): void;
+    ReceiveBeginPlay(): void;
+    AddedToInventory(ItemOwner: APlayerCharacter): void;
+    OnScanComplete(): void;
+    OnMarkerPlaced_Event(Location: FVector, Name: FText, Color: FLinearColor, Target: AActor, TypeOfTarget: ELaserPointerTargetType): void;
+    ToggleLaserVisible(aVisible: boolean): void;
+    RecieveEquipped(): void;
+    OnPOIDestroyed(DestroyedActor: AActor): void;
+    ReceiveTick(DeltaSeconds: number): void;
+    ExecuteUbergraph_WPN_LaserPointer(EntryPoint: number): void;
+}
+declare const AWPN_LaserPointer_C: AWPN_LaserPointer_C;
+

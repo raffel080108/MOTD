@@ -1,0 +1,45 @@
+declare interface U_MENU_Pickaxe_C extends UWindowWidget {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    Slots_Right: UVerticalBox;
+    Slots_Left: UVerticalBox;
+    ShuffleButton: UButton;
+    Selector_Right: UITM_Character_Customization_ItemSelector_C;
+    Selector_Left: UITM_Character_Customization_ItemSelector_C;
+    PickaxeRotator: UITM_ShowroomRotator_C;
+    PickaxeImage: UImage;
+    MENU_SpaceRigTemplate: UMENU_SpaceRigTemplate_C;
+    ITM_Pickaxe_PaintJob: UITM_Pickaxe_Slot_C;
+    ClassSelector: UITM_Wardrobe_ClassSelector_C;
+    FadeInShowroomAnimation: UWidgetAnimation;
+    FadeInAnimTime: number;
+    PrevUseRandom: boolean;
+    PickaxeShowroomMaterial: UMaterialInstanceDynamic;
+    PickaxePreviewActor: APickaxePreviewActor;
+    InitializeSelector(): void;
+    OnKeyDown(MyGeometry: FGeometry, InKeyEvent: FKeyEvent): FEventReply;
+    PlayIntroAnimations(): void;
+    InitSlots(): void;
+    GetPickaxeID(Output: UItemID): void;
+    UpdateShowroom(): void;
+    DestroyShowroom(): void;
+    CreateShowroom(): void;
+    OnKeyUp(MyGeometry: FGeometry, InKeyEvent: FKeyEvent): FEventReply;
+    OnShown(): void;
+    ReceiveCloseCommand(): void;
+    PreConstruct(IsDesignTime: boolean): void;
+    Refresh(): void;
+    OnClosed(): void;
+    CloseSelectors(): void;
+    SaveAndClose(): void;
+    PaintJobEquipped(): void;
+    BndEvt___MENU_Pickaxe_ClassSelector_K2Node_ComponentBoundEvent_2_OnCharacterChanged__DelegateSignature(Character: TSubclassOf<APlayerCharacter>): void;
+    Construct(): void;
+    BndEvt___MENU_Pickaxe_ClassSelector_K2Node_ComponentBoundEvent_0_OnCharacterSwitched__DelegateSignature(): void;
+    BndEvt___MENU_Pickaxe_MENU_SpaceRigTemplate_K2Node_ComponentBoundEvent_3_OnClosedClicked__DelegateSignature(): void;
+    BndEvt___MENU_Pickaxe_MENU_SpaceRigTemplate_K2Node_ComponentBoundEvent_1_OnNewLoadoutSelected__DelegateSignature(): void;
+    BndEvt___MENU_Pickaxe_Selector_Right_K2Node_ComponentBoundEvent_4_OnSelectorOpenChanged__DelegateSignature(IsOpen: boolean): void;
+    BndEvt___MENU_Pickaxe_Selector_Left_K2Node_ComponentBoundEvent_5_OnSelectorOpenChanged__DelegateSignature(IsOpen: boolean): void;
+    ExecuteUbergraph__MENU_Pickaxe(EntryPoint: number): void;
+}
+declare const U_MENU_Pickaxe_C: U_MENU_Pickaxe_C;
+

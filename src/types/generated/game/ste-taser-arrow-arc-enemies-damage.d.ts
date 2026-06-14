@@ -1,0 +1,5 @@
+declare interface USTE_TaserArrowArc_Enemies_Damage_C extends UStatusEffect {
+
+}
+declare const USTE_TaserArrowArc_Enemies_Damage_C: USTE_TaserArrowArc_Enemies_Damage_C;
+

@@ -1,0 +1,10 @@
+declare interface FStruct_InputIcon {
+    Action_2_18DE6B2C4B7152A00812FFB408DD90FF: FName;
+    GamepadActionOverride_19_9663246D469BAB01173E3094A6F4F630: FName;
+    IconTint_7_63D2D68D4B4BA68CE1D6A18E819C9CFA: ENUM_MenuColors;
+    IconHeight_22_69995C3348E89CA4F960C4AEBF7A724B: number;
+    IconPadding_20_921157974B7BEE7DAB93AB9BF719A7C8: FMargin;
+    PreviewInputSource_21_EE6A438F456325BDCB3C1EBDD85DEB6A: EFSDInputSource;
+}
+declare const FStruct_InputIcon: FStruct_InputIcon;
+

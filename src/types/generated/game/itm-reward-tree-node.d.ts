@@ -1,0 +1,46 @@
+declare interface UITM_RewardTreeNode_C extends URewardTreeNodeWidget {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    TextBlock_Details: UTextBlock;
+    ScaleBox_Glow: UScaleBox;
+    Root_Panel: UOverlay;
+    Overlay_Glow: UOverlay;
+    ITM_Season_RewardImageSingle: UITM_Season_RewardImageSingle_C;
+    Image_IsPlaceHolder: UImage;
+    Image_Glow_1: UImage;
+    Image_Glow: UImage;
+    Image_Editor_CharClass: UImage;
+    GlowAnim: UWidgetAnimation;
+    Hovering: UWidgetAnimation;
+    NormalNodeSize: FVector2D;
+    PrimaryNodeSize: FVector2D;
+    Title: FText;
+    OptionalCharacterID: UPlayerCharacterID;
+    NodeState: ERewardTreeNodeState;
+    HoldTime: number;
+    IsHolding: boolean;
+    TotalHoldDuration: number;
+    CurrTooltip: UTooltip_EnhancementTree_C;
+    HoldSound: UAudioComponent;
+    CanAfford(): boolean;
+    UpdateBoughtLook(): void;
+    SetInfo(Title: FText, OptionalCharacterID: UPlayerCharacterID): void;
+    AdjacentNodeBought(): void;
+    Get_ToolTipWidget(): UWidget;
+    Tick(MyGeometry: FGeometry, InDeltaTime: number): void;
+    SetUnknown(): void;
+    OnDataUpdated(): void;
+    IsEditingChanged_Event(): void;
+    Construct(): void;
+    ShowDetailsText(InShow: boolean): void;
+    SetSelectedEditor(inIsSelected: boolean): void;
+    BndEvt__ITM_EnhancementTreeNode_ITM_Season_RewardImageSingle_K2Node_ComponentBoundEvent_1_OnPressed__DelegateSignature(): void;
+    BndEvt__ITM_EnhancementTreeNode_ITM_Season_RewardImageSingle_K2Node_ComponentBoundEvent_2_OnReleased__DelegateSignature(): void;
+    BndEvt__ITM_EnhancementTreeNode_ITM_Season_RewardImageSingle_K2Node_ComponentBoundEvent_0_OnHovered__DelegateSignature(): void;
+    BndEvt__ITM_EnhancementTreeNode_ITM_Season_RewardImageSingle_K2Node_ComponentBoundEvent_3_OnUnhovered__DelegateSignature(): void;
+    PreConstruct(IsDesignTime: boolean): void;
+    UpdateGlow(): void;
+    OnBought(Widget: URewardTreeNodeWidget): void;
+    ExecuteUbergraph_ITM_RewardTreeNode(EntryPoint: number): void;
+}
+declare const UITM_RewardTreeNode_C: UITM_RewardTreeNode_C;
+

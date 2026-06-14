@@ -1,0 +1,5 @@
+declare interface UCameraShake_BuffBeer_Gutwrecker_C extends ULegacyCameraShake {
+
+}
+declare const UCameraShake_BuffBeer_Gutwrecker_C: UCameraShake_BuffBeer_Gutwrecker_C;
+

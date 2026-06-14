@@ -1,0 +1,5 @@
+declare interface ABar_Glass_Physics_SkullCrusher_C extends ABar_Glass_Physics_C {
+
+}
+declare const ABar_Glass_Physics_SkullCrusher_C: ABar_Glass_Physics_SkullCrusher_C;
+

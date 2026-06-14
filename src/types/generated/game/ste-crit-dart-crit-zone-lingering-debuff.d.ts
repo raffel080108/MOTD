@@ -1,0 +1,5 @@
+declare interface USTE_CritDart_CritZone_LingeringDebuff_C extends UStatusEffect {
+
+}
+declare const USTE_CritDart_CritZone_LingeringDebuff_C: USTE_CritDart_CritZone_LingeringDebuff_C;
+

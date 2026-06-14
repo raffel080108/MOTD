@@ -1,0 +1,42 @@
+declare interface UHUD_Ability_ClassSkill_C extends UPerkCooldownWidget {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    Overlay: UOverlay;
+    Label: UUI_AdvancedLabel_C;
+    CooldownProgressBar: UProgressBar;
+    Border: UBorder;
+    PerkUsedAnimation: UWidgetAnimation;
+    PerkAvailableAnimation: UWidgetAnimation;
+    LabelText: FText;
+    AllowUsedAnimation: boolean;
+    AllowAvailableAnimation: boolean;
+    ShowCoolDown: boolean;
+    Perk: UPerkAsset;
+    IsPerkAvailable: boolean;
+    IsForceDisabled: boolean;
+    OnCoolDownChanged: FHUD_Ability_ClassSkill_COnCoolDownChanged;
+    OnCanUseChanged: FHUD_Ability_ClassSkill_COnCanUseChanged;
+    ControllerOverrideText: FText;
+    GetForceDisabled(IsForceDisabled: boolean): void;
+    PlayAbilityAvailable(InIsAvailable: boolean): void;
+    GetAbilityIcon(Icon: UTexture2D): void;
+    SetForceDisabled(IsDisabled: boolean): void;
+    SetLabelText(NewText: FText): void;
+    UpdateCooldownProgress(): void;
+    UpdatePerkVisibility(): void;
+    UpdatePerkUsability(): void;
+    InitializePerkUsability(): void;
+    CanUsePerk(Character: APlayerCharacter, CanUse: boolean): void;
+    OnPerkUsabilityChanged(Perk: UPerkAsset): void;
+    InitializePerkComponent(): void;
+    PreConstruct(IsDesignTime: boolean): void;
+    Construct(): void;
+    PlayPerkUsedAnimation(): void;
+    PlayPerkAvailableAnimation(): void;
+    UpdatePerkUsabilityWithDelay(): void;
+    OnCooldownProgressChanged(Progress: number): void;
+    ExecuteUbergraph_HUD_Ability_ClassSkill(EntryPoint: number): void;
+    OnCanUseChanged__DelegateSignature(InCanUse: boolean): void;
+    OnCoolDownChanged__DelegateSignature(InProgress: number): void;
+}
+declare const UHUD_Ability_ClassSkill_C: UHUD_Ability_ClassSkill_C;
+

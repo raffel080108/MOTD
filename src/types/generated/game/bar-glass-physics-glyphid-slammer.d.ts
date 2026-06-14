@@ -1,0 +1,5 @@
+declare interface ABar_Glass_Physics_GlyphidSlammer_C extends ABar_Glass_Physics_C {
+
+}
+declare const ABar_Glass_Physics_GlyphidSlammer_C: ABar_Glass_Physics_GlyphidSlammer_C;
+

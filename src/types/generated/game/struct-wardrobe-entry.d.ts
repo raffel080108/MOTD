@@ -1,0 +1,11 @@
+declare interface FStruct_Wardrobe_Entry {
+    ContentWidget_34_AF86B3454138B68581EC5DAD59CE30B0: UWidget;
+    Object_28_6B99667F47CD390AA37843B8374ACDDA: UObject;
+    NewNotificationObjects_17_E8778CBF4B81CFAE4451AAA99D801B70: TArray<UObject>;
+    DLC_38_4FA55DF146F64945E7D0FEAB1564551A: UBaseEntitlement;
+    Title_35_A125837B4464F7FD88413A9D193BAD12: FText;
+    Description_36_3E8328444B6AB0F469C03291BA69DEB7: FText;
+    MemberVar_37_6F4707C049F3FAFCFA56F8945B271B69: boolean;
+}
+declare const FStruct_Wardrobe_Entry: FStruct_Wardrobe_Entry;
+

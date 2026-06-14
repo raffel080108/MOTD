@@ -1,0 +1,5 @@
+declare interface UCameraShake_AscensionMachine_Impact_C extends ULegacyCameraShake {
+
+}
+declare const UCameraShake_AscensionMachine_Impact_C: UCameraShake_AscensionMachine_Impact_C;
+

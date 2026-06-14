@@ -1,0 +1,5 @@
+declare interface UBasic_HUD_BracketWindowSmall_C extends UBasic_BracketWindow_RC_C {
+
+}
+declare const UBasic_HUD_BracketWindowSmall_C: UBasic_HUD_BracketWindowSmall_C;
+

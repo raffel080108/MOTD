@@ -1,0 +1,51 @@
+declare interface UABP_MedicBayRobot_C extends UAnimInstance {
+    AnimBlueprintClassConstantData: {
+        __NameProperty_71: FName;
+        __NameProperty_72: FName;
+        __IntProperty_73: number;
+        __BoolProperty_74: boolean;
+        __NameProperty_75: FName;
+        __IntProperty_76: number;
+        __FloatProperty_77: number;
+        __StructProperty_78: FInputScaleBiasClampConstants;
+        __FloatProperty_79: number;
+        __EnumProperty_80: EAnimSyncMethod;
+        __BoolProperty_81: boolean;
+        __ByteProperty_82: EAnimGroupRole;
+        __NameProperty_83: FName;
+        __NameProperty_84: FName;
+        __NameProperty_85: FName;
+        __IntProperty_86: number;
+        __StructProperty_87: FAnimNodeFunctionRef;
+        AnimBlueprintExtension_PropertyAccess: FAnimSubsystem_PropertyAccess;
+        AnimBlueprintExtension_Base: FAnimSubsystem_Base;
+        AnimGraphNode_Root: FAnimNodeExposedValueHandler_PropertyAccess;
+        AnimGraphNode_TransitionResult_2: FAnimNodeExposedValueHandler_PropertyAccess;
+        AnimGraphNode_TransitionResult_1: FAnimNodeExposedValueHandler_PropertyAccess;
+        AnimGraphNode_TransitionResult: FAnimNodeExposedValueHandler_PropertyAccess;
+        AnimGraphNode_SequencePlayer_2: FAnimNodeExposedValueHandler_PropertyAccess;
+        AnimGraphNode_StateResult_2: FAnimNodeExposedValueHandler_PropertyAccess;
+        AnimGraphNode_SequencePlayer_1: FAnimNodeExposedValueHandler_PropertyAccess;
+        AnimGraphNode_StateResult_1: FAnimNodeExposedValueHandler_PropertyAccess;
+        AnimGraphNode_SequencePlayer: FAnimNodeExposedValueHandler_PropertyAccess;
+        AnimGraphNode_StateResult: FAnimNodeExposedValueHandler_PropertyAccess;
+        AnimGraphNode_StateMachine: FAnimNodeExposedValueHandler_PropertyAccess;
+    };
+    AnimBlueprintExtension_PropertyAccess: FAnimSubsystemInstance;
+    AnimBlueprintExtension_Base: FAnimSubsystemInstance;
+    AnimGraphNode_Root: FAnimNode_Root;
+    AnimGraphNode_TransitionResult_2: FAnimNode_TransitionResult;
+    AnimGraphNode_TransitionResult_1: FAnimNode_TransitionResult;
+    AnimGraphNode_TransitionResult: FAnimNode_TransitionResult;
+    AnimGraphNode_SequencePlayer_2: FAnimNode_SequencePlayer;
+    AnimGraphNode_StateResult_2: FAnimNode_StateResult;
+    AnimGraphNode_SequencePlayer_1: FAnimNode_SequencePlayer;
+    AnimGraphNode_StateResult_1: FAnimNode_StateResult;
+    AnimGraphNode_SequencePlayer: FAnimNode_SequencePlayer;
+    AnimGraphNode_StateResult: FAnimNode_StateResult;
+    AnimGraphNode_StateMachine: FAnimNode_StateMachine;
+    IsOperating: boolean;
+    AnimGraph(AnimGraph: FPoseLink): void;
+}
+declare const UABP_MedicBayRobot_C: UABP_MedicBayRobot_C;
+

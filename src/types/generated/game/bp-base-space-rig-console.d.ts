@@ -1,0 +1,41 @@
+declare interface ABP_BaseSpaceRigConsole_C extends AActor {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    TextRender: UTextRenderComponent;
+    Widget: UWidgetComponent;
+    StaticMesh1: UStaticMeshComponent;
+    Box: UBoxComponent;
+    InstantUsable: UInstantUsable;
+    DefaultSceneRoot: USceneComponent;
+    PlayersThatHaveUsed: TArray<ABP_PlayerController_SpaceRig_C>;
+    StatCountKey: FString;
+    ConsoleTitle: FText;
+    NotificationText: FText;
+    NotificationIcon: UTexture2D;
+    NotificationOffset: number;
+    ConsoleWindowClass: TSoftClassPtr<UWindowWidget>;
+    CreateMenuOnStartup: boolean;
+    WindowInstance: UWindowWidget;
+    UpdateNotifications(): void;
+    SetNotificationText(NewText: FText): void;
+    ShowNotification(IsVisible: boolean): void;
+    IsNewPlayer(PlayerController: ABP_PlayerController_SpaceRig_C, IsNewPlayer: boolean): void;
+    GetConsoleScreenWidgets(OutWidgets: TArray<UWidgetComponent>): void;
+    UserConstructionScript(): void;
+    ReceiveBeginPlay(): void;
+    BndEvt__InstantUsable_K2Node_ComponentBoundEvent_0_UsedBySignature__DelegateSignature(User: APlayerCharacter, Key: EInputKeys): void;
+    OnOpenConsole(InPlayerController: ABP_PlayerController_SpaceRig_C): void;
+    OnWindowCreated(WindowWidget: UWindowWidget): void;
+    PIE_QuickUse(): void;
+    OnWindowClosed(WindowWidget: UWindowWidget): void;
+    OnWindowOpened(WindowWidget: UWindowWidget): void;
+    OnResourceChanged(Resource: UResourceData, previousAmount: number, newAmount: number): void;
+    OnTaskTierClaimable(TaskAsset: UOpsComTaskAsset, Tier: number): void;
+    OnDeploymentClaimable(DeploymentInfo: FDeploymentInfo): void;
+    OnNotificationsChanged(): void;
+    UpdateNotificationsWithDelay(): void;
+    OnPlayerProgressChanged(Rank: number, Stars: number): void;
+    OnLocalPlayerChanged(): void;
+    ExecuteUbergraph_BP_BaseSpaceRigConsole(EntryPoint: number): void;
+}
+declare const ABP_BaseSpaceRigConsole_C: ABP_BaseSpaceRigConsole_C;
+

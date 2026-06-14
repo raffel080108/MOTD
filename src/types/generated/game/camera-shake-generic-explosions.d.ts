@@ -1,0 +1,5 @@
+declare interface UCameraShake_Generic_Explosions_C extends ULegacyCameraShake {
+
+}
+declare const UCameraShake_Generic_Explosions_C: UCameraShake_Generic_Explosions_C;
+

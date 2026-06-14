@@ -1,0 +1,5 @@
+declare interface ABP_BarGlass_LeafloversSpecial_C extends ABP_BarGlass_Standard_C {
+
+}
+declare const ABP_BarGlass_LeafloversSpecial_C: ABP_BarGlass_LeafloversSpecial_C;
+

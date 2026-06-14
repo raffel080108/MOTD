@@ -1,0 +1,5 @@
+declare interface UCameraShake_Loadingscreen_Elevatorl_C extends ULegacyCameraShake {
+
+}
+declare const UCameraShake_Loadingscreen_Elevatorl_C: UCameraShake_Loadingscreen_Elevatorl_C;
+

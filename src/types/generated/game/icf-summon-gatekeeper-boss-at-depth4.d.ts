@@ -1,0 +1,5 @@
+declare interface UICF_SummonGatekeeperBossAtDepth4_C extends UIntelChallengeForBossSummon {
+
+}
+declare const UICF_SummonGatekeeperBossAtDepth4_C: UICF_SummonGatekeeperBossAtDepth4_C;
+

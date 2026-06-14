@@ -1,0 +1,5 @@
+declare interface UAFE_PoisonDebuffed_Enemies_C extends UAttachedParticlesAfflictionEffect {
+
+}
+declare const UAFE_PoisonDebuffed_Enemies_C: UAFE_PoisonDebuffed_Enemies_C;
+

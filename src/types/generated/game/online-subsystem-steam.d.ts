@@ -1,0 +1,5 @@
+declare interface USteamAuthComponentModuleInterface extends UHandlerComponentFactory {
+
+}
+declare const USteamAuthComponentModuleInterface: USteamAuthComponentModuleInterface;
+

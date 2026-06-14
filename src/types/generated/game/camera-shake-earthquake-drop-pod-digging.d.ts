@@ -1,0 +1,5 @@
+declare interface UCameraShake_Earthquake_DropPod_Digging_C extends ULegacyCameraShake {
+
+}
+declare const UCameraShake_Earthquake_DropPod_Digging_C: UCameraShake_Earthquake_DropPod_Digging_C;
+

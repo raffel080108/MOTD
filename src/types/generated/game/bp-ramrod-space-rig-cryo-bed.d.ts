@@ -1,0 +1,40 @@
+declare interface ABP_Ramrod_SpaceRig_CryoBed_C extends AActor {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    StartTutorialUsableBox: UBoxComponent;
+    StartTutorialUsable: USingleUsableComponent;
+    LightRoot: USceneComponent;
+    SpotLight: USpotLightComponent;
+    SpotLight3: USpotLightComponent;
+    PointLight: UPointLightComponent;
+    NS_CryoBed_Smoke: UNiagaraComponent;
+    SK_Cryobed: USkeletalMeshComponent;
+    DefaultSceneRoot: USceneComponent;
+    bIsPodOpen: boolean;
+    PlayerControllerForSpawn: AFSDPlayerController;
+    OnRep_bIsPodOpen(): void;
+    OnRep_PlayerControllerForSpawn(): void;
+    UpdateAnimations(): void;
+    UpdateStartTutorialUsable(): void;
+    GetSpawnedPlayerCharacter(PlayerCharacter: APlayerCharacter): void;
+    SetStartSpot(StartSpot: ASpacerigStart): void;
+    SetPodOpen(IsOpen: boolean): void;
+    IsPodOpen(IsOpen: boolean): void;
+    CanTogglePod(CanOpen: boolean): void;
+    No_40961F77409B52BBF5ECC1BF33739EA2(): void;
+    Yes_40961F77409B52BBF5ECC1BF33739EA2(): void;
+    OnNotifyEnd_21AE20E44DECDA648179CC897CE6E252(NotifyName: FName): void;
+    OnNotifyBegin_21AE20E44DECDA648179CC897CE6E252(NotifyName: FName): void;
+    OnInterrupted_21AE20E44DECDA648179CC897CE6E252(NotifyName: FName): void;
+    OnBlendOut_21AE20E44DECDA648179CC897CE6E252(NotifyName: FName): void;
+    OnCompleted_21AE20E44DECDA648179CC897CE6E252(NotifyName: FName): void;
+    OnFailure_AD5EC73B417E829B3B9724B1EAE0F35C(): void;
+    OnSuccess_AD5EC73B417E829B3B9724B1EAE0F35C(): void;
+    ReceiveBeginPlay(): void;
+    PlayVirtualRealitySequence(PlayerController: AFSDPlayerController): void;
+    StartPlayerSpawnSequence(Controller: AFSDPlayerController): void;
+    StopPlayerSpawnSequence(Controller: AFSDPlayerController): void;
+    BndEvt__BP_Ramrod_SpaceRig_CryoBed_StartTutorialUsable_K2Node_ComponentBoundEvent_1_UsedBySignature__DelegateSignature(User: APlayerCharacter, Key: EInputKeys): void;
+    ExecuteUbergraph_BP_Ramrod_SpaceRig_CryoBed(EntryPoint: number): void;
+}
+declare const ABP_Ramrod_SpaceRig_CryoBed_C: ABP_Ramrod_SpaceRig_CryoBed_C;
+

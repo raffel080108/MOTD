@@ -1,0 +1,5 @@
+declare interface USQ_Core_Tentacle_Seq_02_DirectorBP_C extends ULevelSequenceDirector {
+
+}
+declare const USQ_Core_Tentacle_Seq_02_DirectorBP_C: USQ_Core_Tentacle_Seq_02_DirectorBP_C;
+

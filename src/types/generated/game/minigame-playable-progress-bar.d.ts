@@ -1,0 +1,40 @@
+declare interface UMinigame_PlayableProgressBar_C extends UMinigamePlayableProgressbarWidget {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    UI_Retainer_Bend: UUI_Retainer_Bend_C;
+    SecondaryHitAreaGradient: UUI_GradientMasked_Image_C;
+    RepBorderRight: UUI_GradientMasked_Image_C;
+    RepBorderLeft: UUI_GradientMasked_Image_C;
+    RepBack: UUI_GradientMasked_Image_C;
+    PlayerLocation: UImage;
+    HitAreas: UOverlay;
+    HitAreaGradient: UUI_GradientMasked_Image_C;
+    SucessHitArea: UWidgetAnimation;
+    SucessSecondaryHitArea: UWidgetAnimation;
+    RestoreHitArea: UWidgetAnimation;
+    RestoreSecondaryHitArea: UWidgetAnimation;
+    PlayerArrowAnimation: UWidgetAnimation;
+    PREVIEW_ARROWLOCATION: number;
+    PREVIEW_LOCATION: number;
+    PREVIEW_SIZE: number;
+    PlaymatSize: number;
+    HalfArrowSize: number;
+    PREVIEW_TIMER: number;
+    BGColors: TArray<FLinearColor>;
+    HitColors: TArray<FLinearColor>;
+    LerpColors: boolean;
+    Clicked(success: boolean): void;
+    PlayRestoreAnimation(): void;
+    PlayHitAnimation(Index: number): void;
+    SetHitAreaColor(Index: number, InColorAndOpacity: FLinearColor): void;
+    UpdateTimer(TimeLeft: number): void;
+    SetHitAreaLocationAndSize(LocationPercentage: number, Size: number, Index: number): void;
+    SetHitAreaSize(HitArea: UUI_GradientMasked_Image_C, TopDivider: UUI_GradientMasked_Image_C, BottomDivider: UUI_GradientMasked_Image_C, HitAreaLocation: number, HitAreaSize: number, GradientSet: boolean): void;
+    SetHitAreaLocation(PercentageValue: number, HitArea: UUI_GradientMasked_Image_C, GradientSet: boolean): void;
+    SetHitAreaVisibility(visible: boolean, Index: number): void;
+    SetCrosshairAreaLocation(Value: number): void;
+    PreConstruct(IsDesignTime: boolean): void;
+    Construct(): void;
+    ExecuteUbergraph_Minigame_PlayableProgressBar(EntryPoint: number): void;
+}
+declare const UMinigame_PlayableProgressBar_C: UMinigame_PlayableProgressBar_C;
+

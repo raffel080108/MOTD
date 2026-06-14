@@ -1,0 +1,40 @@
+declare interface ABP_Fittness_Activity_Curls_C extends ABP_Base_Fitness_Activity_C {
+    UberGraphFrame: FPointerToUberGraphFrame;
+    NotLiftable_DumbbellRight: UStaticMeshComponent;
+    NotLiftable_DumbbellLeft: UStaticMeshComponent;
+    DumbbellShelf: UStaticMeshComponent;
+    InstructionsWidget: UWidgetComponent;
+    PlayableProgressbarWidgetSecond: UWidgetComponent;
+    PlayableProgressbarWidgetFirst: UWidgetComponent;
+    MovableMesh2: UStaticMeshComponent;
+    MovableMesh1: UStaticMeshComponent;
+    MeterGymMinigame: UMeterGymMinigame;
+    StaticMesh3: UStaticMeshComponent;
+    StaticMesh2: UStaticMeshComponent;
+    IsActive: boolean;
+    SocketName1: FName;
+    SocketName2: FName;
+    PlayableProgressBarDesiredZLocation: number;
+    PlayableProgressBarZOffset: number;
+    TimerHandle: FTimerHandle;
+    DamageNumberData: FDamageData;
+    UpdateButtonTexture(): void;
+    SetPlayableProgressBarOffset(): void;
+    SetOffsets(): void;
+    ResetPositions(): void;
+    UpdateDesiredLocations(): void;
+    SetVisibilityWidget(visible: boolean): void;
+    AttachEquipment(Player: APlayerCharacter): void;
+    OnRep_IsActive(): void;
+    ChangeVisibilityOfEquipment(Show: boolean): void;
+    ReceiveBeginPlay(): void;
+    ActivityStatusChanged(): void;
+    UpdateWidget(): void;
+    ReceiveTick(DeltaSeconds: number): void;
+    HealthChanged_Event(Health: number): void;
+    PointAdded(Calories: number): void;
+    OnInputSourceChanged(InputSource: EFSDInputSource): void;
+    ExecuteUbergraph_BP_Fittness_Activity_Curls(EntryPoint: number): void;
+}
+declare const ABP_Fittness_Activity_Curls_C: ABP_Fittness_Activity_Curls_C;
+

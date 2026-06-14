@@ -1,0 +1,29 @@
+{
+  "scripts": {
+    "generate-types": "node .\\tools\\generate-types.js",
+    "compile": "call .\\tools\\compile-scripts.bat",
+    "deploy": "call .\\tools\\deploy-scripts.bat",
+    "deploy-assets": "call .\\tools\\deploy-assets.bat",
+    "run": "npm run deploy && start steam://rungameid/2605790",
+    "package-release": "call .\\tools\\package-release.bat"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.9.0",
+    "eslint": "^10.4.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-obsidianmd": "^0.3.0",
+    "lua-types": "^2.14.1",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.59.4"
+  },
+  "dependencies": {
+    "typescript-to-lua": "^1.36.0",
+    "yup": "^1.7.1"
+  }
+}

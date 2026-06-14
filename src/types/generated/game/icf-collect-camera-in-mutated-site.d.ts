@@ -1,0 +1,5 @@
+declare interface UICF_CollectCameraInMutatedSite_C extends UIntelChallengeForResource {
+
+}
+declare const UICF_CollectCameraInMutatedSite_C: UICF_CollectCameraInMutatedSite_C;
+

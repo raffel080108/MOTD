@@ -1,0 +1,5 @@
+declare interface UWidget_Terminal_Intercom_Hologram_C extends UUserWidget {
+
+}
+declare const UWidget_Terminal_Intercom_Hologram_C: UWidget_Terminal_Intercom_Hologram_C;
+

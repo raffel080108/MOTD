@@ -1,0 +1,9 @@
+declare interface FBP_BasicStatsContent {
+    Value_6_8FE0AF414364DA757B461C93EF610789: number;
+    MinIntegral_13_BD6545DA487190EA5C2FE4A0D8160A33: number;
+    IsPercentage_7_058269694DAA02E9B985208A981A7460: boolean;
+    Icon_8_9E1AA7F94364661046A5D7BE8B066C60: UTexture2D;
+    ToolTip_16_44E13DF94811FC321BF7FF80871E0A2E: FText;
+}
+declare const FBP_BasicStatsContent: FBP_BasicStatsContent;
+

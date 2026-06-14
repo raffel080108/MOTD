@@ -1,0 +1,8 @@
+declare const enum ESoundwaveSampleRateSettings {
+    Max = 0,
+    High = 1,
+    Medium = 2,
+    Low = 3,
+    Min = 4
+}
+

@@ -1,0 +1,5 @@
+declare interface UAFE_TP_SmallTemperatureShockDetached_C extends USpawnAtLocationParticleAfflictionEffect {
+
+}
+declare const UAFE_TP_SmallTemperatureShockDetached_C: UAFE_TP_SmallTemperatureShockDetached_C;
+

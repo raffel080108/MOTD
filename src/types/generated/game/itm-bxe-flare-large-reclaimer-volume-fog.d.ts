@@ -1,0 +1,5 @@
+declare interface AITM_BXE_Flare_Large_Reclaimer_VolumeFog_C extends AITM_BaseFlare_C {
+
+}
+declare const AITM_BXE_Flare_Large_Reclaimer_VolumeFog_C: AITM_BXE_Flare_Large_Reclaimer_VolumeFog_C;
+
