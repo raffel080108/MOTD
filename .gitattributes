@@ -1,0 +1,4 @@
+*.js linguist-detectable=false
+*.batch linguist-detectable=false
+*.ts linguist-detectable=true
+*.lua linguist-detectable=true
