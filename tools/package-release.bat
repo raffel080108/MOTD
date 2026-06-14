@@ -11,11 +11,11 @@ if not exist ".\release\temp" (
     mkdir ".\release\temp"
 )
 
-REM call ".\tools\compile-scripts.bat"
+call ".\tools\compile-scripts.bat"
 echo copying scripts
 xcopy ".\dist" ".\release\temp\MOTD\Scripts" /S /E /I /Y
 
-REM call ".\tools\pak-assets.bat"
+call ".\tools\pak-assets.bat"
 echo copying pak
 copy ".\assets\temp\%Mod_Name%.pak" ".\release\temp"
 
