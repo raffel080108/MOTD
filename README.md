@@ -1,5 +1,5 @@
 Note: Due to file size limitations, the assets folder does not include a full usable UE Project. You will need to download the [Rogue Core BP Mod Template](https://discord.com/channels/676880716142739467/1506768329996632117/1507053484854218852) from the [DRG Modding Discord](https://discord.gg/gUw32ayWGt) and manually copy the "Source" and "Binaries" folder to be able to correctly use the project
 
-Release downloads are available on <a href=https://www.nexusmods.com/deeprockgalacticroguecore/mods/60?tab=files>nexusmods</a>
+Release downloads are available on <a href="https://www.nexusmods.com/deeprockgalacticroguecore/mods/60?tab=files">nexusmods</a>
 
 MOTD © 2026 by raffel080108 is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
