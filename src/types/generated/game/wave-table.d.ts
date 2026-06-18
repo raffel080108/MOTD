@@ -1,14 +1,12 @@
 declare interface FWaveTableBankEntry {
     Transform: FWaveTableTransform;
 }
-declare const FWaveTableBankEntry: FWaveTableBankEntry;
 
 declare interface FWaveTableData {
     BitDepth: EWaveTableBitDepth;
-    Data: TArray<uint8>;
+    Data: number[];
     FinalValue: number;
 }
-declare const FWaveTableData: FWaveTableData;
 
 declare interface FWaveTableSettings {
     FilePath: FFilePath;
@@ -23,7 +21,6 @@ declare interface FWaveTableSettings {
     bNormalize: boolean;
     bRemoveOffset: boolean;
 }
-declare const FWaveTableSettings: FWaveTableSettings;
 
 declare interface FWaveTableTransform {
     Curve: EWaveTableCurve;
@@ -33,14 +30,19 @@ declare interface FWaveTableTransform {
     TableData: FWaveTableData;
     duration: number;
 }
-declare const FWaveTableTransform: FWaveTableTransform;
 
 declare interface UWaveTableBank extends UObject {
-    SampleMode: EWaveTableSamplingMode;
-    Resolution: EWaveTableResolution;
-    SampleRate: number;
-    bBipolar: boolean;
-    Entries: TArray<FWaveTableBankEntry>;
+    readonly __properties_UWaveTableBank: {
+        SampleMode: EWaveTableSamplingMode;
+        Resolution: EWaveTableResolution;
+        SampleRate: number;
+        bBipolar: boolean;
+        Entries: FWaveTableBankEntry[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UWaveTableBank['__properties_UWaveTableBank'] &
+        UObject['__propertyRegistry'];
 }
-declare const UWaveTableBank: UWaveTableBank;
 

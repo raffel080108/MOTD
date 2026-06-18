@@ -1,5 +1,7 @@
 declare interface UICF_SummonGatekeeperBossAtDepth3_C extends UIntelChallengeForBossSummon {
-
+    readonly __staticRegistry: 
+        UIntelChallengeForBossSummon['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIntelChallengeForBossSummon['__propertyRegistry'];
 }
-declare const UICF_SummonGatekeeperBossAtDepth3_C: UICF_SummonGatekeeperBossAtDepth3_C;
 

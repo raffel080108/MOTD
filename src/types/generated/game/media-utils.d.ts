@@ -1,10 +1,9 @@
 declare interface FMediaPlayerInitialTrackLanguageSelection {
-    Video: FString;
-    Audio: FString;
-    Subtitle: FString;
-    Caption: FString;
+    Video: string;
+    Audio: string;
+    Subtitle: string;
+    Caption: string;
 }
-declare const FMediaPlayerInitialTrackLanguageSelection: FMediaPlayerInitialTrackLanguageSelection;
 
 declare interface FMediaPlayerOptions {
     Tracks: FMediaPlayerTrackOptions;
@@ -15,7 +14,6 @@ declare interface FMediaPlayerOptions {
     PlayOnOpen: EMediaPlayerOptionBooleanOverride;
     Loop: EMediaPlayerOptionBooleanOverride;
 }
-declare const FMediaPlayerOptions: FMediaPlayerOptions;
 
 declare interface FMediaPlayerTrackOptions {
     Audio: number;
@@ -26,5 +24,4 @@ declare interface FMediaPlayerTrackOptions {
     Text: number;
     Video: number;
 }
-declare const FMediaPlayerTrackOptions: FMediaPlayerTrackOptions;
 

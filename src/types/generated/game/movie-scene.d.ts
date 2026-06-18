@@ -1,59 +1,55 @@
 declare interface ATestMovieSceneArrayPropertiesActor extends AActor {
-    TestVector: FVector;
-    MultipleFloats: TArray<number>;
-    SingleStruct: FTestMovieSceneStruct;
-    MultipleStructs: TArray<FTestMovieSceneStruct>;
+    readonly __properties_ATestMovieSceneArrayPropertiesActor: {
+        TestVector: FVector;
+        MultipleFloats: number[];
+        SingleStruct: FTestMovieSceneStruct;
+        MultipleStructs: FTestMovieSceneStruct[];
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ATestMovieSceneArrayPropertiesActor['__properties_ATestMovieSceneArrayPropertiesActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const ATestMovieSceneArrayPropertiesActor: ATestMovieSceneArrayPropertiesActor;
 
 declare interface FActorForWorldTransforms {
     Actor: TWeakObjectPtr<AActor>;
     Component: TWeakObjectPtr<USceneComponent>;
-    SocketName: FName;
+    SocketName: string;
 }
-declare const FActorForWorldTransforms: FActorForWorldTransforms;
 
 declare interface FEasingComponentData {
     Section: UMovieSceneSection;
 }
-declare const FEasingComponentData: FEasingComponentData;
 
-declare interface FGeneratedMovieSceneKeyStruct {
-
-}
-declare const FGeneratedMovieSceneKeyStruct: FGeneratedMovieSceneKeyStruct;
+declare type FGeneratedMovieSceneKeyStruct = object;
 
 declare interface FMovieSceneAnchorsScalingGroup {
-    Sections: TSet<UMovieSceneSection>;
+    Sections: UMovieSceneSection[];
 }
-declare const FMovieSceneAnchorsScalingGroup: FMovieSceneAnchorsScalingGroup;
 
 declare interface FMovieSceneAudioTriggerChannel extends FMovieSceneChannel {
-    Times: TArray<FFrameNumber>;
-    Values: TArray<boolean>;
+    Times: FFrameNumber[];
+    Values: boolean[];
     KeyHandles: FMovieSceneKeyHandleMap;
 }
-declare const FMovieSceneAudioTriggerChannel: FMovieSceneAudioTriggerChannel;
 
 declare interface FMovieSceneBinding {
     ObjectGuid: FGuid;
-    BindingName: FString;
-    Tracks: TArray<UMovieSceneTrack>;
+    BindingName: string;
+    Tracks: UMovieSceneTrack[];
 }
-declare const FMovieSceneBinding: FMovieSceneBinding;
 
 declare interface FMovieSceneBindingOverrideData {
     ObjectBindingID: FMovieSceneObjectBindingID;
     Object: TSoftObjectPtr<UObject>;
     bOverridesDefault: boolean;
 }
-declare const FMovieSceneBindingOverrideData: FMovieSceneBindingOverrideData;
 
 declare interface FMovieSceneBindingProxy {
     BindingID: FGuid;
     Sequence: UMovieSceneSequence;
 }
-declare const FMovieSceneBindingProxy: FMovieSceneBindingProxy;
 
 declare interface FMovieSceneBindingReference {
     ID: FGuid;
@@ -61,18 +57,15 @@ declare interface FMovieSceneBindingReference {
     ResolveFlags: ELocatorResolveFlags;
     CustomBinding: UMovieSceneCustomBinding;
 }
-declare const FMovieSceneBindingReference: FMovieSceneBindingReference;
 
 declare interface FMovieSceneBindingReferences {
-    SortedReferences: TArray<FMovieSceneBindingReference>;
+    SortedReferences: FMovieSceneBindingReference[];
 }
-declare const FMovieSceneBindingReferences: FMovieSceneBindingReferences;
 
 declare interface FMovieSceneBindingResolveContext {
     WorldContext: UObject;
     Binding: FMovieSceneBindingProxy;
 }
-declare const FMovieSceneBindingResolveContext: FMovieSceneBindingResolveContext;
 
 declare interface FMovieSceneBindingResolveParams {
     Sequence: UMovieSceneSequence;
@@ -80,132 +73,111 @@ declare interface FMovieSceneBindingResolveParams {
     SequenceID: FMovieSceneSequenceID;
     Context: UObject;
 }
-declare const FMovieSceneBindingResolveParams: FMovieSceneBindingResolveParams;
 
 declare interface FMovieSceneBindingResolveResult {
     Object: UObject;
 }
-declare const FMovieSceneBindingResolveResult: FMovieSceneBindingResolveResult;
 
 declare interface FMovieSceneBoolChannel extends FMovieSceneChannel {
     PreInfinityExtrap: ERichCurveExtrapolation;
     PostInfinityExtrap: ERichCurveExtrapolation;
-    Times: TArray<FFrameNumber>;
+    Times: FFrameNumber[];
     DefaultValue: boolean;
     bHasDefaultValue: boolean;
-    Values: TArray<boolean>;
+    Values: boolean[];
     KeyHandles: FMovieSceneKeyHandleMap;
 }
-declare const FMovieSceneBoolChannel: FMovieSceneBoolChannel;
 
 declare interface FMovieSceneByteChannel extends FMovieSceneChannel {
     PreInfinityExtrap: ERichCurveExtrapolation;
     PostInfinityExtrap: ERichCurveExtrapolation;
-    Times: TArray<FFrameNumber>;
-    DefaultValue: uint8;
+    Times: FFrameNumber[];
+    DefaultValue: number;
     bHasDefaultValue: boolean;
-    Values: TArray<uint8>;
+    Values: number[];
     Enum: UEnum;
     KeyHandles: FMovieSceneKeyHandleMap;
 }
-declare const FMovieSceneByteChannel: FMovieSceneByteChannel;
 
-declare interface FMovieSceneChannel {
-
-}
-declare const FMovieSceneChannel: FMovieSceneChannel;
+declare type FMovieSceneChannel = object;
 
 declare interface FMovieSceneCompiledSequenceFlagStruct {
     bParentSequenceRequiresLowerFence: boolean;
     bParentSequenceRequiresUpperFence: boolean;
 }
-declare const FMovieSceneCompiledSequenceFlagStruct: FMovieSceneCompiledSequenceFlagStruct;
 
 declare interface FMovieSceneConditionContainer {
     Condition: UMovieSceneCondition;
 }
-declare const FMovieSceneConditionContainer: FMovieSceneConditionContainer;
 
 declare interface FMovieSceneConditionContext {
     WorldContext: UObject;
     Binding: FMovieSceneBindingProxy;
-    BoundObjects: TArray<UObject>;
+    BoundObjects: UObject[];
 }
-declare const FMovieSceneConditionContext: FMovieSceneConditionContext;
 
 declare interface FMovieSceneCustomTimeWarpGetterStruct {
     Object: UMovieSceneTimeWarpGetter;
 }
-declare const FMovieSceneCustomTimeWarpGetterStruct: FMovieSceneCustomTimeWarpGetterStruct;
 
 declare interface FMovieSceneDecorationContainer {
-    Decorations: TArray<UObject>;
+    Decorations: UObject[];
 }
-declare const FMovieSceneDecorationContainer: FMovieSceneDecorationContainer;
 
 declare interface FMovieSceneDeterminismData {
-    Fences: TArray<FMovieSceneDeterminismFence>;
+    Fences: FMovieSceneDeterminismFence[];
     bParentSequenceRequiresLowerFence: boolean;
     bParentSequenceRequiresUpperFence: boolean;
 }
-declare const FMovieSceneDeterminismData: FMovieSceneDeterminismData;
 
 declare interface FMovieSceneDeterminismFence {
     FrameNumber: FFrameNumber;
     bInclusive: boolean;
 }
-declare const FMovieSceneDeterminismFence: FMovieSceneDeterminismFence;
 
 declare interface FMovieSceneDoubleChannel extends FMovieSceneChannel {
     PreInfinityExtrap: ERichCurveExtrapolation;
     PostInfinityExtrap: ERichCurveExtrapolation;
-    Times: TArray<FFrameNumber>;
-    Values: TArray<FMovieSceneDoubleValue>;
+    Times: FFrameNumber[];
+    Values: FMovieSceneDoubleValue[];
     DefaultValue: number;
     bHasDefaultValue: boolean;
     KeyHandles: FMovieSceneKeyHandleMap;
     TickResolution: FFrameRate;
 }
-declare const FMovieSceneDoubleChannel: FMovieSceneDoubleChannel;
 
 declare interface FMovieSceneDoubleValue {
     Value: number;
     Tangent: FMovieSceneTangentData;
     InterpMode: ERichCurveInterpMode;
     TangentMode: ERichCurveTangentMode;
-    PaddingByte: uint8;
+    PaddingByte: number;
 }
-declare const FMovieSceneDoubleValue: FMovieSceneDoubleValue;
 
 declare interface FMovieSceneDynamicBinding {
     Function: UFunction;
     ResolveParamsProperty: TFieldPath<FProperty>;
 }
-declare const FMovieSceneDynamicBinding: FMovieSceneDynamicBinding;
 
 declare interface FMovieSceneDynamicBindingContainer {
     DynamicBinding: FMovieSceneDynamicBinding;
 }
-declare const FMovieSceneDynamicBindingContainer: FMovieSceneDynamicBindingContainer;
 
 declare interface FMovieSceneDynamicBindingPayloadVariable {
     ObjectValue: FSoftObjectPath;
-    Value: FString;
+    Value: string;
 }
-declare const FMovieSceneDynamicBindingPayloadVariable: FMovieSceneDynamicBindingPayloadVariable;
 
 declare interface FMovieSceneDynamicBindingResolveParams {
     Sequence: UMovieSceneSequence;
     ObjectBindingID: FGuid;
     RootSequence: UMovieSceneSequence;
 }
-declare const FMovieSceneDynamicBindingResolveParams: FMovieSceneDynamicBindingResolveParams;
 
 declare interface FMovieSceneDynamicBindingResolveResult {
     Object: UObject;
     bIsPossessedObject: boolean;
 }
-declare const FMovieSceneDynamicBindingResolveResult: FMovieSceneDynamicBindingResolveResult;
 
 declare interface FMovieSceneEasingSettings {
     AutoEaseInDuration: number;
@@ -217,388 +189,311 @@ declare interface FMovieSceneEasingSettings {
     bManualEaseOut: boolean;
     ManualEaseOutDuration: number;
 }
-declare const FMovieSceneEasingSettings: FMovieSceneEasingSettings;
 
 declare interface FMovieSceneEditorData {
-    ExpansionStates: Record<FString, FMovieSceneExpansionState>;
-    PinnedNodes: TArray<FString>;
+    ExpansionStates: TMap<string, FMovieSceneExpansionState>;
+    PinnedNodes: string[];
     ViewStart: number;
     ViewEnd: number;
     WorkStart: number;
     WorkEnd: number;
-    MarkedFrames: TSet<FFrameNumber>;
+    MarkedFrames: FFrameNumber[];
     WorkingRange: FFloatRange;
     ViewRange: FFloatRange;
     NavigationToolState: FNavigationToolSaveState;
-    SoloNodes: TArray<FString>;
-    MuteNodes: TArray<FString>;
+    SoloNodes: string[];
+    MuteNodes: string[];
 }
-declare const FMovieSceneEditorData: FMovieSceneEditorData;
 
-declare interface FMovieSceneEmptyStruct {
-
-}
-declare const FMovieSceneEmptyStruct: FMovieSceneEmptyStruct;
+declare type FMovieSceneEmptyStruct = object;
 
 declare interface FMovieSceneEntityComponentField {
     PersistentEntityTree: FMovieSceneEvaluationFieldEntityTree;
     OneShotEntityTree: FMovieSceneEvaluationFieldEntityTree;
-    Entities: TArray<FMovieSceneEvaluationFieldEntity>;
-    EntityMetaData: TArray<FMovieSceneEvaluationFieldEntityMetaData>;
-    SharedMetaData: TArray<FMovieSceneEvaluationFieldSharedEntityMetaData>;
+    Entities: FMovieSceneEvaluationFieldEntity[];
+    EntityMetaData: FMovieSceneEvaluationFieldEntityMetaData[];
+    SharedMetaData: FMovieSceneEvaluationFieldSharedEntityMetaData[];
 }
-declare const FMovieSceneEntityComponentField: FMovieSceneEntityComponentField;
 
 declare interface FMovieSceneEntitySystemGraph {
     Nodes: FMovieSceneEntitySystemGraphNodes;
 }
-declare const FMovieSceneEntitySystemGraph: FMovieSceneEntitySystemGraph;
 
 declare interface FMovieSceneEntitySystemGraphNode {
     System: UMovieSceneEntitySystem;
 }
-declare const FMovieSceneEntitySystemGraphNode: FMovieSceneEntitySystemGraphNode;
 
-declare interface FMovieSceneEntitySystemGraphNodes {
-
-}
-declare const FMovieSceneEntitySystemGraphNodes: FMovieSceneEntitySystemGraphNodes;
+declare type FMovieSceneEntitySystemGraphNodes = object;
 
 declare interface FMovieSceneEvalTemplate extends FMovieSceneEvalTemplateBase {
     CompletionMode: EMovieSceneCompletionMode;
     SourceSectionPtr: TWeakObjectPtr<UMovieSceneSection>;
 }
-declare const FMovieSceneEvalTemplate: FMovieSceneEvalTemplate;
 
-declare interface FMovieSceneEvalTemplateBase {
+declare type FMovieSceneEvalTemplateBase = object;
 
-}
-declare const FMovieSceneEvalTemplateBase: FMovieSceneEvalTemplateBase;
-
-declare interface FMovieSceneEvalTemplatePtr {
-
-}
-declare const FMovieSceneEvalTemplatePtr: FMovieSceneEvalTemplatePtr;
+declare type FMovieSceneEvalTemplatePtr = object;
 
 declare interface FMovieSceneEvaluationField {
-    Ranges: TArray<FMovieSceneFrameRange>;
-    Groups: TArray<FMovieSceneEvaluationGroup>;
-    MetaData: TArray<FMovieSceneEvaluationMetaData>;
+    Ranges: FMovieSceneFrameRange[];
+    Groups: FMovieSceneEvaluationGroup[];
+    MetaData: FMovieSceneEvaluationMetaData[];
 }
-declare const FMovieSceneEvaluationField: FMovieSceneEvaluationField;
 
 declare interface FMovieSceneEvaluationFieldEntity {
     Key: FMovieSceneEvaluationFieldEntityKey;
     SharedMetaDataIndex: number;
 }
-declare const FMovieSceneEvaluationFieldEntity: FMovieSceneEvaluationFieldEntity;
 
 declare interface FMovieSceneEvaluationFieldEntityKey {
     EntityOwner: TWeakObjectPtr<UObject>;
-    EntityID: uint32;
+    EntityID: number;
 }
-declare const FMovieSceneEvaluationFieldEntityKey: FMovieSceneEvaluationFieldEntityKey;
 
 declare interface FMovieSceneEvaluationFieldEntityMetaData {
     Condition: TSoftObjectPtr<UMovieSceneCondition>;
-    OverrideBoundPropertyPath: FString;
+    OverrideBoundPropertyPath: string;
     ForcedTime: FFrameNumber;
     Flags: ESectionEvaluationFlags;
     bEvaluateInSequencePreRoll: boolean;
     bEvaluateInSequencePostRoll: boolean;
 }
-declare const FMovieSceneEvaluationFieldEntityMetaData: FMovieSceneEvaluationFieldEntityMetaData;
 
-declare interface FMovieSceneEvaluationFieldEntityTree {
-
-}
-declare const FMovieSceneEvaluationFieldEntityTree: FMovieSceneEvaluationFieldEntityTree;
+declare type FMovieSceneEvaluationFieldEntityTree = object;
 
 declare interface FMovieSceneEvaluationFieldSegmentPtr extends FMovieSceneEvaluationFieldTrackPtr {
     SegmentID: FMovieSceneSegmentIdentifier;
 }
-declare const FMovieSceneEvaluationFieldSegmentPtr: FMovieSceneEvaluationFieldSegmentPtr;
 
 declare interface FMovieSceneEvaluationFieldSharedEntityMetaData {
     ObjectBindingID: FGuid;
 }
-declare const FMovieSceneEvaluationFieldSharedEntityMetaData: FMovieSceneEvaluationFieldSharedEntityMetaData;
 
 declare interface FMovieSceneEvaluationFieldTrackPtr {
     SequenceID: FMovieSceneSequenceID;
     TrackIdentifier: FMovieSceneTrackIdentifier;
 }
-declare const FMovieSceneEvaluationFieldTrackPtr: FMovieSceneEvaluationFieldTrackPtr;
 
 declare interface FMovieSceneEvaluationGroup {
-    LUTIndices: TArray<FMovieSceneEvaluationGroupLUTIndex>;
-    TrackLUT: TArray<FMovieSceneFieldEntry_EvaluationTrack>;
-    SectionLUT: TArray<FMovieSceneFieldEntry_ChildTemplate>;
+    LUTIndices: FMovieSceneEvaluationGroupLUTIndex[];
+    TrackLUT: FMovieSceneFieldEntry_EvaluationTrack[];
+    SectionLUT: FMovieSceneFieldEntry_ChildTemplate[];
 }
-declare const FMovieSceneEvaluationGroup: FMovieSceneEvaluationGroup;
 
 declare interface FMovieSceneEvaluationGroupLUTIndex {
     NumInitPtrs: number;
     NumEvalPtrs: number;
 }
-declare const FMovieSceneEvaluationGroupLUTIndex: FMovieSceneEvaluationGroupLUTIndex;
 
 declare interface FMovieSceneEvaluationHookComponent {
     Interface: TScriptInterface<IMovieSceneEvaluationHook>;
 }
-declare const FMovieSceneEvaluationHookComponent: FMovieSceneEvaluationHookComponent;
 
 declare interface FMovieSceneEvaluationHookEvent {
     Hook: FMovieSceneEvaluationHookComponent;
 }
-declare const FMovieSceneEvaluationHookEvent: FMovieSceneEvaluationHookEvent;
 
 declare interface FMovieSceneEvaluationHookEventContainer {
-    Events: TArray<FMovieSceneEvaluationHookEvent>;
+    Events: FMovieSceneEvaluationHookEvent[];
 }
-declare const FMovieSceneEvaluationHookEventContainer: FMovieSceneEvaluationHookEventContainer;
 
-declare interface FMovieSceneEvaluationInstanceKey {
-
-}
-declare const FMovieSceneEvaluationInstanceKey: FMovieSceneEvaluationInstanceKey;
+declare type FMovieSceneEvaluationInstanceKey = object;
 
 declare interface FMovieSceneEvaluationKey {
     SequenceID: FMovieSceneSequenceID;
     TrackIdentifier: FMovieSceneTrackIdentifier;
-    SectionIndex: uint32;
+    SectionIndex: number;
 }
-declare const FMovieSceneEvaluationKey: FMovieSceneEvaluationKey;
 
 declare interface FMovieSceneEvaluationMetaData {
-    ActiveSequences: TArray<FMovieSceneSequenceID>;
-    ActiveEntities: TArray<FMovieSceneOrderedEvaluationKey>;
+    ActiveSequences: FMovieSceneSequenceID[];
+    ActiveEntities: FMovieSceneOrderedEvaluationKey[];
 }
-declare const FMovieSceneEvaluationMetaData: FMovieSceneEvaluationMetaData;
 
 declare interface FMovieSceneEvaluationOperand {
     ObjectBindingID: FGuid;
     SequenceID: FMovieSceneSequenceID;
 }
-declare const FMovieSceneEvaluationOperand: FMovieSceneEvaluationOperand;
 
 declare interface FMovieSceneEvaluationTemplate {
-    Tracks: Record<string | number | symbol, FMovieSceneEvaluationTrack>;
+    Tracks: TMap<FMovieSceneTrackIdentifier, FMovieSceneEvaluationTrack>;
     SequenceSignature: FGuid;
     TemplateSerialNumber: FMovieSceneEvaluationTemplateSerialNumber;
     TemplateLedger: FMovieSceneTemplateGenerationLedger;
 }
-declare const FMovieSceneEvaluationTemplate: FMovieSceneEvaluationTemplate;
 
 declare interface FMovieSceneEvaluationTemplateSerialNumber {
-    Value: uint32;
+    Value: number;
 }
-declare const FMovieSceneEvaluationTemplateSerialNumber: FMovieSceneEvaluationTemplateSerialNumber;
 
 declare interface FMovieSceneEvaluationTrack {
     ObjectBindingID: FGuid;
-    EvaluationPriority: uint16;
+    EvaluationPriority: number;
     EvaluationMethod: EEvaluationMethod;
     SourceTrack: TWeakObjectPtr<UMovieSceneTrack>;
-    ChildTemplates: TArray<FMovieSceneEvalTemplatePtr>;
+    ChildTemplates: FMovieSceneEvalTemplatePtr[];
     TrackTemplate: FMovieSceneTrackImplementationPtr;
-    EvaluationGroup: FName;
+    EvaluationGroup: string;
     bEvaluateInPreroll: boolean;
     bEvaluateInPostroll: boolean;
     bTearDownPriority: boolean;
 }
-declare const FMovieSceneEvaluationTrack: FMovieSceneEvaluationTrack;
 
 declare interface FMovieSceneExpansionState {
     bExpanded: boolean;
 }
-declare const FMovieSceneExpansionState: FMovieSceneExpansionState;
 
 declare interface FMovieSceneFieldEntry_ChildTemplate {
-    ChildIndex: uint16;
+    ChildIndex: number;
     Flags: ESectionEvaluationFlags;
     ForcedTime: FFrameNumber;
 }
-declare const FMovieSceneFieldEntry_ChildTemplate: FMovieSceneFieldEntry_ChildTemplate;
 
 declare interface FMovieSceneFieldEntry_EvaluationTrack {
     TrackPtr: FMovieSceneEvaluationFieldTrackPtr;
-    NumChildren: uint16;
+    NumChildren: number;
 }
-declare const FMovieSceneFieldEntry_EvaluationTrack: FMovieSceneFieldEntry_EvaluationTrack;
 
 declare interface FMovieSceneFixedPlayRateStruct {
     PlayRate: number;
 }
-declare const FMovieSceneFixedPlayRateStruct: FMovieSceneFixedPlayRateStruct;
 
 declare interface FMovieSceneFloatChannel extends FMovieSceneChannel {
     PreInfinityExtrap: ERichCurveExtrapolation;
     PostInfinityExtrap: ERichCurveExtrapolation;
-    Times: TArray<FFrameNumber>;
-    Values: TArray<FMovieSceneFloatValue>;
+    Times: FFrameNumber[];
+    Values: FMovieSceneFloatValue[];
     DefaultValue: number;
     bHasDefaultValue: boolean;
     KeyHandles: FMovieSceneKeyHandleMap;
     TickResolution: FFrameRate;
 }
-declare const FMovieSceneFloatChannel: FMovieSceneFloatChannel;
 
 declare interface FMovieSceneFloatValue {
     Value: number;
     Tangent: FMovieSceneTangentData;
     InterpMode: ERichCurveInterpMode;
     TangentMode: ERichCurveTangentMode;
-    PaddingByte: uint8;
+    PaddingByte: number;
 }
-declare const FMovieSceneFloatValue: FMovieSceneFloatValue;
 
-declare interface FMovieSceneFrameRange {
-
-}
-declare const FMovieSceneFrameRange: FMovieSceneFrameRange;
+declare type FMovieSceneFrameRange = object;
 
 declare interface FMovieSceneIntegerChannel extends FMovieSceneChannel {
     PreInfinityExtrap: ERichCurveExtrapolation;
     PostInfinityExtrap: ERichCurveExtrapolation;
     bInterpolateLinearKeys: boolean;
-    Times: TArray<FFrameNumber>;
+    Times: FFrameNumber[];
     DefaultValue: number;
     bHasDefaultValue: boolean;
-    Values: TArray<number>;
+    Values: number[];
     KeyHandles: FMovieSceneKeyHandleMap;
 }
-declare const FMovieSceneIntegerChannel: FMovieSceneIntegerChannel;
 
 declare interface FMovieSceneInverseNestedSequenceTransform {
     timescale: FMovieSceneTimeWarpVariant;
     Offset: FFrameTime;
 }
-declare const FMovieSceneInverseNestedSequenceTransform: FMovieSceneInverseNestedSequenceTransform;
 
 declare interface FMovieSceneInverseSequenceTransform {
     LinearTransform: FMovieSceneTimeTransform;
-    NestedTransforms: TArray<FMovieSceneInverseNestedSequenceTransform>;
+    NestedTransforms: FMovieSceneInverseNestedSequenceTransform[];
 }
-declare const FMovieSceneInverseSequenceTransform: FMovieSceneInverseSequenceTransform;
 
 declare interface FMovieSceneKeyHandleMap extends FKeyHandleLookupTable {
 
 }
-declare const FMovieSceneKeyHandleMap: FMovieSceneKeyHandleMap;
 
-declare interface FMovieSceneKeyStruct {
-
-}
-declare const FMovieSceneKeyStruct: FMovieSceneKeyStruct;
+declare type FMovieSceneKeyStruct = object;
 
 declare interface FMovieSceneKeyTimeStruct extends FMovieSceneKeyStruct {
     Time: FFrameNumber;
 }
-declare const FMovieSceneKeyTimeStruct: FMovieSceneKeyTimeStruct;
 
 declare interface FMovieSceneMarkedFrame {
     FrameNumber: FFrameNumber;
-    Label: FString;
+    Label: string;
     bIsDeterminismFence: boolean;
     bIsInclusiveTime: boolean;
 }
-declare const FMovieSceneMarkedFrame: FMovieSceneMarkedFrame;
 
 declare interface FMovieSceneNestedSequenceTransform {
     timescale: FMovieSceneTimeWarpVariant;
     Offset: FFrameTime;
 }
-declare const FMovieSceneNestedSequenceTransform: FMovieSceneNestedSequenceTransform;
 
-declare interface FMovieSceneNumericVariant {
-
-}
-declare const FMovieSceneNumericVariant: FMovieSceneNumericVariant;
+declare type FMovieSceneNumericVariant = object;
 
 declare interface FMovieSceneObjectBindingID {
     Guid: FGuid;
     SequenceID: number;
     ResolveParentIndex: number;
 }
-declare const FMovieSceneObjectBindingID: FMovieSceneObjectBindingID;
 
 declare interface FMovieSceneObjectBindingIDs {
-    Ids: TArray<FMovieSceneObjectBindingID>;
+    Ids: FMovieSceneObjectBindingID[];
 }
-declare const FMovieSceneObjectBindingIDs: FMovieSceneObjectBindingIDs;
 
 declare interface FMovieSceneObjectPathChannel extends FMovieSceneChannel {
     PropertyClass: UClass;
-    Times: TArray<FFrameNumber>;
-    Values: TArray<FMovieSceneObjectPathChannelKeyValue>;
+    Times: FFrameNumber[];
+    Values: FMovieSceneObjectPathChannelKeyValue[];
     DefaultValue: FMovieSceneObjectPathChannelKeyValue;
     KeyHandles: FMovieSceneKeyHandleMap;
 }
-declare const FMovieSceneObjectPathChannel: FMovieSceneObjectPathChannel;
 
 declare interface FMovieSceneObjectPathChannelKeyValue {
     SoftPtr: TSoftObjectPtr<UObject>;
     HardPtr: UObject;
 }
-declare const FMovieSceneObjectPathChannelKeyValue: FMovieSceneObjectPathChannelKeyValue;
 
 declare interface FMovieSceneOrderedEvaluationKey {
     Key: FMovieSceneEvaluationKey;
-    SetupIndex: uint16;
-    TearDownIndex: uint16;
+    SetupIndex: number;
+    TearDownIndex: number;
 }
-declare const FMovieSceneOrderedEvaluationKey: FMovieSceneOrderedEvaluationKey;
 
 declare interface FMovieScenePossessable {
-    Tags: TArray<FName>;
+    Tags: string[];
     DynamicBinding: FMovieSceneDynamicBinding;
     Guid: FGuid;
-    Name: FString;
+    Name: string;
     ParentGuid: FGuid;
     SpawnableObjectBindingID: FMovieSceneObjectBindingID;
 }
-declare const FMovieScenePossessable: FMovieScenePossessable;
 
 declare interface FMovieScenePropertyBinding {
-    PropertyName: FName;
-    PropertyPath: FName;
+    PropertyName: string;
+    PropertyPath: string;
     bCanUseClassLookup: boolean;
 }
-declare const FMovieScenePropertyBinding: FMovieScenePropertyBinding;
 
 declare interface FMovieScenePropertySectionData {
-    PropertyName: FName;
-    PropertyPath: FString;
+    PropertyName: string;
+    PropertyPath: string;
 }
-declare const FMovieScenePropertySectionData: FMovieScenePropertySectionData;
 
 declare interface FMovieScenePropertySectionTemplate extends FMovieSceneEvalTemplate {
     PropertyData: FMovieScenePropertySectionData;
 }
-declare const FMovieScenePropertySectionTemplate: FMovieScenePropertySectionTemplate;
 
 declare interface FMovieSceneRootEvaluationTemplateInstance {
     EntitySystemLinker: UMovieSceneEntitySystemLinker;
 }
-declare const FMovieSceneRootEvaluationTemplateInstance: FMovieSceneRootEvaluationTemplateInstance;
 
 declare interface FMovieSceneScalingAnchor {
     position: FFrameNumber;
     duration: number;
 }
-declare const FMovieSceneScalingAnchor: FMovieSceneScalingAnchor;
 
 declare interface FMovieSceneSectionEvalOptions {
     bCanEditCompletionMode: boolean;
     CompletionMode: EMovieSceneCompletionMode;
 }
-declare const FMovieSceneSectionEvalOptions: FMovieSceneSectionEvalOptions;
 
 declare interface FMovieSceneSectionGroup {
-    Sections: TArray<TWeakObjectPtr<UMovieSceneSection>>;
+    Sections: TWeakObjectPtr<UMovieSceneSection>[];
 }
-declare const FMovieSceneSectionGroup: FMovieSceneSectionGroup;
 
 declare interface FMovieSceneSectionParameters {
     StartFrameOffset: FFrameNumber;
@@ -612,7 +507,6 @@ declare interface FMovieSceneSectionParameters {
     PrerollTime: number;
     PostrollTime: number;
 }
-declare const FMovieSceneSectionParameters: FMovieSceneSectionParameters;
 
 declare interface FMovieSceneSectionTimingParametersFrames {
     PlayRate: FMovieSceneTimeWarpVariant;
@@ -623,7 +517,6 @@ declare interface FMovieSceneSectionTimingParametersFrames {
     bClamp: boolean;
     bReverse: boolean;
 }
-declare const FMovieSceneSectionTimingParametersFrames: FMovieSceneSectionTimingParametersFrames;
 
 declare interface FMovieSceneSectionTimingParametersSeconds {
     PlayRate: FMovieSceneTimeWarpVariant;
@@ -634,69 +527,52 @@ declare interface FMovieSceneSectionTimingParametersSeconds {
     bClamp: boolean;
     bReverse: boolean;
 }
-declare const FMovieSceneSectionTimingParametersSeconds: FMovieSceneSectionTimingParametersSeconds;
 
-declare interface FMovieSceneSegment {
-
-}
-declare const FMovieSceneSegment: FMovieSceneSegment;
+declare type FMovieSceneSegment = object;
 
 declare interface FMovieSceneSegmentIdentifier {
     IdentifierIndex: number;
 }
-declare const FMovieSceneSegmentIdentifier: FMovieSceneSegmentIdentifier;
 
 declare interface FMovieSceneSequenceHierarchy {
     RootNode: FMovieSceneSequenceHierarchyNode;
     Tree: FMovieSceneSubSequenceTree;
     RootTransform: FMovieSceneSequenceTransform;
-    SubSequences: Record<string | number | symbol, FMovieSceneSubSequenceData>;
-    Hierarchy: Record<string | number | symbol, FMovieSceneSequenceHierarchyNode>;
+    SubSequences: TMap<FMovieSceneSequenceID, FMovieSceneSubSequenceData>;
+    Hierarchy: TMap<FMovieSceneSequenceID, FMovieSceneSequenceHierarchyNode>;
     AccumulatedNetworkMask: EMovieSceneServerClientMask;
 }
-declare const FMovieSceneSequenceHierarchy: FMovieSceneSequenceHierarchy;
 
 declare interface FMovieSceneSequenceHierarchyNode {
     ParentID: FMovieSceneSequenceID;
-    Children: TArray<FMovieSceneSequenceID>;
+    Children: FMovieSceneSequenceID[];
 }
-declare const FMovieSceneSequenceHierarchyNode: FMovieSceneSequenceHierarchyNode;
 
 declare interface FMovieSceneSequenceID {
-    Value: uint32;
+    Value: number;
 }
-declare const FMovieSceneSequenceID: FMovieSceneSequenceID;
 
-declare interface FMovieSceneSequenceInstanceData {
+declare type FMovieSceneSequenceInstanceData = object;
 
-}
-declare const FMovieSceneSequenceInstanceData: FMovieSceneSequenceInstanceData;
-
-declare interface FMovieSceneSequenceInstanceDataPtr {
-
-}
-declare const FMovieSceneSequenceInstanceDataPtr: FMovieSceneSequenceInstanceDataPtr;
+declare type FMovieSceneSequenceInstanceDataPtr = object;
 
 declare interface FMovieSceneSequenceLoopCount {
     Value: number;
 }
-declare const FMovieSceneSequenceLoopCount: FMovieSceneSequenceLoopCount;
 
 declare interface FMovieSceneSequencePlayToParams {
     bExclusive: boolean;
 }
-declare const FMovieSceneSequencePlayToParams: FMovieSceneSequencePlayToParams;
 
 declare interface FMovieSceneSequencePlaybackParams {
     Frame: FFrameTime;
     Time: number;
-    MarkedFrame: FString;
+    MarkedFrame: string;
     Timecode: FTimecode;
     PositionType: EMovieScenePositionType;
     UpdateMethod: EUpdatePositionMethod;
     bHasJumped: boolean;
 }
-declare const FMovieSceneSequencePlaybackParams: FMovieSceneSequencePlaybackParams;
 
 declare interface FMovieSceneSequencePlaybackSettings {
     bAutoPlay: boolean;
@@ -715,7 +591,6 @@ declare interface FMovieSceneSequencePlaybackSettings {
     bInheritTickIntervalFromOwner: boolean;
     bDynamicWeighting: boolean;
 }
-declare const FMovieSceneSequencePlaybackSettings: FMovieSceneSequencePlaybackSettings;
 
 declare interface FMovieSceneSequenceReplProperties {
     LastKnownPosition: FFrameTime;
@@ -723,7 +598,6 @@ declare interface FMovieSceneSequenceReplProperties {
     LastKnownNumLoops: number;
     LastKnownSerialNumber: number;
 }
-declare const FMovieSceneSequenceReplProperties: FMovieSceneSequenceReplProperties;
 
 declare interface FMovieSceneSequenceTickInterval {
     TickIntervalSeconds: number;
@@ -731,40 +605,35 @@ declare interface FMovieSceneSequenceTickInterval {
     bTickWhenPaused: boolean;
     bAllowRounding: boolean;
 }
-declare const FMovieSceneSequenceTickInterval: FMovieSceneSequenceTickInterval;
 
 declare interface FMovieSceneSequenceTransform {
     LinearTransform: FMovieSceneTimeTransform;
-    NestedTransforms: TArray<FMovieSceneNestedSequenceTransform>;
+    NestedTransforms: FMovieSceneNestedSequenceTransform[];
 }
-declare const FMovieSceneSequenceTransform: FMovieSceneSequenceTransform;
 
 declare interface FMovieSceneSpawnable {
     SpawnTransform: FTransform;
-    Tags: TArray<FName>;
+    Tags: string[];
     bContinuouslyRespawn: boolean;
     bNetAddressableName: boolean;
     DynamicBinding: FMovieSceneDynamicBinding;
     Guid: FGuid;
-    Name: FString;
+    Name: string;
     ObjectTemplate: UObject;
-    ChildPossessables: TArray<FGuid>;
+    ChildPossessables: FGuid[];
     Ownership: ESpawnOwnership;
-    LevelName: FName;
+    LevelName: string;
 }
-declare const FMovieSceneSpawnable: FMovieSceneSpawnable;
 
 declare interface FMovieSceneSubSectionData {
     Section: TWeakObjectPtr<UMovieSceneSubSection>;
     ObjectBindingID: FGuid;
     Flags: ESectionEvaluationFlags;
 }
-declare const FMovieSceneSubSectionData: FMovieSceneSubSectionData;
 
 declare interface FMovieSceneSubSectionOriginOverrideMask {
-    Mask: uint32;
+    Mask: number;
 }
-declare const FMovieSceneSubSectionOriginOverrideMask: FMovieSceneSubSectionOriginOverrideMask;
 
 declare interface FMovieSceneSubSequenceData {
     Sequence: FSoftObjectPath;
@@ -776,25 +645,18 @@ declare interface FMovieSceneSubSequenceData {
     ParentPlayRange: FMovieSceneFrameRange;
     PreRollRange: FMovieSceneFrameRange;
     PostRollRange: FMovieSceneFrameRange;
-    HierarchicalBias: int16;
+    HierarchicalBias: number;
     AccumulatedFlags: EMovieSceneSubSectionFlags;
     bCanLoop: boolean;
     InstanceData: FMovieSceneSequenceInstanceDataPtr;
-    SectionPath: FName;
+    SectionPath: string;
     WeakCondition: TWeakObjectPtr<UMovieSceneCondition>;
     SubSectionSignature: FGuid;
 }
-declare const FMovieSceneSubSequenceData: FMovieSceneSubSequenceData;
 
-declare interface FMovieSceneSubSequenceTree {
+declare type FMovieSceneSubSequenceTree = object;
 
-}
-declare const FMovieSceneSubSequenceTree: FMovieSceneSubSequenceTree;
-
-declare interface FMovieSceneSubSequenceTreeEntry {
-
-}
-declare const FMovieSceneSubSequenceTreeEntry: FMovieSceneSubSequenceTreeEntry;
+declare type FMovieSceneSubSequenceTreeEntry = object;
 
 declare interface FMovieSceneTangentData {
     ArriveTangent: number;
@@ -803,77 +665,63 @@ declare interface FMovieSceneTangentData {
     LeaveTangentWeight: number;
     TangentWeightMode: ERichCurveTangentWeightMode;
 }
-declare const FMovieSceneTangentData: FMovieSceneTangentData;
 
 declare interface FMovieSceneTemplateGenerationLedger {
     LastTrackIdentifier: FMovieSceneTrackIdentifier;
-    TrackSignatureToTrackIdentifier: Record<string | number | symbol, FMovieSceneTrackIdentifier>;
-    SubSectionRanges: Record<string | number | symbol, FMovieSceneFrameRange>;
+    TrackSignatureToTrackIdentifier: TMap<FGuid, FMovieSceneTrackIdentifier>;
+    SubSectionRanges: TMap<FGuid, FMovieSceneFrameRange>;
 }
-declare const FMovieSceneTemplateGenerationLedger: FMovieSceneTemplateGenerationLedger;
 
 declare interface FMovieSceneTimeTransform {
     timescale: number;
     Offset: FFrameTime;
 }
-declare const FMovieSceneTimeTransform: FMovieSceneTimeTransform;
 
 declare interface FMovieSceneTimeWarpChannel extends FMovieSceneDoubleChannel {
     Owner: UMovieScene;
 }
-declare const FMovieSceneTimeWarpChannel: FMovieSceneTimeWarpChannel;
 
 declare interface FMovieSceneTimeWarpClamp {
     max: FFrameNumber;
 }
-declare const FMovieSceneTimeWarpClamp: FMovieSceneTimeWarpClamp;
 
 declare interface FMovieSceneTimeWarpClampFloat {
     max: number;
 }
-declare const FMovieSceneTimeWarpClampFloat: FMovieSceneTimeWarpClampFloat;
 
 declare interface FMovieSceneTimeWarpFixedFrame {
     FrameNumber: FFrameNumber;
 }
-declare const FMovieSceneTimeWarpFixedFrame: FMovieSceneTimeWarpFixedFrame;
 
 declare interface FMovieSceneTimeWarpFrameRate {
-    FrameRateNumerator: uint8;
-    FrameRateDenominator: uint8;
+    FrameRateNumerator: number;
+    FrameRateDenominator: number;
 }
-declare const FMovieSceneTimeWarpFrameRate: FMovieSceneTimeWarpFrameRate;
 
 declare interface FMovieSceneTimeWarpLoop {
     duration: FFrameNumber;
 }
-declare const FMovieSceneTimeWarpLoop: FMovieSceneTimeWarpLoop;
 
 declare interface FMovieSceneTimeWarpLoopFloat {
     duration: number;
 }
-declare const FMovieSceneTimeWarpLoopFloat: FMovieSceneTimeWarpLoopFloat;
 
 declare interface FMovieSceneTimeWarpVariant {
     Variant: FMovieSceneNumericVariant;
 }
-declare const FMovieSceneTimeWarpVariant: FMovieSceneTimeWarpVariant;
 
 declare interface FMovieSceneTimeWarping {
     Start: FFrameNumber;
     End: FFrameNumber;
 }
-declare const FMovieSceneTimeWarping: FMovieSceneTimeWarping;
 
 declare interface FMovieSceneTimecodeSource {
     Timecode: FTimecode;
 }
-declare const FMovieSceneTimecodeSource: FMovieSceneTimecodeSource;
 
 declare interface FMovieSceneTrackDisplayOptions {
     bShowVerticalFrames: boolean;
 }
-declare const FMovieSceneTrackDisplayOptions: FMovieSceneTrackDisplayOptions;
 
 declare interface FMovieSceneTrackEvalOptions {
     bCanEvaluateNearestSection: boolean;
@@ -882,829 +730,1227 @@ declare interface FMovieSceneTrackEvalOptions {
     bEvaluateInPostroll: boolean;
     bEvaluateNearestSection: boolean;
 }
-declare const FMovieSceneTrackEvalOptions: FMovieSceneTrackEvalOptions;
 
 declare interface FMovieSceneTrackEvaluationField {
-    Entries: TArray<FMovieSceneTrackEvaluationFieldEntry>;
+    Entries: FMovieSceneTrackEvaluationFieldEntry[];
 }
-declare const FMovieSceneTrackEvaluationField: FMovieSceneTrackEvaluationField;
 
 declare interface FMovieSceneTrackEvaluationFieldEntry {
     Section: UMovieSceneSection;
     Range: FFrameNumberRange;
     ForcedTime: FFrameNumber;
     Flags: ESectionEvaluationFlags;
-    LegacySortOrder: int16;
+    LegacySortOrder: number;
 }
-declare const FMovieSceneTrackEvaluationFieldEntry: FMovieSceneTrackEvaluationFieldEntry;
 
 declare interface FMovieSceneTrackIdentifier {
-    Value: uint32;
+    Value: number;
 }
-declare const FMovieSceneTrackIdentifier: FMovieSceneTrackIdentifier;
 
 declare interface FMovieSceneTrackImplementation extends FMovieSceneEvalTemplateBase {
 
 }
-declare const FMovieSceneTrackImplementation: FMovieSceneTrackImplementation;
 
-declare interface FMovieSceneTrackImplementationPtr {
-
-}
-declare const FMovieSceneTrackImplementationPtr: FMovieSceneTrackImplementationPtr;
+declare type FMovieSceneTrackImplementationPtr = object;
 
 declare interface FMovieSceneTrackInstanceComponent {
     Owner: UMovieSceneSection;
     TrackInstanceClass: TSubclassOf<UMovieSceneTrackInstance>;
 }
-declare const FMovieSceneTrackInstanceComponent: FMovieSceneTrackInstanceComponent;
 
 declare interface FMovieSceneTrackInstanceEntry {
     BoundObject: UObject;
     TrackInstance: UMovieSceneTrackInstance;
 }
-declare const FMovieSceneTrackInstanceEntry: FMovieSceneTrackInstanceEntry;
 
 declare interface FMovieSceneTrackInstanceInput {
     Section: UMovieSceneSection;
 }
-declare const FMovieSceneTrackInstanceInput: FMovieSceneTrackInstanceInput;
 
 declare interface FMovieSceneTrackLabels {
-    Strings: TArray<FString>;
+    Strings: string[];
 }
-declare const FMovieSceneTrackLabels: FMovieSceneTrackLabels;
 
 declare interface FMovieSceneTrackRowMetadata {
     ConditionContainer: FMovieSceneConditionContainer;
 }
-declare const FMovieSceneTrackRowMetadata: FMovieSceneTrackRowMetadata;
 
 declare interface FMovieSceneTransformBreadcrumbs {
-    Breadcrumbs: TArray<FFrameTime>;
+    Breadcrumbs: FFrameTime[];
     Mode: EMovieSceneBreadcrumbMode;
 }
-declare const FMovieSceneTransformBreadcrumbs: FMovieSceneTransformBreadcrumbs;
 
 declare interface FMovieSceneWarpCounter extends FMovieSceneTransformBreadcrumbs {
 
 }
-declare const FMovieSceneWarpCounter: FMovieSceneWarpCounter;
 
 declare interface FNavigationToolSaveState {
     SerializedTree: FNavigationToolSerializedTree;
-    ItemColorMap: Record<FString, FColor>;
-    ToolViewSaveStates: TArray<FNavigationToolViewSaveState>;
-    ContextPath: FString;
+    ItemColorMap: TMap<string, FColor>;
+    ToolViewSaveStates: FNavigationToolViewSaveState[];
+    ContextPath: string;
 }
-declare const FNavigationToolSaveState: FNavigationToolSaveState;
 
 declare interface FNavigationToolSerializedItem {
-    ID: FString;
+    ID: string;
 }
-declare const FNavigationToolSerializedItem: FNavigationToolSerializedItem;
 
 declare interface FNavigationToolSerializedTree {
     RootNode: FNavigationToolSerializedTreeNode;
-    SceneItems: TArray<FNavigationToolSerializedItem>;
-    ItemTreeMap: Record<string | number | symbol, FNavigationToolSerializedTreeNode>;
+    SceneItems: FNavigationToolSerializedItem[];
+    ItemTreeMap: TMap<FNavigationToolSerializedItem, FNavigationToolSerializedTreeNode>;
 }
-declare const FNavigationToolSerializedTree: FNavigationToolSerializedTree;
 
 declare interface FNavigationToolSerializedTreeNode {
     LocalIndex: number;
     GlobalIndex: number;
     ParentIndex: number;
-    ChildrenIndices: TArray<number>;
+    ChildrenIndices: number[];
 }
-declare const FNavigationToolSerializedTreeNode: FNavigationToolSerializedTreeNode;
 
 declare interface FNavigationToolViewColumnSaveState {
     bVisible: boolean;
     Size: number;
 }
-declare const FNavigationToolViewColumnSaveState: FNavigationToolViewColumnSaveState;
 
 declare interface FNavigationToolViewSaveState {
-    ViewItemFlags: Record<FString, ENavigationToolItemFlags>;
-    ColumnsState: Record<FName, FNavigationToolViewColumnSaveState>;
-    ActiveItemFilters: TSet<FName>;
+    ViewItemFlags: TMap<string, ENavigationToolItemFlags>;
+    ColumnsState: TMap<string, FNavigationToolViewColumnSaveState>;
+    ActiveItemFilters: string[];
 }
-declare const FNavigationToolViewSaveState: FNavigationToolViewSaveState;
 
 declare interface FOptionalMovieSceneBlendType {
     BlendType: EMovieSceneBlendType;
     bIsValid: boolean;
 }
-declare const FOptionalMovieSceneBlendType: FOptionalMovieSceneBlendType;
 
 declare interface FSectionEvaluationData {
     ImplIndex: number;
     ForcedTime: FFrameNumber;
     Flags: ESectionEvaluationFlags;
 }
-declare const FSectionEvaluationData: FSectionEvaluationData;
 
 declare interface FTestMovieSceneEvalTemplate extends FMovieSceneEvalTemplate {
 
 }
-declare const FTestMovieSceneEvalTemplate: FTestMovieSceneEvalTemplate;
 
 declare interface FTestMovieSceneStruct {
     First: number;
     Second: number;
     Vector: FVector;
 }
-declare const FTestMovieSceneStruct: FTestMovieSceneStruct;
 
 declare interface FTrackInstanceInputComponent {
     Section: UMovieSceneSection;
     OutputIndex: number;
 }
-declare const FTrackInstanceInputComponent: FTrackInstanceInputComponent;
 
 declare interface IMovieSceneBindingEventReceiverInterface extends IInterface {
-    OnObjectUnboundBySequencer(Player: UMovieSceneSequencePlayer, BindingID: FMovieSceneObjectBindingID): void;
-    OnObjectBoundBySequencer(Player: UMovieSceneSequencePlayer, BindingID: FMovieSceneObjectBindingID): void;
+    readonly __static_IMovieSceneBindingEventReceiverInterface: {
+        OnObjectUnboundBySequencer(Player: UMovieSceneSequencePlayer, BindingID: FMovieSceneObjectBindingID): void;
+        OnObjectBoundBySequencer(Player: UMovieSceneSequencePlayer, BindingID: FMovieSceneObjectBindingID): void;
+    };
+    readonly __staticRegistry: 
+        IMovieSceneBindingEventReceiverInterface['__static_IMovieSceneBindingEventReceiverInterface'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneBindingEventReceiverInterface: IMovieSceneBindingEventReceiverInterface;
 
 declare interface IMovieSceneBindingOwnerInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneBindingOwnerInterface: IMovieSceneBindingOwnerInterface;
 
 declare interface IMovieSceneBlenderSystemSupport extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneBlenderSystemSupport: IMovieSceneBlenderSystemSupport;
 
 declare interface IMovieSceneBoundObjectProxy extends IInterface {
-    BP_GetBoundObjectForSequencer(ResolvedObject: UObject): UObject;
+    readonly __static_IMovieSceneBoundObjectProxy: {
+        BP_GetBoundObjectForSequencer(ResolvedObject: UObject): UObject;
+    };
+    readonly __staticRegistry: 
+        IMovieSceneBoundObjectProxy['__static_IMovieSceneBoundObjectProxy'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneBoundObjectProxy: IMovieSceneBoundObjectProxy;
 
 declare interface IMovieSceneCachedTrack extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneCachedTrack: IMovieSceneCachedTrack;
 
 declare interface IMovieSceneChannelDecoration extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneChannelDecoration: IMovieSceneChannelDecoration;
 
 declare interface IMovieSceneChannelOverrideProvider extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneChannelOverrideProvider: IMovieSceneChannelOverrideProvider;
 
 declare interface IMovieSceneChannelOwner extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneChannelOwner: IMovieSceneChannelOwner;
 
 declare interface IMovieSceneCustomClockSource extends IInterface {
-    OnTick(DeltaSeconds: number, InPlayRate: number): void;
-    OnStopPlaying(InStopTime: FQualifiedFrameTime): void;
-    OnStartPlaying(InStartTime: FQualifiedFrameTime): void;
-    OnRequestCurrentTime(InCurrentTime: FQualifiedFrameTime, InPlayRate: number): FFrameTime;
+    readonly __static_IMovieSceneCustomClockSource: {
+        OnTick(DeltaSeconds: number, InPlayRate: number): void;
+        OnStopPlaying(InStopTime: FQualifiedFrameTime): void;
+        OnStartPlaying(InStartTime: FQualifiedFrameTime): void;
+        OnRequestCurrentTime(InCurrentTime: FQualifiedFrameTime, InPlayRate: number): FFrameTime;
+    };
+    readonly __staticRegistry: 
+        IMovieSceneCustomClockSource['__static_IMovieSceneCustomClockSource'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneCustomClockSource: IMovieSceneCustomClockSource;
 
 declare interface IMovieSceneDecoration extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneDecoration: IMovieSceneDecoration;
 
 declare interface IMovieSceneDeterminismSource extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneDeterminismSource: IMovieSceneDeterminismSource;
 
 declare interface IMovieSceneEasingFunction extends IInterface {
-    OnEvaluate(Interp: number): number;
+    readonly __static_IMovieSceneEasingFunction: {
+        OnEvaluate(Interp: number): number;
+    };
+    readonly __staticRegistry: 
+        IMovieSceneEasingFunction['__static_IMovieSceneEasingFunction'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneEasingFunction: IMovieSceneEasingFunction;
 
 declare interface IMovieSceneEntityDecorator extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneEntityDecorator: IMovieSceneEntityDecorator;
 
 declare interface IMovieSceneEntityProvider extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneEntityProvider: IMovieSceneEntityProvider;
 
 declare interface IMovieSceneEvaluationHook extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneEvaluationHook: IMovieSceneEvaluationHook;
 
 declare interface IMovieSceneKeyProxy extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneKeyProxy: IMovieSceneKeyProxy;
 
 declare interface IMovieSceneLifetimeDecoration extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneLifetimeDecoration: IMovieSceneLifetimeDecoration;
 
 declare interface IMovieSceneMetaDataInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneMetaDataInterface: IMovieSceneMetaDataInterface;
 
 declare interface IMovieScenePlaybackClient extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieScenePlaybackClient: IMovieScenePlaybackClient;
 
 declare interface IMovieScenePreAnimatedStateSystemInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieScenePreAnimatedStateSystemInterface: IMovieScenePreAnimatedStateSystemInterface;
 
 declare interface IMovieSceneScalingDriver extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneScalingDriver: IMovieSceneScalingDriver;
 
 declare interface IMovieSceneSectionDecoration extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneSectionDecoration: IMovieSceneSectionDecoration;
 
 declare interface IMovieSceneSequencePlayerObserver extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneSequencePlayerObserver: IMovieSceneSequencePlayerObserver;
 
 declare interface IMovieSceneSequenceTickManagerClient extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneSequenceTickManagerClient: IMovieSceneSequenceTickManagerClient;
 
 declare interface IMovieSceneTimeWarpSource extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneTimeWarpSource: IMovieSceneTimeWarpSource;
 
 declare interface IMovieSceneTrackDecoration extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneTrackDecoration: IMovieSceneTrackDecoration;
 
 declare interface IMovieSceneTrackTemplateProducer extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneTrackTemplateProducer: IMovieSceneTrackTemplateProducer;
 
 declare interface IMovieSceneValueDecomposer extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneValueDecomposer: IMovieSceneValueDecomposer;
 
 declare interface INodeAndChannelMappings extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const INodeAndChannelMappings: INodeAndChannelMappings;
 
 declare interface UBuiltInDynamicBindingResolverLibrary extends UBlueprintFunctionLibrary {
-    ResolveToPlayerPawn(WorldContextObject: UObject, PlayerControllerIndex: number): FMovieSceneDynamicBindingResolveResult;
+    readonly __static_UBuiltInDynamicBindingResolverLibrary: {
+        ResolveToPlayerPawn(WorldContextObject: UObject, PlayerControllerIndex: number): FMovieSceneDynamicBindingResolveResult;
+    };
+    readonly __staticRegistry: 
+        UBuiltInDynamicBindingResolverLibrary['__static_UBuiltInDynamicBindingResolverLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UBuiltInDynamicBindingResolverLibrary: UBuiltInDynamicBindingResolverLibrary;
 
 declare interface UMovieScene extends UMovieSceneDecorationContainerObject {
-    Spawnables: TArray<FMovieSceneSpawnable>;
-    Possessables: TArray<FMovieScenePossessable>;
-    ObjectBindings: TArray<FMovieSceneBinding>;
-    BindingGroups: Record<FName, FMovieSceneObjectBindingIDs>;
-    Tracks: TArray<UMovieSceneTrack>;
-    CameraCutTrack: UMovieSceneTrack;
-    CustomClock: UMovieSceneClock;
-    SelectionRange: FMovieSceneFrameRange;
-    PlaybackRange: FMovieSceneFrameRange;
-    TickResolution: FFrameRate;
-    DisplayRate: FFrameRate;
-    EvaluationType: EMovieSceneEvaluationType;
-    ClockSource: EUpdateClockSource;
-    MarkedFrames: TArray<FMovieSceneMarkedFrame>;
-    GeneratedConditions: TArray<UMovieSceneGroupCondition>;
+    readonly __properties_UMovieScene: {
+        Spawnables: FMovieSceneSpawnable[];
+        Possessables: FMovieScenePossessable[];
+        ObjectBindings: FMovieSceneBinding[];
+        BindingGroups: TMap<string, FMovieSceneObjectBindingIDs>;
+        Tracks: UMovieSceneTrack[];
+        CameraCutTrack: UMovieSceneTrack;
+        CustomClock: UMovieSceneClock;
+        SelectionRange: FMovieSceneFrameRange;
+        PlaybackRange: FMovieSceneFrameRange;
+        TickResolution: FFrameRate;
+        DisplayRate: FFrameRate;
+        EvaluationType: EMovieSceneEvaluationType;
+        ClockSource: EUpdateClockSource;
+        MarkedFrames: FMovieSceneMarkedFrame[];
+        GeneratedConditions: UMovieSceneGroupCondition[];
+    };
+    readonly __staticRegistry: 
+        UMovieSceneDecorationContainerObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieScene['__properties_UMovieScene'] &
+        UMovieSceneDecorationContainerObject['__propertyRegistry'];
 }
-declare const UMovieScene: UMovieScene;
 
 declare interface UMovieSceneBindingLifetimeSection extends UMovieSceneSection {
-
+    readonly __staticRegistry: 
+        UMovieSceneSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSection['__propertyRegistry'];
 }
-declare const UMovieSceneBindingLifetimeSection: UMovieSceneBindingLifetimeSection;
 
 declare interface UMovieSceneBindingLifetimeSystem extends UMovieSceneEntitySystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntitySystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntitySystem['__propertyRegistry'];
 }
-declare const UMovieSceneBindingLifetimeSystem: UMovieSceneBindingLifetimeSystem;
 
 declare interface UMovieSceneBindingLifetimeTrack extends UMovieSceneTrack {
-    Sections: TArray<UMovieSceneSection>;
+    readonly __properties_UMovieSceneBindingLifetimeTrack: {
+        Sections: UMovieSceneSection[];
+    };
+    readonly __staticRegistry: 
+        UMovieSceneTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneBindingLifetimeTrack['__properties_UMovieSceneBindingLifetimeTrack'] &
+        UMovieSceneTrack['__propertyRegistry'];
 }
-declare const UMovieSceneBindingLifetimeTrack: UMovieSceneBindingLifetimeTrack;
 
 declare interface UMovieSceneBindingOverrides extends UObject {
-    BindingData: TArray<FMovieSceneBindingOverrideData>;
+    readonly __properties_UMovieSceneBindingOverrides: {
+        BindingData: FMovieSceneBindingOverrideData[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneBindingOverrides['__properties_UMovieSceneBindingOverrides'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneBindingOverrides: UMovieSceneBindingOverrides;
 
 declare interface UMovieSceneBlenderSystem extends UMovieSceneEntitySystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntitySystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntitySystem['__propertyRegistry'];
 }
-declare const UMovieSceneBlenderSystem: UMovieSceneBlenderSystem;
 
 declare interface UMovieSceneBoolSection extends UMovieSceneSection {
-    DefaultValue: boolean;
-    BoolCurve: FMovieSceneBoolChannel;
+    readonly __properties_UMovieSceneBoolSection: {
+        DefaultValue: boolean;
+        BoolCurve: FMovieSceneBoolChannel;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneBoolSection['__properties_UMovieSceneBoolSection'] &
+        UMovieSceneSection['__propertyRegistry'];
 }
-declare const UMovieSceneBoolSection: UMovieSceneBoolSection;
 
 declare interface UMovieSceneBoundSceneComponentInstantiator extends UMovieSceneEntityInstantiatorSystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__propertyRegistry'];
 }
-declare const UMovieSceneBoundSceneComponentInstantiator: UMovieSceneBoundSceneComponentInstantiator;
 
 declare interface UMovieSceneBuiltInEasingFunction extends UObject {
-    Type: EMovieSceneBuiltInEasing;
+    readonly __properties_UMovieSceneBuiltInEasingFunction: {
+        Type: EMovieSceneBuiltInEasing;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneBuiltInEasingFunction['__properties_UMovieSceneBuiltInEasingFunction'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneBuiltInEasingFunction: UMovieSceneBuiltInEasingFunction;
 
 declare interface UMovieSceneCachePreAnimatedStateSystem extends UMovieSceneEntityInstantiatorSystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__propertyRegistry'];
 }
-declare const UMovieSceneCachePreAnimatedStateSystem: UMovieSceneCachePreAnimatedStateSystem;
 
 declare interface UMovieSceneChannelOverrideContainer extends UMovieSceneSignedObject {
-
+    readonly __staticRegistry: 
+        UMovieSceneSignedObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSignedObject['__propertyRegistry'];
 }
-declare const UMovieSceneChannelOverrideContainer: UMovieSceneChannelOverrideContainer;
 
 declare interface UMovieSceneClock extends UMovieSceneSignedObject {
-
+    readonly __staticRegistry: 
+        UMovieSceneSignedObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSignedObject['__propertyRegistry'];
 }
-declare const UMovieSceneClock: UMovieSceneClock;
 
 declare interface UMovieSceneCompiledData extends UObject {
-    EvaluationTemplate: FMovieSceneEvaluationTemplate;
-    Hierarchy: FMovieSceneSequenceHierarchy;
-    EntityComponentField: FMovieSceneEntityComponentField;
-    TrackTemplateField: FMovieSceneEvaluationField;
-    DeterminismFences: TArray<FMovieSceneDeterminismFence>;
-    CompiledSignature: FGuid;
-    CompilerVersion: FGuid;
-    AccumulatedMask: EMovieSceneSequenceCompilerMask;
-    AllocatedMask: EMovieSceneSequenceCompilerMask;
-    AccumulatedFlags: EMovieSceneSequenceFlags;
+    readonly __properties_UMovieSceneCompiledData: {
+        EvaluationTemplate: FMovieSceneEvaluationTemplate;
+        Hierarchy: FMovieSceneSequenceHierarchy;
+        EntityComponentField: FMovieSceneEntityComponentField;
+        TrackTemplateField: FMovieSceneEvaluationField;
+        DeterminismFences: FMovieSceneDeterminismFence[];
+        CompiledSignature: FGuid;
+        CompilerVersion: FGuid;
+        AccumulatedMask: EMovieSceneSequenceCompilerMask;
+        AllocatedMask: EMovieSceneSequenceCompilerMask;
+        AccumulatedFlags: EMovieSceneSequenceFlags;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneCompiledData['__properties_UMovieSceneCompiledData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneCompiledData: UMovieSceneCompiledData;
 
 declare interface UMovieSceneCompiledDataManager extends UObject {
-    Hierarchies: Record<number, FMovieSceneSequenceHierarchy>;
-    TrackTemplates: Record<number, FMovieSceneEvaluationTemplate>;
-    TrackTemplateFields: Record<number, FMovieSceneEvaluationField>;
-    EntityComponentFields: Record<number, FMovieSceneEntityComponentField>;
+    readonly __properties_UMovieSceneCompiledDataManager: {
+        Hierarchies: TMap<number, FMovieSceneSequenceHierarchy>;
+        TrackTemplates: TMap<number, FMovieSceneEvaluationTemplate>;
+        TrackTemplateFields: TMap<number, FMovieSceneEvaluationField>;
+        EntityComponentFields: TMap<number, FMovieSceneEntityComponentField>;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneCompiledDataManager['__properties_UMovieSceneCompiledDataManager'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneCompiledDataManager: UMovieSceneCompiledDataManager;
 
 declare interface UMovieSceneCondition extends UMovieSceneSignedObject {
-    bInvert: boolean;
-    BP_GetScope(): EMovieSceneConditionScope;
-    BP_GetCheckFrequency(): EMovieSceneConditionCheckFrequency;
-    BP_EvaluateCondition(ConditionContext: FMovieSceneConditionContext): boolean;
+    readonly __static_UMovieSceneCondition: {
+        BP_GetScope(): EMovieSceneConditionScope;
+        BP_GetCheckFrequency(): EMovieSceneConditionCheckFrequency;
+        BP_EvaluateCondition(ConditionContext: FMovieSceneConditionContext): boolean;
+    };
+    readonly __properties_UMovieSceneCondition: {
+        bInvert: boolean;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneCondition['__static_UMovieSceneCondition'] &
+        UMovieSceneSignedObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneCondition['__properties_UMovieSceneCondition'] &
+        UMovieSceneSignedObject['__propertyRegistry'];
 }
-declare const UMovieSceneCondition: UMovieSceneCondition;
 
 declare interface UMovieSceneCustomBinding extends UObject {
-    GetBaseEnginePriority(): number;
-    GetBaseCustomPriority(): number;
+    readonly __static_UMovieSceneCustomBinding: {
+        GetBaseEnginePriority(): number;
+        GetBaseCustomPriority(): number;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneCustomBinding['__static_UMovieSceneCustomBinding'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneCustomBinding: UMovieSceneCustomBinding;
 
 declare interface UMovieSceneDecorationContainerObject extends UMovieSceneSignedObject {
-    Decorations: FMovieSceneDecorationContainer;
+    readonly __properties_UMovieSceneDecorationContainerObject: {
+        Decorations: FMovieSceneDecorationContainer;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSignedObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneDecorationContainerObject['__properties_UMovieSceneDecorationContainerObject'] &
+        UMovieSceneSignedObject['__propertyRegistry'];
 }
-declare const UMovieSceneDecorationContainerObject: UMovieSceneDecorationContainerObject;
 
 declare interface UMovieSceneEasingExternalCurve extends UObject {
-    Curve: UCurveFloat;
+    readonly __properties_UMovieSceneEasingExternalCurve: {
+        Curve: UCurveFloat;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEasingExternalCurve['__properties_UMovieSceneEasingExternalCurve'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneEasingExternalCurve: UMovieSceneEasingExternalCurve;
 
 declare interface UMovieSceneEntityGroupingSystem extends UMovieSceneEntitySystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntitySystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntitySystem['__propertyRegistry'];
 }
-declare const UMovieSceneEntityGroupingSystem: UMovieSceneEntityGroupingSystem;
 
 declare interface UMovieSceneEntityInstantiatorSystem extends UMovieSceneEntitySystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntitySystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntitySystem['__propertyRegistry'];
 }
-declare const UMovieSceneEntityInstantiatorSystem: UMovieSceneEntityInstantiatorSystem;
 
 declare interface UMovieSceneEntitySystem extends UObject {
-    Linker: UMovieSceneEntitySystemLinker;
+    readonly __properties_UMovieSceneEntitySystem: {
+        Linker: UMovieSceneEntitySystemLinker;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntitySystem['__properties_UMovieSceneEntitySystem'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneEntitySystem: UMovieSceneEntitySystem;
 
 declare interface UMovieSceneEntitySystemLinker extends UObject {
-    SystemGraph: FMovieSceneEntitySystemGraph;
+    readonly __properties_UMovieSceneEntitySystemLinker: {
+        SystemGraph: FMovieSceneEntitySystemGraph;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntitySystemLinker['__properties_UMovieSceneEntitySystemLinker'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneEntitySystemLinker: UMovieSceneEntitySystemLinker;
 
 declare interface UMovieSceneEvalTimeSystem extends UMovieSceneEntitySystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntitySystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntitySystem['__propertyRegistry'];
 }
-declare const UMovieSceneEvalTimeSystem: UMovieSceneEvalTimeSystem;
 
 declare interface UMovieSceneEvaluationHookSystem extends UMovieSceneEntitySystem {
-    PendingEventsByRootInstance: Record<string | number | symbol, FMovieSceneEvaluationHookEventContainer>;
+    readonly __properties_UMovieSceneEvaluationHookSystem: {
+        PendingEventsByRootInstance: TMap<FMovieSceneEvaluationInstanceKey, FMovieSceneEvaluationHookEventContainer>;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneEntitySystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEvaluationHookSystem['__properties_UMovieSceneEvaluationHookSystem'] &
+        UMovieSceneEntitySystem['__propertyRegistry'];
 }
-declare const UMovieSceneEvaluationHookSystem: UMovieSceneEvaluationHookSystem;
 
 declare interface UMovieSceneExternalClock extends UMovieSceneClock {
-    CustomClockSourcePath: FSoftObjectPath;
+    readonly __properties_UMovieSceneExternalClock: {
+        CustomClockSourcePath: FSoftObjectPath;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneClock['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneExternalClock['__properties_UMovieSceneExternalClock'] &
+        UMovieSceneClock['__propertyRegistry'];
 }
-declare const UMovieSceneExternalClock: UMovieSceneExternalClock;
 
 declare interface UMovieSceneFolder extends UObject {
-    FolderName: FName;
-    ChildFolders: TArray<UMovieSceneFolder>;
-    ChildTracks: TArray<UMovieSceneTrack>;
-    ChildObjectBindingStrings: TArray<FString>;
+    readonly __properties_UMovieSceneFolder: {
+        FolderName: string;
+        ChildFolders: UMovieSceneFolder[];
+        ChildTracks: UMovieSceneTrack[];
+        ChildObjectBindingStrings: string[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneFolder['__properties_UMovieSceneFolder'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneFolder: UMovieSceneFolder;
 
 declare interface UMovieSceneGenericBoundObjectInstantiator extends UMovieSceneEntityInstantiatorSystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__propertyRegistry'];
 }
-declare const UMovieSceneGenericBoundObjectInstantiator: UMovieSceneGenericBoundObjectInstantiator;
 
 declare interface UMovieSceneGroupCondition extends UMovieSceneCondition {
-    Operator: EMovieSceneGroupConditionOperator;
-    SubConditions: TArray<FMovieSceneConditionContainer>;
+    readonly __properties_UMovieSceneGroupCondition: {
+        Operator: EMovieSceneGroupConditionOperator;
+        SubConditions: FMovieSceneConditionContainer[];
+    };
+    readonly __staticRegistry: 
+        UMovieSceneCondition['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneGroupCondition['__properties_UMovieSceneGroupCondition'] &
+        UMovieSceneCondition['__propertyRegistry'];
 }
-declare const UMovieSceneGroupCondition: UMovieSceneGroupCondition;
 
 declare interface UMovieSceneHookSection extends UMovieSceneSection {
-    bRequiresRangedHook: boolean;
-    bRequiresTriggerHooks: boolean;
+    readonly __properties_UMovieSceneHookSection: {
+        bRequiresRangedHook: boolean;
+        bRequiresTriggerHooks: boolean;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneHookSection['__properties_UMovieSceneHookSection'] &
+        UMovieSceneSection['__propertyRegistry'];
 }
-declare const UMovieSceneHookSection: UMovieSceneHookSection;
 
 declare interface UMovieSceneInitialValueSystem extends UMovieSceneEntityInstantiatorSystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__propertyRegistry'];
 }
-declare const UMovieSceneInitialValueSystem: UMovieSceneInitialValueSystem;
 
 declare interface UMovieSceneLanguagePreviewDecoration extends UObject {
-    PreviewLanguage: FString;
+    readonly __properties_UMovieSceneLanguagePreviewDecoration: {
+        PreviewLanguage: string;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneLanguagePreviewDecoration['__properties_UMovieSceneLanguagePreviewDecoration'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneLanguagePreviewDecoration: UMovieSceneLanguagePreviewDecoration;
 
 declare interface UMovieSceneMetaData extends UObject {
-    Author: FString;
-    Created: FDateTime;
-    Notes: FString;
-    SetNotes(InNotes: string | FString): void;
-    SetCreated(InCreated: FDateTime): void;
-    SetAuthor(InAuthor: string | FString): void;
-    GetNotes(): FString;
-    GetCreated(): FDateTime;
-    GetAuthor(): FString;
+    readonly __static_UMovieSceneMetaData: {
+        SetNotes(InNotes: string): void;
+        SetCreated(InCreated: FDateTime): void;
+        SetAuthor(InAuthor: string): void;
+        GetNotes(): string;
+        GetCreated(): FDateTime;
+        GetAuthor(): string;
+    };
+    readonly __properties_UMovieSceneMetaData: {
+        Author: string;
+        Created: FDateTime;
+        Notes: string;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneMetaData['__static_UMovieSceneMetaData'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneMetaData['__properties_UMovieSceneMetaData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneMetaData: UMovieSceneMetaData;
 
 declare interface UMovieSceneNameableTrack extends UMovieSceneTrack {
-
+    readonly __staticRegistry: 
+        UMovieSceneTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneTrack['__propertyRegistry'];
 }
-declare const UMovieSceneNameableTrack: UMovieSceneNameableTrack;
 
 declare interface UMovieSceneNodeGroup extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneNodeGroup: UMovieSceneNodeGroup;
 
 declare interface UMovieSceneNodeGroupCollection extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneNodeGroupCollection: UMovieSceneNodeGroupCollection;
 
 declare interface UMovieSceneNumericVariantGetter extends UMovieSceneSignedObject {
-    ReferenceToSelf: UMovieSceneNumericVariantGetter;
+    readonly __properties_UMovieSceneNumericVariantGetter: {
+        ReferenceToSelf: UMovieSceneNumericVariantGetter;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSignedObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneNumericVariantGetter['__properties_UMovieSceneNumericVariantGetter'] &
+        UMovieSceneSignedObject['__propertyRegistry'];
 }
-declare const UMovieSceneNumericVariantGetter: UMovieSceneNumericVariantGetter;
 
 declare interface UMovieScenePlayRateCurve extends UMovieSceneTimeWarpGetter {
-    PlayRate: FMovieSceneTimeWarpChannel;
-    PlaybackStartFrame: FFrameNumber;
-    bManualPlaybackStart: boolean;
+    readonly __properties_UMovieScenePlayRateCurve: {
+        PlayRate: FMovieSceneTimeWarpChannel;
+        PlaybackStartFrame: FFrameNumber;
+        bManualPlaybackStart: boolean;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneTimeWarpGetter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieScenePlayRateCurve['__properties_UMovieScenePlayRateCurve'] &
+        UMovieSceneTimeWarpGetter['__propertyRegistry'];
 }
-declare const UMovieScenePlayRateCurve: UMovieScenePlayRateCurve;
 
 declare interface UMovieSceneReplaceableBindingBase extends UMovieSceneCustomBinding {
-
+    readonly __staticRegistry: 
+        UMovieSceneCustomBinding['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneCustomBinding['__propertyRegistry'];
 }
-declare const UMovieSceneReplaceableBindingBase: UMovieSceneReplaceableBindingBase;
 
 declare interface UMovieSceneRestorePreAnimatedStateSystem extends UMovieSceneEntityInstantiatorSystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__propertyRegistry'];
 }
-declare const UMovieSceneRestorePreAnimatedStateSystem: UMovieSceneRestorePreAnimatedStateSystem;
 
 declare interface UMovieSceneRootInstantiatorSystem extends UMovieSceneEntityInstantiatorSystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__propertyRegistry'];
 }
-declare const UMovieSceneRootInstantiatorSystem: UMovieSceneRootInstantiatorSystem;
 
 declare interface UMovieSceneScalingAnchors extends UMovieScenePlayRateCurve {
-    ScalingDrivers: TArray<TScriptInterface<IMovieSceneScalingDriver>>;
-    InitialAnchors: Record<string | number | symbol, FMovieSceneScalingAnchor>;
-    ScalingGroups: Record<string | number | symbol, FMovieSceneAnchorsScalingGroup>;
+    readonly __properties_UMovieSceneScalingAnchors: {
+        ScalingDrivers: TScriptInterface<IMovieSceneScalingDriver>[];
+        InitialAnchors: TMap<FGuid, FMovieSceneScalingAnchor>;
+        ScalingGroups: TMap<FGuid, FMovieSceneAnchorsScalingGroup>;
+    };
+    readonly __staticRegistry: 
+        UMovieScenePlayRateCurve['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneScalingAnchors['__properties_UMovieSceneScalingAnchors'] &
+        UMovieScenePlayRateCurve['__propertyRegistry'];
 }
-declare const UMovieSceneScalingAnchors: UMovieSceneScalingAnchors;
 
 declare interface UMovieSceneSection extends UMovieSceneDecorationContainerObject {
-    EvalOptions: FMovieSceneSectionEvalOptions;
-    Easing: FMovieSceneEasingSettings;
-    SectionRange: FMovieSceneFrameRange;
-    ConditionContainer: FMovieSceneConditionContainer;
-    PreRollFrames: FFrameNumber;
-    PostRollFrames: FFrameNumber;
-    RowIndex: number;
-    OverlapPriority: number;
-    bIsActive: boolean;
-    bIsLocked: boolean;
-    StartTime: number;
-    EndTime: number;
-    PrerollTime: number;
-    PostrollTime: number;
-    bIsInfinite: boolean;
-    bSupportsInfiniteRange: boolean;
-    BlendType: FOptionalMovieSceneBlendType;
-    SetRowIndex(NewRowIndex: number): void;
-    SetPreRollFrames(InPreRollFrames: number): void;
-    SetPostRollFrames(InPostRollFrames: number): void;
-    SetOverlapPriority(NewPriority: number): void;
-    SetIsLocked(bInIsLocked: boolean): void;
-    SetIsActive(bInIsActive: boolean): void;
-    SetCompletionMode(InCompletionMode: EMovieSceneCompletionMode): void;
-    SetColorTint(InColorTint: FColor): void;
-    SetBlendType(InBlendType: EMovieSceneBlendType): void;
-    IsLocked(): boolean;
-    IsActive(): boolean;
-    GetRowIndex(): number;
-    GetPreRollFrames(): number;
-    GetPostRollFrames(): number;
-    GetOverlapPriority(): number;
-    GetCompletionMode(): EMovieSceneCompletionMode;
-    GetColorTint(): FColor;
-    GetBlendType(): FOptionalMovieSceneBlendType;
+    readonly __static_UMovieSceneSection: {
+        SetRowIndex(NewRowIndex: number): void;
+        SetPreRollFrames(InPreRollFrames: number): void;
+        SetPostRollFrames(InPostRollFrames: number): void;
+        SetOverlapPriority(NewPriority: number): void;
+        SetIsLocked(bInIsLocked: boolean): void;
+        SetIsActive(bInIsActive: boolean): void;
+        SetCompletionMode(InCompletionMode: EMovieSceneCompletionMode): void;
+        SetColorTint(InColorTint: FColor): void;
+        SetBlendType(InBlendType: EMovieSceneBlendType): void;
+        IsLocked(): boolean;
+        IsActive(): boolean;
+        GetRowIndex(): number;
+        GetPreRollFrames(): number;
+        GetPostRollFrames(): number;
+        GetOverlapPriority(): number;
+        GetCompletionMode(): EMovieSceneCompletionMode;
+        GetColorTint(): FColor;
+        GetBlendType(): FOptionalMovieSceneBlendType;
+    };
+    readonly __properties_UMovieSceneSection: {
+        EvalOptions: FMovieSceneSectionEvalOptions;
+        Easing: FMovieSceneEasingSettings;
+        SectionRange: FMovieSceneFrameRange;
+        ConditionContainer: FMovieSceneConditionContainer;
+        PreRollFrames: FFrameNumber;
+        PostRollFrames: FFrameNumber;
+        RowIndex: number;
+        OverlapPriority: number;
+        bIsActive: boolean;
+        bIsLocked: boolean;
+        StartTime: number;
+        EndTime: number;
+        PrerollTime: number;
+        PostrollTime: number;
+        bIsInfinite: boolean;
+        bSupportsInfiniteRange: boolean;
+        BlendType: FOptionalMovieSceneBlendType;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSection['__static_UMovieSceneSection'] &
+        UMovieSceneDecorationContainerObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSection['__properties_UMovieSceneSection'] &
+        UMovieSceneDecorationContainerObject['__propertyRegistry'];
 }
-declare const UMovieSceneSection: UMovieSceneSection;
 
 declare interface UMovieSceneSectionAnchorsDecoration extends UObject {
-    StartAnchor: FGuid;
+    readonly __properties_UMovieSceneSectionAnchorsDecoration: {
+        StartAnchor: FGuid;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSectionAnchorsDecoration['__properties_UMovieSceneSectionAnchorsDecoration'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneSectionAnchorsDecoration: UMovieSceneSectionAnchorsDecoration;
 
 declare interface UMovieSceneSectionChannelOverrideRegistry extends UObject {
-    Overrides: Record<FName, UMovieSceneChannelOverrideContainer>;
+    readonly __properties_UMovieSceneSectionChannelOverrideRegistry: {
+        Overrides: TMap<string, UMovieSceneChannelOverrideContainer>;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSectionChannelOverrideRegistry['__properties_UMovieSceneSectionChannelOverrideRegistry'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneSectionChannelOverrideRegistry: UMovieSceneSectionChannelOverrideRegistry;
 
 declare interface UMovieSceneSequence extends UMovieSceneSignedObject {
-    CompiledData: UMovieSceneCompiledData;
-    DefaultCompletionMode: EMovieSceneCompletionMode;
-    bParentContextsAreSignificant: boolean;
-    bPlayableDirectly: boolean;
-    SequenceFlags: EMovieSceneSequenceFlags;
-    GetEarliestTimecodeSource(): FMovieSceneTimecodeSource;
-    FindBindingsByTag(InBindingName: FName): TArray<FMovieSceneObjectBindingID>;
-    FindBindingByTag(InBindingName: FName): FMovieSceneObjectBindingID;
+    readonly __static_UMovieSceneSequence: {
+        GetEarliestTimecodeSource(): FMovieSceneTimecodeSource;
+        FindBindingsByTag(InBindingName: string): FMovieSceneObjectBindingID[];
+        FindBindingByTag(InBindingName: string): FMovieSceneObjectBindingID;
+    };
+    readonly __properties_UMovieSceneSequence: {
+        CompiledData: UMovieSceneCompiledData;
+        DefaultCompletionMode: EMovieSceneCompletionMode;
+        bParentContextsAreSignificant: boolean;
+        bPlayableDirectly: boolean;
+        SequenceFlags: EMovieSceneSequenceFlags;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSequence['__static_UMovieSceneSequence'] &
+        UMovieSceneSignedObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSequence['__properties_UMovieSceneSequence'] &
+        UMovieSceneSignedObject['__propertyRegistry'];
 }
-declare const UMovieSceneSequence: UMovieSceneSequence;
 
 declare interface UMovieSceneSequencePlayer extends UObject {
-    Observer: TScriptInterface<IMovieSceneSequencePlayerObserver>;
-    OnPlay: FMovieSceneSequencePlayerOnPlay;
-    OnPlayReverse: FMovieSceneSequencePlayerOnPlayReverse;
-    OnStop: FMovieSceneSequencePlayerOnStop;
-    OnPause: FMovieSceneSequencePlayerOnPause;
-    OnFinished: FMovieSceneSequencePlayerOnFinished;
-    status: EMovieScenePlayerStatus;
-    bReversePlayback: boolean;
-    Sequence: UMovieSceneSequence;
-    StartTime: FFrameNumber;
-    DurationFrames: number;
-    DurationSubFrames: number;
-    CurrentNumLoops: number;
-    SerialNumber: number;
-    PlaybackSettings: FMovieSceneSequencePlaybackSettings;
-    RootTemplateInstance: FMovieSceneRootEvaluationTemplateInstance;
-    NetSyncProps: FMovieSceneSequenceReplProperties;
-    PlaybackClient: TScriptInterface<IMovieScenePlaybackClient>;
-    TickManager: UMovieSceneSequenceTickManager;
-    StopAtCurrentTime(): void;
-    Stop(): void;
-    SetWeight(InWeight: number): void;
-    SetTimeRange(StartTime: number, duration: number): void;
-    SetPlayRate(PlayRate: number): void;
-    SetPlaybackPosition(PlaybackParams: FMovieSceneSequencePlaybackParams): void;
-    SetHideHud(HideHud: boolean): void;
-    SetFrameRate(FrameRate: FFrameRate): void;
-    SetFrameRange(StartFrame: number, duration: number, SubFrames: number): void;
-    SetDisableCameraCuts(bInDisableCameraCuts: boolean): void;
-    SetCompletionModeOverride(CompletionModeOverride: EMovieSceneCompletionModeOverride): void;
-    Scrub(): void;
-    RPC_OnStopEvent(StoppedTime: FFrameTime, NewSerialNumber: number): void;
-    RPC_OnFinishPlaybackEvent(StoppedTime: FFrameTime, NewSerialNumber: number): void;
-    RPC_ExplicitServerUpdateEvent(Method: EUpdatePositionMethod, RelevantTime: FFrameTime, NewSerialNumber: number): void;
-    RestoreState(): void;
-    RequestInvalidateBinding(ObjectBinding: FMovieSceneObjectBindingID): void;
-    RemoveWeight(): void;
-    PlayTo(PlaybackParams: FMovieSceneSequencePlaybackParams, PlayToParams: FMovieSceneSequencePlayToParams): void;
-    PlayReverse(): void;
-    PlayLooping(NumLoops: number): void;
-    Play(): void;
-    Pause(): void;
-    IsReversed(): boolean;
-    IsPlaying(): boolean;
-    IsPaused(): boolean;
-    GoToEndAndStop(): void;
-    GetStartTime(): FQualifiedFrameTime;
-    GetSequenceName(bAddClientInfo: boolean): FString;
-    GetSequence(): UMovieSceneSequence;
-    GetPlayRate(): number;
-    GetObjectBindings(InObject: UObject): TArray<FMovieSceneObjectBindingID>;
-    GetHideHud(): boolean;
-    GetFrameRate(): FFrameRate;
-    GetFrameDuration(): number;
-    GetEndTime(): FQualifiedFrameTime;
-    GetDuration(): FQualifiedFrameTime;
-    GetDisableCameraCuts(): boolean;
-    GetCurrentTime(): FQualifiedFrameTime;
-    GetCompletionModeOverride(): EMovieSceneCompletionModeOverride;
-    GetBoundObjects(ObjectBinding: FMovieSceneObjectBindingID): TArray<UObject>;
-    ChangePlaybackDirection(): void;
+    readonly __static_UMovieSceneSequencePlayer: {
+        StopAtCurrentTime(): void;
+        Stop(): void;
+        SetWeight(InWeight: number): void;
+        SetTimeRange(StartTime: number, duration: number): void;
+        SetPlayRate(PlayRate: number): void;
+        SetPlaybackPosition(PlaybackParams: FMovieSceneSequencePlaybackParams): void;
+        SetHideHud(HideHud: boolean): void;
+        SetFrameRate(FrameRate: FFrameRate): void;
+        SetFrameRange(StartFrame: number, duration: number, SubFrames: number): void;
+        SetDisableCameraCuts(bInDisableCameraCuts: boolean): void;
+        SetCompletionModeOverride(CompletionModeOverride: EMovieSceneCompletionModeOverride): void;
+        Scrub(): void;
+        RPC_OnStopEvent(StoppedTime: FFrameTime, NewSerialNumber: number): void;
+        RPC_OnFinishPlaybackEvent(StoppedTime: FFrameTime, NewSerialNumber: number): void;
+        RPC_ExplicitServerUpdateEvent(Method: EUpdatePositionMethod, RelevantTime: FFrameTime, NewSerialNumber: number): void;
+        RestoreState(): void;
+        RequestInvalidateBinding(ObjectBinding: FMovieSceneObjectBindingID): void;
+        RemoveWeight(): void;
+        PlayTo(PlaybackParams: FMovieSceneSequencePlaybackParams, PlayToParams: FMovieSceneSequencePlayToParams): void;
+        PlayReverse(): void;
+        PlayLooping(NumLoops: number): void;
+        Play(): void;
+        Pause(): void;
+        IsReversed(): boolean;
+        IsPlaying(): boolean;
+        IsPaused(): boolean;
+        GoToEndAndStop(): void;
+        GetStartTime(): FQualifiedFrameTime;
+        GetSequenceName(bAddClientInfo: boolean): string;
+        GetSequence(): UMovieSceneSequence;
+        GetPlayRate(): number;
+        GetObjectBindings(InObject: UObject): FMovieSceneObjectBindingID[];
+        GetHideHud(): boolean;
+        GetFrameRate(): FFrameRate;
+        GetFrameDuration(): number;
+        GetEndTime(): FQualifiedFrameTime;
+        GetDuration(): FQualifiedFrameTime;
+        GetDisableCameraCuts(): boolean;
+        GetCurrentTime(): FQualifiedFrameTime;
+        GetCompletionModeOverride(): EMovieSceneCompletionModeOverride;
+        GetBoundObjects(ObjectBinding: FMovieSceneObjectBindingID): UObject[];
+        ChangePlaybackDirection(): void;
+    };
+    readonly __properties_UMovieSceneSequencePlayer: {
+        Observer: TScriptInterface<IMovieSceneSequencePlayerObserver>;
+        OnPlay: FMovieSceneSequencePlayerOnPlay;
+        OnPlayReverse: FMovieSceneSequencePlayerOnPlayReverse;
+        OnStop: FMovieSceneSequencePlayerOnStop;
+        OnPause: FMovieSceneSequencePlayerOnPause;
+        OnFinished: FMovieSceneSequencePlayerOnFinished;
+        status: EMovieScenePlayerStatus;
+        bReversePlayback: boolean;
+        Sequence: UMovieSceneSequence;
+        StartTime: FFrameNumber;
+        DurationFrames: number;
+        DurationSubFrames: number;
+        CurrentNumLoops: number;
+        SerialNumber: number;
+        PlaybackSettings: FMovieSceneSequencePlaybackSettings;
+        RootTemplateInstance: FMovieSceneRootEvaluationTemplateInstance;
+        NetSyncProps: FMovieSceneSequenceReplProperties;
+        PlaybackClient: TScriptInterface<IMovieScenePlaybackClient>;
+        TickManager: UMovieSceneSequenceTickManager;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSequencePlayer['__static_UMovieSceneSequencePlayer'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSequencePlayer['__properties_UMovieSceneSequencePlayer'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneSequencePlayer: UMovieSceneSequencePlayer;
 
 declare interface UMovieSceneSequenceTickManager extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneSequenceTickManager: UMovieSceneSequenceTickManager;
 
 declare interface UMovieSceneShotMetaData extends UObject {
-    bIsNoGood: TOptional<boolean>;
-    bIsFlagged: TOptional<boolean>;
-    bIsRecorded: TOptional<boolean>;
-    bIsSubSequence: TOptional<boolean>;
-    FavoriteRating: TOptional<number>;
+    readonly __properties_UMovieSceneShotMetaData: {
+        bIsNoGood: TOptional<boolean>;
+        bIsFlagged: TOptional<boolean>;
+        bIsRecorded: TOptional<boolean>;
+        bIsSubSequence: TOptional<boolean>;
+        FavoriteRating: TOptional<number>;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneShotMetaData['__properties_UMovieSceneShotMetaData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneShotMetaData: UMovieSceneShotMetaData;
 
 declare interface UMovieSceneSignedObject extends UObject {
-    Signature: FGuid;
+    readonly __properties_UMovieSceneSignedObject: {
+        Signature: FGuid;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSignedObject['__properties_UMovieSceneSignedObject'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneSignedObject: UMovieSceneSignedObject;
 
 declare interface UMovieSceneSpawnSection extends UMovieSceneBoolSection {
-
+    readonly __staticRegistry: 
+        UMovieSceneBoolSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneBoolSection['__propertyRegistry'];
 }
-declare const UMovieSceneSpawnSection: UMovieSceneSpawnSection;
 
 declare interface UMovieSceneSpawnTrack extends UMovieSceneTrack {
-    Sections: TArray<UMovieSceneSection>;
-    ObjectGuid: FGuid;
+    readonly __properties_UMovieSceneSpawnTrack: {
+        Sections: UMovieSceneSection[];
+        ObjectGuid: FGuid;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSpawnTrack['__properties_UMovieSceneSpawnTrack'] &
+        UMovieSceneTrack['__propertyRegistry'];
 }
-declare const UMovieSceneSpawnTrack: UMovieSceneSpawnTrack;
 
 declare interface UMovieSceneSpawnableBindingBase extends UMovieSceneCustomBinding {
-    SpawnOwnership: ESpawnOwnership;
-    bContinuouslyRespawn: boolean;
+    readonly __properties_UMovieSceneSpawnableBindingBase: {
+        SpawnOwnership: ESpawnOwnership;
+        bContinuouslyRespawn: boolean;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneCustomBinding['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSpawnableBindingBase['__properties_UMovieSceneSpawnableBindingBase'] &
+        UMovieSceneCustomBinding['__propertyRegistry'];
 }
-declare const UMovieSceneSpawnableBindingBase: UMovieSceneSpawnableBindingBase;
 
 declare interface UMovieSceneSpawnablesSystem extends UMovieSceneEntitySystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntitySystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntitySystem['__propertyRegistry'];
 }
-declare const UMovieSceneSpawnablesSystem: UMovieSceneSpawnablesSystem;
 
 declare interface UMovieSceneSubSection extends UMovieSceneSection {
-    Parameters: FMovieSceneSectionParameters;
-    StartOffset: number;
-    timescale: number;
-    PrerollTime: number;
-    NetworkMask: uint8;
-    OriginOverrideMask: FMovieSceneSubSectionOriginOverrideMask;
-    Translation: FMovieSceneDoubleChannel;
-    Rotation: FMovieSceneDoubleChannel;
-    SubSequence: UMovieSceneSequence;
-    SetSequence(Sequence: UMovieSceneSequence): void;
-    GetSequence(): UMovieSceneSequence;
+    readonly __static_UMovieSceneSubSection: {
+        SetSequence(Sequence: UMovieSceneSequence): void;
+        GetSequence(): UMovieSceneSequence;
+    };
+    readonly __properties_UMovieSceneSubSection: {
+        Parameters: FMovieSceneSectionParameters;
+        StartOffset: number;
+        timescale: number;
+        PrerollTime: number;
+        NetworkMask: number;
+        OriginOverrideMask: FMovieSceneSubSectionOriginOverrideMask;
+        Translation: FMovieSceneDoubleChannel;
+        Rotation: FMovieSceneDoubleChannel;
+        SubSequence: UMovieSceneSequence;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSubSection['__static_UMovieSceneSubSection'] &
+        UMovieSceneSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSubSection['__properties_UMovieSceneSubSection'] &
+        UMovieSceneSection['__propertyRegistry'];
 }
-declare const UMovieSceneSubSection: UMovieSceneSubSection;
 
 declare interface UMovieSceneSubTrack extends UMovieSceneNameableTrack {
-    Sections: TArray<UMovieSceneSection>;
+    readonly __properties_UMovieSceneSubTrack: {
+        Sections: UMovieSceneSection[];
+    };
+    readonly __staticRegistry: 
+        UMovieSceneNameableTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSubTrack['__properties_UMovieSceneSubTrack'] &
+        UMovieSceneNameableTrack['__propertyRegistry'];
 }
-declare const UMovieSceneSubTrack: UMovieSceneSubTrack;
 
 declare interface UMovieSceneTimeWarpCurve extends UMovieSceneTimeWarpGetter {
-    Channel: FMovieSceneTimeWarpChannel;
+    readonly __properties_UMovieSceneTimeWarpCurve: {
+        Channel: FMovieSceneTimeWarpChannel;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneTimeWarpGetter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneTimeWarpCurve['__properties_UMovieSceneTimeWarpCurve'] &
+        UMovieSceneTimeWarpGetter['__propertyRegistry'];
 }
-declare const UMovieSceneTimeWarpCurve: UMovieSceneTimeWarpCurve;
 
 declare interface UMovieSceneTimeWarpDecoration extends UObject {
-    Sources: TArray<TScriptInterface<IMovieSceneTimeWarpSource>>;
+    readonly __properties_UMovieSceneTimeWarpDecoration: {
+        Sources: TScriptInterface<IMovieSceneTimeWarpSource>[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneTimeWarpDecoration['__properties_UMovieSceneTimeWarpDecoration'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneTimeWarpDecoration: UMovieSceneTimeWarpDecoration;
 
 declare interface UMovieSceneTimeWarpGetter extends UMovieSceneNumericVariantGetter {
-    bMuted: boolean;
+    readonly __properties_UMovieSceneTimeWarpGetter: {
+        bMuted: boolean;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneNumericVariantGetter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneTimeWarpGetter['__properties_UMovieSceneTimeWarpGetter'] &
+        UMovieSceneNumericVariantGetter['__propertyRegistry'];
 }
-declare const UMovieSceneTimeWarpGetter: UMovieSceneTimeWarpGetter;
 
 declare interface UMovieSceneTimeWarpSection extends UMovieSceneSection {
-    TimeWarp: FMovieSceneTimeWarpVariant;
+    readonly __properties_UMovieSceneTimeWarpSection: {
+        TimeWarp: FMovieSceneTimeWarpVariant;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneTimeWarpSection['__properties_UMovieSceneTimeWarpSection'] &
+        UMovieSceneSection['__propertyRegistry'];
 }
-declare const UMovieSceneTimeWarpSection: UMovieSceneTimeWarpSection;
 
 declare interface UMovieSceneTimeWarpTrack extends UMovieSceneTrack {
-    Sections: TArray<UMovieSceneSection>;
-    bIsActiveTimeWarp: boolean;
+    readonly __properties_UMovieSceneTimeWarpTrack: {
+        Sections: UMovieSceneSection[];
+        bIsActiveTimeWarp: boolean;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneTimeWarpTrack['__properties_UMovieSceneTimeWarpTrack'] &
+        UMovieSceneTrack['__propertyRegistry'];
 }
-declare const UMovieSceneTimeWarpTrack: UMovieSceneTimeWarpTrack;
 
 declare interface UMovieSceneTrack extends UMovieSceneDecorationContainerObject {
-    EvalOptions: FMovieSceneTrackEvalOptions;
-    ConditionContainer: FMovieSceneConditionContainer;
-    bIsEvalDisabled: boolean;
-    RowsDisabled: TArray<number>;
-    EvaluationFieldGuid: FGuid;
-    EvaluationField: FMovieSceneTrackEvaluationField;
-    TrackRowMetadata: Record<number, FMovieSceneTrackRowMetadata>;
+    readonly __properties_UMovieSceneTrack: {
+        EvalOptions: FMovieSceneTrackEvalOptions;
+        ConditionContainer: FMovieSceneConditionContainer;
+        bIsEvalDisabled: boolean;
+        RowsDisabled: number[];
+        EvaluationFieldGuid: FGuid;
+        EvaluationField: FMovieSceneTrackEvaluationField;
+        TrackRowMetadata: TMap<number, FMovieSceneTrackRowMetadata>;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneDecorationContainerObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneTrack['__properties_UMovieSceneTrack'] &
+        UMovieSceneDecorationContainerObject['__propertyRegistry'];
 }
-declare const UMovieSceneTrack: UMovieSceneTrack;
 
 declare interface UMovieSceneTrackInstance extends UObject {
-    WeakAnimatedObject: TWeakObjectPtr<UObject>;
-    bIsRootTrackInstance: boolean;
-    PrivateLinker: UMovieSceneEntitySystemLinker;
-    Inputs: TArray<FMovieSceneTrackInstanceInput>;
+    readonly __properties_UMovieSceneTrackInstance: {
+        WeakAnimatedObject: TWeakObjectPtr<UObject>;
+        bIsRootTrackInstance: boolean;
+        PrivateLinker: UMovieSceneEntitySystemLinker;
+        Inputs: FMovieSceneTrackInstanceInput[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneTrackInstance['__properties_UMovieSceneTrackInstance'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneTrackInstance: UMovieSceneTrackInstance;
 
 declare interface UMovieSceneTrackInstanceInstantiator extends UMovieSceneEntityInstantiatorSystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__propertyRegistry'];
 }
-declare const UMovieSceneTrackInstanceInstantiator: UMovieSceneTrackInstanceInstantiator;
 
 declare interface UMovieSceneTrackInstanceSystem extends UMovieSceneEntitySystem {
-    Instantiator: UMovieSceneTrackInstanceInstantiator;
+    readonly __properties_UMovieSceneTrackInstanceSystem: {
+        Instantiator: UMovieSceneTrackInstanceInstantiator;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneEntitySystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneTrackInstanceSystem['__properties_UMovieSceneTrackInstanceSystem'] &
+        UMovieSceneEntitySystem['__propertyRegistry'];
 }
-declare const UMovieSceneTrackInstanceSystem: UMovieSceneTrackInstanceSystem;
 
 declare interface UTestMovieSceneEvalHookSection extends UMovieSceneHookSection {
-
+    readonly __staticRegistry: 
+        UMovieSceneHookSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneHookSection['__propertyRegistry'];
 }
-declare const UTestMovieSceneEvalHookSection: UTestMovieSceneEvalHookSection;
 
 declare interface UTestMovieSceneEvalHookTrack extends UMovieSceneTrack {
-    SectionArray: TArray<UMovieSceneSection>;
+    readonly __properties_UTestMovieSceneEvalHookTrack: {
+        SectionArray: UMovieSceneSection[];
+    };
+    readonly __staticRegistry: 
+        UMovieSceneTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTestMovieSceneEvalHookTrack['__properties_UTestMovieSceneEvalHookTrack'] &
+        UMovieSceneTrack['__propertyRegistry'];
 }
-declare const UTestMovieSceneEvalHookTrack: UTestMovieSceneEvalHookTrack;
 
 declare interface UTestMovieSceneSection extends UMovieSceneSection {
-
+    readonly __staticRegistry: 
+        UMovieSceneSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSection['__propertyRegistry'];
 }
-declare const UTestMovieSceneSection: UTestMovieSceneSection;
 
 declare interface UTestMovieSceneSequence extends UMovieSceneSequence {
-    MovieScene: UMovieScene;
+    readonly __properties_UTestMovieSceneSequence: {
+        MovieScene: UMovieScene;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSequence['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTestMovieSceneSequence['__properties_UTestMovieSceneSequence'] &
+        UMovieSceneSequence['__propertyRegistry'];
 }
-declare const UTestMovieSceneSequence: UTestMovieSceneSequence;
 
 declare interface UTestMovieSceneSubSection extends UMovieSceneSubSection {
-
+    readonly __staticRegistry: 
+        UMovieSceneSubSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSubSection['__propertyRegistry'];
 }
-declare const UTestMovieSceneSubSection: UTestMovieSceneSubSection;
 
 declare interface UTestMovieSceneSubTrack extends UMovieSceneSubTrack {
-    SectionArray: TArray<UMovieSceneSection>;
+    readonly __properties_UTestMovieSceneSubTrack: {
+        SectionArray: UMovieSceneSection[];
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSubTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTestMovieSceneSubTrack['__properties_UTestMovieSceneSubTrack'] &
+        UMovieSceneSubTrack['__propertyRegistry'];
 }
-declare const UTestMovieSceneSubTrack: UTestMovieSceneSubTrack;
 
 declare interface UTestMovieSceneTrack extends UMovieSceneTrack {
-    bHighPassFilter: boolean;
-    SectionArray: TArray<UMovieSceneSection>;
+    readonly __properties_UTestMovieSceneTrack: {
+        bHighPassFilter: boolean;
+        SectionArray: UMovieSceneSection[];
+    };
+    readonly __staticRegistry: 
+        UMovieSceneTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTestMovieSceneTrack['__properties_UTestMovieSceneTrack'] &
+        UMovieSceneTrack['__propertyRegistry'];
 }
-declare const UTestMovieSceneTrack: UTestMovieSceneTrack;
 

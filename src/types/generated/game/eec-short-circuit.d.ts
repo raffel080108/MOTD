@@ -1,8 +1,17 @@
 declare interface UEEC_ShortCircuit_C extends UElementEventComponent {
-    UberGraphFrame: FPointerToUberGraphFrame;
-    ElementComponent: UElementComponent;
-    ReceiveBeginPlay(): void;
-    ExecuteUbergraph_EEC_ShortCircuit(EntryPoint: number): void;
+    readonly __static_UEEC_ShortCircuit_C: {
+        ReceiveBeginPlay(): void;
+        ExecuteUbergraph_EEC_ShortCircuit(EntryPoint: number): void;
+    };
+    readonly __properties_UEEC_ShortCircuit_C: {
+        UberGraphFrame: FPointerToUberGraphFrame;
+        ElementComponent: UElementComponent;
+    };
+    readonly __staticRegistry: 
+        UEEC_ShortCircuit_C['__static_UEEC_ShortCircuit_C'] &
+        UElementEventComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEEC_ShortCircuit_C['__properties_UEEC_ShortCircuit_C'] &
+        UElementEventComponent['__propertyRegistry'];
 }
-declare const UEEC_ShortCircuit_C: UEEC_ShortCircuit_C;
 

@@ -9,12 +9,8 @@ declare interface FActiveCameraAnimationInfo {
     bIsEasingIn: boolean;
     bIsEasingOut: boolean;
 }
-declare const FActiveCameraAnimationInfo: FActiveCameraAnimationInfo;
 
-declare interface FCameraAnimationHandle {
-
-}
-declare const FCameraAnimationHandle: FCameraAnimationHandle;
+declare type FCameraAnimationHandle = object;
 
 declare interface FCameraAnimationParams {
     PlayRate: number;
@@ -30,7 +26,6 @@ declare interface FCameraAnimationParams {
     PlaySpace: ECameraAnimationPlaySpace;
     UserPlaySpaceRot: FRotator;
 }
-declare const FCameraAnimationParams: FCameraAnimationParams;
 
 declare interface FFOscillator {
     Amplitude: number;
@@ -38,155 +33,222 @@ declare interface FFOscillator {
     InitialOffset: EInitialOscillatorOffset;
     Waveform: EOscillatorWaveform;
 }
-declare const FFOscillator: FFOscillator;
 
 declare interface FPerlinNoiseShaker {
     Amplitude: number;
     Frequency: number;
 }
-declare const FPerlinNoiseShaker: FPerlinNoiseShaker;
 
 declare interface FROscillator {
     pitch: FFOscillator;
     Yaw: FFOscillator;
     Roll: FFOscillator;
 }
-declare const FROscillator: FROscillator;
 
 declare interface FVOscillator {
     X: FFOscillator;
     Y: FFOscillator;
     Z: FFOscillator;
 }
-declare const FVOscillator: FVOscillator;
 
 declare interface FWaveOscillator {
     Amplitude: number;
     Frequency: number;
     InitialOffsetType: EInitialWaveOscillatorOffsetType;
 }
-declare const FWaveOscillator: FWaveOscillator;
 
 declare interface UCameraAnimationCameraModifier extends UCameraModifier {
-    ActiveAnimations: TArray<FActiveCameraAnimationInfo>;
-    NextInstanceSerialNumber: uint16;
-    StopCameraAnimation(Handle: FCameraAnimationHandle, bImmediate: boolean): void;
-    StopAllCameraAnimationsOf(Sequence: UCameraAnimationSequence, bImmediate: boolean): void;
-    StopAllCameraAnimations(bImmediate: boolean): void;
-    PlayCameraAnimation(Sequence: UCameraAnimationSequence, Params: FCameraAnimationParams): FCameraAnimationHandle;
-    IsCameraAnimationActive(Handle: FCameraAnimationHandle): boolean;
-    GetCameraAnimationCameraModifierFromPlayerController(PlayerController: APlayerController): UCameraAnimationCameraModifier;
-    GetCameraAnimationCameraModifierFromID(WorldContextObject: UObject, ControllerId: number): UCameraAnimationCameraModifier;
-    GetCameraAnimationCameraModifier(WorldContextObject: UObject, PlayerIndex: number): UCameraAnimationCameraModifier;
+    readonly __static_UCameraAnimationCameraModifier: {
+        StopCameraAnimation(Handle: FCameraAnimationHandle, bImmediate: boolean): void;
+        StopAllCameraAnimationsOf(Sequence: UCameraAnimationSequence, bImmediate: boolean): void;
+        StopAllCameraAnimations(bImmediate: boolean): void;
+        PlayCameraAnimation(Sequence: UCameraAnimationSequence, Params: FCameraAnimationParams): FCameraAnimationHandle;
+        IsCameraAnimationActive(Handle: FCameraAnimationHandle): boolean;
+        GetCameraAnimationCameraModifierFromPlayerController(PlayerController: APlayerController): UCameraAnimationCameraModifier;
+        GetCameraAnimationCameraModifierFromID(WorldContextObject: UObject, ControllerId: number): UCameraAnimationCameraModifier;
+        GetCameraAnimationCameraModifier(WorldContextObject: UObject, PlayerIndex: number): UCameraAnimationCameraModifier;
+    };
+    readonly __properties_UCameraAnimationCameraModifier: {
+        ActiveAnimations: FActiveCameraAnimationInfo[];
+        NextInstanceSerialNumber: number;
+    };
+    readonly __staticRegistry: 
+        UCameraAnimationCameraModifier['__static_UCameraAnimationCameraModifier'] &
+        UCameraModifier['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraAnimationCameraModifier['__properties_UCameraAnimationCameraModifier'] &
+        UCameraModifier['__propertyRegistry'];
 }
-declare const UCameraAnimationCameraModifier: UCameraAnimationCameraModifier;
 
 declare interface UCompositeCameraShakePattern extends UCameraShakePattern {
-    ChildPatterns: TArray<UCameraShakePattern>;
+    readonly __properties_UCompositeCameraShakePattern: {
+        ChildPatterns: UCameraShakePattern[];
+    };
+    readonly __staticRegistry: 
+        UCameraShakePattern['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCompositeCameraShakePattern['__properties_UCompositeCameraShakePattern'] &
+        UCameraShakePattern['__propertyRegistry'];
 }
-declare const UCompositeCameraShakePattern: UCompositeCameraShakePattern;
 
 declare interface UConstantCameraShakePattern extends USimpleCameraShakePattern {
-    LocationOffset: FVector;
-    RotationOffset: FRotator;
+    readonly __properties_UConstantCameraShakePattern: {
+        LocationOffset: FVector;
+        RotationOffset: FRotator;
+    };
+    readonly __staticRegistry: 
+        USimpleCameraShakePattern['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UConstantCameraShakePattern['__properties_UConstantCameraShakePattern'] &
+        USimpleCameraShakePattern['__propertyRegistry'];
 }
-declare const UConstantCameraShakePattern: UConstantCameraShakePattern;
 
 declare interface UDefaultCameraShakeBase extends UCameraShakeBase {
-
+    readonly __staticRegistry: 
+        UCameraShakeBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraShakeBase['__propertyRegistry'];
 }
-declare const UDefaultCameraShakeBase: UDefaultCameraShakeBase;
 
 declare interface UEngineCameraAnimationFunctionLibrary extends UBlueprintFunctionLibrary {
-    Conv_CameraShakePlaySpace(CameraAnimationPlaySpace: ECameraAnimationPlaySpace): ECameraShakePlaySpace;
-    Conv_CameraAnimationPlaySpace(CameraShakePlaySpace: ECameraShakePlaySpace): ECameraAnimationPlaySpace;
-    Conv_CameraAnimationCameraModifier(PlayerCameraManager: APlayerCameraManager): UCameraAnimationCameraModifier;
+    readonly __static_UEngineCameraAnimationFunctionLibrary: {
+        Conv_CameraShakePlaySpace(CameraAnimationPlaySpace: ECameraAnimationPlaySpace): ECameraShakePlaySpace;
+        Conv_CameraAnimationPlaySpace(CameraShakePlaySpace: ECameraShakePlaySpace): ECameraAnimationPlaySpace;
+        Conv_CameraAnimationCameraModifier(PlayerCameraManager: APlayerCameraManager): UCameraAnimationCameraModifier;
+    };
+    readonly __staticRegistry: 
+        UEngineCameraAnimationFunctionLibrary['__static_UEngineCameraAnimationFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UEngineCameraAnimationFunctionLibrary: UEngineCameraAnimationFunctionLibrary;
 
 declare interface UEngineCamerasSubsystem extends UWorldSubsystem {
-    StopCameraAnimation(PlayerController: APlayerController, Handle: FCameraAnimationHandle, bImmediate: boolean): void;
-    StopAllCameraAnimationsOf(PlayerController: APlayerController, Sequence: UCameraAnimationSequence, bImmediate: boolean): void;
-    StopAllCameraAnimations(PlayerController: APlayerController, bImmediate: boolean): void;
-    PlayCameraAnimation(PlayerController: APlayerController, Sequence: UCameraAnimationSequence, Params: FCameraAnimationParams): FCameraAnimationHandle;
-    IsCameraAnimationActive(PlayerController: APlayerController, Handle: FCameraAnimationHandle): boolean;
+    readonly __static_UEngineCamerasSubsystem: {
+        StopCameraAnimation(PlayerController: APlayerController, Handle: FCameraAnimationHandle, bImmediate: boolean): void;
+        StopAllCameraAnimationsOf(PlayerController: APlayerController, Sequence: UCameraAnimationSequence, bImmediate: boolean): void;
+        StopAllCameraAnimations(PlayerController: APlayerController, bImmediate: boolean): void;
+        PlayCameraAnimation(PlayerController: APlayerController, Sequence: UCameraAnimationSequence, Params: FCameraAnimationParams): FCameraAnimationHandle;
+        IsCameraAnimationActive(PlayerController: APlayerController, Handle: FCameraAnimationHandle): boolean;
+    };
+    readonly __staticRegistry: 
+        UEngineCamerasSubsystem['__static_UEngineCamerasSubsystem'] &
+        UWorldSubsystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UWorldSubsystem['__propertyRegistry'];
 }
-declare const UEngineCamerasSubsystem: UEngineCamerasSubsystem;
 
 declare interface ULegacyCameraShake extends UCameraShakeBase {
-    OscillationDuration: number;
-    OscillationBlendInTime: number;
-    OscillationBlendOutTime: number;
-    RotOscillation: FROscillator;
-    LocOscillation: FVOscillator;
-    FOVOscillation: FFOscillator;
-    AnimPlayRate: number;
-    AnimScale: number;
-    AnimBlendInTime: number;
-    AnimBlendOutTime: number;
-    RandomAnimSegmentDuration: number;
-    AnimSequence: UCameraAnimationSequence;
-    bRandomAnimSegment: boolean;
-    OscillatorTimeRemaining: number;
-    SequenceShakePattern: USequenceCameraShakePattern;
-    StartLegacyCameraShakeFromSource(PlayerCameraManager: APlayerCameraManager, ShakeClass: TSubclassOf<ULegacyCameraShake>, SourceComponent: UCameraShakeSourceComponent, Scale: number, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: FRotator): ULegacyCameraShake;
-    StartLegacyCameraShake(PlayerCameraManager: APlayerCameraManager, ShakeClass: TSubclassOf<ULegacyCameraShake>, Scale: number, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: FRotator): ULegacyCameraShake;
-    ReceiveStopShake(bImmediately: boolean): void;
-    ReceivePlayShake(Scale: number): void;
-    ReceiveIsFinished(): boolean;
-    BlueprintUpdateCameraShake(DeltaTime: number, alpha: number, POV: FMinimalViewInfo, ModifiedPOV: FMinimalViewInfo): void;
+    readonly __static_ULegacyCameraShake: {
+        StartLegacyCameraShakeFromSource(PlayerCameraManager: APlayerCameraManager, ShakeClass: TSubclassOf<ULegacyCameraShake>, SourceComponent: UCameraShakeSourceComponent, Scale: number, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: FRotator): ULegacyCameraShake;
+        StartLegacyCameraShake(PlayerCameraManager: APlayerCameraManager, ShakeClass: TSubclassOf<ULegacyCameraShake>, Scale: number, PlaySpace: ECameraShakePlaySpace, UserPlaySpaceRot: FRotator): ULegacyCameraShake;
+        ReceiveStopShake(bImmediately: boolean): void;
+        ReceivePlayShake(Scale: number): void;
+        ReceiveIsFinished(): boolean;
+        BlueprintUpdateCameraShake(DeltaTime: number, alpha: number, POV: FMinimalViewInfo, ModifiedPOV: FMinimalViewInfo): void;
+    };
+    readonly __properties_ULegacyCameraShake: {
+        OscillationDuration: number;
+        OscillationBlendInTime: number;
+        OscillationBlendOutTime: number;
+        RotOscillation: FROscillator;
+        LocOscillation: FVOscillator;
+        FOVOscillation: FFOscillator;
+        AnimPlayRate: number;
+        AnimScale: number;
+        AnimBlendInTime: number;
+        AnimBlendOutTime: number;
+        RandomAnimSegmentDuration: number;
+        AnimSequence: UCameraAnimationSequence;
+        bRandomAnimSegment: boolean;
+        OscillatorTimeRemaining: number;
+        SequenceShakePattern: USequenceCameraShakePattern;
+    };
+    readonly __staticRegistry: 
+        ULegacyCameraShake['__static_ULegacyCameraShake'] &
+        UCameraShakeBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULegacyCameraShake['__properties_ULegacyCameraShake'] &
+        UCameraShakeBase['__propertyRegistry'];
 }
-declare const ULegacyCameraShake: ULegacyCameraShake;
 
 declare interface ULegacyCameraShakeFunctionLibrary extends UBlueprintFunctionLibrary {
-    Conv_LegacyCameraShake(CameraShake: UCameraShakeBase): ULegacyCameraShake;
+    readonly __static_ULegacyCameraShakeFunctionLibrary: {
+        Conv_LegacyCameraShake(CameraShake: UCameraShakeBase): ULegacyCameraShake;
+    };
+    readonly __staticRegistry: 
+        ULegacyCameraShakeFunctionLibrary['__static_ULegacyCameraShakeFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const ULegacyCameraShakeFunctionLibrary: ULegacyCameraShakeFunctionLibrary;
 
 declare interface ULegacyCameraShakePattern extends UCameraShakePattern {
-
+    readonly __staticRegistry: 
+        UCameraShakePattern['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraShakePattern['__propertyRegistry'];
 }
-declare const ULegacyCameraShakePattern: ULegacyCameraShakePattern;
 
 declare interface UPerlinNoiseCameraShakePattern extends USimpleCameraShakePattern {
-    LocationAmplitudeMultiplier: number;
-    LocationFrequencyMultiplier: number;
-    X: FPerlinNoiseShaker;
-    Y: FPerlinNoiseShaker;
-    Z: FPerlinNoiseShaker;
-    RotationAmplitudeMultiplier: number;
-    RotationFrequencyMultiplier: number;
-    pitch: FPerlinNoiseShaker;
-    Yaw: FPerlinNoiseShaker;
-    Roll: FPerlinNoiseShaker;
-    FOV: FPerlinNoiseShaker;
+    readonly __properties_UPerlinNoiseCameraShakePattern: {
+        LocationAmplitudeMultiplier: number;
+        LocationFrequencyMultiplier: number;
+        X: FPerlinNoiseShaker;
+        Y: FPerlinNoiseShaker;
+        Z: FPerlinNoiseShaker;
+        RotationAmplitudeMultiplier: number;
+        RotationFrequencyMultiplier: number;
+        pitch: FPerlinNoiseShaker;
+        Yaw: FPerlinNoiseShaker;
+        Roll: FPerlinNoiseShaker;
+        FOV: FPerlinNoiseShaker;
+    };
+    readonly __staticRegistry: 
+        USimpleCameraShakePattern['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPerlinNoiseCameraShakePattern['__properties_UPerlinNoiseCameraShakePattern'] &
+        USimpleCameraShakePattern['__propertyRegistry'];
 }
-declare const UPerlinNoiseCameraShakePattern: UPerlinNoiseCameraShakePattern;
 
 declare interface USimpleCameraShakePattern extends UCameraShakePattern {
-    duration: number;
-    BlendInTime: number;
-    blendOutTime: number;
+    readonly __properties_USimpleCameraShakePattern: {
+        duration: number;
+        BlendInTime: number;
+        blendOutTime: number;
+    };
+    readonly __staticRegistry: 
+        UCameraShakePattern['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USimpleCameraShakePattern['__properties_USimpleCameraShakePattern'] &
+        UCameraShakePattern['__propertyRegistry'];
 }
-declare const USimpleCameraShakePattern: USimpleCameraShakePattern;
 
 declare interface UTestCameraShake extends UCameraShakeBase {
-
+    readonly __staticRegistry: 
+        UCameraShakeBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraShakeBase['__propertyRegistry'];
 }
-declare const UTestCameraShake: UTestCameraShake;
 
 declare interface UWaveOscillatorCameraShakePattern extends USimpleCameraShakePattern {
-    LocationAmplitudeMultiplier: number;
-    LocationFrequencyMultiplier: number;
-    X: FWaveOscillator;
-    Y: FWaveOscillator;
-    Z: FWaveOscillator;
-    RotationAmplitudeMultiplier: number;
-    RotationFrequencyMultiplier: number;
-    pitch: FWaveOscillator;
-    Yaw: FWaveOscillator;
-    Roll: FWaveOscillator;
-    FOV: FWaveOscillator;
+    readonly __properties_UWaveOscillatorCameraShakePattern: {
+        LocationAmplitudeMultiplier: number;
+        LocationFrequencyMultiplier: number;
+        X: FWaveOscillator;
+        Y: FWaveOscillator;
+        Z: FWaveOscillator;
+        RotationAmplitudeMultiplier: number;
+        RotationFrequencyMultiplier: number;
+        pitch: FWaveOscillator;
+        Yaw: FWaveOscillator;
+        Roll: FWaveOscillator;
+        FOV: FWaveOscillator;
+    };
+    readonly __staticRegistry: 
+        USimpleCameraShakePattern['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UWaveOscillatorCameraShakePattern['__properties_UWaveOscillatorCameraShakePattern'] &
+        USimpleCameraShakePattern['__propertyRegistry'];
 }
-declare const UWaveOscillatorCameraShakePattern: UWaveOscillatorCameraShakePattern;
 

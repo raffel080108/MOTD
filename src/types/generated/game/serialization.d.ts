@@ -7,18 +7,16 @@ declare interface FOrientedBoxFloat {
     ExtentY: number;
     ExtentZ: number;
 }
-declare const FOrientedBoxFloat: FOrientedBoxFloat;
 
 declare interface FStructSerializerArrayTestStruct {
-    Int32Array: TArray<number>;
-    ByteArray: TArray<uint8>;
+    Int32Array: number[];
+    ByteArray: number[];
     StaticSingleElement: number;
     StaticInt32Array: number;
     StaticFloatArray: number;
-    VectorArray: TArray<FVector>;
-    StructArray: TArray<FStructSerializerBuiltinTestStruct>;
+    VectorArray: FVector[];
+    StructArray: FStructSerializerBuiltinTestStruct[];
 }
-declare const FStructSerializerArrayTestStruct: FStructSerializerArrayTestStruct;
 
 declare interface FStructSerializerBooleanTestStruct {
     BoolFalse: boolean;
@@ -32,13 +30,12 @@ declare interface FStructSerializerBooleanTestStruct {
     Bitfield6: boolean;
     Bitfield7Set: boolean;
 }
-declare const FStructSerializerBooleanTestStruct: FStructSerializerBooleanTestStruct;
 
 declare interface FStructSerializerBuiltinTestStruct {
     Guid: FGuid;
-    Name: FName;
-    String: FString;
-    Text: FText;
+    Name: string;
+    String: string;
+    Text: string;
     DateTime: FDateTime;
     Timespan: FTimespan;
     Vector: FVector;
@@ -47,16 +44,14 @@ declare interface FStructSerializerBuiltinTestStruct {
     Quat: FQuat;
     Color: FColor;
 }
-declare const FStructSerializerBuiltinTestStruct: FStructSerializerBuiltinTestStruct;
 
 declare interface FStructSerializerByteArray {
     Dummy1: number;
-    ByteArray: TArray<uint8>;
+    ByteArray: number[];
     Dummy2: number;
-    Int8Array: TArray<int8>;
+    Int8Array: number[];
     Dummy3: number;
 }
-declare const FStructSerializerByteArray: FStructSerializerByteArray;
 
 declare interface FStructSerializerLWCTypesTest {
     Vector: FVector;
@@ -73,19 +68,17 @@ declare interface FStructSerializerLWCTypesTest {
     OrientedBox: FOrientedBox;
     float: number;
     Double: number;
-    VectorArray: TArray<FVector>;
-    StrToVec: Record<FString, FVector>;
-    VectorSet: TSet<FVector>;
+    VectorArray: FVector[];
+    StrToVec: TMap<string, FVector>;
+    VectorSet: FVector[];
 }
-declare const FStructSerializerLWCTypesTest: FStructSerializerLWCTypesTest;
 
 declare interface FStructSerializerMapTestStruct {
-    IntToStr: Record<number, FString>;
-    StrToStr: Record<FString, FString>;
-    StrToVec: Record<FString, FVector>;
-    StrToStruct: Record<FString, FStructSerializerBuiltinTestStruct>;
+    IntToStr: TMap<number, string>;
+    StrToStr: TMap<string, string>;
+    StrToVec: TMap<string, FVector>;
+    StrToStruct: TMap<string, FStructSerializerBuiltinTestStruct>;
 }
-declare const FStructSerializerMapTestStruct: FStructSerializerMapTestStruct;
 
 declare interface FStructSerializerNonLWCTypesTest {
     Vector: FVector3f;
@@ -102,25 +95,23 @@ declare interface FStructSerializerNonLWCTypesTest {
     OrientedBox: FOrientedBoxFloat;
     float: number;
     Double: number;
-    VectorArray: TArray<FVector3f>;
-    StrToVec: Record<FString, FVector3f>;
-    VectorSet: TSet<FVector3f>;
+    VectorArray: FVector3f[];
+    StrToVec: TMap<string, FVector3f>;
+    VectorSet: FVector3f[];
 }
-declare const FStructSerializerNonLWCTypesTest: FStructSerializerNonLWCTypesTest;
 
 declare interface FStructSerializerNumericTestStruct {
-    int8: int8;
-    int16: int16;
+    int8: number;
+    int16: number;
     int32: number;
-    int64: int64;
-    uint8: uint8;
-    uint16: uint16;
-    uint32: uint32;
-    uint64: uint64;
+    int64: number;
+    uint8: number;
+    uint16: number;
+    uint32: number;
+    uint64: number;
     float: number;
     Double: number;
 }
-declare const FStructSerializerNumericTestStruct: FStructSerializerNumericTestStruct;
 
 declare interface FStructSerializerObjectTestStruct {
     RawClass: UClass;
@@ -134,27 +125,24 @@ declare interface FStructSerializerObjectTestStruct {
     ClassPath: FSoftClassPath;
     ObjectPath: FSoftObjectPath;
 }
-declare const FStructSerializerObjectTestStruct: FStructSerializerObjectTestStruct;
 
 declare interface FStructSerializerOptionalTestStruct {
-    StrOptional: TOptional<FString>;
-    StrOptionalUnset: TOptional<FString>;
+    StrOptional: TOptional<string>;
+    StrOptionalUnset: TOptional<string>;
     IntOptional: TOptional<number>;
     IntOptionalUnset: TOptional<number>;
-    NameOptional: TOptional<FName>;
-    NameOptionalUnset: TOptional<FName>;
+    NameOptional: TOptional<string>;
+    NameOptionalUnset: TOptional<string>;
     StructOptional: TOptional<FStructSerializerBuiltinTestStruct>;
     StructOptionalUnset: TOptional<FStructSerializerBuiltinTestStruct>;
 }
-declare const FStructSerializerOptionalTestStruct: FStructSerializerOptionalTestStruct;
 
 declare interface FStructSerializerSetTestStruct {
-    StrSet: TSet<FString>;
-    IntSet: TSet<number>;
-    NameSet: TSet<FName>;
-    StructSet: TSet<FStructSerializerBuiltinTestStruct>;
+    StrSet: string[];
+    IntSet: number[];
+    NameSet: string[];
+    StructSet: FStructSerializerBuiltinTestStruct[];
 }
-declare const FStructSerializerSetTestStruct: FStructSerializerSetTestStruct;
 
 declare interface FStructSerializerTestStruct {
     Numerics: FStructSerializerNumericTestStruct;
@@ -167,10 +155,11 @@ declare interface FStructSerializerTestStruct {
     Optionals: FStructSerializerOptionalTestStruct;
     LWCTypes: FStructSerializerLWCTypesTest;
 }
-declare const FStructSerializerTestStruct: FStructSerializerTestStruct;
 
 declare interface UObjectTest extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UObjectTest: UObjectTest;
 

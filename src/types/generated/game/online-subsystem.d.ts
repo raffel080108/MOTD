@@ -1,24 +1,34 @@
 declare interface FNamedInterface {
-    InterfaceName: FName;
+    InterfaceName: string;
     InterfaceObject: UObject;
 }
-declare const FNamedInterface: FNamedInterface;
 
 declare interface FNamedInterfaceDef {
-    InterfaceName: FName;
-    InterfaceClassName: FString;
+    InterfaceName: string;
+    InterfaceClassName: string;
 }
-declare const FNamedInterfaceDef: FNamedInterfaceDef;
 
 declare interface ITurnBasedMatchInterface extends IInterface {
-    OnMatchReceivedTurn(Match: string | FString, bDidBecomeActive: boolean): void;
-    OnMatchEnded(Match: string | FString): void;
+    readonly __static_ITurnBasedMatchInterface: {
+        OnMatchReceivedTurn(Match: string, bDidBecomeActive: boolean): void;
+        OnMatchEnded(Match: string): void;
+    };
+    readonly __staticRegistry: 
+        ITurnBasedMatchInterface['__static_ITurnBasedMatchInterface'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const ITurnBasedMatchInterface: ITurnBasedMatchInterface;
 
 declare interface UNamedInterfaces extends UObject {
-    NamedInterfaces: TArray<FNamedInterface>;
-    NamedInterfaceDefs: TArray<FNamedInterfaceDef>;
+    readonly __properties_UNamedInterfaces: {
+        NamedInterfaces: FNamedInterface[];
+        NamedInterfaceDefs: FNamedInterfaceDef[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNamedInterfaces['__properties_UNamedInterfaces'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNamedInterfaces: UNamedInterfaces;
 

@@ -6,5 +6,4 @@ if exist ".\dist\" (
 )
 
 echo compiling scripts
-call npx tstl
-xcopy "src\*.lua" "dist\" /S /Y /D
+call npx tsc

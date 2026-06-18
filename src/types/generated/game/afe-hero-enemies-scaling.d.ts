@@ -1,5 +1,7 @@
 declare interface UAFE_HeroEnemiesScaling_C extends UEnemyScaleAfflictionEffect {
-
+    readonly __staticRegistry: 
+        UEnemyScaleAfflictionEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnemyScaleAfflictionEffect['__propertyRegistry'];
 }
-declare const UAFE_HeroEnemiesScaling_C: UAFE_HeroEnemiesScaling_C;
 

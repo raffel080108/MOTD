@@ -1,215 +1,283 @@
 declare interface FGameplayTag {
-    TagName: FName;
+    TagName: string;
 }
-declare const FGameplayTag: FGameplayTag;
 
 declare interface FGameplayTagCategoryRemap {
-    BaseCategory: FString;
-    RemapCategories: TArray<FString>;
+    BaseCategory: string;
+    RemapCategories: string[];
 }
-declare const FGameplayTagCategoryRemap: FGameplayTagCategoryRemap;
 
 declare interface FGameplayTagContainer {
-    GameplayTags: TArray<FGameplayTag>;
-    ParentTags: TArray<FGameplayTag>;
+    GameplayTags: FGameplayTag[];
+    ParentTags: FGameplayTag[];
 }
-declare const FGameplayTagContainer: FGameplayTagContainer;
 
 declare interface FGameplayTagContainerNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FGameplayTagContainerNetSerializerConfig: FGameplayTagContainerNetSerializerConfig;
 
 declare interface FGameplayTagContainerNetSerializerSerializationHelper {
-    GameplayTags: TArray<FGameplayTag>;
+    GameplayTags: FGameplayTag[];
 }
-declare const FGameplayTagContainerNetSerializerSerializationHelper: FGameplayTagContainerNetSerializerSerializationHelper;
 
-declare interface FGameplayTagCreationWidgetHelper {
-
-}
-declare const FGameplayTagCreationWidgetHelper: FGameplayTagCreationWidgetHelper;
+declare type FGameplayTagCreationWidgetHelper = object;
 
 declare interface FGameplayTagNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FGameplayTagNetSerializerConfig: FGameplayTagNetSerializerConfig;
 
-declare interface FGameplayTagNode {
-
-}
-declare const FGameplayTagNode: FGameplayTagNode;
+declare type FGameplayTagNode = object;
 
 declare interface FGameplayTagQuery {
     TokenStreamVersion: number;
-    TagDictionary: TArray<FGameplayTag>;
-    QueryTokenStream: TArray<uint8>;
-    UserDescription: FString;
-    AutoDescription: FString;
+    TagDictionary: FGameplayTag[];
+    QueryTokenStream: number[];
+    UserDescription: string;
+    AutoDescription: string;
 }
-declare const FGameplayTagQuery: FGameplayTagQuery;
 
 declare interface FGameplayTagRedirect {
-    OldTagName: FName;
-    NewTagName: FName;
+    OldTagName: string;
+    NewTagName: string;
 }
-declare const FGameplayTagRedirect: FGameplayTagRedirect;
 
 declare interface FGameplayTagSource {
-    SourceName: FName;
+    SourceName: string;
     SourceType: EGameplayTagSourceType;
     SourceTagList: UGameplayTagsList;
     SourceRestrictedTagList: URestrictedGameplayTagsList;
 }
-declare const FGameplayTagSource: FGameplayTagSource;
 
 declare interface FGameplayTagTableRow extends FTableRowBase {
-    Tag: FName;
-    DevComment: FString;
+    Tag: string;
+    DevComment: string;
 }
-declare const FGameplayTagTableRow: FGameplayTagTableRow;
 
 declare interface FRestrictedConfigInfo {
-    RestrictedConfigName: FString;
-    Owners: TArray<FString>;
+    RestrictedConfigName: string;
+    Owners: string[];
 }
-declare const FRestrictedConfigInfo: FRestrictedConfigInfo;
 
 declare interface FRestrictedGameplayTagTableRow extends FGameplayTagTableRow {
     bAllowNonRestrictedChildren: boolean;
 }
-declare const FRestrictedGameplayTagTableRow: FRestrictedGameplayTagTableRow;
 
 declare interface IGameplayTagAssetInterface extends IInterface {
-    HasMatchingGameplayTag(TagToCheck: FGameplayTag): boolean;
-    HasAnyMatchingGameplayTags(TagContainer: FGameplayTagContainer): boolean;
-    HasAllMatchingGameplayTags(TagContainer: FGameplayTagContainer): boolean;
-    BP_GetOwnedGameplayTags(): FGameplayTagContainer;
+    readonly __static_IGameplayTagAssetInterface: {
+        HasMatchingGameplayTag(TagToCheck: FGameplayTag): boolean;
+        HasAnyMatchingGameplayTags(TagContainer: FGameplayTagContainer): boolean;
+        HasAllMatchingGameplayTags(TagContainer: FGameplayTagContainer): boolean;
+        BP_GetOwnedGameplayTags(): FGameplayTagContainer;
+    };
+    readonly __staticRegistry: 
+        IGameplayTagAssetInterface['__static_IGameplayTagAssetInterface'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IGameplayTagAssetInterface: IGameplayTagAssetInterface;
 
 declare interface UBlueprintGameplayTagLibrary extends UBlueprintFunctionLibrary {
-    RemoveGameplayTag(TagContainer: FGameplayTagContainer, Tag: FGameplayTag): boolean;
-    NotEqual_TagTag(A: FGameplayTag, B: string | FString): boolean;
-    NotEqual_TagContainerTagContainer(A: FGameplayTagContainer, B: string | FString): boolean;
-    NotEqual_GameplayTagContainer(A: FGameplayTagContainer, B: FGameplayTagContainer): boolean;
-    NotEqual_GameplayTag(A: FGameplayTag, B: FGameplayTag): boolean;
-    MatchesTag(TagOne: FGameplayTag, TagTwo: FGameplayTag, bExactMatch: boolean): boolean;
-    MatchesAnyTags(TagOne: FGameplayTag, OtherContainer: FGameplayTagContainer, bExactMatch: boolean): boolean;
-    MakeLiteralGameplayTagContainer(Value: FGameplayTagContainer): FGameplayTagContainer;
-    MakeLiteralGameplayTag(Value: FGameplayTag): FGameplayTag;
-    MakeGameplayTagQuery_MatchNoTags(InTags: FGameplayTagContainer): FGameplayTagQuery;
-    MakeGameplayTagQuery_MatchAnyTags(InTags: FGameplayTagContainer): FGameplayTagQuery;
-    MakeGameplayTagQuery_MatchAllTags(InTags: FGameplayTagContainer): FGameplayTagQuery;
-    MakeGameplayTagQuery(TagQuery: FGameplayTagQuery): FGameplayTagQuery;
-    MakeGameplayTagContainerFromTag(SingleTag: FGameplayTag): FGameplayTagContainer;
-    MakeGameplayTagContainerFromArray(GameplayTags: TArray<FGameplayTag>): FGameplayTagContainer;
-    IsTagQueryEmpty(TagQuery: FGameplayTagQuery): boolean;
-    IsGameplayTagValid(GameplayTag: FGameplayTag): boolean;
-    HasTag(TagContainer: FGameplayTagContainer, Tag: FGameplayTag, bExactMatch: boolean): boolean;
-    HasAnyTags(TagContainer: FGameplayTagContainer, OtherContainer: FGameplayTagContainer, bExactMatch: boolean): boolean;
-    HasAllTags(TagContainer: FGameplayTagContainer, OtherContainer: FGameplayTagContainer, bExactMatch: boolean): boolean;
-    HasAllMatchingGameplayTags(TagContainerInterface: TScriptInterface<IGameplayTagAssetInterface>, OtherContainer: FGameplayTagContainer): boolean;
-    GetTagName(GameplayTag: FGameplayTag): FName;
-    GetOwnedGameplayTags(TagContainerInterface: TScriptInterface<IGameplayTagAssetInterface>): FGameplayTagContainer;
-    GetNumGameplayTagsInContainer(TagContainer: FGameplayTagContainer): number;
-    GetDebugStringFromGameplayTagContainer(TagContainer: FGameplayTagContainer): FString;
-    GetDebugStringFromGameplayTag(GameplayTag: FGameplayTag): FString;
-    GetAllActorsOfClassMatchingTagQuery(WorldContextObject: UObject, ActorClass: TSubclassOf<AActor>, GameplayTagQuery: FGameplayTagQuery, OutActors: TArray<AActor>): void;
-    Filter(TagContainer: FGameplayTagContainer, OtherContainer: FGameplayTagContainer, bExactMatch: boolean): FGameplayTagContainer;
-    EqualEqual_GameplayTagContainer(A: FGameplayTagContainer, B: FGameplayTagContainer): boolean;
-    EqualEqual_GameplayTag(A: FGameplayTag, B: FGameplayTag): boolean;
-    DoesTagAssetInterfaceHaveTag(TagContainerInterface: TScriptInterface<IGameplayTagAssetInterface>, Tag: FGameplayTag): boolean;
-    DoesContainerMatchTagQuery(TagContainer: FGameplayTagContainer, TagQuery: FGameplayTagQuery): boolean;
-    Conv_ObjectToGameplayTagAssetInterface(InObject: UObject): TScriptInterface<IGameplayTagAssetInterface>;
-    BreakGameplayTagContainer(GameplayTagContainer: FGameplayTagContainer, GameplayTags: TArray<FGameplayTag>): void;
-    AppendGameplayTagContainers(InOutTagContainer: FGameplayTagContainer, InTagContainer: FGameplayTagContainer): void;
-    AddGameplayTag(TagContainer: FGameplayTagContainer, Tag: FGameplayTag): void;
+    readonly __static_UBlueprintGameplayTagLibrary: {
+        RemoveGameplayTag(TagContainer: FGameplayTagContainer, Tag: FGameplayTag): boolean;
+        NotEqual_TagTag(A: FGameplayTag, B: string): boolean;
+        NotEqual_TagContainerTagContainer(A: FGameplayTagContainer, B: string): boolean;
+        NotEqual_GameplayTagContainer(A: FGameplayTagContainer, B: FGameplayTagContainer): boolean;
+        NotEqual_GameplayTag(A: FGameplayTag, B: FGameplayTag): boolean;
+        MatchesTag(TagOne: FGameplayTag, TagTwo: FGameplayTag, bExactMatch: boolean): boolean;
+        MatchesAnyTags(TagOne: FGameplayTag, OtherContainer: FGameplayTagContainer, bExactMatch: boolean): boolean;
+        MakeLiteralGameplayTagContainer(Value: FGameplayTagContainer): FGameplayTagContainer;
+        MakeLiteralGameplayTag(Value: FGameplayTag): FGameplayTag;
+        MakeGameplayTagQuery_MatchNoTags(InTags: FGameplayTagContainer): FGameplayTagQuery;
+        MakeGameplayTagQuery_MatchAnyTags(InTags: FGameplayTagContainer): FGameplayTagQuery;
+        MakeGameplayTagQuery_MatchAllTags(InTags: FGameplayTagContainer): FGameplayTagQuery;
+        MakeGameplayTagQuery(TagQuery: FGameplayTagQuery): FGameplayTagQuery;
+        MakeGameplayTagContainerFromTag(SingleTag: FGameplayTag): FGameplayTagContainer;
+        MakeGameplayTagContainerFromArray(GameplayTags: FGameplayTag[]): FGameplayTagContainer;
+        IsTagQueryEmpty(TagQuery: FGameplayTagQuery): boolean;
+        IsGameplayTagValid(GameplayTag: FGameplayTag): boolean;
+        HasTag(TagContainer: FGameplayTagContainer, Tag: FGameplayTag, bExactMatch: boolean): boolean;
+        HasAnyTags(TagContainer: FGameplayTagContainer, OtherContainer: FGameplayTagContainer, bExactMatch: boolean): boolean;
+        HasAllTags(TagContainer: FGameplayTagContainer, OtherContainer: FGameplayTagContainer, bExactMatch: boolean): boolean;
+        HasAllMatchingGameplayTags(TagContainerInterface: TScriptInterface<IGameplayTagAssetInterface>, OtherContainer: FGameplayTagContainer): boolean;
+        GetTagName(GameplayTag: FGameplayTag): string;
+        GetOwnedGameplayTags(TagContainerInterface: TScriptInterface<IGameplayTagAssetInterface>): FGameplayTagContainer;
+        GetNumGameplayTagsInContainer(TagContainer: FGameplayTagContainer): number;
+        GetDebugStringFromGameplayTagContainer(TagContainer: FGameplayTagContainer): string;
+        GetDebugStringFromGameplayTag(GameplayTag: FGameplayTag): string;
+        GetAllActorsOfClassMatchingTagQuery(WorldContextObject: UObject, ActorClass: TSubclassOf<AActor>, GameplayTagQuery: FGameplayTagQuery, OutActors: AActor[]): void;
+        Filter(TagContainer: FGameplayTagContainer, OtherContainer: FGameplayTagContainer, bExactMatch: boolean): FGameplayTagContainer;
+        EqualEqual_GameplayTagContainer(A: FGameplayTagContainer, B: FGameplayTagContainer): boolean;
+        EqualEqual_GameplayTag(A: FGameplayTag, B: FGameplayTag): boolean;
+        DoesTagAssetInterfaceHaveTag(TagContainerInterface: TScriptInterface<IGameplayTagAssetInterface>, Tag: FGameplayTag): boolean;
+        DoesContainerMatchTagQuery(TagContainer: FGameplayTagContainer, TagQuery: FGameplayTagQuery): boolean;
+        Conv_ObjectToGameplayTagAssetInterface(InObject: UObject): TScriptInterface<IGameplayTagAssetInterface>;
+        BreakGameplayTagContainer(GameplayTagContainer: FGameplayTagContainer, GameplayTags: FGameplayTag[]): void;
+        AppendGameplayTagContainers(InOutTagContainer: FGameplayTagContainer, InTagContainer: FGameplayTagContainer): void;
+        AddGameplayTag(TagContainer: FGameplayTagContainer, Tag: FGameplayTag): void;
+    };
+    readonly __staticRegistry: 
+        UBlueprintGameplayTagLibrary['__static_UBlueprintGameplayTagLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UBlueprintGameplayTagLibrary: UBlueprintGameplayTagLibrary;
 
 declare interface UEditableGameplayTagQuery extends UObject {
-    UserDescription: FString;
-    RootExpression: UEditableGameplayTagQueryExpression;
-    TagQueryExportText_Helper: FGameplayTagQuery;
+    readonly __properties_UEditableGameplayTagQuery: {
+        UserDescription: string;
+        RootExpression: UEditableGameplayTagQueryExpression;
+        TagQueryExportText_Helper: FGameplayTagQuery;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEditableGameplayTagQuery['__properties_UEditableGameplayTagQuery'] &
+        UObject['__propertyRegistry'];
 }
-declare const UEditableGameplayTagQuery: UEditableGameplayTagQuery;
 
 declare interface UEditableGameplayTagQueryExpression extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UEditableGameplayTagQueryExpression: UEditableGameplayTagQueryExpression;
 
 declare interface UEditableGameplayTagQueryExpression_AllExprMatch extends UEditableGameplayTagQueryExpression {
-    Expressions: TArray<UEditableGameplayTagQueryExpression>;
+    readonly __properties_UEditableGameplayTagQueryExpression_AllExprMatch: {
+        Expressions: UEditableGameplayTagQueryExpression[];
+    };
+    readonly __staticRegistry: 
+        UEditableGameplayTagQueryExpression['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEditableGameplayTagQueryExpression_AllExprMatch['__properties_UEditableGameplayTagQueryExpression_AllExprMatch'] &
+        UEditableGameplayTagQueryExpression['__propertyRegistry'];
 }
-declare const UEditableGameplayTagQueryExpression_AllExprMatch: UEditableGameplayTagQueryExpression_AllExprMatch;
 
 declare interface UEditableGameplayTagQueryExpression_AllTagsMatch extends UEditableGameplayTagQueryExpression {
-    Tags: FGameplayTagContainer;
+    readonly __properties_UEditableGameplayTagQueryExpression_AllTagsMatch: {
+        Tags: FGameplayTagContainer;
+    };
+    readonly __staticRegistry: 
+        UEditableGameplayTagQueryExpression['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEditableGameplayTagQueryExpression_AllTagsMatch['__properties_UEditableGameplayTagQueryExpression_AllTagsMatch'] &
+        UEditableGameplayTagQueryExpression['__propertyRegistry'];
 }
-declare const UEditableGameplayTagQueryExpression_AllTagsMatch: UEditableGameplayTagQueryExpression_AllTagsMatch;
 
 declare interface UEditableGameplayTagQueryExpression_AnyExprMatch extends UEditableGameplayTagQueryExpression {
-    Expressions: TArray<UEditableGameplayTagQueryExpression>;
+    readonly __properties_UEditableGameplayTagQueryExpression_AnyExprMatch: {
+        Expressions: UEditableGameplayTagQueryExpression[];
+    };
+    readonly __staticRegistry: 
+        UEditableGameplayTagQueryExpression['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEditableGameplayTagQueryExpression_AnyExprMatch['__properties_UEditableGameplayTagQueryExpression_AnyExprMatch'] &
+        UEditableGameplayTagQueryExpression['__propertyRegistry'];
 }
-declare const UEditableGameplayTagQueryExpression_AnyExprMatch: UEditableGameplayTagQueryExpression_AnyExprMatch;
 
 declare interface UEditableGameplayTagQueryExpression_AnyTagsMatch extends UEditableGameplayTagQueryExpression {
-    Tags: FGameplayTagContainer;
+    readonly __properties_UEditableGameplayTagQueryExpression_AnyTagsMatch: {
+        Tags: FGameplayTagContainer;
+    };
+    readonly __staticRegistry: 
+        UEditableGameplayTagQueryExpression['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEditableGameplayTagQueryExpression_AnyTagsMatch['__properties_UEditableGameplayTagQueryExpression_AnyTagsMatch'] &
+        UEditableGameplayTagQueryExpression['__propertyRegistry'];
 }
-declare const UEditableGameplayTagQueryExpression_AnyTagsMatch: UEditableGameplayTagQueryExpression_AnyTagsMatch;
 
 declare interface UEditableGameplayTagQueryExpression_NoExprMatch extends UEditableGameplayTagQueryExpression {
-    Expressions: TArray<UEditableGameplayTagQueryExpression>;
+    readonly __properties_UEditableGameplayTagQueryExpression_NoExprMatch: {
+        Expressions: UEditableGameplayTagQueryExpression[];
+    };
+    readonly __staticRegistry: 
+        UEditableGameplayTagQueryExpression['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEditableGameplayTagQueryExpression_NoExprMatch['__properties_UEditableGameplayTagQueryExpression_NoExprMatch'] &
+        UEditableGameplayTagQueryExpression['__propertyRegistry'];
 }
-declare const UEditableGameplayTagQueryExpression_NoExprMatch: UEditableGameplayTagQueryExpression_NoExprMatch;
 
 declare interface UEditableGameplayTagQueryExpression_NoTagsMatch extends UEditableGameplayTagQueryExpression {
-    Tags: FGameplayTagContainer;
+    readonly __properties_UEditableGameplayTagQueryExpression_NoTagsMatch: {
+        Tags: FGameplayTagContainer;
+    };
+    readonly __staticRegistry: 
+        UEditableGameplayTagQueryExpression['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEditableGameplayTagQueryExpression_NoTagsMatch['__properties_UEditableGameplayTagQueryExpression_NoTagsMatch'] &
+        UEditableGameplayTagQueryExpression['__propertyRegistry'];
 }
-declare const UEditableGameplayTagQueryExpression_NoTagsMatch: UEditableGameplayTagQueryExpression_NoTagsMatch;
 
 declare interface UGameplayTagsDeveloperSettings extends UDeveloperSettings {
-    DeveloperConfigName: FString;
-    FavoriteTagSource: FName;
+    readonly __properties_UGameplayTagsDeveloperSettings: {
+        DeveloperConfigName: string;
+        FavoriteTagSource: string;
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayTagsDeveloperSettings['__properties_UGameplayTagsDeveloperSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UGameplayTagsDeveloperSettings: UGameplayTagsDeveloperSettings;
 
 declare interface UGameplayTagsList extends UObject {
-    ConfigFileName: FString;
-    GameplayTagRedirects: TArray<FGameplayTagRedirect>;
-    GameplayTagList: TArray<FGameplayTagTableRow>;
+    readonly __properties_UGameplayTagsList: {
+        ConfigFileName: string;
+        GameplayTagRedirects: FGameplayTagRedirect[];
+        GameplayTagList: FGameplayTagTableRow[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayTagsList['__properties_UGameplayTagsList'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGameplayTagsList: UGameplayTagsList;
 
 declare interface UGameplayTagsManager extends UObject {
-    TagSources: Record<FName, FGameplayTagSource>;
-    GameplayTagTables: TArray<UDataTable>;
+    readonly __properties_UGameplayTagsManager: {
+        TagSources: TMap<string, FGameplayTagSource>;
+        GameplayTagTables: UDataTable[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayTagsManager['__properties_UGameplayTagsManager'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGameplayTagsManager: UGameplayTagsManager;
 
 declare interface UGameplayTagsSettings extends UGameplayTagsList {
-    ImportTagsFromConfig: boolean;
-    WarnOnInvalidTags: boolean;
-    ClearInvalidTags: boolean;
-    AllowEditorTagUnloading: boolean;
-    AllowGameTagUnloading: boolean;
-    FastReplication: boolean;
-    bDynamicReplication: boolean;
-    InvalidTagCharacters: FString;
-    CategoryRemapping: TArray<FGameplayTagCategoryRemap>;
-    GameplayTagTableList: TArray<FSoftObjectPath>;
-    CommonlyReplicatedTags: TArray<FName>;
-    NumBitsForContainerSize: number;
-    NetIndexFirstBitSegment: number;
-    RestrictedConfigFiles: TArray<FRestrictedConfigInfo>;
+    readonly __properties_UGameplayTagsSettings: {
+        ImportTagsFromConfig: boolean;
+        WarnOnInvalidTags: boolean;
+        ClearInvalidTags: boolean;
+        AllowEditorTagUnloading: boolean;
+        AllowGameTagUnloading: boolean;
+        FastReplication: boolean;
+        bDynamicReplication: boolean;
+        InvalidTagCharacters: string;
+        CategoryRemapping: FGameplayTagCategoryRemap[];
+        GameplayTagTableList: FSoftObjectPath[];
+        CommonlyReplicatedTags: string[];
+        NumBitsForContainerSize: number;
+        NetIndexFirstBitSegment: number;
+        RestrictedConfigFiles: FRestrictedConfigInfo[];
+    };
+    readonly __staticRegistry: 
+        UGameplayTagsList['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayTagsSettings['__properties_UGameplayTagsSettings'] &
+        UGameplayTagsList['__propertyRegistry'];
 }
-declare const UGameplayTagsSettings: UGameplayTagsSettings;
 
 declare interface URestrictedGameplayTagsList extends UObject {
-    ConfigFileName: FString;
-    RestrictedGameplayTagList: TArray<FRestrictedGameplayTagTableRow>;
+    readonly __properties_URestrictedGameplayTagsList: {
+        ConfigFileName: string;
+        RestrictedGameplayTagList: FRestrictedGameplayTagTableRow[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        URestrictedGameplayTagsList['__properties_URestrictedGameplayTagsList'] &
+        UObject['__propertyRegistry'];
 }
-declare const URestrictedGameplayTagsList: URestrictedGameplayTagsList;
 

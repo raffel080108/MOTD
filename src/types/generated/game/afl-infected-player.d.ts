@@ -1,5 +1,7 @@
 declare interface UAFL_Infected_Player_C extends UScalingMeshAfflictionEffect {
-
+    readonly __staticRegistry: 
+        UScalingMeshAfflictionEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UScalingMeshAfflictionEffect['__propertyRegistry'];
 }
-declare const UAFL_Infected_Player_C: UAFL_Infected_Player_C;
 

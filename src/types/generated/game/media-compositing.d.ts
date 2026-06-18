@@ -3,7 +3,6 @@ declare interface FMovieSceneMediaPlayerPropertySectionTemplate extends FMovieSc
     SectionStartFrame: FFrameNumber;
     bLoop: boolean;
 }
-declare const FMovieSceneMediaPlayerPropertySectionTemplate: FMovieSceneMediaPlayerPropertySectionTemplate;
 
 declare interface FMovieSceneMediaSectionParams {
     MediaSoundComponent: UMediaSoundComponent;
@@ -19,45 +18,63 @@ declare interface FMovieSceneMediaSectionParams {
     ProxyTextureBlend: FMovieSceneFloatChannel;
     CacheSettings: FMediaSourceCacheSettings;
 }
-declare const FMovieSceneMediaSectionParams: FMovieSceneMediaSectionParams;
 
 declare interface FMovieSceneMediaSectionTemplate extends FMovieSceneEvalTemplate {
     Params: FMovieSceneMediaSectionParams;
     MediaSection: UMovieSceneMediaSection;
 }
-declare const FMovieSceneMediaSectionTemplate: FMovieSceneMediaSectionTemplate;
 
 declare interface UMovieSceneMediaPlayerPropertySection extends UMovieSceneSection {
-    MediaSource: UMediaSource;
-    bLoop: boolean;
+    readonly __properties_UMovieSceneMediaPlayerPropertySection: {
+        MediaSource: UMediaSource;
+        bLoop: boolean;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneMediaPlayerPropertySection['__properties_UMovieSceneMediaPlayerPropertySection'] &
+        UMovieSceneSection['__propertyRegistry'];
 }
-declare const UMovieSceneMediaPlayerPropertySection: UMovieSceneMediaPlayerPropertySection;
 
 declare interface UMovieSceneMediaPlayerPropertyTrack extends UMovieScenePropertyTrack {
-
+    readonly __staticRegistry: 
+        UMovieScenePropertyTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieScenePropertyTrack['__propertyRegistry'];
 }
-declare const UMovieSceneMediaPlayerPropertyTrack: UMovieSceneMediaPlayerPropertyTrack;
 
 declare interface UMovieSceneMediaSection extends UMovieSceneSection {
-    MediaSource: UMediaSource;
-    MediaSourceProxyIndex: number;
-    bLooping: boolean;
-    StartFrameOffset: FFrameNumber;
-    MediaTexture: UMediaTexture;
-    MediaSoundComponent: UMediaSoundComponent;
-    bUseExternalMediaPlayer: boolean;
-    ExternalMediaPlayer: UMediaPlayer;
-    CacheSettings: FMediaSourceCacheSettings;
-    TextureIndex: number;
-    bHasMediaPlayerProxy: boolean;
-    ChannelCanPlayerBeOpen: FMovieSceneBoolChannel;
-    MediaSourceProxyBindingID: FMovieSceneObjectBindingID;
+    readonly __properties_UMovieSceneMediaSection: {
+        MediaSource: UMediaSource;
+        MediaSourceProxyIndex: number;
+        bLooping: boolean;
+        StartFrameOffset: FFrameNumber;
+        MediaTexture: UMediaTexture;
+        MediaSoundComponent: UMediaSoundComponent;
+        bUseExternalMediaPlayer: boolean;
+        ExternalMediaPlayer: UMediaPlayer;
+        CacheSettings: FMediaSourceCacheSettings;
+        TextureIndex: number;
+        bHasMediaPlayerProxy: boolean;
+        ChannelCanPlayerBeOpen: FMovieSceneBoolChannel;
+        MediaSourceProxyBindingID: FMovieSceneObjectBindingID;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneMediaSection['__properties_UMovieSceneMediaSection'] &
+        UMovieSceneSection['__propertyRegistry'];
 }
-declare const UMovieSceneMediaSection: UMovieSceneMediaSection;
 
 declare interface UMovieSceneMediaTrack extends UMovieSceneNameableTrack {
-    bSynchronousScrubbing: boolean;
-    MediaSections: TArray<UMovieSceneSection>;
+    readonly __properties_UMovieSceneMediaTrack: {
+        bSynchronousScrubbing: boolean;
+        MediaSections: UMovieSceneSection[];
+    };
+    readonly __staticRegistry: 
+        UMovieSceneNameableTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneMediaTrack['__properties_UMovieSceneMediaTrack'] &
+        UMovieSceneNameableTrack['__propertyRegistry'];
 }
-declare const UMovieSceneMediaTrack: UMovieSceneMediaTrack;
 

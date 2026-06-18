@@ -1,51 +1,60 @@
 declare interface ABP_DropPodMockUp_Closed_C extends AActor {
-    UberGraphFrame: FPointerToUberGraphFrame;
-    SkeletalMesh: USkeletalMeshComponent;
-    Box: UBoxComponent;
-    PointLight4: UPointLightComponent;
-    light_display3: UPointLightComponent;
-    Spot01: USceneComponent;
-    Spot02: USceneComponent;
-    light_display7: UPointLightComponent;
-    light_display8: UPointLightComponent;
-    light_display9: UPointLightComponent;
-    light_display10: UPointLightComponent;
-    light_display6: UPointLightComponent;
-    PointLight7: UPointLightComponent;
-    light_display11: UPointLightComponent;
-    light_display12: UPointLightComponent;
-    light_display5: UPointLightComponent;
-    PointLight5: UPointLightComponent;
-    PointLight6: UPointLightComponent;
-    PointLight8: UPointLightComponent;
-    PointLight12: UPointLightComponent;
-    light_display4: UPointLightComponent;
-    PointLight9: UPointLightComponent;
-    PointLight10: UPointLightComponent;
-    PointLight11: UPointLightComponent;
-    Lights: USceneComponent;
-    SM_EliteDropPod_Interior_Collider: UStaticMeshComponent;
-    SM_EliteDropPod_CabinShell_Collider: UStaticMeshComponent;
-    SM_EliteDropPod_BarrierCannon_Collider: UStaticMeshComponent;
-    SM_EliteDropPod_Drill_Collider: UStaticMeshComponent;
-    SM_EliteDropPod_Thruster_Collider: UStaticMeshComponent;
-    Collision: USceneComponent;
-    SM_EliteDropPod_BarrierCannon: UStaticMeshComponent;
-    SK_EliteDropPod_DoorInner: USkeletalMeshComponent;
-    SM_EliteDropPod_Drill: UStaticMeshComponent;
-    SK_EliteDropPod_DoorOuter: USkeletalMeshComponent;
-    SM_EliteDropPod_Thruster: UStaticMeshComponent;
-    SM_EliteDropPod_Interior: UStaticMeshComponent;
-    SM_EliteDropPod_CabinShell: UStaticMeshComponent;
-    MainMesh: USceneComponent;
-    MeshesAndCollision: USceneComponent;
-    DefaultSceneRoot: USceneComponent;
-    playersInside: TArray<APlayerCharacter>;
-    HostInside: boolean;
-    BndEvt__BP_DropPodMockUp_Box_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature(OverlappedComponent: UPrimitiveComponent, OtherActor: AActor, OtherComp: UPrimitiveComponent, OtherBodyIndex: number, bFromSweep: boolean, SweepResult: FHitResult): void;
-    BndEvt__BP_DropPodMockUp_Box_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature(OverlappedComponent: UPrimitiveComponent, OtherActor: AActor, OtherComp: UPrimitiveComponent, OtherBodyIndex: number): void;
-    ReceiveBeginPlay(): void;
-    ExecuteUbergraph_BP_DropPodMockUp_Closed(EntryPoint: number): void;
+    readonly __static_ABP_DropPodMockUp_Closed_C: {
+        BndEvt__BP_DropPodMockUp_Box_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature(OverlappedComponent: UPrimitiveComponent, OtherActor: AActor, OtherComp: UPrimitiveComponent, OtherBodyIndex: number, bFromSweep: boolean, SweepResult: FHitResult): void;
+        BndEvt__BP_DropPodMockUp_Box_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature(OverlappedComponent: UPrimitiveComponent, OtherActor: AActor, OtherComp: UPrimitiveComponent, OtherBodyIndex: number): void;
+        ReceiveBeginPlay(): void;
+        ExecuteUbergraph_BP_DropPodMockUp_Closed(EntryPoint: number): void;
+    };
+    readonly __properties_ABP_DropPodMockUp_Closed_C: {
+        UberGraphFrame: FPointerToUberGraphFrame;
+        SkeletalMesh: USkeletalMeshComponent;
+        Box: UBoxComponent;
+        PointLight4: UPointLightComponent;
+        light_display3: UPointLightComponent;
+        Spot01: USceneComponent;
+        Spot02: USceneComponent;
+        light_display7: UPointLightComponent;
+        light_display8: UPointLightComponent;
+        light_display9: UPointLightComponent;
+        light_display10: UPointLightComponent;
+        light_display6: UPointLightComponent;
+        PointLight7: UPointLightComponent;
+        light_display11: UPointLightComponent;
+        light_display12: UPointLightComponent;
+        light_display5: UPointLightComponent;
+        PointLight5: UPointLightComponent;
+        PointLight6: UPointLightComponent;
+        PointLight8: UPointLightComponent;
+        PointLight12: UPointLightComponent;
+        light_display4: UPointLightComponent;
+        PointLight9: UPointLightComponent;
+        PointLight10: UPointLightComponent;
+        PointLight11: UPointLightComponent;
+        Lights: USceneComponent;
+        SM_EliteDropPod_Interior_Collider: UStaticMeshComponent;
+        SM_EliteDropPod_CabinShell_Collider: UStaticMeshComponent;
+        SM_EliteDropPod_BarrierCannon_Collider: UStaticMeshComponent;
+        SM_EliteDropPod_Drill_Collider: UStaticMeshComponent;
+        SM_EliteDropPod_Thruster_Collider: UStaticMeshComponent;
+        Collision: USceneComponent;
+        SM_EliteDropPod_BarrierCannon: UStaticMeshComponent;
+        SK_EliteDropPod_DoorInner: USkeletalMeshComponent;
+        SM_EliteDropPod_Drill: UStaticMeshComponent;
+        SK_EliteDropPod_DoorOuter: USkeletalMeshComponent;
+        SM_EliteDropPod_Thruster: UStaticMeshComponent;
+        SM_EliteDropPod_Interior: UStaticMeshComponent;
+        SM_EliteDropPod_CabinShell: UStaticMeshComponent;
+        MainMesh: USceneComponent;
+        MeshesAndCollision: USceneComponent;
+        DefaultSceneRoot: USceneComponent;
+        playersInside: APlayerCharacter[];
+        HostInside: boolean;
+    };
+    readonly __staticRegistry: 
+        ABP_DropPodMockUp_Closed_C['__static_ABP_DropPodMockUp_Closed_C'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ABP_DropPodMockUp_Closed_C['__properties_ABP_DropPodMockUp_Closed_C'] &
+        AActor['__propertyRegistry'];
 }
-declare const ABP_DropPodMockUp_Closed_C: ABP_DropPodMockUp_Closed_C;
 

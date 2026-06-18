@@ -1,32 +1,59 @@
 declare interface UMoviePipelineBurnInSetting extends UMoviePipelineRenderPass {
-    BurnInClass: FSoftClassPath;
-    bCompositeOntoFinalImage: boolean;
-    RenderTarget: UTextureRenderTarget2D;
-    BurnInWidgetInstances: TArray<UMoviePipelineBurnInWidget>;
+    readonly __properties_UMoviePipelineBurnInSetting: {
+        BurnInClass: FSoftClassPath;
+        bCompositeOntoFinalImage: boolean;
+        RenderTarget: UTextureRenderTarget2D;
+        BurnInWidgetInstances: UMoviePipelineBurnInWidget[];
+    };
+    readonly __staticRegistry: 
+        UMoviePipelineRenderPass['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMoviePipelineBurnInSetting['__properties_UMoviePipelineBurnInSetting'] &
+        UMoviePipelineRenderPass['__propertyRegistry'];
 }
-declare const UMoviePipelineBurnInSetting: UMoviePipelineBurnInSetting;
 
 declare interface UMoviePipelineBurnInWidget extends UUserWidget {
-    OnOutputFrameStarted(ForPipeline: UMoviePipeline): void;
+    readonly __static_UMoviePipelineBurnInWidget: {
+        OnOutputFrameStarted(ForPipeline: UMoviePipeline): void;
+    };
+    readonly __staticRegistry: 
+        UMoviePipelineBurnInWidget['__static_UMoviePipelineBurnInWidget'] &
+        UUserWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UUserWidget['__propertyRegistry'];
 }
-declare const UMoviePipelineBurnInWidget: UMoviePipelineBurnInWidget;
 
 declare interface UMoviePipelineConsoleVariableSetting extends UMoviePipelineSetting {
-    ConsoleVariablePresets: TArray<TScriptInterface<IMovieSceneConsoleVariableTrackInterface>>;
-    StartConsoleCommands: TArray<FString>;
-    EndConsoleCommands: TArray<FString>;
-    CVars: TArray<FMoviePipelineConsoleVariableEntry>;
-    UpdateConsoleVariableEnableState(Name: string | FString, bIsEnabled: boolean): boolean;
-    RemoveConsoleVariable(Name: string | FString, bRemoveAllInstances: boolean): boolean;
-    GetConsoleVariables(): TArray<FMoviePipelineConsoleVariableEntry>;
-    AddOrUpdateConsoleVariable(Name: string | FString, Value: number): boolean;
-    AddConsoleVariable(Name: string | FString, Value: number): boolean;
+    readonly __static_UMoviePipelineConsoleVariableSetting: {
+        UpdateConsoleVariableEnableState(Name: string, bIsEnabled: boolean): boolean;
+        RemoveConsoleVariable(Name: string, bRemoveAllInstances: boolean): boolean;
+        GetConsoleVariables(): FMoviePipelineConsoleVariableEntry[];
+        AddOrUpdateConsoleVariable(Name: string, Value: number): boolean;
+        AddConsoleVariable(Name: string, Value: number): boolean;
+    };
+    readonly __properties_UMoviePipelineConsoleVariableSetting: {
+        ConsoleVariablePresets: TScriptInterface<IMovieSceneConsoleVariableTrackInterface>[];
+        StartConsoleCommands: string[];
+        EndConsoleCommands: string[];
+        CVars: FMoviePipelineConsoleVariableEntry[];
+    };
+    readonly __staticRegistry: 
+        UMoviePipelineConsoleVariableSetting['__static_UMoviePipelineConsoleVariableSetting'] &
+        UMoviePipelineSetting['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMoviePipelineConsoleVariableSetting['__properties_UMoviePipelineConsoleVariableSetting'] &
+        UMoviePipelineSetting['__propertyRegistry'];
 }
-declare const UMoviePipelineConsoleVariableSetting: UMoviePipelineConsoleVariableSetting;
 
 declare interface UMoviePipelineWidgetRenderer extends UMoviePipelineRenderPass {
-    bCompositeOntoFinalImage: boolean;
-    RenderTarget: UTextureRenderTarget2D;
+    readonly __properties_UMoviePipelineWidgetRenderer: {
+        bCompositeOntoFinalImage: boolean;
+        RenderTarget: UTextureRenderTarget2D;
+    };
+    readonly __staticRegistry: 
+        UMoviePipelineRenderPass['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMoviePipelineWidgetRenderer['__properties_UMoviePipelineWidgetRenderer'] &
+        UMoviePipelineRenderPass['__propertyRegistry'];
 }
-declare const UMoviePipelineWidgetRenderer: UMoviePipelineWidgetRenderer;
 

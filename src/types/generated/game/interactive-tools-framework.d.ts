@@ -1,63 +1,78 @@
 declare interface ACombinedTransformGizmoActor extends AGizmoActor {
-    TranslateX: UPrimitiveComponent;
-    TranslateY: UPrimitiveComponent;
-    TranslateZ: UPrimitiveComponent;
-    TranslateYZ: UPrimitiveComponent;
-    TranslateXZ: UPrimitiveComponent;
-    TranslateXY: UPrimitiveComponent;
-    RotateX: UPrimitiveComponent;
-    RotateY: UPrimitiveComponent;
-    RotateZ: UPrimitiveComponent;
-    RotationSphere: UPrimitiveComponent;
-    FreeRotateHandle: UPrimitiveComponent;
-    FreeTranslateHandle: UPrimitiveComponent;
-    UniformScale: UPrimitiveComponent;
-    AxisScaleX: UPrimitiveComponent;
-    AxisScaleY: UPrimitiveComponent;
-    AxisScaleZ: UPrimitiveComponent;
-    PlaneScaleYZ: UPrimitiveComponent;
-    PlaneScaleXZ: UPrimitiveComponent;
-    PlaneScaleXY: UPrimitiveComponent;
-    FullAxisScaleX: UPrimitiveComponent;
-    FullAxisScaleY: UPrimitiveComponent;
-    FullAxisScaleZ: UPrimitiveComponent;
+    readonly __properties_ACombinedTransformGizmoActor: {
+        TranslateX: UPrimitiveComponent;
+        TranslateY: UPrimitiveComponent;
+        TranslateZ: UPrimitiveComponent;
+        TranslateYZ: UPrimitiveComponent;
+        TranslateXZ: UPrimitiveComponent;
+        TranslateXY: UPrimitiveComponent;
+        RotateX: UPrimitiveComponent;
+        RotateY: UPrimitiveComponent;
+        RotateZ: UPrimitiveComponent;
+        RotationSphere: UPrimitiveComponent;
+        FreeRotateHandle: UPrimitiveComponent;
+        FreeTranslateHandle: UPrimitiveComponent;
+        UniformScale: UPrimitiveComponent;
+        AxisScaleX: UPrimitiveComponent;
+        AxisScaleY: UPrimitiveComponent;
+        AxisScaleZ: UPrimitiveComponent;
+        PlaneScaleYZ: UPrimitiveComponent;
+        PlaneScaleXZ: UPrimitiveComponent;
+        PlaneScaleXY: UPrimitiveComponent;
+        FullAxisScaleX: UPrimitiveComponent;
+        FullAxisScaleY: UPrimitiveComponent;
+        FullAxisScaleZ: UPrimitiveComponent;
+    };
+    readonly __staticRegistry: 
+        AGizmoActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ACombinedTransformGizmoActor['__properties_ACombinedTransformGizmoActor'] &
+        AGizmoActor['__propertyRegistry'];
 }
-declare const ACombinedTransformGizmoActor: ACombinedTransformGizmoActor;
 
 declare interface AGizmoActor extends AInternalToolFrameworkActor {
-
+    readonly __staticRegistry: 
+        AInternalToolFrameworkActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AInternalToolFrameworkActor['__propertyRegistry'];
 }
-declare const AGizmoActor: AGizmoActor;
 
 declare interface AInternalToolFrameworkActor extends AActor {
-    bIsSelectableInEditor: boolean;
+    readonly __properties_AInternalToolFrameworkActor: {
+        bIsSelectableInEditor: boolean;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AInternalToolFrameworkActor['__properties_AInternalToolFrameworkActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const AInternalToolFrameworkActor: AInternalToolFrameworkActor;
 
 declare interface AIntervalGizmoActor extends AGizmoActor {
-    UpIntervalComponent: UGizmoLineHandleComponent;
-    DownIntervalComponent: UGizmoLineHandleComponent;
-    ForwardIntervalComponent: UGizmoLineHandleComponent;
-    BackwardIntervalComponent: UGizmoLineHandleComponent;
-    RightIntervalComponent: UGizmoLineHandleComponent;
-    LeftIntervalComponent: UGizmoLineHandleComponent;
+    readonly __properties_AIntervalGizmoActor: {
+        UpIntervalComponent: UGizmoLineHandleComponent;
+        DownIntervalComponent: UGizmoLineHandleComponent;
+        ForwardIntervalComponent: UGizmoLineHandleComponent;
+        BackwardIntervalComponent: UGizmoLineHandleComponent;
+        RightIntervalComponent: UGizmoLineHandleComponent;
+        LeftIntervalComponent: UGizmoLineHandleComponent;
+    };
+    readonly __staticRegistry: 
+        AGizmoActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AIntervalGizmoActor['__properties_AIntervalGizmoActor'] &
+        AGizmoActor['__propertyRegistry'];
 }
-declare const AIntervalGizmoActor: AIntervalGizmoActor;
 
 declare interface FActiveGizmo {
     Gizmo: UInteractiveGizmo;
 }
-declare const FActiveGizmo: FActiveGizmo;
 
 declare interface FBehaviorInfo {
     Behavior: UInputBehavior;
 }
-declare const FBehaviorInfo: FBehaviorInfo;
 
-declare interface FBrushStampData {
-
-}
-declare const FBrushStampData: FBrushStampData;
+declare type FBrushStampData = object;
 
 declare interface FDeviceButtonState {
     Button: FKey;
@@ -66,27 +81,23 @@ declare interface FDeviceButtonState {
     bReleased: boolean;
     bDoubleClicked: boolean;
 }
-declare const FDeviceButtonState: FDeviceButtonState;
 
 declare interface FGizmoElementColorAttribute {
     Value: FLinearColor;
     bHasValue: boolean;
     bOverridesChildState: boolean;
 }
-declare const FGizmoElementColorAttribute: FGizmoElementColorAttribute;
 
 declare interface FGizmoElementLineRenderStateAttributes {
     LineColor: FGizmoElementColorAttribute;
     HoverLineColor: FGizmoElementColorAttribute;
     InteractLineColor: FGizmoElementColorAttribute;
 }
-declare const FGizmoElementLineRenderStateAttributes: FGizmoElementLineRenderStateAttributes;
 
 declare interface FGizmoElementMaterialAttribute {
     Value: TWeakObjectPtr<UMaterialInterface>;
     bOverridesChildState: boolean;
 }
-declare const FGizmoElementMaterialAttribute: FGizmoElementMaterialAttribute;
 
 declare interface FGizmoElementMeshRenderStateAttributes {
     Material: FGizmoElementMaterialAttribute;
@@ -96,26 +107,22 @@ declare interface FGizmoElementMeshRenderStateAttributes {
     HoverVertexColor: FGizmoElementColorAttribute;
     InteractVertexColor: FGizmoElementColorAttribute;
 }
-declare const FGizmoElementMeshRenderStateAttributes: FGizmoElementMeshRenderStateAttributes;
 
 declare interface FGizmoFloatParameterChange {
     InitialValue: number;
     CurrentValue: number;
 }
-declare const FGizmoFloatParameterChange: FGizmoFloatParameterChange;
 
 declare interface FGizmoVec2ParameterChange {
     InitialValue: FVector2D;
     CurrentValue: FVector2D;
 }
-declare const FGizmoVec2ParameterChange: FGizmoVec2ParameterChange;
 
 declare interface FInputDeviceRay {
     WorldRay: FRay;
     bHas2D: boolean;
     ScreenPosition: FVector2D;
 }
-declare const FInputDeviceRay: FInputDeviceRay;
 
 declare interface FInputDeviceState {
     InputDevice: EInputDevices;
@@ -126,7 +133,6 @@ declare interface FInputDeviceState {
     Keyboard: FKeyboardInputDeviceState;
     Mouse: FMouseInputDeviceState;
 }
-declare const FInputDeviceState: FInputDeviceState;
 
 declare interface FInputRayHit {
     bHit: boolean;
@@ -136,12 +142,10 @@ declare interface FInputRayHit {
     HitIdentifier: number;
     HitObject: TWeakObjectPtr<UObject>;
 }
-declare const FInputRayHit: FInputRayHit;
 
 declare interface FKeyboardInputDeviceState {
     ActiveKey: FDeviceButtonState;
 }
-declare const FKeyboardInputDeviceState: FKeyboardInputDeviceState;
 
 declare interface FMouseInputDeviceState {
     Left: FDeviceButtonState;
@@ -152,1144 +156,1800 @@ declare interface FMouseInputDeviceState {
     Delta2D: FVector2D;
     WorldRay: FRay;
 }
-declare const FMouseInputDeviceState: FMouseInputDeviceState;
 
 declare interface IAssetBackedTarget extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IAssetBackedTarget: IAssetBackedTarget;
 
 declare interface IGizmoAxisSource extends IInterface {
-    HasTangentVectors(): boolean;
-    GetTangentVectors(TangentXOut: FVector, TangentYOut: FVector): void;
-    GetOrigin(): FVector;
-    GetDirection(): FVector;
+    readonly __static_IGizmoAxisSource: {
+        HasTangentVectors(): boolean;
+        GetTangentVectors(TangentXOut: FVector, TangentYOut: FVector): void;
+        GetOrigin(): FVector;
+        GetDirection(): FVector;
+    };
+    readonly __staticRegistry: 
+        IGizmoAxisSource['__static_IGizmoAxisSource'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IGizmoAxisSource: IGizmoAxisSource;
 
 declare interface IGizmoBaseComponentInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IGizmoBaseComponentInterface: IGizmoBaseComponentInterface;
 
 declare interface IGizmoClickMultiTarget extends IInterface {
-    UpdateInteractingState(bInteracting: boolean, InPartIdentifier: uint32): void;
-    UpdateHoverState(bHovering: boolean, InPartIdentifier: uint32): void;
-    UpdateHittableState(bHittable: boolean, InPartIdentifier: uint32): void;
+    readonly __static_IGizmoClickMultiTarget: {
+        UpdateInteractingState(bInteracting: boolean, InPartIdentifier: number): void;
+        UpdateHoverState(bHovering: boolean, InPartIdentifier: number): void;
+        UpdateHittableState(bHittable: boolean, InPartIdentifier: number): void;
+    };
+    readonly __staticRegistry: 
+        IGizmoClickMultiTarget['__static_IGizmoClickMultiTarget'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IGizmoClickMultiTarget: IGizmoClickMultiTarget;
 
 declare interface IGizmoClickTarget extends IInterface {
-    UpdateInteractingState(bInteracting: boolean): void;
-    UpdateHoverState(bHovering: boolean): void;
+    readonly __static_IGizmoClickTarget: {
+        UpdateInteractingState(bInteracting: boolean): void;
+        UpdateHoverState(bHovering: boolean): void;
+    };
+    readonly __staticRegistry: 
+        IGizmoClickTarget['__static_IGizmoClickTarget'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IGizmoClickTarget: IGizmoClickTarget;
 
 declare interface IGizmoFloatParameterSource extends IInterface {
-    SetParameter(NewValue: number): void;
-    GetParameter(): number;
-    EndModify(): void;
-    BeginModify(): void;
+    readonly __static_IGizmoFloatParameterSource: {
+        SetParameter(NewValue: number): void;
+        GetParameter(): number;
+        EndModify(): void;
+        BeginModify(): void;
+    };
+    readonly __staticRegistry: 
+        IGizmoFloatParameterSource['__static_IGizmoFloatParameterSource'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IGizmoFloatParameterSource: IGizmoFloatParameterSource;
 
 declare interface IGizmoRenderMultiTarget extends IInterface {
-    UpdateVisibilityState(bVisible: boolean, InPartIdentifier: uint32): void;
+    readonly __static_IGizmoRenderMultiTarget: {
+        UpdateVisibilityState(bVisible: boolean, InPartIdentifier: number): void;
+    };
+    readonly __staticRegistry: 
+        IGizmoRenderMultiTarget['__static_IGizmoRenderMultiTarget'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IGizmoRenderMultiTarget: IGizmoRenderMultiTarget;
 
 declare interface IGizmoRenderTarget extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IGizmoRenderTarget: IGizmoRenderTarget;
 
 declare interface IGizmoStateTarget extends IInterface {
-    EndUpdate(): void;
-    BeginUpdate(): void;
+    readonly __static_IGizmoStateTarget: {
+        EndUpdate(): void;
+        BeginUpdate(): void;
+    };
+    readonly __staticRegistry: 
+        IGizmoStateTarget['__static_IGizmoStateTarget'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IGizmoStateTarget: IGizmoStateTarget;
 
 declare interface IGizmoTransformSource extends IInterface {
-    SetTransform(NewTransform: FTransform): void;
-    GetTransform(): FTransform;
+    readonly __static_IGizmoTransformSource: {
+        SetTransform(NewTransform: FTransform): void;
+        GetTransform(): FTransform;
+    };
+    readonly __staticRegistry: 
+        IGizmoTransformSource['__static_IGizmoTransformSource'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IGizmoTransformSource: IGizmoTransformSource;
 
 declare interface IGizmoVec2ParameterSource extends IInterface {
-    SetParameter(NewValue: FVector2D): void;
-    GetParameter(): FVector2D;
-    EndModify(): void;
-    BeginModify(): void;
+    readonly __static_IGizmoVec2ParameterSource: {
+        SetParameter(NewValue: FVector2D): void;
+        GetParameter(): FVector2D;
+        EndModify(): void;
+        BeginModify(): void;
+    };
+    readonly __staticRegistry: 
+        IGizmoVec2ParameterSource['__static_IGizmoVec2ParameterSource'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IGizmoVec2ParameterSource: IGizmoVec2ParameterSource;
 
 declare interface IInputBehaviorSource extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IInputBehaviorSource: IInputBehaviorSource;
 
 declare interface IInteractiveToolCameraFocusAPI extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IInteractiveToolCameraFocusAPI: IInteractiveToolCameraFocusAPI;
 
 declare interface IInteractiveToolEditorGizmoAPI extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IInteractiveToolEditorGizmoAPI: IInteractiveToolEditorGizmoAPI;
 
 declare interface IInteractiveToolExclusiveToolAPI extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IInteractiveToolExclusiveToolAPI: IInteractiveToolExclusiveToolAPI;
 
 declare interface IInteractiveToolManageGeometrySelectionAPI extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IInteractiveToolManageGeometrySelectionAPI: IInteractiveToolManageGeometrySelectionAPI;
 
 declare interface IInteractiveToolNestedAcceptCancelAPI extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IInteractiveToolNestedAcceptCancelAPI: IInteractiveToolNestedAcceptCancelAPI;
 
 declare interface IInteractiveToolShutdownQueryAPI extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IInteractiveToolShutdownQueryAPI: IInteractiveToolShutdownQueryAPI;
 
 declare interface IMaterialProvider extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMaterialProvider: IMaterialProvider;
 
 declare interface IMeshDescriptionCommitter extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMeshDescriptionCommitter: IMeshDescriptionCommitter;
 
 declare interface IMeshDescriptionProvider extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMeshDescriptionProvider: IMeshDescriptionProvider;
 
 declare interface IPhysicsDataSource extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IPhysicsDataSource: IPhysicsDataSource;
 
 declare interface IPrimitiveComponentBackedTarget extends ISceneComponentBackedTarget {
-
+    readonly __staticRegistry: 
+        ISceneComponentBackedTarget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ISceneComponentBackedTarget['__propertyRegistry'];
 }
-declare const IPrimitiveComponentBackedTarget: IPrimitiveComponentBackedTarget;
 
 declare interface ISceneComponentBackedTarget extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const ISceneComponentBackedTarget: ISceneComponentBackedTarget;
 
 declare interface ISkeletalMeshBackedTarget extends IAssetBackedTarget {
-
+    readonly __staticRegistry: 
+        IAssetBackedTarget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IAssetBackedTarget['__propertyRegistry'];
 }
-declare const ISkeletalMeshBackedTarget: ISkeletalMeshBackedTarget;
 
 declare interface IStaticMeshBackedTarget extends IAssetBackedTarget {
-
+    readonly __staticRegistry: 
+        IAssetBackedTarget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IAssetBackedTarget['__propertyRegistry'];
 }
-declare const IStaticMeshBackedTarget: IStaticMeshBackedTarget;
 
 declare interface IToolContextTransactionProvider extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IToolContextTransactionProvider: IToolContextTransactionProvider;
 
 declare interface IToolFrameworkComponent extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IToolFrameworkComponent: IToolFrameworkComponent;
 
 declare interface IWidgetBaseBehavior extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IWidgetBaseBehavior: IWidgetBaseBehavior;
 
 declare interface UAnyButtonInputBehavior extends UInputBehavior {
-
+    readonly __staticRegistry: 
+        UInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInputBehavior['__propertyRegistry'];
 }
-declare const UAnyButtonInputBehavior: UAnyButtonInputBehavior;
 
 declare interface UAxisAngleGizmo extends UInteractiveGizmo {
-    AxisSource: TScriptInterface<IGizmoAxisSource>;
-    AngleSource: TScriptInterface<IGizmoFloatParameterSource>;
-    HitTarget: TScriptInterface<IGizmoClickTarget>;
-    StateTarget: TScriptInterface<IGizmoStateTarget>;
-    MouseBehavior: UClickDragInputBehavior;
-    bInInteraction: boolean;
-    RotationOrigin: FVector;
-    RotationAxis: FVector;
-    RotationPlaneX: FVector;
-    RotationPlaneY: FVector;
-    InteractionStartPoint: FVector;
-    InteractionCurPoint: FVector;
-    InteractionStartAngle: number;
-    InteractionCurAngle: number;
+    readonly __properties_UAxisAngleGizmo: {
+        AxisSource: TScriptInterface<IGizmoAxisSource>;
+        AngleSource: TScriptInterface<IGizmoFloatParameterSource>;
+        HitTarget: TScriptInterface<IGizmoClickTarget>;
+        StateTarget: TScriptInterface<IGizmoStateTarget>;
+        MouseBehavior: UClickDragInputBehavior;
+        bInInteraction: boolean;
+        RotationOrigin: FVector;
+        RotationAxis: FVector;
+        RotationPlaneX: FVector;
+        RotationPlaneY: FVector;
+        InteractionStartPoint: FVector;
+        InteractionCurPoint: FVector;
+        InteractionStartAngle: number;
+        InteractionCurAngle: number;
+    };
+    readonly __staticRegistry: 
+        UInteractiveGizmo['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAxisAngleGizmo['__properties_UAxisAngleGizmo'] &
+        UInteractiveGizmo['__propertyRegistry'];
 }
-declare const UAxisAngleGizmo: UAxisAngleGizmo;
 
 declare interface UAxisAngleGizmoBuilder extends UInteractiveGizmoBuilder {
-
+    readonly __staticRegistry: 
+        UInteractiveGizmoBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveGizmoBuilder['__propertyRegistry'];
 }
-declare const UAxisAngleGizmoBuilder: UAxisAngleGizmoBuilder;
 
 declare interface UAxisPositionGizmo extends UInteractiveGizmo {
-    AxisSource: TScriptInterface<IGizmoAxisSource>;
-    ParameterSource: TScriptInterface<IGizmoFloatParameterSource>;
-    GizmoViewContext: UGizmoViewContext;
-    HitTarget: TScriptInterface<IGizmoClickTarget>;
-    StateTarget: TScriptInterface<IGizmoStateTarget>;
-    MouseBehavior: UClickDragInputBehavior;
-    bEnableSignedAxis: boolean;
-    bInInteraction: boolean;
-    InteractionOrigin: FVector;
-    InteractionAxis: FVector;
-    InteractionStartPoint: FVector;
-    InteractionCurPoint: FVector;
-    InteractionStartParameter: number;
-    InteractionCurParameter: number;
-    ParameterSign: number;
+    readonly __properties_UAxisPositionGizmo: {
+        AxisSource: TScriptInterface<IGizmoAxisSource>;
+        ParameterSource: TScriptInterface<IGizmoFloatParameterSource>;
+        GizmoViewContext: UGizmoViewContext;
+        HitTarget: TScriptInterface<IGizmoClickTarget>;
+        StateTarget: TScriptInterface<IGizmoStateTarget>;
+        MouseBehavior: UClickDragInputBehavior;
+        bEnableSignedAxis: boolean;
+        bInInteraction: boolean;
+        InteractionOrigin: FVector;
+        InteractionAxis: FVector;
+        InteractionStartPoint: FVector;
+        InteractionCurPoint: FVector;
+        InteractionStartParameter: number;
+        InteractionCurParameter: number;
+        ParameterSign: number;
+    };
+    readonly __staticRegistry: 
+        UInteractiveGizmo['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAxisPositionGizmo['__properties_UAxisPositionGizmo'] &
+        UInteractiveGizmo['__propertyRegistry'];
 }
-declare const UAxisPositionGizmo: UAxisPositionGizmo;
 
 declare interface UAxisPositionGizmoBuilder extends UInteractiveGizmoBuilder {
-
+    readonly __staticRegistry: 
+        UInteractiveGizmoBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveGizmoBuilder['__propertyRegistry'];
 }
-declare const UAxisPositionGizmoBuilder: UAxisPositionGizmoBuilder;
 
 declare interface UBaseBrushTool extends UMeshSurfacePointTool {
-    BrushProperties: UBrushBaseProperties;
-    bInBrushStroke: boolean;
-    WorldToLocalScale: number;
-    LastBrushStamp: FBrushStampData;
-    PropertyClass: TSoftClassPtr<UBrushBaseProperties>;
-    BrushStampIndicator: UBrushStampIndicator;
+    readonly __properties_UBaseBrushTool: {
+        BrushProperties: UBrushBaseProperties;
+        bInBrushStroke: boolean;
+        WorldToLocalScale: number;
+        LastBrushStamp: FBrushStampData;
+        PropertyClass: TSoftClassPtr<UBrushBaseProperties>;
+        BrushStampIndicator: UBrushStampIndicator;
+    };
+    readonly __staticRegistry: 
+        UMeshSurfacePointTool['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBaseBrushTool['__properties_UBaseBrushTool'] &
+        UMeshSurfacePointTool['__propertyRegistry'];
 }
-declare const UBaseBrushTool: UBaseBrushTool;
 
 declare interface UBrushAdjusterInputBehavior extends UAnyButtonInputBehavior {
-
+    readonly __staticRegistry: 
+        UAnyButtonInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAnyButtonInputBehavior['__propertyRegistry'];
 }
-declare const UBrushAdjusterInputBehavior: UBrushAdjusterInputBehavior;
 
 declare interface UBrushBaseProperties extends UInteractiveToolPropertySet {
-    BrushSize: number;
-    bSpecifyRadius: boolean;
-    BrushRadius: number;
-    BrushStrength: number;
-    BrushFalloffAmount: number;
-    bShowStrength: boolean;
-    bShowFalloff: boolean;
+    readonly __properties_UBrushBaseProperties: {
+        BrushSize: number;
+        bSpecifyRadius: boolean;
+        BrushRadius: number;
+        BrushStrength: number;
+        BrushFalloffAmount: number;
+        bShowStrength: boolean;
+        bShowFalloff: boolean;
+    };
+    readonly __staticRegistry: 
+        UInteractiveToolPropertySet['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBrushBaseProperties['__properties_UBrushBaseProperties'] &
+        UInteractiveToolPropertySet['__propertyRegistry'];
 }
-declare const UBrushBaseProperties: UBrushBaseProperties;
 
 declare interface UBrushStampIndicator extends UInteractiveGizmo {
-    bVisible: boolean;
-    BrushRadius: number;
-    BrushFalloff: number;
-    BrushStrength: number;
-    BrushPosition: FVector;
-    BrushNormal: FVector;
-    bDrawIndicatorLines: boolean;
-    bDrawRadiusCircle: boolean;
-    bScaleNormalByStrength: boolean;
-    SampleStepCount: number;
-    LineColor: FLinearColor;
-    LineThickness: number;
-    bDepthTested: boolean;
-    bDrawSecondaryLines: boolean;
-    SecondaryLineThickness: number;
-    SecondaryLineColor: FLinearColor;
-    AttachedComponent: UPrimitiveComponent;
+    readonly __properties_UBrushStampIndicator: {
+        bVisible: boolean;
+        BrushRadius: number;
+        BrushFalloff: number;
+        BrushStrength: number;
+        BrushPosition: FVector;
+        BrushNormal: FVector;
+        bDrawIndicatorLines: boolean;
+        bDrawRadiusCircle: boolean;
+        bScaleNormalByStrength: boolean;
+        SampleStepCount: number;
+        LineColor: FLinearColor;
+        LineThickness: number;
+        bDepthTested: boolean;
+        bDrawSecondaryLines: boolean;
+        SecondaryLineThickness: number;
+        SecondaryLineColor: FLinearColor;
+        AttachedComponent: UPrimitiveComponent;
+    };
+    readonly __staticRegistry: 
+        UInteractiveGizmo['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBrushStampIndicator['__properties_UBrushStampIndicator'] &
+        UInteractiveGizmo['__propertyRegistry'];
 }
-declare const UBrushStampIndicator: UBrushStampIndicator;
 
 declare interface UBrushStampIndicatorBuilder extends UInteractiveGizmoBuilder {
-
+    readonly __staticRegistry: 
+        UInteractiveGizmoBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveGizmoBuilder['__propertyRegistry'];
 }
-declare const UBrushStampIndicatorBuilder: UBrushStampIndicatorBuilder;
 
 declare interface UClickDragInputBehavior extends UAnyButtonInputBehavior {
-    bUpdateModifiersDuringDrag: boolean;
+    readonly __properties_UClickDragInputBehavior: {
+        bUpdateModifiersDuringDrag: boolean;
+    };
+    readonly __staticRegistry: 
+        UAnyButtonInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UClickDragInputBehavior['__properties_UClickDragInputBehavior'] &
+        UAnyButtonInputBehavior['__propertyRegistry'];
 }
-declare const UClickDragInputBehavior: UClickDragInputBehavior;
 
 declare interface UClickDragTool extends UInteractiveTool {
-
+    readonly __staticRegistry: 
+        UInteractiveTool['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveTool['__propertyRegistry'];
 }
-declare const UClickDragTool: UClickDragTool;
 
 declare interface UClickDragToolBuilder extends UInteractiveToolBuilder {
-
+    readonly __staticRegistry: 
+        UInteractiveToolBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveToolBuilder['__propertyRegistry'];
 }
-declare const UClickDragToolBuilder: UClickDragToolBuilder;
 
 declare interface UCombinedTransformGizmo extends UInteractiveGizmo {
-    ActiveTarget: UTransformProxy;
-    bSnapToWorldGrid: boolean;
-    bGridSizeIsExplicit: boolean;
-    ExplicitGridSize: FVector;
-    bRotationGridSizeIsExplicit: boolean;
-    ExplicitRotationGridSize: FRotator;
-    bSnapToWorldRotGrid: boolean;
-    bSnapToScaleGrid: boolean;
-    bUseContextCoordinateSystem: boolean;
-    CurrentCoordinateSystem: EToolContextCoordinateSystem;
-    bUseContextGizmoMode: boolean;
-    ActiveGizmoMode: EToolContextTransformGizmoMode;
-    ActiveComponents: TArray<UPrimitiveComponent>;
-    ActiveGizmos: TArray<UInteractiveGizmo>;
-    CameraAxisSource: UGizmoConstantFrameAxisSource;
-    AxisXSource: UGizmoComponentAxisSource;
-    AxisYSource: UGizmoComponentAxisSource;
-    AxisZSource: UGizmoComponentAxisSource;
-    UnitAxisXSource: UGizmoComponentAxisSource;
-    UnitAxisYSource: UGizmoComponentAxisSource;
-    UnitAxisZSource: UGizmoComponentAxisSource;
-    StateTarget: UGizmoTransformChangeStateTarget;
+    readonly __properties_UCombinedTransformGizmo: {
+        ActiveTarget: UTransformProxy;
+        bSnapToWorldGrid: boolean;
+        bGridSizeIsExplicit: boolean;
+        ExplicitGridSize: FVector;
+        bRotationGridSizeIsExplicit: boolean;
+        ExplicitRotationGridSize: FRotator;
+        bSnapToWorldRotGrid: boolean;
+        bSnapToScaleGrid: boolean;
+        bUseContextCoordinateSystem: boolean;
+        CurrentCoordinateSystem: EToolContextCoordinateSystem;
+        bUseContextGizmoMode: boolean;
+        ActiveGizmoMode: EToolContextTransformGizmoMode;
+        ActiveComponents: UPrimitiveComponent[];
+        ActiveGizmos: UInteractiveGizmo[];
+        CameraAxisSource: UGizmoConstantFrameAxisSource;
+        AxisXSource: UGizmoComponentAxisSource;
+        AxisYSource: UGizmoComponentAxisSource;
+        AxisZSource: UGizmoComponentAxisSource;
+        UnitAxisXSource: UGizmoComponentAxisSource;
+        UnitAxisYSource: UGizmoComponentAxisSource;
+        UnitAxisZSource: UGizmoComponentAxisSource;
+        StateTarget: UGizmoTransformChangeStateTarget;
+    };
+    readonly __staticRegistry: 
+        UInteractiveGizmo['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCombinedTransformGizmo['__properties_UCombinedTransformGizmo'] &
+        UInteractiveGizmo['__propertyRegistry'];
 }
-declare const UCombinedTransformGizmo: UCombinedTransformGizmo;
 
 declare interface UCombinedTransformGizmoBuilder extends UInteractiveGizmoBuilder {
-
+    readonly __staticRegistry: 
+        UInteractiveGizmoBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveGizmoBuilder['__propertyRegistry'];
 }
-declare const UCombinedTransformGizmoBuilder: UCombinedTransformGizmoBuilder;
 
 declare interface UCombinedTransformGizmoContextObject extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UCombinedTransformGizmoContextObject: UCombinedTransformGizmoContextObject;
 
 declare interface UComponentBoundTransformProxy extends UTransformProxy {
-
+    readonly __staticRegistry: 
+        UTransformProxy['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTransformProxy['__propertyRegistry'];
 }
-declare const UComponentBoundTransformProxy: UComponentBoundTransformProxy;
 
 declare interface UContextObjectStore extends UObject {
-    ContextObjects: TArray<UObject>;
+    readonly __properties_UContextObjectStore: {
+        ContextObjects: UObject[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UContextObjectStore['__properties_UContextObjectStore'] &
+        UObject['__propertyRegistry'];
 }
-declare const UContextObjectStore: UContextObjectStore;
 
 declare interface UDoubleClickInputBehavior extends USingleClickInputBehavior {
-
+    readonly __staticRegistry: 
+        USingleClickInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USingleClickInputBehavior['__propertyRegistry'];
 }
-declare const UDoubleClickInputBehavior: UDoubleClickInputBehavior;
 
 declare interface UFreePositionSubGizmo extends UPlanePositionGizmo {
-    TransformSource: TScriptInterface<IGizmoTransformSource>;
+    readonly __properties_UFreePositionSubGizmo: {
+        TransformSource: TScriptInterface<IGizmoTransformSource>;
+    };
+    readonly __staticRegistry: 
+        UPlanePositionGizmo['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFreePositionSubGizmo['__properties_UFreePositionSubGizmo'] &
+        UPlanePositionGizmo['__propertyRegistry'];
 }
-declare const UFreePositionSubGizmo: UFreePositionSubGizmo;
 
 declare interface UFreeRotationSubGizmo extends UInteractiveGizmo {
-    AxisSource: TScriptInterface<IGizmoAxisSource>;
-    HitTarget: TScriptInterface<IGizmoClickTarget>;
-    StateTarget: TScriptInterface<IGizmoStateTarget>;
-    TransformSource: TScriptInterface<IGizmoTransformSource>;
-    GizmoViewContext: UGizmoViewContext;
-    MouseBehavior: UClickDragInputBehavior;
+    readonly __properties_UFreeRotationSubGizmo: {
+        AxisSource: TScriptInterface<IGizmoAxisSource>;
+        HitTarget: TScriptInterface<IGizmoClickTarget>;
+        StateTarget: TScriptInterface<IGizmoStateTarget>;
+        TransformSource: TScriptInterface<IGizmoTransformSource>;
+        GizmoViewContext: UGizmoViewContext;
+        MouseBehavior: UClickDragInputBehavior;
+    };
+    readonly __staticRegistry: 
+        UInteractiveGizmo['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFreeRotationSubGizmo['__properties_UFreeRotationSubGizmo'] &
+        UInteractiveGizmo['__propertyRegistry'];
 }
-declare const UFreeRotationSubGizmo: UFreeRotationSubGizmo;
 
 declare interface UGizmoArrowComponent extends UGizmoBaseComponent {
-    Direction: FVector;
-    Gap: number;
-    Length: number;
-    Thickness: number;
+    readonly __properties_UGizmoArrowComponent: {
+        Direction: FVector;
+        Gap: number;
+        Length: number;
+        Thickness: number;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoArrowComponent['__properties_UGizmoArrowComponent'] &
+        UGizmoBaseComponent['__propertyRegistry'];
 }
-declare const UGizmoArrowComponent: UGizmoArrowComponent;
 
 declare interface UGizmoAxisIntervalParameterSource extends UGizmoBaseFloatParameterSource {
-    FloatParameterSource: TScriptInterface<IGizmoFloatParameterSource>;
-    MinParameter: number;
-    MaxParameter: number;
+    readonly __properties_UGizmoAxisIntervalParameterSource: {
+        FloatParameterSource: TScriptInterface<IGizmoFloatParameterSource>;
+        MinParameter: number;
+        MaxParameter: number;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseFloatParameterSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoAxisIntervalParameterSource['__properties_UGizmoAxisIntervalParameterSource'] &
+        UGizmoBaseFloatParameterSource['__propertyRegistry'];
 }
-declare const UGizmoAxisIntervalParameterSource: UGizmoAxisIntervalParameterSource;
 
 declare interface UGizmoAxisRotationParameterSource extends UGizmoBaseFloatParameterSource {
-    AxisSource: TScriptInterface<IGizmoAxisSource>;
-    TransformSource: TScriptInterface<IGizmoTransformSource>;
-    Angle: number;
-    LastChange: FGizmoFloatParameterChange;
-    CurRotationAxis: FVector;
-    CurRotationOrigin: FVector;
-    InitialTransform: FTransform;
+    readonly __properties_UGizmoAxisRotationParameterSource: {
+        AxisSource: TScriptInterface<IGizmoAxisSource>;
+        TransformSource: TScriptInterface<IGizmoTransformSource>;
+        Angle: number;
+        LastChange: FGizmoFloatParameterChange;
+        CurRotationAxis: FVector;
+        CurRotationOrigin: FVector;
+        InitialTransform: FTransform;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseFloatParameterSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoAxisRotationParameterSource['__properties_UGizmoAxisRotationParameterSource'] &
+        UGizmoBaseFloatParameterSource['__propertyRegistry'];
 }
-declare const UGizmoAxisRotationParameterSource: UGizmoAxisRotationParameterSource;
 
 declare interface UGizmoAxisScaleParameterSource extends UGizmoBaseFloatParameterSource {
-    AxisSource: TScriptInterface<IGizmoAxisSource>;
-    TransformSource: TScriptInterface<IGizmoTransformSource>;
-    ScaleMultiplier: number;
-    bClampToZero: boolean;
-    Parameter: number;
-    LastChange: FGizmoFloatParameterChange;
-    CurScaleAxis: FVector;
-    CurScaleOrigin: FVector;
-    InitialTransform: FTransform;
+    readonly __properties_UGizmoAxisScaleParameterSource: {
+        AxisSource: TScriptInterface<IGizmoAxisSource>;
+        TransformSource: TScriptInterface<IGizmoTransformSource>;
+        ScaleMultiplier: number;
+        bClampToZero: boolean;
+        Parameter: number;
+        LastChange: FGizmoFloatParameterChange;
+        CurScaleAxis: FVector;
+        CurScaleOrigin: FVector;
+        InitialTransform: FTransform;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseFloatParameterSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoAxisScaleParameterSource['__properties_UGizmoAxisScaleParameterSource'] &
+        UGizmoBaseFloatParameterSource['__propertyRegistry'];
 }
-declare const UGizmoAxisScaleParameterSource: UGizmoAxisScaleParameterSource;
 
 declare interface UGizmoAxisTranslationParameterSource extends UGizmoBaseFloatParameterSource {
-    AxisSource: TScriptInterface<IGizmoAxisSource>;
-    TransformSource: TScriptInterface<IGizmoTransformSource>;
-    Parameter: number;
-    LastChange: FGizmoFloatParameterChange;
-    CurTranslationAxis: FVector;
-    CurTranslationOrigin: FVector;
-    InitialTransform: FTransform;
+    readonly __properties_UGizmoAxisTranslationParameterSource: {
+        AxisSource: TScriptInterface<IGizmoAxisSource>;
+        TransformSource: TScriptInterface<IGizmoTransformSource>;
+        Parameter: number;
+        LastChange: FGizmoFloatParameterChange;
+        CurTranslationAxis: FVector;
+        CurTranslationOrigin: FVector;
+        InitialTransform: FTransform;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseFloatParameterSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoAxisTranslationParameterSource['__properties_UGizmoAxisTranslationParameterSource'] &
+        UGizmoBaseFloatParameterSource['__propertyRegistry'];
 }
-declare const UGizmoAxisTranslationParameterSource: UGizmoAxisTranslationParameterSource;
 
 declare interface UGizmoBaseComponent extends UPrimitiveComponent {
-    Color: FLinearColor;
-    HoverSizeMultiplier: number;
-    PixelHitDistanceThreshold: number;
-    GizmoViewContext: UGizmoViewContext;
-    UpdateWorldLocalState(bWorldIn: boolean): void;
-    UpdateHoverState(bHoveringIn: boolean): void;
+    readonly __static_UGizmoBaseComponent: {
+        UpdateWorldLocalState(bWorldIn: boolean): void;
+        UpdateHoverState(bHoveringIn: boolean): void;
+    };
+    readonly __properties_UGizmoBaseComponent: {
+        Color: FLinearColor;
+        HoverSizeMultiplier: number;
+        PixelHitDistanceThreshold: number;
+        GizmoViewContext: UGizmoViewContext;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseComponent['__static_UGizmoBaseComponent'] &
+        UPrimitiveComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoBaseComponent['__properties_UGizmoBaseComponent'] &
+        UPrimitiveComponent['__propertyRegistry'];
 }
-declare const UGizmoBaseComponent: UGizmoBaseComponent;
 
 declare interface UGizmoBaseFloatParameterSource extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoBaseFloatParameterSource: UGizmoBaseFloatParameterSource;
 
 declare interface UGizmoBaseTransformSource extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoBaseTransformSource: UGizmoBaseTransformSource;
 
 declare interface UGizmoBaseVec2ParameterSource extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoBaseVec2ParameterSource: UGizmoBaseVec2ParameterSource;
 
 declare interface UGizmoBoxComponent extends UGizmoBaseComponent {
-    Origin: FVector;
-    Rotation: FQuat;
-    Dimensions: FVector;
-    LineThickness: number;
-    bRemoveHiddenLines: boolean;
-    bEnableAxisFlip: boolean;
+    readonly __properties_UGizmoBoxComponent: {
+        Origin: FVector;
+        Rotation: FQuat;
+        Dimensions: FVector;
+        LineThickness: number;
+        bRemoveHiddenLines: boolean;
+        bEnableAxisFlip: boolean;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoBoxComponent['__properties_UGizmoBoxComponent'] &
+        UGizmoBaseComponent['__propertyRegistry'];
 }
-declare const UGizmoBoxComponent: UGizmoBoxComponent;
 
 declare interface UGizmoCircleComponent extends UGizmoBaseComponent {
-    Normal: FVector;
-    Radius: number;
-    Thickness: number;
-    NumSides: number;
-    bViewAligned: boolean;
-    bDrawFullCircle: boolean;
-    bOnlyAllowFrontFacingHits: boolean;
+    readonly __properties_UGizmoCircleComponent: {
+        Normal: FVector;
+        Radius: number;
+        Thickness: number;
+        NumSides: number;
+        bViewAligned: boolean;
+        bDrawFullCircle: boolean;
+        bOnlyAllowFrontFacingHits: boolean;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoCircleComponent['__properties_UGizmoCircleComponent'] &
+        UGizmoBaseComponent['__propertyRegistry'];
 }
-declare const UGizmoCircleComponent: UGizmoCircleComponent;
 
 declare interface UGizmoComponentAxisSource extends UObject {
-    Component: USceneComponent;
-    AxisIndex: number;
-    bLocalAxes: boolean;
+    readonly __properties_UGizmoComponentAxisSource: {
+        Component: USceneComponent;
+        AxisIndex: number;
+        bLocalAxes: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoComponentAxisSource['__properties_UGizmoComponentAxisSource'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoComponentAxisSource: UGizmoComponentAxisSource;
 
 declare interface UGizmoComponentHitTarget extends UObject {
-    Component: UPrimitiveComponent;
+    readonly __properties_UGizmoComponentHitTarget: {
+        Component: UPrimitiveComponent;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoComponentHitTarget['__properties_UGizmoComponentHitTarget'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoComponentHitTarget: UGizmoComponentHitTarget;
 
 declare interface UGizmoComponentWorldTransformSource extends UGizmoBaseTransformSource {
-    Component: USceneComponent;
-    bModifyComponentOnTransform: boolean;
+    readonly __properties_UGizmoComponentWorldTransformSource: {
+        Component: USceneComponent;
+        bModifyComponentOnTransform: boolean;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseTransformSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoComponentWorldTransformSource['__properties_UGizmoComponentWorldTransformSource'] &
+        UGizmoBaseTransformSource['__propertyRegistry'];
 }
-declare const UGizmoComponentWorldTransformSource: UGizmoComponentWorldTransformSource;
 
 declare interface UGizmoConstantAxisSource extends UObject {
-    Origin: FVector;
-    Direction: FVector;
+    readonly __properties_UGizmoConstantAxisSource: {
+        Origin: FVector;
+        Direction: FVector;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoConstantAxisSource['__properties_UGizmoConstantAxisSource'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoConstantAxisSource: UGizmoConstantAxisSource;
 
 declare interface UGizmoConstantFrameAxisSource extends UObject {
-    Origin: FVector;
-    Direction: FVector;
-    TangentX: FVector;
-    TangentY: FVector;
+    readonly __properties_UGizmoConstantFrameAxisSource: {
+        Origin: FVector;
+        Direction: FVector;
+        TangentX: FVector;
+        TangentY: FVector;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoConstantFrameAxisSource['__properties_UGizmoConstantFrameAxisSource'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoConstantFrameAxisSource: UGizmoConstantFrameAxisSource;
 
 declare interface UGizmoElementArc extends UGizmoElementCircleBase {
-    InnerRadius: number;
+    readonly __properties_UGizmoElementArc: {
+        InnerRadius: number;
+    };
+    readonly __staticRegistry: 
+        UGizmoElementCircleBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementArc['__properties_UGizmoElementArc'] &
+        UGizmoElementCircleBase['__propertyRegistry'];
 }
-declare const UGizmoElementArc: UGizmoElementArc;
 
 declare interface UGizmoElementArrow extends UGizmoElementBase {
-    CylinderElement: UGizmoElementCylinder;
-    ConeElement: UGizmoElementCone;
-    BoxElement: UGizmoElementBox;
-    base: FVector;
-    Direction: FVector;
-    SideDirection: FVector;
-    BodyLength: number;
-    BodyRadius: number;
-    HeadLength: number;
-    HeadRadius: number;
-    NumSides: number;
-    bEndCaps: boolean;
-    HeadType: EGizmoElementArrowHeadType;
-    HitMask: TWeakObjectPtr<UGizmoElementBase>;
+    readonly __properties_UGizmoElementArrow: {
+        CylinderElement: UGizmoElementCylinder;
+        ConeElement: UGizmoElementCone;
+        BoxElement: UGizmoElementBox;
+        base: FVector;
+        Direction: FVector;
+        SideDirection: FVector;
+        BodyLength: number;
+        BodyRadius: number;
+        HeadLength: number;
+        HeadRadius: number;
+        NumSides: number;
+        bEndCaps: boolean;
+        HeadType: EGizmoElementArrowHeadType;
+        HitMask: TWeakObjectPtr<UGizmoElementBase>;
+    };
+    readonly __staticRegistry: 
+        UGizmoElementBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementArrow['__properties_UGizmoElementArrow'] &
+        UGizmoElementBase['__propertyRegistry'];
 }
-declare const UGizmoElementArrow: UGizmoElementArrow;
 
 declare interface UGizmoElementBase extends UObject {
-    bEnabled: boolean;
-    bEnabledForPerspectiveProjection: boolean;
-    bEnabledForOrthographicProjection: boolean;
-    bEnabledForDefaultState: boolean;
-    bEnabledForHoveringState: boolean;
-    bEnabledForInteractingState: boolean;
-    PartIdentifier: uint32;
-    MeshRenderAttributes: FGizmoElementMeshRenderStateAttributes;
-    ElementState: EGizmoElementState;
-    ElementInteractionState: EGizmoElementInteractionState;
-    ViewDependentType: EGizmoElementViewDependentType;
-    ViewDependentAxis: FVector;
-    ViewDependentAngleTol: number;
-    ViewDependentAxialMaxCosAngleTol: number;
-    ViewDependentPlanarMinCosAngleTol: number;
-    ViewAlignType: EGizmoElementViewAlignType;
-    ViewAlignAxis: FVector;
-    ViewAlignNormal: FVector;
-    ViewAlignAxialAngleTol: number;
-    ViewAlignAxialMaxCosAngleTol: number;
-    PixelHitDistanceThreshold: number;
+    readonly __properties_UGizmoElementBase: {
+        bEnabled: boolean;
+        bEnabledForPerspectiveProjection: boolean;
+        bEnabledForOrthographicProjection: boolean;
+        bEnabledForDefaultState: boolean;
+        bEnabledForHoveringState: boolean;
+        bEnabledForInteractingState: boolean;
+        PartIdentifier: number;
+        MeshRenderAttributes: FGizmoElementMeshRenderStateAttributes;
+        ElementState: EGizmoElementState;
+        ElementInteractionState: EGizmoElementInteractionState;
+        ViewDependentType: EGizmoElementViewDependentType;
+        ViewDependentAxis: FVector;
+        ViewDependentAngleTol: number;
+        ViewDependentAxialMaxCosAngleTol: number;
+        ViewDependentPlanarMinCosAngleTol: number;
+        ViewAlignType: EGizmoElementViewAlignType;
+        ViewAlignAxis: FVector;
+        ViewAlignNormal: FVector;
+        ViewAlignAxialAngleTol: number;
+        ViewAlignAxialMaxCosAngleTol: number;
+        PixelHitDistanceThreshold: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementBase['__properties_UGizmoElementBase'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoElementBase: UGizmoElementBase;
 
 declare interface UGizmoElementBox extends UGizmoElementBase {
-    Center: FVector;
-    Dimensions: FVector;
-    UpDirection: FVector;
-    SideDirection: FVector;
+    readonly __properties_UGizmoElementBox: {
+        Center: FVector;
+        Dimensions: FVector;
+        UpDirection: FVector;
+        SideDirection: FVector;
+    };
+    readonly __staticRegistry: 
+        UGizmoElementBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementBox['__properties_UGizmoElementBox'] &
+        UGizmoElementBase['__propertyRegistry'];
 }
-declare const UGizmoElementBox: UGizmoElementBox;
 
 declare interface UGizmoElementCircle extends UGizmoElementCircleBase {
-    bDrawMesh: boolean;
-    bDrawLine: boolean;
-    bHitMesh: boolean;
-    bHitLine: boolean;
+    readonly __properties_UGizmoElementCircle: {
+        bDrawMesh: boolean;
+        bDrawLine: boolean;
+        bHitMesh: boolean;
+        bHitLine: boolean;
+    };
+    readonly __staticRegistry: 
+        UGizmoElementCircleBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementCircle['__properties_UGizmoElementCircle'] &
+        UGizmoElementCircleBase['__propertyRegistry'];
 }
-declare const UGizmoElementCircle: UGizmoElementCircle;
 
 declare interface UGizmoElementCircleBase extends UGizmoElementLineBase {
-    Center: FVector;
-    Axis0: FVector;
-    Axis1: FVector;
-    Radius: number;
-    NumSegments: number;
-    PartialType: EGizmoElementPartialType;
-    PartialStartAngle: number;
-    PartialEndAngle: number;
-    PartialViewDependentMaxCosTol: number;
+    readonly __properties_UGizmoElementCircleBase: {
+        Center: FVector;
+        Axis0: FVector;
+        Axis1: FVector;
+        Radius: number;
+        NumSegments: number;
+        PartialType: EGizmoElementPartialType;
+        PartialStartAngle: number;
+        PartialEndAngle: number;
+        PartialViewDependentMaxCosTol: number;
+    };
+    readonly __staticRegistry: 
+        UGizmoElementLineBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementCircleBase['__properties_UGizmoElementCircleBase'] &
+        UGizmoElementLineBase['__propertyRegistry'];
 }
-declare const UGizmoElementCircleBase: UGizmoElementCircleBase;
 
 declare interface UGizmoElementCone extends UGizmoElementBase {
-    Origin: FVector;
-    Direction: FVector;
-    Height: number;
-    Radius: number;
-    NumSides: number;
-    bEndCaps: boolean;
+    readonly __properties_UGizmoElementCone: {
+        Origin: FVector;
+        Direction: FVector;
+        Height: number;
+        Radius: number;
+        NumSides: number;
+        bEndCaps: boolean;
+    };
+    readonly __staticRegistry: 
+        UGizmoElementBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementCone['__properties_UGizmoElementCone'] &
+        UGizmoElementBase['__propertyRegistry'];
 }
-declare const UGizmoElementCone: UGizmoElementCone;
 
 declare interface UGizmoElementCylinder extends UGizmoElementBase {
-    base: FVector;
-    Direction: FVector;
-    Height: number;
-    Radius: number;
-    NumSides: number;
+    readonly __properties_UGizmoElementCylinder: {
+        base: FVector;
+        Direction: FVector;
+        Height: number;
+        Radius: number;
+        NumSides: number;
+    };
+    readonly __staticRegistry: 
+        UGizmoElementBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementCylinder['__properties_UGizmoElementCylinder'] &
+        UGizmoElementBase['__propertyRegistry'];
 }
-declare const UGizmoElementCylinder: UGizmoElementCylinder;
 
 declare interface UGizmoElementGroup extends UGizmoElementLineBase {
-    bConstantScale: boolean;
-    bHitOwner: boolean;
-    Elements: TArray<UGizmoElementBase>;
+    readonly __properties_UGizmoElementGroup: {
+        bConstantScale: boolean;
+        bHitOwner: boolean;
+        Elements: UGizmoElementBase[];
+    };
+    readonly __staticRegistry: 
+        UGizmoElementLineBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementGroup['__properties_UGizmoElementGroup'] &
+        UGizmoElementLineBase['__propertyRegistry'];
 }
-declare const UGizmoElementGroup: UGizmoElementGroup;
 
 declare interface UGizmoElementHitMultiTarget extends UObject {
-    GizmoElement: UGizmoElementBase;
-    GizmoViewContext: UGizmoViewContext;
-    GizmoTransformProxy: UTransformProxy;
+    readonly __properties_UGizmoElementHitMultiTarget: {
+        GizmoElement: UGizmoElementBase;
+        GizmoViewContext: UGizmoViewContext;
+        GizmoTransformProxy: UTransformProxy;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementHitMultiTarget['__properties_UGizmoElementHitMultiTarget'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoElementHitMultiTarget: UGizmoElementHitMultiTarget;
 
 declare interface UGizmoElementHitTarget extends UObject {
-    GizmoElement: UGizmoElementBase;
-    GizmoViewContext: UGizmoViewContext;
-    GizmoTransformProxy: UTransformProxy;
+    readonly __properties_UGizmoElementHitTarget: {
+        GizmoElement: UGizmoElementBase;
+        GizmoViewContext: UGizmoViewContext;
+        GizmoTransformProxy: UTransformProxy;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementHitTarget['__properties_UGizmoElementHitTarget'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoElementHitTarget: UGizmoElementHitTarget;
 
 declare interface UGizmoElementLineBase extends UGizmoElementBase {
-    LineRenderAttributes: FGizmoElementLineRenderStateAttributes;
-    LineThickness: number;
-    bScreenSpaceLine: boolean;
-    HoverLineThicknessMultiplier: number;
-    InteractLineThicknessMultiplier: number;
+    readonly __properties_UGizmoElementLineBase: {
+        LineRenderAttributes: FGizmoElementLineRenderStateAttributes;
+        LineThickness: number;
+        bScreenSpaceLine: boolean;
+        HoverLineThicknessMultiplier: number;
+        InteractLineThicknessMultiplier: number;
+    };
+    readonly __staticRegistry: 
+        UGizmoElementBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementLineBase['__properties_UGizmoElementLineBase'] &
+        UGizmoElementBase['__propertyRegistry'];
 }
-declare const UGizmoElementLineBase: UGizmoElementLineBase;
 
 declare interface UGizmoElementLineStrip extends UGizmoElementLineBase {
-    Vertices: TArray<FVector>;
-    base: FVector;
-    UpDirection: FVector;
-    SideDirection: FVector;
-    bDrawLineStrip: boolean;
+    readonly __properties_UGizmoElementLineStrip: {
+        Vertices: FVector[];
+        base: FVector;
+        UpDirection: FVector;
+        SideDirection: FVector;
+        bDrawLineStrip: boolean;
+    };
+    readonly __staticRegistry: 
+        UGizmoElementLineBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementLineStrip['__properties_UGizmoElementLineStrip'] &
+        UGizmoElementLineBase['__propertyRegistry'];
 }
-declare const UGizmoElementLineStrip: UGizmoElementLineStrip;
 
 declare interface UGizmoElementRectangle extends UGizmoElementLineBase {
-    Center: FVector;
-    Width: number;
-    Height: number;
-    UpDirection: FVector;
-    SideDirection: FVector;
-    bDrawMesh: boolean;
-    bDrawLine: boolean;
-    bHitMesh: boolean;
-    bHitLine: boolean;
+    readonly __properties_UGizmoElementRectangle: {
+        Center: FVector;
+        Width: number;
+        Height: number;
+        UpDirection: FVector;
+        SideDirection: FVector;
+        bDrawMesh: boolean;
+        bDrawLine: boolean;
+        bHitMesh: boolean;
+        bHitLine: boolean;
+    };
+    readonly __staticRegistry: 
+        UGizmoElementLineBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementRectangle['__properties_UGizmoElementRectangle'] &
+        UGizmoElementLineBase['__propertyRegistry'];
 }
-declare const UGizmoElementRectangle: UGizmoElementRectangle;
 
 declare interface UGizmoElementSphere extends UGizmoElementBase {
-    Center: FVector;
-    Radius: number;
-    NumSides: number;
+    readonly __properties_UGizmoElementSphere: {
+        Center: FVector;
+        Radius: number;
+        NumSides: number;
+    };
+    readonly __staticRegistry: 
+        UGizmoElementBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementSphere['__properties_UGizmoElementSphere'] &
+        UGizmoElementBase['__propertyRegistry'];
 }
-declare const UGizmoElementSphere: UGizmoElementSphere;
 
 declare interface UGizmoElementTorus extends UGizmoElementCircleBase {
-    InnerRadius: number;
-    NumInnerSlices: number;
-    bEndCaps: boolean;
+    readonly __properties_UGizmoElementTorus: {
+        InnerRadius: number;
+        NumInnerSlices: number;
+        bEndCaps: boolean;
+    };
+    readonly __staticRegistry: 
+        UGizmoElementCircleBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementTorus['__properties_UGizmoElementTorus'] &
+        UGizmoElementCircleBase['__propertyRegistry'];
 }
-declare const UGizmoElementTorus: UGizmoElementTorus;
 
 declare interface UGizmoElementTriangleList extends UGizmoElementBase {
-    Vertices: TArray<FVector>;
-    base: FVector;
-    UpDirection: FVector;
-    SideDirection: FVector;
+    readonly __properties_UGizmoElementTriangleList: {
+        Vertices: FVector[];
+        base: FVector;
+        UpDirection: FVector;
+        SideDirection: FVector;
+    };
+    readonly __staticRegistry: 
+        UGizmoElementBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoElementTriangleList['__properties_UGizmoElementTriangleList'] &
+        UGizmoElementBase['__propertyRegistry'];
 }
-declare const UGizmoElementTriangleList: UGizmoElementTriangleList;
 
 declare interface UGizmoLambdaHitTarget extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoLambdaHitTarget: UGizmoLambdaHitTarget;
 
 declare interface UGizmoLambdaStateTarget extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoLambdaStateTarget: UGizmoLambdaStateTarget;
 
 declare interface UGizmoLineHandleComponent extends UGizmoBaseComponent {
-    Normal: FVector;
-    HandleSize: number;
-    Thickness: number;
-    Direction: FVector;
-    Length: number;
-    bImageScale: boolean;
+    readonly __properties_UGizmoLineHandleComponent: {
+        Normal: FVector;
+        HandleSize: number;
+        Thickness: number;
+        Direction: FVector;
+        Length: number;
+        bImageScale: boolean;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoLineHandleComponent['__properties_UGizmoLineHandleComponent'] &
+        UGizmoBaseComponent['__propertyRegistry'];
 }
-declare const UGizmoLineHandleComponent: UGizmoLineHandleComponent;
 
 declare interface UGizmoLocalFloatParameterSource extends UGizmoBaseFloatParameterSource {
-    Value: number;
-    LastChange: FGizmoFloatParameterChange;
+    readonly __properties_UGizmoLocalFloatParameterSource: {
+        Value: number;
+        LastChange: FGizmoFloatParameterChange;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseFloatParameterSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoLocalFloatParameterSource['__properties_UGizmoLocalFloatParameterSource'] &
+        UGizmoBaseFloatParameterSource['__propertyRegistry'];
 }
-declare const UGizmoLocalFloatParameterSource: UGizmoLocalFloatParameterSource;
 
 declare interface UGizmoLocalVec2ParameterSource extends UGizmoBaseVec2ParameterSource {
-    Value: FVector2D;
-    LastChange: FGizmoVec2ParameterChange;
+    readonly __properties_UGizmoLocalVec2ParameterSource: {
+        Value: FVector2D;
+        LastChange: FGizmoVec2ParameterChange;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseVec2ParameterSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoLocalVec2ParameterSource['__properties_UGizmoLocalVec2ParameterSource'] &
+        UGizmoBaseVec2ParameterSource['__propertyRegistry'];
 }
-declare const UGizmoLocalVec2ParameterSource: UGizmoLocalVec2ParameterSource;
 
 declare interface UGizmoNilStateTarget extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoNilStateTarget: UGizmoNilStateTarget;
 
 declare interface UGizmoObjectModifyStateTarget extends UObject {
-    TransactionManager: TScriptInterface<IToolContextTransactionProvider>;
+    readonly __properties_UGizmoObjectModifyStateTarget: {
+        TransactionManager: TScriptInterface<IToolContextTransactionProvider>;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoObjectModifyStateTarget['__properties_UGizmoObjectModifyStateTarget'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoObjectModifyStateTarget: UGizmoObjectModifyStateTarget;
 
 declare interface UGizmoPlaneScaleParameterSource extends UGizmoBaseVec2ParameterSource {
-    AxisSource: TScriptInterface<IGizmoAxisSource>;
-    TransformSource: TScriptInterface<IGizmoTransformSource>;
-    ScaleMultiplier: number;
-    bUseEqualScaling: boolean;
-    bClampToZero: boolean;
-    Parameter: FVector2D;
-    LastChange: FGizmoVec2ParameterChange;
-    CurScaleOrigin: FVector;
-    CurScaleNormal: FVector;
-    CurScaleAxisX: FVector;
-    CurScaleAxisY: FVector;
-    InitialTransform: FTransform;
+    readonly __properties_UGizmoPlaneScaleParameterSource: {
+        AxisSource: TScriptInterface<IGizmoAxisSource>;
+        TransformSource: TScriptInterface<IGizmoTransformSource>;
+        ScaleMultiplier: number;
+        bUseEqualScaling: boolean;
+        bClampToZero: boolean;
+        Parameter: FVector2D;
+        LastChange: FGizmoVec2ParameterChange;
+        CurScaleOrigin: FVector;
+        CurScaleNormal: FVector;
+        CurScaleAxisX: FVector;
+        CurScaleAxisY: FVector;
+        InitialTransform: FTransform;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseVec2ParameterSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoPlaneScaleParameterSource['__properties_UGizmoPlaneScaleParameterSource'] &
+        UGizmoBaseVec2ParameterSource['__propertyRegistry'];
 }
-declare const UGizmoPlaneScaleParameterSource: UGizmoPlaneScaleParameterSource;
 
 declare interface UGizmoPlaneTranslationParameterSource extends UGizmoBaseVec2ParameterSource {
-    AxisSource: TScriptInterface<IGizmoAxisSource>;
-    TransformSource: TScriptInterface<IGizmoTransformSource>;
-    Parameter: FVector2D;
-    LastChange: FGizmoVec2ParameterChange;
-    CurTranslationOrigin: FVector;
-    CurTranslationNormal: FVector;
-    CurTranslationAxisX: FVector;
-    CurTranslationAxisY: FVector;
-    InitialTransform: FTransform;
+    readonly __properties_UGizmoPlaneTranslationParameterSource: {
+        AxisSource: TScriptInterface<IGizmoAxisSource>;
+        TransformSource: TScriptInterface<IGizmoTransformSource>;
+        Parameter: FVector2D;
+        LastChange: FGizmoVec2ParameterChange;
+        CurTranslationOrigin: FVector;
+        CurTranslationNormal: FVector;
+        CurTranslationAxisX: FVector;
+        CurTranslationAxisY: FVector;
+        InitialTransform: FTransform;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseVec2ParameterSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoPlaneTranslationParameterSource['__properties_UGizmoPlaneTranslationParameterSource'] &
+        UGizmoBaseVec2ParameterSource['__propertyRegistry'];
 }
-declare const UGizmoPlaneTranslationParameterSource: UGizmoPlaneTranslationParameterSource;
 
 declare interface UGizmoRectangleComponent extends UGizmoBaseComponent {
-    DirectionX: FVector;
-    DirectionY: FVector;
-    bOrientYAccordingToCamera: boolean;
-    OffsetX: number;
-    OffsetY: number;
-    LengthX: number;
-    LengthY: number;
-    Thickness: number;
-    SegmentFlags: uint8;
+    readonly __properties_UGizmoRectangleComponent: {
+        DirectionX: FVector;
+        DirectionY: FVector;
+        bOrientYAccordingToCamera: boolean;
+        OffsetX: number;
+        OffsetY: number;
+        LengthX: number;
+        LengthY: number;
+        Thickness: number;
+        SegmentFlags: number;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoRectangleComponent['__properties_UGizmoRectangleComponent'] &
+        UGizmoBaseComponent['__propertyRegistry'];
 }
-declare const UGizmoRectangleComponent: UGizmoRectangleComponent;
 
 declare interface UGizmoScaledAndUnscaledTransformSources extends UGizmoBaseTransformSource {
-    ScaledTransformSource: TScriptInterface<IGizmoTransformSource>;
-    UnscaledTransformSource: TScriptInterface<IGizmoTransformSource>;
+    readonly __properties_UGizmoScaledAndUnscaledTransformSources: {
+        ScaledTransformSource: TScriptInterface<IGizmoTransformSource>;
+        UnscaledTransformSource: TScriptInterface<IGizmoTransformSource>;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseTransformSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoScaledAndUnscaledTransformSources['__properties_UGizmoScaledAndUnscaledTransformSources'] &
+        UGizmoBaseTransformSource['__propertyRegistry'];
 }
-declare const UGizmoScaledAndUnscaledTransformSources: UGizmoScaledAndUnscaledTransformSources;
 
 declare interface UGizmoScaledTransformSource extends UGizmoBaseTransformSource {
-    ChildTransformSource: TScriptInterface<IGizmoTransformSource>;
+    readonly __properties_UGizmoScaledTransformSource: {
+        ChildTransformSource: TScriptInterface<IGizmoTransformSource>;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseTransformSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoScaledTransformSource['__properties_UGizmoScaledTransformSource'] &
+        UGizmoBaseTransformSource['__propertyRegistry'];
 }
-declare const UGizmoScaledTransformSource: UGizmoScaledTransformSource;
 
 declare interface UGizmoTransformChangeStateTarget extends UObject {
-    TransactionManager: TScriptInterface<IToolContextTransactionProvider>;
+    readonly __properties_UGizmoTransformChangeStateTarget: {
+        TransactionManager: TScriptInterface<IToolContextTransactionProvider>;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoTransformChangeStateTarget['__properties_UGizmoTransformChangeStateTarget'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoTransformChangeStateTarget: UGizmoTransformChangeStateTarget;
 
 declare interface UGizmoTransformProxyTransformSource extends UGizmoBaseTransformSource {
-    Proxy: UTransformProxy;
+    readonly __properties_UGizmoTransformProxyTransformSource: {
+        Proxy: UTransformProxy;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseTransformSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoTransformProxyTransformSource['__properties_UGizmoTransformProxyTransformSource'] &
+        UGizmoBaseTransformSource['__propertyRegistry'];
 }
-declare const UGizmoTransformProxyTransformSource: UGizmoTransformProxyTransformSource;
 
 declare interface UGizmoUniformScaleParameterSource extends UGizmoBaseVec2ParameterSource {
-    AxisSource: TScriptInterface<IGizmoAxisSource>;
-    TransformSource: TScriptInterface<IGizmoTransformSource>;
-    ScaleMultiplier: number;
-    Parameter: FVector2D;
-    LastChange: FGizmoVec2ParameterChange;
-    CurScaleOrigin: FVector;
-    CurScaleNormal: FVector;
-    CurScaleAxisX: FVector;
-    CurScaleAxisY: FVector;
-    InitialTransform: FTransform;
+    readonly __properties_UGizmoUniformScaleParameterSource: {
+        AxisSource: TScriptInterface<IGizmoAxisSource>;
+        TransformSource: TScriptInterface<IGizmoTransformSource>;
+        ScaleMultiplier: number;
+        Parameter: FVector2D;
+        LastChange: FGizmoVec2ParameterChange;
+        CurScaleOrigin: FVector;
+        CurScaleNormal: FVector;
+        CurScaleAxisX: FVector;
+        CurScaleAxisY: FVector;
+        InitialTransform: FTransform;
+    };
+    readonly __staticRegistry: 
+        UGizmoBaseVec2ParameterSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoUniformScaleParameterSource['__properties_UGizmoUniformScaleParameterSource'] &
+        UGizmoBaseVec2ParameterSource['__propertyRegistry'];
 }
-declare const UGizmoUniformScaleParameterSource: UGizmoUniformScaleParameterSource;
 
 declare interface UGizmoViewContext extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoViewContext: UGizmoViewContext;
 
 declare interface UGizmoWorldAxisSource extends UObject {
-    Origin: FVector;
-    AxisIndex: number;
+    readonly __properties_UGizmoWorldAxisSource: {
+        Origin: FVector;
+        AxisIndex: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGizmoWorldAxisSource['__properties_UGizmoWorldAxisSource'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGizmoWorldAxisSource: UGizmoWorldAxisSource;
 
 declare interface UInputBehavior extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UInputBehavior: UInputBehavior;
 
 declare interface UInputBehaviorSet extends UObject {
-    Behaviors: TArray<FBehaviorInfo>;
+    readonly __properties_UInputBehaviorSet: {
+        Behaviors: FBehaviorInfo[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInputBehaviorSet['__properties_UInputBehaviorSet'] &
+        UObject['__propertyRegistry'];
 }
-declare const UInputBehaviorSet: UInputBehaviorSet;
 
 declare interface UInputRouter extends UObject {
-    bAutoInvalidateOnHover: boolean;
-    bAutoInvalidateOnCapture: boolean;
-    ActiveInputBehaviors: UInputBehaviorSet;
+    readonly __properties_UInputRouter: {
+        bAutoInvalidateOnHover: boolean;
+        bAutoInvalidateOnCapture: boolean;
+        ActiveInputBehaviors: UInputBehaviorSet;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInputRouter['__properties_UInputRouter'] &
+        UObject['__propertyRegistry'];
 }
-declare const UInputRouter: UInputRouter;
 
 declare interface UInteractionMechanic extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UInteractionMechanic: UInteractionMechanic;
 
 declare interface UInteractiveCommand extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UInteractiveCommand: UInteractiveCommand;
 
 declare interface UInteractiveCommandArguments extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UInteractiveCommandArguments: UInteractiveCommandArguments;
 
 declare interface UInteractiveCommandResult extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UInteractiveCommandResult: UInteractiveCommandResult;
 
 declare interface UInteractiveGizmo extends UObject {
-    InputBehaviors: UInputBehaviorSet;
+    readonly __properties_UInteractiveGizmo: {
+        InputBehaviors: UInputBehaviorSet;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveGizmo['__properties_UInteractiveGizmo'] &
+        UObject['__propertyRegistry'];
 }
-declare const UInteractiveGizmo: UInteractiveGizmo;
 
 declare interface UInteractiveGizmoBuilder extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UInteractiveGizmoBuilder: UInteractiveGizmoBuilder;
 
 declare interface UInteractiveGizmoManager extends UObject {
-    ActiveGizmos: TArray<FActiveGizmo>;
-    GizmoBuilders: Record<FString, UInteractiveGizmoBuilder>;
+    readonly __properties_UInteractiveGizmoManager: {
+        ActiveGizmos: FActiveGizmo[];
+        GizmoBuilders: TMap<string, UInteractiveGizmoBuilder>;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveGizmoManager['__properties_UInteractiveGizmoManager'] &
+        UObject['__propertyRegistry'];
 }
-declare const UInteractiveGizmoManager: UInteractiveGizmoManager;
 
 declare interface UInteractiveTool extends UObject {
-    InputBehaviors: UInputBehaviorSet;
-    ToolPropertyObjects: TArray<UObject>;
+    readonly __properties_UInteractiveTool: {
+        InputBehaviors: UInputBehaviorSet;
+        ToolPropertyObjects: UObject[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveTool['__properties_UInteractiveTool'] &
+        UObject['__propertyRegistry'];
 }
-declare const UInteractiveTool: UInteractiveTool;
 
 declare interface UInteractiveToolBuilder extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UInteractiveToolBuilder: UInteractiveToolBuilder;
 
 declare interface UInteractiveToolManager extends UObject {
-    ActiveLeftTool: UInteractiveTool;
-    ActiveRightTool: UInteractiveTool;
-    ToolBuilders: Record<FString, UInteractiveToolBuilder>;
+    readonly __properties_UInteractiveToolManager: {
+        ActiveLeftTool: UInteractiveTool;
+        ActiveRightTool: UInteractiveTool;
+        ToolBuilders: TMap<string, UInteractiveToolBuilder>;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveToolManager['__properties_UInteractiveToolManager'] &
+        UObject['__propertyRegistry'];
 }
-declare const UInteractiveToolManager: UInteractiveToolManager;
 
 declare interface UInteractiveToolPropertySet extends UObject {
-    CachedPropertiesMap: Record<FString, UInteractiveToolPropertySet>;
-    bIsPropertySetEnabled: boolean;
+    readonly __properties_UInteractiveToolPropertySet: {
+        CachedPropertiesMap: TMap<string, UInteractiveToolPropertySet>;
+        bIsPropertySetEnabled: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveToolPropertySet['__properties_UInteractiveToolPropertySet'] &
+        UObject['__propertyRegistry'];
 }
-declare const UInteractiveToolPropertySet: UInteractiveToolPropertySet;
 
 declare interface UInteractiveToolWithToolTargetsBuilder extends UInteractiveToolBuilder {
-
+    readonly __staticRegistry: 
+        UInteractiveToolBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveToolBuilder['__propertyRegistry'];
 }
-declare const UInteractiveToolWithToolTargetsBuilder: UInteractiveToolWithToolTargetsBuilder;
 
 declare interface UInteractiveToolsContext extends UObject {
-    InputRouter: UInputRouter;
-    TargetManager: UToolTargetManager;
-    ToolManager: UInteractiveToolManager;
-    GizmoManager: UInteractiveGizmoManager;
-    ContextObjectStore: UContextObjectStore;
-    ToolManagerClass: TSoftClassPtr<UInteractiveToolManager>;
+    readonly __properties_UInteractiveToolsContext: {
+        InputRouter: UInputRouter;
+        TargetManager: UToolTargetManager;
+        ToolManager: UInteractiveToolManager;
+        GizmoManager: UInteractiveGizmoManager;
+        ContextObjectStore: UContextObjectStore;
+        ToolManagerClass: TSoftClassPtr<UInteractiveToolManager>;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveToolsContext['__properties_UInteractiveToolsContext'] &
+        UObject['__propertyRegistry'];
 }
-declare const UInteractiveToolsContext: UInteractiveToolsContext;
 
 declare interface UIntervalGizmo extends UInteractiveGizmo {
-    StateTarget: UGizmoTransformChangeStateTarget;
-    World: UWorld;
-    GizmoActor: AIntervalGizmoActor;
-    TransformProxy: UTransformProxy;
-    ActiveComponents: TArray<UPrimitiveComponent>;
-    ActiveGizmos: TArray<UInteractiveGizmo>;
-    UpIntervalSource: UGizmoLocalFloatParameterSource;
-    DownIntervalSource: UGizmoLocalFloatParameterSource;
-    ForwardIntervalSource: UGizmoLocalFloatParameterSource;
-    BackwardIntervalSource: UGizmoLocalFloatParameterSource;
-    RightIntervalSource: UGizmoLocalFloatParameterSource;
-    LeftIntervalSource: UGizmoLocalFloatParameterSource;
-    AxisXSource: UGizmoComponentAxisSource;
-    AxisYSource: UGizmoComponentAxisSource;
-    AxisZSource: UGizmoComponentAxisSource;
+    readonly __properties_UIntervalGizmo: {
+        StateTarget: UGizmoTransformChangeStateTarget;
+        World: UWorld;
+        GizmoActor: AIntervalGizmoActor;
+        TransformProxy: UTransformProxy;
+        ActiveComponents: UPrimitiveComponent[];
+        ActiveGizmos: UInteractiveGizmo[];
+        UpIntervalSource: UGizmoLocalFloatParameterSource;
+        DownIntervalSource: UGizmoLocalFloatParameterSource;
+        ForwardIntervalSource: UGizmoLocalFloatParameterSource;
+        BackwardIntervalSource: UGizmoLocalFloatParameterSource;
+        RightIntervalSource: UGizmoLocalFloatParameterSource;
+        LeftIntervalSource: UGizmoLocalFloatParameterSource;
+        AxisXSource: UGizmoComponentAxisSource;
+        AxisYSource: UGizmoComponentAxisSource;
+        AxisZSource: UGizmoComponentAxisSource;
+    };
+    readonly __staticRegistry: 
+        UInteractiveGizmo['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIntervalGizmo['__properties_UIntervalGizmo'] &
+        UInteractiveGizmo['__propertyRegistry'];
 }
-declare const UIntervalGizmo: UIntervalGizmo;
 
 declare interface UIntervalGizmoBuilder extends UInteractiveGizmoBuilder {
-
+    readonly __staticRegistry: 
+        UInteractiveGizmoBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveGizmoBuilder['__propertyRegistry'];
 }
-declare const UIntervalGizmoBuilder: UIntervalGizmoBuilder;
 
 declare interface UKeyAsModifierInputBehavior extends UInputBehavior {
-
+    readonly __staticRegistry: 
+        UInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInputBehavior['__propertyRegistry'];
 }
-declare const UKeyAsModifierInputBehavior: UKeyAsModifierInputBehavior;
 
 declare interface UKeyInputBehavior extends UInputBehavior {
-
+    readonly __staticRegistry: 
+        UInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInputBehavior['__propertyRegistry'];
 }
-declare const UKeyInputBehavior: UKeyInputBehavior;
 
 declare interface ULocalClickDragInputBehavior extends UClickDragInputBehavior {
-
+    readonly __staticRegistry: 
+        UClickDragInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UClickDragInputBehavior['__propertyRegistry'];
 }
-declare const ULocalClickDragInputBehavior: ULocalClickDragInputBehavior;
 
 declare interface ULocalDoubleClickInputBehavior extends UDoubleClickInputBehavior {
-
+    readonly __staticRegistry: 
+        UDoubleClickInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDoubleClickInputBehavior['__propertyRegistry'];
 }
-declare const ULocalDoubleClickInputBehavior: ULocalDoubleClickInputBehavior;
 
 declare interface ULocalInputBehaviorSource extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULocalInputBehaviorSource: ULocalInputBehaviorSource;
 
 declare interface ULocalMouseHoverBehavior extends UMouseHoverBehavior {
-
+    readonly __staticRegistry: 
+        UMouseHoverBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMouseHoverBehavior['__propertyRegistry'];
 }
-declare const ULocalMouseHoverBehavior: ULocalMouseHoverBehavior;
 
 declare interface ULocalSingleClickInputBehavior extends USingleClickInputBehavior {
-
+    readonly __staticRegistry: 
+        USingleClickInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USingleClickInputBehavior['__propertyRegistry'];
 }
-declare const ULocalSingleClickInputBehavior: ULocalSingleClickInputBehavior;
 
 declare interface ULocalTwoAxisPropertyEditInputBehavior extends UTwoAxisPropertyEditInputBehavior {
-
+    readonly __staticRegistry: 
+        UTwoAxisPropertyEditInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTwoAxisPropertyEditInputBehavior['__propertyRegistry'];
 }
-declare const ULocalTwoAxisPropertyEditInputBehavior: ULocalTwoAxisPropertyEditInputBehavior;
 
 declare interface UMeshSelectionSet extends USelectionSet {
-    Vertices: TArray<number>;
-    Edges: TArray<number>;
-    Faces: TArray<number>;
-    Groups: TArray<number>;
+    readonly __properties_UMeshSelectionSet: {
+        Vertices: number[];
+        Edges: number[];
+        Faces: number[];
+        Groups: number[];
+    };
+    readonly __staticRegistry: 
+        USelectionSet['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMeshSelectionSet['__properties_UMeshSelectionSet'] &
+        USelectionSet['__propertyRegistry'];
 }
-declare const UMeshSelectionSet: UMeshSelectionSet;
 
 declare interface UMeshSurfacePointTool extends USingleSelectionTool {
-    TargetWorld: TWeakObjectPtr<UWorld>;
+    readonly __properties_UMeshSurfacePointTool: {
+        TargetWorld: TWeakObjectPtr<UWorld>;
+    };
+    readonly __staticRegistry: 
+        USingleSelectionTool['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMeshSurfacePointTool['__properties_UMeshSurfacePointTool'] &
+        USingleSelectionTool['__propertyRegistry'];
 }
-declare const UMeshSurfacePointTool: UMeshSurfacePointTool;
 
 declare interface UMeshSurfacePointToolBuilder extends UInteractiveToolWithToolTargetsBuilder {
-
+    readonly __staticRegistry: 
+        UInteractiveToolWithToolTargetsBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveToolWithToolTargetsBuilder['__propertyRegistry'];
 }
-declare const UMeshSurfacePointToolBuilder: UMeshSurfacePointToolBuilder;
 
 declare interface UMouseHoverBehavior extends UInputBehavior {
-
+    readonly __staticRegistry: 
+        UInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInputBehavior['__propertyRegistry'];
 }
-declare const UMouseHoverBehavior: UMouseHoverBehavior;
 
 declare interface UMouseWheelInputBehavior extends UAnyButtonInputBehavior {
-
+    readonly __staticRegistry: 
+        UAnyButtonInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAnyButtonInputBehavior['__propertyRegistry'];
 }
-declare const UMouseWheelInputBehavior: UMouseWheelInputBehavior;
 
 declare interface UMultiClickSequenceInputBehavior extends UAnyButtonInputBehavior {
-
+    readonly __staticRegistry: 
+        UAnyButtonInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAnyButtonInputBehavior['__propertyRegistry'];
 }
-declare const UMultiClickSequenceInputBehavior: UMultiClickSequenceInputBehavior;
 
 declare interface UMultiSelectionTool extends UInteractiveTool {
-    Targets: TArray<UToolTarget>;
+    readonly __properties_UMultiSelectionTool: {
+        Targets: UToolTarget[];
+    };
+    readonly __staticRegistry: 
+        UInteractiveTool['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMultiSelectionTool['__properties_UMultiSelectionTool'] &
+        UInteractiveTool['__propertyRegistry'];
 }
-declare const UMultiSelectionTool: UMultiSelectionTool;
 
 declare interface UPlanePositionGizmo extends UInteractiveGizmo {
-    AxisSource: TScriptInterface<IGizmoAxisSource>;
-    ParameterSource: TScriptInterface<IGizmoVec2ParameterSource>;
-    HitTarget: TScriptInterface<IGizmoClickTarget>;
-    StateTarget: TScriptInterface<IGizmoStateTarget>;
-    MouseBehavior: UClickDragInputBehavior;
-    bEnableSignedAxis: boolean;
-    bFlipX: boolean;
-    bFlipY: boolean;
-    bInInteraction: boolean;
-    InteractionOrigin: FVector;
-    InteractionNormal: FVector;
-    InteractionAxisX: FVector;
-    InteractionAxisY: FVector;
-    InteractionStartPoint: FVector;
-    InteractionCurPoint: FVector;
-    InteractionStartParameter: FVector2D;
-    InteractionCurParameter: FVector2D;
-    ParameterSigns: FVector2D;
+    readonly __properties_UPlanePositionGizmo: {
+        AxisSource: TScriptInterface<IGizmoAxisSource>;
+        ParameterSource: TScriptInterface<IGizmoVec2ParameterSource>;
+        HitTarget: TScriptInterface<IGizmoClickTarget>;
+        StateTarget: TScriptInterface<IGizmoStateTarget>;
+        MouseBehavior: UClickDragInputBehavior;
+        bEnableSignedAxis: boolean;
+        bFlipX: boolean;
+        bFlipY: boolean;
+        bInInteraction: boolean;
+        InteractionOrigin: FVector;
+        InteractionNormal: FVector;
+        InteractionAxisX: FVector;
+        InteractionAxisY: FVector;
+        InteractionStartPoint: FVector;
+        InteractionCurPoint: FVector;
+        InteractionStartParameter: FVector2D;
+        InteractionCurParameter: FVector2D;
+        ParameterSigns: FVector2D;
+    };
+    readonly __staticRegistry: 
+        UInteractiveGizmo['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPlanePositionGizmo['__properties_UPlanePositionGizmo'] &
+        UInteractiveGizmo['__propertyRegistry'];
 }
-declare const UPlanePositionGizmo: UPlanePositionGizmo;
 
 declare interface UPlanePositionGizmoBuilder extends UInteractiveGizmoBuilder {
-
+    readonly __staticRegistry: 
+        UInteractiveGizmoBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveGizmoBuilder['__propertyRegistry'];
 }
-declare const UPlanePositionGizmoBuilder: UPlanePositionGizmoBuilder;
 
 declare interface UPrimitiveComponentToolTarget extends UToolTarget {
-
+    readonly __staticRegistry: 
+        UToolTarget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UToolTarget['__propertyRegistry'];
 }
-declare const UPrimitiveComponentToolTarget: UPrimitiveComponentToolTarget;
 
 declare interface UPrimitiveComponentToolTargetFactory extends UToolTargetFactory {
-
+    readonly __staticRegistry: 
+        UToolTargetFactory['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UToolTargetFactory['__propertyRegistry'];
 }
-declare const UPrimitiveComponentToolTargetFactory: UPrimitiveComponentToolTargetFactory;
 
 declare interface URepositionableTransformGizmo extends UCombinedTransformGizmo {
-    RepositionStateTarget: UGizmoTransformChangeStateTarget;
+    readonly __properties_URepositionableTransformGizmo: {
+        RepositionStateTarget: UGizmoTransformChangeStateTarget;
+    };
+    readonly __staticRegistry: 
+        UCombinedTransformGizmo['__staticRegistry'];
+    readonly __propertyRegistry: 
+        URepositionableTransformGizmo['__properties_URepositionableTransformGizmo'] &
+        UCombinedTransformGizmo['__propertyRegistry'];
 }
-declare const URepositionableTransformGizmo: URepositionableTransformGizmo;
 
 declare interface URepositionableTransformGizmoBuilder extends UCombinedTransformGizmoBuilder {
-
+    readonly __staticRegistry: 
+        UCombinedTransformGizmoBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCombinedTransformGizmoBuilder['__propertyRegistry'];
 }
-declare const URepositionableTransformGizmoBuilder: URepositionableTransformGizmoBuilder;
 
 declare interface UScalableSphereGizmo extends UInteractiveGizmo {
-    HitErrorThreshold: number;
-    TransactionDescription: FText;
-    Radius: number;
-    bIsHovering: boolean;
-    bIsDragging: boolean;
-    ActiveTarget: UTransformProxy;
-    ActiveAxis: FVector;
-    DragStartWorldPosition: FVector;
-    DragCurrentPositionProjected: FVector;
-    InteractionStartParameter: number;
+    readonly __properties_UScalableSphereGizmo: {
+        HitErrorThreshold: number;
+        TransactionDescription: string;
+        Radius: number;
+        bIsHovering: boolean;
+        bIsDragging: boolean;
+        ActiveTarget: UTransformProxy;
+        ActiveAxis: FVector;
+        DragStartWorldPosition: FVector;
+        DragCurrentPositionProjected: FVector;
+        InteractionStartParameter: number;
+    };
+    readonly __staticRegistry: 
+        UInteractiveGizmo['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UScalableSphereGizmo['__properties_UScalableSphereGizmo'] &
+        UInteractiveGizmo['__propertyRegistry'];
 }
-declare const UScalableSphereGizmo: UScalableSphereGizmo;
 
 declare interface UScalableSphereGizmoBuilder extends UInteractiveGizmoBuilder {
-
+    readonly __staticRegistry: 
+        UInteractiveGizmoBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveGizmoBuilder['__propertyRegistry'];
 }
-declare const UScalableSphereGizmoBuilder: UScalableSphereGizmoBuilder;
 
 declare interface UScalableSphereGizmoInputBehavior extends UAnyButtonInputBehavior {
-
+    readonly __staticRegistry: 
+        UAnyButtonInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAnyButtonInputBehavior['__propertyRegistry'];
 }
-declare const UScalableSphereGizmoInputBehavior: UScalableSphereGizmoInputBehavior;
 
 declare interface USceneComponentToolTarget extends UToolTarget {
-
+    readonly __staticRegistry: 
+        UToolTarget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UToolTarget['__propertyRegistry'];
 }
-declare const USceneComponentToolTarget: USceneComponentToolTarget;
 
 declare interface USceneComponentToolTargetFactory extends UToolTargetFactory {
-
+    readonly __staticRegistry: 
+        UToolTargetFactory['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UToolTargetFactory['__propertyRegistry'];
 }
-declare const USceneComponentToolTargetFactory: USceneComponentToolTargetFactory;
 
 declare interface USceneSnappingManager extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const USceneSnappingManager: USceneSnappingManager;
 
 declare interface USelectionSet extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const USelectionSet: USelectionSet;
 
 declare interface USimpleLambdaInteractiveGizmoBuilder extends UInteractiveGizmoBuilder {
-
+    readonly __staticRegistry: 
+        UInteractiveGizmoBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveGizmoBuilder['__propertyRegistry'];
 }
-declare const USimpleLambdaInteractiveGizmoBuilder: USimpleLambdaInteractiveGizmoBuilder;
 
 declare interface USimpleSingleClickGizmo extends UInteractiveGizmo {
-    HitTarget: TScriptInterface<IGizmoClickTarget>;
-    ClickBehavior: USingleClickInputBehavior;
+    readonly __properties_USimpleSingleClickGizmo: {
+        HitTarget: TScriptInterface<IGizmoClickTarget>;
+        ClickBehavior: USingleClickInputBehavior;
+    };
+    readonly __staticRegistry: 
+        UInteractiveGizmo['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USimpleSingleClickGizmo['__properties_USimpleSingleClickGizmo'] &
+        UInteractiveGizmo['__propertyRegistry'];
 }
-declare const USimpleSingleClickGizmo: USimpleSingleClickGizmo;
 
 declare interface USingleClickInputBehavior extends UAnyButtonInputBehavior {
-    HitTestOnRelease: boolean;
+    readonly __properties_USingleClickInputBehavior: {
+        HitTestOnRelease: boolean;
+    };
+    readonly __staticRegistry: 
+        UAnyButtonInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USingleClickInputBehavior['__properties_USingleClickInputBehavior'] &
+        UAnyButtonInputBehavior['__propertyRegistry'];
 }
-declare const USingleClickInputBehavior: USingleClickInputBehavior;
 
 declare interface USingleClickOrDragInputBehavior extends UAnyButtonInputBehavior {
-    bBeginDragIfClickTargetNotHit: boolean;
-    ClickDistanceThreshold: number;
+    readonly __properties_USingleClickOrDragInputBehavior: {
+        bBeginDragIfClickTargetNotHit: boolean;
+        ClickDistanceThreshold: number;
+    };
+    readonly __staticRegistry: 
+        UAnyButtonInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USingleClickOrDragInputBehavior['__properties_USingleClickOrDragInputBehavior'] &
+        UAnyButtonInputBehavior['__propertyRegistry'];
 }
-declare const USingleClickOrDragInputBehavior: USingleClickOrDragInputBehavior;
 
 declare interface USingleClickTool extends UInteractiveTool {
-
+    readonly __staticRegistry: 
+        UInteractiveTool['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveTool['__propertyRegistry'];
 }
-declare const USingleClickTool: USingleClickTool;
 
 declare interface USingleClickToolBuilder extends UInteractiveToolBuilder {
-
+    readonly __staticRegistry: 
+        UInteractiveToolBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteractiveToolBuilder['__propertyRegistry'];
 }
-declare const USingleClickToolBuilder: USingleClickToolBuilder;
 
 declare interface USingleKeyCaptureBehavior extends UInputBehavior {
-
+    readonly __staticRegistry: 
+        UInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInputBehavior['__propertyRegistry'];
 }
-declare const USingleKeyCaptureBehavior: USingleKeyCaptureBehavior;
 
 declare interface USingleSelectionTool extends UInteractiveTool {
-    Target: UToolTarget;
+    readonly __properties_USingleSelectionTool: {
+        Target: UToolTarget;
+    };
+    readonly __staticRegistry: 
+        UInteractiveTool['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USingleSelectionTool['__properties_USingleSelectionTool'] &
+        UInteractiveTool['__propertyRegistry'];
 }
-declare const USingleSelectionTool: USingleSelectionTool;
 
 declare interface UToolTarget extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UToolTarget: UToolTarget;
 
 declare interface UToolTargetFactory extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UToolTargetFactory: UToolTargetFactory;
 
 declare interface UToolTargetManager extends UObject {
-    Factories: TArray<UToolTargetFactory>;
+    readonly __properties_UToolTargetManager: {
+        Factories: UToolTargetFactory[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UToolTargetManager['__properties_UToolTargetManager'] &
+        UObject['__propertyRegistry'];
 }
-declare const UToolTargetManager: UToolTargetManager;
 
 declare interface UToolsContextCursorAPI extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UToolsContextCursorAPI: UToolsContextCursorAPI;
 
 declare interface UTransformProxy extends UObject {
-    bRotatePerObject: boolean;
-    bSetPivotMode: boolean;
-    SharedTransform: FTransform;
-    InitialSharedTransform: FTransform;
+    readonly __properties_UTransformProxy: {
+        bRotatePerObject: boolean;
+        bSetPivotMode: boolean;
+        SharedTransform: FTransform;
+        InitialSharedTransform: FTransform;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTransformProxy['__properties_UTransformProxy'] &
+        UObject['__propertyRegistry'];
 }
-declare const UTransformProxy: UTransformProxy;
 
 declare interface UTwoAxisPropertyEditInputBehavior extends UInputBehavior {
-
+    readonly __staticRegistry: 
+        UInputBehavior['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInputBehavior['__propertyRegistry'];
 }
-declare const UTwoAxisPropertyEditInputBehavior: UTwoAxisPropertyEditInputBehavior;
 
 declare interface UViewAdjustedStaticMeshGizmoComponent extends UStaticMeshComponent {
-    GizmoViewContext: UGizmoViewContext;
-    SubstituteInteractionComponent: UPrimitiveComponent;
-    HoverOverrideMaterial: UMaterialInterface;
+    readonly __properties_UViewAdjustedStaticMeshGizmoComponent: {
+        GizmoViewContext: UGizmoViewContext;
+        SubstituteInteractionComponent: UPrimitiveComponent;
+        HoverOverrideMaterial: UMaterialInterface;
+    };
+    readonly __staticRegistry: 
+        UStaticMeshComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UViewAdjustedStaticMeshGizmoComponent['__properties_UViewAdjustedStaticMeshGizmoComponent'] &
+        UStaticMeshComponent['__propertyRegistry'];
 }
-declare const UViewAdjustedStaticMeshGizmoComponent: UViewAdjustedStaticMeshGizmoComponent;
 

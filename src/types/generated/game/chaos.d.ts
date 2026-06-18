@@ -20,7 +20,6 @@ declare interface FChaosSolverConfiguration {
     PushOutIterations: number;
     bGenerateContactGraph: boolean;
 }
-declare const FChaosSolverConfiguration: FChaosSolverConfiguration;
 
 declare interface FChaosSolverDestructionSettings {
     PerAdvanceBreaksAllowed: number;
@@ -29,47 +28,36 @@ declare interface FChaosSolverDestructionSettings {
     ClusteringParticleReleaseThrottlingMaxCount: number;
     bOptimizeForRuntimeMemory: boolean;
 }
-declare const FChaosSolverDestructionSettings: FChaosSolverDestructionSettings;
 
-declare interface FClosestPhysicsObjectResult {
-
-}
-declare const FClosestPhysicsObjectResult: FClosestPhysicsObjectResult;
+declare type FClosestPhysicsObjectResult = object;
 
 declare interface FFieldCollection extends FManagedArrayCollection {
 
 }
-declare const FFieldCollection: FFieldCollection;
 
-declare interface FManagedArrayCollection {
-
-}
-declare const FManagedArrayCollection: FManagedArrayCollection;
+declare type FManagedArrayCollection = object;
 
 declare interface FRecordedFrame {
-    Transforms: TArray<FTransform>;
-    TransformIndices: TArray<number>;
-    PreviousTransformIndices: TArray<number>;
-    DisabledFlags: TArray<boolean>;
-    Collisions: TArray<FSolverCollisionData>;
-    Breakings: TArray<FSolverBreakingData>;
-    Trailings: TSet<FSolverTrailingData>;
+    Transforms: FTransform[];
+    TransformIndices: number[];
+    PreviousTransformIndices: number[];
+    DisabledFlags: boolean[];
+    Collisions: FSolverCollisionData[];
+    Breakings: FSolverBreakingData[];
+    Trailings: FSolverTrailingData[];
     Timestamp: number;
 }
-declare const FRecordedFrame: FRecordedFrame;
 
 declare interface FRecordedTransformTrack {
-    Records: TArray<FRecordedFrame>;
+    Records: FRecordedFrame[];
 }
-declare const FRecordedTransformTrack: FRecordedTransformTrack;
 
 declare interface FSerializedSolverScene {
-    ParticleData: TArray<FChaosVDParticleDataWrapper>;
-    JointConstraintData: TArray<FChaosVDJointConstraint>;
-    CharacterGroundConstraintData: TArray<FChaosVDCharacterGroundConstraint>;
-    CollisionMidPhaseData: TArray<FChaosVDParticlePairMidPhase>;
+    ParticleData: FChaosVDParticleDataWrapper[];
+    JointConstraintData: FChaosVDJointConstraint[];
+    CharacterGroundConstraintData: FChaosVDCharacterGroundConstraint[];
+    CollisionMidPhaseData: FChaosVDParticlePairMidPhase[];
 }
-declare const FSerializedSolverScene: FSerializedSolverScene;
 
 declare interface FSolverBreakingData {
     Location: FVector;
@@ -79,7 +67,6 @@ declare interface FSolverBreakingData {
     ParticleIndex: number;
     ParticleIndexMesh: number;
 }
-declare const FSolverBreakingData: FSolverBreakingData;
 
 declare interface FSolverBreakingFilterSettings {
     FilterEnabled: boolean;
@@ -87,7 +74,6 @@ declare interface FSolverBreakingFilterSettings {
     MinSpeed: number;
     MinVolume: number;
 }
-declare const FSolverBreakingFilterSettings: FSolverBreakingFilterSettings;
 
 declare interface FSolverCollisionData {
     Location: FVector;
@@ -104,7 +90,6 @@ declare interface FSolverCollisionData {
     ParticleIndexMesh: number;
     LevelsetIndexMesh: number;
 }
-declare const FSolverCollisionData: FSolverCollisionData;
 
 declare interface FSolverCollisionFilterSettings {
     FilterEnabled: boolean;
@@ -112,14 +97,12 @@ declare interface FSolverCollisionFilterSettings {
     MinSpeed: number;
     MinImpulse: number;
 }
-declare const FSolverCollisionFilterSettings: FSolverCollisionFilterSettings;
 
 declare interface FSolverRemovalFilterSettings {
     FilterEnabled: boolean;
     MinMass: number;
     MinVolume: number;
 }
-declare const FSolverRemovalFilterSettings: FSolverRemovalFilterSettings;
 
 declare interface FSolverTrailingData {
     Location: FVector;
@@ -129,7 +112,6 @@ declare interface FSolverTrailingData {
     ParticleIndex: number;
     ParticleIndexMesh: number;
 }
-declare const FSolverTrailingData: FSolverTrailingData;
 
 declare interface FSolverTrailingFilterSettings {
     FilterEnabled: boolean;
@@ -137,5 +119,4 @@ declare interface FSolverTrailingFilterSettings {
     MinSpeed: number;
     MinVolume: number;
 }
-declare const FSolverTrailingFilterSettings: FSolverTrailingFilterSettings;
 

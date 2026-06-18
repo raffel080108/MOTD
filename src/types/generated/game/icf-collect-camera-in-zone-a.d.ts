@@ -1,5 +1,7 @@
 declare interface UICF_CollectCameraInZoneA_C extends UIntelChallengeForResource {
-
+    readonly __staticRegistry: 
+        UIntelChallengeForResource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIntelChallengeForResource['__propertyRegistry'];
 }
-declare const UICF_CollectCameraInZoneA_C: UICF_CollectCameraInZoneA_C;
 

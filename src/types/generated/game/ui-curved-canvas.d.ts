@@ -1,8 +1,17 @@
 declare interface UUI_CurvedCanvas_C extends UUserWidget {
-    UberGraphFrame: FPointerToUberGraphFrame;
-    Content: UNamedSlot;
-    PreConstruct(IsDesignTime: boolean): void;
-    ExecuteUbergraph_UI_CurvedCanvas(EntryPoint: number): void;
+    readonly __static_UUI_CurvedCanvas_C: {
+        PreConstruct(IsDesignTime: boolean): void;
+        ExecuteUbergraph_UI_CurvedCanvas(EntryPoint: number): void;
+    };
+    readonly __properties_UUI_CurvedCanvas_C: {
+        UberGraphFrame: FPointerToUberGraphFrame;
+        Content: UNamedSlot;
+    };
+    readonly __staticRegistry: 
+        UUI_CurvedCanvas_C['__static_UUI_CurvedCanvas_C'] &
+        UUserWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UUI_CurvedCanvas_C['__properties_UUI_CurvedCanvas_C'] &
+        UUserWidget['__propertyRegistry'];
 }
-declare const UUI_CurvedCanvas_C: UUI_CurvedCanvas_C;
 

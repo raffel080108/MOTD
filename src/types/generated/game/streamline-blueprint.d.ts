@@ -6,20 +6,24 @@ declare interface FStreamlineFeatureRequirements {
     RequiredDriverVersion: FStreamlineVersion;
     DetectedDriverVersion: FStreamlineVersion;
 }
-declare const FStreamlineFeatureRequirements: FStreamlineFeatureRequirements;
 
 declare interface FStreamlineVersion {
     Major: number;
     Minor: number;
     Build: number;
 }
-declare const FStreamlineVersion: FStreamlineVersion;
 
 declare interface UStreamlineLibrary extends UBlueprintFunctionLibrary {
-    QueryStreamlineFeatureSupport(Feature: EStreamlineFeature): EStreamlineFeatureSupport;
-    IsStreamlineFeatureSupported(Feature: EStreamlineFeature): boolean;
-    GetStreamlineFeatureInformation(Feature: EStreamlineFeature): FStreamlineFeatureRequirements;
-    BreakStreamlineFeatureRequirements(Requirements: EStreamlineFeatureRequirementsFlags, D3D11Supported: boolean, D3D12Supported: boolean, VulkanSupported: boolean, VSyncOffRequired: boolean, HardwareSchedulingRequired: boolean): void;
+    readonly __static_UStreamlineLibrary: {
+        QueryStreamlineFeatureSupport(Feature: EStreamlineFeature): EStreamlineFeatureSupport;
+        IsStreamlineFeatureSupported(Feature: EStreamlineFeature): boolean;
+        GetStreamlineFeatureInformation(Feature: EStreamlineFeature): FStreamlineFeatureRequirements;
+        BreakStreamlineFeatureRequirements(Requirements: EStreamlineFeatureRequirementsFlags, D3D11Supported: boolean, D3D12Supported: boolean, VulkanSupported: boolean, VSyncOffRequired: boolean, HardwareSchedulingRequired: boolean): void;
+    };
+    readonly __staticRegistry: 
+        UStreamlineLibrary['__static_UStreamlineLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UStreamlineLibrary: UStreamlineLibrary;
 

@@ -1,30 +1,42 @@
 declare interface INNERuntime extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const INNERuntime: INNERuntime;
 
 declare interface INNERuntimeCPU extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const INNERuntimeCPU: INNERuntimeCPU;
 
 declare interface INNERuntimeGPU extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const INNERuntimeGPU: INNERuntimeGPU;
 
 declare interface INNERuntimeNPU extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const INNERuntimeNPU: INNERuntimeNPU;
 
 declare interface INNERuntimeRDG extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const INNERuntimeRDG: INNERuntimeRDG;
 
 declare interface UNNEModelData extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNNEModelData: UNNEModelData;
 

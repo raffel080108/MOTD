@@ -1,24 +1,22 @@
 declare interface FAddSolverDeformerDataflowNode extends FDataflowSimulationNode {
-    PhysicsSolvers: TArray<FDataflowSimulationProperty>;
+    PhysicsSolvers: FDataflowSimulationProperty[];
     SimulationTime: FDataflowSimulationTime;
     MeshDeformer: UOptimusDeformer;
-    DeformerNumericInputs: TArray<FDataflowNumericTypes>;
-    DeformerVectorInputs: TArray<FDataflowVectorTypes>;
-    DeformerStringInputs: TArray<FDataflowStringTypes>;
-    DeformerBoolInputs: TArray<FDataflowBoolTypes>;
-    DeformerTransformInputs: TArray<FDataflowTransformTypes>;
-    DeformerNumericArrays: TArray<FDataflowNumericArrayTypes>;
-    DeformerVectorArrays: TArray<FDataflowVectorArrayTypes>;
-    DeformerStringArrays: TArray<FDataflowStringArrayTypes>;
-    DeformerBoolArrays: TArray<FDataflowBoolArrayTypes>;
-    DeformerTransformArrays: TArray<FDataflowTransformArrayTypes>;
+    DeformerNumericInputs: FDataflowNumericTypes[];
+    DeformerVectorInputs: FDataflowVectorTypes[];
+    DeformerStringInputs: FDataflowStringTypes[];
+    DeformerBoolInputs: FDataflowBoolTypes[];
+    DeformerTransformInputs: FDataflowTransformTypes[];
+    DeformerNumericArrays: FDataflowNumericArrayTypes[];
+    DeformerVectorArrays: FDataflowVectorArrayTypes[];
+    DeformerStringArrays: FDataflowStringArrayTypes[];
+    DeformerBoolArrays: FDataflowBoolArrayTypes[];
+    DeformerTransformArrays: FDataflowTransformArrayTypes[];
 }
-declare const FAddSolverDeformerDataflowNode: FAddSolverDeformerDataflowNode;
 
 declare interface FDataflowGroomSolverProxy extends FDataflowPhysicsSolverProxy {
 
 }
-declare const FDataflowGroomSolverProxy: FDataflowGroomSolverProxy;
 
 declare interface FGroomSolverSettings {
     NumSubSteps: number;
@@ -27,19 +25,27 @@ declare interface FGroomSolverSettings {
     MaxLODDistance: number;
     MinLODDistance: number;
 }
-declare const FGroomSolverSettings: FGroomSolverSettings;
 
 declare interface UGroomSolverComponent extends UMeshComponent {
-    SolverSettings: FGroomSolverSettings;
-    SimulationAsset: FDataflowSimulationAsset;
-    GroomComponents: TSet<UGroomComponent>;
-    MeshDeformer: UMeshDeformer;
-    DeformerInstance: UMeshDeformerInstance;
-    DeformerSettings: UMeshDeformerInstanceSettings;
-    SetDeformerSolver(DeformerSolver: UMeshDeformer): void;
-    ResetGroomComponents(): void;
-    RemoveGroomComponent(GroomComponent: UGroomComponent): void;
-    AddGroomComponent(GroomComponent: UGroomComponent): void;
+    readonly __static_UGroomSolverComponent: {
+        SetDeformerSolver(DeformerSolver: UMeshDeformer): void;
+        ResetGroomComponents(): void;
+        RemoveGroomComponent(GroomComponent: UGroomComponent): void;
+        AddGroomComponent(GroomComponent: UGroomComponent): void;
+    };
+    readonly __properties_UGroomSolverComponent: {
+        SolverSettings: FGroomSolverSettings;
+        SimulationAsset: FDataflowSimulationAsset;
+        GroomComponents: UGroomComponent[];
+        MeshDeformer: UMeshDeformer;
+        DeformerInstance: UMeshDeformerInstance;
+        DeformerSettings: UMeshDeformerInstanceSettings;
+    };
+    readonly __staticRegistry: 
+        UGroomSolverComponent['__static_UGroomSolverComponent'] &
+        UMeshComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGroomSolverComponent['__properties_UGroomSolverComponent'] &
+        UMeshComponent['__propertyRegistry'];
 }
-declare const UGroomSolverComponent: UGroomSolverComponent;
 

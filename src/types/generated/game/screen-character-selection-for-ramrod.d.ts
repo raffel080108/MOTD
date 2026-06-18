@@ -1,47 +1,56 @@
 declare interface USCREEN_CharacterSelection_For_Ramrod_C extends USCREEN_CharacterSelection_Base_C {
-    UberGraphFrame: FPointerToUberGraphFrame;
-    UI_Menu_ScreenTitle: UUI_Menu_ScreenTitle_C;
-    Screen_CharacterInfo: UScreen_CharacterInfo_C;
-    PlatformSafeZone: USafeZone;
-    Lobby_BarTop_Countdown: ULobby_BarTop_Countdown_C;
-    LeaveTeamButton: UBasic_ButtonScalable2_C;
-    Itm_Rotateable_Showroom: UItm_Rotatable_Showroom_C;
-    ITM_MenuBackground: UITM_MenuBackground_C;
-    ITM_LoadoutSelectorBar: UITM_LoadoutSelectorBar_C;
-    ITM_Character_Description: UITM_CharacterDescription_C;
-    HUD_Chat: UHUD_Chat_C;
-    CloseButton: UBasic_ButtonScalable2_C;
-    ClassSelector: UITM_Wardrobe_ClassSelector_C;
-    CharacterClassLogo: USCREEN_CharacterClassLogo_C;
-    Buttons_Box: UHorizontalBox;
-    CharacterSelected: FSCREEN_CharacterSelection_For_Ramrod_CCharacterSelected;
-    AllowBack: boolean;
-    CanSelectCharacter: boolean;
-    UnbindFromPlayerCharacter(): void;
-    InitializeSelector(): void;
-    UpdateView(): void;
-    OnKeyDown(MyGeometry: FGeometry, InKeyEvent: FKeyEvent): FEventReply;
-    OnKeyUp(MyGeometry: FGeometry, InKeyEvent: FKeyEvent): FEventReply;
-    OnCloseMenuReleased(Handled: boolean): void;
-    No_D35050774114599BE685EB936E9FD6FC(): void;
-    Yes_D35050774114599BE685EB936E9FD6FC(): void;
-    BackPressed(): void;
-    ReceiveNewVisibility(NewVisibility: ESlateVisibility): void;
-    OnShown(): void;
-    OnClosed(): void;
-    BndEvt__CloseButton_K2Node_ComponentBoundEvent_0_OnClicked__DelegateSignature(): void;
-    ReceiveCloseCommand(): void;
-    Show(): void;
-    BndEvt__SCREEN_CharacterSelection_Ramrod_ClassSelector_K2Node_ComponentBoundEvent_2_OnCharacterChanged__DelegateSignature(Character: TSubclassOf<APlayerCharacter>): void;
-    BndEvt__SCREEN_CharacterSelection_ClassSelector_K2Node_ComponentBoundEvent_3_OnRequestCharacterSwitch__DelegateSignature(PlayerClass: UPlayerCharacterID): void;
-    BndEvt__SCREEN_CharacterSelection_For_Ramrod_LeaveTeamButton_K2Node_ComponentBoundEvent_1_OnClicked__DelegateSignature(): void;
-    StartLeaveTeam(): void;
-    BndEvt__SCREEN_CharacterSelection_For_Ramrod_HUD_Chat_K2Node_ComponentBoundEvent_4_OnChatClosed__DelegateSignature(): void;
-    OnPlayerchangeSuccess(): void;
-    OnPlayerChangeFailure(): void;
-    BndEvt__SCREEN_CharacterSelection_For_Ramrod_ITM_LoadoutSelectorBar_K2Node_ComponentBoundEvent_5_NewLoadoutSelected__DelegateSignature(): void;
-    ExecuteUbergraph_SCREEN_CharacterSelection_For_Ramrod(EntryPoint: number): void;
-    CharacterSelected__DelegateSignature(): void;
+    readonly __static_USCREEN_CharacterSelection_For_Ramrod_C: {
+        UnbindFromPlayerCharacter(): void;
+        InitializeSelector(): void;
+        UpdateView(): void;
+        OnKeyDown(MyGeometry: FGeometry, InKeyEvent: FKeyEvent): FEventReply;
+        OnKeyUp(MyGeometry: FGeometry, InKeyEvent: FKeyEvent): FEventReply;
+        OnCloseMenuReleased(Handled: boolean): void;
+        No_D35050774114599BE685EB936E9FD6FC(): void;
+        Yes_D35050774114599BE685EB936E9FD6FC(): void;
+        BackPressed(): void;
+        ReceiveNewVisibility(NewVisibility: ESlateVisibility): void;
+        OnShown(): void;
+        OnClosed(): void;
+        BndEvt__CloseButton_K2Node_ComponentBoundEvent_0_OnClicked__DelegateSignature(): void;
+        ReceiveCloseCommand(): void;
+        Show(): void;
+        BndEvt__SCREEN_CharacterSelection_Ramrod_ClassSelector_K2Node_ComponentBoundEvent_2_OnCharacterChanged__DelegateSignature(Character: TSubclassOf<APlayerCharacter>): void;
+        BndEvt__SCREEN_CharacterSelection_ClassSelector_K2Node_ComponentBoundEvent_3_OnRequestCharacterSwitch__DelegateSignature(PlayerClass: UPlayerCharacterID): void;
+        BndEvt__SCREEN_CharacterSelection_For_Ramrod_LeaveTeamButton_K2Node_ComponentBoundEvent_1_OnClicked__DelegateSignature(): void;
+        StartLeaveTeam(): void;
+        BndEvt__SCREEN_CharacterSelection_For_Ramrod_HUD_Chat_K2Node_ComponentBoundEvent_4_OnChatClosed__DelegateSignature(): void;
+        OnPlayerchangeSuccess(): void;
+        OnPlayerChangeFailure(): void;
+        BndEvt__SCREEN_CharacterSelection_For_Ramrod_ITM_LoadoutSelectorBar_K2Node_ComponentBoundEvent_5_NewLoadoutSelected__DelegateSignature(): void;
+        ExecuteUbergraph_SCREEN_CharacterSelection_For_Ramrod(EntryPoint: number): void;
+        CharacterSelected__DelegateSignature(): void;
+    };
+    readonly __properties_USCREEN_CharacterSelection_For_Ramrod_C: {
+        UberGraphFrame: FPointerToUberGraphFrame;
+        UI_Menu_ScreenTitle: UUI_Menu_ScreenTitle_C;
+        Screen_CharacterInfo: UScreen_CharacterInfo_C;
+        PlatformSafeZone: USafeZone;
+        Lobby_BarTop_Countdown: ULobby_BarTop_Countdown_C;
+        LeaveTeamButton: UBasic_ButtonScalable2_C;
+        Itm_Rotateable_Showroom: UItm_Rotatable_Showroom_C;
+        ITM_MenuBackground: UITM_MenuBackground_C;
+        ITM_LoadoutSelectorBar: UITM_LoadoutSelectorBar_C;
+        ITM_Character_Description: UITM_CharacterDescription_C;
+        HUD_Chat: UHUD_Chat_C;
+        CloseButton: UBasic_ButtonScalable2_C;
+        ClassSelector: UITM_Wardrobe_ClassSelector_C;
+        CharacterClassLogo: USCREEN_CharacterClassLogo_C;
+        Buttons_Box: UHorizontalBox;
+        CharacterSelected: FSCREEN_CharacterSelection_For_Ramrod_CCharacterSelected;
+        AllowBack: boolean;
+        CanSelectCharacter: boolean;
+    };
+    readonly __staticRegistry: 
+        USCREEN_CharacterSelection_For_Ramrod_C['__static_USCREEN_CharacterSelection_For_Ramrod_C'] &
+        USCREEN_CharacterSelection_Base_C['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USCREEN_CharacterSelection_For_Ramrod_C['__properties_USCREEN_CharacterSelection_For_Ramrod_C'] &
+        USCREEN_CharacterSelection_Base_C['__propertyRegistry'];
 }
-declare const USCREEN_CharacterSelection_For_Ramrod_C: USCREEN_CharacterSelection_For_Ramrod_C;
 

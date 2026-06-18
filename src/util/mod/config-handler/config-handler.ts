@@ -5,7 +5,6 @@ export class ConfigHandler<TData> {
     public readonly defaults: TData;
     public data: TData;
     public configNeedsSaving = false;
-    protected configFileOperationInProgress = false;
 
     public constructor(configName: string, defaults: TData, data: TData) {
         this.configName = configName;
@@ -13,54 +12,31 @@ export class ConfigHandler<TData> {
         this.data = data;
     }
 
-    public saveConfig(): void {
-        if (this.configFileOperationInProgress) {
-            return;
-        }
-        
+    public saveConfig(): void {        
         this.save();
-
-        this.configFileOperationInProgress = true;
     }
 
     public loadConfig(): void {
-        if (this.configFileOperationInProgress) {
-            return;
-        }
-
         this.load();
-
-        this.configFileOperationInProgress = true;
     }
 
     public parseData(newData: Partial<TData>): void {
-        for (const [key] of pairs(newData)) {
-            (this.data[key] as any) = newData[key] ?? this.defaults[key];
+        for (const [key] of Object.entries(newData)) {
+            this.data[key as keyof TData] = newData[key as keyof TData] ?? this.defaults[key as keyof TData];
         }
     }
 
     protected save(): void {        
-        ModUtil.saveConfig(this.configName, this.data, (success: boolean) => {
-            if (success) {
-                this.configNeedsSaving = false;
-            }
-            
-            this.fileOperationCompleted();
-        });
+        ModUtil.saveConfig(this.configName, this.data);
+
+        this.configNeedsSaving = false;            
     }
 
     protected load(): void {
-        ModUtil.loadConfig(this.configName, (success: boolean, data: unknown) => {
-            if (success && data !== undefined) {
-                this.configNeedsSaving = false;
-                this.parseData(data as Partial<TData>);
-            }
+        this.configNeedsSaving = false;
 
-            this.fileOperationCompleted();
-        });
-    }
+        const data = ModUtil.loadConfig(this.configName) as Partial<TData>;
 
-    protected fileOperationCompleted(): void {
-        this.configFileOperationInProgress = false;
+        this.parseData(data);
     }
 }

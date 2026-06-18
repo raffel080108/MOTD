@@ -1,33 +1,27 @@
 declare interface FLocalizableMessage {
-    Key: FString;
-    DefaultText: FString;
-    Substitutions: TArray<FLocalizableMessageParameterEntry>;
+    Key: string;
+    DefaultText: string;
+    Substitutions: FLocalizableMessageParameterEntry[];
 }
-declare const FLocalizableMessage: FLocalizableMessage;
 
 declare interface FLocalizableMessageParameterEntry {
-    Key: FString;
+    Key: string;
     Value: FInstancedStruct;
 }
-declare const FLocalizableMessageParameterEntry: FLocalizableMessageParameterEntry;
 
 declare interface FLocalizableMessageParameterFloat {
     Value: number;
 }
-declare const FLocalizableMessageParameterFloat: FLocalizableMessageParameterFloat;
 
 declare interface FLocalizableMessageParameterInt {
-    Value: int64;
+    Value: number;
 }
-declare const FLocalizableMessageParameterInt: FLocalizableMessageParameterInt;
 
 declare interface FLocalizableMessageParameterMessage {
     Value: FLocalizableMessage;
 }
-declare const FLocalizableMessageParameterMessage: FLocalizableMessageParameterMessage;
 
 declare interface FLocalizableMessageParameterString {
-    Value: FString;
+    Value: string;
 }
-declare const FLocalizableMessageParameterString: FLocalizableMessageParameterString;
 

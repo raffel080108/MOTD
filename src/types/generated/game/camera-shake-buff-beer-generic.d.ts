@@ -1,5 +1,7 @@
 declare interface UCameraShake_BuffBeerGeneric_C extends ULegacyCameraShake {
-
+    readonly __staticRegistry: 
+        ULegacyCameraShake['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULegacyCameraShake['__propertyRegistry'];
 }
-declare const UCameraShake_BuffBeerGeneric_C: UCameraShake_BuffBeerGeneric_C;
 

@@ -1,5 +1,7 @@
 declare interface UOBJ_BXE_ScaleGarage_C extends UBXEBlueprintControlledObjective {
-
+    readonly __staticRegistry: 
+        UBXEBlueprintControlledObjective['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBXEBlueprintControlledObjective['__propertyRegistry'];
 }
-declare const UOBJ_BXE_ScaleGarage_C: UOBJ_BXE_ScaleGarage_C;
 

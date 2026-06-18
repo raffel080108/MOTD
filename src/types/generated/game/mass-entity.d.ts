@@ -1,175 +1,178 @@
-declare interface FMassChunkFragment {
+declare type FMassChunkFragment = object;
 
-}
-declare const FMassChunkFragment: FMassChunkFragment;
-
-declare interface FMassConstSharedFragment {
-
-}
-declare const FMassConstSharedFragment: FMassConstSharedFragment;
+declare type FMassConstSharedFragment = object;
 
 declare interface FMassDebugLogFragment extends FMassFragment {
     LogOwner: TWeakObjectPtr<UObject>;
 }
-declare const FMassDebugLogFragment: FMassDebugLogFragment;
 
 declare interface FMassEntityHandle {
     Index: number;
     SerialNumber: number;
 }
-declare const FMassEntityHandle: FMassEntityHandle;
 
 declare interface FMassEntityObserverClassesMap {
-    Container: Record<string | number | symbol, FMassProcessorClassCollection>;
+    Container: TMap<UScriptStruct, FMassProcessorClassCollection>;
 }
-declare const FMassEntityObserverClassesMap: FMassEntityObserverClassesMap;
 
 declare interface FMassEntityQuery extends FMassFragmentRequirements {
 
 }
-declare const FMassEntityQuery: FMassEntityQuery;
 
-declare interface FMassEntityView {
+declare type FMassEntityView = object;
 
-}
-declare const FMassEntityView: FMassEntityView;
+declare type FMassFragment = object;
 
-declare interface FMassFragment {
+declare type FMassFragmentRequirements = object;
 
-}
-declare const FMassFragment: FMassFragment;
-
-declare interface FMassFragmentRequirements {
-
-}
-declare const FMassFragmentRequirements: FMassFragmentRequirements;
-
-declare interface FMassGenericDebugEvent {
-
-}
-declare const FMassGenericDebugEvent: FMassGenericDebugEvent;
+declare type FMassGenericDebugEvent = object;
 
 declare interface FMassObserverManager {
     FragmentObservers: FMassObserversMap;
     TagObservers: FMassObserversMap;
 }
-declare const FMassObserverManager: FMassObserverManager;
 
 declare interface FMassObserversMap {
-    Container: Record<string | number | symbol, FMassRuntimePipeline>;
+    Container: TMap<UScriptStruct, FMassRuntimePipeline>;
 }
-declare const FMassObserversMap: FMassObserversMap;
 
 declare interface FMassProcessingContext_DEPRECATED {
     DeltaSeconds: number;
     AuxData: FInstancedStruct;
     bFlushCommandBuffer: boolean;
 }
-declare const FMassProcessingContext_DEPRECATED: FMassProcessingContext_DEPRECATED;
 
 declare interface FMassProcessingPhaseConfig {
-    PhaseName: FName;
+    PhaseName: string;
     PhaseGroupClass: TSubclassOf<UMassCompositeProcessor>;
-    ProcessorCDOs: TArray<UMassProcessor>;
+    ProcessorCDOs: UMassProcessor[];
 }
-declare const FMassProcessingPhaseConfig: FMassProcessingPhaseConfig;
 
 declare interface FMassProcessorClassCollection {
-    ClassCollection: TArray<TSubclassOf<UMassProcessor>>;
+    ClassCollection: TSubclassOf<UMassProcessor>[];
 }
-declare const FMassProcessorClassCollection: FMassProcessorClassCollection;
 
 declare interface FMassProcessorExecutionOrder {
-    ExecuteInGroup: FName;
-    ExecuteBefore: TArray<FName>;
-    ExecuteAfter: TArray<FName>;
+    ExecuteInGroup: string;
+    ExecuteBefore: string[];
+    ExecuteAfter: string[];
 }
-declare const FMassProcessorExecutionOrder: FMassProcessorExecutionOrder;
 
 declare interface FMassRuntimePipeline {
-    Processors: TArray<UMassProcessor>;
+    Processors: UMassProcessor[];
 }
-declare const FMassRuntimePipeline: FMassRuntimePipeline;
 
-declare interface FMassSharedFragment {
+declare type FMassSharedFragment = object;
 
-}
-declare const FMassSharedFragment: FMassSharedFragment;
+declare type FMassSubsystemRequirements = object;
 
-declare interface FMassSubsystemRequirements {
+declare type FMassTag = object;
 
-}
-declare const FMassSubsystemRequirements: FMassSubsystemRequirements;
-
-declare interface FMassTag {
-
-}
-declare const FMassTag: FMassTag;
-
-declare interface FProcessorAuxDataBase {
-
-}
-declare const FProcessorAuxDataBase: FProcessorAuxDataBase;
+declare type FProcessorAuxDataBase = object;
 
 declare interface UMassCompositeProcessor extends UMassProcessor {
-    ChildPipeline: FMassRuntimePipeline;
-    GroupName: FName;
+    readonly __properties_UMassCompositeProcessor: {
+        ChildPipeline: FMassRuntimePipeline;
+        GroupName: string;
+    };
+    readonly __staticRegistry: 
+        UMassProcessor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMassCompositeProcessor['__properties_UMassCompositeProcessor'] &
+        UMassProcessor['__propertyRegistry'];
 }
-declare const UMassCompositeProcessor: UMassCompositeProcessor;
 
 declare interface UMassEntitySettings extends UMassModuleSettings {
-    ChunkMemorySize: number;
-    DumpDependencyGraphFileName: FString;
-    ProcessingPhasesConfig: FMassProcessingPhaseConfig;
-    ProcessorCDOs: TArray<UMassProcessor>;
+    readonly __properties_UMassEntitySettings: {
+        ChunkMemorySize: number;
+        DumpDependencyGraphFileName: string;
+        ProcessingPhasesConfig: FMassProcessingPhaseConfig;
+        ProcessorCDOs: UMassProcessor[];
+    };
+    readonly __staticRegistry: 
+        UMassModuleSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMassEntitySettings['__properties_UMassEntitySettings'] &
+        UMassModuleSettings['__propertyRegistry'];
 }
-declare const UMassEntitySettings: UMassEntitySettings;
 
 declare interface UMassEntitySubsystem extends UMassSubsystemBase {
-
+    readonly __staticRegistry: 
+        UMassSubsystemBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMassSubsystemBase['__propertyRegistry'];
 }
-declare const UMassEntitySubsystem: UMassEntitySubsystem;
 
 declare interface UMassModuleSettings extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UMassModuleSettings: UMassModuleSettings;
 
 declare interface UMassObserverProcessor extends UMassProcessor {
-    bAutoRegisterWithObserverRegistry: boolean;
-    ObservedType: UScriptStruct;
+    readonly __properties_UMassObserverProcessor: {
+        bAutoRegisterWithObserverRegistry: boolean;
+        ObservedType: UScriptStruct;
+    };
+    readonly __staticRegistry: 
+        UMassProcessor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMassObserverProcessor['__properties_UMassObserverProcessor'] &
+        UMassProcessor['__propertyRegistry'];
 }
-declare const UMassObserverProcessor: UMassObserverProcessor;
 
 declare interface UMassObserverRegistry extends UObject {
-    FragmentObservers: FMassEntityObserverClassesMap;
-    TagObservers: FMassEntityObserverClassesMap;
+    readonly __properties_UMassObserverRegistry: {
+        FragmentObservers: FMassEntityObserverClassesMap;
+        TagObservers: FMassEntityObserverClassesMap;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMassObserverRegistry['__properties_UMassObserverRegistry'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMassObserverRegistry: UMassObserverRegistry;
 
 declare interface UMassProcessor extends UObject {
-    ExecutionOrder: FMassProcessorExecutionOrder;
-    ProcessingPhase: EMassProcessingPhase;
-    ExecutionFlags: uint8;
-    bAutoRegisterWithProcessingPhases: boolean;
-    bRequiresGameThreadExecution: boolean;
-    ActivationState: EActivationState;
-    ExecutionPriority: int16;
+    readonly __properties_UMassProcessor: {
+        ExecutionOrder: FMassProcessorExecutionOrder;
+        ProcessingPhase: EMassProcessingPhase;
+        ExecutionFlags: number;
+        bAutoRegisterWithProcessingPhases: boolean;
+        bRequiresGameThreadExecution: boolean;
+        ActivationState: EActivationState;
+        ExecutionPriority: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMassProcessor['__properties_UMassProcessor'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMassProcessor: UMassProcessor;
 
 declare interface UMassSettings extends UDeveloperSettings {
-    ModuleSettings: Record<FName, UMassModuleSettings>;
+    readonly __properties_UMassSettings: {
+        ModuleSettings: TMap<string, UMassModuleSettings>;
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMassSettings['__properties_UMassSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UMassSettings: UMassSettings;
 
 declare interface UMassSubsystemBase extends UWorldSubsystem {
-
+    readonly __staticRegistry: 
+        UWorldSubsystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UWorldSubsystem['__propertyRegistry'];
 }
-declare const UMassSubsystemBase: UMassSubsystemBase;
 
 declare interface UMassTickableSubsystemBase extends UTickableWorldSubsystem {
-
+    readonly __staticRegistry: 
+        UTickableWorldSubsystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTickableWorldSubsystem['__propertyRegistry'];
 }
-declare const UMassTickableSubsystemBase: UMassTickableSubsystemBase;
 

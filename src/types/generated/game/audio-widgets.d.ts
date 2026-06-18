@@ -7,7 +7,6 @@ declare interface FAudioMaterialButtonStyle extends FAudioMaterialWidgetStyle {
     ButtonUnpressedOutlineColor: FLinearColor;
     ButtonPressedOutlineColor: FLinearColor;
 }
-declare const FAudioMaterialButtonStyle: FAudioMaterialButtonStyle;
 
 declare interface FAudioMaterialEnvelopeSettings {
     EnvelopeType: EAudioMaterialEnvelopeType;
@@ -20,14 +19,12 @@ declare interface FAudioMaterialEnvelopeSettings {
     ReleaseCurve: number;
     ReleaseTime: number;
 }
-declare const FAudioMaterialEnvelopeSettings: FAudioMaterialEnvelopeSettings;
 
 declare interface FAudioMaterialEnvelopeStyle extends FAudioMaterialWidgetStyle {
     CurveColor: FLinearColor;
     BackgroundColor: FLinearColor;
     OutlineColor: FLinearColor;
 }
-declare const FAudioMaterialEnvelopeStyle: FAudioMaterialEnvelopeStyle;
 
 declare interface FAudioMaterialKnobStyle extends FAudioMaterialWidgetStyle {
     KnobMainColor: FLinearColor;
@@ -44,7 +41,6 @@ declare interface FAudioMaterialKnobStyle extends FAudioMaterialWidgetStyle {
     KnobBarFillTintColor: FLinearColor;
     TextBoxStyle: FAudioTextBoxStyle;
 }
-declare const FAudioMaterialKnobStyle: FAudioMaterialKnobStyle;
 
 declare interface FAudioMaterialMeterStyle extends FAudioMaterialWidgetStyle {
     MeterFillMinColor: FLinearColor;
@@ -61,7 +57,6 @@ declare interface FAudioMaterialMeterStyle extends FAudioMaterialWidgetStyle {
     DecibelsPerHash: number;
     Font: FSlateFontInfo;
 }
-declare const FAudioMaterialMeterStyle: FAudioMaterialMeterStyle;
 
 declare interface FAudioMaterialSliderStyle extends FAudioMaterialWidgetStyle {
     SliderBackgroundColor: FLinearColor;
@@ -71,13 +66,11 @@ declare interface FAudioMaterialSliderStyle extends FAudioMaterialWidgetStyle {
     SliderHandleOutlineColor: FLinearColor;
     TextBoxStyle: FAudioTextBoxStyle;
 }
-declare const FAudioMaterialSliderStyle: FAudioMaterialSliderStyle;
 
 declare interface FAudioMaterialWidgetStyle extends FSlateWidgetStyle {
     Material: UMaterialInterface;
     DesiredSize: FVector2f;
 }
-declare const FAudioMaterialWidgetStyle: FAudioMaterialWidgetStyle;
 
 declare interface FAudioMeterDefaultColorStyle extends FSlateWidgetStyle {
     MeterBackgroundColor: FLinearColor;
@@ -87,7 +80,6 @@ declare interface FAudioMeterDefaultColorStyle extends FSlateWidgetStyle {
     MeterScaleColor: FLinearColor;
     MeterScaleLabelColor: FLinearColor;
 }
-declare const FAudioMeterDefaultColorStyle: FAudioMeterDefaultColorStyle;
 
 declare interface FAudioMeterStyle extends FSlateWidgetStyle {
     MeterValueImage: FSlateBrush;
@@ -108,7 +100,6 @@ declare interface FAudioMeterStyle extends FSlateWidgetStyle {
     DecibelsPerHash: number;
     Font: FSlateFontInfo;
 }
-declare const FAudioMeterStyle: FAudioMeterStyle;
 
 declare interface FAudioOscilloscopePanelStyle extends FSlateWidgetStyle {
     TimeRulerStyle: FFixedSampleSequenceRulerStyle;
@@ -116,7 +107,6 @@ declare interface FAudioOscilloscopePanelStyle extends FSlateWidgetStyle {
     WaveViewerStyle: FSampledSequenceViewerStyle;
     TriggerThresholdLineStyle: FTriggerThresholdLineStyle;
 }
-declare const FAudioOscilloscopePanelStyle: FAudioOscilloscopePanelStyle;
 
 declare interface FAudioRadialSliderStyle extends FSlateWidgetStyle {
     TextBoxStyle: FAudioTextBoxStyle;
@@ -126,7 +116,6 @@ declare interface FAudioRadialSliderStyle extends FSlateWidgetStyle {
     LabelPadding: number;
     DefaultSliderRadius: number;
 }
-declare const FAudioRadialSliderStyle: FAudioRadialSliderStyle;
 
 declare interface FAudioSliderStyle extends FSlateWidgetStyle {
     SliderStyle: FSliderStyle;
@@ -139,7 +128,6 @@ declare interface FAudioSliderStyle extends FSlateWidgetStyle {
     SliderThumbColor: FSlateColor;
     WidgetBackgroundColor: FSlateColor;
 }
-declare const FAudioSliderStyle: FAudioSliderStyle;
 
 declare interface FAudioSpectrumPlotStyle extends FSlateWidgetStyle {
     BackgroundColor: FSlateColor;
@@ -150,19 +138,16 @@ declare interface FAudioSpectrumPlotStyle extends FSlateWidgetStyle {
     CrosshairColor: FSlateColor;
     CrosshairLabelFont: FSlateFontInfo;
 }
-declare const FAudioSpectrumPlotStyle: FAudioSpectrumPlotStyle;
 
 declare interface FAudioTextBoxStyle extends FSlateWidgetStyle {
     BackgroundImage: FSlateBrush;
     BackgroundColor: FSlateColor;
 }
-declare const FAudioTextBoxStyle: FAudioTextBoxStyle;
 
 declare interface FAudioVectorscopePanelStyle extends FSlateWidgetStyle {
     ValueGridStyle: FSampledSequenceValueGridOverlayStyle;
     VectorViewerStyle: FSampledSequenceVectorViewerStyle;
 }
-declare const FAudioVectorscopePanelStyle: FAudioVectorscopePanelStyle;
 
 declare interface FFixedSampleSequenceRulerStyle extends FSlateWidgetStyle {
     HandleWidth: number;
@@ -177,14 +162,12 @@ declare interface FFixedSampleSequenceRulerStyle extends FSlateWidgetStyle {
     DesiredWidth: number;
     DesiredHeight: number;
 }
-declare const FFixedSampleSequenceRulerStyle: FFixedSampleSequenceRulerStyle;
 
 declare interface FMeterChannelInfo {
     MeterValue: number;
     PeakValue: number;
     ClippingValue: number;
 }
-declare const FMeterChannelInfo: FMeterChannelInfo;
 
 declare interface FPlayheadOverlayStyle extends FSlateWidgetStyle {
     PlayheadColor: FSlateColor;
@@ -192,7 +175,6 @@ declare interface FPlayheadOverlayStyle extends FSlateWidgetStyle {
     DesiredWidth: number;
     DesiredHeight: number;
 }
-declare const FPlayheadOverlayStyle: FPlayheadOverlayStyle;
 
 declare interface FSampledSequenceValueGridOverlayStyle extends FSlateWidgetStyle {
     GridColor: FSlateColor;
@@ -202,7 +184,6 @@ declare interface FSampledSequenceValueGridOverlayStyle extends FSlateWidgetStyl
     DesiredWidth: number;
     DesiredHeight: number;
 }
-declare const FSampledSequenceValueGridOverlayStyle: FSampledSequenceValueGridOverlayStyle;
 
 declare interface FSampledSequenceVectorViewerStyle extends FSlateWidgetStyle {
     BackgroundColor: FSlateColor;
@@ -210,7 +191,6 @@ declare interface FSampledSequenceVectorViewerStyle extends FSlateWidgetStyle {
     LineColor: FLinearColor;
     LineThickness: number;
 }
-declare const FSampledSequenceVectorViewerStyle: FSampledSequenceVectorViewerStyle;
 
 declare interface FSampledSequenceViewerStyle extends FSlateWidgetStyle {
     SequenceColor: FSlateColor;
@@ -225,7 +205,6 @@ declare interface FSampledSequenceViewerStyle extends FSlateWidgetStyle {
     DesiredWidth: number;
     DesiredHeight: number;
 }
-declare const FSampledSequenceViewerStyle: FSampledSequenceViewerStyle;
 
 declare interface FSpectrogramRackUnitSettings {
     AnalyzerType: EAudioSpectrumAnalyzerType;
@@ -236,7 +215,6 @@ declare interface FSpectrogramRackUnitSettings {
     ColorMap: EAudioColorGradient;
     orientation: EOrientation;
 }
-declare const FSpectrogramRackUnitSettings: FSpectrogramRackUnitSettings;
 
 declare interface FSpectrumAnalyzerRackUnitSettings {
     Ballistics: EAudioSpectrumAnalyzerBallistics;
@@ -249,264 +227,391 @@ declare interface FSpectrumAnalyzerRackUnitSettings {
     bDisplayFrequencyAxisLabels: boolean;
     bDisplaySoundLevelAxisLabels: boolean;
 }
-declare const FSpectrumAnalyzerRackUnitSettings: FSpectrumAnalyzerRackUnitSettings;
 
 declare interface FTriggerThresholdLineStyle extends FSlateWidgetStyle {
     LineColor: FLinearColor;
 }
-declare const FTriggerThresholdLineStyle: FTriggerThresholdLineStyle;
 
 declare interface UAudioFrequencyRadialSlider extends UAudioRadialSlider {
-
+    readonly __staticRegistry: 
+        UAudioRadialSlider['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioRadialSlider['__propertyRegistry'];
 }
-declare const UAudioFrequencyRadialSlider: UAudioFrequencyRadialSlider;
 
 declare interface UAudioFrequencySlider extends UAudioSliderBase {
-    OutputRange: FVector2D;
+    readonly __properties_UAudioFrequencySlider: {
+        OutputRange: FVector2D;
+    };
+    readonly __staticRegistry: 
+        UAudioSliderBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioFrequencySlider['__properties_UAudioFrequencySlider'] &
+        UAudioSliderBase['__propertyRegistry'];
 }
-declare const UAudioFrequencySlider: UAudioFrequencySlider;
 
 declare interface UAudioMaterialButton extends UWidget {
-    WidgetStyle: FAudioMaterialButtonStyle;
-    OnButtonPressedChangedEvent: FAudioMaterialButtonOnButtonPressedChangedEvent;
-    bIsPressed: boolean;
-    SetIsPressed(InPressed: boolean): void;
-    GetIsPressed(): boolean;
+    readonly __static_UAudioMaterialButton: {
+        SetIsPressed(InPressed: boolean): void;
+        GetIsPressed(): boolean;
+    };
+    readonly __properties_UAudioMaterialButton: {
+        WidgetStyle: FAudioMaterialButtonStyle;
+        OnButtonPressedChangedEvent: FAudioMaterialButtonOnButtonPressedChangedEvent;
+        bIsPressed: boolean;
+    };
+    readonly __staticRegistry: 
+        UAudioMaterialButton['__static_UAudioMaterialButton'] &
+        UWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioMaterialButton['__properties_UAudioMaterialButton'] &
+        UWidget['__propertyRegistry'];
 }
-declare const UAudioMaterialButton: UAudioMaterialButton;
 
 declare interface UAudioMaterialButtonWidgetStyle extends USlateWidgetStyleContainerBase {
-    ButtonStyle: FAudioMaterialButtonStyle;
+    readonly __properties_UAudioMaterialButtonWidgetStyle: {
+        ButtonStyle: FAudioMaterialButtonStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioMaterialButtonWidgetStyle['__properties_UAudioMaterialButtonWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UAudioMaterialButtonWidgetStyle: UAudioMaterialButtonWidgetStyle;
 
 declare interface UAudioMaterialEnvelope extends UWidget {
-    WidgetStyle: FAudioMaterialEnvelopeStyle;
-    EnvelopeSettings: FAudioMaterialEnvelopeSettings;
+    readonly __properties_UAudioMaterialEnvelope: {
+        WidgetStyle: FAudioMaterialEnvelopeStyle;
+        EnvelopeSettings: FAudioMaterialEnvelopeSettings;
+    };
+    readonly __staticRegistry: 
+        UWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioMaterialEnvelope['__properties_UAudioMaterialEnvelope'] &
+        UWidget['__propertyRegistry'];
 }
-declare const UAudioMaterialEnvelope: UAudioMaterialEnvelope;
 
 declare interface UAudioMaterialKnob extends UWidget {
-    WidgetStyle: FAudioMaterialKnobStyle;
-    OnKnobValueChanged: FAudioMaterialKnobOnKnobValueChanged;
-    Value: number;
-    TuneSpeed: number;
-    FineTuneSpeed: number;
-    bLocked: boolean;
-    bMouseUsesStep: boolean;
-    StepSize: number;
-    SetValue(InValue: number): void;
-    SetTuneSpeed(InValue: number): void;
-    SetStepSize(InValue: number): void;
-    SetMouseUsesStep(InUsesStep: boolean): void;
-    SetLocked(InLocked: boolean): void;
-    SetFineTuneSpeed(InValue: number): void;
-    GetValue(): number;
-    GetTuneSpeed(): number;
-    GetStepSize(): number;
-    GetMouseUsesStep(): boolean;
-    GetIsLocked(): boolean;
-    GetFineTuneSpeed(): number;
+    readonly __static_UAudioMaterialKnob: {
+        SetValue(InValue: number): void;
+        SetTuneSpeed(InValue: number): void;
+        SetStepSize(InValue: number): void;
+        SetMouseUsesStep(InUsesStep: boolean): void;
+        SetLocked(InLocked: boolean): void;
+        SetFineTuneSpeed(InValue: number): void;
+        GetValue(): number;
+        GetTuneSpeed(): number;
+        GetStepSize(): number;
+        GetMouseUsesStep(): boolean;
+        GetIsLocked(): boolean;
+        GetFineTuneSpeed(): number;
+    };
+    readonly __properties_UAudioMaterialKnob: {
+        WidgetStyle: FAudioMaterialKnobStyle;
+        OnKnobValueChanged: FAudioMaterialKnobOnKnobValueChanged;
+        Value: number;
+        TuneSpeed: number;
+        FineTuneSpeed: number;
+        bLocked: boolean;
+        bMouseUsesStep: boolean;
+        StepSize: number;
+    };
+    readonly __staticRegistry: 
+        UAudioMaterialKnob['__static_UAudioMaterialKnob'] &
+        UWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioMaterialKnob['__properties_UAudioMaterialKnob'] &
+        UWidget['__propertyRegistry'];
 }
-declare const UAudioMaterialKnob: UAudioMaterialKnob;
 
 declare interface UAudioMaterialKnobWidgetStyle extends USlateWidgetStyleContainerBase {
-    KnobStyle: FAudioMaterialKnobStyle;
+    readonly __properties_UAudioMaterialKnobWidgetStyle: {
+        KnobStyle: FAudioMaterialKnobStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioMaterialKnobWidgetStyle['__properties_UAudioMaterialKnobWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UAudioMaterialKnobWidgetStyle: UAudioMaterialKnobWidgetStyle;
 
 declare interface UAudioMaterialMeter extends UWidget {
-    WidgetStyle: FAudioMaterialMeterStyle;
-    orientation: EOrientation;
-    MeterChannelInfoDelegate: FAudioMaterialMeterMeterChannelInfoDelegate;
-    MeterChannelInfo: TArray<FMeterChannelInfo>;
-    SetMeterChannelInfo(InMeterChannelInfo: TArray<FMeterChannelInfo>): void;
-    GetMeterChannelInfo__DelegateSignature(): TArray<FMeterChannelInfo>;
-    GetMeterChannelInfo(): TArray<FMeterChannelInfo>;
+    readonly __static_UAudioMaterialMeter: {
+        SetMeterChannelInfo(InMeterChannelInfo: FMeterChannelInfo[]): void;
+        GetMeterChannelInfo__DelegateSignature(): FMeterChannelInfo[];
+        GetMeterChannelInfo(): FMeterChannelInfo[];
+    };
+    readonly __properties_UAudioMaterialMeter: {
+        WidgetStyle: FAudioMaterialMeterStyle;
+        orientation: EOrientation;
+        MeterChannelInfoDelegate: FAudioMaterialMeterMeterChannelInfoDelegate;
+        MeterChannelInfo: FMeterChannelInfo[];
+    };
+    readonly __staticRegistry: 
+        UAudioMaterialMeter['__static_UAudioMaterialMeter'] &
+        UWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioMaterialMeter['__properties_UAudioMaterialMeter'] &
+        UWidget['__propertyRegistry'];
 }
-declare const UAudioMaterialMeter: UAudioMaterialMeter;
 
 declare interface UAudioMaterialMeterWidgetStyle extends USlateWidgetStyleContainerBase {
-    MeterStyle: FAudioMaterialMeterStyle;
+    readonly __properties_UAudioMaterialMeterWidgetStyle: {
+        MeterStyle: FAudioMaterialMeterStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioMaterialMeterWidgetStyle['__properties_UAudioMaterialMeterWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UAudioMaterialMeterWidgetStyle: UAudioMaterialMeterWidgetStyle;
 
 declare interface UAudioMaterialSlider extends UWidget {
-    WidgetStyle: FAudioMaterialSliderStyle;
-    OnValueChanged: FAudioMaterialSliderOnValueChanged;
-    Value: number;
-    orientation: EOrientation;
-    TuneSpeed: number;
-    FineTuneSpeed: number;
-    bLocked: boolean;
-    bMouseUsesStep: boolean;
-    StepSize: number;
-    SetValue(InValue: number): void;
-    SetTuneSpeed(InValue: number): void;
-    SetStepSize(InValue: number): void;
-    SetMouseUsesStep(bInUsesStep: boolean): void;
-    SetLocked(bInLocked: boolean): void;
-    SetFineTuneSpeed(InValue: number): void;
-    GetValue(): number;
-    GetTuneSpeed(): number;
-    GetStepSize(): number;
-    GetMouseUsesStep(): boolean;
-    GetIsLocked(): boolean;
-    GetFineTuneSpeed(): number;
+    readonly __static_UAudioMaterialSlider: {
+        SetValue(InValue: number): void;
+        SetTuneSpeed(InValue: number): void;
+        SetStepSize(InValue: number): void;
+        SetMouseUsesStep(bInUsesStep: boolean): void;
+        SetLocked(bInLocked: boolean): void;
+        SetFineTuneSpeed(InValue: number): void;
+        GetValue(): number;
+        GetTuneSpeed(): number;
+        GetStepSize(): number;
+        GetMouseUsesStep(): boolean;
+        GetIsLocked(): boolean;
+        GetFineTuneSpeed(): number;
+    };
+    readonly __properties_UAudioMaterialSlider: {
+        WidgetStyle: FAudioMaterialSliderStyle;
+        OnValueChanged: FAudioMaterialSliderOnValueChanged;
+        Value: number;
+        orientation: EOrientation;
+        TuneSpeed: number;
+        FineTuneSpeed: number;
+        bLocked: boolean;
+        bMouseUsesStep: boolean;
+        StepSize: number;
+    };
+    readonly __staticRegistry: 
+        UAudioMaterialSlider['__static_UAudioMaterialSlider'] &
+        UWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioMaterialSlider['__properties_UAudioMaterialSlider'] &
+        UWidget['__propertyRegistry'];
 }
-declare const UAudioMaterialSlider: UAudioMaterialSlider;
 
 declare interface UAudioMaterialSliderWidgetStyle extends USlateWidgetStyleContainerBase {
-    SliderStyle: FAudioMaterialSliderStyle;
+    readonly __properties_UAudioMaterialSliderWidgetStyle: {
+        SliderStyle: FAudioMaterialSliderStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioMaterialSliderWidgetStyle['__properties_UAudioMaterialSliderWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UAudioMaterialSliderWidgetStyle: UAudioMaterialSliderWidgetStyle;
 
 declare interface UAudioMeter extends UWidget {
-    MeterChannelInfo: TArray<FMeterChannelInfo>;
-    MeterChannelInfoDelegate: FAudioMeterMeterChannelInfoDelegate;
-    WidgetStyle: FAudioMeterStyle;
-    orientation: EOrientation;
-    BackgroundColor: FLinearColor;
-    MeterBackgroundColor: FLinearColor;
-    MeterValueColor: FLinearColor;
-    MeterPeakColor: FLinearColor;
-    MeterClippingColor: FLinearColor;
-    MeterScaleColor: FLinearColor;
-    MeterScaleLabelColor: FLinearColor;
-    SetMeterValueColor(InValue: FLinearColor): void;
-    SetMeterScaleLabelColor(InValue: FLinearColor): void;
-    SetMeterScaleColor(InValue: FLinearColor): void;
-    SetMeterPeakColor(InValue: FLinearColor): void;
-    SetMeterClippingColor(InValue: FLinearColor): void;
-    SetMeterChannelInfo(InMeterChannelInfo: TArray<FMeterChannelInfo>): void;
-    SetMeterBackgroundColor(InValue: FLinearColor): void;
-    SetBackgroundColor(InValue: FLinearColor): void;
-    GetMeterChannelInfo__DelegateSignature(): TArray<FMeterChannelInfo>;
-    GetMeterChannelInfo(): TArray<FMeterChannelInfo>;
+    readonly __static_UAudioMeter: {
+        SetMeterValueColor(InValue: FLinearColor): void;
+        SetMeterScaleLabelColor(InValue: FLinearColor): void;
+        SetMeterScaleColor(InValue: FLinearColor): void;
+        SetMeterPeakColor(InValue: FLinearColor): void;
+        SetMeterClippingColor(InValue: FLinearColor): void;
+        SetMeterChannelInfo(InMeterChannelInfo: FMeterChannelInfo[]): void;
+        SetMeterBackgroundColor(InValue: FLinearColor): void;
+        SetBackgroundColor(InValue: FLinearColor): void;
+        GetMeterChannelInfo__DelegateSignature(): FMeterChannelInfo[];
+        GetMeterChannelInfo(): FMeterChannelInfo[];
+    };
+    readonly __properties_UAudioMeter: {
+        MeterChannelInfo: FMeterChannelInfo[];
+        MeterChannelInfoDelegate: FAudioMeterMeterChannelInfoDelegate;
+        WidgetStyle: FAudioMeterStyle;
+        orientation: EOrientation;
+        BackgroundColor: FLinearColor;
+        MeterBackgroundColor: FLinearColor;
+        MeterValueColor: FLinearColor;
+        MeterPeakColor: FLinearColor;
+        MeterClippingColor: FLinearColor;
+        MeterScaleColor: FLinearColor;
+        MeterScaleLabelColor: FLinearColor;
+    };
+    readonly __staticRegistry: 
+        UAudioMeter['__static_UAudioMeter'] &
+        UWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioMeter['__properties_UAudioMeter'] &
+        UWidget['__propertyRegistry'];
 }
-declare const UAudioMeter: UAudioMeter;
 
 declare interface UAudioOscilloscope extends UWidget {
-    OscilloscopeStyle: FAudioOscilloscopePanelStyle;
-    AudioBus: UAudioBus;
-    MaxTimeWindowMs: number;
-    TimeWindowMs: number;
-    AnalysisPeriodMs: number;
-    bShowTimeGrid: boolean;
-    TimeGridLabelsUnit: EXAxisLabelsUnit;
-    bShowAmplitudeGrid: boolean;
-    bShowAmplitudeLabels: boolean;
-    AmplitudeGridLabelsUnit: EYAxisLabelsUnit;
-    TriggerMode: EAudioOscilloscopeTriggerMode;
-    TriggerThreshold: number;
-    PanelLayoutType: EAudioPanelLayoutType;
-    ChannelToAnalyze: number;
-    StopProcessing(): void;
-    StartProcessing(): void;
-    GetOscilloscopeAudioSamples__DelegateSignature(): TArray<number>;
-    CanTriggeringBeSet(): boolean;
+    readonly __static_UAudioOscilloscope: {
+        StopProcessing(): void;
+        StartProcessing(): void;
+        GetOscilloscopeAudioSamples__DelegateSignature(): number[];
+        CanTriggeringBeSet(): boolean;
+    };
+    readonly __properties_UAudioOscilloscope: {
+        OscilloscopeStyle: FAudioOscilloscopePanelStyle;
+        AudioBus: UAudioBus;
+        MaxTimeWindowMs: number;
+        TimeWindowMs: number;
+        AnalysisPeriodMs: number;
+        bShowTimeGrid: boolean;
+        TimeGridLabelsUnit: EXAxisLabelsUnit;
+        bShowAmplitudeGrid: boolean;
+        bShowAmplitudeLabels: boolean;
+        AmplitudeGridLabelsUnit: EYAxisLabelsUnit;
+        TriggerMode: EAudioOscilloscopeTriggerMode;
+        TriggerThreshold: number;
+        PanelLayoutType: EAudioPanelLayoutType;
+        ChannelToAnalyze: number;
+    };
+    readonly __staticRegistry: 
+        UAudioOscilloscope['__static_UAudioOscilloscope'] &
+        UWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioOscilloscope['__properties_UAudioOscilloscope'] &
+        UWidget['__propertyRegistry'];
 }
-declare const UAudioOscilloscope: UAudioOscilloscope;
 
 declare interface UAudioRadialSlider extends UWidget {
-    Value: number;
-    ValueDelegate: FAudioRadialSliderValueDelegate;
-    WidgetLayout: EAudioRadialSliderLayout;
-    CenterBackgroundColor: FLinearColor;
-    SliderProgressColor: FLinearColor;
-    SliderBarColor: FLinearColor;
-    HandStartEndRatio: FVector2D;
-    UnitsText: FText;
-    TextLabelBackgroundColor: FLinearColor;
-    ShowLabelOnlyOnHover: boolean;
-    ShowUnitsText: boolean;
-    IsUnitsTextReadOnly: boolean;
-    IsValueTextReadOnly: boolean;
-    SliderThickness: number;
-    OutputRange: FVector2D;
-    OnValueChanged: FAudioRadialSliderOnValueChanged;
-    SetWidgetLayout(InLayout: EAudioRadialSliderLayout): void;
-    SetValueTextReadOnly(bIsReadOnly: boolean): void;
-    SetUnitsTextReadOnly(bIsReadOnly: boolean): void;
-    SetUnitsText(Units: FText): void;
-    SetTextLabelBackgroundColor(InColor: FSlateColor): void;
-    SetSliderThickness(InThickness: number): void;
-    SetSliderProgressColor(InValue: FLinearColor): void;
-    SetSliderBarColor(InValue: FLinearColor): void;
-    SetShowUnitsText(bShowUnitsText: boolean): void;
-    SetShowLabelOnlyOnHover(bShowLabelOnlyOnHover: boolean): void;
-    SetOutputRange(InOutputRange: FVector2D): void;
-    SetHandStartEndRatio(InHandStartEndRatio: FVector2D): void;
-    SetCenterBackgroundColor(InValue: FLinearColor): void;
-    GetSliderValue(OutputValue: number): number;
-    GetOutputValue(InSliderValue: number): number;
+    readonly __static_UAudioRadialSlider: {
+        SetWidgetLayout(InLayout: EAudioRadialSliderLayout): void;
+        SetValueTextReadOnly(bIsReadOnly: boolean): void;
+        SetUnitsTextReadOnly(bIsReadOnly: boolean): void;
+        SetUnitsText(Units: string): void;
+        SetTextLabelBackgroundColor(InColor: FSlateColor): void;
+        SetSliderThickness(InThickness: number): void;
+        SetSliderProgressColor(InValue: FLinearColor): void;
+        SetSliderBarColor(InValue: FLinearColor): void;
+        SetShowUnitsText(bShowUnitsText: boolean): void;
+        SetShowLabelOnlyOnHover(bShowLabelOnlyOnHover: boolean): void;
+        SetOutputRange(InOutputRange: FVector2D): void;
+        SetHandStartEndRatio(InHandStartEndRatio: FVector2D): void;
+        SetCenterBackgroundColor(InValue: FLinearColor): void;
+        GetSliderValue(OutputValue: number): number;
+        GetOutputValue(InSliderValue: number): number;
+    };
+    readonly __properties_UAudioRadialSlider: {
+        Value: number;
+        ValueDelegate: FAudioRadialSliderValueDelegate;
+        WidgetLayout: EAudioRadialSliderLayout;
+        CenterBackgroundColor: FLinearColor;
+        SliderProgressColor: FLinearColor;
+        SliderBarColor: FLinearColor;
+        HandStartEndRatio: FVector2D;
+        UnitsText: string;
+        TextLabelBackgroundColor: FLinearColor;
+        ShowLabelOnlyOnHover: boolean;
+        ShowUnitsText: boolean;
+        IsUnitsTextReadOnly: boolean;
+        IsValueTextReadOnly: boolean;
+        SliderThickness: number;
+        OutputRange: FVector2D;
+        OnValueChanged: FAudioRadialSliderOnValueChanged;
+    };
+    readonly __staticRegistry: 
+        UAudioRadialSlider['__static_UAudioRadialSlider'] &
+        UWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioRadialSlider['__properties_UAudioRadialSlider'] &
+        UWidget['__propertyRegistry'];
 }
-declare const UAudioRadialSlider: UAudioRadialSlider;
 
 declare interface UAudioSlider extends UAudioSliderBase {
-    LinToOutputCurve: TWeakObjectPtr<UCurveFloat>;
-    OutputToLinCurve: TWeakObjectPtr<UCurveFloat>;
+    readonly __properties_UAudioSlider: {
+        LinToOutputCurve: TWeakObjectPtr<UCurveFloat>;
+        OutputToLinCurve: TWeakObjectPtr<UCurveFloat>;
+    };
+    readonly __staticRegistry: 
+        UAudioSliderBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioSlider['__properties_UAudioSlider'] &
+        UAudioSliderBase['__propertyRegistry'];
 }
-declare const UAudioSlider: UAudioSlider;
 
 declare interface UAudioSliderBase extends UWidget {
-    Value: number;
-    UnitsText: FText;
-    TextLabelBackgroundColor: FLinearColor;
-    TextLabelBackgroundColorDelegate: FAudioSliderBaseTextLabelBackgroundColorDelegate;
-    ShowLabelOnlyOnHover: boolean;
-    ShowUnitsText: boolean;
-    IsUnitsTextReadOnly: boolean;
-    IsValueTextReadOnly: boolean;
-    ValueDelegate: FAudioSliderBaseValueDelegate;
-    SliderBackgroundColor: FLinearColor;
-    SliderBackgroundColorDelegate: FAudioSliderBaseSliderBackgroundColorDelegate;
-    SliderBarColor: FLinearColor;
-    SliderBarColorDelegate: FAudioSliderBaseSliderBarColorDelegate;
-    SliderThumbColor: FLinearColor;
-    SliderThumbColorDelegate: FAudioSliderBaseSliderThumbColorDelegate;
-    WidgetBackgroundColor: FLinearColor;
-    WidgetBackgroundColorDelegate: FAudioSliderBaseWidgetBackgroundColorDelegate;
-    orientation: EOrientation;
-    OnValueChanged: FAudioSliderBaseOnValueChanged;
-    SetWidgetBackgroundColor(InValue: FLinearColor): void;
-    SetValueTextReadOnly(bIsReadOnly: boolean): void;
-    SetUnitsTextReadOnly(bIsReadOnly: boolean): void;
-    SetUnitsText(Units: FText): void;
-    SetTextLabelBackgroundColor(InColor: FSlateColor): void;
-    SetSliderThumbColor(InValue: FLinearColor): void;
-    SetSliderBarColor(InValue: FLinearColor): void;
-    SetSliderBackgroundColor(InValue: FLinearColor): void;
-    SetShowUnitsText(bShowUnitsText: boolean): void;
-    SetShowLabelOnlyOnHover(bShowLabelOnlyOnHover: boolean): void;
-    GetSliderValue(OutputValue: number): number;
-    GetOutputValue(InSliderValue: number): number;
-    GetLinValue(OutputValue: number): number;
+    readonly __static_UAudioSliderBase: {
+        SetWidgetBackgroundColor(InValue: FLinearColor): void;
+        SetValueTextReadOnly(bIsReadOnly: boolean): void;
+        SetUnitsTextReadOnly(bIsReadOnly: boolean): void;
+        SetUnitsText(Units: string): void;
+        SetTextLabelBackgroundColor(InColor: FSlateColor): void;
+        SetSliderThumbColor(InValue: FLinearColor): void;
+        SetSliderBarColor(InValue: FLinearColor): void;
+        SetSliderBackgroundColor(InValue: FLinearColor): void;
+        SetShowUnitsText(bShowUnitsText: boolean): void;
+        SetShowLabelOnlyOnHover(bShowLabelOnlyOnHover: boolean): void;
+        GetSliderValue(OutputValue: number): number;
+        GetOutputValue(InSliderValue: number): number;
+        GetLinValue(OutputValue: number): number;
+    };
+    readonly __properties_UAudioSliderBase: {
+        Value: number;
+        UnitsText: string;
+        TextLabelBackgroundColor: FLinearColor;
+        TextLabelBackgroundColorDelegate: FAudioSliderBaseTextLabelBackgroundColorDelegate;
+        ShowLabelOnlyOnHover: boolean;
+        ShowUnitsText: boolean;
+        IsUnitsTextReadOnly: boolean;
+        IsValueTextReadOnly: boolean;
+        ValueDelegate: FAudioSliderBaseValueDelegate;
+        SliderBackgroundColor: FLinearColor;
+        SliderBackgroundColorDelegate: FAudioSliderBaseSliderBackgroundColorDelegate;
+        SliderBarColor: FLinearColor;
+        SliderBarColorDelegate: FAudioSliderBaseSliderBarColorDelegate;
+        SliderThumbColor: FLinearColor;
+        SliderThumbColorDelegate: FAudioSliderBaseSliderThumbColorDelegate;
+        WidgetBackgroundColor: FLinearColor;
+        WidgetBackgroundColorDelegate: FAudioSliderBaseWidgetBackgroundColorDelegate;
+        orientation: EOrientation;
+        OnValueChanged: FAudioSliderBaseOnValueChanged;
+    };
+    readonly __staticRegistry: 
+        UAudioSliderBase['__static_UAudioSliderBase'] &
+        UWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioSliderBase['__properties_UAudioSliderBase'] &
+        UWidget['__propertyRegistry'];
 }
-declare const UAudioSliderBase: UAudioSliderBase;
 
 declare interface UAudioVectorscope extends UWidget {
-    VectorscopeStyle: FAudioVectorscopePanelStyle;
-    AudioBus: UAudioBus;
-    bShowGrid: boolean;
-    GridDivisions: number;
-    MaxDisplayPersistenceMs: number;
-    DisplayPersistenceMs: number;
-    Scale: number;
-    PanelLayoutType: EAudioPanelLayoutType;
-    StopProcessing(): void;
-    StartProcessing(): void;
-    GetVectorscopeAudioSamples__DelegateSignature(): TArray<number>;
+    readonly __static_UAudioVectorscope: {
+        StopProcessing(): void;
+        StartProcessing(): void;
+        GetVectorscopeAudioSamples__DelegateSignature(): number[];
+    };
+    readonly __properties_UAudioVectorscope: {
+        VectorscopeStyle: FAudioVectorscopePanelStyle;
+        AudioBus: UAudioBus;
+        bShowGrid: boolean;
+        GridDivisions: number;
+        MaxDisplayPersistenceMs: number;
+        DisplayPersistenceMs: number;
+        Scale: number;
+        PanelLayoutType: EAudioPanelLayoutType;
+    };
+    readonly __staticRegistry: 
+        UAudioVectorscope['__static_UAudioVectorscope'] &
+        UWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioVectorscope['__properties_UAudioVectorscope'] &
+        UWidget['__propertyRegistry'];
 }
-declare const UAudioVectorscope: UAudioVectorscope;
 
 declare interface UAudioVolumeRadialSlider extends UAudioRadialSlider {
-
+    readonly __staticRegistry: 
+        UAudioRadialSlider['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioRadialSlider['__propertyRegistry'];
 }
-declare const UAudioVolumeRadialSlider: UAudioVolumeRadialSlider;
 
 declare interface UAudioVolumeSlider extends UAudioSlider {
-
+    readonly __staticRegistry: 
+        UAudioSlider['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioSlider['__propertyRegistry'];
 }
-declare const UAudioVolumeSlider: UAudioVolumeSlider;
 

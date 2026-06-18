@@ -1,11 +1,17 @@
 declare interface ABP_Widget_DropPod_Complexity_C extends AActor {
-    Widget1: UWidgetComponent;
-    DefaultSceneRoot: USceneComponent;
-    Widget: UWidget_DropPod_AltitudeMeter_C;
-    duration: number;
-    Start: number;
-    End: number;
-    DepthArrivalVariable: number;
+    readonly __properties_ABP_Widget_DropPod_Complexity_C: {
+        Widget1: UWidgetComponent;
+        DefaultSceneRoot: USceneComponent;
+        Widget: UWidget_DropPod_AltitudeMeter_C;
+        duration: number;
+        Start: number;
+        End: number;
+        DepthArrivalVariable: number;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ABP_Widget_DropPod_Complexity_C['__properties_ABP_Widget_DropPod_Complexity_C'] &
+        AActor['__propertyRegistry'];
 }
-declare const ABP_Widget_DropPod_Complexity_C: ABP_Widget_DropPod_Complexity_C;
 

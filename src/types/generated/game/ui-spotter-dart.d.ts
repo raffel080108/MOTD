@@ -1,7 +1,16 @@
 declare interface UUI_Spotter_Dart_C extends UUserWidget {
-    Dart_Progress: UUI_ProgressBar_SingleImage_C;
-    AnimPing: UWidgetAnimation;
-    UpdateDart(InIndex: number, InCurrent: number, InCurrentProgress: number): void;
+    readonly __static_UUI_Spotter_Dart_C: {
+        UpdateDart(InIndex: number, InCurrent: number, InCurrentProgress: number): void;
+    };
+    readonly __properties_UUI_Spotter_Dart_C: {
+        Dart_Progress: UUI_ProgressBar_SingleImage_C;
+        AnimPing: UWidgetAnimation;
+    };
+    readonly __staticRegistry: 
+        UUI_Spotter_Dart_C['__static_UUI_Spotter_Dart_C'] &
+        UUserWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UUI_Spotter_Dart_C['__properties_UUI_Spotter_Dart_C'] &
+        UUserWidget['__propertyRegistry'];
 }
-declare const UUI_Spotter_Dart_C: UUI_Spotter_Dart_C;
 

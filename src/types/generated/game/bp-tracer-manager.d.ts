@@ -1,5 +1,7 @@
 declare interface UBP_TracerManager_C extends UTracerManager {
-
+    readonly __staticRegistry: 
+        UTracerManager['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTracerManager['__propertyRegistry'];
 }
-declare const UBP_TracerManager_C: UBP_TracerManager_C;
 

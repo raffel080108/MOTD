@@ -1,43 +1,52 @@
 declare interface UITM_Character_Portrait_C extends UUserWidget {
-    UberGraphFrame: FPointerToUberGraphFrame;
-    VanityAvailableIcon: UImage;
-    Root_Overlay: UOverlay;
-    Promotion_ScaleBox: UScaleBox;
-    Portrait_SizeBox: USizeBox;
-    Portrait_Image: UBasicImage;
-    ITM_Promotions: UITM_RetirementBadge_C;
-    Icon_Host: UITM_HostIcon_C;
-    Content: UNamedSlot;
-    ClassLevel_Text: UTextBlock;
-    ClassLevel_SizeBox: USizeBox;
-    ClassLevel_Box: UHorizontalBox;
-    ClassIcon_Image: UImage;
-    ClassIcon_Box: UOverlay;
-    Ascension_Notification: UITM_Character_AscensionNotification_C;
-    Promotions: number;
-    Level: number;
-    Progress: number;
-    PortraitWidth: number;
-    PortraitHeight: number;
-    BannerHeight: number;
-    FrameColor: FBasicColor;
-    HightlightColor: FBasicColor;
-    IsHighlighted: boolean;
-    IsEnabled: boolean;
-    UpdateAscensionNotification(): void;
-    SetVanityIcon(NewIsVisible: boolean): void;
-    SetIconEnabled(InIconEnabled: boolean): void;
-    SetHighlighted(InIsHighlighted: boolean): void;
-    SetHighlightColor(InHighlightColor: FBasicColor): void;
-    SetFrameColor(InFrameColor: FBasicColor): void;
-    ToggleVisuals(In_Show_Class_Icon: boolean, In_Show_Class_Level: boolean, In_Show_Promotions: boolean, In_Show_Is_Host: boolean): void;
-    SetBannerHeight(InHeight: number): void;
-    SetPortraitSize(InWidth: number, InHeight: number): void;
-    GetPromotions(InPlayerState: AFSDPlayerState, InCharacterID: UPlayerCharacterID, InDefaultValue: number, OutPromotions: number): void;
-    SetData(InCharacter_ID: UPlayerCharacterID, InPromotions: number, inLevel: number, InProgress: number, InIsHost: boolean): void;
-    FromLocalCharacterID(InCharacter_ID: UPlayerCharacterID): void;
-    PreConstruct(IsDesignTime: boolean): void;
-    ExecuteUbergraph_ITM_Character_Portrait(EntryPoint: number): void;
+    readonly __static_UITM_Character_Portrait_C: {
+        UpdateAscensionNotification(): void;
+        SetVanityIcon(NewIsVisible: boolean): void;
+        SetIconEnabled(InIconEnabled: boolean): void;
+        SetHighlighted(InIsHighlighted: boolean): void;
+        SetHighlightColor(InHighlightColor: FBasicColor): void;
+        SetFrameColor(InFrameColor: FBasicColor): void;
+        ToggleVisuals(In_Show_Class_Icon: boolean, In_Show_Class_Level: boolean, In_Show_Promotions: boolean, In_Show_Is_Host: boolean): void;
+        SetBannerHeight(InHeight: number): void;
+        SetPortraitSize(InWidth: number, InHeight: number): void;
+        GetPromotions(InPlayerState: AFSDPlayerState, InCharacterID: UPlayerCharacterID, InDefaultValue: number, OutPromotions: number): void;
+        SetData(InCharacter_ID: UPlayerCharacterID, InPromotions: number, inLevel: number, InProgress: number, InIsHost: boolean): void;
+        FromLocalCharacterID(InCharacter_ID: UPlayerCharacterID): void;
+        PreConstruct(IsDesignTime: boolean): void;
+        ExecuteUbergraph_ITM_Character_Portrait(EntryPoint: number): void;
+    };
+    readonly __properties_UITM_Character_Portrait_C: {
+        UberGraphFrame: FPointerToUberGraphFrame;
+        VanityAvailableIcon: UImage;
+        Root_Overlay: UOverlay;
+        Promotion_ScaleBox: UScaleBox;
+        Portrait_SizeBox: USizeBox;
+        Portrait_Image: UBasicImage;
+        ITM_Promotions: UITM_RetirementBadge_C;
+        Icon_Host: UITM_HostIcon_C;
+        Content: UNamedSlot;
+        ClassLevel_Text: UTextBlock;
+        ClassLevel_SizeBox: USizeBox;
+        ClassLevel_Box: UHorizontalBox;
+        ClassIcon_Image: UImage;
+        ClassIcon_Box: UOverlay;
+        Ascension_Notification: UITM_Character_AscensionNotification_C;
+        Promotions: number;
+        Level: number;
+        Progress: number;
+        PortraitWidth: number;
+        PortraitHeight: number;
+        BannerHeight: number;
+        FrameColor: FBasicColor;
+        HightlightColor: FBasicColor;
+        IsHighlighted: boolean;
+        IsEnabled: boolean;
+    };
+    readonly __staticRegistry: 
+        UITM_Character_Portrait_C['__static_UITM_Character_Portrait_C'] &
+        UUserWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UITM_Character_Portrait_C['__properties_UITM_Character_Portrait_C'] &
+        UUserWidget['__propertyRegistry'];
 }
-declare const UITM_Character_Portrait_C: UITM_Character_Portrait_C;
 

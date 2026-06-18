@@ -1,5 +1,7 @@
 declare interface USTE_PLayerOnFire_C extends UStatusEffect {
-
+    readonly __staticRegistry: 
+        UStatusEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStatusEffect['__propertyRegistry'];
 }
-declare const USTE_PLayerOnFire_C: USTE_PLayerOnFire_C;
 

@@ -7,29 +7,38 @@ declare interface FMovieSceneNiagaraCacheParams extends FMovieSceneBaseCachePara
     CacheReplayPlayMode: ENiagaraSimCacheSectionPlayMode;
     SectionStretchMode: ENiagaraSimCacheSectionStretchMode;
 }
-declare const FMovieSceneNiagaraCacheParams: FMovieSceneNiagaraCacheParams;
 
 declare interface FMovieSceneNiagaraCacheSectionTemplate extends FMovieSceneTrackImplementation {
-    CacheSections: TArray<FMovieSceneNiagaraSectionTemplateParameter>;
+    CacheSections: FMovieSceneNiagaraSectionTemplateParameter[];
 }
-declare const FMovieSceneNiagaraCacheSectionTemplate: FMovieSceneNiagaraCacheSectionTemplate;
 
 declare interface FMovieSceneNiagaraSectionTemplateParameter {
     SectionRange: FMovieSceneFrameRange;
     Params: FMovieSceneNiagaraCacheParams;
 }
-declare const FMovieSceneNiagaraSectionTemplateParameter: FMovieSceneNiagaraSectionTemplateParameter;
 
 declare interface UMovieSceneNiagaraCacheSection extends UMovieSceneBaseCacheSection {
-    Params: FMovieSceneNiagaraCacheParams;
-    bCacheOutOfDate: boolean;
+    readonly __properties_UMovieSceneNiagaraCacheSection: {
+        Params: FMovieSceneNiagaraCacheParams;
+        bCacheOutOfDate: boolean;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneBaseCacheSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneNiagaraCacheSection['__properties_UMovieSceneNiagaraCacheSection'] &
+        UMovieSceneBaseCacheSection['__propertyRegistry'];
 }
-declare const UMovieSceneNiagaraCacheSection: UMovieSceneNiagaraCacheSection;
 
 declare interface UMovieSceneNiagaraCacheTrack extends UMovieSceneNameableTrack {
-    bIsRecording: boolean;
-    AnimationSections: TArray<UMovieSceneSection>;
-    bCacheRecordingEnabled: boolean;
+    readonly __properties_UMovieSceneNiagaraCacheTrack: {
+        bIsRecording: boolean;
+        AnimationSections: UMovieSceneSection[];
+        bCacheRecordingEnabled: boolean;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneNameableTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneNiagaraCacheTrack['__properties_UMovieSceneNiagaraCacheTrack'] &
+        UMovieSceneNameableTrack['__propertyRegistry'];
 }
-declare const UMovieSceneNiagaraCacheTrack: UMovieSceneNiagaraCacheTrack;
 

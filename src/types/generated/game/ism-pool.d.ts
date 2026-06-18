@@ -1,24 +1,44 @@
 declare interface AISMPoolActor extends AActor {
-    ISMPoolComp: UISMPoolComponent;
-    ISMPoolDebugDrawComp: UISMPoolDebugDrawComponent;
+    readonly __properties_AISMPoolActor: {
+        ISMPoolComp: UISMPoolComponent;
+        ISMPoolDebugDrawComp: UISMPoolDebugDrawComponent;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AISMPoolActor['__properties_AISMPoolActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const AISMPoolActor: AISMPoolActor;
 
 declare interface UISMPoolComponent extends USceneComponent {
-
+    readonly __staticRegistry: 
+        USceneComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USceneComponent['__propertyRegistry'];
 }
-declare const UISMPoolComponent: UISMPoolComponent;
 
 declare interface UISMPoolDebugDrawComponent extends UDebugDrawComponent {
-    bShowGlobalStats: boolean;
-    bShowStats: boolean;
-    bShowBounds: boolean;
-    SelectedComponent: UInstancedStaticMeshComponent;
+    readonly __properties_UISMPoolDebugDrawComponent: {
+        bShowGlobalStats: boolean;
+        bShowStats: boolean;
+        bShowBounds: boolean;
+        SelectedComponent: UInstancedStaticMeshComponent;
+    };
+    readonly __staticRegistry: 
+        UDebugDrawComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UISMPoolDebugDrawComponent['__properties_UISMPoolDebugDrawComponent'] &
+        UDebugDrawComponent['__propertyRegistry'];
 }
-declare const UISMPoolDebugDrawComponent: UISMPoolDebugDrawComponent;
 
 declare interface UISMPoolSubSystem extends UWorldSubsystem {
-    OnActorEndPlay(InSource: AActor, Reason: EEndPlayReason): void;
+    readonly __static_UISMPoolSubSystem: {
+        OnActorEndPlay(InSource: AActor, Reason: EEndPlayReason): void;
+    };
+    readonly __staticRegistry: 
+        UISMPoolSubSystem['__static_UISMPoolSubSystem'] &
+        UWorldSubsystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UWorldSubsystem['__propertyRegistry'];
 }
-declare const UISMPoolSubSystem: UISMPoolSubSystem;
 

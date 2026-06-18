@@ -1,35 +1,32 @@
 declare interface FXRDeviceId {
-    SystemName: FName;
+    SystemName: string;
     DeviceID: number;
 }
-declare const FXRDeviceId: FXRDeviceId;
 
 declare interface FXRHMDData {
     bValid: boolean;
-    DeviceName: FName;
+    DeviceName: string;
     ApplicationInstanceID: FGuid;
     TrackingStatus: ETrackingStatus;
     position: FVector;
     Rotation: FQuat;
 }
-declare const FXRHMDData: FXRHMDData;
 
 declare interface FXRHandTrackingState {
     bValid: boolean;
-    DeviceName: FName;
+    DeviceName: string;
     ApplicationInstanceID: FGuid;
     XRSpaceType: EXRSpaceType;
     Hand: EControllerHand;
     TrackingStatus: ETrackingStatus;
-    HandKeyLocations: TArray<FVector>;
-    HandKeyRotations: TArray<FQuat>;
-    HandKeyRadii: TArray<number>;
+    HandKeyLocations: FVector[];
+    HandKeyRotations: FQuat[];
+    HandKeyRadii: number[];
 }
-declare const FXRHandTrackingState: FXRHandTrackingState;
 
 declare interface FXRMotionControllerData {
     bValid: boolean;
-    DeviceName: FName;
+    DeviceName: string;
     ApplicationInstanceID: FGuid;
     DeviceVisualType: EXRVisualType;
     HandIndex: EControllerHand;
@@ -40,16 +37,15 @@ declare interface FXRMotionControllerData {
     AimRotation: FQuat;
     PalmPosition: FVector;
     PalmRotation: FQuat;
-    HandKeyPositions: TArray<FVector>;
-    HandKeyRotations: TArray<FQuat>;
-    HandKeyRadii: TArray<number>;
+    HandKeyPositions: FVector[];
+    HandKeyRotations: FQuat[];
+    HandKeyRadii: number[];
     bIsGrasped: boolean;
 }
-declare const FXRMotionControllerData: FXRMotionControllerData;
 
 declare interface FXRMotionControllerState {
     bValid: boolean;
-    DeviceName: FName;
+    DeviceName: string;
     ApplicationInstanceID: FGuid;
     XRSpaceType: EXRSpaceType;
     Hand: EControllerHand;
@@ -60,29 +56,43 @@ declare interface FXRMotionControllerState {
     GripUnrealSpaceLocation: FVector;
     GripUnrealSpaceRotation: FQuat;
 }
-declare const FXRMotionControllerState: FXRMotionControllerState;
 
 declare interface UHandKeypointConversion extends UBlueprintFunctionLibrary {
-    Conv_HandKeypointToInt32(Input: EHandKeypoint): number;
+    readonly __static_UHandKeypointConversion: {
+        Conv_HandKeypointToInt32(Input: EHandKeypoint): number;
+    };
+    readonly __staticRegistry: 
+        UHandKeypointConversion['__static_UHandKeypointConversion'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UHandKeypointConversion: UHandKeypointConversion;
 
 declare interface UMotionControllerComponent extends UPrimitiveComponent {
-    PlayerIndex: number;
-    MotionSource: FName;
-    bDisableLowLatencyUpdate: boolean;
-    CurrentTrackingStatus: ETrackingStatus;
-    SetTrackingSource(NewSource: EControllerHand): void;
-    SetTrackingMotionSource(NewSource: FName): void;
-    SetAssociatedPlayerIndex(NewPlayer: number): void;
-    OnMotionControllerUpdated(): void;
-    IsTracked(): boolean;
-    GetTrackingSource(): EControllerHand;
-    GetParameterValue(InName: FName, bValueFound: boolean): number;
-    GetLinearVelocity(OutLinearVelocity: FVector): boolean;
-    GetLinearAcceleration(OutLinearAcceleration: FVector): boolean;
-    GetHandJointPosition(jointIndex: number, bValueFound: boolean): FVector;
-    GetAngularVelocity(OutAngularVelocity: FRotator): boolean;
+    readonly __static_UMotionControllerComponent: {
+        SetTrackingSource(NewSource: EControllerHand): void;
+        SetTrackingMotionSource(NewSource: string): void;
+        SetAssociatedPlayerIndex(NewPlayer: number): void;
+        OnMotionControllerUpdated(): void;
+        IsTracked(): boolean;
+        GetTrackingSource(): EControllerHand;
+        GetParameterValue(InName: string, bValueFound: boolean): number;
+        GetLinearVelocity(OutLinearVelocity: FVector): boolean;
+        GetLinearAcceleration(OutLinearAcceleration: FVector): boolean;
+        GetHandJointPosition(jointIndex: number, bValueFound: boolean): FVector;
+        GetAngularVelocity(OutAngularVelocity: FRotator): boolean;
+    };
+    readonly __properties_UMotionControllerComponent: {
+        PlayerIndex: number;
+        MotionSource: string;
+        bDisableLowLatencyUpdate: boolean;
+        CurrentTrackingStatus: ETrackingStatus;
+    };
+    readonly __staticRegistry: 
+        UMotionControllerComponent['__static_UMotionControllerComponent'] &
+        UPrimitiveComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMotionControllerComponent['__properties_UMotionControllerComponent'] &
+        UPrimitiveComponent['__propertyRegistry'];
 }
-declare const UMotionControllerComponent: UMotionControllerComponent;
 

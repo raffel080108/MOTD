@@ -1,5 +1,7 @@
 declare interface UAFE_3p_IronWill_C extends UAttachedParticlesAfflictionEffect {
-
+    readonly __staticRegistry: 
+        UAttachedParticlesAfflictionEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAttachedParticlesAfflictionEffect['__propertyRegistry'];
 }
-declare const UAFE_3p_IronWill_C: UAFE_3p_IronWill_C;
 

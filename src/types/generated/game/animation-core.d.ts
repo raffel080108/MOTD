@@ -4,18 +4,13 @@ declare interface FAimConstraintDescription extends FConstraintDescriptionEx {
     bUseLookUp: boolean;
     LookUpTarget: FVector;
 }
-declare const FAimConstraintDescription: FAimConstraintDescription;
 
 declare interface FAxis {
     Axis: FVector;
     bInLocalSpace: boolean;
 }
-declare const FAxis: FAxis;
 
-declare interface FCCDIKChainLink {
-
-}
-declare const FCCDIKChainLink: FCCDIKChainLink;
+declare type FCCDIKChainLink = object;
 
 declare interface FConstraintData {
     Constraint: FConstraintDescriptor;
@@ -24,7 +19,6 @@ declare interface FConstraintData {
     Offset: FTransform;
     CurrentTransform: FTransform;
 }
-declare const FConstraintData: FConstraintData;
 
 declare interface FConstraintDescription {
     bTranslation: boolean;
@@ -35,17 +29,14 @@ declare interface FConstraintDescription {
     RotationAxes: FFilterOptionPerAxis;
     ScaleAxes: FFilterOptionPerAxis;
 }
-declare const FConstraintDescription: FConstraintDescription;
 
 declare interface FConstraintDescriptionEx {
     AxesFilterOption: FFilterOptionPerAxis;
 }
-declare const FConstraintDescriptionEx: FConstraintDescriptionEx;
 
 declare interface FConstraintDescriptor {
     Type: EConstraintType;
 }
-declare const FConstraintDescriptor: FConstraintDescriptor;
 
 declare interface FConstraintOffset {
     Translation: FVector;
@@ -53,79 +44,71 @@ declare interface FConstraintOffset {
     Scale: FVector;
     Parent: FTransform;
 }
-declare const FConstraintOffset: FConstraintOffset;
 
 declare interface FEulerTransform {
     Location: FVector;
     Rotation: FRotator;
     Scale: FVector;
 }
-declare const FEulerTransform: FEulerTransform;
 
-declare interface FFABRIKChainLink {
-
-}
-declare const FFABRIKChainLink: FFABRIKChainLink;
+declare type FFABRIKChainLink = object;
 
 declare interface FFilterOptionPerAxis {
     bX: boolean;
     bY: boolean;
     bZ: boolean;
 }
-declare const FFilterOptionPerAxis: FFilterOptionPerAxis;
 
 declare interface FNodeChain {
-    Nodes: TArray<FName>;
+    Nodes: string[];
 }
-declare const FNodeChain: FNodeChain;
 
 declare interface FNodeHierarchyData {
-    Nodes: TArray<FNodeObject>;
-    Transforms: TArray<FTransform>;
-    NodeNameToIndexMapping: Record<FName, number>;
+    Nodes: FNodeObject[];
+    Transforms: FTransform[];
+    NodeNameToIndexMapping: TMap<string, number>;
 }
-declare const FNodeHierarchyData: FNodeHierarchyData;
 
 declare interface FNodeHierarchyWithUserData {
     Hierarchy: FNodeHierarchyData;
 }
-declare const FNodeHierarchyWithUserData: FNodeHierarchyWithUserData;
 
 declare interface FNodeObject {
-    Name: FName;
-    ParentName: FName;
+    Name: string;
+    ParentName: string;
 }
-declare const FNodeObject: FNodeObject;
 
 declare interface FTransformConstraint {
     Operator: FConstraintDescription;
-    SourceNode: FName;
-    TargetNode: FName;
+    SourceNode: string;
+    TargetNode: string;
     Weight: number;
     bMaintainOffset: boolean;
 }
-declare const FTransformConstraint: FTransformConstraint;
 
 declare interface FTransformConstraintDescription extends FConstraintDescriptionEx {
     TransformType: ETransformConstraintType;
 }
-declare const FTransformConstraintDescription: FTransformConstraintDescription;
 
 declare interface FTransformFilter {
     TranslationFilter: FFilterOptionPerAxis;
     RotationFilter: FFilterOptionPerAxis;
     ScaleFilter: FFilterOptionPerAxis;
 }
-declare const FTransformFilter: FTransformFilter;
 
 declare interface FTransformNoScale {
     Location: FVector;
     Rotation: FQuat;
 }
-declare const FTransformNoScale: FTransformNoScale;
 
 declare interface UAnimationDataSourceRegistry extends UObject {
-    DataSources: Record<FName, TWeakObjectPtr<UObject>>;
+    readonly __properties_UAnimationDataSourceRegistry: {
+        DataSources: TMap<string, TWeakObjectPtr<UObject>>;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAnimationDataSourceRegistry['__properties_UAnimationDataSourceRegistry'] &
+        UObject['__propertyRegistry'];
 }
-declare const UAnimationDataSourceRegistry: UAnimationDataSourceRegistry;
 

@@ -1,23 +1,15 @@
-declare interface FStateStreamHandle {
-
-}
-declare const FStateStreamHandle: FStateStreamHandle;
+declare type FStateStreamHandle = object;
 
 declare interface FTransformDynamicState {
     LocalTransform: FTransform;
-    BoneTransforms: TArray<FTransform>;
+    BoneTransforms: FTransform[];
     Parent: FTransformHandle;
     bVisible: boolean;
 }
-declare const FTransformDynamicState: FTransformDynamicState;
 
 declare interface FTransformHandle extends FStateStreamHandle {
 
 }
-declare const FTransformHandle: FTransformHandle;
 
-declare interface FTransformStaticState {
-
-}
-declare const FTransformStaticState: FTransformStaticState;
+declare type FTransformStaticState = object;
 

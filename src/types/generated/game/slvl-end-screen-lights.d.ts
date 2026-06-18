@@ -1,5 +1,7 @@
 declare interface ASLVL_EndScreen_Lights_C extends ALevelScriptActor {
-
+    readonly __staticRegistry: 
+        ALevelScriptActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ALevelScriptActor['__propertyRegistry'];
 }
-declare const ASLVL_EndScreen_Lights_C: ASLVL_EndScreen_Lights_C;
 

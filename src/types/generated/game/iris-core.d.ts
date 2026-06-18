@@ -1,769 +1,866 @@
 declare interface FArrayPropertyNetSerializerConfig extends FNetSerializerConfig {
-    MaxElementCount: uint16;
-    ElementCountBitCount: uint16;
+    MaxElementCount: number;
+    ElementCountBitCount: number;
     Property: TFieldPath<FArrayProperty>;
 }
-declare const FArrayPropertyNetSerializerConfig: FArrayPropertyNetSerializerConfig;
 
 declare interface FBitfieldNetSerializerConfig extends FNetSerializerConfig {
-    BitMask: uint8;
+    BitMask: number;
 }
-declare const FBitfieldNetSerializerConfig: FBitfieldNetSerializerConfig;
 
 declare interface FBoolNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FBoolNetSerializerConfig: FBoolNetSerializerConfig;
 
 declare interface FDataStreamDefinition {
-    DataStreamName: FName;
-    ClassName: FName;
+    DataStreamName: string;
+    ClassName: string;
     Class: UClass;
     DefaultSendStatus: EDataStreamSendStatus;
     bAutoCreate: boolean;
     bDynamicCreate: boolean;
 }
-declare const FDataStreamDefinition: FDataStreamDefinition;
 
 declare interface FDateTimeNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FDateTimeNetSerializerConfig: FDateTimeNetSerializerConfig;
 
 declare interface FDoubleNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FDoubleNetSerializerConfig: FDoubleNetSerializerConfig;
 
 declare interface FEnumInt16NetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: int16;
-    UpperBound: int16;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FEnumInt16NetSerializerConfig: FEnumInt16NetSerializerConfig;
 
 declare interface FEnumInt32NetSerializerConfig extends FNetSerializerConfig {
     LowerBound: number;
     UpperBound: number;
-    BitCount: uint8;
+    BitCount: number;
 }
-declare const FEnumInt32NetSerializerConfig: FEnumInt32NetSerializerConfig;
 
 declare interface FEnumInt64NetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: int64;
-    UpperBound: int64;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FEnumInt64NetSerializerConfig: FEnumInt64NetSerializerConfig;
 
 declare interface FEnumInt8NetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: int8;
-    UpperBound: int8;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FEnumInt8NetSerializerConfig: FEnumInt8NetSerializerConfig;
 
 declare interface FEnumUint16NetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: uint16;
-    UpperBound: uint16;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FEnumUint16NetSerializerConfig: FEnumUint16NetSerializerConfig;
 
 declare interface FEnumUint32NetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: uint32;
-    UpperBound: uint32;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FEnumUint32NetSerializerConfig: FEnumUint32NetSerializerConfig;
 
 declare interface FEnumUint64NetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: uint64;
-    UpperBound: uint64;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FEnumUint64NetSerializerConfig: FEnumUint64NetSerializerConfig;
 
 declare interface FEnumUint8NetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: uint8;
-    UpperBound: uint8;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FEnumUint8NetSerializerConfig: FEnumUint8NetSerializerConfig;
 
 declare interface FFieldPathNetSerializerConfig extends FNetSerializerConfig {
     Property: TFieldPath<FProperty>;
 }
-declare const FFieldPathNetSerializerConfig: FFieldPathNetSerializerConfig;
 
 declare interface FFieldPathNetSerializerSerializationHelper {
     Owner: TWeakObjectPtr<UStruct>;
-    PropertyPath: TArray<FName>;
+    PropertyPath: string[];
 }
-declare const FFieldPathNetSerializerSerializationHelper: FFieldPathNetSerializerSerializationHelper;
 
 declare interface FFloatNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FFloatNetSerializerConfig: FFloatNetSerializerConfig;
 
 declare interface FGuidNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FGuidNetSerializerConfig: FGuidNetSerializerConfig;
 
 declare interface FInstancedStructNetSerializerConfig extends FNetSerializerConfig {
-    SupportedTypes: TArray<TSoftObjectPtr<UScriptStruct>>;
+    SupportedTypes: TSoftObjectPtr<UScriptStruct>[];
 }
-declare const FInstancedStructNetSerializerConfig: FInstancedStructNetSerializerConfig;
 
 declare interface FInt16RangeNetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: int16;
-    UpperBound: int16;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FInt16RangeNetSerializerConfig: FInt16RangeNetSerializerConfig;
 
 declare interface FInt32RangeNetSerializerConfig extends FNetSerializerConfig {
     LowerBound: number;
     UpperBound: number;
-    BitCount: uint8;
+    BitCount: number;
 }
-declare const FInt32RangeNetSerializerConfig: FInt32RangeNetSerializerConfig;
 
 declare interface FInt64RangeNetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: int64;
-    UpperBound: int64;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FInt64RangeNetSerializerConfig: FInt64RangeNetSerializerConfig;
 
 declare interface FInt8RangeNetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: int8;
-    UpperBound: int8;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FInt8RangeNetSerializerConfig: FInt8RangeNetSerializerConfig;
 
 declare interface FIntNetSerializerConfig extends FNetSerializerConfig {
-    BitCount: uint8;
+    BitCount: number;
 }
-declare const FIntNetSerializerConfig: FIntNetSerializerConfig;
 
 declare interface FIrisFastArraySerializer extends FFastArraySerializer {
-    ChangeMaskStorage: uint32;
+    ChangeMaskStorage: number;
 }
-declare const FIrisFastArraySerializer: FIrisFastArraySerializer;
 
 declare interface FLastResortPropertyNetSerializerConfig extends FNetSerializerConfig {
     Property: TFieldPath<FProperty>;
     bExcludeFromDefaultStateHash: boolean;
 }
-declare const FLastResortPropertyNetSerializerConfig: FLastResortPropertyNetSerializerConfig;
 
 declare interface FNameAsNetTokenNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FNameAsNetTokenNetSerializerConfig: FNameAsNetTokenNetSerializerConfig;
 
 declare interface FNameNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FNameNetSerializerConfig: FNameNetSerializerConfig;
 
 declare interface FNetBlobHandlerDefinition {
-    ClassName: FName;
+    ClassName: string;
 }
-declare const FNetBlobHandlerDefinition: FNetBlobHandlerDefinition;
 
 declare interface FNetObjectFilterDefinition {
-    FilterName: FName;
-    ClassName: FName;
-    ConfigClassName: FName;
+    FilterName: string;
+    ClassName: string;
+    ConfigClassName: string;
 }
-declare const FNetObjectFilterDefinition: FNetObjectFilterDefinition;
 
 declare interface FNetObjectGridFilterProfile {
-    FilterProfileName: FName;
-    FrameCountBeforeCulling: uint16;
+    FilterProfileName: string;
+    FrameCountBeforeCulling: number;
 }
-declare const FNetObjectGridFilterProfile: FNetObjectGridFilterProfile;
 
 declare interface FNetObjectPrioritizerDefinition {
-    PrioritizerName: FName;
-    ClassName: FName;
+    PrioritizerName: string;
+    ClassName: string;
     Class: UClass;
-    ConfigClassName: FName;
+    ConfigClassName: string;
     ConfigClass: UClass;
 }
-declare const FNetObjectPrioritizerDefinition: FNetObjectPrioritizerDefinition;
 
 declare interface FNetRoleNetSerializerConfig extends FNetSerializerConfig {
     RelativeInternalOffsetToOtherRole: number;
     RelativeExternalOffsetToOtherRole: number;
-    LowerBound: uint8;
-    UpperBound: uint8;
-    BitCount: uint8;
-    AutonomousProxyValue: uint8;
-    SimulatedProxyValue: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
+    AutonomousProxyValue: number;
+    SimulatedProxyValue: number;
 }
-declare const FNetRoleNetSerializerConfig: FNetRoleNetSerializerConfig;
 
-declare interface FNetSerializerConfig {
-
-}
-declare const FNetSerializerConfig: FNetSerializerConfig;
+declare type FNetSerializerConfig = object;
 
 declare interface FNetTokenStoreTypeIdPair {
-    StoreTypeName: FString;
-    TypeID: uint32;
+    StoreTypeName: string;
+    TypeID: number;
 }
-declare const FNetTokenStoreTypeIdPair: FNetTokenStoreTypeIdPair;
 
 declare interface FNopNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FNopNetSerializerConfig: FNopNetSerializerConfig;
 
 declare interface FObjectNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FObjectNetSerializerConfig: FObjectNetSerializerConfig;
 
 declare interface FObjectReplicatedBridgeCriticalClassConfig {
-    ClassName: FName;
+    ClassName: string;
     bDisconnectOnProtocolMismatch: boolean;
 }
-declare const FObjectReplicatedBridgeCriticalClassConfig: FObjectReplicatedBridgeCriticalClassConfig;
 
 declare interface FObjectReplicationBridgeDeltaCompressionConfig {
-    ClassName: FName;
+    ClassName: string;
     bEnableDeltaCompression: boolean;
 }
-declare const FObjectReplicationBridgeDeltaCompressionConfig: FObjectReplicationBridgeDeltaCompressionConfig;
 
 declare interface FObjectReplicationBridgeFilterConfig {
-    ClassName: FName;
-    DynamicFilterName: FName;
-    FilterProfile: FName;
+    ClassName: string;
+    DynamicFilterName: string;
+    FilterProfile: string;
     bForceEnableOnAllInstances: boolean;
 }
-declare const FObjectReplicationBridgeFilterConfig: FObjectReplicationBridgeFilterConfig;
 
 declare interface FObjectReplicationBridgePollConfig {
-    ClassName: FName;
+    ClassName: string;
     PollFrequency: number;
     bIncludeSubclasses: boolean;
 }
-declare const FObjectReplicationBridgePollConfig: FObjectReplicationBridgePollConfig;
 
 declare interface FObjectReplicationBridgePrioritizerConfig {
-    ClassName: FName;
-    PrioritizerName: FName;
+    ClassName: string;
+    PrioritizerName: string;
     bForceEnableOnAllInstances: boolean;
 }
-declare const FObjectReplicationBridgePrioritizerConfig: FObjectReplicationBridgePrioritizerConfig;
 
 declare interface FObjectReplicationBridgeTypeStatsConfig {
-    ClassName: FName;
-    TypeStatsName: FName;
+    ClassName: string;
+    TypeStatsName: string;
     bIncludeInMinimalCSVStats: boolean;
 }
-declare const FObjectReplicationBridgeTypeStatsConfig: FObjectReplicationBridgeTypeStatsConfig;
 
 declare interface FObjectScopeHysteresisProfile {
-    FilterProfileName: FName;
-    HysteresisFrameCount: uint8;
+    FilterProfileName: string;
+    HysteresisFrameCount: number;
 }
-declare const FObjectScopeHysteresisProfile: FObjectScopeHysteresisProfile;
 
 declare interface FPackedInt32NetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FPackedInt32NetSerializerConfig: FPackedInt32NetSerializerConfig;
 
 declare interface FPackedInt64NetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FPackedInt64NetSerializerConfig: FPackedInt64NetSerializerConfig;
 
 declare interface FPackedUint32NetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FPackedUint32NetSerializerConfig: FPackedUint32NetSerializerConfig;
 
 declare interface FPackedUint64NetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FPackedUint64NetSerializerConfig: FPackedUint64NetSerializerConfig;
 
 declare interface FPolymorphicArrayStructNetSerializerConfig extends FPolymorphicStructNetSerializerConfig {
 
 }
-declare const FPolymorphicArrayStructNetSerializerConfig: FPolymorphicArrayStructNetSerializerConfig;
 
 declare interface FPolymorphicStructNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FPolymorphicStructNetSerializerConfig: FPolymorphicStructNetSerializerConfig;
 
 declare interface FRemoteObjectReferenceNetSerializationHelper {
     ObjectId: FRemoteObjectId;
     ServerId: FRemoteServerId;
     Path: FRemoteObjectPathName;
 }
-declare const FRemoteObjectReferenceNetSerializationHelper: FRemoteObjectReferenceNetSerializationHelper;
 
 declare interface FRemoteObjectReferenceNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FRemoteObjectReferenceNetSerializerConfig: FRemoteObjectReferenceNetSerializerConfig;
 
 declare interface FReplicationStateDescriptorClassPushModelConfig {
-    ClassName: FName;
+    ClassName: string;
 }
-declare const FReplicationStateDescriptorClassPushModelConfig: FReplicationStateDescriptorClassPushModelConfig;
 
 declare interface FRotator3dNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FRotator3dNetSerializerConfig: FRotator3dNetSerializerConfig;
 
 declare interface FRotator3fNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FRotator3fNetSerializerConfig: FRotator3fNetSerializerConfig;
 
 declare interface FRotatorAsByteNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FRotatorAsByteNetSerializerConfig: FRotatorAsByteNetSerializerConfig;
 
 declare interface FRotatorAsShortNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FRotatorAsShortNetSerializerConfig: FRotatorAsShortNetSerializerConfig;
 
 declare interface FRotatorNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FRotatorNetSerializerConfig: FRotatorNetSerializerConfig;
 
 declare interface FScriptInterfaceNetSerializerConfig extends FNetSerializerConfig {
     InterfaceClass: UClass;
 }
-declare const FScriptInterfaceNetSerializerConfig: FScriptInterfaceNetSerializerConfig;
 
 declare interface FSoftClassPathNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FSoftClassPathNetSerializerConfig: FSoftClassPathNetSerializerConfig;
 
 declare interface FSoftObjectNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FSoftObjectNetSerializerConfig: FSoftObjectNetSerializerConfig;
 
 declare interface FSoftObjectPathNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FSoftObjectPathNetSerializerConfig: FSoftObjectPathNetSerializerConfig;
 
 declare interface FStringNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FStringNetSerializerConfig: FStringNetSerializerConfig;
 
 declare interface FStructNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FStructNetSerializerConfig: FStructNetSerializerConfig;
 
 declare interface FSupportsStructNetSerializerConfig {
-    StructName: FName;
+    StructName: string;
     bCanUseStructNetSerializer: boolean;
 }
-declare const FSupportsStructNetSerializerConfig: FSupportsStructNetSerializerConfig;
 
 declare interface FUint16RangeNetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: uint16;
-    UpperBound: uint16;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FUint16RangeNetSerializerConfig: FUint16RangeNetSerializerConfig;
 
 declare interface FUint32RangeNetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: uint32;
-    UpperBound: uint32;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FUint32RangeNetSerializerConfig: FUint32RangeNetSerializerConfig;
 
 declare interface FUint64RangeNetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: uint64;
-    UpperBound: uint64;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FUint64RangeNetSerializerConfig: FUint64RangeNetSerializerConfig;
 
 declare interface FUint8RangeNetSerializerConfig extends FNetSerializerConfig {
-    LowerBound: uint8;
-    UpperBound: uint8;
-    BitCount: uint8;
+    LowerBound: number;
+    UpperBound: number;
+    BitCount: number;
 }
-declare const FUint8RangeNetSerializerConfig: FUint8RangeNetSerializerConfig;
 
 declare interface FUintNetSerializerConfig extends FNetSerializerConfig {
-    BitCount: uint8;
+    BitCount: number;
 }
-declare const FUintNetSerializerConfig: FUintNetSerializerConfig;
 
 declare interface FUnitQuat4dNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FUnitQuat4dNetSerializerConfig: FUnitQuat4dNetSerializerConfig;
 
 declare interface FUnitQuat4fNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FUnitQuat4fNetSerializerConfig: FUnitQuat4fNetSerializerConfig;
 
 declare interface FUnitQuatNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FUnitQuatNetSerializerConfig: FUnitQuatNetSerializerConfig;
 
 declare interface FVector3dNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FVector3dNetSerializerConfig: FVector3dNetSerializerConfig;
 
 declare interface FVector3fNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FVector3fNetSerializerConfig: FVector3fNetSerializerConfig;
 
 declare interface FVectorNetQuantize100NetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FVectorNetQuantize100NetSerializerConfig: FVectorNetQuantize100NetSerializerConfig;
 
 declare interface FVectorNetQuantize10NetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FVectorNetQuantize10NetSerializerConfig: FVectorNetQuantize10NetSerializerConfig;
 
 declare interface FVectorNetQuantizeNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FVectorNetQuantizeNetSerializerConfig: FVectorNetQuantizeNetSerializerConfig;
 
 declare interface FVectorNetQuantizeNormalNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FVectorNetQuantizeNormalNetSerializerConfig: FVectorNetQuantizeNormalNetSerializerConfig;
 
 declare interface FVectorNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FVectorNetSerializerConfig: FVectorNetSerializerConfig;
 
 declare interface FWeakObjectNetSerializerConfig extends FNetSerializerConfig {
 
 }
-declare const FWeakObjectNetSerializerConfig: FWeakObjectNetSerializerConfig;
 
 declare interface UAlwaysRelevantNetObjectFilter extends UNetObjectFilter {
-
+    readonly __staticRegistry: 
+        UNetObjectFilter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectFilter['__propertyRegistry'];
 }
-declare const UAlwaysRelevantNetObjectFilter: UAlwaysRelevantNetObjectFilter;
 
 declare interface UAlwaysRelevantNetObjectFilterConfig extends UNetObjectFilterConfig {
-
+    readonly __staticRegistry: 
+        UNetObjectFilterConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectFilterConfig['__propertyRegistry'];
 }
-declare const UAlwaysRelevantNetObjectFilterConfig: UAlwaysRelevantNetObjectFilterConfig;
 
 declare interface UChunkedDataStream extends UDataStream {
-    PackageMap: UIrisObjectReferencePackageMap;
+    readonly __properties_UChunkedDataStream: {
+        PackageMap: UIrisObjectReferencePackageMap;
+    };
+    readonly __staticRegistry: 
+        UDataStream['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UChunkedDataStream['__properties_UChunkedDataStream'] &
+        UDataStream['__propertyRegistry'];
 }
-declare const UChunkedDataStream: UChunkedDataStream;
 
 declare interface UDataStream extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UDataStream: UDataStream;
 
 declare interface UDataStreamDefinitions extends UObject {
-    DataStreamDefinitions: TArray<FDataStreamDefinition>;
+    readonly __properties_UDataStreamDefinitions: {
+        DataStreamDefinitions: FDataStreamDefinition[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDataStreamDefinitions['__properties_UDataStreamDefinitions'] &
+        UObject['__propertyRegistry'];
 }
-declare const UDataStreamDefinitions: UDataStreamDefinitions;
 
 declare interface UDataStreamManager extends UDataStream {
-
+    readonly __staticRegistry: 
+        UDataStream['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDataStream['__propertyRegistry'];
 }
-declare const UDataStreamManager: UDataStreamManager;
 
 declare interface UFieldOfViewNetObjectPrioritizer extends ULocationBasedNetObjectPrioritizer {
-
+    readonly __staticRegistry: 
+        ULocationBasedNetObjectPrioritizer['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULocationBasedNetObjectPrioritizer['__propertyRegistry'];
 }
-declare const UFieldOfViewNetObjectPrioritizer: UFieldOfViewNetObjectPrioritizer;
 
 declare interface UFieldOfViewNetObjectPrioritizerConfig extends UNetObjectPrioritizerConfig {
-    InnerSphereRadius: number;
-    InnerSpherePriority: number;
-    OuterSphereRadius: number;
-    OuterSpherePriority: number;
-    ConeFieldOfViewDegrees: number;
-    InnerConeLength: number;
-    ConeLength: number;
-    MinConePriority: number;
-    MaxConePriority: number;
-    LineOfSightWidth: number;
-    LineOfSightPriority: number;
-    OutsidePriority: number;
+    readonly __properties_UFieldOfViewNetObjectPrioritizerConfig: {
+        InnerSphereRadius: number;
+        InnerSpherePriority: number;
+        OuterSphereRadius: number;
+        OuterSpherePriority: number;
+        ConeFieldOfViewDegrees: number;
+        InnerConeLength: number;
+        ConeLength: number;
+        MinConePriority: number;
+        MaxConePriority: number;
+        LineOfSightWidth: number;
+        LineOfSightPriority: number;
+        OutsidePriority: number;
+    };
+    readonly __staticRegistry: 
+        UNetObjectPrioritizerConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFieldOfViewNetObjectPrioritizerConfig['__properties_UFieldOfViewNetObjectPrioritizerConfig'] &
+        UNetObjectPrioritizerConfig['__propertyRegistry'];
 }
-declare const UFieldOfViewNetObjectPrioritizerConfig: UFieldOfViewNetObjectPrioritizerConfig;
 
 declare interface UFilterOutNetObjectFilter extends UNetObjectFilter {
-
+    readonly __staticRegistry: 
+        UNetObjectFilter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectFilter['__propertyRegistry'];
 }
-declare const UFilterOutNetObjectFilter: UFilterOutNetObjectFilter;
 
 declare interface UFilterOutNetObjectFilterConfig extends UNetObjectFilterConfig {
-
+    readonly __staticRegistry: 
+        UNetObjectFilterConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectFilterConfig['__propertyRegistry'];
 }
-declare const UFilterOutNetObjectFilterConfig: UFilterOutNetObjectFilterConfig;
 
 declare interface UIrisObjectReferencePackageMap extends UPackageMap {
-
+    readonly __staticRegistry: 
+        UPackageMap['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPackageMap['__propertyRegistry'];
 }
-declare const UIrisObjectReferencePackageMap: UIrisObjectReferencePackageMap;
 
 declare interface ULocationBasedNetObjectPrioritizer extends UNetObjectPrioritizer {
-
+    readonly __staticRegistry: 
+        UNetObjectPrioritizer['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectPrioritizer['__propertyRegistry'];
 }
-declare const ULocationBasedNetObjectPrioritizer: ULocationBasedNetObjectPrioritizer;
 
 declare interface UNetBlobHandler extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNetBlobHandler: UNetBlobHandler;
 
 declare interface UNetBlobHandlerDefinitions extends UObject {
-    NetBlobHandlerDefinitions: TArray<FNetBlobHandlerDefinition>;
+    readonly __properties_UNetBlobHandlerDefinitions: {
+        NetBlobHandlerDefinitions: FNetBlobHandlerDefinition[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetBlobHandlerDefinitions['__properties_UNetBlobHandlerDefinitions'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNetBlobHandlerDefinitions: UNetBlobHandlerDefinitions;
 
 declare interface UNetObjectBlobHandler extends UNetBlobHandler {
-
+    readonly __staticRegistry: 
+        UNetBlobHandler['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetBlobHandler['__propertyRegistry'];
 }
-declare const UNetObjectBlobHandler: UNetObjectBlobHandler;
 
 declare interface UNetObjectConnectionFilter extends UNetObjectFilter {
-
+    readonly __staticRegistry: 
+        UNetObjectFilter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectFilter['__propertyRegistry'];
 }
-declare const UNetObjectConnectionFilter: UNetObjectConnectionFilter;
 
 declare interface UNetObjectConnectionFilterConfig extends UNetObjectFilterConfig {
-    MaxObjectCount: uint16;
+    readonly __properties_UNetObjectConnectionFilterConfig: {
+        MaxObjectCount: number;
+    };
+    readonly __staticRegistry: 
+        UNetObjectFilterConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectConnectionFilterConfig['__properties_UNetObjectConnectionFilterConfig'] &
+        UNetObjectFilterConfig['__propertyRegistry'];
 }
-declare const UNetObjectConnectionFilterConfig: UNetObjectConnectionFilterConfig;
 
 declare interface UNetObjectCountLimiter extends UNetObjectPrioritizer {
-
+    readonly __staticRegistry: 
+        UNetObjectPrioritizer['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectPrioritizer['__propertyRegistry'];
 }
-declare const UNetObjectCountLimiter: UNetObjectCountLimiter;
 
 declare interface UNetObjectCountLimiterConfig extends UNetObjectPrioritizerConfig {
-    Mode: ENetObjectCountLimiterMode;
-    MaxObjectCount: uint32;
-    Priority: number;
-    OwningConnectionPriority: number;
-    bEnableOwnedObjectsFastLane: boolean;
+    readonly __properties_UNetObjectCountLimiterConfig: {
+        Mode: ENetObjectCountLimiterMode;
+        MaxObjectCount: number;
+        Priority: number;
+        OwningConnectionPriority: number;
+        bEnableOwnedObjectsFastLane: boolean;
+    };
+    readonly __staticRegistry: 
+        UNetObjectPrioritizerConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectCountLimiterConfig['__properties_UNetObjectCountLimiterConfig'] &
+        UNetObjectPrioritizerConfig['__propertyRegistry'];
 }
-declare const UNetObjectCountLimiterConfig: UNetObjectCountLimiterConfig;
 
 declare interface UNetObjectFactory extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNetObjectFactory: UNetObjectFactory;
 
 declare interface UNetObjectFilter extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNetObjectFilter: UNetObjectFilter;
 
 declare interface UNetObjectFilterConfig extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNetObjectFilterConfig: UNetObjectFilterConfig;
 
 declare interface UNetObjectFilterDefinitions extends UObject {
-    NetObjectFilterDefinitions: TArray<FNetObjectFilterDefinition>;
+    readonly __properties_UNetObjectFilterDefinitions: {
+        NetObjectFilterDefinitions: FNetObjectFilterDefinition[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectFilterDefinitions['__properties_UNetObjectFilterDefinitions'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNetObjectFilterDefinitions: UNetObjectFilterDefinitions;
 
 declare interface UNetObjectGridFilter extends UNetObjectFilter {
-
+    readonly __staticRegistry: 
+        UNetObjectFilter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectFilter['__propertyRegistry'];
 }
-declare const UNetObjectGridFilter: UNetObjectGridFilter;
 
 declare interface UNetObjectGridFilterConfig extends UNetObjectFilterConfig {
-    ViewPosRelevancyFrameCount: uint32;
-    DefaultFrameCountBeforeCulling: uint16;
-    CellSizeX: number;
-    CellSizeY: number;
-    DefaultCullDistance: number;
-    bUseExactCullDistance: boolean;
-    FilterProfiles: TArray<FNetObjectGridFilterProfile>;
+    readonly __properties_UNetObjectGridFilterConfig: {
+        ViewPosRelevancyFrameCount: number;
+        DefaultFrameCountBeforeCulling: number;
+        CellSizeX: number;
+        CellSizeY: number;
+        DefaultCullDistance: number;
+        bUseExactCullDistance: boolean;
+        FilterProfiles: FNetObjectGridFilterProfile[];
+    };
+    readonly __staticRegistry: 
+        UNetObjectFilterConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectGridFilterConfig['__properties_UNetObjectGridFilterConfig'] &
+        UNetObjectFilterConfig['__propertyRegistry'];
 }
-declare const UNetObjectGridFilterConfig: UNetObjectGridFilterConfig;
 
 declare interface UNetObjectGridWorldLocFilter extends UNetObjectGridFilter {
-
+    readonly __staticRegistry: 
+        UNetObjectGridFilter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectGridFilter['__propertyRegistry'];
 }
-declare const UNetObjectGridWorldLocFilter: UNetObjectGridWorldLocFilter;
 
 declare interface UNetObjectPrioritizer extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNetObjectPrioritizer: UNetObjectPrioritizer;
 
 declare interface UNetObjectPrioritizerConfig extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNetObjectPrioritizerConfig: UNetObjectPrioritizerConfig;
 
 declare interface UNetObjectPrioritizerDefinitions extends UObject {
-    NetObjectPrioritizerDefinitions: TArray<FNetObjectPrioritizerDefinition>;
+    readonly __properties_UNetObjectPrioritizerDefinitions: {
+        NetObjectPrioritizerDefinitions: FNetObjectPrioritizerDefinition[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectPrioritizerDefinitions['__properties_UNetObjectPrioritizerDefinitions'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNetObjectPrioritizerDefinitions: UNetObjectPrioritizerDefinitions;
 
 declare interface UNetRPCHandler extends UNetBlobHandler {
-
+    readonly __staticRegistry: 
+        UNetBlobHandler['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetBlobHandler['__propertyRegistry'];
 }
-declare const UNetRPCHandler: UNetRPCHandler;
 
 declare interface UNetTokenDataStream extends UDataStream {
-
+    readonly __staticRegistry: 
+        UDataStream['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDataStream['__propertyRegistry'];
 }
-declare const UNetTokenDataStream: UNetTokenDataStream;
 
 declare interface UNetTokenTypeIdConfig extends UObject {
-    ReservedTypeIds: TArray<FNetTokenStoreTypeIdPair>;
+    readonly __properties_UNetTokenTypeIdConfig: {
+        ReservedTypeIds: FNetTokenStoreTypeIdPair[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetTokenTypeIdConfig['__properties_UNetTokenTypeIdConfig'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNetTokenTypeIdConfig: UNetTokenTypeIdConfig;
 
 declare interface UNopNetObjectFilter extends UNetObjectFilter {
-
+    readonly __staticRegistry: 
+        UNetObjectFilter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectFilter['__propertyRegistry'];
 }
-declare const UNopNetObjectFilter: UNopNetObjectFilter;
 
 declare interface UNopNetObjectFilterConfig extends UNetObjectFilterConfig {
-
+    readonly __staticRegistry: 
+        UNetObjectFilterConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetObjectFilterConfig['__propertyRegistry'];
 }
-declare const UNopNetObjectFilterConfig: UNopNetObjectFilterConfig;
 
 declare interface UObjectReplicationBridge extends UReplicationBridge {
-    NetObjectFactories: TArray<UNetObjectFactory>;
+    readonly __properties_UObjectReplicationBridge: {
+        NetObjectFactories: UNetObjectFactory[];
+    };
+    readonly __staticRegistry: 
+        UReplicationBridge['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObjectReplicationBridge['__properties_UObjectReplicationBridge'] &
+        UReplicationBridge['__propertyRegistry'];
 }
-declare const UObjectReplicationBridge: UObjectReplicationBridge;
 
 declare interface UObjectReplicationBridgeConfig extends UObject {
-    PollConfigs: TArray<FObjectReplicationBridgePollConfig>;
-    FilterConfigs: TArray<FObjectReplicationBridgeFilterConfig>;
-    PrioritizerConfigs: TArray<FObjectReplicationBridgePrioritizerConfig>;
-    DeltaCompressionConfigs: TArray<FObjectReplicationBridgeDeltaCompressionConfig>;
-    CriticalClassConfigs: TArray<FObjectReplicatedBridgeCriticalClassConfig>;
-    bAllClassesCritical: boolean;
-    TypeStatsConfigs: TArray<FObjectReplicationBridgeTypeStatsConfig>;
-    DefaultSpatialFilterName: FName;
-    RequiredNetDriverChannelClassName: FName;
-    CriticalActorClasses: TArray<FName>;
+    readonly __properties_UObjectReplicationBridgeConfig: {
+        PollConfigs: FObjectReplicationBridgePollConfig[];
+        FilterConfigs: FObjectReplicationBridgeFilterConfig[];
+        PrioritizerConfigs: FObjectReplicationBridgePrioritizerConfig[];
+        DeltaCompressionConfigs: FObjectReplicationBridgeDeltaCompressionConfig[];
+        CriticalClassConfigs: FObjectReplicatedBridgeCriticalClassConfig[];
+        bAllClassesCritical: boolean;
+        TypeStatsConfigs: FObjectReplicationBridgeTypeStatsConfig[];
+        DefaultSpatialFilterName: string;
+        RequiredNetDriverChannelClassName: string;
+        CriticalActorClasses: string[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObjectReplicationBridgeConfig['__properties_UObjectReplicationBridgeConfig'] &
+        UObject['__propertyRegistry'];
 }
-declare const UObjectReplicationBridgeConfig: UObjectReplicationBridgeConfig;
 
 declare interface UPartialNetObjectAttachmentHandler extends USequentialPartialNetBlobHandler {
-
+    readonly __staticRegistry: 
+        USequentialPartialNetBlobHandler['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USequentialPartialNetBlobHandler['__propertyRegistry'];
 }
-declare const UPartialNetObjectAttachmentHandler: UPartialNetObjectAttachmentHandler;
 
 declare interface UPartialNetObjectAttachmentHandlerConfig extends USequentialPartialNetBlobHandlerConfig {
-    BitCountSplitThreshold: uint32;
-    ClientUnreliableBitCountSplitThreshold: uint32;
-    ServerUnreliableBitCountSplitThreshold: uint32;
+    readonly __properties_UPartialNetObjectAttachmentHandlerConfig: {
+        BitCountSplitThreshold: number;
+        ClientUnreliableBitCountSplitThreshold: number;
+        ServerUnreliableBitCountSplitThreshold: number;
+    };
+    readonly __staticRegistry: 
+        USequentialPartialNetBlobHandlerConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPartialNetObjectAttachmentHandlerConfig['__properties_UPartialNetObjectAttachmentHandlerConfig'] &
+        USequentialPartialNetBlobHandlerConfig['__propertyRegistry'];
 }
-declare const UPartialNetObjectAttachmentHandlerConfig: UPartialNetObjectAttachmentHandlerConfig;
 
 declare interface UReplicationBridge extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UReplicationBridge: UReplicationBridge;
 
 declare interface UReplicationDataStream extends UDataStream {
-
+    readonly __staticRegistry: 
+        UDataStream['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDataStream['__propertyRegistry'];
 }
-declare const UReplicationDataStream: UReplicationDataStream;
 
 declare interface UReplicationFilteringConfig extends UObject {
-    bEnableObjectScopeHysteresis: boolean;
-    DefaultHysteresisFrameCount: uint8;
-    HysteresisUpdateConnectionThrottling: uint8;
-    HysteresisProfiles: TArray<FObjectScopeHysteresisProfile>;
+    readonly __properties_UReplicationFilteringConfig: {
+        bEnableObjectScopeHysteresis: boolean;
+        DefaultHysteresisFrameCount: number;
+        HysteresisUpdateConnectionThrottling: number;
+        HysteresisProfiles: FObjectScopeHysteresisProfile[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UReplicationFilteringConfig['__properties_UReplicationFilteringConfig'] &
+        UObject['__propertyRegistry'];
 }
-declare const UReplicationFilteringConfig: UReplicationFilteringConfig;
 
 declare interface UReplicationStateDescriptorConfig extends UObject {
-    SupportsStructNetSerializerList: TArray<FSupportsStructNetSerializerConfig>;
-    EnsureFullyPushModelClassNames: TArray<FReplicationStateDescriptorClassPushModelConfig>;
-    bEnsureAllClassesAreFullyPushModel: boolean;
+    readonly __properties_UReplicationStateDescriptorConfig: {
+        SupportsStructNetSerializerList: FSupportsStructNetSerializerConfig[];
+        EnsureFullyPushModelClassNames: FReplicationStateDescriptorClassPushModelConfig[];
+        bEnsureAllClassesAreFullyPushModel: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UReplicationStateDescriptorConfig['__properties_UReplicationStateDescriptorConfig'] &
+        UObject['__propertyRegistry'];
 }
-declare const UReplicationStateDescriptorConfig: UReplicationStateDescriptorConfig;
 
 declare interface UReplicationSystem extends UObject {
-    ReplicationBridge: UReplicationBridge;
+    readonly __properties_UReplicationSystem: {
+        ReplicationBridge: UReplicationBridge;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UReplicationSystem['__properties_UReplicationSystem'] &
+        UObject['__propertyRegistry'];
 }
-declare const UReplicationSystem: UReplicationSystem;
 
 declare interface USequentialPartialNetBlobHandler extends UNetBlobHandler {
-
+    readonly __staticRegistry: 
+        UNetBlobHandler['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetBlobHandler['__propertyRegistry'];
 }
-declare const USequentialPartialNetBlobHandler: USequentialPartialNetBlobHandler;
 
 declare interface USequentialPartialNetBlobHandlerConfig extends UObject {
-    MaxPartBitCount: uint32;
-    MaxPartCount: uint32;
+    readonly __properties_USequentialPartialNetBlobHandlerConfig: {
+        MaxPartBitCount: number;
+        MaxPartCount: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USequentialPartialNetBlobHandlerConfig['__properties_USequentialPartialNetBlobHandlerConfig'] &
+        UObject['__propertyRegistry'];
 }
-declare const USequentialPartialNetBlobHandlerConfig: USequentialPartialNetBlobHandlerConfig;
 
 declare interface USphereNetObjectPrioritizer extends ULocationBasedNetObjectPrioritizer {
-
+    readonly __staticRegistry: 
+        ULocationBasedNetObjectPrioritizer['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULocationBasedNetObjectPrioritizer['__propertyRegistry'];
 }
-declare const USphereNetObjectPrioritizer: USphereNetObjectPrioritizer;
 
 declare interface USphereNetObjectPrioritizerConfig extends UNetObjectPrioritizerConfig {
-    InnerRadius: number;
-    OuterRadius: number;
-    InnerPriority: number;
-    OuterPriority: number;
-    OutsidePriority: number;
+    readonly __properties_USphereNetObjectPrioritizerConfig: {
+        InnerRadius: number;
+        OuterRadius: number;
+        InnerPriority: number;
+        OuterPriority: number;
+        OutsidePriority: number;
+    };
+    readonly __staticRegistry: 
+        UNetObjectPrioritizerConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USphereNetObjectPrioritizerConfig['__properties_USphereNetObjectPrioritizerConfig'] &
+        UNetObjectPrioritizerConfig['__propertyRegistry'];
 }
-declare const USphereNetObjectPrioritizerConfig: USphereNetObjectPrioritizerConfig;
 
 declare interface USphereWithOwnerBoostNetObjectPrioritizer extends USphereNetObjectPrioritizer {
-
+    readonly __staticRegistry: 
+        USphereNetObjectPrioritizer['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USphereNetObjectPrioritizer['__propertyRegistry'];
 }
-declare const USphereWithOwnerBoostNetObjectPrioritizer: USphereWithOwnerBoostNetObjectPrioritizer;
 
 declare interface USphereWithOwnerBoostNetObjectPrioritizerConfig extends USphereNetObjectPrioritizerConfig {
-    OwnerPriorityBoost: number;
+    readonly __properties_USphereWithOwnerBoostNetObjectPrioritizerConfig: {
+        OwnerPriorityBoost: number;
+    };
+    readonly __staticRegistry: 
+        USphereNetObjectPrioritizerConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USphereWithOwnerBoostNetObjectPrioritizerConfig['__properties_USphereWithOwnerBoostNetObjectPrioritizerConfig'] &
+        USphereNetObjectPrioritizerConfig['__propertyRegistry'];
 }
-declare const USphereWithOwnerBoostNetObjectPrioritizerConfig: USphereWithOwnerBoostNetObjectPrioritizerConfig;
 
 declare interface UWorldLocationsConfig extends UObject {
-    MinPos: FVector;
-    MaxPos: FVector;
-    MaxNetCullDistance: number;
+    readonly __properties_UWorldLocationsConfig: {
+        MinPos: FVector;
+        MaxPos: FVector;
+        MaxNetCullDistance: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UWorldLocationsConfig['__properties_UWorldLocationsConfig'] &
+        UObject['__propertyRegistry'];
 }
-declare const UWorldLocationsConfig: UWorldLocationsConfig;
 

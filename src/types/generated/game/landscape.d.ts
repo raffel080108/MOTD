@@ -1,187 +1,232 @@
 declare interface AControlPointMeshActor extends AActor {
-    ControlPointMeshComponent: UControlPointMeshComponent;
+    readonly __properties_AControlPointMeshActor: {
+        ControlPointMeshComponent: UControlPointMeshComponent;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AControlPointMeshActor['__properties_AControlPointMeshActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const AControlPointMeshActor: AControlPointMeshActor;
 
 declare interface ALandscape extends ALandscapeProxy {
-    RenderWeightmaps(InWorldTransform: FTransform, InExtents: FBox2D, InWeightmapLayerNames: TArray<FName>, OutRenderTarget: UTextureRenderTarget): boolean;
-    RenderWeightmap(InWorldTransform: FTransform, InExtents: FBox2D, InWeightmapLayerName: FName, OutRenderTarget: UTextureRenderTarget2D): boolean;
-    RenderHeightmap(InWorldTransform: FTransform, InExtents: FBox2D, OutRenderTarget: UTextureRenderTarget2D): boolean;
-    GetTargetLayerNames(bInIncludeVisibilityLayer: boolean): TArray<FName>;
+    readonly __static_ALandscape: {
+        RenderWeightmaps(InWorldTransform: FTransform, InExtents: FBox2D, InWeightmapLayerNames: string[], OutRenderTarget: UTextureRenderTarget): boolean;
+        RenderWeightmap(InWorldTransform: FTransform, InExtents: FBox2D, InWeightmapLayerName: string, OutRenderTarget: UTextureRenderTarget2D): boolean;
+        RenderHeightmap(InWorldTransform: FTransform, InExtents: FBox2D, OutRenderTarget: UTextureRenderTarget2D): boolean;
+        GetTargetLayerNames(bInIncludeVisibilityLayer: boolean): string[];
+    };
+    readonly __staticRegistry: 
+        ALandscape['__static_ALandscape'] &
+        ALandscapeProxy['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ALandscapeProxy['__propertyRegistry'];
 }
-declare const ALandscape: ALandscape;
 
 declare interface ALandscapeBlueprintBrushBase extends AActor {
-    UpdateOnPropertyChange: boolean;
-    AffectHeightmap: boolean;
-    AffectWeightmap: boolean;
-    AffectVisibilityLayer: boolean;
-    AffectedWeightmapLayers: TArray<FName>;
-    bUsePowerOfTwoRenderTarget: boolean;
-    RequestLandscapeUpdate(bInUserTriggered: boolean): void;
-    RenderLayer(InParameters: FLandscapeBrushParameters): UTextureRenderTarget2D;
-    Render(InIsHeightmap: boolean, InCombinedResult: UTextureRenderTarget2D, InWeightmapLayerName: FName): UTextureRenderTarget2D;
-    Initialize(InLandscapeTransform: FTransform, InLandscapeSize: FIntPoint, InLandscapeRenderTargetSize: FIntPoint): void;
-    GetBlueprintRenderDependencies(OutStreamableAssets: TArray<UObject>): void;
+    readonly __static_ALandscapeBlueprintBrushBase: {
+        RequestLandscapeUpdate(bInUserTriggered: boolean): void;
+        RenderLayer(InParameters: FLandscapeBrushParameters): UTextureRenderTarget2D;
+        Render(InIsHeightmap: boolean, InCombinedResult: UTextureRenderTarget2D, InWeightmapLayerName: string): UTextureRenderTarget2D;
+        Initialize(InLandscapeTransform: FTransform, InLandscapeSize: FIntPoint, InLandscapeRenderTargetSize: FIntPoint): void;
+        GetBlueprintRenderDependencies(OutStreamableAssets: UObject[]): void;
+    };
+    readonly __properties_ALandscapeBlueprintBrushBase: {
+        UpdateOnPropertyChange: boolean;
+        AffectHeightmap: boolean;
+        AffectWeightmap: boolean;
+        AffectVisibilityLayer: boolean;
+        AffectedWeightmapLayers: string[];
+        bUsePowerOfTwoRenderTarget: boolean;
+    };
+    readonly __staticRegistry: 
+        ALandscapeBlueprintBrushBase['__static_ALandscapeBlueprintBrushBase'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ALandscapeBlueprintBrushBase['__properties_ALandscapeBlueprintBrushBase'] &
+        AActor['__propertyRegistry'];
 }
-declare const ALandscapeBlueprintBrushBase: ALandscapeBlueprintBrushBase;
 
 declare interface ALandscapeGizmoActiveActor extends ALandscapeGizmoActor {
-
+    readonly __staticRegistry: 
+        ALandscapeGizmoActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ALandscapeGizmoActor['__propertyRegistry'];
 }
-declare const ALandscapeGizmoActiveActor: ALandscapeGizmoActiveActor;
 
 declare interface ALandscapeGizmoActor extends AActor {
-
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AActor['__propertyRegistry'];
 }
-declare const ALandscapeGizmoActor: ALandscapeGizmoActor;
 
 declare interface ALandscapeMeshProxyActor extends AActor {
-    LandscapeMeshProxyComponent: ULandscapeMeshProxyComponent;
+    readonly __properties_ALandscapeMeshProxyActor: {
+        LandscapeMeshProxyComponent: ULandscapeMeshProxyComponent;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ALandscapeMeshProxyActor['__properties_ALandscapeMeshProxyActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const ALandscapeMeshProxyActor: ALandscapeMeshProxyActor;
 
 declare interface ALandscapeProxy extends APartitionActor {
-    SplineComponent: ULandscapeSplinesComponent;
-    LandscapeGuid: FGuid;
-    OriginalLandscapeGuid: FGuid;
-    bEnableNanite: boolean;
-    PerLODOverrideMaterials: TArray<FLandscapePerLODMaterialOverride>;
-    bDisableRuntimeGrassMapGeneration: boolean;
-    LandscapeSectionOffset: FIntPoint;
-    MaxLODLevel: number;
-    LOD0ScreenSize: number;
-    LODGroupKey: uint32;
-    LOD0DistributionSetting: number;
-    LODDistributionSetting: number;
-    ScalableLOD0ScreenSize: FPerQualityLevelFloat;
-    ScalableLOD0DistributionSetting: FPerQualityLevelFloat;
-    ScalableLODDistributionSetting: FPerQualityLevelFloat;
-    bUseScalableLODSettings: boolean;
-    LODBlendRange: number;
-    StaticLightingLOD: number;
-    DefaultPhysMaterial: UPhysicalMaterial;
-    StreamingDistanceMultiplier: number;
-    LandscapeMaterial: UMaterialInterface;
-    LandscapeHoleMaterial: UMaterialInterface;
-    RuntimeVirtualTextures: TArray<URuntimeVirtualTexture>;
-    bSetCreateRuntimeVirtualTextureVolumes: boolean;
-    bVirtualTextureRenderWithQuad: boolean;
-    bVirtualTextureRenderWithQuadHQ: boolean;
-    VirtualTextureNumLods: number;
-    VirtualTextureLodBias: number;
-    VirtualTextureRenderPassType: ERuntimeVirtualTextureMainPassType;
-    NegativeZBoundsExtension: number;
-    PositiveZBoundsExtension: number;
-    LandscapeComponents: TArray<ULandscapeComponent>;
-    CollisionComponents: TArray<ULandscapeHeightfieldCollisionComponent>;
-    FoliageComponents: TArray<UHierarchicalInstancedStaticMeshComponent>;
-    NaniteComponent: ULandscapeNaniteComponent;
-    NaniteComponents: TArray<ULandscapeNaniteComponent>;
-    GrassTypesMaxDiscardDistance: number;
-    StaticLightingResolution: number;
-    CastShadow: boolean;
-    bCastDynamicShadow: boolean;
-    bCastStaticShadow: boolean;
-    ShadowCacheInvalidationBehavior: EShadowCacheInvalidationBehavior;
-    bCastContactShadow: boolean;
-    bCastFarShadow: boolean;
-    bCastHiddenShadow: boolean;
-    bCastShadowAsTwoSided: boolean;
-    bAffectDistanceFieldLighting: boolean;
-    bAffectDynamicIndirectLighting: boolean;
-    bAffectIndirectLightingWhileHidden: boolean;
-    LightingChannels: FLightingChannels;
-    bUseMaterialPositionOffsetInStaticLighting: boolean;
-    NonNaniteVirtualShadowMapConstantDepthBias: number;
-    NonNaniteVirtualShadowMapInvalidationHeightErrorThreshold: number;
-    NonNaniteVirtualShadowMapInvalidationScreenSizeLimit: number;
-    bHoldout: boolean;
-    bRenderCustomDepth: boolean;
-    CustomDepthStencilWriteMask: ERendererStencilMask;
-    CustomDepthStencilValue: number;
-    LDMaxDrawDistance: number;
-    LightmassSettings: FLightmassPrimitiveSettings;
-    CollisionMipLevel: number;
-    SimpleCollisionMipLevel: number;
-    BodyInstance: FBodyInstance;
-    bGenerateOverlapEvents: boolean;
-    bBakeMaterialPositionOffsetIntoCollision: boolean;
-    RegisteredToSubsystem: ULandscapeSubsystem;
-    ComponentSizeQuads: number;
-    SubsectionSizeQuads: number;
-    NumSubsections: number;
-    bUsedForNavigation: boolean;
-    bFillCollisionUnderLandscapeForNavmesh: boolean;
-    NavigationGeometryGatheringMode: ENavDataGatheringMode;
-    bUseDynamicMaterialInstance: boolean;
-    bUseLandscapeForCullingInvisibleHLODVertices: boolean;
-    bHasLayersContent: boolean;
-    bUseCompressedHeightmapStorage: boolean;
-    bStripPhysicsWhenCookedClient: boolean;
-    bStripPhysicsWhenCookedServer: boolean;
-    bStripGrassWhenCookedClient: boolean;
-    bStripGrassWhenCookedServer: boolean;
-    TargetLayers: Record<FName, FLandscapeTargetLayerSettings>;
-    SetVirtualTextureRenderPassType(InType: ERuntimeVirtualTextureMainPassType): void;
-    SetLandscapeMaterialVectorParameterValue(ParameterName: FName, Value: FLinearColor): void;
-    SetLandscapeMaterialTextureParameterValue(ParameterName: FName, Value: UTexture): void;
-    SetLandscapeMaterialScalarParameterValue(ParameterName: FName, Value: number): void;
-    LandscapeExportHeightmapToRenderTarget(InRenderTarget: UTextureRenderTarget2D, InExportHeightIntoRGChannel: boolean, InExportLandscapeProxies: boolean): boolean;
-    GetLandscapeActor(): ALandscape;
-    EditorSetLandscapeMaterial(NewLandscapeMaterial: UMaterialInterface): void;
-    EditorApplySpline(InSplineComponent: USplineComponent, StartWidth: number, EndWidth: number, StartSideFalloff: number, EndSideFalloff: number, StartRoll: number, EndRoll: number, NumSubdivisions: number, bRaiseHeights: boolean, bLowerHeights: boolean, PaintLayer: ULandscapeLayerInfoObject, EditLayerName: FName): void;
-    ChangeLODDistanceFactor(InLODDistanceFactor: number): void;
-    ChangeComponentScreenSizeToUseSubSections(InComponentScreenSizeToUseSubSections: number): void;
+    readonly __static_ALandscapeProxy: {
+        SetVirtualTextureRenderPassType(InType: ERuntimeVirtualTextureMainPassType): void;
+        SetLandscapeMaterialVectorParameterValue(ParameterName: string, Value: FLinearColor): void;
+        SetLandscapeMaterialTextureParameterValue(ParameterName: string, Value: UTexture): void;
+        SetLandscapeMaterialScalarParameterValue(ParameterName: string, Value: number): void;
+        LandscapeExportHeightmapToRenderTarget(InRenderTarget: UTextureRenderTarget2D, InExportHeightIntoRGChannel: boolean, InExportLandscapeProxies: boolean): boolean;
+        GetLandscapeActor(): ALandscape;
+        EditorSetLandscapeMaterial(NewLandscapeMaterial: UMaterialInterface): void;
+        EditorApplySpline(InSplineComponent: USplineComponent, StartWidth: number, EndWidth: number, StartSideFalloff: number, EndSideFalloff: number, StartRoll: number, EndRoll: number, NumSubdivisions: number, bRaiseHeights: boolean, bLowerHeights: boolean, PaintLayer: ULandscapeLayerInfoObject, EditLayerName: string): void;
+        ChangeLODDistanceFactor(InLODDistanceFactor: number): void;
+        ChangeComponentScreenSizeToUseSubSections(InComponentScreenSizeToUseSubSections: number): void;
+    };
+    readonly __properties_ALandscapeProxy: {
+        SplineComponent: ULandscapeSplinesComponent;
+        LandscapeGuid: FGuid;
+        OriginalLandscapeGuid: FGuid;
+        bEnableNanite: boolean;
+        PerLODOverrideMaterials: FLandscapePerLODMaterialOverride[];
+        bDisableRuntimeGrassMapGeneration: boolean;
+        LandscapeSectionOffset: FIntPoint;
+        MaxLODLevel: number;
+        LOD0ScreenSize: number;
+        LODGroupKey: number;
+        LOD0DistributionSetting: number;
+        LODDistributionSetting: number;
+        ScalableLOD0ScreenSize: FPerQualityLevelFloat;
+        ScalableLOD0DistributionSetting: FPerQualityLevelFloat;
+        ScalableLODDistributionSetting: FPerQualityLevelFloat;
+        bUseScalableLODSettings: boolean;
+        LODBlendRange: number;
+        StaticLightingLOD: number;
+        DefaultPhysMaterial: UPhysicalMaterial;
+        StreamingDistanceMultiplier: number;
+        LandscapeMaterial: UMaterialInterface;
+        LandscapeHoleMaterial: UMaterialInterface;
+        RuntimeVirtualTextures: URuntimeVirtualTexture[];
+        bSetCreateRuntimeVirtualTextureVolumes: boolean;
+        bVirtualTextureRenderWithQuad: boolean;
+        bVirtualTextureRenderWithQuadHQ: boolean;
+        VirtualTextureNumLods: number;
+        VirtualTextureLodBias: number;
+        VirtualTextureRenderPassType: ERuntimeVirtualTextureMainPassType;
+        NegativeZBoundsExtension: number;
+        PositiveZBoundsExtension: number;
+        LandscapeComponents: ULandscapeComponent[];
+        CollisionComponents: ULandscapeHeightfieldCollisionComponent[];
+        FoliageComponents: UHierarchicalInstancedStaticMeshComponent[];
+        NaniteComponent: ULandscapeNaniteComponent;
+        NaniteComponents: ULandscapeNaniteComponent[];
+        GrassTypesMaxDiscardDistance: number;
+        StaticLightingResolution: number;
+        CastShadow: boolean;
+        bCastDynamicShadow: boolean;
+        bCastStaticShadow: boolean;
+        ShadowCacheInvalidationBehavior: EShadowCacheInvalidationBehavior;
+        bCastContactShadow: boolean;
+        bCastFarShadow: boolean;
+        bCastHiddenShadow: boolean;
+        bCastShadowAsTwoSided: boolean;
+        bAffectDistanceFieldLighting: boolean;
+        bAffectDynamicIndirectLighting: boolean;
+        bAffectIndirectLightingWhileHidden: boolean;
+        LightingChannels: FLightingChannels;
+        bUseMaterialPositionOffsetInStaticLighting: boolean;
+        NonNaniteVirtualShadowMapConstantDepthBias: number;
+        NonNaniteVirtualShadowMapInvalidationHeightErrorThreshold: number;
+        NonNaniteVirtualShadowMapInvalidationScreenSizeLimit: number;
+        bHoldout: boolean;
+        bRenderCustomDepth: boolean;
+        CustomDepthStencilWriteMask: ERendererStencilMask;
+        CustomDepthStencilValue: number;
+        LDMaxDrawDistance: number;
+        LightmassSettings: FLightmassPrimitiveSettings;
+        CollisionMipLevel: number;
+        SimpleCollisionMipLevel: number;
+        BodyInstance: FBodyInstance;
+        bGenerateOverlapEvents: boolean;
+        bBakeMaterialPositionOffsetIntoCollision: boolean;
+        RegisteredToSubsystem: ULandscapeSubsystem;
+        ComponentSizeQuads: number;
+        SubsectionSizeQuads: number;
+        NumSubsections: number;
+        bUsedForNavigation: boolean;
+        bFillCollisionUnderLandscapeForNavmesh: boolean;
+        NavigationGeometryGatheringMode: ENavDataGatheringMode;
+        bUseDynamicMaterialInstance: boolean;
+        bUseLandscapeForCullingInvisibleHLODVertices: boolean;
+        bHasLayersContent: boolean;
+        bUseCompressedHeightmapStorage: boolean;
+        bStripPhysicsWhenCookedClient: boolean;
+        bStripPhysicsWhenCookedServer: boolean;
+        bStripGrassWhenCookedClient: boolean;
+        bStripGrassWhenCookedServer: boolean;
+        TargetLayers: TMap<string, FLandscapeTargetLayerSettings>;
+    };
+    readonly __staticRegistry: 
+        ALandscapeProxy['__static_ALandscapeProxy'] &
+        APartitionActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ALandscapeProxy['__properties_ALandscapeProxy'] &
+        APartitionActor['__propertyRegistry'];
 }
-declare const ALandscapeProxy: ALandscapeProxy;
 
 declare interface ALandscapeSplineActor extends AActor {
-    LandscapeGuid: FGuid;
+    readonly __properties_ALandscapeSplineActor: {
+        LandscapeGuid: FGuid;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ALandscapeSplineActor['__properties_ALandscapeSplineActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const ALandscapeSplineActor: ALandscapeSplineActor;
 
 declare interface ALandscapeSplineMeshesActor extends APartitionActor {
-    StaticMeshComponents: TArray<UStaticMeshComponent>;
+    readonly __properties_ALandscapeSplineMeshesActor: {
+        StaticMeshComponents: UStaticMeshComponent[];
+    };
+    readonly __staticRegistry: 
+        APartitionActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ALandscapeSplineMeshesActor['__properties_ALandscapeSplineMeshesActor'] &
+        APartitionActor['__propertyRegistry'];
 }
-declare const ALandscapeSplineMeshesActor: ALandscapeSplineMeshesActor;
 
 declare interface ALandscapeStreamingProxy extends ALandscapeProxy {
-    LandscapeActorRef: TSoftObjectPtr<ALandscape>;
-    OverriddenSharedProperties: TSet<FName>;
+    readonly __properties_ALandscapeStreamingProxy: {
+        LandscapeActorRef: TSoftObjectPtr<ALandscape>;
+        OverriddenSharedProperties: string[];
+    };
+    readonly __staticRegistry: 
+        ALandscapeProxy['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ALandscapeStreamingProxy['__properties_ALandscapeStreamingProxy'] &
+        ALandscapeProxy['__propertyRegistry'];
 }
-declare const ALandscapeStreamingProxy: ALandscapeStreamingProxy;
 
-declare interface FForeignControlPointData {
+declare type FForeignControlPointData = object;
 
-}
-declare const FForeignControlPointData: FForeignControlPointData;
+declare type FForeignSplineSegmentData = object;
 
-declare interface FForeignSplineSegmentData {
+declare type FForeignWorldSplineData = object;
 
-}
-declare const FForeignSplineSegmentData: FForeignSplineSegmentData;
-
-declare interface FForeignWorldSplineData {
-
-}
-declare const FForeignWorldSplineData: FForeignWorldSplineData;
-
-declare interface FGizmoSelectData {
-
-}
-declare const FGizmoSelectData: FGizmoSelectData;
+declare type FGizmoSelectData = object;
 
 declare interface FGrassInput {
-    Name: FName;
+    Name: string;
     GrassType: ULandscapeGrassType;
     Input: FExpressionInput;
 }
-declare const FGrassInput: FGrassInput;
 
 declare interface FGrassVariety {
     GrassMesh: UStaticMesh;
-    OverrideMaterials: TArray<UMaterialInterface>;
+    OverrideMaterials: UMaterialInterface[];
     GrassDensity: FPerPlatformFloat;
     GrassDensityQuality: FPerQualityLevelFloat;
     bUseGrid: boolean;
@@ -207,40 +252,30 @@ declare interface FGrassVariety {
     bCastDynamicShadow: boolean;
     bCastContactShadow: boolean;
     bKeepInstanceBufferCPUCopy: boolean;
-    InstanceWorldPositionOffsetDisableDistance: uint32;
+    InstanceWorldPositionOffsetDisableDistance: number;
     ShadowCacheInvalidationBehavior: EShadowCacheInvalidationBehavior;
 }
-declare const FGrassVariety: FGrassVariety;
 
 declare interface FHeightmapData {
     Texture: UTexture2D;
 }
-declare const FHeightmapData: FHeightmapData;
 
-declare interface FHeightmapTextureEdgeSnapshot {
-
-}
-declare const FHeightmapTextureEdgeSnapshot: FHeightmapTextureEdgeSnapshot;
+declare type FHeightmapTextureEdgeSnapshot = object;
 
 declare interface FLandscapeBrushParameters {
     RenderAreaWorldTransform: FTransform;
     RenderAreaSize: FIntPoint;
     CombinedResult: UTextureRenderTarget2D;
     LayerType: ELandscapeToolTargetType;
-    WeightmapLayerName: FName;
+    WeightmapLayerName: string;
 }
-declare const FLandscapeBrushParameters: FLandscapeBrushParameters;
 
 declare interface FLandscapeComponentMaterialOverride {
     LODIndex: FPerPlatformInt;
     Material: UMaterialInterface;
 }
-declare const FLandscapeComponentMaterialOverride: FLandscapeComponentMaterialOverride;
 
-declare interface FLandscapeEditLayerMergeRenderBlackboardItem {
-
-}
-declare const FLandscapeEditLayerMergeRenderBlackboardItem: FLandscapeEditLayerMergeRenderBlackboardItem;
+declare type FLandscapeEditLayerMergeRenderBlackboardItem = object;
 
 declare interface FLandscapeEditToolRenderData {
     ToolMaterial: UMaterialInterface;
@@ -253,72 +288,55 @@ declare interface FLandscapeEditToolRenderData {
     LayerContributionTexture: UTexture2D;
     DirtyTexture: UTexture2D;
 }
-declare const FLandscapeEditToolRenderData: FLandscapeEditToolRenderData;
 
-declare interface FLandscapeEditorLayerSettings {
+declare type FLandscapeEditorLayerSettings = object;
 
-}
-declare const FLandscapeEditorLayerSettings: FLandscapeEditorLayerSettings;
-
-declare interface FLandscapeImportLayerInfo {
-
-}
-declare const FLandscapeImportLayerInfo: FLandscapeImportLayerInfo;
+declare type FLandscapeImportLayerInfo = object;
 
 declare interface FLandscapeInfoLayerSettings {
     LayerInfoObj: ULandscapeLayerInfoObject;
-    LayerName: FName;
+    LayerName: string;
 }
-declare const FLandscapeInfoLayerSettings: FLandscapeInfoLayerSettings;
 
 declare interface FLandscapeLayer {
     Guid: FGuid;
-    Name: FName;
+    Name: string;
     bVisible: boolean;
     bLocked: boolean;
     HeightmapAlpha: number;
     WeightmapAlpha: number;
     BlendMode: ELandscapeBlendMode;
-    Brushes: TArray<FLandscapeLayerBrush>;
-    WeightmapLayerAllocationBlend: Record<string | number | symbol, boolean>;
+    Brushes: FLandscapeLayerBrush[];
+    WeightmapLayerAllocationBlend: TMap<ULandscapeLayerInfoObject, boolean>;
     EditLayer: ULandscapeEditLayerBase;
 }
-declare const FLandscapeLayer: FLandscapeLayer;
 
-declare interface FLandscapeLayerBrush {
-
-}
-declare const FLandscapeLayerBrush: FLandscapeLayerBrush;
+declare type FLandscapeLayerBrush = object;
 
 declare interface FLandscapeLayerComponentData {
     HeightmapData: FHeightmapData;
     WeightmapData: FWeightmapData;
 }
-declare const FLandscapeLayerComponentData: FLandscapeLayerComponentData;
 
 declare interface FLandscapeMaterialTextureStreamingInfo {
-    TextureName: FName;
+    TextureName: string;
     TexelFactor: number;
 }
-declare const FLandscapeMaterialTextureStreamingInfo: FLandscapeMaterialTextureStreamingInfo;
 
 declare interface FLandscapePerLODMaterialOverride {
     LODIndex: number;
     Material: UMaterialInterface;
 }
-declare const FLandscapePerLODMaterialOverride: FLandscapePerLODMaterialOverride;
 
 declare interface FLandscapeProxyMaterialOverride {
     LODIndex: FPerPlatformInt;
     Material: UMaterialInterface;
 }
-declare const FLandscapeProxyMaterialOverride: FLandscapeProxyMaterialOverride;
 
 declare interface FLandscapeSplineConnection {
     Segment: ULandscapeSplineSegment;
     End: boolean;
 }
-declare const FLandscapeSplineConnection: FLandscapeSplineConnection;
 
 declare interface FLandscapeSplineInterpPoint {
     Center: FVector;
@@ -332,11 +350,10 @@ declare interface FLandscapeSplineInterpPoint {
     LayerFalloffRight: FVector;
     StartEndFalloff: number;
 }
-declare const FLandscapeSplineInterpPoint: FLandscapeSplineInterpPoint;
 
 declare interface FLandscapeSplineMeshEntry {
     mesh: UStaticMesh;
-    MaterialOverrides: TArray<UMaterialInterface>;
+    MaterialOverrides: UMaterialInterface[];
     bCenterH: boolean;
     CenterAdjust: FVector2D;
     bScaleToWidth: boolean;
@@ -346,29 +363,25 @@ declare interface FLandscapeSplineMeshEntry {
     ForwardAxis: ESplineMeshAxis;
     UpAxis: ESplineMeshAxis;
 }
-declare const FLandscapeSplineMeshEntry: FLandscapeSplineMeshEntry;
 
 declare interface FLandscapeSplineSegmentConnection {
     ControlPoint: ULandscapeSplineControlPoint;
     TangentLen: number;
-    SocketName: FName;
+    SocketName: string;
 }
-declare const FLandscapeSplineSegmentConnection: FLandscapeSplineSegmentConnection;
 
 declare interface FLandscapeTargetLayerSettings {
     LayerInfoObj: ULandscapeLayerInfoObject;
 }
-declare const FLandscapeTargetLayerSettings: FLandscapeTargetLayerSettings;
 
 declare interface FLandscapeTexture2DMipMap {
     SizeX: number;
     SizeY: number;
     bCompressed: boolean;
 }
-declare const FLandscapeTexture2DMipMap: FLandscapeTexture2DMipMap;
 
 declare interface FLayerBlendInput {
-    LayerName: FName;
+    LayerName: string;
     BlendType: ELandscapeLayerBlendType;
     LayerInput: FExpressionInput;
     HeightInput: FExpressionInput;
@@ -376,390 +389,589 @@ declare interface FLayerBlendInput {
     ConstLayerInput: FVector;
     ConstHeightInput: number;
 }
-declare const FLayerBlendInput: FLayerBlendInput;
 
 declare interface FPhysicalMaterialInput {
     PhysicalMaterial: UPhysicalMaterial;
     Input: FExpressionInput;
 }
-declare const FPhysicalMaterialInput: FPhysicalMaterialInput;
 
 declare interface FWeightmapData {
-    Textures: TArray<UTexture2D>;
-    LayerAllocations: TArray<FWeightmapLayerAllocationInfo>;
-    TextureUsages: TArray<ULandscapeWeightmapUsage>;
+    Textures: UTexture2D[];
+    LayerAllocations: FWeightmapLayerAllocationInfo[];
+    TextureUsages: ULandscapeWeightmapUsage[];
 }
-declare const FWeightmapData: FWeightmapData;
 
 declare interface FWeightmapLayerAllocationInfo {
     LayerInfo: ULandscapeLayerInfoObject;
-    WeightmapTextureIndex: uint8;
-    WeightmapTextureChannel: uint8;
+    WeightmapTextureIndex: number;
+    WeightmapTextureChannel: number;
 }
-declare const FWeightmapLayerAllocationInfo: FWeightmapLayerAllocationInfo;
 
 declare interface ILandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const ILandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport: ILandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport;
 
 declare interface ILandscapeEditLayerRenderer extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const ILandscapeEditLayerRenderer: ILandscapeEditLayerRenderer;
 
 declare interface ILandscapeSplineInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const ILandscapeSplineInterface: ILandscapeSplineInterface;
 
 declare interface UControlPointMeshComponent extends UStaticMeshComponent {
-    VirtualTextureMainPassMaxDrawDistance: number;
+    readonly __properties_UControlPointMeshComponent: {
+        VirtualTextureMainPassMaxDrawDistance: number;
+    };
+    readonly __staticRegistry: 
+        UStaticMeshComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UControlPointMeshComponent['__properties_UControlPointMeshComponent'] &
+        UStaticMeshComponent['__propertyRegistry'];
 }
-declare const UControlPointMeshComponent: UControlPointMeshComponent;
 
 declare interface ULandscapeComponent extends UPrimitiveComponent {
-    SectionBaseX: number;
-    SectionBaseY: number;
-    ComponentSizeQuads: number;
-    SubsectionSizeQuads: number;
-    NumSubsections: number;
-    OverrideMaterial: UMaterialInterface;
-    OverrideHoleMaterial: UMaterialInterface;
-    MaterialInstances: TArray<UMaterialInstanceConstant>;
-    MaterialInstancesDynamic: TArray<UMaterialInstanceDynamic>;
-    LODIndexToMaterialIndex: TArray<int8>;
-    XYOffsetmapTexture: UTexture2D;
-    WeightmapScaleBias: FVector4;
-    WeightmapSubsectionOffset: number;
-    HeightmapScaleBias: FVector4;
-    CachedLocalBox: FBox;
-    MipToMipMaxDeltas: TArray<number>;
-    CollisionComponentRef: ULandscapeHeightfieldCollisionComponent;
-    bUserTriggeredChangeRequested: boolean;
-    bNaniteActive: boolean;
-    HeightmapTexture: UTexture2D;
-    WeightmapLayerAllocations: TArray<FWeightmapLayerAllocationInfo>;
-    WeightmapTextures: TArray<UTexture2D>;
-    PerLODOverrideMaterials: TArray<FLandscapePerLODMaterialOverride>;
-    GrassTypes: TArray<ULandscapeGrassType>;
-    MapBuildDataId: FGuid;
-    CollisionMipLevel: number;
-    SimpleCollisionMipLevel: number;
-    NegativeZBoundsExtension: number;
-    PositiveZBoundsExtension: number;
-    StaticLightingResolution: number;
-    ForcedLOD: number;
-    LODBias: number;
-    StateId: FGuid;
-    RegisteredEdgeFixup: ULandscapeHeightmapTextureEdgeFixup;
-    MobileMaterialInterfaces: TArray<UMaterialInterface>;
-    MobileWeightmapTextures: TArray<UTexture2D>;
-    MobileWeightmapTextureArray: UTexture2DArray;
-    MobileWeightmapLayerAllocations: TArray<FWeightmapLayerAllocationInfo>;
-    SetLODBias(InLODBias: number): void;
-    SetForcedLOD(InForcedLOD: number): void;
-    GetMaterialInstanceDynamic(InIndex: number): UMaterialInstanceDynamic;
-    EditorGetPaintLayerWeightByNameAtLocation(InLocation: FVector, InPaintLayerName: FName): number;
-    EditorGetPaintLayerWeightAtLocation(InLocation: FVector, PaintLayer: ULandscapeLayerInfoObject): number;
+    readonly __static_ULandscapeComponent: {
+        SetLODBias(InLODBias: number): void;
+        SetForcedLOD(InForcedLOD: number): void;
+        GetMaterialInstanceDynamic(InIndex: number): UMaterialInstanceDynamic;
+        EditorGetPaintLayerWeightByNameAtLocation(InLocation: FVector, InPaintLayerName: string): number;
+        EditorGetPaintLayerWeightAtLocation(InLocation: FVector, PaintLayer: ULandscapeLayerInfoObject): number;
+    };
+    readonly __properties_ULandscapeComponent: {
+        SectionBaseX: number;
+        SectionBaseY: number;
+        ComponentSizeQuads: number;
+        SubsectionSizeQuads: number;
+        NumSubsections: number;
+        OverrideMaterial: UMaterialInterface;
+        OverrideHoleMaterial: UMaterialInterface;
+        MaterialInstances: UMaterialInstanceConstant[];
+        MaterialInstancesDynamic: UMaterialInstanceDynamic[];
+        LODIndexToMaterialIndex: number[];
+        XYOffsetmapTexture: UTexture2D;
+        WeightmapScaleBias: FVector4;
+        WeightmapSubsectionOffset: number;
+        HeightmapScaleBias: FVector4;
+        CachedLocalBox: FBox;
+        MipToMipMaxDeltas: number[];
+        CollisionComponentRef: ULandscapeHeightfieldCollisionComponent;
+        bUserTriggeredChangeRequested: boolean;
+        bNaniteActive: boolean;
+        HeightmapTexture: UTexture2D;
+        WeightmapLayerAllocations: FWeightmapLayerAllocationInfo[];
+        WeightmapTextures: UTexture2D[];
+        PerLODOverrideMaterials: FLandscapePerLODMaterialOverride[];
+        GrassTypes: ULandscapeGrassType[];
+        MapBuildDataId: FGuid;
+        CollisionMipLevel: number;
+        SimpleCollisionMipLevel: number;
+        NegativeZBoundsExtension: number;
+        PositiveZBoundsExtension: number;
+        StaticLightingResolution: number;
+        ForcedLOD: number;
+        LODBias: number;
+        StateId: FGuid;
+        RegisteredEdgeFixup: ULandscapeHeightmapTextureEdgeFixup;
+        MobileMaterialInterfaces: UMaterialInterface[];
+        MobileWeightmapTextures: UTexture2D[];
+        MobileWeightmapTextureArray: UTexture2DArray;
+        MobileWeightmapLayerAllocations: FWeightmapLayerAllocationInfo[];
+    };
+    readonly __staticRegistry: 
+        ULandscapeComponent['__static_ULandscapeComponent'] &
+        UPrimitiveComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeComponent['__properties_ULandscapeComponent'] &
+        UPrimitiveComponent['__propertyRegistry'];
 }
-declare const ULandscapeComponent: ULandscapeComponent;
 
 declare interface ULandscapeDefaultEditLayerRenderer extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULandscapeDefaultEditLayerRenderer: ULandscapeDefaultEditLayerRenderer;
 
 declare interface ULandscapeEditLayer extends ULandscapeEditLayerPersistent {
-
+    readonly __staticRegistry: 
+        ULandscapeEditLayerPersistent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeEditLayerPersistent['__propertyRegistry'];
 }
-declare const ULandscapeEditLayer: ULandscapeEditLayer;
 
 declare interface ULandscapeEditLayerBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULandscapeEditLayerBase: ULandscapeEditLayerBase;
 
 declare interface ULandscapeEditLayerPersistent extends ULandscapeEditLayerBase {
-
+    readonly __staticRegistry: 
+        ULandscapeEditLayerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeEditLayerBase['__propertyRegistry'];
 }
-declare const ULandscapeEditLayerPersistent: ULandscapeEditLayerPersistent;
 
 declare interface ULandscapeEditLayerProcedural extends ULandscapeEditLayerBase {
-
+    readonly __staticRegistry: 
+        ULandscapeEditLayerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeEditLayerBase['__propertyRegistry'];
 }
-declare const ULandscapeEditLayerProcedural: ULandscapeEditLayerProcedural;
 
 declare interface ULandscapeEditLayerSplines extends ULandscapeEditLayerPersistent {
-
+    readonly __staticRegistry: 
+        ULandscapeEditLayerPersistent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeEditLayerPersistent['__propertyRegistry'];
 }
-declare const ULandscapeEditLayerSplines: ULandscapeEditLayerSplines;
 
 declare interface ULandscapeEditResourcesSubsystem extends UEngineSubsystem {
-    ScratchRenderTargets: TArray<ULandscapeScratchRenderTarget>;
+    readonly __properties_ULandscapeEditResourcesSubsystem: {
+        ScratchRenderTargets: ULandscapeScratchRenderTarget[];
+    };
+    readonly __staticRegistry: 
+        UEngineSubsystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeEditResourcesSubsystem['__properties_ULandscapeEditResourcesSubsystem'] &
+        UEngineSubsystem['__propertyRegistry'];
 }
-declare const ULandscapeEditResourcesSubsystem: ULandscapeEditResourcesSubsystem;
 
 declare interface ULandscapeGizmoRenderComponent extends UPrimitiveComponent {
-
+    readonly __staticRegistry: 
+        UPrimitiveComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPrimitiveComponent['__propertyRegistry'];
 }
-declare const ULandscapeGizmoRenderComponent: ULandscapeGizmoRenderComponent;
 
 declare interface ULandscapeGrassType extends UObject {
-    GrassVarieties: TArray<FGrassVariety>;
-    bEnableDensityScaling: boolean;
-    StateHash: uint32;
-    GrassMesh: UStaticMesh;
-    GrassDensity: number;
-    PlacementJitter: number;
-    StartCullDistance: number;
-    EndCullDistance: number;
-    RandomRotation: boolean;
-    AlignToSurface: boolean;
+    readonly __properties_ULandscapeGrassType: {
+        GrassVarieties: FGrassVariety[];
+        bEnableDensityScaling: boolean;
+        StateHash: number;
+        GrassMesh: UStaticMesh;
+        GrassDensity: number;
+        PlacementJitter: number;
+        StartCullDistance: number;
+        EndCullDistance: number;
+        RandomRotation: boolean;
+        AlignToSurface: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeGrassType['__properties_ULandscapeGrassType'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULandscapeGrassType: ULandscapeGrassType;
 
 declare interface ULandscapeHLODBuilder extends UHLODBuilder {
-
+    readonly __staticRegistry: 
+        UHLODBuilder['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UHLODBuilder['__propertyRegistry'];
 }
-declare const ULandscapeHLODBuilder: ULandscapeHLODBuilder;
 
 declare interface ULandscapeHeightfieldCollisionComponent extends UPrimitiveComponent {
-    ComponentLayerInfos: TArray<ULandscapeLayerInfoObject>;
-    SectionBaseX: number;
-    SectionBaseY: number;
-    CollisionSizeQuads: number;
-    CollisionScale: number;
-    SimpleCollisionSizeQuads: number;
-    CollisionQuadFlags: TArray<uint8>;
-    HeightfieldGuid: FGuid;
-    CachedLocalBox: FBox;
-    RenderComponentRef: ULandscapeComponent;
-    CookedPhysicalMaterials: TArray<UPhysicalMaterial>;
-    GetRenderComponent(): ULandscapeComponent;
+    readonly __static_ULandscapeHeightfieldCollisionComponent: {
+        GetRenderComponent(): ULandscapeComponent;
+    };
+    readonly __properties_ULandscapeHeightfieldCollisionComponent: {
+        ComponentLayerInfos: ULandscapeLayerInfoObject[];
+        SectionBaseX: number;
+        SectionBaseY: number;
+        CollisionSizeQuads: number;
+        CollisionScale: number;
+        SimpleCollisionSizeQuads: number;
+        CollisionQuadFlags: number[];
+        HeightfieldGuid: FGuid;
+        CachedLocalBox: FBox;
+        RenderComponentRef: ULandscapeComponent;
+        CookedPhysicalMaterials: UPhysicalMaterial[];
+    };
+    readonly __staticRegistry: 
+        ULandscapeHeightfieldCollisionComponent['__static_ULandscapeHeightfieldCollisionComponent'] &
+        UPrimitiveComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeHeightfieldCollisionComponent['__properties_ULandscapeHeightfieldCollisionComponent'] &
+        UPrimitiveComponent['__propertyRegistry'];
 }
-declare const ULandscapeHeightfieldCollisionComponent: ULandscapeHeightfieldCollisionComponent;
 
 declare interface ULandscapeHeightmapNormalsEditLayerRenderer extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULandscapeHeightmapNormalsEditLayerRenderer: ULandscapeHeightmapNormalsEditLayerRenderer;
 
 declare interface ULandscapeHeightmapTextureEdgeFixup extends UAssetUserData {
-
+    readonly __staticRegistry: 
+        UAssetUserData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAssetUserData['__propertyRegistry'];
 }
-declare const ULandscapeHeightmapTextureEdgeFixup: ULandscapeHeightmapTextureEdgeFixup;
 
 declare interface ULandscapeInfo extends UObject {
-    LandscapeActor: TWeakObjectPtr<ALandscape>;
-    LandscapeGuid: FGuid;
-    ComponentSizeQuads: number;
-    SubsectionSizeQuads: number;
-    ComponentNumSubsections: number;
-    StreamingProxies: TArray<TWeakObjectPtr<ALandscapeStreamingProxy>>;
+    readonly __properties_ULandscapeInfo: {
+        LandscapeActor: TWeakObjectPtr<ALandscape>;
+        LandscapeGuid: FGuid;
+        ComponentSizeQuads: number;
+        SubsectionSizeQuads: number;
+        ComponentNumSubsections: number;
+        StreamingProxies: TWeakObjectPtr<ALandscapeStreamingProxy>[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeInfo['__properties_ULandscapeInfo'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULandscapeInfo: ULandscapeInfo;
 
 declare interface ULandscapeInfoMap extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULandscapeInfoMap: ULandscapeInfoMap;
 
 declare interface ULandscapeLODStreamingProxy_DEPRECATED extends UStreamableRenderAsset {
-
+    readonly __staticRegistry: 
+        UStreamableRenderAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStreamableRenderAsset['__propertyRegistry'];
 }
-declare const ULandscapeLODStreamingProxy_DEPRECATED: ULandscapeLODStreamingProxy_DEPRECATED;
 
 declare interface ULandscapeLayerInfoObject extends UObject {
-    LayerName: FName;
-    PhysMaterial: UPhysicalMaterial;
-    Hardness: number;
-    LayerUsageDebugColor: FLinearColor;
+    readonly __properties_ULandscapeLayerInfoObject: {
+        LayerName: string;
+        PhysMaterial: UPhysicalMaterial;
+        Hardness: number;
+        LayerUsageDebugColor: FLinearColor;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeLayerInfoObject['__properties_ULandscapeLayerInfoObject'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULandscapeLayerInfoObject: ULandscapeLayerInfoObject;
 
 declare interface ULandscapeMaterialInstanceConstant extends UMaterialInstanceConstant {
-    TextureStreamingInfo: TArray<FLandscapeMaterialTextureStreamingInfo>;
-    bIsLayerThumbnail: boolean;
-    bDisableTessellation: boolean;
-    bMobile: boolean;
-    bEditorToolUsage: boolean;
+    readonly __properties_ULandscapeMaterialInstanceConstant: {
+        TextureStreamingInfo: FLandscapeMaterialTextureStreamingInfo[];
+        bIsLayerThumbnail: boolean;
+        bDisableTessellation: boolean;
+        bMobile: boolean;
+        bEditorToolUsage: boolean;
+    };
+    readonly __staticRegistry: 
+        UMaterialInstanceConstant['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeMaterialInstanceConstant['__properties_ULandscapeMaterialInstanceConstant'] &
+        UMaterialInstanceConstant['__propertyRegistry'];
 }
-declare const ULandscapeMaterialInstanceConstant: ULandscapeMaterialInstanceConstant;
 
 declare interface ULandscapeMeshCollisionComponent extends ULandscapeHeightfieldCollisionComponent {
-    MeshGuid: FGuid;
+    readonly __properties_ULandscapeMeshCollisionComponent: {
+        MeshGuid: FGuid;
+    };
+    readonly __staticRegistry: 
+        ULandscapeHeightfieldCollisionComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeMeshCollisionComponent['__properties_ULandscapeMeshCollisionComponent'] &
+        ULandscapeHeightfieldCollisionComponent['__propertyRegistry'];
 }
-declare const ULandscapeMeshCollisionComponent: ULandscapeMeshCollisionComponent;
 
 declare interface ULandscapeMeshProxyComponent extends UStaticMeshComponent {
-    LandscapeGuid: FGuid;
-    ProxyComponentBases: TArray<FIntPoint>;
-    ProxyComponentCentersObjectSpace: TArray<FVector>;
-    ComponentXVectorObjectSpace: FVector;
-    ComponentYVectorObjectSpace: FVector;
-    ComponentResolution: number;
-    ProxyLOD: int8;
-    LODGroupKey: uint32;
+    readonly __properties_ULandscapeMeshProxyComponent: {
+        LandscapeGuid: FGuid;
+        ProxyComponentBases: FIntPoint[];
+        ProxyComponentCentersObjectSpace: FVector[];
+        ComponentXVectorObjectSpace: FVector;
+        ComponentYVectorObjectSpace: FVector;
+        ComponentResolution: number;
+        ProxyLOD: number;
+        LODGroupKey: number;
+    };
+    readonly __staticRegistry: 
+        UStaticMeshComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeMeshProxyComponent['__properties_ULandscapeMeshProxyComponent'] &
+        UStaticMeshComponent['__propertyRegistry'];
 }
-declare const ULandscapeMeshProxyComponent: ULandscapeMeshProxyComponent;
 
 declare interface ULandscapeNaniteComponent extends UStaticMeshComponent {
-    ProxyContentId: FGuid;
-    bEnabled: boolean;
-    SourceLandscapeComponents: TArray<ULandscapeComponent>;
+    readonly __properties_ULandscapeNaniteComponent: {
+        ProxyContentId: FGuid;
+        bEnabled: boolean;
+        SourceLandscapeComponents: ULandscapeComponent[];
+    };
+    readonly __staticRegistry: 
+        UStaticMeshComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeNaniteComponent['__properties_ULandscapeNaniteComponent'] &
+        UStaticMeshComponent['__propertyRegistry'];
 }
-declare const ULandscapeNaniteComponent: ULandscapeNaniteComponent;
 
 declare interface ULandscapeScratchRenderTarget extends UObject {
-    RenderTarget: UTextureRenderTarget;
+    readonly __properties_ULandscapeScratchRenderTarget: {
+        RenderTarget: UTextureRenderTarget;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeScratchRenderTarget['__properties_ULandscapeScratchRenderTarget'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULandscapeScratchRenderTarget: ULandscapeScratchRenderTarget;
 
 declare interface ULandscapeSettings extends UDeveloperSettings {
-    MaxNumberOfLayers: number;
-    bShowDialogForAutomaticLayerCreation: boolean;
-    MaxComponents: number;
-    MaxImageImportCacheSizeMegaBytes: uint32;
-    PaintStrengthGamma: number;
-    bDisablePaintingStartupSlowdown: boolean;
-    LandscapeDirtyingMode: ELandscapeDirtyingMode;
-    SideResolutionLimit: number;
-    DefaultLandscapeMaterial: TSoftObjectPtr<UMaterialInterface>;
-    DefaultLayerInfoObject: TSoftObjectPtr<ULandscapeLayerInfoObject>;
-    BrushSizeUIMax: number;
-    BrushSizeClampMax: number;
-    HLODMaxTextureSize: number;
-    bShouldUpdateEditLayersDuringInteractiveChanges: boolean;
-    bRestrictiveMode: boolean;
-    SplineIconWorldZOffset: number;
-    SplineIconScale: number;
-    bDisplayTargetLayerThumbnails: boolean;
-    bDisableTemporalAntiAliasingInLandscapeMode: boolean;
+    readonly __properties_ULandscapeSettings: {
+        MaxNumberOfLayers: number;
+        bShowDialogForAutomaticLayerCreation: boolean;
+        MaxComponents: number;
+        MaxImageImportCacheSizeMegaBytes: number;
+        PaintStrengthGamma: number;
+        bDisablePaintingStartupSlowdown: boolean;
+        LandscapeDirtyingMode: ELandscapeDirtyingMode;
+        SideResolutionLimit: number;
+        DefaultLandscapeMaterial: TSoftObjectPtr<UMaterialInterface>;
+        DefaultLayerInfoObject: TSoftObjectPtr<ULandscapeLayerInfoObject>;
+        BrushSizeUIMax: number;
+        BrushSizeClampMax: number;
+        HLODMaxTextureSize: number;
+        bShouldUpdateEditLayersDuringInteractiveChanges: boolean;
+        bRestrictiveMode: boolean;
+        SplineIconWorldZOffset: number;
+        SplineIconScale: number;
+        bDisplayTargetLayerThumbnails: boolean;
+        bDisableTemporalAntiAliasingInLandscapeMode: boolean;
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeSettings['__properties_ULandscapeSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const ULandscapeSettings: ULandscapeSettings;
 
 declare interface ULandscapeSplineControlPoint extends UObject {
-    Location: FVector;
-    Rotation: FRotator;
-    Width: number;
-    LayerWidthRatio: number;
-    SideFalloff: number;
-    LeftSideFalloffFactor: number;
-    RightSideFalloffFactor: number;
-    LeftSideLayerFalloffFactor: number;
-    RightSideLayerFalloffFactor: number;
-    EndFalloff: number;
-    ConnectedSegments: TArray<FLandscapeSplineConnection>;
-    Points: TArray<FLandscapeSplineInterpPoint>;
-    Bounds: FBox;
-    LocalMeshComponent: UControlPointMeshComponent;
+    readonly __properties_ULandscapeSplineControlPoint: {
+        Location: FVector;
+        Rotation: FRotator;
+        Width: number;
+        LayerWidthRatio: number;
+        SideFalloff: number;
+        LeftSideFalloffFactor: number;
+        RightSideFalloffFactor: number;
+        LeftSideLayerFalloffFactor: number;
+        RightSideLayerFalloffFactor: number;
+        EndFalloff: number;
+        ConnectedSegments: FLandscapeSplineConnection[];
+        Points: FLandscapeSplineInterpPoint[];
+        Bounds: FBox;
+        LocalMeshComponent: UControlPointMeshComponent;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeSplineControlPoint['__properties_ULandscapeSplineControlPoint'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULandscapeSplineControlPoint: ULandscapeSplineControlPoint;
 
 declare interface ULandscapeSplineSegment extends UObject {
-    Connections: FLandscapeSplineSegmentConnection;
-    SplineInfo: FInterpCurveVector;
-    Points: TArray<FLandscapeSplineInterpPoint>;
-    Bounds: FBox;
-    LocalMeshComponents: TArray<USplineMeshComponent>;
+    readonly __properties_ULandscapeSplineSegment: {
+        Connections: FLandscapeSplineSegmentConnection;
+        SplineInfo: FInterpCurveVector;
+        Points: FLandscapeSplineInterpPoint[];
+        Bounds: FBox;
+        LocalMeshComponents: USplineMeshComponent[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeSplineSegment['__properties_ULandscapeSplineSegment'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULandscapeSplineSegment: ULandscapeSplineSegment;
 
 declare interface ULandscapeSplinesComponent extends UPrimitiveComponent {
-    ControlPoints: TArray<ULandscapeSplineControlPoint>;
-    Segments: TArray<ULandscapeSplineSegment>;
-    CookedForeignMeshComponents: TArray<UMeshComponent>;
-    GetSplineMeshComponents(): TArray<USplineMeshComponent>;
+    readonly __static_ULandscapeSplinesComponent: {
+        GetSplineMeshComponents(): USplineMeshComponent[];
+    };
+    readonly __properties_ULandscapeSplinesComponent: {
+        ControlPoints: ULandscapeSplineControlPoint[];
+        Segments: ULandscapeSplineSegment[];
+        CookedForeignMeshComponents: UMeshComponent[];
+    };
+    readonly __staticRegistry: 
+        ULandscapeSplinesComponent['__static_ULandscapeSplinesComponent'] &
+        UPrimitiveComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeSplinesComponent['__properties_ULandscapeSplinesComponent'] &
+        UPrimitiveComponent['__propertyRegistry'];
 }
-declare const ULandscapeSplinesComponent: ULandscapeSplinesComponent;
 
 declare interface ULandscapeSubsystem extends UTickableWorldSubsystem {
-    StreamingProxiesNeedingReregister: TSet<ALandscapeStreamingProxy>;
-    LandscapeActors: TArray<ALandscape>;
-    Proxies: TArray<ALandscapeProxy>;
+    readonly __properties_ULandscapeSubsystem: {
+        StreamingProxiesNeedingReregister: ALandscapeStreamingProxy[];
+        LandscapeActors: ALandscape[];
+        Proxies: ALandscapeProxy[];
+    };
+    readonly __staticRegistry: 
+        UTickableWorldSubsystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeSubsystem['__properties_ULandscapeSubsystem'] &
+        UTickableWorldSubsystem['__propertyRegistry'];
 }
-declare const ULandscapeSubsystem: ULandscapeSubsystem;
 
 declare interface ULandscapeTextureHash extends UAssetUserData {
-    TextureHashGUID: FGuid;
-    LastSourceID: FGuid;
-    TextureType: ELandscapeTextureType;
-    TextureUsage: ELandscapeTextureUsage;
+    readonly __properties_ULandscapeTextureHash: {
+        TextureHashGUID: FGuid;
+        LastSourceID: FGuid;
+        TextureType: ELandscapeTextureType;
+        TextureUsage: ELandscapeTextureUsage;
+    };
+    readonly __staticRegistry: 
+        UAssetUserData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeTextureHash['__properties_ULandscapeTextureHash'] &
+        UAssetUserData['__propertyRegistry'];
 }
-declare const ULandscapeTextureHash: ULandscapeTextureHash;
 
 declare interface ULandscapeTextureMipEdgeOverrideFactory extends UTextureMipDataProviderFactory {
-
+    readonly __staticRegistry: 
+        UTextureMipDataProviderFactory['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTextureMipDataProviderFactory['__propertyRegistry'];
 }
-declare const ULandscapeTextureMipEdgeOverrideFactory: ULandscapeTextureMipEdgeOverrideFactory;
 
 declare interface ULandscapeTextureStorageProviderFactory extends UTextureAllMipDataProviderFactory {
-
+    readonly __staticRegistry: 
+        UTextureAllMipDataProviderFactory['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTextureAllMipDataProviderFactory['__propertyRegistry'];
 }
-declare const ULandscapeTextureStorageProviderFactory: ULandscapeTextureStorageProviderFactory;
 
 declare interface ULandscapeWeightmapUsage extends UObject {
-    ChannelUsage: ULandscapeComponent;
-    LayerGuid: FGuid;
+    readonly __properties_ULandscapeWeightmapUsage: {
+        ChannelUsage: ULandscapeComponent;
+        LayerGuid: FGuid;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULandscapeWeightmapUsage['__properties_ULandscapeWeightmapUsage'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULandscapeWeightmapUsage: ULandscapeWeightmapUsage;
 
 declare interface ULandscapeWeightmapWeightBlendedLayersRenderer extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULandscapeWeightmapWeightBlendedLayersRenderer: ULandscapeWeightmapWeightBlendedLayersRenderer;
 
 declare interface UMaterialExpressionLandscapeGrassOutput extends UMaterialExpressionCustomOutput {
-    GrassTypes: TArray<FGrassInput>;
+    readonly __properties_UMaterialExpressionLandscapeGrassOutput: {
+        GrassTypes: FGrassInput[];
+    };
+    readonly __staticRegistry: 
+        UMaterialExpressionCustomOutput['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMaterialExpressionLandscapeGrassOutput['__properties_UMaterialExpressionLandscapeGrassOutput'] &
+        UMaterialExpressionCustomOutput['__propertyRegistry'];
 }
-declare const UMaterialExpressionLandscapeGrassOutput: UMaterialExpressionLandscapeGrassOutput;
 
 declare interface UMaterialExpressionLandscapeLayerBlend extends UMaterialExpression {
-    Layers: TArray<FLayerBlendInput>;
+    readonly __properties_UMaterialExpressionLandscapeLayerBlend: {
+        Layers: FLayerBlendInput[];
+    };
+    readonly __staticRegistry: 
+        UMaterialExpression['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMaterialExpressionLandscapeLayerBlend['__properties_UMaterialExpressionLandscapeLayerBlend'] &
+        UMaterialExpression['__propertyRegistry'];
 }
-declare const UMaterialExpressionLandscapeLayerBlend: UMaterialExpressionLandscapeLayerBlend;
 
 declare interface UMaterialExpressionLandscapeLayerCoords extends UMaterialExpression {
-    MappingType: ETerrainCoordMappingType;
-    CustomUVType: ELandscapeCustomizedCoordType;
-    MappingScale: number;
-    MappingRotation: number;
-    MappingPanU: number;
-    MappingPanV: number;
+    readonly __properties_UMaterialExpressionLandscapeLayerCoords: {
+        MappingType: ETerrainCoordMappingType;
+        CustomUVType: ELandscapeCustomizedCoordType;
+        MappingScale: number;
+        MappingRotation: number;
+        MappingPanU: number;
+        MappingPanV: number;
+    };
+    readonly __staticRegistry: 
+        UMaterialExpression['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMaterialExpressionLandscapeLayerCoords['__properties_UMaterialExpressionLandscapeLayerCoords'] &
+        UMaterialExpression['__propertyRegistry'];
 }
-declare const UMaterialExpressionLandscapeLayerCoords: UMaterialExpressionLandscapeLayerCoords;
 
 declare interface UMaterialExpressionLandscapeLayerSample extends UMaterialExpression {
-    ParameterName: FName;
-    PreviewWeight: number;
+    readonly __properties_UMaterialExpressionLandscapeLayerSample: {
+        ParameterName: string;
+        PreviewWeight: number;
+    };
+    readonly __staticRegistry: 
+        UMaterialExpression['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMaterialExpressionLandscapeLayerSample['__properties_UMaterialExpressionLandscapeLayerSample'] &
+        UMaterialExpression['__propertyRegistry'];
 }
-declare const UMaterialExpressionLandscapeLayerSample: UMaterialExpressionLandscapeLayerSample;
 
 declare interface UMaterialExpressionLandscapeLayerSwitch extends UMaterialExpression {
-    LayerUsed: FExpressionInput;
-    LayerNotUsed: FExpressionInput;
-    ParameterName: FName;
-    PreviewUsed: boolean;
+    readonly __properties_UMaterialExpressionLandscapeLayerSwitch: {
+        LayerUsed: FExpressionInput;
+        LayerNotUsed: FExpressionInput;
+        ParameterName: string;
+        PreviewUsed: boolean;
+    };
+    readonly __staticRegistry: 
+        UMaterialExpression['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMaterialExpressionLandscapeLayerSwitch['__properties_UMaterialExpressionLandscapeLayerSwitch'] &
+        UMaterialExpression['__propertyRegistry'];
 }
-declare const UMaterialExpressionLandscapeLayerSwitch: UMaterialExpressionLandscapeLayerSwitch;
 
 declare interface UMaterialExpressionLandscapeLayerWeight extends UMaterialExpression {
-    base: FExpressionInput;
-    Layer: FExpressionInput;
-    ParameterName: FName;
-    PreviewWeight: number;
-    ConstBase: FVector;
+    readonly __properties_UMaterialExpressionLandscapeLayerWeight: {
+        base: FExpressionInput;
+        Layer: FExpressionInput;
+        ParameterName: string;
+        PreviewWeight: number;
+        ConstBase: FVector;
+    };
+    readonly __staticRegistry: 
+        UMaterialExpression['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMaterialExpressionLandscapeLayerWeight['__properties_UMaterialExpressionLandscapeLayerWeight'] &
+        UMaterialExpression['__propertyRegistry'];
 }
-declare const UMaterialExpressionLandscapeLayerWeight: UMaterialExpressionLandscapeLayerWeight;
 
 declare interface UMaterialExpressionLandscapePhysicalMaterialOutput extends UMaterialExpressionCustomOutput {
-    Inputs: TArray<FPhysicalMaterialInput>;
+    readonly __properties_UMaterialExpressionLandscapePhysicalMaterialOutput: {
+        Inputs: FPhysicalMaterialInput[];
+    };
+    readonly __staticRegistry: 
+        UMaterialExpressionCustomOutput['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMaterialExpressionLandscapePhysicalMaterialOutput['__properties_UMaterialExpressionLandscapePhysicalMaterialOutput'] &
+        UMaterialExpressionCustomOutput['__propertyRegistry'];
 }
-declare const UMaterialExpressionLandscapePhysicalMaterialOutput: UMaterialExpressionLandscapePhysicalMaterialOutput;
 
 declare interface UMaterialExpressionLandscapeVisibilityMask extends UMaterialExpression {
-
+    readonly __staticRegistry: 
+        UMaterialExpression['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMaterialExpression['__propertyRegistry'];
 }
-declare const UMaterialExpressionLandscapeVisibilityMask: UMaterialExpressionLandscapeVisibilityMask;
 

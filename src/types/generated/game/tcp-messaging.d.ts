@@ -1,10 +1,16 @@
 declare interface UTcpMessagingSettings extends UObject {
-    EnableTransport: boolean;
-    ListenEndpoint: FString;
-    ConnectToEndpoints: TArray<FString>;
-    ConnectionRetryDelay: number;
-    ConnectionRetryPeriod: number;
-    bStopServiceWhenAppDeactivates: boolean;
+    readonly __properties_UTcpMessagingSettings: {
+        EnableTransport: boolean;
+        ListenEndpoint: string;
+        ConnectToEndpoints: string[];
+        ConnectionRetryDelay: number;
+        ConnectionRetryPeriod: number;
+        bStopServiceWhenAppDeactivates: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTcpMessagingSettings['__properties_UTcpMessagingSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const UTcpMessagingSettings: UTcpMessagingSettings;
 

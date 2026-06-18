@@ -8,7 +8,6 @@ declare interface FEyeTrackerGazeData {
     LeftPupilDiameter: number;
     RightPupilDiameter: number;
 }
-declare const FEyeTrackerGazeData: FEyeTrackerGazeData;
 
 declare interface FEyeTrackerStereoGazeData {
     LeftEyeOrigin: FVector;
@@ -18,14 +17,19 @@ declare interface FEyeTrackerStereoGazeData {
     FixationPoint: FVector;
     ConfidenceValue: number;
 }
-declare const FEyeTrackerStereoGazeData: FEyeTrackerStereoGazeData;
 
 declare interface UEyeTrackerFunctionLibrary extends UBlueprintFunctionLibrary {
-    SetEyeTrackedPlayer(PlayerController: APlayerController): void;
-    IsStereoGazeDataAvailable(): boolean;
-    IsEyeTrackerConnected(): boolean;
-    GetStereoGazeData(OutGazeData: FEyeTrackerStereoGazeData): boolean;
-    GetGazeData(OutGazeData: FEyeTrackerGazeData): boolean;
+    readonly __static_UEyeTrackerFunctionLibrary: {
+        SetEyeTrackedPlayer(PlayerController: APlayerController): void;
+        IsStereoGazeDataAvailable(): boolean;
+        IsEyeTrackerConnected(): boolean;
+        GetStereoGazeData(OutGazeData: FEyeTrackerStereoGazeData): boolean;
+        GetGazeData(OutGazeData: FEyeTrackerGazeData): boolean;
+    };
+    readonly __staticRegistry: 
+        UEyeTrackerFunctionLibrary['__static_UEyeTrackerFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UEyeTrackerFunctionLibrary: UEyeTrackerFunctionLibrary;
 

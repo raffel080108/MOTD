@@ -1,41 +1,30 @@
-declare interface FCachedSubjectFrame {
-
-}
-declare const FCachedSubjectFrame: FCachedSubjectFrame;
+declare type FCachedSubjectFrame = object;
 
 declare interface FLiveLinkAnimationFrameData extends FLiveLinkBaseFrameData {
-    Transforms: TArray<FTransform>;
+    Transforms: FTransform[];
 }
-declare const FLiveLinkAnimationFrameData: FLiveLinkAnimationFrameData;
 
-declare interface FLiveLinkBaseBlueprintData {
-
-}
-declare const FLiveLinkBaseBlueprintData: FLiveLinkBaseBlueprintData;
+declare type FLiveLinkBaseBlueprintData = object;
 
 declare interface FLiveLinkBaseFrameData {
     WorldTime: FLiveLinkWorldTime;
     MetaData: FLiveLinkMetaData;
-    PropertyValues: TArray<number>;
+    PropertyValues: number[];
 }
-declare const FLiveLinkBaseFrameData: FLiveLinkBaseFrameData;
 
 declare interface FLiveLinkBaseStaticData {
-    PropertyNames: TArray<FName>;
+    PropertyNames: string[];
 }
-declare const FLiveLinkBaseStaticData: FLiveLinkBaseStaticData;
 
 declare interface FLiveLinkBasicBlueprintData extends FLiveLinkBaseBlueprintData {
     StaticData: FLiveLinkBaseStaticData;
     FrameData: FLiveLinkBaseFrameData;
 }
-declare const FLiveLinkBasicBlueprintData: FLiveLinkBasicBlueprintData;
 
 declare interface FLiveLinkCameraBlueprintData extends FLiveLinkBaseBlueprintData {
     StaticData: FLiveLinkCameraStaticData;
     FrameData: FLiveLinkCameraFrameData;
 }
-declare const FLiveLinkCameraBlueprintData: FLiveLinkCameraBlueprintData;
 
 declare interface FLiveLinkCameraFrameData extends FLiveLinkTransformFrameData {
     FieldOfView: number;
@@ -47,7 +36,6 @@ declare interface FLiveLinkCameraFrameData extends FLiveLinkTransformFrameData {
     FilmBackWidth: number;
     FilmBackHeight: number;
 }
-declare const FLiveLinkCameraFrameData: FLiveLinkCameraFrameData;
 
 declare interface FLiveLinkCameraStaticData extends FLiveLinkTransformStaticData {
     bIsFieldOfViewSupported: boolean;
@@ -61,42 +49,35 @@ declare interface FLiveLinkCameraStaticData extends FLiveLinkTransformStaticData
     bIsDepthOfFieldSupported: boolean;
     bIsDynamicFilmbackSupported: boolean;
 }
-declare const FLiveLinkCameraStaticData: FLiveLinkCameraStaticData;
 
 declare interface FLiveLinkCurveConversionSettings {
-    CurveConversionAssetMap: Record<FString, FSoftObjectPath>;
+    CurveConversionAssetMap: TMap<string, FSoftObjectPath>;
 }
-declare const FLiveLinkCurveConversionSettings: FLiveLinkCurveConversionSettings;
 
 declare interface FLiveLinkCurveElement {
-    CurveName: FName;
+    CurveName: string;
     CurveValue: number;
 }
-declare const FLiveLinkCurveElement: FLiveLinkCurveElement;
 
 declare interface FLiveLinkFloatAnimationFrameData extends FLiveLinkBaseFrameData {
-    Transforms: TArray<FTransform3f>;
+    Transforms: FTransform3f[];
 }
-declare const FLiveLinkFloatAnimationFrameData: FLiveLinkFloatAnimationFrameData;
 
 declare interface FLiveLinkFrameData {
-    Transforms: TArray<FTransform>;
-    CurveElements: TArray<FLiveLinkCurveElement>;
+    Transforms: FTransform[];
+    CurveElements: FLiveLinkCurveElement[];
     WorldTime: FLiveLinkWorldTime;
     MetaData: FLiveLinkMetaData;
 }
-declare const FLiveLinkFrameData: FLiveLinkFrameData;
 
 declare interface FLiveLinkFrameRate extends FFrameRate {
 
 }
-declare const FLiveLinkFrameRate: FLiveLinkFrameRate;
 
 declare interface FLiveLinkGamepadInputDeviceBlueprintData extends FLiveLinkBaseBlueprintData {
     StaticData: FLiveLinkGamepadInputDeviceStaticData;
     FrameData: FLiveLinkGamepadInputDeviceFrameData;
 }
-declare const FLiveLinkGamepadInputDeviceBlueprintData: FLiveLinkGamepadInputDeviceBlueprintData;
 
 declare interface FLiveLinkGamepadInputDeviceFrameData extends FLiveLinkBaseFrameData {
     LeftAnalogX: number;
@@ -132,24 +113,20 @@ declare interface FLiveLinkGamepadInputDeviceFrameData extends FLiveLinkBaseFram
     RightStickRight: number;
     RightStickLeft: number;
 }
-declare const FLiveLinkGamepadInputDeviceFrameData: FLiveLinkGamepadInputDeviceFrameData;
 
 declare interface FLiveLinkGamepadInputDeviceStaticData extends FLiveLinkBaseStaticData {
 
 }
-declare const FLiveLinkGamepadInputDeviceStaticData: FLiveLinkGamepadInputDeviceStaticData;
 
 declare interface FLiveLinkInterpolationSettings {
     bUseInterpolation: boolean;
     InterpolationOffset: number;
 }
-declare const FLiveLinkInterpolationSettings: FLiveLinkInterpolationSettings;
 
 declare interface FLiveLinkLightBlueprintData extends FLiveLinkBaseBlueprintData {
     StaticData: FLiveLinkLightStaticData;
     FrameData: FLiveLinkLightFrameData;
 }
-declare const FLiveLinkLightBlueprintData: FLiveLinkLightBlueprintData;
 
 declare interface FLiveLinkLightFrameData extends FLiveLinkTransformFrameData {
     temperature: number;
@@ -162,7 +139,6 @@ declare interface FLiveLinkLightFrameData extends FLiveLinkTransformFrameData {
     SoftSourceRadius: number;
     SourceLength: number;
 }
-declare const FLiveLinkLightFrameData: FLiveLinkLightFrameData;
 
 declare interface FLiveLinkLightStaticData extends FLiveLinkTransformStaticData {
     bIsTemperatureSupported: boolean;
@@ -175,42 +151,35 @@ declare interface FLiveLinkLightStaticData extends FLiveLinkTransformStaticData 
     bIsSourceRadiusSupported: boolean;
     bIsSoftSourceRadiusSupported: boolean;
 }
-declare const FLiveLinkLightStaticData: FLiveLinkLightStaticData;
 
 declare interface FLiveLinkLocatorBlueprintData extends FLiveLinkBaseBlueprintData {
     StaticData: FLiveLinkLocatorStaticData;
     FrameData: FLiveLinkLocatorFrameData;
 }
-declare const FLiveLinkLocatorBlueprintData: FLiveLinkLocatorBlueprintData;
 
 declare interface FLiveLinkLocatorFrameData extends FLiveLinkBaseFrameData {
-    Locators: TArray<FVector>;
+    Locators: FVector[];
 }
-declare const FLiveLinkLocatorFrameData: FLiveLinkLocatorFrameData;
 
 declare interface FLiveLinkLocatorStaticData extends FLiveLinkBaseStaticData {
-    LocatorNames: TArray<FName>;
+    LocatorNames: string[];
     bUnlabelledData: boolean;
 }
-declare const FLiveLinkLocatorStaticData: FLiveLinkLocatorStaticData;
 
 declare interface FLiveLinkMetaData {
-    StringMetaData: Record<FName, FString>;
+    StringMetaData: TMap<string, string>;
     SceneTime: FQualifiedFrameTime;
 }
-declare const FLiveLinkMetaData: FLiveLinkMetaData;
 
 declare interface FLiveLinkRefSkeleton {
-    BoneNames: TArray<FName>;
-    BoneParents: TArray<number>;
+    BoneNames: string[];
+    BoneParents: number[];
 }
-declare const FLiveLinkRefSkeleton: FLiveLinkRefSkeleton;
 
 declare interface FLiveLinkSkeletonStaticData extends FLiveLinkBaseStaticData {
-    BoneNames: TArray<FName>;
-    BoneParents: TArray<number>;
+    BoneNames: string[];
+    BoneParents: number[];
 }
-declare const FLiveLinkSkeletonStaticData: FLiveLinkSkeletonStaticData;
 
 declare interface FLiveLinkSourceBufferManagementSettings {
     bValidEngineTimeEnabled: boolean;
@@ -230,37 +199,29 @@ declare interface FLiveLinkSourceBufferManagementSettings {
     MaxNumberOfFrameToBuffered: number;
     bKeepAtLeastOneFrame: boolean;
 }
-declare const FLiveLinkSourceBufferManagementSettings: FLiveLinkSourceBufferManagementSettings;
 
 declare interface FLiveLinkSourceDebugInfo {
     SubjectName: FLiveLinkSubjectName;
     SnapshotIndex: number;
     NumberOfBufferAtSnapshot: number;
 }
-declare const FLiveLinkSourceDebugInfo: FLiveLinkSourceDebugInfo;
 
-declare interface FLiveLinkSourceHandle {
-
-}
-declare const FLiveLinkSourceHandle: FLiveLinkSourceHandle;
+declare type FLiveLinkSourceHandle = object;
 
 declare interface FLiveLinkSourcePreset {
     Guid: FGuid;
     Settings: ULiveLinkSourceSettings;
-    SourceType: FText;
+    SourceType: string;
 }
-declare const FLiveLinkSourcePreset: FLiveLinkSourcePreset;
 
 declare interface FLiveLinkSubjectKey {
     Source: FGuid;
     SubjectName: FLiveLinkSubjectName;
 }
-declare const FLiveLinkSubjectKey: FLiveLinkSubjectKey;
 
 declare interface FLiveLinkSubjectName {
-    Name: FName;
+    Name: string;
 }
-declare const FLiveLinkSubjectName: FLiveLinkSubjectName;
 
 declare interface FLiveLinkSubjectPreset {
     Key: FLiveLinkSubjectKey;
@@ -269,193 +230,246 @@ declare interface FLiveLinkSubjectPreset {
     VirtualSubject: ULiveLinkVirtualSubject;
     bEnabled: boolean;
 }
-declare const FLiveLinkSubjectPreset: FLiveLinkSubjectPreset;
 
 declare interface FLiveLinkSubjectRepresentation {
     Subject: FLiveLinkSubjectName;
     Role: TSubclassOf<ULiveLinkRole>;
 }
-declare const FLiveLinkSubjectRepresentation: FLiveLinkSubjectRepresentation;
 
 declare interface FLiveLinkTime {
     WorldTime: number;
     SceneTime: FQualifiedFrameTime;
 }
-declare const FLiveLinkTime: FLiveLinkTime;
 
 declare interface FLiveLinkTimeCode extends FLiveLinkTimeCode_Base_DEPRECATED {
 
 }
-declare const FLiveLinkTimeCode: FLiveLinkTimeCode;
 
 declare interface FLiveLinkTimeCode_Base_DEPRECATED {
     Seconds: number;
     Frames: number;
     FrameRate: FLiveLinkFrameRate;
 }
-declare const FLiveLinkTimeCode_Base_DEPRECATED: FLiveLinkTimeCode_Base_DEPRECATED;
 
 declare interface FLiveLinkTimeSynchronizationSettings {
     FrameRate: FFrameRate;
     FrameOffset: FFrameNumber;
 }
-declare const FLiveLinkTimeSynchronizationSettings: FLiveLinkTimeSynchronizationSettings;
 
-declare interface FLiveLinkTransform {
-
-}
-declare const FLiveLinkTransform: FLiveLinkTransform;
+declare type FLiveLinkTransform = object;
 
 declare interface FLiveLinkTransformBlueprintData extends FLiveLinkBaseBlueprintData {
     StaticData: FLiveLinkTransformStaticData;
     FrameData: FLiveLinkTransformFrameData;
 }
-declare const FLiveLinkTransformBlueprintData: FLiveLinkTransformBlueprintData;
 
 declare interface FLiveLinkTransformFrameData extends FLiveLinkBaseFrameData {
     Transform: FTransform;
 }
-declare const FLiveLinkTransformFrameData: FLiveLinkTransformFrameData;
 
 declare interface FLiveLinkTransformStaticData extends FLiveLinkBaseStaticData {
     bIsLocationSupported: boolean;
     bIsRotationSupported: boolean;
     bIsScaleSupported: boolean;
 }
-declare const FLiveLinkTransformStaticData: FLiveLinkTransformStaticData;
 
 declare interface FLiveLinkWorldTime {
     Time: number;
     Offset: number;
 }
-declare const FLiveLinkWorldTime: FLiveLinkWorldTime;
 
 declare interface FSubjectFrameHandle extends FLiveLinkBaseBlueprintData {
 
 }
-declare const FSubjectFrameHandle: FSubjectFrameHandle;
 
 declare interface FSubjectMetadata {
-    StringMetaData: Record<FName, FString>;
+    StringMetaData: TMap<string, string>;
     SceneTimecode: FTimecode;
     SceneFramerate: FFrameRate;
 }
-declare const FSubjectMetadata: FSubjectMetadata;
 
 declare interface ULiveLinkAnimationRole extends ULiveLinkBasicRole {
-
+    readonly __staticRegistry: 
+        ULiveLinkBasicRole['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkBasicRole['__propertyRegistry'];
 }
-declare const ULiveLinkAnimationRole: ULiveLinkAnimationRole;
 
 declare interface ULiveLinkBasicRole extends ULiveLinkRole {
-
+    readonly __staticRegistry: 
+        ULiveLinkRole['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkRole['__propertyRegistry'];
 }
-declare const ULiveLinkBasicRole: ULiveLinkBasicRole;
 
 declare interface ULiveLinkCameraRole extends ULiveLinkTransformRole {
-
+    readonly __staticRegistry: 
+        ULiveLinkTransformRole['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkTransformRole['__propertyRegistry'];
 }
-declare const ULiveLinkCameraRole: ULiveLinkCameraRole;
 
 declare interface ULiveLinkController extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULiveLinkController: ULiveLinkController;
 
 declare interface ULiveLinkCurveRemapSettings extends ULiveLinkSourceSettings {
-    CurveConversionSettings: FLiveLinkCurveConversionSettings;
+    readonly __properties_ULiveLinkCurveRemapSettings: {
+        CurveConversionSettings: FLiveLinkCurveConversionSettings;
+    };
+    readonly __staticRegistry: 
+        ULiveLinkSourceSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkCurveRemapSettings['__properties_ULiveLinkCurveRemapSettings'] &
+        ULiveLinkSourceSettings['__propertyRegistry'];
 }
-declare const ULiveLinkCurveRemapSettings: ULiveLinkCurveRemapSettings;
 
 declare interface ULiveLinkDefaultSourceSettings extends UObject {
-    DefaultSourceFrameBufferSize: number;
+    readonly __properties_ULiveLinkDefaultSourceSettings: {
+        DefaultSourceFrameBufferSize: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkDefaultSourceSettings['__properties_ULiveLinkDefaultSourceSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULiveLinkDefaultSourceSettings: ULiveLinkDefaultSourceSettings;
 
 declare interface ULiveLinkDefaultSubjectSettings extends UObject {
-    bRebroadcastSubjectsByDefault: boolean;
-    bAllowEditingRebroadcastProperty: boolean;
+    readonly __properties_ULiveLinkDefaultSubjectSettings: {
+        bRebroadcastSubjectsByDefault: boolean;
+        bAllowEditingRebroadcastProperty: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkDefaultSubjectSettings['__properties_ULiveLinkDefaultSubjectSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULiveLinkDefaultSubjectSettings: ULiveLinkDefaultSubjectSettings;
 
 declare interface ULiveLinkFrameInterpolationProcessor extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULiveLinkFrameInterpolationProcessor: ULiveLinkFrameInterpolationProcessor;
 
 declare interface ULiveLinkFramePreProcessor extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULiveLinkFramePreProcessor: ULiveLinkFramePreProcessor;
 
 declare interface ULiveLinkFrameTranslator extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULiveLinkFrameTranslator: ULiveLinkFrameTranslator;
 
 declare interface ULiveLinkInputDeviceRole extends ULiveLinkBasicRole {
-
+    readonly __staticRegistry: 
+        ULiveLinkBasicRole['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkBasicRole['__propertyRegistry'];
 }
-declare const ULiveLinkInputDeviceRole: ULiveLinkInputDeviceRole;
 
 declare interface ULiveLinkLightRole extends ULiveLinkTransformRole {
-
+    readonly __staticRegistry: 
+        ULiveLinkTransformRole['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkTransformRole['__propertyRegistry'];
 }
-declare const ULiveLinkLightRole: ULiveLinkLightRole;
 
 declare interface ULiveLinkLocatorRole extends ULiveLinkBasicRole {
-
+    readonly __staticRegistry: 
+        ULiveLinkBasicRole['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkBasicRole['__propertyRegistry'];
 }
-declare const ULiveLinkLocatorRole: ULiveLinkLocatorRole;
 
 declare interface ULiveLinkRole extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULiveLinkRole: ULiveLinkRole;
 
 declare interface ULiveLinkSourceFactory extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULiveLinkSourceFactory: ULiveLinkSourceFactory;
 
 declare interface ULiveLinkSourceSettings extends UObject {
-    Mode: ELiveLinkSourceMode;
-    BufferSettings: FLiveLinkSourceBufferManagementSettings;
-    ConnectionString: FString;
-    Factory: TSubclassOf<ULiveLinkSourceFactory>;
-    ParentSubject: FLiveLinkSubjectName;
+    readonly __properties_ULiveLinkSourceSettings: {
+        Mode: ELiveLinkSourceMode;
+        BufferSettings: FLiveLinkSourceBufferManagementSettings;
+        ConnectionString: string;
+        Factory: TSubclassOf<ULiveLinkSourceFactory>;
+        ParentSubject: FLiveLinkSubjectName;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkSourceSettings['__properties_ULiveLinkSourceSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULiveLinkSourceSettings: ULiveLinkSourceSettings;
 
 declare interface ULiveLinkSubjectRemapper extends UObject {
-    BoneNameMap: Record<FName, FName>;
+    readonly __properties_ULiveLinkSubjectRemapper: {
+        BoneNameMap: TMap<string, string>;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkSubjectRemapper['__properties_ULiveLinkSubjectRemapper'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULiveLinkSubjectRemapper: ULiveLinkSubjectRemapper;
 
 declare interface ULiveLinkSubjectSettings extends UObject {
-    PreProcessors: TArray<ULiveLinkFramePreProcessor>;
-    InterpolationProcessor: ULiveLinkFrameInterpolationProcessor;
-    Translators: TArray<ULiveLinkFrameTranslator>;
-    Remapper: ULiveLinkSubjectRemapper;
-    Role: TSubclassOf<ULiveLinkRole>;
-    FrameRate: FFrameRate;
-    bRebroadcastSubject: boolean;
-    OriginalSourceName: FName;
-    Key: FLiveLinkSubjectKey;
-    bAllowModifyingRebroadcast: boolean;
+    readonly __properties_ULiveLinkSubjectSettings: {
+        PreProcessors: ULiveLinkFramePreProcessor[];
+        InterpolationProcessor: ULiveLinkFrameInterpolationProcessor;
+        Translators: ULiveLinkFrameTranslator[];
+        Remapper: ULiveLinkSubjectRemapper;
+        Role: TSubclassOf<ULiveLinkRole>;
+        FrameRate: FFrameRate;
+        bRebroadcastSubject: boolean;
+        OriginalSourceName: string;
+        Key: FLiveLinkSubjectKey;
+        bAllowModifyingRebroadcast: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkSubjectSettings['__properties_ULiveLinkSubjectSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULiveLinkSubjectSettings: ULiveLinkSubjectSettings;
 
 declare interface ULiveLinkTransformRole extends ULiveLinkBasicRole {
-
+    readonly __staticRegistry: 
+        ULiveLinkBasicRole['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkBasicRole['__propertyRegistry'];
 }
-declare const ULiveLinkTransformRole: ULiveLinkTransformRole;
 
 declare interface ULiveLinkVirtualSubject extends UObject {
-    Role: TSubclassOf<ULiveLinkRole>;
-    Subjects: TArray<FLiveLinkSubjectName>;
-    FrameTranslators: TArray<ULiveLinkFrameTranslator>;
-    bRebroadcastSubject: boolean;
+    readonly __properties_ULiveLinkVirtualSubject: {
+        Role: TSubclassOf<ULiveLinkRole>;
+        Subjects: FLiveLinkSubjectName[];
+        FrameTranslators: ULiveLinkFrameTranslator[];
+        bRebroadcastSubject: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULiveLinkVirtualSubject['__properties_ULiveLinkVirtualSubject'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULiveLinkVirtualSubject: ULiveLinkVirtualSubject;
 

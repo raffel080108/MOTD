@@ -1,6 +1,12 @@
 declare interface UStartupScreenSettings extends UDeveloperSettings {
-    MinimumDisplayTime: number;
-    MoviesToPlay: TArray<FString>;
+    readonly __properties_UStartupScreenSettings: {
+        MinimumDisplayTime: number;
+        MoviesToPlay: string[];
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStartupScreenSettings['__properties_UStartupScreenSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UStartupScreenSettings: UStartupScreenSettings;
 

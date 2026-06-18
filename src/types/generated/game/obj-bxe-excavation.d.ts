@@ -1,5 +1,7 @@
 declare interface UOBJ_BXE_Excavation_C extends UBXEBlueprintControlledObjective {
-
+    readonly __staticRegistry: 
+        UBXEBlueprintControlledObjective['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBXEBlueprintControlledObjective['__propertyRegistry'];
 }
-declare const UOBJ_BXE_Excavation_C: UOBJ_BXE_Excavation_C;
 

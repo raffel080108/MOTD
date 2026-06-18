@@ -1,22 +1,19 @@
 declare interface FPropertyBindingBindableStructDescriptor {
     Struct: UStruct;
-    Name: FName;
+    Name: string;
 }
-declare const FPropertyBindingBindableStructDescriptor: FPropertyBindingBindableStructDescriptor;
 
 declare interface FPropertyBindingBinding {
     SourcePropertyPath: FPropertyBindingPath;
     TargetPropertyPath: FPropertyBindingPath;
 }
-declare const FPropertyBindingBinding: FPropertyBindingBinding;
 
 declare interface FPropertyBindingBindingCollection {
-    CopyBatches: TArray<FPropertyBindingCopyInfoBatch>;
-    PropertyCopies: TArray<FPropertyBindingCopyInfo>;
-    PropertyIndirections: TArray<FPropertyBindingPropertyIndirection>;
+    CopyBatches: FPropertyBindingCopyInfoBatch[];
+    PropertyCopies: FPropertyBindingCopyInfo[];
+    PropertyIndirections: FPropertyBindingPropertyIndirection[];
     BindingsOwner: TScriptInterface<IPropertyBindingBindingCollectionOwner>;
 }
-declare const FPropertyBindingBindingCollection: FPropertyBindingBindingCollection;
 
 declare interface FPropertyBindingCopyInfo {
     SourceIndirection: FPropertyBindingPropertyIndirection;
@@ -26,7 +23,6 @@ declare interface FPropertyBindingCopyInfo {
     SourceDataHandle: FInstancedStruct;
     Type: EPropertyCopyType;
 }
-declare const FPropertyBindingCopyInfo: FPropertyBindingCopyInfo;
 
 declare interface FPropertyBindingCopyInfoBatch {
     TargetStruct: FInstancedStruct;
@@ -35,37 +31,34 @@ declare interface FPropertyBindingCopyInfoBatch {
     PropertyFunctionsBegin: FPropertyBindingIndex16;
     PropertyFunctionsEnd: FPropertyBindingIndex16;
 }
-declare const FPropertyBindingCopyInfoBatch: FPropertyBindingCopyInfoBatch;
 
 declare interface FPropertyBindingIndex16 {
-    Value: uint16;
+    Value: number;
 }
-declare const FPropertyBindingIndex16: FPropertyBindingIndex16;
 
 declare interface FPropertyBindingPath {
-    Segments: TArray<FPropertyBindingPathSegment>;
+    Segments: FPropertyBindingPathSegment[];
 }
-declare const FPropertyBindingPath: FPropertyBindingPath;
 
 declare interface FPropertyBindingPathSegment {
-    Name: FName;
+    Name: string;
     ArrayIndex: number;
     InstanceStruct: UStruct;
     InstancedStructAccessType: EPropertyBindingPropertyAccessType;
 }
-declare const FPropertyBindingPathSegment: FPropertyBindingPathSegment;
 
 declare interface FPropertyBindingPropertyIndirection {
     ArrayIndex: FPropertyBindingIndex16;
-    Offset: uint16;
+    Offset: number;
     NextIndex: FPropertyBindingIndex16;
     Type: EPropertyBindingPropertyAccessType;
     InstanceStruct: UStruct;
 }
-declare const FPropertyBindingPropertyIndirection: FPropertyBindingPropertyIndirection;
 
 declare interface IPropertyBindingBindingCollectionOwner extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IPropertyBindingBindingCollectionOwner: IPropertyBindingBindingCollectionOwner;
 

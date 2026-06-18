@@ -1,5 +1,7 @@
 declare interface UAFLS_TwoStepsAhead_C extends USoundAfflictionEffect {
-
+    readonly __staticRegistry: 
+        USoundAfflictionEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundAfflictionEffect['__propertyRegistry'];
 }
-declare const UAFLS_TwoStepsAhead_C: UAFLS_TwoStepsAhead_C;
 

@@ -1,3 +1,4 @@
+import { Logger } from "../mod/logger";
 import { UEUtil } from "../ue-util";
 import { UObjectContainer } from "../uobject-container";
 
@@ -9,13 +10,18 @@ export namespace GameUtil {
 
     export function getGameFunctionLibrary(): UGameFunctionLibrary {
         const functionLibraryObject = functionLibrary.get();
-        if (functionLibraryObject !== undefined) {
+        if (functionLibraryObject != undefined) {
             return functionLibraryObject;
         }
 
         let newFunctionLibrary = FindFirstOf("GameFunctionLibrary") as UGameFunctionLibrary | undefined;
-        if (newFunctionLibrary === undefined || !newFunctionLibrary.IsValid()) {
-            newFunctionLibrary = StaticConstructObject(StaticFindObject("/Script/RogueCore.GameFunctionLibrary") as UClass, UEUtil.UE_HELPERS.GetWorld()) as UGameFunctionLibrary;
+
+        if (newFunctionLibrary == undefined || !newFunctionLibrary.IsValid()) {
+            newFunctionLibrary = UEUtil.constructAndValidateObject(StaticFindObject("/Script/RogueCore.GameFunctionLibrary") as UClass) as UGameFunctionLibrary;
+        }
+
+        if (newFunctionLibrary == undefined) {
+            throw new Error("Unable to construct function library at this time");
         }
 
         functionLibrary.set(newFunctionLibrary);
@@ -23,36 +29,58 @@ export namespace GameUtil {
         return newFunctionLibrary;
     }
 
-    export function getFSDGameState(): AFSDGameState {
-        return GameUtil.getGameFunctionLibrary().GetFSDGameState(UEUtil.UE_HELPERS.GetPlayerController());
+    export function getFSDGameState(worldContextObject: UObject): AFSDGameState | undefined {        
+        return CallFunction(GameUtil.getGameFunctionLibrary(), "GetFSDGameState", worldContextObject);
     }
 
-    export function getFSDGameInstane(): UFSDGameInstance {
-        return GameUtil.getGameFunctionLibrary().GetFSDGameInstance(UEUtil.UE_HELPERS.GetPlayerController());
+    export function getFSDGameInstane(worldContextObject: UObject): UFSDGameInstance | undefined {
+        return CallFunction(GameUtil.getGameFunctionLibrary(), "GetFSDGameInstance", worldContextObject);
     }
 
-    export function getLocalFSDPlayerController(): AFSDPlayerController {
-        return GameUtil.getFSDGameInstane().GetLocalFSDPlayerController();
+    export function getLocalFSDPlayerController(worldContextObject: UObject): AFSDPlayerController | undefined {
+        const gameInstance = GameUtil.getFSDGameInstane(worldContextObject);
+        if (gameInstance == undefined) {
+            return undefined;
+        }
+
+        return CallFunction(gameInstance, "GetLocalFSDPlayerController");
     }
 
-    export function getLocalPlayerId(): number {
-        return GameUtil.getLocalFSDPlayerController().GetFSDPlayerState().GetPlayerId();
+    export function getLocalPlayerId(worldContextObject: UObject): number | undefined {
+        const fsdPlayerController = GameUtil.getLocalFSDPlayerController(worldContextObject);
+        if (fsdPlayerController == undefined) {
+            Logger.log("WARN: Failed to get local FSDPlayerController");
+            return undefined;
+        }
+
+        const playerState = CallFunction(fsdPlayerController, "GetFSDPlayerState");
+        
+        return CallFunction(playerState, "GetPlayerId");
     }
 
-    export function sendChatMessage(sender: string, text: string, senderType: EChatSenderType): void {
-        GameUtil.getLocalFSDPlayerController().Server_NewMessage(sender, text, senderType);
+    export function sendChatMessage(worldContextObject: UObject, sender: string, text: string, senderType: EChatSenderType): void {
+        const fsdPlayerController = GameUtil.getLocalFSDPlayerController(worldContextObject);
+        if (fsdPlayerController == undefined) {
+            return;
+        }
+        
+        CallFunction(fsdPlayerController, "Server_NewMessage", sender, text, senderType);
     }
 
-    export function sendGameMessage(message: string): void {
+    export function sendGameMessage(worldContextObject: UObject, message: string): void {
+        const fsdGameState = GameUtil.getFSDGameState(worldContextObject);
+        if (fsdGameState == undefined) {
+            return;
+        }
+        
         const messageLines = [];
 
-        for (const [line] of string.gmatch(message, "([^\r\n]+)")) {
+        for (const [line] of message.matchAll(/([^\r\n]+)/g)) {
             messageLines.push(line);
         }
 
-        const gameState = GameUtil.getFSDGameState();
         for (const message of messageLines) {
-            gameState.PostGameMessage(message);
+            CallFunction(fsdGameState, "PostGameMessage", message);
         }
     }
 }

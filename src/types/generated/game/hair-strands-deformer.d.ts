@@ -1,97 +1,177 @@
 declare interface UOptimusGroomAssetComponentSource extends UOptimusComponentSource {
-
+    readonly __staticRegistry: 
+        UOptimusComponentSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusComponentSource['__propertyRegistry'];
 }
-declare const UOptimusGroomAssetComponentSource: UOptimusGroomAssetComponentSource;
 
 declare interface UOptimusGroomAttributeReadDataInterface extends UOptimusComputeDataInterface {
-    GroomAttributeName: FName;
-    GroomAttributeGroup: EOptimusGroomExecDomain;
-    GroomAttributeType: EOptimusGroomAttributeTypes;
+    readonly __properties_UOptimusGroomAttributeReadDataInterface: {
+        GroomAttributeName: string;
+        GroomAttributeGroup: EOptimusGroomExecDomain;
+        GroomAttributeType: EOptimusGroomAttributeTypes;
+    };
+    readonly __staticRegistry: 
+        UOptimusComputeDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusGroomAttributeReadDataInterface['__properties_UOptimusGroomAttributeReadDataInterface'] &
+        UOptimusComputeDataInterface['__propertyRegistry'];
 }
-declare const UOptimusGroomAttributeReadDataInterface: UOptimusGroomAttributeReadDataInterface;
 
 declare interface UOptimusGroomAttributeReadDataProvider extends UComputeDataProvider {
-    MeshComponent: UMeshComponent;
-    GroomAttributeName: FName;
-    GroomAttributeGroup: EOptimusGroomExecDomain;
-    GroomAttributeType: EOptimusGroomAttributeTypes;
+    readonly __properties_UOptimusGroomAttributeReadDataProvider: {
+        MeshComponent: UMeshComponent;
+        GroomAttributeName: string;
+        GroomAttributeGroup: EOptimusGroomExecDomain;
+        GroomAttributeType: EOptimusGroomAttributeTypes;
+    };
+    readonly __staticRegistry: 
+        UComputeDataProvider['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusGroomAttributeReadDataProvider['__properties_UOptimusGroomAttributeReadDataProvider'] &
+        UComputeDataProvider['__propertyRegistry'];
 }
-declare const UOptimusGroomAttributeReadDataProvider: UOptimusGroomAttributeReadDataProvider;
 
 declare interface UOptimusGroomExecDataInterface extends UOptimusComputeDataInterface {
-    Domain: EOptimusGroomExecDomain;
+    readonly __properties_UOptimusGroomExecDataInterface: {
+        Domain: EOptimusGroomExecDomain;
+    };
+    readonly __staticRegistry: 
+        UOptimusComputeDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusGroomExecDataInterface['__properties_UOptimusGroomExecDataInterface'] &
+        UOptimusComputeDataInterface['__propertyRegistry'];
 }
-declare const UOptimusGroomExecDataInterface: UOptimusGroomExecDataInterface;
 
 declare interface UOptimusGroomExecDataProvider extends UComputeDataProvider {
-    MeshComponent: UMeshComponent;
-    Domain: EOptimusGroomExecDomain;
+    readonly __properties_UOptimusGroomExecDataProvider: {
+        MeshComponent: UMeshComponent;
+        Domain: EOptimusGroomExecDomain;
+    };
+    readonly __staticRegistry: 
+        UComputeDataProvider['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusGroomExecDataProvider['__properties_UOptimusGroomExecDataProvider'] &
+        UComputeDataProvider['__propertyRegistry'];
 }
-declare const UOptimusGroomExecDataProvider: UOptimusGroomExecDataProvider;
 
 declare interface UOptimusGroomGuidesReadDataInterface extends UOptimusComputeDataInterface {
-
+    readonly __staticRegistry: 
+        UOptimusComputeDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusComputeDataInterface['__propertyRegistry'];
 }
-declare const UOptimusGroomGuidesReadDataInterface: UOptimusGroomGuidesReadDataInterface;
 
 declare interface UOptimusGroomGuidesReadDataProvider extends UComputeDataProvider {
-    MeshComponent: UMeshComponent;
+    readonly __properties_UOptimusGroomGuidesReadDataProvider: {
+        MeshComponent: UMeshComponent;
+    };
+    readonly __staticRegistry: 
+        UComputeDataProvider['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusGroomGuidesReadDataProvider['__properties_UOptimusGroomGuidesReadDataProvider'] &
+        UComputeDataProvider['__propertyRegistry'];
 }
-declare const UOptimusGroomGuidesReadDataProvider: UOptimusGroomGuidesReadDataProvider;
 
 declare interface UOptimusGroomGuidesWriteDataInterface extends UOptimusComputeDataInterface {
-
+    readonly __staticRegistry: 
+        UOptimusComputeDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusComputeDataInterface['__propertyRegistry'];
 }
-declare const UOptimusGroomGuidesWriteDataInterface: UOptimusGroomGuidesWriteDataInterface;
 
 declare interface UOptimusGroomGuidesWriteDataProvider extends UComputeDataProvider {
-    MeshComponent: UMeshComponent;
+    readonly __properties_UOptimusGroomGuidesWriteDataProvider: {
+        MeshComponent: UMeshComponent;
+    };
+    readonly __staticRegistry: 
+        UComputeDataProvider['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusGroomGuidesWriteDataProvider['__properties_UOptimusGroomGuidesWriteDataProvider'] &
+        UComputeDataProvider['__propertyRegistry'];
 }
-declare const UOptimusGroomGuidesWriteDataProvider: UOptimusGroomGuidesWriteDataProvider;
 
 declare interface UOptimusGroomMeshesReadDataInterface extends UOptimusComputeDataInterface {
-
+    readonly __staticRegistry: 
+        UOptimusComputeDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusComputeDataInterface['__propertyRegistry'];
 }
-declare const UOptimusGroomMeshesReadDataInterface: UOptimusGroomMeshesReadDataInterface;
 
 declare interface UOptimusGroomMeshesReadDataProvider extends UComputeDataProvider {
-    MeshComponent: UMeshComponent;
+    readonly __properties_UOptimusGroomMeshesReadDataProvider: {
+        MeshComponent: UMeshComponent;
+    };
+    readonly __staticRegistry: 
+        UComputeDataProvider['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusGroomMeshesReadDataProvider['__properties_UOptimusGroomMeshesReadDataProvider'] &
+        UComputeDataProvider['__propertyRegistry'];
 }
-declare const UOptimusGroomMeshesReadDataProvider: UOptimusGroomMeshesReadDataProvider;
 
 declare interface UOptimusGroomSolverComponentSource extends UOptimusComponentSource {
-
+    readonly __staticRegistry: 
+        UOptimusComponentSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusComponentSource['__propertyRegistry'];
 }
-declare const UOptimusGroomSolverComponentSource: UOptimusGroomSolverComponentSource;
 
 declare interface UOptimusGroomSolverReadDataInterface extends UOptimusComputeDataInterface {
-    ResetSimulationTrigger: FName;
+    readonly __properties_UOptimusGroomSolverReadDataInterface: {
+        ResetSimulationTrigger: string;
+    };
+    readonly __staticRegistry: 
+        UOptimusComputeDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusGroomSolverReadDataInterface['__properties_UOptimusGroomSolverReadDataInterface'] &
+        UOptimusComputeDataInterface['__propertyRegistry'];
 }
-declare const UOptimusGroomSolverReadDataInterface: UOptimusGroomSolverReadDataInterface;
 
 declare interface UOptimusGroomSolverReadDataProvider extends UComputeDataProvider {
-    SolverComponent: UGroomSolverComponent;
-    DeformerInstance: UOptimusDeformerInstance;
+    readonly __properties_UOptimusGroomSolverReadDataProvider: {
+        SolverComponent: UGroomSolverComponent;
+        DeformerInstance: UOptimusDeformerInstance;
+    };
+    readonly __staticRegistry: 
+        UComputeDataProvider['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusGroomSolverReadDataProvider['__properties_UOptimusGroomSolverReadDataProvider'] &
+        UComputeDataProvider['__propertyRegistry'];
 }
-declare const UOptimusGroomSolverReadDataProvider: UOptimusGroomSolverReadDataProvider;
 
 declare interface UOptimusGroomStrandsReadDataInterface extends UOptimusComputeDataInterface {
-
+    readonly __staticRegistry: 
+        UOptimusComputeDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusComputeDataInterface['__propertyRegistry'];
 }
-declare const UOptimusGroomStrandsReadDataInterface: UOptimusGroomStrandsReadDataInterface;
 
 declare interface UOptimusGroomStrandsReadDataProvider extends UComputeDataProvider {
-    MeshComponent: UMeshComponent;
+    readonly __properties_UOptimusGroomStrandsReadDataProvider: {
+        MeshComponent: UMeshComponent;
+    };
+    readonly __staticRegistry: 
+        UComputeDataProvider['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusGroomStrandsReadDataProvider['__properties_UOptimusGroomStrandsReadDataProvider'] &
+        UComputeDataProvider['__propertyRegistry'];
 }
-declare const UOptimusGroomStrandsReadDataProvider: UOptimusGroomStrandsReadDataProvider;
 
 declare interface UOptimusGroomStrandsWriteDataInterface extends UOptimusComputeDataInterface {
-
+    readonly __staticRegistry: 
+        UOptimusComputeDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusComputeDataInterface['__propertyRegistry'];
 }
-declare const UOptimusGroomStrandsWriteDataInterface: UOptimusGroomStrandsWriteDataInterface;
 
 declare interface UOptimusGroomStrandsWriteDataProvider extends UComputeDataProvider {
-    MeshComponent: UMeshComponent;
+    readonly __properties_UOptimusGroomStrandsWriteDataProvider: {
+        MeshComponent: UMeshComponent;
+    };
+    readonly __staticRegistry: 
+        UComputeDataProvider['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOptimusGroomStrandsWriteDataProvider['__properties_UOptimusGroomStrandsWriteDataProvider'] &
+        UComputeDataProvider['__propertyRegistry'];
 }
-declare const UOptimusGroomStrandsWriteDataProvider: UOptimusGroomStrandsWriteDataProvider;
 

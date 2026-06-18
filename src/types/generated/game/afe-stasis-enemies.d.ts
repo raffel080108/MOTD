@@ -1,5 +1,7 @@
 declare interface UAFE_Stasis_Enemies_C extends UAttachedParticlesAfflictionEffect {
-
+    readonly __staticRegistry: 
+        UAttachedParticlesAfflictionEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAttachedParticlesAfflictionEffect['__propertyRegistry'];
 }
-declare const UAFE_Stasis_Enemies_C: UAFE_Stasis_Enemies_C;
 

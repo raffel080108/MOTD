@@ -1,13 +1,22 @@
 declare interface UBlurBackground_C extends UUserWidget {
-    UberGraphFrame: FPointerToUberGraphFrame;
-    Border_0: UBorder;
-    BackgroundBlur_66: UBackgroundBlur;
-    Tint: FLinearColor;
-    Blur: number;
-    SetBlur(InBlur: number): void;
-    SetColor(Tint: FLinearColor): void;
-    PreConstruct(IsDesignTime: boolean): void;
-    ExecuteUbergraph_BlurBackground(EntryPoint: number): void;
+    readonly __static_UBlurBackground_C: {
+        SetBlur(InBlur: number): void;
+        SetColor(Tint: FLinearColor): void;
+        PreConstruct(IsDesignTime: boolean): void;
+        ExecuteUbergraph_BlurBackground(EntryPoint: number): void;
+    };
+    readonly __properties_UBlurBackground_C: {
+        UberGraphFrame: FPointerToUberGraphFrame;
+        Border_0: UBorder;
+        BackgroundBlur_66: UBackgroundBlur;
+        Tint: FLinearColor;
+        Blur: number;
+    };
+    readonly __staticRegistry: 
+        UBlurBackground_C['__static_UBlurBackground_C'] &
+        UUserWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlurBackground_C['__properties_UBlurBackground_C'] &
+        UUserWidget['__propertyRegistry'];
 }
-declare const UBlurBackground_C: UBlurBackground_C;
 

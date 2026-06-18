@@ -8,13 +8,11 @@ declare interface FDynamicsBandSettings {
     InputGainDb: number;
     OutputGainDb: number;
 }
-declare const FDynamicsBandSettings: FDynamicsBandSettings;
 
 declare interface FEpicSynth1Patch {
     PatchSource: ESynth1PatchSource;
-    PatchCables: TArray<FSynth1PatchCable>;
+    PatchCables: FSynth1PatchCable[];
 }
-declare const FEpicSynth1Patch: FEpicSynth1Patch;
 
 declare interface FModularSynthPreset extends FTableRowBase {
     bEnablePolyphony: boolean;
@@ -75,32 +73,27 @@ declare interface FModularSynthPreset extends FTableRowBase {
     ChorusDepth: number;
     ChorusFeedback: number;
     ChorusFrequency: number;
-    Patches: TArray<FEpicSynth1Patch>;
+    Patches: FEpicSynth1Patch[];
 }
-declare const FModularSynthPreset: FModularSynthPreset;
 
 declare interface FModularSynthPresetBankEntry {
-    PresetName: FString;
+    PresetName: string;
     Preset: FModularSynthPreset;
 }
-declare const FModularSynthPresetBankEntry: FModularSynthPresetBankEntry;
 
 declare interface FPatchId {
     ID: number;
 }
-declare const FPatchId: FPatchId;
 
 declare interface FSourceEffectBitCrusherBaseSettings {
     SampleRate: number;
     BitDepth: number;
 }
-declare const FSourceEffectBitCrusherBaseSettings: FSourceEffectBitCrusherBaseSettings;
 
 declare interface FSourceEffectBitCrusherSettings {
     SampleRateModulation: FSoundModulationDestinationSettings;
     BitModulation: FSoundModulationDestinationSettings;
 }
-declare const FSourceEffectBitCrusherSettings: FSourceEffectBitCrusherSettings;
 
 declare interface FSourceEffectChorusBaseSettings {
     Depth: number;
@@ -110,7 +103,6 @@ declare interface FSourceEffectChorusBaseSettings {
     DryLevel: number;
     Spread: number;
 }
-declare const FSourceEffectChorusBaseSettings: FSourceEffectChorusBaseSettings;
 
 declare interface FSourceEffectChorusSettings {
     Depth: number;
@@ -126,7 +118,6 @@ declare interface FSourceEffectChorusSettings {
     DryModulation: FSoundModulationDestinationSettings;
     SpreadModulation: FSoundModulationDestinationSettings;
 }
-declare const FSourceEffectChorusSettings: FSourceEffectChorusSettings;
 
 declare interface FSourceEffectConvolutionReverbSettings {
     NormalizationVolumeDb: number;
@@ -134,7 +125,6 @@ declare interface FSourceEffectConvolutionReverbSettings {
     DryVolumeDb: number;
     bBypass: boolean;
 }
-declare const FSourceEffectConvolutionReverbSettings: FSourceEffectConvolutionReverbSettings;
 
 declare interface FSourceEffectDynamicsProcessorSettings {
     DynamicsProcessorType: ESourceEffectDynamicsProcessorType;
@@ -151,7 +141,6 @@ declare interface FSourceEffectDynamicsProcessorSettings {
     bAnalogMode: boolean;
     bBypass: boolean;
 }
-declare const FSourceEffectDynamicsProcessorSettings: FSourceEffectDynamicsProcessorSettings;
 
 declare interface FSourceEffectEQBand {
     Frequency: number;
@@ -159,12 +148,10 @@ declare interface FSourceEffectEQBand {
     GainDb: number;
     bEnabled: boolean;
 }
-declare const FSourceEffectEQBand: FSourceEffectEQBand;
 
 declare interface FSourceEffectEQSettings {
-    EQBands: TArray<FSourceEffectEQBand>;
+    EQBands: FSourceEffectEQBand[];
 }
-declare const FSourceEffectEQSettings: FSourceEffectEQSettings;
 
 declare interface FSourceEffectEnvelopeFollowerSettings {
     AttackTime: number;
@@ -172,7 +159,6 @@ declare interface FSourceEffectEnvelopeFollowerSettings {
     PeakMode: EEnvelopeFollowerPeakMode;
     bIsAnalogMode: boolean;
 }
-declare const FSourceEffectEnvelopeFollowerSettings: FSourceEffectEnvelopeFollowerSettings;
 
 declare interface FSourceEffectFilterAudioBusModulationSettings {
     AudioBus: UAudioBus;
@@ -185,23 +171,20 @@ declare interface FSourceEffectFilterAudioBusModulationSettings {
     MinResonanceModulation: number;
     MaxResonanceModulation: number;
 }
-declare const FSourceEffectFilterAudioBusModulationSettings: FSourceEffectFilterAudioBusModulationSettings;
 
 declare interface FSourceEffectFilterSettings {
     FilterCircuit: ESourceEffectFilterCircuit;
     FilterType: ESourceEffectFilterType;
     CutoffFrequency: number;
     FilterQ: number;
-    AudioBusModulation: TArray<FSourceEffectFilterAudioBusModulationSettings>;
+    AudioBusModulation: FSourceEffectFilterAudioBusModulationSettings[];
 }
-declare const FSourceEffectFilterSettings: FSourceEffectFilterSettings;
 
 declare interface FSourceEffectFoldbackDistortionSettings {
     InputGainDb: number;
     ThresholdDb: number;
     OutputGainDb: number;
 }
-declare const FSourceEffectFoldbackDistortionSettings: FSourceEffectFoldbackDistortionSettings;
 
 declare interface FSourceEffectIndividualFilterSettings {
     FilterCircuit: ESourceEffectMotionFilterCircuit;
@@ -209,7 +192,6 @@ declare interface FSourceEffectIndividualFilterSettings {
     CutoffFrequency: number;
     FilterQ: number;
 }
-declare const FSourceEffectIndividualFilterSettings: FSourceEffectIndividualFilterSettings;
 
 declare interface FSourceEffectMidSideSpreaderSettings {
     SpreadAmount: number;
@@ -217,7 +199,6 @@ declare interface FSourceEffectMidSideSpreaderSettings {
     OutputMode: EStereoChannelMode;
     bEqualPower: boolean;
 }
-declare const FSourceEffectMidSideSpreaderSettings: FSourceEffectMidSideSpreaderSettings;
 
 declare interface FSourceEffectMotionFilterModulationSettings {
     ModulationSource: ESourceEffectMotionFilterModSource;
@@ -226,23 +207,20 @@ declare interface FSourceEffectMotionFilterModulationSettings {
     ModulationOutputMaximumRange: FVector2D;
     UpdateEaseMS: number;
 }
-declare const FSourceEffectMotionFilterModulationSettings: FSourceEffectMotionFilterModulationSettings;
 
 declare interface FSourceEffectMotionFilterSettings {
     MotionFilterTopology: ESourceEffectMotionFilterTopology;
     MotionFilterMix: number;
     FilterASettings: FSourceEffectIndividualFilterSettings;
     FilterBSettings: FSourceEffectIndividualFilterSettings;
-    ModulationMappings: Record<string | number | symbol, FSourceEffectMotionFilterModulationSettings>;
+    ModulationMappings: TMap<ESourceEffectMotionFilterModDestination, FSourceEffectMotionFilterModulationSettings>;
     DryVolumeDb: number;
 }
-declare const FSourceEffectMotionFilterSettings: FSourceEffectMotionFilterSettings;
 
 declare interface FSourceEffectPannerSettings {
     Spread: number;
     Pan: number;
 }
-declare const FSourceEffectPannerSettings: FSourceEffectPannerSettings;
 
 declare interface FSourceEffectPhaserSettings {
     WetLevel: number;
@@ -251,7 +229,6 @@ declare interface FSourceEffectPhaserSettings {
     LFOType: EPhaserLFOType;
     UseQuadraturePhase: boolean;
 }
-declare const FSourceEffectPhaserSettings: FSourceEffectPhaserSettings;
 
 declare interface FSourceEffectRingModulationSettings {
     ModulatorType: ERingModulatorTypeSourceEffect;
@@ -261,7 +238,6 @@ declare interface FSourceEffectRingModulationSettings {
     WetLevel: number;
     AudioBusModulator: UAudioBus;
 }
-declare const FSourceEffectRingModulationSettings: FSourceEffectRingModulationSettings;
 
 declare interface FSourceEffectSimpleDelaySettings {
     SpeedOfSound: number;
@@ -272,7 +248,6 @@ declare interface FSourceEffectSimpleDelaySettings {
     bDelayBasedOnDistance: boolean;
     bUseDistanceOverride: boolean;
 }
-declare const FSourceEffectSimpleDelaySettings: FSourceEffectSimpleDelaySettings;
 
 declare interface FSourceEffectStereoDelaySettings {
     DelayMode: EStereoDelaySourceEffect;
@@ -286,13 +261,11 @@ declare interface FSourceEffectStereoDelaySettings {
     FilterFrequency: number;
     FilterQ: number;
 }
-declare const FSourceEffectStereoDelaySettings: FSourceEffectStereoDelaySettings;
 
 declare interface FSourceEffectWaveShaperSettings {
     Amount: number;
     OutputGainDb: number;
 }
-declare const FSourceEffectWaveShaperSettings: FSourceEffectWaveShaperSettings;
 
 declare interface FSubmixEffectConvolutionReverbSettings {
     NormalizationVolumeDb: number;
@@ -308,14 +281,12 @@ declare interface FSubmixEffectConvolutionReverbSettings {
     ImpulseResponse: UAudioImpulseResponse;
     AllowHardwareAcceleration: boolean;
 }
-declare const FSubmixEffectConvolutionReverbSettings: FSubmixEffectConvolutionReverbSettings;
 
 declare interface FSubmixEffectDelaySettings {
     MaximumDelayLength: number;
     InterpolationTime: number;
     DelayLength: number;
 }
-declare const FSubmixEffectDelaySettings: FSubmixEffectDelaySettings;
 
 declare interface FSubmixEffectFilterSettings {
     FilterType: ESubmixFilterType;
@@ -323,7 +294,6 @@ declare interface FSubmixEffectFilterSettings {
     FilterFrequency: number;
     FilterQ: number;
 }
-declare const FSubmixEffectFilterSettings: FSubmixEffectFilterSettings;
 
 declare interface FSubmixEffectFlexiverbSettings {
     PreDelay: number;
@@ -331,7 +301,6 @@ declare interface FSubmixEffectFlexiverbSettings {
     RoomDampening: number;
     Complexity: number;
 }
-declare const FSubmixEffectFlexiverbSettings: FSubmixEffectFlexiverbSettings;
 
 declare interface FSubmixEffectMultibandCompressorSettings {
     DynamicsProcessorType: ESubmixEffectDynamicsProcessorType;
@@ -346,9 +315,8 @@ declare interface FSubmixEffectMultibandCompressorSettings {
     ExternalSubmix: USoundSubmix;
     KeyGainDb: number;
     bKeyAudition: boolean;
-    Bands: TArray<FDynamicsBandSettings>;
+    Bands: FDynamicsBandSettings[];
 }
-declare const FSubmixEffectMultibandCompressorSettings: FSubmixEffectMultibandCompressorSettings;
 
 declare interface FSubmixEffectStereoDelaySettings {
     DelayMode: EStereoDelaySourceEffect;
@@ -362,26 +330,22 @@ declare interface FSubmixEffectStereoDelaySettings {
     FilterFrequency: number;
     FilterQ: number;
 }
-declare const FSubmixEffectStereoDelaySettings: FSubmixEffectStereoDelaySettings;
 
 declare interface FSubmixEffectStereoToQuadSettings {
     bFlipChannels: boolean;
     RearChannelGain: number;
 }
-declare const FSubmixEffectStereoToQuadSettings: FSubmixEffectStereoToQuadSettings;
 
 declare interface FSubmixEffectTapDelaySettings {
     MaximumDelayLength: number;
     InterpolationTime: number;
-    Taps: TArray<FTapDelayInfo>;
+    Taps: FTapDelayInfo[];
 }
-declare const FSubmixEffectTapDelaySettings: FSubmixEffectTapDelaySettings;
 
 declare interface FSynth1PatchCable {
     Depth: number;
     Destination: ESynth1PatchDestination;
 }
-declare const FSynth1PatchCable: FSynth1PatchCable;
 
 declare interface FSynth2DSliderStyle extends FSlateWidgetStyle {
     NormalThumbImage: FSlateBrush;
@@ -391,7 +355,6 @@ declare interface FSynth2DSliderStyle extends FSlateWidgetStyle {
     BackgroundImage: FSlateBrush;
     BarThickness: number;
 }
-declare const FSynth2DSliderStyle: FSynth2DSliderStyle;
 
 declare interface FSynthKnobStyle extends FSlateWidgetStyle {
     LargeKnob: FSlateBrush;
@@ -402,13 +365,11 @@ declare interface FSynthKnobStyle extends FSlateWidgetStyle {
     MaxValueAngle: number;
     KnobSize: ESynthKnobSize;
 }
-declare const FSynthKnobStyle: FSynthKnobStyle;
 
 declare interface FSynthSlateStyle extends FSlateWidgetStyle {
     SizeType: ESynthSlateSizeType;
     ColorStyle: ESynthSlateColorStyle;
 }
-declare const FSynthSlateStyle: FSynthSlateStyle;
 
 declare interface FTapDelayInfo {
     TapLineMode: ETapLineMode;
@@ -418,471 +379,791 @@ declare interface FTapDelayInfo {
     PanInDegrees: number;
     TapId: number;
 }
-declare const FTapDelayInfo: FTapDelayInfo;
 
 declare interface UAudioImpulseResponse extends UObject {
-    ImpulseResponse: TArray<number>;
-    NumChannels: number;
-    SampleRate: number;
-    NormalizationVolumeDb: number;
-    bTrueStereo: boolean;
-    IRData: TArray<number>;
+    readonly __properties_UAudioImpulseResponse: {
+        ImpulseResponse: number[];
+        NumChannels: number;
+        SampleRate: number;
+        NormalizationVolumeDb: number;
+        bTrueStereo: boolean;
+        IRData: number[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioImpulseResponse['__properties_UAudioImpulseResponse'] &
+        UObject['__propertyRegistry'];
 }
-declare const UAudioImpulseResponse: UAudioImpulseResponse;
 
 declare interface UEnvelopeFollowerListener extends UActorComponent {
-    OnEnvelopeFollowerUpdate: FEnvelopeFollowerListenerOnEnvelopeFollowerUpdate;
+    readonly __properties_UEnvelopeFollowerListener: {
+        OnEnvelopeFollowerUpdate: FEnvelopeFollowerListenerOnEnvelopeFollowerUpdate;
+    };
+    readonly __staticRegistry: 
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvelopeFollowerListener['__properties_UEnvelopeFollowerListener'] &
+        UActorComponent['__propertyRegistry'];
 }
-declare const UEnvelopeFollowerListener: UEnvelopeFollowerListener;
 
 declare interface UGranularSynth extends USynthComponent {
-    GranulatedSoundWave: USoundWave;
-    SetSustainGain(SustainGain: number): void;
-    SetSoundWave(InSoundWave: USoundWave): void;
-    SetScrubMode(bScrubMode: boolean): void;
-    SetReleaseTimeMsec(ReleaseTimeMsec: number): void;
-    SetPlayheadTime(InPositionSec: number, LerpTimeSec: number, SeekType: EGranularSynthSeekType): void;
-    SetPlaybackSpeed(InPlayheadRate: number): void;
-    SetGrainVolume(BaseVolume: number, VolumeRange: FVector2D): void;
-    SetGrainsPerSecond(InGrainsPerSecond: number): void;
-    SetGrainProbability(InGrainProbability: number): void;
-    SetGrainPitch(BasePitch: number, PitchRange: FVector2D): void;
-    SetGrainPan(BasePan: number, PanRange: FVector2D): void;
-    SetGrainEnvelopeType(EnvelopeType: EGranularSynthEnvelopeType): void;
-    SetGrainDuration(BaseDurationMsec: number, DurationRange: FVector2D): void;
-    SetDecayTime(DecayTimeMsec: number): void;
-    SetAttackTime(AttackTimeMsec: number): void;
-    NoteOn(Note: number, Velocity: number, duration: number): void;
-    NoteOff(Note: number, bKill: boolean): void;
-    IsLoaded(): boolean;
-    GetSampleDuration(): number;
-    GetCurrentPlayheadTime(): number;
+    readonly __static_UGranularSynth: {
+        SetSustainGain(SustainGain: number): void;
+        SetSoundWave(InSoundWave: USoundWave): void;
+        SetScrubMode(bScrubMode: boolean): void;
+        SetReleaseTimeMsec(ReleaseTimeMsec: number): void;
+        SetPlayheadTime(InPositionSec: number, LerpTimeSec: number, SeekType: EGranularSynthSeekType): void;
+        SetPlaybackSpeed(InPlayheadRate: number): void;
+        SetGrainVolume(BaseVolume: number, VolumeRange: FVector2D): void;
+        SetGrainsPerSecond(InGrainsPerSecond: number): void;
+        SetGrainProbability(InGrainProbability: number): void;
+        SetGrainPitch(BasePitch: number, PitchRange: FVector2D): void;
+        SetGrainPan(BasePan: number, PanRange: FVector2D): void;
+        SetGrainEnvelopeType(EnvelopeType: EGranularSynthEnvelopeType): void;
+        SetGrainDuration(BaseDurationMsec: number, DurationRange: FVector2D): void;
+        SetDecayTime(DecayTimeMsec: number): void;
+        SetAttackTime(AttackTimeMsec: number): void;
+        NoteOn(Note: number, Velocity: number, duration: number): void;
+        NoteOff(Note: number, bKill: boolean): void;
+        IsLoaded(): boolean;
+        GetSampleDuration(): number;
+        GetCurrentPlayheadTime(): number;
+    };
+    readonly __properties_UGranularSynth: {
+        GranulatedSoundWave: USoundWave;
+    };
+    readonly __staticRegistry: 
+        UGranularSynth['__static_UGranularSynth'] &
+        USynthComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGranularSynth['__properties_UGranularSynth'] &
+        USynthComponent['__propertyRegistry'];
 }
-declare const UGranularSynth: UGranularSynth;
 
 declare interface UModularSynthComponent extends USynthComponent {
-    VoiceCount: number;
-    SetSynthPreset(SynthPreset: FModularSynthPreset): void;
-    SetSustainGain(SustainGain: number): void;
-    SetStereoDelayWetlevel(DelayWetlevel: number): void;
-    SetStereoDelayTime(DelayTimeMsec: number): void;
-    SetStereoDelayRatio(DelayRatio: number): void;
-    SetStereoDelayMode(StereoDelayMode: ESynthStereoDelayMode): void;
-    SetStereoDelayIsEnabled(StereoDelayEnabled: boolean): void;
-    SetStereoDelayFeedback(DelayFeedback: number): void;
-    SetSpread(Spread: number): void;
-    SetReleaseTime(ReleaseTimeMsec: number): void;
-    SetPortamento(Portamento: number): void;
-    SetPitchBend(PitchBend: number): void;
-    SetPan(Pan: number): void;
-    SetOscType(OscIndex: number, OscType: ESynth1OscType): void;
-    SetOscSync(bIsSynced: boolean): void;
-    SetOscSemitones(OscIndex: number, Semitones: number): void;
-    SetOscPulsewidth(OscIndex: number, Pulsewidth: number): void;
-    SetOscOctave(OscIndex: number, Octave: number): void;
-    SetOscGainMod(OscIndex: number, OscGainMod: number): void;
-    SetOscGain(OscIndex: number, OscGain: number): void;
-    SetOscFrequencyMod(OscIndex: number, OscFreqMod: number): void;
-    SetOscCents(OscIndex: number, Cents: number): void;
-    SetModEnvSustainGain(SustainGain: number): void;
-    SetModEnvReleaseTime(Release: number): void;
-    SetModEnvPatch(InPatchType: ESynthModEnvPatch): void;
-    SetModEnvInvert(bInvert: boolean): void;
-    SetModEnvDepth(Depth: number): void;
-    SetModEnvDecayTime(DecayTimeMsec: number): void;
-    SetModEnvBiasPatch(InPatchType: ESynthModEnvBiasPatch): void;
-    SetModEnvBiasInvert(bInvert: boolean): void;
-    SetModEnvAttackTime(AttackTimeMsec: number): void;
-    SetLFOType(LFOIndex: number, LFOType: ESynthLFOType): void;
-    SetLFOPatch(LFOIndex: number, LFOPatchType: ESynthLFOPatchType): void;
-    SetLFOMode(LFOIndex: number, LFOMode: ESynthLFOMode): void;
-    SetLFOGainMod(LFOIndex: number, GainMod: number): void;
-    SetLFOGain(LFOIndex: number, Gain: number): void;
-    SetLFOFrequencyMod(LFOIndex: number, FrequencyModHz: number): void;
-    SetLFOFrequency(LFOIndex: number, FrequencyHz: number): void;
-    SetGainDb(GainDb: number): void;
-    SetFilterType(FilterType: ESynthFilterType): void;
-    SetFilterQMod(FilterQ: number): void;
-    SetFilterQ(FilterQ: number): void;
-    SetFilterFrequencyMod(FilterFrequencyHz: number): void;
-    SetFilterFrequency(FilterFrequencyHz: number): void;
-    SetFilterAlgorithm(FilterAlgorithm: ESynthFilterAlgorithm): void;
-    SetEnableUnison(EnableUnison: boolean): void;
-    SetEnableRetrigger(RetriggerEnabled: boolean): void;
-    SetEnablePolyphony(bEnablePolyphony: boolean): void;
-    SetEnablePatch(PatchId: FPatchId, bIsEnabled: boolean): boolean;
-    SetEnableLegato(LegatoEnabled: boolean): void;
-    SetDecayTime(DecayTimeMsec: number): void;
-    SetChorusFrequency(Frequency: number): void;
-    SetChorusFeedback(Feedback: number): void;
-    SetChorusEnabled(EnableChorus: boolean): void;
-    SetChorusDepth(Depth: number): void;
-    SetAttackTime(AttackTimeMsec: number): void;
-    NoteOn(Note: number, Velocity: number, duration: number): void;
-    NoteOff(Note: number, bAllNotesOff: boolean, bKillAllNotes: boolean): void;
-    CreatePatch(PatchSource: ESynth1PatchSource, PatchCables: TArray<FSynth1PatchCable>, bEnableByDefault: boolean): FPatchId;
+    readonly __static_UModularSynthComponent: {
+        SetSynthPreset(SynthPreset: FModularSynthPreset): void;
+        SetSustainGain(SustainGain: number): void;
+        SetStereoDelayWetlevel(DelayWetlevel: number): void;
+        SetStereoDelayTime(DelayTimeMsec: number): void;
+        SetStereoDelayRatio(DelayRatio: number): void;
+        SetStereoDelayMode(StereoDelayMode: ESynthStereoDelayMode): void;
+        SetStereoDelayIsEnabled(StereoDelayEnabled: boolean): void;
+        SetStereoDelayFeedback(DelayFeedback: number): void;
+        SetSpread(Spread: number): void;
+        SetReleaseTime(ReleaseTimeMsec: number): void;
+        SetPortamento(Portamento: number): void;
+        SetPitchBend(PitchBend: number): void;
+        SetPan(Pan: number): void;
+        SetOscType(OscIndex: number, OscType: ESynth1OscType): void;
+        SetOscSync(bIsSynced: boolean): void;
+        SetOscSemitones(OscIndex: number, Semitones: number): void;
+        SetOscPulsewidth(OscIndex: number, Pulsewidth: number): void;
+        SetOscOctave(OscIndex: number, Octave: number): void;
+        SetOscGainMod(OscIndex: number, OscGainMod: number): void;
+        SetOscGain(OscIndex: number, OscGain: number): void;
+        SetOscFrequencyMod(OscIndex: number, OscFreqMod: number): void;
+        SetOscCents(OscIndex: number, Cents: number): void;
+        SetModEnvSustainGain(SustainGain: number): void;
+        SetModEnvReleaseTime(Release: number): void;
+        SetModEnvPatch(InPatchType: ESynthModEnvPatch): void;
+        SetModEnvInvert(bInvert: boolean): void;
+        SetModEnvDepth(Depth: number): void;
+        SetModEnvDecayTime(DecayTimeMsec: number): void;
+        SetModEnvBiasPatch(InPatchType: ESynthModEnvBiasPatch): void;
+        SetModEnvBiasInvert(bInvert: boolean): void;
+        SetModEnvAttackTime(AttackTimeMsec: number): void;
+        SetLFOType(LFOIndex: number, LFOType: ESynthLFOType): void;
+        SetLFOPatch(LFOIndex: number, LFOPatchType: ESynthLFOPatchType): void;
+        SetLFOMode(LFOIndex: number, LFOMode: ESynthLFOMode): void;
+        SetLFOGainMod(LFOIndex: number, GainMod: number): void;
+        SetLFOGain(LFOIndex: number, Gain: number): void;
+        SetLFOFrequencyMod(LFOIndex: number, FrequencyModHz: number): void;
+        SetLFOFrequency(LFOIndex: number, FrequencyHz: number): void;
+        SetGainDb(GainDb: number): void;
+        SetFilterType(FilterType: ESynthFilterType): void;
+        SetFilterQMod(FilterQ: number): void;
+        SetFilterQ(FilterQ: number): void;
+        SetFilterFrequencyMod(FilterFrequencyHz: number): void;
+        SetFilterFrequency(FilterFrequencyHz: number): void;
+        SetFilterAlgorithm(FilterAlgorithm: ESynthFilterAlgorithm): void;
+        SetEnableUnison(EnableUnison: boolean): void;
+        SetEnableRetrigger(RetriggerEnabled: boolean): void;
+        SetEnablePolyphony(bEnablePolyphony: boolean): void;
+        SetEnablePatch(PatchId: FPatchId, bIsEnabled: boolean): boolean;
+        SetEnableLegato(LegatoEnabled: boolean): void;
+        SetDecayTime(DecayTimeMsec: number): void;
+        SetChorusFrequency(Frequency: number): void;
+        SetChorusFeedback(Feedback: number): void;
+        SetChorusEnabled(EnableChorus: boolean): void;
+        SetChorusDepth(Depth: number): void;
+        SetAttackTime(AttackTimeMsec: number): void;
+        NoteOn(Note: number, Velocity: number, duration: number): void;
+        NoteOff(Note: number, bAllNotesOff: boolean, bKillAllNotes: boolean): void;
+        CreatePatch(PatchSource: ESynth1PatchSource, PatchCables: FSynth1PatchCable[], bEnableByDefault: boolean): FPatchId;
+    };
+    readonly __properties_UModularSynthComponent: {
+        VoiceCount: number;
+    };
+    readonly __staticRegistry: 
+        UModularSynthComponent['__static_UModularSynthComponent'] &
+        USynthComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UModularSynthComponent['__properties_UModularSynthComponent'] &
+        USynthComponent['__propertyRegistry'];
 }
-declare const UModularSynthComponent: UModularSynthComponent;
 
 declare interface UModularSynthLibrary extends UBlueprintFunctionLibrary {
-    AddModularSynthPresetToBankAsset(InBank: UModularSynthPresetBank, Preset: FModularSynthPreset, PresetName: string | FString): void;
+    readonly __static_UModularSynthLibrary: {
+        AddModularSynthPresetToBankAsset(InBank: UModularSynthPresetBank, Preset: FModularSynthPreset, PresetName: string): void;
+    };
+    readonly __staticRegistry: 
+        UModularSynthLibrary['__static_UModularSynthLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UModularSynthLibrary: UModularSynthLibrary;
 
 declare interface UModularSynthPresetBank extends UObject {
-    Presets: TArray<FModularSynthPresetBankEntry>;
+    readonly __properties_UModularSynthPresetBank: {
+        Presets: FModularSynthPresetBankEntry[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UModularSynthPresetBank['__properties_UModularSynthPresetBank'] &
+        UObject['__propertyRegistry'];
 }
-declare const UModularSynthPresetBank: UModularSynthPresetBank;
 
 declare interface UMonoWaveTableSynthPreset extends UObject {
-    PresetName: FString;
-    bLockKeyframesToGridBool: boolean;
-    LockKeyframesToGrid: number;
-    WaveTableResolution: number;
-    WaveTable: TArray<FRuntimeFloatCurve>;
-    bNormalizeWaveTables: boolean;
+    readonly __properties_UMonoWaveTableSynthPreset: {
+        PresetName: string;
+        bLockKeyframesToGridBool: boolean;
+        LockKeyframesToGrid: number;
+        WaveTableResolution: number;
+        WaveTable: FRuntimeFloatCurve[];
+        bNormalizeWaveTables: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMonoWaveTableSynthPreset['__properties_UMonoWaveTableSynthPreset'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMonoWaveTableSynthPreset: UMonoWaveTableSynthPreset;
 
 declare interface USourceEffectBitCrusherPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectBitCrusherSettings;
-    SetSettings(Settings: FSourceEffectBitCrusherBaseSettings): void;
-    SetSampleRateModulators(InModulators: TSet<USoundModulatorBase>): void;
-    SetSampleRateModulator(Modulator: USoundModulatorBase): void;
-    SetSampleRate(SampleRate: number): void;
-    SetModulationSettings(ModulationSettings: FSourceEffectBitCrusherSettings): void;
-    SetBits(Bits: number): void;
-    SetBitModulators(InModulators: TSet<USoundModulatorBase>): void;
-    SetBitModulator(Modulator: USoundModulatorBase): void;
+    readonly __static_USourceEffectBitCrusherPreset: {
+        SetSettings(Settings: FSourceEffectBitCrusherBaseSettings): void;
+        SetSampleRateModulators(InModulators: USoundModulatorBase[]): void;
+        SetSampleRateModulator(Modulator: USoundModulatorBase): void;
+        SetSampleRate(SampleRate: number): void;
+        SetModulationSettings(ModulationSettings: FSourceEffectBitCrusherSettings): void;
+        SetBits(Bits: number): void;
+        SetBitModulators(InModulators: USoundModulatorBase[]): void;
+        SetBitModulator(Modulator: USoundModulatorBase): void;
+    };
+    readonly __properties_USourceEffectBitCrusherPreset: {
+        Settings: FSourceEffectBitCrusherSettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectBitCrusherPreset['__static_USourceEffectBitCrusherPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectBitCrusherPreset['__properties_USourceEffectBitCrusherPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectBitCrusherPreset: USourceEffectBitCrusherPreset;
 
 declare interface USourceEffectChorusPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectChorusSettings;
-    SetWetModulators(Modulators: TSet<USoundModulatorBase>): void;
-    SetWetModulator(Modulator: USoundModulatorBase): void;
-    SetWet(WetAmount: number): void;
-    SetSpreadModulators(Modulators: TSet<USoundModulatorBase>): void;
-    SetSpreadModulator(Modulator: USoundModulatorBase): void;
-    SetSpread(Spread: number): void;
-    SetSettings(Settings: FSourceEffectChorusBaseSettings): void;
-    SetModulationSettings(ModulationSettings: FSourceEffectChorusSettings): void;
-    SetFrequencyModulators(Modulators: TSet<USoundModulatorBase>): void;
-    SetFrequencyModulator(Modulator: USoundModulatorBase): void;
-    SetFrequency(Frequency: number): void;
-    SetFeedbackModulators(Modulators: TSet<USoundModulatorBase>): void;
-    SetFeedbackModulator(Modulator: USoundModulatorBase): void;
-    SetFeedback(Feedback: number): void;
-    SetDryModulators(Modulators: TSet<USoundModulatorBase>): void;
-    SetDryModulator(Modulator: USoundModulatorBase): void;
-    SetDry(DryAmount: number): void;
-    SetDepthModulators(Modulators: TSet<USoundModulatorBase>): void;
-    SetDepthModulator(Modulator: USoundModulatorBase): void;
-    SetDepth(Depth: number): void;
+    readonly __static_USourceEffectChorusPreset: {
+        SetWetModulators(Modulators: USoundModulatorBase[]): void;
+        SetWetModulator(Modulator: USoundModulatorBase): void;
+        SetWet(WetAmount: number): void;
+        SetSpreadModulators(Modulators: USoundModulatorBase[]): void;
+        SetSpreadModulator(Modulator: USoundModulatorBase): void;
+        SetSpread(Spread: number): void;
+        SetSettings(Settings: FSourceEffectChorusBaseSettings): void;
+        SetModulationSettings(ModulationSettings: FSourceEffectChorusSettings): void;
+        SetFrequencyModulators(Modulators: USoundModulatorBase[]): void;
+        SetFrequencyModulator(Modulator: USoundModulatorBase): void;
+        SetFrequency(Frequency: number): void;
+        SetFeedbackModulators(Modulators: USoundModulatorBase[]): void;
+        SetFeedbackModulator(Modulator: USoundModulatorBase): void;
+        SetFeedback(Feedback: number): void;
+        SetDryModulators(Modulators: USoundModulatorBase[]): void;
+        SetDryModulator(Modulator: USoundModulatorBase): void;
+        SetDry(DryAmount: number): void;
+        SetDepthModulators(Modulators: USoundModulatorBase[]): void;
+        SetDepthModulator(Modulator: USoundModulatorBase): void;
+        SetDepth(Depth: number): void;
+    };
+    readonly __properties_USourceEffectChorusPreset: {
+        Settings: FSourceEffectChorusSettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectChorusPreset['__static_USourceEffectChorusPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectChorusPreset['__properties_USourceEffectChorusPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectChorusPreset: USourceEffectChorusPreset;
 
 declare interface USourceEffectConvolutionReverbPreset extends USoundEffectSourcePreset {
-    ImpulseResponse: UAudioImpulseResponse;
-    Settings: FSourceEffectConvolutionReverbSettings;
-    BlockSize: ESubmixEffectConvolutionReverbBlockSize;
-    bEnableHardwareAcceleration: boolean;
-    SetSettings(InSettings: FSourceEffectConvolutionReverbSettings): void;
-    SetImpulseResponse(InImpulseResponse: UAudioImpulseResponse): void;
+    readonly __static_USourceEffectConvolutionReverbPreset: {
+        SetSettings(InSettings: FSourceEffectConvolutionReverbSettings): void;
+        SetImpulseResponse(InImpulseResponse: UAudioImpulseResponse): void;
+    };
+    readonly __properties_USourceEffectConvolutionReverbPreset: {
+        ImpulseResponse: UAudioImpulseResponse;
+        Settings: FSourceEffectConvolutionReverbSettings;
+        BlockSize: ESubmixEffectConvolutionReverbBlockSize;
+        bEnableHardwareAcceleration: boolean;
+    };
+    readonly __staticRegistry: 
+        USourceEffectConvolutionReverbPreset['__static_USourceEffectConvolutionReverbPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectConvolutionReverbPreset['__properties_USourceEffectConvolutionReverbPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectConvolutionReverbPreset: USourceEffectConvolutionReverbPreset;
 
 declare interface USourceEffectDynamicsProcessorPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectDynamicsProcessorSettings;
-    SetSettings(InSettings: FSourceEffectDynamicsProcessorSettings): void;
+    readonly __static_USourceEffectDynamicsProcessorPreset: {
+        SetSettings(InSettings: FSourceEffectDynamicsProcessorSettings): void;
+    };
+    readonly __properties_USourceEffectDynamicsProcessorPreset: {
+        Settings: FSourceEffectDynamicsProcessorSettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectDynamicsProcessorPreset['__static_USourceEffectDynamicsProcessorPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectDynamicsProcessorPreset['__properties_USourceEffectDynamicsProcessorPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectDynamicsProcessorPreset: USourceEffectDynamicsProcessorPreset;
 
 declare interface USourceEffectEQPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectEQSettings;
-    SetSettings(InSettings: FSourceEffectEQSettings): void;
+    readonly __static_USourceEffectEQPreset: {
+        SetSettings(InSettings: FSourceEffectEQSettings): void;
+    };
+    readonly __properties_USourceEffectEQPreset: {
+        Settings: FSourceEffectEQSettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectEQPreset['__static_USourceEffectEQPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectEQPreset['__properties_USourceEffectEQPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectEQPreset: USourceEffectEQPreset;
 
 declare interface USourceEffectEnvelopeFollowerPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectEnvelopeFollowerSettings;
-    UnregisterEnvelopeFollowerListener(EnvelopeFollowerListener: UEnvelopeFollowerListener): void;
-    SetSettings(InSettings: FSourceEffectEnvelopeFollowerSettings): void;
-    RegisterEnvelopeFollowerListener(EnvelopeFollowerListener: UEnvelopeFollowerListener): void;
+    readonly __static_USourceEffectEnvelopeFollowerPreset: {
+        UnregisterEnvelopeFollowerListener(EnvelopeFollowerListener: UEnvelopeFollowerListener): void;
+        SetSettings(InSettings: FSourceEffectEnvelopeFollowerSettings): void;
+        RegisterEnvelopeFollowerListener(EnvelopeFollowerListener: UEnvelopeFollowerListener): void;
+    };
+    readonly __properties_USourceEffectEnvelopeFollowerPreset: {
+        Settings: FSourceEffectEnvelopeFollowerSettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectEnvelopeFollowerPreset['__static_USourceEffectEnvelopeFollowerPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectEnvelopeFollowerPreset['__properties_USourceEffectEnvelopeFollowerPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectEnvelopeFollowerPreset: USourceEffectEnvelopeFollowerPreset;
 
 declare interface USourceEffectFilterPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectFilterSettings;
-    SetSettings(InSettings: FSourceEffectFilterSettings): void;
+    readonly __static_USourceEffectFilterPreset: {
+        SetSettings(InSettings: FSourceEffectFilterSettings): void;
+    };
+    readonly __properties_USourceEffectFilterPreset: {
+        Settings: FSourceEffectFilterSettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectFilterPreset['__static_USourceEffectFilterPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectFilterPreset['__properties_USourceEffectFilterPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectFilterPreset: USourceEffectFilterPreset;
 
 declare interface USourceEffectFoldbackDistortionPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectFoldbackDistortionSettings;
-    SetSettings(InSettings: FSourceEffectFoldbackDistortionSettings): void;
+    readonly __static_USourceEffectFoldbackDistortionPreset: {
+        SetSettings(InSettings: FSourceEffectFoldbackDistortionSettings): void;
+    };
+    readonly __properties_USourceEffectFoldbackDistortionPreset: {
+        Settings: FSourceEffectFoldbackDistortionSettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectFoldbackDistortionPreset['__static_USourceEffectFoldbackDistortionPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectFoldbackDistortionPreset['__properties_USourceEffectFoldbackDistortionPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectFoldbackDistortionPreset: USourceEffectFoldbackDistortionPreset;
 
 declare interface USourceEffectMidSideSpreaderPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectMidSideSpreaderSettings;
-    SetSettings(InSettings: FSourceEffectMidSideSpreaderSettings): void;
+    readonly __static_USourceEffectMidSideSpreaderPreset: {
+        SetSettings(InSettings: FSourceEffectMidSideSpreaderSettings): void;
+    };
+    readonly __properties_USourceEffectMidSideSpreaderPreset: {
+        Settings: FSourceEffectMidSideSpreaderSettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectMidSideSpreaderPreset['__static_USourceEffectMidSideSpreaderPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectMidSideSpreaderPreset['__properties_USourceEffectMidSideSpreaderPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectMidSideSpreaderPreset: USourceEffectMidSideSpreaderPreset;
 
 declare interface USourceEffectMotionFilterPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectMotionFilterSettings;
-    SetSettings(InSettings: FSourceEffectMotionFilterSettings): void;
+    readonly __static_USourceEffectMotionFilterPreset: {
+        SetSettings(InSettings: FSourceEffectMotionFilterSettings): void;
+    };
+    readonly __properties_USourceEffectMotionFilterPreset: {
+        Settings: FSourceEffectMotionFilterSettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectMotionFilterPreset['__static_USourceEffectMotionFilterPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectMotionFilterPreset['__properties_USourceEffectMotionFilterPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectMotionFilterPreset: USourceEffectMotionFilterPreset;
 
 declare interface USourceEffectPannerPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectPannerSettings;
-    SetSettings(InSettings: FSourceEffectPannerSettings): void;
+    readonly __static_USourceEffectPannerPreset: {
+        SetSettings(InSettings: FSourceEffectPannerSettings): void;
+    };
+    readonly __properties_USourceEffectPannerPreset: {
+        Settings: FSourceEffectPannerSettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectPannerPreset['__static_USourceEffectPannerPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectPannerPreset['__properties_USourceEffectPannerPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectPannerPreset: USourceEffectPannerPreset;
 
 declare interface USourceEffectPhaserPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectPhaserSettings;
-    SetSettings(InSettings: FSourceEffectPhaserSettings): void;
+    readonly __static_USourceEffectPhaserPreset: {
+        SetSettings(InSettings: FSourceEffectPhaserSettings): void;
+    };
+    readonly __properties_USourceEffectPhaserPreset: {
+        Settings: FSourceEffectPhaserSettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectPhaserPreset['__static_USourceEffectPhaserPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectPhaserPreset['__properties_USourceEffectPhaserPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectPhaserPreset: USourceEffectPhaserPreset;
 
 declare interface USourceEffectRingModulationPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectRingModulationSettings;
-    SetSettings(InSettings: FSourceEffectRingModulationSettings): void;
+    readonly __static_USourceEffectRingModulationPreset: {
+        SetSettings(InSettings: FSourceEffectRingModulationSettings): void;
+    };
+    readonly __properties_USourceEffectRingModulationPreset: {
+        Settings: FSourceEffectRingModulationSettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectRingModulationPreset['__static_USourceEffectRingModulationPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectRingModulationPreset['__properties_USourceEffectRingModulationPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectRingModulationPreset: USourceEffectRingModulationPreset;
 
 declare interface USourceEffectSimpleDelayPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectSimpleDelaySettings;
-    SetSettings(InSettings: FSourceEffectSimpleDelaySettings): void;
+    readonly __static_USourceEffectSimpleDelayPreset: {
+        SetSettings(InSettings: FSourceEffectSimpleDelaySettings): void;
+    };
+    readonly __properties_USourceEffectSimpleDelayPreset: {
+        Settings: FSourceEffectSimpleDelaySettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectSimpleDelayPreset['__static_USourceEffectSimpleDelayPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectSimpleDelayPreset['__properties_USourceEffectSimpleDelayPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectSimpleDelayPreset: USourceEffectSimpleDelayPreset;
 
 declare interface USourceEffectStereoDelayPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectStereoDelaySettings;
-    SetSettings(InSettings: FSourceEffectStereoDelaySettings): void;
+    readonly __static_USourceEffectStereoDelayPreset: {
+        SetSettings(InSettings: FSourceEffectStereoDelaySettings): void;
+    };
+    readonly __properties_USourceEffectStereoDelayPreset: {
+        Settings: FSourceEffectStereoDelaySettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectStereoDelayPreset['__static_USourceEffectStereoDelayPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectStereoDelayPreset['__properties_USourceEffectStereoDelayPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectStereoDelayPreset: USourceEffectStereoDelayPreset;
 
 declare interface USourceEffectWaveShaperPreset extends USoundEffectSourcePreset {
-    Settings: FSourceEffectWaveShaperSettings;
-    SetSettings(InSettings: FSourceEffectWaveShaperSettings): void;
+    readonly __static_USourceEffectWaveShaperPreset: {
+        SetSettings(InSettings: FSourceEffectWaveShaperSettings): void;
+    };
+    readonly __properties_USourceEffectWaveShaperPreset: {
+        Settings: FSourceEffectWaveShaperSettings;
+    };
+    readonly __staticRegistry: 
+        USourceEffectWaveShaperPreset['__static_USourceEffectWaveShaperPreset'] &
+        USoundEffectSourcePreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USourceEffectWaveShaperPreset['__properties_USourceEffectWaveShaperPreset'] &
+        USoundEffectSourcePreset['__propertyRegistry'];
 }
-declare const USourceEffectWaveShaperPreset: USourceEffectWaveShaperPreset;
 
 declare interface USubmixEffectConvolutionReverbPreset extends USoundEffectSubmixPreset {
-    ImpulseResponse: UAudioImpulseResponse;
-    Settings: FSubmixEffectConvolutionReverbSettings;
-    BlockSize: ESubmixEffectConvolutionReverbBlockSize;
-    bEnableHardwareAcceleration: boolean;
-    SetSettings(InSettings: FSubmixEffectConvolutionReverbSettings): void;
-    SetImpulseResponse(InImpulseResponse: UAudioImpulseResponse): void;
+    readonly __static_USubmixEffectConvolutionReverbPreset: {
+        SetSettings(InSettings: FSubmixEffectConvolutionReverbSettings): void;
+        SetImpulseResponse(InImpulseResponse: UAudioImpulseResponse): void;
+    };
+    readonly __properties_USubmixEffectConvolutionReverbPreset: {
+        ImpulseResponse: UAudioImpulseResponse;
+        Settings: FSubmixEffectConvolutionReverbSettings;
+        BlockSize: ESubmixEffectConvolutionReverbBlockSize;
+        bEnableHardwareAcceleration: boolean;
+    };
+    readonly __staticRegistry: 
+        USubmixEffectConvolutionReverbPreset['__static_USubmixEffectConvolutionReverbPreset'] &
+        USoundEffectSubmixPreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USubmixEffectConvolutionReverbPreset['__properties_USubmixEffectConvolutionReverbPreset'] &
+        USoundEffectSubmixPreset['__propertyRegistry'];
 }
-declare const USubmixEffectConvolutionReverbPreset: USubmixEffectConvolutionReverbPreset;
 
 declare interface USubmixEffectDelayPreset extends USoundEffectSubmixPreset {
-    Settings: FSubmixEffectDelaySettings;
-    DynamicSettings: FSubmixEffectDelaySettings;
-    SetSettings(InSettings: FSubmixEffectDelaySettings): void;
-    SetInterpolationTime(Time: number): void;
-    SetDelay(Length: number): void;
-    SetDefaultSettings(InSettings: FSubmixEffectDelaySettings): void;
-    GetMaxDelayInMilliseconds(): number;
+    readonly __static_USubmixEffectDelayPreset: {
+        SetSettings(InSettings: FSubmixEffectDelaySettings): void;
+        SetInterpolationTime(Time: number): void;
+        SetDelay(Length: number): void;
+        SetDefaultSettings(InSettings: FSubmixEffectDelaySettings): void;
+        GetMaxDelayInMilliseconds(): number;
+    };
+    readonly __properties_USubmixEffectDelayPreset: {
+        Settings: FSubmixEffectDelaySettings;
+        DynamicSettings: FSubmixEffectDelaySettings;
+    };
+    readonly __staticRegistry: 
+        USubmixEffectDelayPreset['__static_USubmixEffectDelayPreset'] &
+        USoundEffectSubmixPreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USubmixEffectDelayPreset['__properties_USubmixEffectDelayPreset'] &
+        USoundEffectSubmixPreset['__propertyRegistry'];
 }
-declare const USubmixEffectDelayPreset: USubmixEffectDelayPreset;
 
 declare interface USubmixEffectDelayStatics extends UBlueprintFunctionLibrary {
-    SetMaximumDelayLength(DelaySettings: FSubmixEffectDelaySettings, MaximumDelayLength: number): FSubmixEffectDelaySettings;
-    SetInterpolationTime(DelaySettings: FSubmixEffectDelaySettings, InterpolationTime: number): FSubmixEffectDelaySettings;
-    SetDelayLength(DelaySettings: FSubmixEffectDelaySettings, DelayLength: number): FSubmixEffectDelaySettings;
+    readonly __static_USubmixEffectDelayStatics: {
+        SetMaximumDelayLength(DelaySettings: FSubmixEffectDelaySettings, MaximumDelayLength: number): FSubmixEffectDelaySettings;
+        SetInterpolationTime(DelaySettings: FSubmixEffectDelaySettings, InterpolationTime: number): FSubmixEffectDelaySettings;
+        SetDelayLength(DelaySettings: FSubmixEffectDelaySettings, DelayLength: number): FSubmixEffectDelaySettings;
+    };
+    readonly __staticRegistry: 
+        USubmixEffectDelayStatics['__static_USubmixEffectDelayStatics'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const USubmixEffectDelayStatics: USubmixEffectDelayStatics;
 
 declare interface USubmixEffectFilterPreset extends USoundEffectSubmixPreset {
-    Settings: FSubmixEffectFilterSettings;
-    SetSettings(InSettings: FSubmixEffectFilterSettings): void;
-    SetFilterType(InType: ESubmixFilterType): void;
-    SetFilterQMod(InQ: number): void;
-    SetFilterQ(InQ: number): void;
-    SetFilterCutoffFrequencyMod(InFrequency: number): void;
-    SetFilterCutoffFrequency(InFrequency: number): void;
-    SetFilterAlgorithm(InAlgorithm: ESubmixFilterAlgorithm): void;
+    readonly __static_USubmixEffectFilterPreset: {
+        SetSettings(InSettings: FSubmixEffectFilterSettings): void;
+        SetFilterType(InType: ESubmixFilterType): void;
+        SetFilterQMod(InQ: number): void;
+        SetFilterQ(InQ: number): void;
+        SetFilterCutoffFrequencyMod(InFrequency: number): void;
+        SetFilterCutoffFrequency(InFrequency: number): void;
+        SetFilterAlgorithm(InAlgorithm: ESubmixFilterAlgorithm): void;
+    };
+    readonly __properties_USubmixEffectFilterPreset: {
+        Settings: FSubmixEffectFilterSettings;
+    };
+    readonly __staticRegistry: 
+        USubmixEffectFilterPreset['__static_USubmixEffectFilterPreset'] &
+        USoundEffectSubmixPreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USubmixEffectFilterPreset['__properties_USubmixEffectFilterPreset'] &
+        USoundEffectSubmixPreset['__propertyRegistry'];
 }
-declare const USubmixEffectFilterPreset: USubmixEffectFilterPreset;
 
 declare interface USubmixEffectFlexiverbPreset extends USoundEffectSubmixPreset {
-    Settings: FSubmixEffectFlexiverbSettings;
-    SetSettings(InSettings: FSubmixEffectFlexiverbSettings): void;
+    readonly __static_USubmixEffectFlexiverbPreset: {
+        SetSettings(InSettings: FSubmixEffectFlexiverbSettings): void;
+    };
+    readonly __properties_USubmixEffectFlexiverbPreset: {
+        Settings: FSubmixEffectFlexiverbSettings;
+    };
+    readonly __staticRegistry: 
+        USubmixEffectFlexiverbPreset['__static_USubmixEffectFlexiverbPreset'] &
+        USoundEffectSubmixPreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USubmixEffectFlexiverbPreset['__properties_USubmixEffectFlexiverbPreset'] &
+        USoundEffectSubmixPreset['__propertyRegistry'];
 }
-declare const USubmixEffectFlexiverbPreset: USubmixEffectFlexiverbPreset;
 
 declare interface USubmixEffectMultibandCompressorPreset extends USoundEffectSubmixPreset {
-    Settings: FSubmixEffectMultibandCompressorSettings;
-    SetSettings(InSettings: FSubmixEffectMultibandCompressorSettings): void;
-    SetExternalSubmix(Submix: USoundSubmix): void;
-    SetAudioBus(AudioBus: UAudioBus): void;
-    ResetKey(): void;
+    readonly __static_USubmixEffectMultibandCompressorPreset: {
+        SetSettings(InSettings: FSubmixEffectMultibandCompressorSettings): void;
+        SetExternalSubmix(Submix: USoundSubmix): void;
+        SetAudioBus(AudioBus: UAudioBus): void;
+        ResetKey(): void;
+    };
+    readonly __properties_USubmixEffectMultibandCompressorPreset: {
+        Settings: FSubmixEffectMultibandCompressorSettings;
+    };
+    readonly __staticRegistry: 
+        USubmixEffectMultibandCompressorPreset['__static_USubmixEffectMultibandCompressorPreset'] &
+        USoundEffectSubmixPreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USubmixEffectMultibandCompressorPreset['__properties_USubmixEffectMultibandCompressorPreset'] &
+        USoundEffectSubmixPreset['__propertyRegistry'];
 }
-declare const USubmixEffectMultibandCompressorPreset: USubmixEffectMultibandCompressorPreset;
 
 declare interface USubmixEffectStereoDelayPreset extends USoundEffectSubmixPreset {
-    Settings: FSubmixEffectStereoDelaySettings;
-    SetSettings(InSettings: FSubmixEffectStereoDelaySettings): void;
+    readonly __static_USubmixEffectStereoDelayPreset: {
+        SetSettings(InSettings: FSubmixEffectStereoDelaySettings): void;
+    };
+    readonly __properties_USubmixEffectStereoDelayPreset: {
+        Settings: FSubmixEffectStereoDelaySettings;
+    };
+    readonly __staticRegistry: 
+        USubmixEffectStereoDelayPreset['__static_USubmixEffectStereoDelayPreset'] &
+        USoundEffectSubmixPreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USubmixEffectStereoDelayPreset['__properties_USubmixEffectStereoDelayPreset'] &
+        USoundEffectSubmixPreset['__propertyRegistry'];
 }
-declare const USubmixEffectStereoDelayPreset: USubmixEffectStereoDelayPreset;
 
 declare interface USubmixEffectStereoToQuadPreset extends USoundEffectSubmixPreset {
-    Settings: FSubmixEffectStereoToQuadSettings;
-    SetSettings(InSettings: FSubmixEffectStereoToQuadSettings): void;
+    readonly __static_USubmixEffectStereoToQuadPreset: {
+        SetSettings(InSettings: FSubmixEffectStereoToQuadSettings): void;
+    };
+    readonly __properties_USubmixEffectStereoToQuadPreset: {
+        Settings: FSubmixEffectStereoToQuadSettings;
+    };
+    readonly __staticRegistry: 
+        USubmixEffectStereoToQuadPreset['__static_USubmixEffectStereoToQuadPreset'] &
+        USoundEffectSubmixPreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USubmixEffectStereoToQuadPreset['__properties_USubmixEffectStereoToQuadPreset'] &
+        USoundEffectSubmixPreset['__propertyRegistry'];
 }
-declare const USubmixEffectStereoToQuadPreset: USubmixEffectStereoToQuadPreset;
 
 declare interface USubmixEffectTapDelayPreset extends USoundEffectSubmixPreset {
-    Settings: FSubmixEffectTapDelaySettings;
-    SetTap(TapId: number, TapInfo: FTapDelayInfo): void;
-    SetSettings(InSettings: FSubmixEffectTapDelaySettings): void;
-    SetInterpolationTime(Time: number): void;
-    RemoveTap(TapId: number): void;
-    GetTapIds(TapIds: TArray<number>): void;
-    GetTap(TapId: number, TapInfo: FTapDelayInfo): void;
-    GetMaxDelayInMilliseconds(): number;
-    AddTap(TapId: number): void;
+    readonly __static_USubmixEffectTapDelayPreset: {
+        SetTap(TapId: number, TapInfo: FTapDelayInfo): void;
+        SetSettings(InSettings: FSubmixEffectTapDelaySettings): void;
+        SetInterpolationTime(Time: number): void;
+        RemoveTap(TapId: number): void;
+        GetTapIds(TapIds: number[]): void;
+        GetTap(TapId: number, TapInfo: FTapDelayInfo): void;
+        GetMaxDelayInMilliseconds(): number;
+        AddTap(TapId: number): void;
+    };
+    readonly __properties_USubmixEffectTapDelayPreset: {
+        Settings: FSubmixEffectTapDelaySettings;
+    };
+    readonly __staticRegistry: 
+        USubmixEffectTapDelayPreset['__static_USubmixEffectTapDelayPreset'] &
+        USoundEffectSubmixPreset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USubmixEffectTapDelayPreset['__properties_USubmixEffectTapDelayPreset'] &
+        USoundEffectSubmixPreset['__propertyRegistry'];
 }
-declare const USubmixEffectTapDelayPreset: USubmixEffectTapDelayPreset;
 
 declare interface USynth2DSlider extends UWidget {
-    ValueX: number;
-    ValueY: number;
-    ValueXDelegate: FSynth2DSliderValueXDelegate;
-    ValueYDelegate: FSynth2DSliderValueYDelegate;
-    WidgetStyle: FSynth2DSliderStyle;
-    SliderHandleColor: FLinearColor;
-    IndentHandle: boolean;
-    Locked: boolean;
-    StepSize: number;
-    IsFocusable: boolean;
-    OnMouseCaptureBegin: FSynth2DSliderOnMouseCaptureBegin;
-    OnMouseCaptureEnd: FSynth2DSliderOnMouseCaptureEnd;
-    OnControllerCaptureBegin: FSynth2DSliderOnControllerCaptureBegin;
-    OnControllerCaptureEnd: FSynth2DSliderOnControllerCaptureEnd;
-    OnValueChangedX: FSynth2DSliderOnValueChangedX;
-    OnValueChangedY: FSynth2DSliderOnValueChangedY;
-    SetValue(InValue: FVector2D): void;
-    SetStepSize(InValue: number): void;
-    SetSliderHandleColor(InValue: FLinearColor): void;
-    SetLocked(InValue: boolean): void;
-    SetIndentHandle(InValue: boolean): void;
-    GetValue(): FVector2D;
+    readonly __static_USynth2DSlider: {
+        SetValue(InValue: FVector2D): void;
+        SetStepSize(InValue: number): void;
+        SetSliderHandleColor(InValue: FLinearColor): void;
+        SetLocked(InValue: boolean): void;
+        SetIndentHandle(InValue: boolean): void;
+        GetValue(): FVector2D;
+    };
+    readonly __properties_USynth2DSlider: {
+        ValueX: number;
+        ValueY: number;
+        ValueXDelegate: FSynth2DSliderValueXDelegate;
+        ValueYDelegate: FSynth2DSliderValueYDelegate;
+        WidgetStyle: FSynth2DSliderStyle;
+        SliderHandleColor: FLinearColor;
+        IndentHandle: boolean;
+        Locked: boolean;
+        StepSize: number;
+        IsFocusable: boolean;
+        OnMouseCaptureBegin: FSynth2DSliderOnMouseCaptureBegin;
+        OnMouseCaptureEnd: FSynth2DSliderOnMouseCaptureEnd;
+        OnControllerCaptureBegin: FSynth2DSliderOnControllerCaptureBegin;
+        OnControllerCaptureEnd: FSynth2DSliderOnControllerCaptureEnd;
+        OnValueChangedX: FSynth2DSliderOnValueChangedX;
+        OnValueChangedY: FSynth2DSliderOnValueChangedY;
+    };
+    readonly __staticRegistry: 
+        USynth2DSlider['__static_USynth2DSlider'] &
+        UWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USynth2DSlider['__properties_USynth2DSlider'] &
+        UWidget['__propertyRegistry'];
 }
-declare const USynth2DSlider: USynth2DSlider;
 
 declare interface USynthComponentMonoWaveTable extends USynthComponent {
-    OnTableAltered: FSynthComponentMonoWaveTableOnTableAltered;
-    OnNumTablesChanged: FSynthComponentMonoWaveTableOnNumTablesChanged;
-    CurrentPreset: UMonoWaveTableSynthPreset;
-    SetWaveTablePosition(InPosition: number): void;
-    SetSustainPedalState(InSustainPedalState: boolean): void;
-    SetPosLfoType(InLfoType: ESynthLFOType): void;
-    SetPosLfoFrequency(InLfoFrequency: number): void;
-    SetPosLfoDepth(InLfoDepth: number): void;
-    SetPositionEnvelopeSustainGain(InSustainGain: number): void;
-    SetPositionEnvelopeReleaseTime(InReleaseTimeMsec: number): void;
-    SetPositionEnvelopeInvert(bInInvert: boolean): void;
-    SetPositionEnvelopeDepth(InDepth: number): void;
-    SetPositionEnvelopeDecayTime(InDecayTimeMsec: number): void;
-    SetPositionEnvelopeBiasInvert(bInBiasInvert: boolean): void;
-    SetPositionEnvelopeBiasDepth(InDepth: number): void;
-    SetPositionEnvelopeAttackTime(InAttackTimeMsec: number): void;
-    SetLowPassFilterResonance(InNewQ: number): void;
-    SetFrequencyWithMidiNote(InMidiNote: number): void;
-    SetFrequencyPitchBend(FrequencyOffsetCents: number): void;
-    SetFrequency(FrequencyHz: number): void;
-    SetFilterEnvelopeSustainGain(InSustainGain: number): void;
-    SetFilterEnvelopeReleaseTime(InReleaseTimeMsec: number): void;
-    SetFilterEnvelopenDecayTime(InDecayTimeMsec: number): void;
-    SetFilterEnvelopeInvert(bInInvert: boolean): void;
-    SetFilterEnvelopeDepth(InDepth: number): void;
-    SetFilterEnvelopeBiasInvert(bInBiasInvert: boolean): void;
-    SetFilterEnvelopeBiasDepth(InDepth: number): void;
-    SetFilterEnvelopeAttackTime(InAttackTimeMsec: number): void;
-    SetCurveValue(TableIndex: number, KeyframeIndex: number, NewValue: number): boolean;
-    SetCurveTangent(TableIndex: number, InNewTangent: number): boolean;
-    SetCurveInterpolationType(InterpolationType: CurveInterpolationType, TableIndex: number): boolean;
-    SetAmpEnvelopeSustainGain(InSustainGain: number): void;
-    SetAmpEnvelopeReleaseTime(InReleaseTimeMsec: number): void;
-    SetAmpEnvelopeInvert(bInInvert: boolean): void;
-    SetAmpEnvelopeDepth(InDepth: number): void;
-    SetAmpEnvelopeDecayTime(InDecayTimeMsec: number): void;
-    SetAmpEnvelopeBiasInvert(bInBiasInvert: boolean): void;
-    SetAmpEnvelopeBiasDepth(InDepth: number): void;
-    SetAmpEnvelopeAttackTime(InAttackTimeMsec: number): void;
-    RefreshWaveTable(Index: number): void;
-    RefreshAllWaveTables(): void;
-    NoteOn(InMidiNote: number, InVelocity: number): void;
-    NoteOff(InMidiNote: number): void;
-    GetNumTableEntries(): number;
-    GetMaxTableIndex(): number;
-    GetKeyFrameValuesForTable(TableIndex: number): TArray<number>;
-    GetCurveTangent(TableIndex: number): number;
+    readonly __static_USynthComponentMonoWaveTable: {
+        SetWaveTablePosition(InPosition: number): void;
+        SetSustainPedalState(InSustainPedalState: boolean): void;
+        SetPosLfoType(InLfoType: ESynthLFOType): void;
+        SetPosLfoFrequency(InLfoFrequency: number): void;
+        SetPosLfoDepth(InLfoDepth: number): void;
+        SetPositionEnvelopeSustainGain(InSustainGain: number): void;
+        SetPositionEnvelopeReleaseTime(InReleaseTimeMsec: number): void;
+        SetPositionEnvelopeInvert(bInInvert: boolean): void;
+        SetPositionEnvelopeDepth(InDepth: number): void;
+        SetPositionEnvelopeDecayTime(InDecayTimeMsec: number): void;
+        SetPositionEnvelopeBiasInvert(bInBiasInvert: boolean): void;
+        SetPositionEnvelopeBiasDepth(InDepth: number): void;
+        SetPositionEnvelopeAttackTime(InAttackTimeMsec: number): void;
+        SetLowPassFilterResonance(InNewQ: number): void;
+        SetFrequencyWithMidiNote(InMidiNote: number): void;
+        SetFrequencyPitchBend(FrequencyOffsetCents: number): void;
+        SetFrequency(FrequencyHz: number): void;
+        SetFilterEnvelopeSustainGain(InSustainGain: number): void;
+        SetFilterEnvelopeReleaseTime(InReleaseTimeMsec: number): void;
+        SetFilterEnvelopenDecayTime(InDecayTimeMsec: number): void;
+        SetFilterEnvelopeInvert(bInInvert: boolean): void;
+        SetFilterEnvelopeDepth(InDepth: number): void;
+        SetFilterEnvelopeBiasInvert(bInBiasInvert: boolean): void;
+        SetFilterEnvelopeBiasDepth(InDepth: number): void;
+        SetFilterEnvelopeAttackTime(InAttackTimeMsec: number): void;
+        SetCurveValue(TableIndex: number, KeyframeIndex: number, NewValue: number): boolean;
+        SetCurveTangent(TableIndex: number, InNewTangent: number): boolean;
+        SetCurveInterpolationType(InterpolationType: CurveInterpolationType, TableIndex: number): boolean;
+        SetAmpEnvelopeSustainGain(InSustainGain: number): void;
+        SetAmpEnvelopeReleaseTime(InReleaseTimeMsec: number): void;
+        SetAmpEnvelopeInvert(bInInvert: boolean): void;
+        SetAmpEnvelopeDepth(InDepth: number): void;
+        SetAmpEnvelopeDecayTime(InDecayTimeMsec: number): void;
+        SetAmpEnvelopeBiasInvert(bInBiasInvert: boolean): void;
+        SetAmpEnvelopeBiasDepth(InDepth: number): void;
+        SetAmpEnvelopeAttackTime(InAttackTimeMsec: number): void;
+        RefreshWaveTable(Index: number): void;
+        RefreshAllWaveTables(): void;
+        NoteOn(InMidiNote: number, InVelocity: number): void;
+        NoteOff(InMidiNote: number): void;
+        GetNumTableEntries(): number;
+        GetMaxTableIndex(): number;
+        GetKeyFrameValuesForTable(TableIndex: number): number[];
+        GetCurveTangent(TableIndex: number): number;
+    };
+    readonly __properties_USynthComponentMonoWaveTable: {
+        OnTableAltered: FSynthComponentMonoWaveTableOnTableAltered;
+        OnNumTablesChanged: FSynthComponentMonoWaveTableOnNumTablesChanged;
+        CurrentPreset: UMonoWaveTableSynthPreset;
+    };
+    readonly __staticRegistry: 
+        USynthComponentMonoWaveTable['__static_USynthComponentMonoWaveTable'] &
+        USynthComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USynthComponentMonoWaveTable['__properties_USynthComponentMonoWaveTable'] &
+        USynthComponent['__propertyRegistry'];
 }
-declare const USynthComponentMonoWaveTable: USynthComponentMonoWaveTable;
 
 declare interface USynthComponentToneGenerator extends USynthComponent {
-    Frequency: number;
-    Volume: number;
-    DistanceAttenuationCurve: FRuntimeFloatCurve;
-    DistanceRange: FVector2D;
-    AttenuationDbAtMaxRange: number;
-    SetVolume(InVolume: number): void;
-    SetFrequency(InFrequency: number): void;
+    readonly __static_USynthComponentToneGenerator: {
+        SetVolume(InVolume: number): void;
+        SetFrequency(InFrequency: number): void;
+    };
+    readonly __properties_USynthComponentToneGenerator: {
+        Frequency: number;
+        Volume: number;
+        DistanceAttenuationCurve: FRuntimeFloatCurve;
+        DistanceRange: FVector2D;
+        AttenuationDbAtMaxRange: number;
+    };
+    readonly __staticRegistry: 
+        USynthComponentToneGenerator['__static_USynthComponentToneGenerator'] &
+        USynthComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USynthComponentToneGenerator['__properties_USynthComponentToneGenerator'] &
+        USynthComponent['__propertyRegistry'];
 }
-declare const USynthComponentToneGenerator: USynthComponentToneGenerator;
 
 declare interface USynthKnob extends UWidget {
-    Value: number;
-    StepSize: number;
-    MouseSpeed: number;
-    MouseFineTuneSpeed: number;
-    ShowTooltipInfo: boolean;
-    ParameterName: FText;
-    ParameterUnits: FText;
-    ValueDelegate: FSynthKnobValueDelegate;
-    WidgetStyle: FSynthKnobStyle;
-    Locked: boolean;
-    IsFocusable: boolean;
-    OnMouseCaptureBegin: FSynthKnobOnMouseCaptureBegin;
-    OnMouseCaptureEnd: FSynthKnobOnMouseCaptureEnd;
-    OnControllerCaptureBegin: FSynthKnobOnControllerCaptureBegin;
-    OnControllerCaptureEnd: FSynthKnobOnControllerCaptureEnd;
-    OnValueChanged: FSynthKnobOnValueChanged;
-    SetValue(InValue: number): void;
-    SetStepSize(InValue: number): void;
-    SetLocked(InValue: boolean): void;
-    GetValue(): number;
+    readonly __static_USynthKnob: {
+        SetValue(InValue: number): void;
+        SetStepSize(InValue: number): void;
+        SetLocked(InValue: boolean): void;
+        GetValue(): number;
+    };
+    readonly __properties_USynthKnob: {
+        Value: number;
+        StepSize: number;
+        MouseSpeed: number;
+        MouseFineTuneSpeed: number;
+        ShowTooltipInfo: boolean;
+        ParameterName: string;
+        ParameterUnits: string;
+        ValueDelegate: FSynthKnobValueDelegate;
+        WidgetStyle: FSynthKnobStyle;
+        Locked: boolean;
+        IsFocusable: boolean;
+        OnMouseCaptureBegin: FSynthKnobOnMouseCaptureBegin;
+        OnMouseCaptureEnd: FSynthKnobOnMouseCaptureEnd;
+        OnControllerCaptureBegin: FSynthKnobOnControllerCaptureBegin;
+        OnControllerCaptureEnd: FSynthKnobOnControllerCaptureEnd;
+        OnValueChanged: FSynthKnobOnValueChanged;
+    };
+    readonly __staticRegistry: 
+        USynthKnob['__static_USynthKnob'] &
+        UWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USynthKnob['__properties_USynthKnob'] &
+        UWidget['__propertyRegistry'];
 }
-declare const USynthKnob: USynthKnob;
 
 declare interface USynthSamplePlayer extends USynthComponent {
-    SoundWave: USoundWave;
-    OnSampleLoaded: FSynthSamplePlayerOnSampleLoaded;
-    OnSamplePlaybackProgress: FSynthSamplePlayerOnSamplePlaybackProgress;
-    SetSoundWave(InSoundWave: USoundWave): void;
-    SetScrubTimeWidth(InScrubTimeWidthSec: number): void;
-    SetScrubMode(bScrubMode: boolean): void;
-    SetPitch(InPitch: number, TimeSec: number): void;
-    SeekToTime(TimeSec: number, SeekType: ESamplePlayerSeekType, bWrap: boolean): void;
-    IsLoaded(): boolean;
-    GetSampleDuration(): number;
-    GetCurrentPlaybackProgressTime(): number;
-    GetCurrentPlaybackProgressPercent(): number;
+    readonly __static_USynthSamplePlayer: {
+        SetSoundWave(InSoundWave: USoundWave): void;
+        SetScrubTimeWidth(InScrubTimeWidthSec: number): void;
+        SetScrubMode(bScrubMode: boolean): void;
+        SetPitch(InPitch: number, TimeSec: number): void;
+        SeekToTime(TimeSec: number, SeekType: ESamplePlayerSeekType, bWrap: boolean): void;
+        IsLoaded(): boolean;
+        GetSampleDuration(): number;
+        GetCurrentPlaybackProgressTime(): number;
+        GetCurrentPlaybackProgressPercent(): number;
+    };
+    readonly __properties_USynthSamplePlayer: {
+        SoundWave: USoundWave;
+        OnSampleLoaded: FSynthSamplePlayerOnSampleLoaded;
+        OnSamplePlaybackProgress: FSynthSamplePlayerOnSamplePlaybackProgress;
+    };
+    readonly __staticRegistry: 
+        USynthSamplePlayer['__static_USynthSamplePlayer'] &
+        USynthComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USynthSamplePlayer['__properties_USynthSamplePlayer'] &
+        USynthComponent['__propertyRegistry'];
 }
-declare const USynthSamplePlayer: USynthSamplePlayer;
 
 declare interface USynthesisUtilitiesBlueprintFunctionLibrary extends UBlueprintFunctionLibrary {
-    GetLogFrequency(InLinearValue: number, InDomainMin: number, InDomainMax: number, InRangeMin: number, InRangeMax: number): number;
-    GetLinearFrequency(InLogFrequencyValue: number, InDomainMin: number, InDomainMax: number, InRangeMin: number, InRangeMax: number): number;
+    readonly __static_USynthesisUtilitiesBlueprintFunctionLibrary: {
+        GetLogFrequency(InLinearValue: number, InDomainMin: number, InDomainMax: number, InRangeMin: number, InRangeMax: number): number;
+        GetLinearFrequency(InLogFrequencyValue: number, InDomainMin: number, InDomainMax: number, InRangeMin: number, InRangeMax: number): number;
+    };
+    readonly __staticRegistry: 
+        USynthesisUtilitiesBlueprintFunctionLibrary['__static_USynthesisUtilitiesBlueprintFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const USynthesisUtilitiesBlueprintFunctionLibrary: USynthesisUtilitiesBlueprintFunctionLibrary;
 

@@ -1,7 +1,4 @@
-declare interface FImgMediaSourceCustomizationSequenceProxy {
-
-}
-declare const FImgMediaSourceCustomizationSequenceProxy: FImgMediaSourceCustomizationSequenceProxy;
+declare type FImgMediaSourceCustomizationSequenceProxy = object;
 
 declare interface FMediaSourceColorSettings {
     EncodingOverride: EMediaSourceEncoding;
@@ -12,22 +9,30 @@ declare interface FMediaSourceColorSettings {
     WhiteChromaticityCoordinate: FVector2D;
     ChromaticAdaptationMethod: ETextureChromaticAdaptationMethod;
 }
-declare const FMediaSourceColorSettings: FMediaSourceColorSettings;
 
 declare interface UImgMediaSource extends UBaseMediaSource {
-    IsPathRelativeToProjectRoot: boolean;
-    FrameRateOverride: FFrameRate;
-    ProxyOverride: FString;
-    bFillGapsInSequence: boolean;
-    StartTimecode: FTimecode;
-    SourceColorSettings: FMediaSourceColorSettings;
-    SequencePath: FDirectoryPath;
-    SetTokenizedSequencePath(Path: string | FString): void;
-    SetSequencePath(Path: string | FString): void;
-    RemoveTargetObject(InActor: AActor): void;
-    GetSequencePath(): FString;
-    GetProxies(OutProxies: string | FString[]): void;
-    AddTargetObject(InActor: AActor): void;
+    readonly __static_UImgMediaSource: {
+        SetTokenizedSequencePath(Path: string): void;
+        SetSequencePath(Path: string): void;
+        RemoveTargetObject(InActor: AActor): void;
+        GetSequencePath(): string;
+        GetProxies(OutProxies: string[]): void;
+        AddTargetObject(InActor: AActor): void;
+    };
+    readonly __properties_UImgMediaSource: {
+        IsPathRelativeToProjectRoot: boolean;
+        FrameRateOverride: FFrameRate;
+        ProxyOverride: string;
+        bFillGapsInSequence: boolean;
+        StartTimecode: FTimecode;
+        SourceColorSettings: FMediaSourceColorSettings;
+        SequencePath: FDirectoryPath;
+    };
+    readonly __staticRegistry: 
+        UImgMediaSource['__static_UImgMediaSource'] &
+        UBaseMediaSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UImgMediaSource['__properties_UImgMediaSource'] &
+        UBaseMediaSource['__propertyRegistry'];
 }
-declare const UImgMediaSource: UImgMediaSource;
 

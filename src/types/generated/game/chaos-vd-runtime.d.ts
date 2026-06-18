@@ -8,13 +8,11 @@ declare interface FChaosVDAABBTreeDataWrapper extends FChaosVDAccelerationStruct
     MaxTreeDepth: number;
     MaxPayloadBounds: number;
 }
-declare const FChaosVDAABBTreeDataWrapper: FChaosVDAABBTreeDataWrapper;
 
 declare interface FChaosVDAABBTreeLeafDataWrapper extends FChaosVDWrapperDataBase {
-    Elements: TArray<FChaosVDAABBTreePayloadBoundsElement>;
+    Elements: FChaosVDAABBTreePayloadBoundsElement[];
     Bounds: FBox;
 }
-declare const FChaosVDAABBTreeLeafDataWrapper: FChaosVDAABBTreeLeafDataWrapper;
 
 declare interface FChaosVDAABBTreeNodeDataWrapper extends FChaosVDWrapperDataBase {
     ChildrenBounds: FBox;
@@ -23,35 +21,27 @@ declare interface FChaosVDAABBTreeNodeDataWrapper extends FChaosVDWrapperDataBas
     bLeaf: boolean;
     bDirtyNode: boolean;
 }
-declare const FChaosVDAABBTreeNodeDataWrapper: FChaosVDAABBTreeNodeDataWrapper;
 
 declare interface FChaosVDAABBTreePayloadBoundsElement extends FChaosVDWrapperDataBase {
     ParticleIndex: number;
     Bounds: FBox;
 }
-declare const FChaosVDAABBTreePayloadBoundsElement: FChaosVDAABBTreePayloadBoundsElement;
 
 declare interface FChaosVDAccelerationStructureBase extends FChaosVDWrapperDataBase {
     SolverId: number;
     Type: EChaosVDAccelerationStructureType;
 }
-declare const FChaosVDAccelerationStructureBase: FChaosVDAccelerationStructureBase;
 
-declare interface FChaosVDAccelerationStructureContainer {
-
-}
-declare const FChaosVDAccelerationStructureContainer: FChaosVDAccelerationStructureContainer;
+declare type FChaosVDAccelerationStructureContainer = object;
 
 declare interface FChaosVDBVCellElementDataWrapper extends FChaosVDWrapperDataBase {
     Bounds: FBox;
     ParticleIndex: number;
 }
-declare const FChaosVDBVCellElementDataWrapper: FChaosVDBVCellElementDataWrapper;
 
 declare interface FChaosVDBoundingVolumeDataWrapper extends FChaosVDAccelerationStructureBase {
     MaxPayloadBounds: number;
 }
-declare const FChaosVDBoundingVolumeDataWrapper: FChaosVDBoundingVolumeDataWrapper;
 
 declare interface FChaosVDCharacterGroundConstraint extends FChaosVDConstraintDataWrapperBase {
     ConstraintIndex: number;
@@ -59,7 +49,6 @@ declare interface FChaosVDCharacterGroundConstraint extends FChaosVDConstraintDa
     Settings: FChaosVDCharacterGroundConstraintSettingsDataWrapper;
     Data: FChaosVDCharacterGroundConstraintDataDataWrapper;
 }
-declare const FChaosVDCharacterGroundConstraint: FChaosVDCharacterGroundConstraint;
 
 declare interface FChaosVDCharacterGroundConstraintDataDataWrapper extends FChaosVDWrapperDataBase {
     GroundNormal: FVector;
@@ -68,7 +57,6 @@ declare interface FChaosVDCharacterGroundConstraintDataDataWrapper extends FChao
     GroundDistance: number;
     CosMaxWalkableSlopeAngle: number;
 }
-declare const FChaosVDCharacterGroundConstraintDataDataWrapper: FChaosVDCharacterGroundConstraintDataDataWrapper;
 
 declare interface FChaosVDCharacterGroundConstraintSettingsDataWrapper extends FChaosVDWrapperDataBase {
     VerticalAxis: FVector;
@@ -81,34 +69,29 @@ declare interface FChaosVDCharacterGroundConstraintSettingsDataWrapper extends F
     DampingFactor: number;
     AssumedOnGroundHeight: number;
 }
-declare const FChaosVDCharacterGroundConstraintSettingsDataWrapper: FChaosVDCharacterGroundConstraintSettingsDataWrapper;
 
 declare interface FChaosVDCharacterGroundConstraintStateDataWrapper extends FChaosVDWrapperDataBase {
     bDisabled: boolean;
     SolverAppliedForce: FVector;
     SolverAppliedTorque: FVector;
 }
-declare const FChaosVDCharacterGroundConstraintStateDataWrapper: FChaosVDCharacterGroundConstraintStateDataWrapper;
 
 declare interface FChaosVDCollisionChannelInfo {
-    DisplayName: FString;
+    DisplayName: string;
     CollisionChannel: number;
     bIsTraceType: boolean;
 }
-declare const FChaosVDCollisionChannelInfo: FChaosVDCollisionChannelInfo;
 
 declare interface FChaosVDCollisionChannelsInfoContainer {
     CustomChannelsNames: FChaosVDCollisionChannelInfo;
 }
-declare const FChaosVDCollisionChannelsInfoContainer: FChaosVDCollisionChannelsInfoContainer;
 
 declare interface FChaosVDCollisionFilterData {
-    Word0: uint32;
-    Word1: uint32;
-    Word2: uint32;
-    Word3: uint32;
+    Word0: number;
+    Word1: number;
+    Word2: number;
+    Word3: number;
 }
-declare const FChaosVDCollisionFilterData: FChaosVDCollisionFilterData;
 
 declare interface FChaosVDCollisionMaterial {
     FaceIndex: number;
@@ -124,17 +107,15 @@ declare interface FChaosVDCollisionMaterial {
     InvInertiaScale0: number;
     InvInertiaScale1: number;
 }
-declare const FChaosVDCollisionMaterial: FChaosVDCollisionMaterial;
 
 declare interface FChaosVDCollisionObjectQueryParams extends FChaosVDWrapperDataBase {
-    ObjectTypesToQuery: uint8;
-    IgnoreMask: uint8;
+    ObjectTypesToQuery: number;
+    IgnoreMask: number;
 }
-declare const FChaosVDCollisionObjectQueryParams: FChaosVDCollisionObjectQueryParams;
 
 declare interface FChaosVDCollisionQueryParams extends FChaosVDWrapperDataBase {
-    TraceTag: FName;
-    OwnerTag: FName;
+    TraceTag: string;
+    OwnerTag: string;
     bTraceComplex: boolean;
     bFindInitialOverlaps: boolean;
     bReturnFaceIndex: boolean;
@@ -144,22 +125,19 @@ declare interface FChaosVDCollisionQueryParams extends FChaosVDWrapperDataBase {
     bSkipNarrowPhase: boolean;
     bTraceIntoSubComponents: boolean;
     bReplaceHitWithSubComponents: boolean;
-    IgnoreMask: uint8;
-    IgnoredActorsNames: TArray<FName>;
-    IgnoredComponentsNames: TArray<FName>;
+    IgnoreMask: number;
+    IgnoredActorsNames: string[];
+    IgnoredComponentsNames: string[];
 }
-declare const FChaosVDCollisionQueryParams: FChaosVDCollisionQueryParams;
 
 declare interface FChaosVDCollisionResponseParams extends FChaosVDWrapperDataBase {
 
 }
-declare const FChaosVDCollisionResponseParams: FChaosVDCollisionResponseParams;
 
 declare interface FChaosVDConnectivityEdge {
     SiblingParticleID: number;
     Strain: number;
 }
-declare const FChaosVDConnectivityEdge: FChaosVDConnectivityEdge;
 
 declare interface FChaosVDConstraint {
     bIsCurrent: boolean;
@@ -181,7 +159,7 @@ declare interface FChaosVDConstraint {
     ShapeWorldTransforms: FTransform;
     ImplicitTransforms: FTransform;
     CullDistance: number;
-    CollisionMargins: TArray<number>;
+    CollisionMargins: number[];
     CollisionTolerance: number;
     ClosestManifoldPointIndex: number;
     ExpectedNumManifoldPoints: number;
@@ -193,17 +171,15 @@ declare interface FChaosVDConstraint {
     CCDTimeOfImpact: number;
     CCDEnablePenetration: number;
     CCDTargetPenetration: number;
-    ManifoldPoints: TArray<FChaosVDManifoldPoint>;
+    ManifoldPoints: FChaosVDManifoldPoint[];
     Particle0Index: number;
     Particle1Index: number;
     SolverId: number;
 }
-declare const FChaosVDConstraint: FChaosVDConstraint;
 
 declare interface FChaosVDConstraintDataWrapperBase extends FChaosVDWrapperDataBase {
 
 }
-declare const FChaosVDConstraintDataWrapperBase: FChaosVDConstraintDataWrapperBase;
 
 declare interface FChaosVDContactPoint {
     ShapeContactPoints: FVector;
@@ -212,43 +188,34 @@ declare interface FChaosVDContactPoint {
     FaceIndex: number;
     ContactType: EChaosVDContactPointType;
 }
-declare const FChaosVDContactPoint: FChaosVDContactPoint;
 
 declare interface FChaosVDDebugDrawBoxDataWrapper extends FChaosVDDebugDrawShapeBase {
     Box: FBox;
 }
-declare const FChaosVDDebugDrawBoxDataWrapper: FChaosVDDebugDrawBoxDataWrapper;
 
 declare interface FChaosVDDebugDrawImplicitObjectDataWrapper extends FChaosVDDebugDrawShapeBase {
 
 }
-declare const FChaosVDDebugDrawImplicitObjectDataWrapper: FChaosVDDebugDrawImplicitObjectDataWrapper;
 
 declare interface FChaosVDDebugDrawLineDataWrapper extends FChaosVDDebugDrawShapeBase {
     StartLocation: FVector;
     EndLocation: FVector;
     bIsArrow: boolean;
 }
-declare const FChaosVDDebugDrawLineDataWrapper: FChaosVDDebugDrawLineDataWrapper;
 
 declare interface FChaosVDDebugDrawShapeBase extends FChaosVDWrapperDataBase {
     SolverId: number;
-    Tag: FName;
+    Tag: string;
     Color: FColor;
     ThreadContext: EChaosVDParticleContext;
 }
-declare const FChaosVDDebugDrawShapeBase: FChaosVDDebugDrawShapeBase;
 
 declare interface FChaosVDDebugDrawSphereDataWrapper extends FChaosVDDebugDrawShapeBase {
     Origin: FVector;
     Radius: number;
 }
-declare const FChaosVDDebugDrawSphereDataWrapper: FChaosVDDebugDrawSphereDataWrapper;
 
-declare interface FChaosVDDebugShapeDataContainer {
-
-}
-declare const FChaosVDDebugShapeDataContainer: FChaosVDDebugShapeDataContainer;
+declare type FChaosVDDebugShapeDataContainer = object;
 
 declare interface FChaosVDFRigidParticleControlFlags extends FChaosVDWrapperDataBase {
     bGravityEnabled: boolean;
@@ -258,11 +225,10 @@ declare interface FChaosVDFRigidParticleControlFlags extends FChaosVDWrapperData
     GravityGroupIndex: number;
     bMACDEnabled: boolean;
     bGyroscopicTorqueEnabled: boolean;
-    PositionSolverIterationCount: uint8;
-    VelocitySolverIterationCount: uint8;
-    ProjectionSolverIterationCount: uint8;
+    PositionSolverIterationCount: number;
+    VelocitySolverIterationCount: number;
+    ProjectionSolverIterationCount: number;
 }
-declare const FChaosVDFRigidParticleControlFlags: FChaosVDFRigidParticleControlFlags;
 
 declare interface FChaosVDGTJointStateDataWrapper extends FChaosVDWrapperDataBase {
     bIsBreaking: boolean;
@@ -274,7 +240,6 @@ declare interface FChaosVDGTJointStateDataWrapper extends FChaosVDWrapperDataBas
     LinearViolation: number;
     AngularViolation: number;
 }
-declare const FChaosVDGTJointStateDataWrapper: FChaosVDGTJointStateDataWrapper;
 
 declare interface FChaosVDJointConstraint extends FChaosVDConstraintDataWrapperBase {
     ConstraintIndex: number;
@@ -282,7 +247,6 @@ declare interface FChaosVDJointConstraint extends FChaosVDConstraintDataWrapperB
     GameThreadJointState: FChaosVDGTJointStateDataWrapper;
     JointSettings: FChaosVDJointSettingsDataWrapper;
 }
-declare const FChaosVDJointConstraint: FChaosVDJointConstraint;
 
 declare interface FChaosVDJointSettingsDataWrapper extends FChaosVDWrapperDataBase {
     ConnectorTransforms: FTransform;
@@ -349,7 +313,6 @@ declare interface FChaosVDJointSettingsDataWrapper extends FChaosVDWrapperDataBa
     AngularPlasticityLimit: number;
     ContactTransferScale: number;
 }
-declare const FChaosVDJointSettingsDataWrapper: FChaosVDJointSettingsDataWrapper;
 
 declare interface FChaosVDJointSolverSettingsDataWrapper extends FChaosVDWrapperDataBase {
     SwingTwistAngleTolerance: number;
@@ -385,7 +348,6 @@ declare interface FChaosVDJointSolverSettingsDataWrapper extends FChaosVDWrapper
     SoftSwingStiffnessOverride: number;
     SoftSwingDampingOverride: number;
 }
-declare const FChaosVDJointSolverSettingsDataWrapper: FChaosVDJointSolverSettingsDataWrapper;
 
 declare interface FChaosVDJointStateDataWrapper extends FChaosVDWrapperDataBase {
     bDisabled: boolean;
@@ -398,14 +360,12 @@ declare interface FChaosVDJointStateDataWrapper extends FChaosVDWrapperDataBase 
     ResimType: EChaosVDJointReSimType;
     SyncState: EChaosVDJointSyncType;
 }
-declare const FChaosVDJointStateDataWrapper: FChaosVDJointStateDataWrapper;
 
 declare interface FChaosVDKinematicTarget extends FChaosVDWrapperDataBase {
     Rotation: FQuat;
     position: FVector;
     Mode: EChaosVDKinematicTargetMode;
 }
-declare const FChaosVDKinematicTarget: FChaosVDKinematicTarget;
 
 declare interface FChaosVDManifoldPoint {
     bDisabled: boolean;
@@ -423,18 +383,13 @@ declare interface FChaosVDManifoldPoint {
     ContactPoint: FChaosVDContactPoint;
     ShapeContactPoints: FVector;
 }
-declare const FChaosVDManifoldPoint: FChaosVDManifoldPoint;
 
-declare interface FChaosVDMultiSolverDebugShapeDataContainer {
-
-}
-declare const FChaosVDMultiSolverDebugShapeDataContainer: FChaosVDMultiSolverDebugShapeDataContainer;
+declare type FChaosVDMultiSolverDebugShapeDataContainer = object;
 
 declare interface FChaosVDParticleBounds extends FChaosVDWrapperDataBase {
     MMin: FVector;
     MMax: FVector;
 }
-declare const FChaosVDParticleBounds: FChaosVDParticleBounds;
 
 declare interface FChaosVDParticleCluster extends FChaosVDWrapperDataBase {
     ParentParticleID: number;
@@ -446,18 +401,17 @@ declare interface FChaosVDParticleCluster extends FChaosVDWrapperDataBase {
     ExternalStrains: number;
     InternalStrains: number;
     Strain: number;
-    ConnectivityEdges: TArray<FChaosVDConnectivityEdge>;
+    ConnectivityEdges: FChaosVDConnectivityEdge[];
     bIsAnchored: boolean;
     bUnbreakable: boolean;
     bIsChildToParentLocked: boolean;
 }
-declare const FChaosVDParticleCluster: FChaosVDParticleCluster;
 
 declare interface FChaosVDParticleDataWrapper extends FChaosVDWrapperDataBase {
     DirtyFlagsBits: number;
     ParticleContext: EChaosVDParticleContext;
-    GeometryHash: uint32;
-    DebugName: FString;
+    GeometryHash: number;
+    DebugName: string;
     ParticleIndex: number;
     SolverId: number;
     Type: EChaosVDParticleType;
@@ -470,9 +424,8 @@ declare interface FChaosVDParticleDataWrapper extends FChaosVDWrapperDataBase {
     ParticleDynamicsMisc: FChaosVDParticleDynamicMisc;
     ParticleMassProps: FChaosVDParticleMassProps;
     ParticleCluster: FChaosVDParticleCluster;
-    CollisionDataPerShape: TArray<FChaosVDShapeCollisionData>;
+    CollisionDataPerShape: FChaosVDShapeCollisionData[];
 }
-declare const FChaosVDParticleDataWrapper: FChaosVDParticleDataWrapper;
 
 declare interface FChaosVDParticleDynamicMisc extends FChaosVDWrapperDataBase {
     MLinearEtherDrag: number;
@@ -484,11 +437,10 @@ declare interface FChaosVDParticleDynamicMisc extends FChaosVDWrapperDataBase {
     MCollisionGroup: number;
     MObjectState: EChaosVDObjectStateType;
     MSleepType: EChaosVDSleepType;
-    MCollisionConstraintFlag: uint32;
+    MCollisionConstraintFlag: number;
     MControlFlags: FChaosVDFRigidParticleControlFlags;
     bDisabled: boolean;
 }
-declare const FChaosVDParticleDynamicMisc: FChaosVDParticleDynamicMisc;
 
 declare interface FChaosVDParticleDynamics extends FChaosVDWrapperDataBase {
     MAcceleration: FVector;
@@ -496,7 +448,6 @@ declare interface FChaosVDParticleDynamics extends FChaosVDWrapperDataBase {
     MLinearImpulseVelocity: FVector;
     MAngularImpulseVelocity: FVector;
 }
-declare const FChaosVDParticleDynamics: FChaosVDParticleDynamics;
 
 declare interface FChaosVDParticleMassProps extends FChaosVDWrapperDataBase {
     MCenterOfMass: FVector;
@@ -506,7 +457,6 @@ declare interface FChaosVDParticleMassProps extends FChaosVDWrapperDataBase {
     MM: number;
     MInvM: number;
 }
-declare const FChaosVDParticleMassProps: FChaosVDParticleMassProps;
 
 declare interface FChaosVDParticlePairMidPhase {
     SolverId: number;
@@ -519,21 +469,18 @@ declare interface FChaosVDParticlePairMidPhase {
     LastUsedEpoch: number;
     Particle0Idx: number;
     Particle1Idx: number;
-    Constraints: TArray<FChaosVDConstraint>;
+    Constraints: FChaosVDConstraint[];
 }
-declare const FChaosVDParticlePairMidPhase: FChaosVDParticlePairMidPhase;
 
 declare interface FChaosVDParticlePositionRotation extends FChaosVDWrapperDataBase {
     MX: FVector;
     MR: FQuat;
 }
-declare const FChaosVDParticlePositionRotation: FChaosVDParticlePositionRotation;
 
 declare interface FChaosVDParticleVelocities extends FChaosVDWrapperDataBase {
     MV: FVector;
     MW: FVector;
 }
-declare const FChaosVDParticleVelocities: FChaosVDParticleVelocities;
 
 declare interface FChaosVDQueryDataWrapper {
     ID: number;
@@ -549,9 +496,8 @@ declare interface FChaosVDQueryDataWrapper {
     CollisionQueryParams: FChaosVDCollisionQueryParams;
     CollisionResponseParams: FChaosVDCollisionResponseParams;
     CollisionObjectQueryParams: FChaosVDCollisionObjectQueryParams;
-    Hits: TArray<FChaosVDQueryVisitStep>;
+    Hits: FChaosVDQueryVisitStep[];
 }
-declare const FChaosVDQueryDataWrapper: FChaosVDQueryDataWrapper;
 
 declare interface FChaosVDQueryFastData extends FChaosVDWrapperDataBase {
     Dir: FVector;
@@ -562,21 +508,19 @@ declare interface FChaosVDQueryFastData extends FChaosVDWrapperDataBase {
     bParallel1: boolean;
     bParallel2: boolean;
 }
-declare const FChaosVDQueryFastData: FChaosVDQueryFastData;
 
 declare interface FChaosVDQueryHitData extends FChaosVDWrapperDataBase {
     Distance: number;
     FaceIdx: number;
-    Flags: uint16;
+    Flags: number;
     WorldPosition: FVector;
     WorldNormal: FVector;
     FaceNormal: FVector;
 }
-declare const FChaosVDQueryHitData: FChaosVDQueryHitData;
 
 declare interface FChaosVDQueryVisitStep extends FChaosVDWrapperDataBase {
     Type: EChaosVDSceneQueryVisitorType;
-    ShapeIndex: uint32;
+    ShapeIndex: number;
     ParticleIndex: number;
     ParticleTransform: FTransform;
     QueryFastData: FChaosVDQueryFastData;
@@ -584,12 +528,8 @@ declare interface FChaosVDQueryVisitStep extends FChaosVDWrapperDataBase {
     HitData: FChaosVDQueryHitData;
     RejectReason: EChaosVDSQVisitRejectReason;
 }
-declare const FChaosVDQueryVisitStep: FChaosVDQueryVisitStep;
 
-declare interface FChaosVDSceneQueriesDataContainer {
-
-}
-declare const FChaosVDSceneQueriesDataContainer: FChaosVDSceneQueriesDataContainer;
+declare type FChaosVDSceneQueriesDataContainer = object;
 
 declare interface FChaosVDShapeCollisionData {
     CollisionTraceType: EChaosVDCollisionTraceFlag;
@@ -601,25 +541,21 @@ declare interface FChaosVDShapeCollisionData {
     bIsComplex: boolean;
     bIsValid: boolean;
 }
-declare const FChaosVDShapeCollisionData: FChaosVDShapeCollisionData;
 
 declare interface FChaosVDTraceDetails {
     TraceGuid: FGuid;
     SessionGuid: FGuid;
-    TraceTarget: FString;
+    TraceTarget: string;
     bIsConnected: boolean;
     Mode: EChaosVDRecordingMode;
 }
-declare const FChaosVDTraceDetails: FChaosVDTraceDetails;
 
 declare interface FChaosVDVSmooth extends FChaosVDWrapperDataBase {
     MV: FVector;
     MW: FVector;
 }
-declare const FChaosVDVSmooth: FChaosVDVSmooth;
 
 declare interface FChaosVDWrapperDataBase {
     bHasValidData: boolean;
 }
-declare const FChaosVDWrapperDataBase: FChaosVDWrapperDataBase;
 

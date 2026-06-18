@@ -1,5 +1,7 @@
 declare interface UAFLS_ShortCircuit_C extends USoundAfflictionEffect {
-
+    readonly __staticRegistry: 
+        USoundAfflictionEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundAfflictionEffect['__propertyRegistry'];
 }
-declare const UAFLS_ShortCircuit_C: UAFLS_ShortCircuit_C;
 

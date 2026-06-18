@@ -1,8 +1,17 @@
 declare interface UWB_Blip_C extends UUserWidget {
-    img_Blip: UImage;
-    InitializeForEnemy(): void;
-    InitializeForPlayer(): void;
-    SetColor(Color: FLinearColor): void;
+    readonly __static_UWB_Blip_C: {
+        InitializeForEnemy(): void;
+        InitializeForPlayer(): void;
+        SetColor(Color: FLinearColor): void;
+    };
+    readonly __properties_UWB_Blip_C: {
+        img_Blip: UImage;
+    };
+    readonly __staticRegistry: 
+        UWB_Blip_C['__static_UWB_Blip_C'] &
+        UUserWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UWB_Blip_C['__properties_UWB_Blip_C'] &
+        UUserWidget['__propertyRegistry'];
 }
-declare const UWB_Blip_C: UWB_Blip_C;
 

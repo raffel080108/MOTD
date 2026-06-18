@@ -1,7 +1,6 @@
 declare interface FAnalogInputEvent extends FKeyEvent {
 
 }
-declare const FAnalogInputEvent: FAnalogInputEvent;
 
 declare interface FButtonStyle extends FSlateWidgetStyle {
     Normal: FSlateBrush;
@@ -18,17 +17,12 @@ declare interface FButtonStyle extends FSlateWidgetStyle {
     ClickedSlateSound: FSlateSound;
     HoveredSlateSound: FSlateSound;
 }
-declare const FButtonStyle: FButtonStyle;
 
-declare interface FCaptureLostEvent {
-
-}
-declare const FCaptureLostEvent: FCaptureLostEvent;
+declare type FCaptureLostEvent = object;
 
 declare interface FCharacterEvent extends FInputEvent {
 
 }
-declare const FCharacterEvent: FCharacterEvent;
 
 declare interface FCheckBoxStyle extends FSlateWidgetStyle {
     CheckBoxType: ESlateCheckBoxType;
@@ -57,7 +51,6 @@ declare interface FCheckBoxStyle extends FSlateWidgetStyle {
     UncheckedSlateSound: FSlateSound;
     HoveredSlateSound: FSlateSound;
 }
-declare const FCheckBoxStyle: FCheckBoxStyle;
 
 declare interface FComboBoxStyle extends FSlateWidgetStyle {
     ComboButtonStyle: FComboButtonStyle;
@@ -66,7 +59,6 @@ declare interface FComboBoxStyle extends FSlateWidgetStyle {
     ContentPadding: FMargin;
     MenuRowPadding: FMargin;
 }
-declare const FComboBoxStyle: FComboBoxStyle;
 
 declare interface FComboButtonStyle extends FSlateWidgetStyle {
     ButtonStyle: FButtonStyle;
@@ -79,32 +71,27 @@ declare interface FComboButtonStyle extends FSlateWidgetStyle {
     DownArrowPadding: FMargin;
     DownArrowAlign: EVerticalAlignment;
 }
-declare const FComboButtonStyle: FComboButtonStyle;
 
 declare interface FCompositeFallbackFont {
     Typeface: FTypeface;
     ScalingFactor: number;
 }
-declare const FCompositeFallbackFont: FCompositeFallbackFont;
 
 declare interface FCompositeFont {
     DefaultTypeface: FTypeface;
     FallbackTypeface: FCompositeFallbackFont;
-    SubTypefaces: TArray<FCompositeSubFont>;
+    SubTypefaces: FCompositeSubFont[];
     bEnableAscentDescentOverride: boolean;
 }
-declare const FCompositeFont: FCompositeFont;
 
 declare interface FCompositeSubFont extends FCompositeFallbackFont {
-    CharacterRanges: TArray<FInt32Range>;
-    Cultures: FString;
+    CharacterRanges: FInt32Range[];
+    Cultures: string;
 }
-declare const FCompositeSubFont: FCompositeSubFont;
 
 declare interface FDeprecateSlateVector2D extends FVector2f {
 
 }
-declare const FDeprecateSlateVector2D: FDeprecateSlateVector2D;
 
 declare interface FDockTabStyle extends FSlateWidgetStyle {
     CloseButtonStyle: FButtonStyle;
@@ -126,7 +113,6 @@ declare interface FDockTabStyle extends FSlateWidgetStyle {
     ForegroundForegroundColor: FSlateColor;
     IconBorderPadding: number;
 }
-declare const FDockTabStyle: FDockTabStyle;
 
 declare interface FEditableTextBoxStyle extends FSlateWidgetStyle {
     BackgroundImageNormal: FSlateBrush;
@@ -143,7 +129,6 @@ declare interface FEditableTextBoxStyle extends FSlateWidgetStyle {
     VScrollBarPadding: FMargin;
     ScrollBarStyle: FScrollBarStyle;
 }
-declare const FEditableTextBoxStyle: FEditableTextBoxStyle;
 
 declare interface FEditableTextStyle extends FSlateWidgetStyle {
     Font: FSlateFontInfo;
@@ -152,28 +137,22 @@ declare interface FEditableTextStyle extends FSlateWidgetStyle {
     BackgroundImageComposing: FSlateBrush;
     CaretImage: FSlateBrush;
 }
-declare const FEditableTextStyle: FEditableTextStyle;
 
 declare interface FExpandableAreaStyle extends FSlateWidgetStyle {
     CollapsedImage: FSlateBrush;
     ExpandedImage: FSlateBrush;
     RolloutAnimationSeconds: number;
 }
-declare const FExpandableAreaStyle: FExpandableAreaStyle;
 
-declare interface FFocusEvent {
-
-}
-declare const FFocusEvent: FFocusEvent;
+declare type FFocusEvent = object;
 
 declare interface FFontData {
-    FontFilename: FString;
+    FontFilename: string;
     Hinting: EFontHinting;
     LoadingPolicy: EFontLoadingPolicy;
     SubFaceIndex: number;
     FontFaceAsset: UObject;
 }
-declare const FFontData: FFontData;
 
 declare interface FFontOutlineSettings {
     OutlineSize: number;
@@ -183,17 +162,12 @@ declare interface FFontOutlineSettings {
     OutlineMaterial: UObject;
     OutlineColor: FLinearColor;
 }
-declare const FFontOutlineSettings: FFontOutlineSettings;
 
 declare interface FFontSdfSettings {
     BasePpem: number;
 }
-declare const FFontSdfSettings: FFontSdfSettings;
 
-declare interface FGeometry {
-
-}
-declare const FGeometry: FGeometry;
+declare type FGeometry = object;
 
 declare interface FHeaderRowStyle extends FSlateWidgetStyle {
     ColumnStyle: FTableColumnHeaderStyle;
@@ -205,36 +179,28 @@ declare interface FHeaderRowStyle extends FSlateWidgetStyle {
     HorizontalSeparatorBrush: FSlateBrush;
     HorizontalSeparatorThickness: number;
 }
-declare const FHeaderRowStyle: FHeaderRowStyle;
 
 declare interface FHyperlinkStyle extends FSlateWidgetStyle {
     UnderlineStyle: FButtonStyle;
     TextStyle: FTextBlockStyle;
     Padding: FMargin;
 }
-declare const FHyperlinkStyle: FHyperlinkStyle;
 
 declare interface FInlineEditableTextBlockStyle extends FSlateWidgetStyle {
     EditableTextBoxStyle: FEditableTextBoxStyle;
     TextStyle: FTextBlockStyle;
 }
-declare const FInlineEditableTextBlockStyle: FInlineEditableTextBlockStyle;
 
 declare interface FInlineTextImageStyle extends FSlateWidgetStyle {
     Image: FSlateBrush;
-    Baseline: int16;
+    Baseline: number;
 }
-declare const FInlineTextImageStyle: FInlineTextImageStyle;
 
-declare interface FInputEvent {
-
-}
-declare const FInputEvent: FInputEvent;
+declare type FInputEvent = object;
 
 declare interface FKeyEvent extends FInputEvent {
 
 }
-declare const FKeyEvent: FKeyEvent;
 
 declare interface FMargin {
     Left: number;
@@ -242,22 +208,18 @@ declare interface FMargin {
     Right: number;
     Bottom: number;
 }
-declare const FMargin: FMargin;
 
 declare interface FMotionEvent extends FInputEvent {
 
 }
-declare const FMotionEvent: FMotionEvent;
 
 declare interface FNavigationEvent extends FInputEvent {
 
 }
-declare const FNavigationEvent: FNavigationEvent;
 
 declare interface FPointerEvent extends FInputEvent {
 
 }
-declare const FPointerEvent: FPointerEvent;
 
 declare interface FProgressBarStyle extends FSlateWidgetStyle {
     BackgroundImage: FSlateBrush;
@@ -265,7 +227,6 @@ declare interface FProgressBarStyle extends FSlateWidgetStyle {
     MarqueeImage: FSlateBrush;
     EnableFillAnimation: boolean;
 }
-declare const FProgressBarStyle: FProgressBarStyle;
 
 declare interface FScrollBarStyle extends FSlateWidgetStyle {
     HorizontalBackgroundImage: FSlateBrush;
@@ -279,13 +240,11 @@ declare interface FScrollBarStyle extends FSlateWidgetStyle {
     DraggedThumbImage: FSlateBrush;
     Thickness: number;
 }
-declare const FScrollBarStyle: FScrollBarStyle;
 
 declare interface FScrollBorderStyle extends FSlateWidgetStyle {
     TopShadowBrush: FSlateBrush;
     BottomShadowBrush: FSlateBrush;
 }
-declare const FScrollBorderStyle: FScrollBorderStyle;
 
 declare interface FScrollBoxStyle extends FSlateWidgetStyle {
     BarThickness: number;
@@ -296,7 +255,6 @@ declare interface FScrollBoxStyle extends FSlateWidgetStyle {
     HorizontalScrolledContentPadding: FMargin;
     VerticalScrolledContentPadding: FMargin;
 }
-declare const FScrollBoxStyle: FScrollBoxStyle;
 
 declare interface FSearchBoxStyle extends FSlateWidgetStyle {
     TextBoxStyle: FEditableTextBoxStyle;
@@ -311,7 +269,6 @@ declare interface FSearchBoxStyle extends FSlateWidgetStyle {
     bLeftAlignSearchResultButtons: boolean;
     bLeftAlignGlassImageAndClearButton: boolean;
 }
-declare const FSearchBoxStyle: FSearchBoxStyle;
 
 declare interface FSegmentedControlStyle extends FSlateWidgetStyle {
     ControlStyle: FCheckBoxStyle;
@@ -320,7 +277,6 @@ declare interface FSegmentedControlStyle extends FSlateWidgetStyle {
     BackgroundBrush: FSlateBrush;
     UniformPadding: FMargin;
 }
-declare const FSegmentedControlStyle: FSegmentedControlStyle;
 
 declare interface FSlateBrush {
     TintColor: FSlateColor;
@@ -335,9 +291,8 @@ declare interface FSlateBrush {
     UVRegion: FBox2f;
     bIsDynamicallyLoaded: boolean;
     bHasUObject: boolean;
-    ResourceName: FName;
+    ResourceName: string;
 }
-declare const FSlateBrush: FSlateBrush;
 
 declare interface FSlateBrushOutlineSettings {
     CornerRadii: FVector4;
@@ -346,19 +301,17 @@ declare interface FSlateBrushOutlineSettings {
     RoundingType: ESlateBrushRoundingType;
     bUseBrushTransparency: boolean;
 }
-declare const FSlateBrushOutlineSettings: FSlateBrushOutlineSettings;
 
 declare interface FSlateColor {
     SpecifiedColor: FLinearColor;
     ColorUseRule: ESlateColorStylingMode;
 }
-declare const FSlateColor: FSlateColor;
 
 declare interface FSlateFontInfo {
     FontObject: UObject;
     FontMaterial: UObject;
     OutlineSettings: FFontOutlineSettings;
-    TypefaceFontName: FName;
+    TypefaceFontName: string;
     Size: number;
     LetterSpacing: number;
     SkewAmount: number;
@@ -366,17 +319,12 @@ declare interface FSlateFontInfo {
     bMaterialIsStencil: boolean;
     MonospacedWidth: number;
 }
-declare const FSlateFontInfo: FSlateFontInfo;
 
 declare interface FSlateSound {
     ResourceObject: UObject;
 }
-declare const FSlateSound: FSlateSound;
 
-declare interface FSlateWidgetStyle {
-
-}
-declare const FSlateWidgetStyle: FSlateWidgetStyle;
+declare type FSlateWidgetStyle = object;
 
 declare interface FSliderStyle extends FSlateWidgetStyle {
     NormalBarImage: FSlateBrush;
@@ -387,7 +335,6 @@ declare interface FSliderStyle extends FSlateWidgetStyle {
     DisabledThumbImage: FSlateBrush;
     BarThickness: number;
 }
-declare const FSliderStyle: FSliderStyle;
 
 declare interface FSpinBoxStyle extends FSlateWidgetStyle {
     BackgroundBrush: FSlateBrush;
@@ -401,23 +348,17 @@ declare interface FSpinBoxStyle extends FSlateWidgetStyle {
     TextPadding: FMargin;
     InsetPadding: FMargin;
 }
-declare const FSpinBoxStyle: FSpinBoxStyle;
 
 declare interface FSplitterStyle extends FSlateWidgetStyle {
     HandleNormalBrush: FSlateBrush;
     HandleHighlightBrush: FSlateBrush;
 }
-declare const FSplitterStyle: FSplitterStyle;
 
 declare interface FStyleColorList {
     StyleColors: FLinearColor;
 }
-declare const FStyleColorList: FStyleColorList;
 
-declare interface FStyleTheme {
-
-}
-declare const FStyleTheme: FStyleTheme;
+declare type FStyleTheme = object;
 
 declare interface FTableColumnHeaderStyle extends FSlateWidgetStyle {
     SortPrimaryAscendingImage: FSlateBrush;
@@ -430,7 +371,6 @@ declare interface FTableColumnHeaderStyle extends FSlateWidgetStyle {
     MenuDropdownNormalBorderBrush: FSlateBrush;
     MenuDropdownHoveredBorderBrush: FSlateBrush;
 }
-declare const FTableColumnHeaderStyle: FTableColumnHeaderStyle;
 
 declare interface FTableRowStyle extends FSlateWidgetStyle {
     SelectorFocusedBrush: FSlateBrush;
@@ -453,12 +393,10 @@ declare interface FTableRowStyle extends FSlateWidgetStyle {
     ActiveHighlightedBrush: FSlateBrush;
     InactiveHighlightedBrush: FSlateBrush;
 }
-declare const FTableRowStyle: FTableRowStyle;
 
 declare interface FTableViewStyle extends FSlateWidgetStyle {
     BackgroundBrush: FSlateBrush;
 }
-declare const FTableViewStyle: FTableViewStyle;
 
 declare interface FTextBlockStyle extends FSlateWidgetStyle {
     Font: FSlateFontInfo;
@@ -473,7 +411,6 @@ declare interface FTextBlockStyle extends FSlateWidgetStyle {
     TransformPolicy: ETextTransformPolicy;
     OverflowPolicy: ETextOverflowPolicy;
 }
-declare const FTextBlockStyle: FTextBlockStyle;
 
 declare interface FToolBarStyle extends FSlateWidgetStyle {
     BackgroundBrush: FSlateBrush;
@@ -518,18 +455,15 @@ declare interface FToolBarStyle extends FSlateWidgetStyle {
     VerticalAlignmentOverride: TOptional<EVerticalAlignment>;
     RaisedChildrenRightPadding: number;
 }
-declare const FToolBarStyle: FToolBarStyle;
 
 declare interface FTypeface {
-    Fonts: TArray<FTypefaceEntry>;
+    Fonts: FTypefaceEntry[];
 }
-declare const FTypeface: FTypeface;
 
 declare interface FTypefaceEntry {
-    Name: FName;
+    Name: string;
     Font: FFontData;
 }
-declare const FTypefaceEntry: FTypefaceEntry;
 
 declare interface FVolumeControlStyle extends FSlateWidgetStyle {
     SliderStyle: FSliderStyle;
@@ -539,7 +473,6 @@ declare interface FVolumeControlStyle extends FSlateWidgetStyle {
     NoVolumeImage: FSlateBrush;
     MutedImage: FSlateBrush;
 }
-declare const FVolumeControlStyle: FVolumeControlStyle;
 
 declare interface FWindowStyle extends FSlateWidgetStyle {
     MinimizeButtonStyle: FButtonStyle;
@@ -562,7 +495,6 @@ declare interface FWindowStyle extends FSlateWidgetStyle {
     WindowCornerRadius: number;
     BorderPadding: FMargin;
 }
-declare const FWindowStyle: FWindowStyle;
 
 declare interface FWrapButtonStyle {
     Padding: FMargin;
@@ -575,46 +507,69 @@ declare interface FWrapButtonStyle {
     SeparatorThickness: TOptional<number>;
     SeparatorPadding: TOptional<FMargin>;
 }
-declare const FWrapButtonStyle: FWrapButtonStyle;
 
 declare interface IFontFaceInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IFontFaceInterface: IFontFaceInterface;
 
 declare interface IFontProviderInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IFontProviderInterface: IFontProviderInterface;
 
 declare interface ISlateWidgetStyleContainerInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const ISlateWidgetStyleContainerInterface: ISlateWidgetStyleContainerInterface;
 
 declare interface UFontBulkData extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UFontBulkData: UFontBulkData;
 
 declare interface USlateThemeManager extends UObject {
-    CurrentThemeId: FGuid;
-    ActiveColors: FStyleColorList;
+    readonly __properties_USlateThemeManager: {
+        CurrentThemeId: FGuid;
+        ActiveColors: FStyleColorList;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USlateThemeManager['__properties_USlateThemeManager'] &
+        UObject['__propertyRegistry'];
 }
-declare const USlateThemeManager: USlateThemeManager;
 
 declare interface USlateTypes extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const USlateTypes: USlateTypes;
 
 declare interface USlateWidgetStyleAsset extends UObject {
-    CustomStyle: USlateWidgetStyleContainerBase;
+    readonly __properties_USlateWidgetStyleAsset: {
+        CustomStyle: USlateWidgetStyleContainerBase;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USlateWidgetStyleAsset['__properties_USlateWidgetStyleAsset'] &
+        UObject['__propertyRegistry'];
 }
-declare const USlateWidgetStyleAsset: USlateWidgetStyleAsset;
 
 declare interface USlateWidgetStyleContainerBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const USlateWidgetStyleContainerBase: USlateWidgetStyleContainerBase;
 

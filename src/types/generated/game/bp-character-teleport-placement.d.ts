@@ -1,5 +1,7 @@
 declare interface UBP_CharacterTeleportPlacement_C extends UTerrainPlacementComponent {
-
+    readonly __staticRegistry: 
+        UTerrainPlacementComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTerrainPlacementComponent['__propertyRegistry'];
 }
-declare const UBP_CharacterTeleportPlacement_C: UBP_CharacterTeleportPlacement_C;
 

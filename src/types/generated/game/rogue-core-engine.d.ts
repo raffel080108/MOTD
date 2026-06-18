@@ -1,89 +1,108 @@
 declare interface ACSGBuilder extends ACSGBuilderBase {
-    CSGRoot: UCSGGroupComponent;
-    UsedMaterials: TArray<UTerrainMaterialCore>;
-    CurrentPreviewRoot: UCSGBase;
-    CurrentPreviewConfig: UBakeConfig;
-    PreviewScene: UCSGPreviewScene;
+    readonly __properties_ACSGBuilder: {
+        CSGRoot: UCSGGroupComponent;
+        UsedMaterials: UTerrainMaterialCore[];
+        CurrentPreviewRoot: UCSGBase;
+        CurrentPreviewConfig: UBakeConfig;
+        PreviewScene: UCSGPreviewScene;
+    };
+    readonly __staticRegistry: 
+        ACSGBuilderBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ACSGBuilder['__properties_ACSGBuilder'] &
+        ACSGBuilderBase['__propertyRegistry'];
 }
-declare const ACSGBuilder: ACSGBuilder;
 
 declare interface ACSGBuilderBase extends AActor {
-    BoundingBox: FBox;
-    PreviewSeed: number;
-    PreviewSettings: FCSGOptions;
-    EmptyMat: UTerrainMaterialCore;
-    ErrorMat: UTerrainMaterialCore;
-    SolidMat: UTerrainMaterialCore;
-    BurnedMat: UTerrainMaterialCore;
-    PreviewComponent: UCSGPreviewComponent;
-    PreGenerate(builder: UBakeConfig): void;
+    readonly __static_ACSGBuilderBase: {
+        PreGenerate(builder: UBakeConfig): void;
+    };
+    readonly __properties_ACSGBuilderBase: {
+        BoundingBox: FBox;
+        PreviewSeed: number;
+        PreviewSettings: FCSGOptions;
+        EmptyMat: UTerrainMaterialCore;
+        ErrorMat: UTerrainMaterialCore;
+        SolidMat: UTerrainMaterialCore;
+        BurnedMat: UTerrainMaterialCore;
+        PreviewComponent: UCSGPreviewComponent;
+    };
+    readonly __staticRegistry: 
+        ACSGBuilderBase['__static_ACSGBuilderBase'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ACSGBuilderBase['__properties_ACSGBuilderBase'] &
+        AActor['__propertyRegistry'];
 }
-declare const ACSGBuilderBase: ACSGBuilderBase;
 
 declare interface ADeepCSGSection extends AActor {
-    DeepMesh: UDeepProceduralMeshComponent;
+    readonly __properties_ADeepCSGSection: {
+        DeepMesh: UDeepProceduralMeshComponent;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ADeepCSGSection['__properties_ADeepCSGSection'] &
+        AActor['__propertyRegistry'];
 }
-declare const ADeepCSGSection: ADeepCSGSection;
 
 declare interface ASDFBuilder extends ACSGBuilderBase {
-    PreviewSize: EPreviewCellSize;
-    PreviewMaterial: UTerrainMaterialCore;
-    SDFRoot: USDFUnionOpComponent;
+    readonly __properties_ASDFBuilder: {
+        PreviewSize: EPreviewCellSize;
+        PreviewMaterial: UTerrainMaterialCore;
+        SDFRoot: USDFUnionOpComponent;
+    };
+    readonly __staticRegistry: 
+        ACSGBuilderBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ASDFBuilder['__properties_ASDFBuilder'] &
+        ACSGBuilderBase['__propertyRegistry'];
 }
-declare const ASDFBuilder: ASDFBuilder;
 
 declare interface FBakeEntry {
     Tree: FDeepCSGFloatTreePacked;
     AABB: FBox;
-    Materials: TArray<UTerrainMaterialCore>;
-    SmartMaterials: TArray<FSmartTerrainMaterialVal>;
+    Materials: UTerrainMaterialCore[];
+    SmartMaterials: FSmartTerrainMaterialVal[];
 }
-declare const FBakeEntry: FBakeEntry;
 
 declare interface FBinaryMatPatterns {
     PatternType: EPattern;
     PatternMaterial: UTerrainMaterialCore;
     ReplaceWith: FBinaryMatProperties;
 }
-declare const FBinaryMatPatterns: FBinaryMatPatterns;
 
 declare interface FBinaryMatProperties {
     Result: EBinaryComb;
     Material: UTerrainMaterialCore;
 }
-declare const FBinaryMatProperties: FBinaryMatProperties;
 
 declare interface FBinaryTerrainMaterialCombiner {
     IfEmpty: FEmptyBinaryMatProperties;
     IfSolid: FBinaryMatProperties;
-    Patterns: TArray<FBinaryMatPatterns>;
+    Patterns: FBinaryMatPatterns[];
 }
-declare const FBinaryTerrainMaterialCombiner: FBinaryTerrainMaterialCombiner;
 
 declare interface FCSGAddMaterialLayersProperties {
-    Layers: TArray<FCSGLayers>;
+    Layers: FCSGLayers[];
     Inner: FBinaryTerrainMaterialCombiner;
 }
-declare const FCSGAddMaterialLayersProperties: FCSGAddMaterialLayersProperties;
 
 declare interface FCSGBakedChildInstanceProperties {
     BakedCSG: UCSGBake;
     VariantIndex: number;
 }
-declare const FCSGBakedChildInstanceProperties: FCSGBakedChildInstanceProperties;
 
 declare interface FCSGChildInstanceProperties {
     mesh: TSubclassOf<ACSGBuilder>;
     Settings: FCSGOptions;
     Seed: number;
 }
-declare const FCSGChildInstanceProperties: FCSGChildInstanceProperties;
 
 declare interface FCSGCircleDuplicatorProperties {
     Num: number;
     Radius: number;
 }
-declare const FCSGCircleDuplicatorProperties: FCSGCircleDuplicatorProperties;
 
 declare interface FCSGConeProperties {
     Height: number;
@@ -91,19 +110,16 @@ declare interface FCSGConeProperties {
     RadiusBottom: number;
     Sides: number;
 }
-declare const FCSGConeProperties: FCSGConeProperties;
 
 declare interface FCSGConvexColliderProperties {
     collider: UStaticMesh;
 }
-declare const FCSGConvexColliderProperties: FCSGConvexColliderProperties;
 
 declare interface FCSGCylinderProperties {
     Height: number;
     Radius: number;
     Sides: number;
 }
-declare const FCSGCylinderProperties: FCSGCylinderProperties;
 
 declare interface FCSGGridDuplicatorProperties {
     NumA: number;
@@ -111,31 +127,26 @@ declare interface FCSGGridDuplicatorProperties {
     DirectionA: FVector;
     DirectionB: FVector;
 }
-declare const FCSGGridDuplicatorProperties: FCSGGridDuplicatorProperties;
 
 declare interface FCSGLayers {
     Offset: number;
     Above: FBinaryTerrainMaterialCombiner;
 }
-declare const FCSGLayers: FCSGLayers;
 
 declare interface FCSGOption {
-    Key: FName;
+    Key: string;
     IntValue: number;
     FloatValue: number;
     VectorValue: FVector;
 }
-declare const FCSGOption: FCSGOption;
 
 declare interface FCSGOptions {
-    Pairs: TArray<FCSGOption>;
+    Pairs: FCSGOption[];
 }
-declare const FCSGOptions: FCSGOptions;
 
 declare interface FCSGRandomDisableProperties {
     DisableProbability: number;
 }
-declare const FCSGRandomDisableProperties: FCSGRandomDisableProperties;
 
 declare interface FCSGRandomizeTransformProperties {
     Translation: FBox;
@@ -151,7 +162,6 @@ declare interface FCSGRandomizeTransformProperties {
     DisableRandomize: boolean;
     Seed: number;
 }
-declare const FCSGRandomizeTransformProperties: FCSGRandomizeTransformProperties;
 
 declare interface FCSGSDFInstanceProperties {
     SDF: TSubclassOf<ASDFBuilder>;
@@ -159,7 +169,6 @@ declare interface FCSGSDFInstanceProperties {
     Settings: FCSGOptions;
     Seed: number;
 }
-declare const FCSGSDFInstanceProperties: FCSGSDFInstanceProperties;
 
 declare interface FCSGSDFModulatedInstanceProperties {
     SDF: TSubclassOf<ASDFBuilder>;
@@ -169,14 +178,12 @@ declare interface FCSGSDFModulatedInstanceProperties {
     ModulateSettings: FCSGOptions;
     Seed: number;
     ModulateMode: ESDFModulateMode;
-    ModulateLayers: TArray<FSDFModulateLayer>;
+    ModulateLayers: FSDFModulateLayer[];
 }
-declare const FCSGSDFModulatedInstanceProperties: FCSGSDFModulatedInstanceProperties;
 
 declare interface FCSGSTLProperties {
     mesh: UStaticMeshCarver;
 }
-declare const FCSGSTLProperties: FCSGSTLProperties;
 
 declare interface FCSGSphereProperties {
     Radius: number;
@@ -185,7 +192,6 @@ declare interface FCSGSphereProperties {
     SidesTopBottom: number;
     Sides: number;
 }
-declare const FCSGSphereProperties: FCSGSphereProperties;
 
 declare interface FCarveSplineSegment {
     SplineStart: FVector3f;
@@ -194,110 +200,86 @@ declare interface FCarveSplineSegment {
     SplineEndTangent: FVector3f;
     Radius: number;
 }
-declare const FCarveSplineSegment: FCarveSplineSegment;
 
 declare interface FCellBox {
     min: FCellId;
     max: FCellId;
 }
-declare const FCellBox: FCellBox;
 
 declare interface FCellId {
-    X: int16;
-    Y: int16;
-    Z: int16;
+    X: number;
+    Y: number;
+    Z: number;
 }
-declare const FCellId: FCellId;
 
 declare interface FChunckIDAndOffset {
     ChunkId: FChunkId;
     Offset: FChunkOffset;
 }
-declare const FChunckIDAndOffset: FChunckIDAndOffset;
 
 declare interface FChunckIDAndOffsetBox {
     ChunkId: FChunkId;
     minOffset: FChunkOffset;
     maxOffset: FChunkOffset;
 }
-declare const FChunckIDAndOffsetBox: FChunckIDAndOffsetBox;
 
 declare interface FChunkId {
-    X: int16;
-    Y: int16;
-    Z: int16;
+    X: number;
+    Y: number;
+    Z: number;
 }
-declare const FChunkId: FChunkId;
 
 declare interface FChunkOffset {
-    X: int16;
-    Y: int16;
-    Z: int16;
+    X: number;
+    Y: number;
+    Z: number;
 }
-declare const FChunkOffset: FChunkOffset;
 
 declare interface FConvexNoiseProperties {
     Amplitude: number;
     GridSize: number;
     Seed: number;
 }
-declare const FConvexNoiseProperties: FConvexNoiseProperties;
 
 declare interface FDeepCSGFloatPlane {
     Plane: FVector4f;
     Top: FDeepCSGNode;
     Bottom: FDeepCSGNode;
 }
-declare const FDeepCSGFloatPlane: FDeepCSGFloatPlane;
 
 declare interface FDeepCSGFloatTree {
     Root: FDeepCSGNode;
-    planes: TArray<FDeepCSGFloatPlane>;
+    planes: FDeepCSGFloatPlane[];
 }
-declare const FDeepCSGFloatTree: FDeepCSGFloatTree;
 
 declare interface FDeepCSGFloatTreePacked {
     Root: FDeepCSGNode;
-    encplanes: TArray<number>;
+    encplanes: number[];
 }
-declare const FDeepCSGFloatTreePacked: FDeepCSGFloatTreePacked;
 
 declare interface FDeepCSGNode {
-    Val: uint32;
+    Val: number;
 }
-declare const FDeepCSGNode: FDeepCSGNode;
 
-declare interface FDeepCSGTree {
+declare type FDeepCSGTree = object;
 
-}
-declare const FDeepCSGTree: FDeepCSGTree;
+declare type FDeepCSGTreeOperations = object;
 
-declare interface FDeepCSGTreeOperations {
-
-}
-declare const FDeepCSGTreeOperations: FDeepCSGTreeOperations;
-
-declare interface FDeepCSGUtils {
-
-}
-declare const FDeepCSGUtils: FDeepCSGUtils;
+declare type FDeepCSGUtils = object;
 
 declare interface FEmptyBinaryMatProperties {
     Result: EEmptyBinaryComb;
     Material: UTerrainMaterialCore;
 }
-declare const FEmptyBinaryMatProperties: FEmptyBinaryMatProperties;
 
 declare interface FEncodedChunkCellId {
     ChunkId: FEncodedChunkId;
-    cellOffset: uint16;
+    cellOffset: number;
 }
-declare const FEncodedChunkCellId: FEncodedChunkCellId;
 
 declare interface FEncodedChunkId {
-    ID: uint32;
+    ID: number;
 }
-declare const FEncodedChunkId: FEncodedChunkId;
 
 declare interface FFastNoiseProperties {
     Frequency: number;
@@ -315,64 +297,54 @@ declare interface FFastNoiseProperties {
     DomainWarpType: EFNDomainWarpType;
     WarpAmplitude: number;
 }
-declare const FFastNoiseProperties: FFastNoiseProperties;
 
 declare interface FGeneralMatPatterns {
     PatternType: EGeneralPattern;
     PatternMaterial: UTerrainMaterialCore;
     ReplaceWith: FGeneralMatProperties;
 }
-declare const FGeneralMatPatterns: FGeneralMatPatterns;
 
 declare interface FGeneralMatProperties {
     Result: EGeneralComb;
     Material: UTerrainMaterialCore;
 }
-declare const FGeneralMatProperties: FGeneralMatProperties;
 
 declare interface FGeneralMatPropertiesEmpty {
     Result: EGeneralCombEmpty;
     Material: UTerrainMaterialCore;
 }
-declare const FGeneralMatPropertiesEmpty: FGeneralMatPropertiesEmpty;
 
 declare interface FGeneralTerrainMaterialCombiner {
     IfBothEmpty: FGeneralMatPropertiesEmpty;
-    Patterns: TArray<FGeneralMatPatterns>;
+    Patterns: FGeneralMatPatterns[];
     IfBothSolid: FGeneralMatProperties;
     IfSrcSolid: FGeneralMatProperties;
     IfDestSolid: FGeneralMatProperties;
 }
-declare const FGeneralTerrainMaterialCombiner: FGeneralTerrainMaterialCombiner;
 
 declare interface FHMMinMaxLevel {
-    Entries: TArray<number>;
+    Entries: number[];
 }
-declare const FHMMinMaxLevel: FHMMinMaxLevel;
 
 declare interface FLinearCellId {
-    X: uint16;
-    Y: uint16;
-    Z: uint16;
+    X: number;
+    Y: number;
+    Z: number;
 }
-declare const FLinearCellId: FLinearCellId;
 
 declare interface FMatrixWithExactSync {
     Values: number;
 }
-declare const FMatrixWithExactSync: FMatrixWithExactSync;
 
 declare interface FMeshBaseProperties {
     Enabled: boolean;
 }
-declare const FMeshBaseProperties: FMeshBaseProperties;
 
 declare interface FMeshBoxProperties {
     HalfSize: FVector;
     BevelSegments: number;
     BevelSize: number;
 }
-declare const FMeshBoxProperties: FMeshBoxProperties;
 
 declare interface FMeshCellNoiseProperties {
     CellSize: FVector;
@@ -381,40 +353,33 @@ declare interface FMeshCellNoiseProperties {
     Distance: number;
     Seed: number;
 }
-declare const FMeshCellNoiseProperties: FMeshCellNoiseProperties;
 
 declare interface FMeshLayerProperties {
     StartMaterial: UTerrainMaterialCore;
     BoundingBox: FBox;
 }
-declare const FMeshLayerProperties: FMeshLayerProperties;
 
 declare interface FSDFBaseProperties {
     Enabled: boolean;
 }
-declare const FSDFBaseProperties: FSDFBaseProperties;
 
 declare interface FSDFBoxProperties {
     HalfSize: FVector;
 }
-declare const FSDFBoxProperties: FSDFBoxProperties;
 
 declare interface FSDFCapsuleProperties {
     HalfLength: number;
     Radius: number;
 }
-declare const FSDFCapsuleProperties: FSDFCapsuleProperties;
 
 declare interface FSDFCylinderProperties {
     HalfLength: number;
     Radius: number;
 }
-declare const FSDFCylinderProperties: FSDFCylinderProperties;
 
 declare interface FSDFHeightMaproperties {
     Scale: FVector;
 }
-declare const FSDFHeightMaproperties: FSDFHeightMaproperties;
 
 declare interface FSDFModifierProperties {
     Offset: number;
@@ -422,23 +387,19 @@ declare interface FSDFModifierProperties {
     NoiseAmplitude: number;
     Seed: number;
 }
-declare const FSDFModifierProperties: FSDFModifierProperties;
 
 declare interface FSDFModulateLayer {
     ModulateDistance: number;
     SDFOffset: number;
 }
-declare const FSDFModulateLayer: FSDFModulateLayer;
 
 declare interface FSDFOnionProperties {
     Thickness: number;
 }
-declare const FSDFOnionProperties: FSDFOnionProperties;
 
 declare interface FSDFRandomDisableProperties {
     DisableProbability: number;
 }
-declare const FSDFRandomDisableProperties: FSDFRandomDisableProperties;
 
 declare interface FSDFRandomizeTransformProperties {
     Translation: FBox;
@@ -454,40 +415,34 @@ declare interface FSDFRandomizeTransformProperties {
     DisableRandomize: boolean;
     Seed: number;
 }
-declare const FSDFRandomizeTransformProperties: FSDFRandomizeTransformProperties;
 
 declare interface FSDFSmoothingProperties {
     SmoothingDist: number;
     SmoothingEnabled: boolean;
 }
-declare const FSDFSmoothingProperties: FSDFSmoothingProperties;
 
 declare interface FSDFSphereProperties {
     Radius: number;
-    RadiusOverrideName: FName;
+    RadiusOverrideName: string;
 }
-declare const FSDFSphereProperties: FSDFSphereProperties;
 
 declare interface FSDFTorusProperties {
     Radius: number;
     TubeRadius: number;
-    SizeOverrideName: FName;
+    SizeOverrideName: string;
 }
-declare const FSDFTorusProperties: FSDFTorusProperties;
 
 declare interface FSmartTerrainMaterialVal {
-    IfEmpty: uint32;
-    IfSolid: uint32;
-    OverrideKeys: TArray<uint32>;
-    OverrideValues: TArray<uint32>;
+    IfEmpty: number;
+    IfSolid: number;
+    OverrideKeys: number[];
+    OverrideValues: number[];
 }
-declare const FSmartTerrainMaterialVal: FSmartTerrainMaterialVal;
 
 declare interface FSplineWarpProperties {
     ElementBox: FBox;
     SplineWarpType: ESplineWarpType;
 }
-declare const FSplineWarpProperties: FSplineWarpProperties;
 
 declare interface FVoronoiProperties {
     HalfSize: FVector;
@@ -496,7 +451,6 @@ declare interface FVoronoiProperties {
     Distance: number;
     Inverted: boolean;
 }
-declare const FVoronoiProperties: FVoronoiProperties;
 
 declare interface FWarpNoiseProperties {
     Frequency: number;
@@ -509,601 +463,1150 @@ declare interface FWarpNoiseProperties {
     DomainWarpType: EFNDomainWarpType;
     Amplitude: number;
 }
-declare const FWarpNoiseProperties: FWarpNoiseProperties;
 
 declare interface FWarpedProperties {
     CellSize: EPreviewCellSize;
     WarpNoise: FWarpNoiseProperties;
     Seed: number;
 }
-declare const FWarpedProperties: FWarpedProperties;
 
 declare interface UBakeConfig extends UObject {
-    Settings: FCSGOptions;
-    Objects: Record<FName, UBuilderBase>;
-    Warnings: TArray<FString>;
-    GetVectorSetting(Name: FName, defaultVal: FVector): FVector;
-    GetRandomStream(): FRandomStream;
-    GetObject(Name: FName): UBuilderBase;
-    GetIntSetting(Name: FName, defaultVal: number): number;
-    GetFloatSetting(Name: FName, defaultVal: number): number;
-    GetBoolSetting(Name: FName, defaultVal: boolean): boolean;
+    readonly __static_UBakeConfig: {
+        GetVectorSetting(Name: string, defaultVal: FVector): FVector;
+        GetRandomStream(): FRandomStream;
+        GetObject(Name: string): UBuilderBase;
+        GetIntSetting(Name: string, defaultVal: number): number;
+        GetFloatSetting(Name: string, defaultVal: number): number;
+        GetBoolSetting(Name: string, defaultVal: boolean): boolean;
+    };
+    readonly __properties_UBakeConfig: {
+        Settings: FCSGOptions;
+        Objects: TMap<string, UBuilderBase>;
+        Warnings: string[];
+    };
+    readonly __staticRegistry: 
+        UBakeConfig['__static_UBakeConfig'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBakeConfig['__properties_UBakeConfig'] &
+        UObject['__propertyRegistry'];
 }
-declare const UBakeConfig: UBakeConfig;
 
 declare interface UBuilderBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UBuilderBase: UBuilderBase;
 
 declare interface UCSGAddMaterialLayers extends UCSGSingleChildBase {
-    Properties: FCSGAddMaterialLayersProperties;
+    readonly __properties_UCSGAddMaterialLayers: {
+        Properties: FCSGAddMaterialLayersProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGSingleChildBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGAddMaterialLayers['__properties_UCSGAddMaterialLayers'] &
+        UCSGSingleChildBase['__propertyRegistry'];
 }
-declare const UCSGAddMaterialLayers: UCSGAddMaterialLayers;
 
 declare interface UCSGAddMaterialLayersComponent extends UCSGBaseComponent {
-    Properties: FCSGAddMaterialLayersProperties;
+    readonly __properties_UCSGAddMaterialLayersComponent: {
+        Properties: FCSGAddMaterialLayersProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGAddMaterialLayersComponent['__properties_UCSGAddMaterialLayersComponent'] &
+        UCSGBaseComponent['__propertyRegistry'];
 }
-declare const UCSGAddMaterialLayersComponent: UCSGAddMaterialLayersComponent;
 
 declare interface UCSGBake extends UDataAsset {
-    BakeSettings: FCSGOptions;
-    NumVariations: number;
-    InitialSeed: number;
-    CSG: TSoftClassPtr<ACSGBuilder>;
-    status: FString;
-    CombinedAABB: FBox;
-    Entries: TArray<FBakeEntry>;
-    IsBaking: boolean;
-    CurrentBakeConfigs: TArray<UBakeConfig>;
-    CDO: ACSGBuilder;
-    BakeCSG(): void;
+    readonly __static_UCSGBake: {
+        BakeCSG(): void;
+    };
+    readonly __properties_UCSGBake: {
+        BakeSettings: FCSGOptions;
+        NumVariations: number;
+        InitialSeed: number;
+        CSG: TSoftClassPtr<ACSGBuilder>;
+        status: string;
+        CombinedAABB: FBox;
+        Entries: FBakeEntry[];
+        IsBaking: boolean;
+        CurrentBakeConfigs: UBakeConfig[];
+        CDO: ACSGBuilder;
+    };
+    readonly __staticRegistry: 
+        UCSGBake['__static_UCSGBake'] &
+        UDataAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGBake['__properties_UCSGBake'] &
+        UDataAsset['__propertyRegistry'];
 }
-declare const UCSGBake: UCSGBake;
 
 declare interface UCSGBakedChildInstance extends UCSGBase {
-    Properties: FCSGBakedChildInstanceProperties;
-    ChildLocalSpaceBoundingBox: FBox;
-    WorldSpaceBoundingBox: FBox;
-    TransformMatInv: FMatrix;
-    TempTree: FDeepCSGFloatTree;
+    readonly __properties_UCSGBakedChildInstance: {
+        Properties: FCSGBakedChildInstanceProperties;
+        ChildLocalSpaceBoundingBox: FBox;
+        WorldSpaceBoundingBox: FBox;
+        TransformMatInv: FMatrix;
+        TempTree: FDeepCSGFloatTree;
+    };
+    readonly __staticRegistry: 
+        UCSGBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGBakedChildInstance['__properties_UCSGBakedChildInstance'] &
+        UCSGBase['__propertyRegistry'];
 }
-declare const UCSGBakedChildInstance: UCSGBakedChildInstance;
 
 declare interface UCSGBakedChildInstanceComponent extends UCSGBaseComponent {
-    Properties: FCSGBakedChildInstanceProperties;
+    readonly __properties_UCSGBakedChildInstanceComponent: {
+        Properties: FCSGBakedChildInstanceProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGBakedChildInstanceComponent['__properties_UCSGBakedChildInstanceComponent'] &
+        UCSGBaseComponent['__propertyRegistry'];
 }
-declare const UCSGBakedChildInstanceComponent: UCSGBakedChildInstanceComponent;
 
 declare interface UCSGBase extends UBuilderBase {
-    BaseProperties: FMeshBaseProperties;
-    RelativeTransform: FTransform;
+    readonly __properties_UCSGBase: {
+        BaseProperties: FMeshBaseProperties;
+        RelativeTransform: FTransform;
+    };
+    readonly __staticRegistry: 
+        UBuilderBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGBase['__properties_UCSGBase'] &
+        UBuilderBase['__propertyRegistry'];
 }
-declare const UCSGBase: UCSGBase;
 
 declare interface UCSGBaseComponent extends UCSGBuilderBaseSceneComponent {
-    BaseProperties: FMeshBaseProperties;
+    readonly __properties_UCSGBaseComponent: {
+        BaseProperties: FMeshBaseProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGBuilderBaseSceneComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGBaseComponent['__properties_UCSGBaseComponent'] &
+        UCSGBuilderBaseSceneComponent['__propertyRegistry'];
 }
-declare const UCSGBaseComponent: UCSGBaseComponent;
 
 declare interface UCSGBox extends UConvexMeshWithCachedTree {
-    Properties: FMeshBoxProperties;
+    readonly __properties_UCSGBox: {
+        Properties: FMeshBoxProperties;
+    };
+    readonly __staticRegistry: 
+        UConvexMeshWithCachedTree['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGBox['__properties_UCSGBox'] &
+        UConvexMeshWithCachedTree['__propertyRegistry'];
 }
-declare const UCSGBox: UCSGBox;
 
 declare interface UCSGBoxComponent extends UConvexMeshWithCachedTreeComponent {
-    Properties: FMeshBoxProperties;
+    readonly __properties_UCSGBoxComponent: {
+        Properties: FMeshBoxProperties;
+    };
+    readonly __staticRegistry: 
+        UConvexMeshWithCachedTreeComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGBoxComponent['__properties_UCSGBoxComponent'] &
+        UConvexMeshWithCachedTreeComponent['__propertyRegistry'];
 }
-declare const UCSGBoxComponent: UCSGBoxComponent;
 
 declare interface UCSGBuilderBaseSceneComponent extends USceneComponent {
-
+    readonly __staticRegistry: 
+        USceneComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USceneComponent['__propertyRegistry'];
 }
-declare const UCSGBuilderBaseSceneComponent: UCSGBuilderBaseSceneComponent;
 
 declare interface UCSGCellNoise extends UCSGBase {
-    Properties: FMeshCellNoiseProperties;
-    Materials: FBinaryTerrainMaterialCombiner;
-    ReciprocalCellSize: FVector;
-    ApplyTree: FDeepCSGFloatTree;
-    CellPositions: TArray<FVector>;
-    CellLeaves: TArray<FDeepCSGNode>;
+    readonly __properties_UCSGCellNoise: {
+        Properties: FMeshCellNoiseProperties;
+        Materials: FBinaryTerrainMaterialCombiner;
+        ReciprocalCellSize: FVector;
+        ApplyTree: FDeepCSGFloatTree;
+        CellPositions: FVector[];
+        CellLeaves: FDeepCSGNode[];
+    };
+    readonly __staticRegistry: 
+        UCSGBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGCellNoise['__properties_UCSGCellNoise'] &
+        UCSGBase['__propertyRegistry'];
 }
-declare const UCSGCellNoise: UCSGCellNoise;
 
 declare interface UCSGCellNoiseComponent extends UCSGBaseComponent {
-    Properties: FMeshCellNoiseProperties;
-    Materials: FBinaryTerrainMaterialCombiner;
+    readonly __properties_UCSGCellNoiseComponent: {
+        Properties: FMeshCellNoiseProperties;
+        Materials: FBinaryTerrainMaterialCombiner;
+    };
+    readonly __staticRegistry: 
+        UCSGBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGCellNoiseComponent['__properties_UCSGCellNoiseComponent'] &
+        UCSGBaseComponent['__propertyRegistry'];
 }
-declare const UCSGCellNoiseComponent: UCSGCellNoiseComponent;
 
 declare interface UCSGChildInstance extends UCSGBase {
-    Properties: FCSGChildInstanceProperties;
-    Materials: FGeneralTerrainMaterialCombiner;
-    CSGChildInstanceRoot: UCSGBase;
-    CurrentBakeConfig: UBakeConfig;
-    ChildLocalSpaceBoundingBox: FBox;
-    WorldSpaceBoundingBox: FBox;
-    BoundingTree: FDeepCSGFloatTree;
-    TransformMatInv: FMatrix;
-    TempTree: FDeepCSGTree;
+    readonly __properties_UCSGChildInstance: {
+        Properties: FCSGChildInstanceProperties;
+        Materials: FGeneralTerrainMaterialCombiner;
+        CSGChildInstanceRoot: UCSGBase;
+        CurrentBakeConfig: UBakeConfig;
+        ChildLocalSpaceBoundingBox: FBox;
+        WorldSpaceBoundingBox: FBox;
+        BoundingTree: FDeepCSGFloatTree;
+        TransformMatInv: FMatrix;
+        TempTree: FDeepCSGTree;
+    };
+    readonly __staticRegistry: 
+        UCSGBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGChildInstance['__properties_UCSGChildInstance'] &
+        UCSGBase['__propertyRegistry'];
 }
-declare const UCSGChildInstance: UCSGChildInstance;
 
 declare interface UCSGChildInstanceComponent extends UCSGBaseComponent {
-    Properties: FCSGChildInstanceProperties;
-    Materials: FGeneralTerrainMaterialCombiner;
+    readonly __properties_UCSGChildInstanceComponent: {
+        Properties: FCSGChildInstanceProperties;
+        Materials: FGeneralTerrainMaterialCombiner;
+    };
+    readonly __staticRegistry: 
+        UCSGBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGChildInstanceComponent['__properties_UCSGChildInstanceComponent'] &
+        UCSGBaseComponent['__propertyRegistry'];
 }
-declare const UCSGChildInstanceComponent: UCSGChildInstanceComponent;
 
 declare interface UCSGCircleDuplicator extends UCSGDuplicateSingleChildBase {
-    Properties: FCSGCircleDuplicatorProperties;
+    readonly __properties_UCSGCircleDuplicator: {
+        Properties: FCSGCircleDuplicatorProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGDuplicateSingleChildBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGCircleDuplicator['__properties_UCSGCircleDuplicator'] &
+        UCSGDuplicateSingleChildBase['__propertyRegistry'];
 }
-declare const UCSGCircleDuplicator: UCSGCircleDuplicator;
 
 declare interface UCSGCircleDuplicatorComponent extends UCSGBaseComponent {
-    Properties: FCSGCircleDuplicatorProperties;
+    readonly __properties_UCSGCircleDuplicatorComponent: {
+        Properties: FCSGCircleDuplicatorProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGCircleDuplicatorComponent['__properties_UCSGCircleDuplicatorComponent'] &
+        UCSGBaseComponent['__propertyRegistry'];
 }
-declare const UCSGCircleDuplicatorComponent: UCSGCircleDuplicatorComponent;
 
 declare interface UCSGCone extends UConvexMeshWithCachedTree {
-    Properties: FCSGConeProperties;
+    readonly __properties_UCSGCone: {
+        Properties: FCSGConeProperties;
+    };
+    readonly __staticRegistry: 
+        UConvexMeshWithCachedTree['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGCone['__properties_UCSGCone'] &
+        UConvexMeshWithCachedTree['__propertyRegistry'];
 }
-declare const UCSGCone: UCSGCone;
 
 declare interface UCSGConeComponent extends UConvexMeshWithCachedTreeComponent {
-    Properties: FCSGConeProperties;
+    readonly __properties_UCSGConeComponent: {
+        Properties: FCSGConeProperties;
+    };
+    readonly __staticRegistry: 
+        UConvexMeshWithCachedTreeComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGConeComponent['__properties_UCSGConeComponent'] &
+        UConvexMeshWithCachedTreeComponent['__propertyRegistry'];
 }
-declare const UCSGConeComponent: UCSGConeComponent;
 
 declare interface UCSGConvexCollider extends UConvexMeshWithCachedTree {
-    Properties: FCSGConvexColliderProperties;
+    readonly __properties_UCSGConvexCollider: {
+        Properties: FCSGConvexColliderProperties;
+    };
+    readonly __staticRegistry: 
+        UConvexMeshWithCachedTree['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGConvexCollider['__properties_UCSGConvexCollider'] &
+        UConvexMeshWithCachedTree['__propertyRegistry'];
 }
-declare const UCSGConvexCollider: UCSGConvexCollider;
 
 declare interface UCSGConvexColliderComponent extends UConvexMeshWithCachedTreeComponent {
-    Properties: FCSGConvexColliderProperties;
+    readonly __properties_UCSGConvexColliderComponent: {
+        Properties: FCSGConvexColliderProperties;
+    };
+    readonly __staticRegistry: 
+        UConvexMeshWithCachedTreeComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGConvexColliderComponent['__properties_UCSGConvexColliderComponent'] &
+        UConvexMeshWithCachedTreeComponent['__propertyRegistry'];
 }
-declare const UCSGConvexColliderComponent: UCSGConvexColliderComponent;
 
 declare interface UCSGCylinder extends UConvexMeshWithCachedTree {
-    Properties: FCSGCylinderProperties;
+    readonly __properties_UCSGCylinder: {
+        Properties: FCSGCylinderProperties;
+    };
+    readonly __staticRegistry: 
+        UConvexMeshWithCachedTree['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGCylinder['__properties_UCSGCylinder'] &
+        UConvexMeshWithCachedTree['__propertyRegistry'];
 }
-declare const UCSGCylinder: UCSGCylinder;
 
 declare interface UCSGCylinderComponent extends UConvexMeshWithCachedTreeComponent {
-    Properties: FCSGCylinderProperties;
+    readonly __properties_UCSGCylinderComponent: {
+        Properties: FCSGCylinderProperties;
+    };
+    readonly __staticRegistry: 
+        UConvexMeshWithCachedTreeComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGCylinderComponent['__properties_UCSGCylinderComponent'] &
+        UConvexMeshWithCachedTreeComponent['__propertyRegistry'];
 }
-declare const UCSGCylinderComponent: UCSGCylinderComponent;
 
 declare interface UCSGDuplicateSingleChildBase extends UCSGBase {
-    Children: TArray<UCSGBase>;
+    readonly __properties_UCSGDuplicateSingleChildBase: {
+        Children: UCSGBase[];
+    };
+    readonly __staticRegistry: 
+        UCSGBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGDuplicateSingleChildBase['__properties_UCSGDuplicateSingleChildBase'] &
+        UCSGBase['__propertyRegistry'];
 }
-declare const UCSGDuplicateSingleChildBase: UCSGDuplicateSingleChildBase;
 
 declare interface UCSGGridDuplicator extends UCSGDuplicateSingleChildBase {
-    Properties: FCSGGridDuplicatorProperties;
+    readonly __properties_UCSGGridDuplicator: {
+        Properties: FCSGGridDuplicatorProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGDuplicateSingleChildBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGGridDuplicator['__properties_UCSGGridDuplicator'] &
+        UCSGDuplicateSingleChildBase['__propertyRegistry'];
 }
-declare const UCSGGridDuplicator: UCSGGridDuplicator;
 
 declare interface UCSGGridDuplicatorComponent extends UCSGBaseComponent {
-    Properties: FCSGGridDuplicatorProperties;
+    readonly __properties_UCSGGridDuplicatorComponent: {
+        Properties: FCSGGridDuplicatorProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGGridDuplicatorComponent['__properties_UCSGGridDuplicatorComponent'] &
+        UCSGBaseComponent['__propertyRegistry'];
 }
-declare const UCSGGridDuplicatorComponent: UCSGGridDuplicatorComponent;
 
 declare interface UCSGGroup extends UCSGBase {
-    Children: TArray<UCSGBase>;
+    readonly __properties_UCSGGroup: {
+        Children: UCSGBase[];
+    };
+    readonly __staticRegistry: 
+        UCSGBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGGroup['__properties_UCSGGroup'] &
+        UCSGBase['__propertyRegistry'];
 }
-declare const UCSGGroup: UCSGGroup;
 
 declare interface UCSGGroupComponent extends UCSGBaseComponent {
-
+    readonly __staticRegistry: 
+        UCSGBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGBaseComponent['__propertyRegistry'];
 }
-declare const UCSGGroupComponent: UCSGGroupComponent;
 
 declare interface UCSGLayer extends UCSGGroup {
-    Properties: FMeshLayerProperties;
-    Materials: FGeneralTerrainMaterialCombiner;
-    WorldSpaceBoundingBox: FBox;
-    BoundingTree: FDeepCSGFloatTree;
-    TempTree: FDeepCSGTree;
-    TransformMatInv: FMatrix;
+    readonly __properties_UCSGLayer: {
+        Properties: FMeshLayerProperties;
+        Materials: FGeneralTerrainMaterialCombiner;
+        WorldSpaceBoundingBox: FBox;
+        BoundingTree: FDeepCSGFloatTree;
+        TempTree: FDeepCSGTree;
+        TransformMatInv: FMatrix;
+    };
+    readonly __staticRegistry: 
+        UCSGGroup['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGLayer['__properties_UCSGLayer'] &
+        UCSGGroup['__propertyRegistry'];
 }
-declare const UCSGLayer: UCSGLayer;
 
 declare interface UCSGLayerComponent extends UCSGGroupComponent {
-    Properties: FMeshLayerProperties;
-    Materials: FGeneralTerrainMaterialCombiner;
+    readonly __properties_UCSGLayerComponent: {
+        Properties: FMeshLayerProperties;
+        Materials: FGeneralTerrainMaterialCombiner;
+    };
+    readonly __staticRegistry: 
+        UCSGGroupComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGLayerComponent['__properties_UCSGLayerComponent'] &
+        UCSGGroupComponent['__propertyRegistry'];
 }
-declare const UCSGLayerComponent: UCSGLayerComponent;
 
 declare interface UCSGModulatedSDFInstance extends UCSGBase {
-    Properties: FCSGSDFModulatedInstanceProperties;
-    Materials: FBinaryTerrainMaterialCombiner;
-    CSGSDFInstanceRoot: USDFBase;
-    CurrentBakeConfig: UBakeConfig;
-    CSGSDFModulatedInstanceRoot: USDFBase;
-    CurrentModulatedBakeConfig: UBakeConfig;
-    ChildLocalSpaceBoundingBox: FBox;
-    WorldSpaceBoundingBox: FBox;
-    BoundingTree: FDeepCSGFloatTree;
-    TransformMatInv: FMatrix;
+    readonly __properties_UCSGModulatedSDFInstance: {
+        Properties: FCSGSDFModulatedInstanceProperties;
+        Materials: FBinaryTerrainMaterialCombiner;
+        CSGSDFInstanceRoot: USDFBase;
+        CurrentBakeConfig: UBakeConfig;
+        CSGSDFModulatedInstanceRoot: USDFBase;
+        CurrentModulatedBakeConfig: UBakeConfig;
+        ChildLocalSpaceBoundingBox: FBox;
+        WorldSpaceBoundingBox: FBox;
+        BoundingTree: FDeepCSGFloatTree;
+        TransformMatInv: FMatrix;
+    };
+    readonly __staticRegistry: 
+        UCSGBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGModulatedSDFInstance['__properties_UCSGModulatedSDFInstance'] &
+        UCSGBase['__propertyRegistry'];
 }
-declare const UCSGModulatedSDFInstance: UCSGModulatedSDFInstance;
 
 declare interface UCSGModulatedSDFInstanceComponent extends UCSGBaseComponent {
-    Properties: FCSGSDFModulatedInstanceProperties;
-    Materials: FBinaryTerrainMaterialCombiner;
+    readonly __properties_UCSGModulatedSDFInstanceComponent: {
+        Properties: FCSGSDFModulatedInstanceProperties;
+        Materials: FBinaryTerrainMaterialCombiner;
+    };
+    readonly __staticRegistry: 
+        UCSGBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGModulatedSDFInstanceComponent['__properties_UCSGModulatedSDFInstanceComponent'] &
+        UCSGBaseComponent['__propertyRegistry'];
 }
-declare const UCSGModulatedSDFInstanceComponent: UCSGModulatedSDFInstanceComponent;
 
 declare interface UCSGPlane extends UConvexMeshWithCachedTree {
-
+    readonly __staticRegistry: 
+        UConvexMeshWithCachedTree['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UConvexMeshWithCachedTree['__propertyRegistry'];
 }
-declare const UCSGPlane: UCSGPlane;
 
 declare interface UCSGPlaneComponent extends UConvexMeshWithCachedTreeComponent {
-
+    readonly __staticRegistry: 
+        UConvexMeshWithCachedTreeComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UConvexMeshWithCachedTreeComponent['__propertyRegistry'];
 }
-declare const UCSGPlaneComponent: UCSGPlaneComponent;
 
 declare interface UCSGPreviewComponent extends USceneComponent {
-    BaseBuilder: ACSGBuilderBase;
-    CurrentBakeConfig: UBakeConfig;
-    Meshes: Record<string | number | symbol, UDeepProceduralMeshComponent>;
-    UsePreviewScene: boolean;
-    ChangeCount: number;
+    readonly __properties_UCSGPreviewComponent: {
+        BaseBuilder: ACSGBuilderBase;
+        CurrentBakeConfig: UBakeConfig;
+        Meshes: TMap<FChunkId, UDeepProceduralMeshComponent>;
+        UsePreviewScene: boolean;
+        ChangeCount: number;
+    };
+    readonly __staticRegistry: 
+        USceneComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGPreviewComponent['__properties_UCSGPreviewComponent'] &
+        USceneComponent['__propertyRegistry'];
 }
-declare const UCSGPreviewComponent: UCSGPreviewComponent;
 
 declare interface UCSGPreviewScene extends UDataAsset {
-    mesh: TSubclassOf<ACSGBuilder>;
-    Settings: FCSGOptions;
-    Seed: number;
-    TerrainMaterial: UTerrainMaterialCore;
+    readonly __properties_UCSGPreviewScene: {
+        mesh: TSubclassOf<ACSGBuilder>;
+        Settings: FCSGOptions;
+        Seed: number;
+        TerrainMaterial: UTerrainMaterialCore;
+    };
+    readonly __staticRegistry: 
+        UDataAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGPreviewScene['__properties_UCSGPreviewScene'] &
+        UDataAsset['__propertyRegistry'];
 }
-declare const UCSGPreviewScene: UCSGPreviewScene;
 
 declare interface UCSGRandomDisable extends UCSGSingleChildBase {
-    Properties: FCSGRandomDisableProperties;
+    readonly __properties_UCSGRandomDisable: {
+        Properties: FCSGRandomDisableProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGSingleChildBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGRandomDisable['__properties_UCSGRandomDisable'] &
+        UCSGSingleChildBase['__propertyRegistry'];
 }
-declare const UCSGRandomDisable: UCSGRandomDisable;
 
 declare interface UCSGRandomDisableComponent extends UCSGBaseComponent {
-    Properties: FCSGRandomDisableProperties;
+    readonly __properties_UCSGRandomDisableComponent: {
+        Properties: FCSGRandomDisableProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGRandomDisableComponent['__properties_UCSGRandomDisableComponent'] &
+        UCSGBaseComponent['__propertyRegistry'];
 }
-declare const UCSGRandomDisableComponent: UCSGRandomDisableComponent;
 
 declare interface UCSGRandomizeTransform extends UCSGSingleChildBase {
-    Properties: FCSGRandomizeTransformProperties;
+    readonly __properties_UCSGRandomizeTransform: {
+        Properties: FCSGRandomizeTransformProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGSingleChildBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGRandomizeTransform['__properties_UCSGRandomizeTransform'] &
+        UCSGSingleChildBase['__propertyRegistry'];
 }
-declare const UCSGRandomizeTransform: UCSGRandomizeTransform;
 
 declare interface UCSGRandomizeTransformComponent extends UCSGBaseComponent {
-    Properties: FCSGRandomizeTransformProperties;
+    readonly __properties_UCSGRandomizeTransformComponent: {
+        Properties: FCSGRandomizeTransformProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGRandomizeTransformComponent['__properties_UCSGRandomizeTransformComponent'] &
+        UCSGBaseComponent['__propertyRegistry'];
 }
-declare const UCSGRandomizeTransformComponent: UCSGRandomizeTransformComponent;
 
 declare interface UCSGSDFInstance extends UCSGBase {
-    Properties: FCSGSDFInstanceProperties;
-    Materials: FBinaryTerrainMaterialCombiner;
-    CSGSDFInstanceRoot: USDFBase;
-    CurrentBakeConfig: UBakeConfig;
-    ChildLocalSpaceBoundingBox: FBox;
-    WorldSpaceBoundingBox: FBox;
-    BoundingTree: FDeepCSGFloatTree;
-    TransformMatInv: FMatrix;
+    readonly __properties_UCSGSDFInstance: {
+        Properties: FCSGSDFInstanceProperties;
+        Materials: FBinaryTerrainMaterialCombiner;
+        CSGSDFInstanceRoot: USDFBase;
+        CurrentBakeConfig: UBakeConfig;
+        ChildLocalSpaceBoundingBox: FBox;
+        WorldSpaceBoundingBox: FBox;
+        BoundingTree: FDeepCSGFloatTree;
+        TransformMatInv: FMatrix;
+    };
+    readonly __staticRegistry: 
+        UCSGBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGSDFInstance['__properties_UCSGSDFInstance'] &
+        UCSGBase['__propertyRegistry'];
 }
-declare const UCSGSDFInstance: UCSGSDFInstance;
 
 declare interface UCSGSDFInstanceComponent extends UCSGBaseComponent {
-    Properties: FCSGSDFInstanceProperties;
-    Materials: FBinaryTerrainMaterialCombiner;
+    readonly __properties_UCSGSDFInstanceComponent: {
+        Properties: FCSGSDFInstanceProperties;
+        Materials: FBinaryTerrainMaterialCombiner;
+    };
+    readonly __staticRegistry: 
+        UCSGBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGSDFInstanceComponent['__properties_UCSGSDFInstanceComponent'] &
+        UCSGBaseComponent['__propertyRegistry'];
 }
-declare const UCSGSDFInstanceComponent: UCSGSDFInstanceComponent;
 
 declare interface UCSGSTL extends USimpleMeshWithCachedTree {
-    Properties: FCSGSTLProperties;
+    readonly __properties_UCSGSTL: {
+        Properties: FCSGSTLProperties;
+    };
+    readonly __staticRegistry: 
+        USimpleMeshWithCachedTree['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGSTL['__properties_UCSGSTL'] &
+        USimpleMeshWithCachedTree['__propertyRegistry'];
 }
-declare const UCSGSTL: UCSGSTL;
 
 declare interface UCSGSTLComponent extends USimpleMeshWithCachedTreeComponent {
-    Properties: FCSGSTLProperties;
+    readonly __properties_UCSGSTLComponent: {
+        Properties: FCSGSTLProperties;
+    };
+    readonly __staticRegistry: 
+        USimpleMeshWithCachedTreeComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGSTLComponent['__properties_UCSGSTLComponent'] &
+        USimpleMeshWithCachedTreeComponent['__propertyRegistry'];
 }
-declare const UCSGSTLComponent: UCSGSTLComponent;
 
 declare interface UCSGSingleChildBase extends UCSGBase {
-    Child: UCSGBase;
+    readonly __properties_UCSGSingleChildBase: {
+        Child: UCSGBase;
+    };
+    readonly __staticRegistry: 
+        UCSGBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGSingleChildBase['__properties_UCSGSingleChildBase'] &
+        UCSGBase['__propertyRegistry'];
 }
-declare const UCSGSingleChildBase: UCSGSingleChildBase;
 
 declare interface UCSGSphere extends UConvexMeshWithCachedTree {
-    Properties: FCSGSphereProperties;
+    readonly __properties_UCSGSphere: {
+        Properties: FCSGSphereProperties;
+    };
+    readonly __staticRegistry: 
+        UConvexMeshWithCachedTree['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGSphere['__properties_UCSGSphere'] &
+        UConvexMeshWithCachedTree['__propertyRegistry'];
 }
-declare const UCSGSphere: UCSGSphere;
 
 declare interface UCSGSphereComponent extends UConvexMeshWithCachedTreeComponent {
-    Properties: FCSGSphereProperties;
+    readonly __properties_UCSGSphereComponent: {
+        Properties: FCSGSphereProperties;
+    };
+    readonly __staticRegistry: 
+        UConvexMeshWithCachedTreeComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGSphereComponent['__properties_UCSGSphereComponent'] &
+        UConvexMeshWithCachedTreeComponent['__propertyRegistry'];
 }
-declare const UCSGSphereComponent: UCSGSphereComponent;
 
 declare interface UCSGSplineWarp extends UCSGWarped {
-    SplineProperties: FSplineWarpProperties;
-    SplineCurves: FSplineCurves;
-    AABBs: TArray<FBox>;
-    Keys: TArray<number>;
-    planes: TArray<FVector4>;
-    TotalAABB: FBox;
+    readonly __properties_UCSGSplineWarp: {
+        SplineProperties: FSplineWarpProperties;
+        SplineCurves: FSplineCurves;
+        AABBs: FBox[];
+        Keys: number[];
+        planes: FVector4[];
+        TotalAABB: FBox;
+    };
+    readonly __staticRegistry: 
+        UCSGWarped['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGSplineWarp['__properties_UCSGSplineWarp'] &
+        UCSGWarped['__propertyRegistry'];
 }
-declare const UCSGSplineWarp: UCSGSplineWarp;
 
 declare interface UCSGSplineWarpComponent extends UCSGWarpedComponent {
-    SplineProperties: FSplineWarpProperties;
+    readonly __properties_UCSGSplineWarpComponent: {
+        SplineProperties: FSplineWarpProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGWarpedComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGSplineWarpComponent['__properties_UCSGSplineWarpComponent'] &
+        UCSGWarpedComponent['__propertyRegistry'];
 }
-declare const UCSGSplineWarpComponent: UCSGSplineWarpComponent;
 
 declare interface UCSGVoronoi extends USimpleMeshWithCachedTree {
-    Properties: FVoronoiProperties;
+    readonly __properties_UCSGVoronoi: {
+        Properties: FVoronoiProperties;
+    };
+    readonly __staticRegistry: 
+        USimpleMeshWithCachedTree['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGVoronoi['__properties_UCSGVoronoi'] &
+        USimpleMeshWithCachedTree['__propertyRegistry'];
 }
-declare const UCSGVoronoi: UCSGVoronoi;
 
 declare interface UCSGVoronoiComponent extends USimpleMeshWithCachedTreeComponent {
-    Properties: FVoronoiProperties;
+    readonly __properties_UCSGVoronoiComponent: {
+        Properties: FVoronoiProperties;
+    };
+    readonly __staticRegistry: 
+        USimpleMeshWithCachedTreeComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGVoronoiComponent['__properties_UCSGVoronoiComponent'] &
+        USimpleMeshWithCachedTreeComponent['__propertyRegistry'];
 }
-declare const UCSGVoronoiComponent: UCSGVoronoiComponent;
 
 declare interface UCSGWarped extends UCSGSingleChildBase {
-    Properties: FWarpedProperties;
+    readonly __properties_UCSGWarped: {
+        Properties: FWarpedProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGSingleChildBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGWarped['__properties_UCSGWarped'] &
+        UCSGSingleChildBase['__propertyRegistry'];
 }
-declare const UCSGWarped: UCSGWarped;
 
 declare interface UCSGWarpedComponent extends UCSGBaseComponent {
-    Properties: FWarpedProperties;
+    readonly __properties_UCSGWarpedComponent: {
+        Properties: FWarpedProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCSGWarpedComponent['__properties_UCSGWarpedComponent'] &
+        UCSGBaseComponent['__propertyRegistry'];
 }
-declare const UCSGWarpedComponent: UCSGWarpedComponent;
 
 declare interface UConvexMeshWithCachedTree extends USimpleMeshWithCachedTree {
-    Noise: FConvexNoiseProperties;
+    readonly __properties_UConvexMeshWithCachedTree: {
+        Noise: FConvexNoiseProperties;
+    };
+    readonly __staticRegistry: 
+        USimpleMeshWithCachedTree['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UConvexMeshWithCachedTree['__properties_UConvexMeshWithCachedTree'] &
+        USimpleMeshWithCachedTree['__propertyRegistry'];
 }
-declare const UConvexMeshWithCachedTree: UConvexMeshWithCachedTree;
 
 declare interface UConvexMeshWithCachedTreeComponent extends USimpleMeshWithCachedTreeComponent {
-    Noise: FConvexNoiseProperties;
+    readonly __properties_UConvexMeshWithCachedTreeComponent: {
+        Noise: FConvexNoiseProperties;
+    };
+    readonly __staticRegistry: 
+        USimpleMeshWithCachedTreeComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UConvexMeshWithCachedTreeComponent['__properties_UConvexMeshWithCachedTreeComponent'] &
+        USimpleMeshWithCachedTreeComponent['__propertyRegistry'];
 }
-declare const UConvexMeshWithCachedTreeComponent: UConvexMeshWithCachedTreeComponent;
 
 declare interface UDeepProceduralMeshComponent extends UMeshComponent {
-    ProcMeshBodySetup: UBodySetup;
-    FindTerrainMaterialFromPhysicalMaterial(Material: UPhysicalMaterial): UTerrainMaterialCore;
+    readonly __static_UDeepProceduralMeshComponent: {
+        FindTerrainMaterialFromPhysicalMaterial(Material: UPhysicalMaterial): UTerrainMaterialCore;
+    };
+    readonly __properties_UDeepProceduralMeshComponent: {
+        ProcMeshBodySetup: UBodySetup;
+    };
+    readonly __staticRegistry: 
+        UDeepProceduralMeshComponent['__static_UDeepProceduralMeshComponent'] &
+        UMeshComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDeepProceduralMeshComponent['__properties_UDeepProceduralMeshComponent'] &
+        UMeshComponent['__propertyRegistry'];
 }
-declare const UDeepProceduralMeshComponent: UDeepProceduralMeshComponent;
 
 declare interface UHeightMapWithMinMaxQuadTree extends UDataAsset {
-    status: FString;
-    InputRenderTarget: TSoftObjectPtr<UTextureRenderTarget2D>;
-    InputTexture: TSoftObjectPtr<UTexture>;
-    MinMaxTree: TArray<FHMMinMaxLevel>;
-    MinHeight: number;
-    MaxHeight: number;
-    Heights: TArray<number>;
-    Dimensions: number;
-    Initialized: boolean;
-    Generate(): void;
+    readonly __static_UHeightMapWithMinMaxQuadTree: {
+        Generate(): void;
+    };
+    readonly __properties_UHeightMapWithMinMaxQuadTree: {
+        status: string;
+        InputRenderTarget: TSoftObjectPtr<UTextureRenderTarget2D>;
+        InputTexture: TSoftObjectPtr<UTexture>;
+        MinMaxTree: FHMMinMaxLevel[];
+        MinHeight: number;
+        MaxHeight: number;
+        Heights: number[];
+        Dimensions: number;
+        Initialized: boolean;
+    };
+    readonly __staticRegistry: 
+        UHeightMapWithMinMaxQuadTree['__static_UHeightMapWithMinMaxQuadTree'] &
+        UDataAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UHeightMapWithMinMaxQuadTree['__properties_UHeightMapWithMinMaxQuadTree'] &
+        UDataAsset['__propertyRegistry'];
 }
-declare const UHeightMapWithMinMaxQuadTree: UHeightMapWithMinMaxQuadTree;
 
 declare interface USDFBase extends UBuilderBase {
-    BaseProperties: FSDFBaseProperties;
-    RelativeTransform: FTransform;
+    readonly __properties_USDFBase: {
+        BaseProperties: FSDFBaseProperties;
+        RelativeTransform: FTransform;
+    };
+    readonly __staticRegistry: 
+        UBuilderBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFBase['__properties_USDFBase'] &
+        UBuilderBase['__propertyRegistry'];
 }
-declare const USDFBase: USDFBase;
 
 declare interface USDFBaseComponent extends UCSGBuilderBaseSceneComponent {
-    BaseProperties: FSDFBaseProperties;
+    readonly __properties_USDFBaseComponent: {
+        BaseProperties: FSDFBaseProperties;
+    };
+    readonly __staticRegistry: 
+        UCSGBuilderBaseSceneComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFBaseComponent['__properties_USDFBaseComponent'] &
+        UCSGBuilderBaseSceneComponent['__propertyRegistry'];
 }
-declare const USDFBaseComponent: USDFBaseComponent;
 
 declare interface USDFBaseWithTransform extends USDFBase {
-
+    readonly __staticRegistry: 
+        USDFBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFBase['__propertyRegistry'];
 }
-declare const USDFBaseWithTransform: USDFBaseWithTransform;
 
 declare interface USDFBaseWithTransformComponent extends USDFBaseComponent {
-
+    readonly __staticRegistry: 
+        USDFBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFBaseComponent['__propertyRegistry'];
 }
-declare const USDFBaseWithTransformComponent: USDFBaseWithTransformComponent;
 
 declare interface USDFBox extends USDFBaseWithTransform {
-    Properties: FSDFBoxProperties;
+    readonly __properties_USDFBox: {
+        Properties: FSDFBoxProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseWithTransform['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFBox['__properties_USDFBox'] &
+        USDFBaseWithTransform['__propertyRegistry'];
 }
-declare const USDFBox: USDFBox;
 
 declare interface USDFBoxComponent extends USDFBaseWithTransformComponent {
-    Properties: FSDFBoxProperties;
+    readonly __properties_USDFBoxComponent: {
+        Properties: FSDFBoxProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseWithTransformComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFBoxComponent['__properties_USDFBoxComponent'] &
+        USDFBaseWithTransformComponent['__propertyRegistry'];
 }
-declare const USDFBoxComponent: USDFBoxComponent;
 
 declare interface USDFCapsule extends USDFBaseWithTransform {
-    Properties: FSDFCapsuleProperties;
+    readonly __properties_USDFCapsule: {
+        Properties: FSDFCapsuleProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseWithTransform['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFCapsule['__properties_USDFCapsule'] &
+        USDFBaseWithTransform['__propertyRegistry'];
 }
-declare const USDFCapsule: USDFCapsule;
 
 declare interface USDFCapsuleComponent extends USDFBaseWithTransformComponent {
-    Properties: FSDFCapsuleProperties;
+    readonly __properties_USDFCapsuleComponent: {
+        Properties: FSDFCapsuleProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseWithTransformComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFCapsuleComponent['__properties_USDFCapsuleComponent'] &
+        USDFBaseWithTransformComponent['__propertyRegistry'];
 }
-declare const USDFCapsuleComponent: USDFCapsuleComponent;
 
 declare interface USDFCylinder extends USDFBaseWithTransform {
-    Properties: FSDFCylinderProperties;
+    readonly __properties_USDFCylinder: {
+        Properties: FSDFCylinderProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseWithTransform['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFCylinder['__properties_USDFCylinder'] &
+        USDFBaseWithTransform['__propertyRegistry'];
 }
-declare const USDFCylinder: USDFCylinder;
 
 declare interface USDFCylinderComponent extends USDFBaseWithTransformComponent {
-    Properties: FSDFCylinderProperties;
+    readonly __properties_USDFCylinderComponent: {
+        Properties: FSDFCylinderProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseWithTransformComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFCylinderComponent['__properties_USDFCylinderComponent'] &
+        USDFBaseWithTransformComponent['__propertyRegistry'];
 }
-declare const USDFCylinderComponent: USDFCylinderComponent;
 
 declare interface USDFHeightMap extends USDFBase {
-    Properties: FSDFHeightMaproperties;
-    Heightmap: UHeightMapWithMinMaxQuadTree;
+    readonly __properties_USDFHeightMap: {
+        Properties: FSDFHeightMaproperties;
+        Heightmap: UHeightMapWithMinMaxQuadTree;
+    };
+    readonly __staticRegistry: 
+        USDFBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFHeightMap['__properties_USDFHeightMap'] &
+        USDFBase['__propertyRegistry'];
 }
-declare const USDFHeightMap: USDFHeightMap;
 
 declare interface USDFHeightMapComponent extends USDFBaseComponent {
-    Properties: FSDFHeightMaproperties;
-    Heightmap: UHeightMapWithMinMaxQuadTree;
+    readonly __properties_USDFHeightMapComponent: {
+        Properties: FSDFHeightMaproperties;
+        Heightmap: UHeightMapWithMinMaxQuadTree;
+    };
+    readonly __staticRegistry: 
+        USDFBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFHeightMapComponent['__properties_USDFHeightMapComponent'] &
+        USDFBaseComponent['__propertyRegistry'];
 }
-declare const USDFHeightMapComponent: USDFHeightMapComponent;
 
 declare interface USDFIntersectOp extends USDFBase {
-    Properties: FSDFSmoothingProperties;
-    Arguments: TArray<USDFBase>;
+    readonly __properties_USDFIntersectOp: {
+        Properties: FSDFSmoothingProperties;
+        Arguments: USDFBase[];
+    };
+    readonly __staticRegistry: 
+        USDFBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFIntersectOp['__properties_USDFIntersectOp'] &
+        USDFBase['__propertyRegistry'];
 }
-declare const USDFIntersectOp: USDFIntersectOp;
 
 declare interface USDFIntersectOpComponent extends USDFBaseComponent {
-    Properties: FSDFSmoothingProperties;
+    readonly __properties_USDFIntersectOpComponent: {
+        Properties: FSDFSmoothingProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFIntersectOpComponent['__properties_USDFIntersectOpComponent'] &
+        USDFBaseComponent['__propertyRegistry'];
 }
-declare const USDFIntersectOpComponent: USDFIntersectOpComponent;
 
 declare interface USDFModifier extends USDFSingleChildBase {
-    Properties: FSDFModifierProperties;
+    readonly __properties_USDFModifier: {
+        Properties: FSDFModifierProperties;
+    };
+    readonly __staticRegistry: 
+        USDFSingleChildBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFModifier['__properties_USDFModifier'] &
+        USDFSingleChildBase['__propertyRegistry'];
 }
-declare const USDFModifier: USDFModifier;
 
 declare interface USDFModifierComponent extends USDFBaseComponent {
-    Properties: FSDFModifierProperties;
+    readonly __properties_USDFModifierComponent: {
+        Properties: FSDFModifierProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFModifierComponent['__properties_USDFModifierComponent'] &
+        USDFBaseComponent['__propertyRegistry'];
 }
-declare const USDFModifierComponent: USDFModifierComponent;
 
 declare interface USDFOnion extends USDFBase {
-    Properties: FSDFOnionProperties;
-    Argument: USDFBase;
+    readonly __properties_USDFOnion: {
+        Properties: FSDFOnionProperties;
+        Argument: USDFBase;
+    };
+    readonly __staticRegistry: 
+        USDFBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFOnion['__properties_USDFOnion'] &
+        USDFBase['__propertyRegistry'];
 }
-declare const USDFOnion: USDFOnion;
 
 declare interface USDFOnionComponent extends USDFBaseComponent {
-    Properties: FSDFOnionProperties;
+    readonly __properties_USDFOnionComponent: {
+        Properties: FSDFOnionProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFOnionComponent['__properties_USDFOnionComponent'] &
+        USDFBaseComponent['__propertyRegistry'];
 }
-declare const USDFOnionComponent: USDFOnionComponent;
 
 declare interface USDFPlane extends USDFBaseWithTransform {
-
+    readonly __staticRegistry: 
+        USDFBaseWithTransform['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFBaseWithTransform['__propertyRegistry'];
 }
-declare const USDFPlane: USDFPlane;
 
 declare interface USDFPlaneComponent extends USDFBaseWithTransformComponent {
-
+    readonly __staticRegistry: 
+        USDFBaseWithTransformComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFBaseWithTransformComponent['__propertyRegistry'];
 }
-declare const USDFPlaneComponent: USDFPlaneComponent;
 
 declare interface USDFRandomDisable extends USDFSingleChildBase {
-    Properties: FSDFRandomDisableProperties;
+    readonly __properties_USDFRandomDisable: {
+        Properties: FSDFRandomDisableProperties;
+    };
+    readonly __staticRegistry: 
+        USDFSingleChildBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFRandomDisable['__properties_USDFRandomDisable'] &
+        USDFSingleChildBase['__propertyRegistry'];
 }
-declare const USDFRandomDisable: USDFRandomDisable;
 
 declare interface USDFRandomDisableComponent extends USDFBaseComponent {
-    Properties: FSDFRandomDisableProperties;
+    readonly __properties_USDFRandomDisableComponent: {
+        Properties: FSDFRandomDisableProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFRandomDisableComponent['__properties_USDFRandomDisableComponent'] &
+        USDFBaseComponent['__propertyRegistry'];
 }
-declare const USDFRandomDisableComponent: USDFRandomDisableComponent;
 
 declare interface USDFRandomizeTransform extends USDFSingleChildBase {
-    Properties: FSDFRandomizeTransformProperties;
+    readonly __properties_USDFRandomizeTransform: {
+        Properties: FSDFRandomizeTransformProperties;
+    };
+    readonly __staticRegistry: 
+        USDFSingleChildBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFRandomizeTransform['__properties_USDFRandomizeTransform'] &
+        USDFSingleChildBase['__propertyRegistry'];
 }
-declare const USDFRandomizeTransform: USDFRandomizeTransform;
 
 declare interface USDFRandomizeTransformComponent extends USDFBaseComponent {
-    Properties: FSDFRandomizeTransformProperties;
+    readonly __properties_USDFRandomizeTransformComponent: {
+        Properties: FSDFRandomizeTransformProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFRandomizeTransformComponent['__properties_USDFRandomizeTransformComponent'] &
+        USDFBaseComponent['__propertyRegistry'];
 }
-declare const USDFRandomizeTransformComponent: USDFRandomizeTransformComponent;
 
 declare interface USDFSingleChildBase extends USDFBase {
-    Child: USDFBase;
+    readonly __properties_USDFSingleChildBase: {
+        Child: USDFBase;
+    };
+    readonly __staticRegistry: 
+        USDFBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFSingleChildBase['__properties_USDFSingleChildBase'] &
+        USDFBase['__propertyRegistry'];
 }
-declare const USDFSingleChildBase: USDFSingleChildBase;
 
 declare interface USDFSphere extends USDFBaseWithTransform {
-    Properties: FSDFSphereProperties;
+    readonly __properties_USDFSphere: {
+        Properties: FSDFSphereProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseWithTransform['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFSphere['__properties_USDFSphere'] &
+        USDFBaseWithTransform['__propertyRegistry'];
 }
-declare const USDFSphere: USDFSphere;
 
 declare interface USDFSphereComponent extends USDFBaseWithTransformComponent {
-    Properties: FSDFSphereProperties;
+    readonly __properties_USDFSphereComponent: {
+        Properties: FSDFSphereProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseWithTransformComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFSphereComponent['__properties_USDFSphereComponent'] &
+        USDFBaseWithTransformComponent['__propertyRegistry'];
 }
-declare const USDFSphereComponent: USDFSphereComponent;
 
 declare interface USDFSubOp extends USDFBase {
-    Properties: FSDFSmoothingProperties;
-    A: USDFBase;
-    B: USDFBase;
+    readonly __properties_USDFSubOp: {
+        Properties: FSDFSmoothingProperties;
+        A: USDFBase;
+        B: USDFBase;
+    };
+    readonly __staticRegistry: 
+        USDFBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFSubOp['__properties_USDFSubOp'] &
+        USDFBase['__propertyRegistry'];
 }
-declare const USDFSubOp: USDFSubOp;
 
 declare interface USDFSubOpComponent extends USDFBaseComponent {
-    Properties: FSDFSmoothingProperties;
+    readonly __properties_USDFSubOpComponent: {
+        Properties: FSDFSmoothingProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFSubOpComponent['__properties_USDFSubOpComponent'] &
+        USDFBaseComponent['__propertyRegistry'];
 }
-declare const USDFSubOpComponent: USDFSubOpComponent;
 
 declare interface USDFTorus extends USDFBaseWithTransform {
-    Properties: FSDFTorusProperties;
+    readonly __properties_USDFTorus: {
+        Properties: FSDFTorusProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseWithTransform['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFTorus['__properties_USDFTorus'] &
+        USDFBaseWithTransform['__propertyRegistry'];
 }
-declare const USDFTorus: USDFTorus;
 
 declare interface USDFTorusComponent extends USDFBaseWithTransformComponent {
-    Properties: FSDFTorusProperties;
+    readonly __properties_USDFTorusComponent: {
+        Properties: FSDFTorusProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseWithTransformComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFTorusComponent['__properties_USDFTorusComponent'] &
+        USDFBaseWithTransformComponent['__propertyRegistry'];
 }
-declare const USDFTorusComponent: USDFTorusComponent;
 
 declare interface USDFUnionOp extends USDFBase {
-    Properties: FSDFSmoothingProperties;
-    Arguments: TArray<USDFBase>;
+    readonly __properties_USDFUnionOp: {
+        Properties: FSDFSmoothingProperties;
+        Arguments: USDFBase[];
+    };
+    readonly __staticRegistry: 
+        USDFBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFUnionOp['__properties_USDFUnionOp'] &
+        USDFBase['__propertyRegistry'];
 }
-declare const USDFUnionOp: USDFUnionOp;
 
 declare interface USDFUnionOpComponent extends USDFBaseComponent {
-    Properties: FSDFSmoothingProperties;
+    readonly __properties_USDFUnionOpComponent: {
+        Properties: FSDFSmoothingProperties;
+    };
+    readonly __staticRegistry: 
+        USDFBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USDFUnionOpComponent['__properties_USDFUnionOpComponent'] &
+        USDFBaseComponent['__propertyRegistry'];
 }
-declare const USDFUnionOpComponent: USDFUnionOpComponent;
 
 declare interface USimpleMeshWithCachedTree extends UCSGBase {
-    Materials: FBinaryTerrainMaterialCombiner;
-    InvertCSG: boolean;
+    readonly __properties_USimpleMeshWithCachedTree: {
+        Materials: FBinaryTerrainMaterialCombiner;
+        InvertCSG: boolean;
+    };
+    readonly __staticRegistry: 
+        UCSGBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USimpleMeshWithCachedTree['__properties_USimpleMeshWithCachedTree'] &
+        UCSGBase['__propertyRegistry'];
 }
-declare const USimpleMeshWithCachedTree: USimpleMeshWithCachedTree;
 
 declare interface USimpleMeshWithCachedTreeComponent extends UCSGBaseComponent {
-    Materials: FBinaryTerrainMaterialCombiner;
-    InvertCSG: boolean;
+    readonly __properties_USimpleMeshWithCachedTreeComponent: {
+        Materials: FBinaryTerrainMaterialCombiner;
+        InvertCSG: boolean;
+    };
+    readonly __staticRegistry: 
+        UCSGBaseComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USimpleMeshWithCachedTreeComponent['__properties_USimpleMeshWithCachedTreeComponent'] &
+        UCSGBaseComponent['__propertyRegistry'];
 }
-declare const USimpleMeshWithCachedTreeComponent: USimpleMeshWithCachedTreeComponent;
 
 declare interface UStaticMeshCarver extends UDataAsset {
-    status: FString;
-    mesh: TSoftObjectPtr<UStaticMesh>;
-    AABB: FBox;
-    BSPTree: FDeepCSGFloatTree;
-    BSPTreePacked: FDeepCSGFloatTreePacked;
-    Generate(): void;
-    ExportPreviewMesh(): void;
+    readonly __static_UStaticMeshCarver: {
+        Generate(): void;
+        ExportPreviewMesh(): void;
+    };
+    readonly __properties_UStaticMeshCarver: {
+        status: string;
+        mesh: TSoftObjectPtr<UStaticMesh>;
+        AABB: FBox;
+        BSPTree: FDeepCSGFloatTree;
+        BSPTreePacked: FDeepCSGFloatTreePacked;
+    };
+    readonly __staticRegistry: 
+        UStaticMeshCarver['__static_UStaticMeshCarver'] &
+        UDataAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStaticMeshCarver['__properties_UStaticMeshCarver'] &
+        UDataAsset['__propertyRegistry'];
 }
-declare const UStaticMeshCarver: UStaticMeshCarver;
 
 declare interface UTerrainMaterialBase extends UPrimaryDataAsset {
-
+    readonly __staticRegistry: 
+        UPrimaryDataAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPrimaryDataAsset['__propertyRegistry'];
 }
-declare const UTerrainMaterialBase: UTerrainMaterialBase;
 
 declare interface UTerrainMaterialCore extends UTerrainMaterialBase {
-    BurntMaterial: UTerrainMaterialCore;
-    BulletBurntMaterial: UTerrainMaterialCore;
-    PathfinderDanger: boolean;
-    PathfinderPreventSpawning: boolean;
-    ScannerMaterial: UMaterialInterface;
-    RenderMaterial: TSoftObjectPtr<UMaterialInterface>;
-    NumDynamicRenderMaterialInstances: number;
-    InstancingDuration: number;
-    DynamicRenderMaterials: TArray<UMaterialInstanceDynamic>;
-    LastDynamicIndex: number;
+    readonly __properties_UTerrainMaterialCore: {
+        BurntMaterial: UTerrainMaterialCore;
+        BulletBurntMaterial: UTerrainMaterialCore;
+        PathfinderDanger: boolean;
+        PathfinderPreventSpawning: boolean;
+        ScannerMaterial: UMaterialInterface;
+        RenderMaterial: TSoftObjectPtr<UMaterialInterface>;
+        NumDynamicRenderMaterialInstances: number;
+        InstancingDuration: number;
+        DynamicRenderMaterials: UMaterialInstanceDynamic[];
+        LastDynamicIndex: number;
+    };
+    readonly __staticRegistry: 
+        UTerrainMaterialBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTerrainMaterialCore['__properties_UTerrainMaterialCore'] &
+        UTerrainMaterialBase['__propertyRegistry'];
 }
-declare const UTerrainMaterialCore: UTerrainMaterialCore;
 

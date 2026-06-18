@@ -1,21 +1,27 @@
 declare interface ADataflowActor extends AActor {
-    DataflowComponent: UDataflowComponent;
+    readonly __properties_ADataflowActor: {
+        DataflowComponent: UDataflowComponent;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ADataflowActor['__properties_ADataflowActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const ADataflowActor: ADataflowActor;
 
 declare interface FCollectionAttributeKey {
-    Attribute: FString;
-    Group: FString;
+    Attribute: string;
+    Group: string;
 }
-declare const FCollectionAttributeKey: FCollectionAttributeKey;
 
 declare interface FDataflowDynamicMeshArray extends FDataflowAnyType {
-    Value: TArray<UDynamicMesh>;
+    Value: UDynamicMesh[];
 }
-declare const FDataflowDynamicMeshArray: FDataflowDynamicMeshArray;
 
 declare interface UDataflowComponent extends UPrimitiveComponent {
-
+    readonly __staticRegistry: 
+        UPrimitiveComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPrimitiveComponent['__propertyRegistry'];
 }
-declare const UDataflowComponent: UDataflowComponent;
 

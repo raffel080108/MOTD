@@ -1,10 +1,11 @@
 declare interface FFieldNotificationId {
-    FieldName: FName;
+    FieldName: string;
 }
-declare const FFieldNotificationId: FFieldNotificationId;
 
 declare interface INotifyFieldValueChanged extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const INotifyFieldValueChanged: INotifyFieldValueChanged;
 

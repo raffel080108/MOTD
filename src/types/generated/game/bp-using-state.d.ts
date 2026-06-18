@@ -1,5 +1,7 @@
 declare interface UBP_UsingState_C extends UUsingStateComponent {
-
+    readonly __staticRegistry: 
+        UUsingStateComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UUsingStateComponent['__propertyRegistry'];
 }
-declare const UBP_UsingState_C: UBP_UsingState_C;
 

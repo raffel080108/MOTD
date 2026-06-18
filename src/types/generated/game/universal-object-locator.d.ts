@@ -1,25 +1,16 @@
 declare interface FDirectPathObjectLocator {
     Path: FSoftObjectPath;
 }
-declare const FDirectPathObjectLocator: FDirectPathObjectLocator;
 
 declare interface FSubObjectLocator {
-    PathWithinContext: FString;
+    PathWithinContext: string;
 }
-declare const FSubObjectLocator: FSubObjectLocator;
 
 declare interface FUniversalObjectLocator {
-    Fragments: TArray<FUniversalObjectLocatorFragment>;
+    Fragments: FUniversalObjectLocatorFragment[];
 }
-declare const FUniversalObjectLocator: FUniversalObjectLocator;
 
-declare interface FUniversalObjectLocatorEmptyPayload {
+declare type FUniversalObjectLocatorEmptyPayload = object;
 
-}
-declare const FUniversalObjectLocatorEmptyPayload: FUniversalObjectLocatorEmptyPayload;
-
-declare interface FUniversalObjectLocatorFragment {
-
-}
-declare const FUniversalObjectLocatorFragment: FUniversalObjectLocatorFragment;
+declare type FUniversalObjectLocatorFragment = object;
 

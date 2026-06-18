@@ -1,5 +1,7 @@
 declare interface UAFE_FP_GravityLift_C extends UAttachedParticlesAfflictionEffect {
-
+    readonly __staticRegistry: 
+        UAttachedParticlesAfflictionEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAttachedParticlesAfflictionEffect['__propertyRegistry'];
 }
-declare const UAFE_FP_GravityLift_C: UAFE_FP_GravityLift_C;
 

@@ -1,40 +1,62 @@
 declare interface FAudioCaptureDeviceInfo {
-    DeviceName: FName;
+    DeviceName: string;
     NumInputChannels: number;
     SampleRate: number;
 }
-declare const FAudioCaptureDeviceInfo: FAudioCaptureDeviceInfo;
 
 declare interface FAudioInputDeviceInfo {
-    DeviceName: FString;
-    DeviceID: FString;
+    DeviceName: string;
+    DeviceID: string;
     InputChannels: number;
     PreferredSampleRate: number;
     bSupportsHardwareAEC: boolean;
 }
-declare const FAudioInputDeviceInfo: FAudioInputDeviceInfo;
 
 declare interface UAudioCapture extends UAudioGenerator {
-    StopCapturingAudio(): void;
-    StartCapturingAudio(): void;
-    IsCapturingAudio(): boolean;
-    GetAudioCaptureDeviceInfo(OutInfo: FAudioCaptureDeviceInfo): boolean;
+    readonly __static_UAudioCapture: {
+        StopCapturingAudio(): void;
+        StartCapturingAudio(): void;
+        IsCapturingAudio(): boolean;
+        GetAudioCaptureDeviceInfo(OutInfo: FAudioCaptureDeviceInfo): boolean;
+    };
+    readonly __staticRegistry: 
+        UAudioCapture['__static_UAudioCapture'] &
+        UAudioGenerator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioGenerator['__propertyRegistry'];
 }
-declare const UAudioCapture: UAudioCapture;
 
 declare interface UAudioCaptureBlueprintLibrary extends UBlueprintFunctionLibrary {
-    GetAvailableAudioInputDevices(WorldContextObject: UObject, OnObtainDevicesEvent: FGetAvailableAudioInputDevicesOnObtainDevicesEvent): void;
-    Conv_AudioInputDeviceInfoToString(Info: FAudioInputDeviceInfo): FString;
+    readonly __static_UAudioCaptureBlueprintLibrary: {
+        GetAvailableAudioInputDevices(WorldContextObject: UObject, OnObtainDevicesEvent: FGetAvailableAudioInputDevicesOnObtainDevicesEvent): void;
+        Conv_AudioInputDeviceInfoToString(Info: FAudioInputDeviceInfo): string;
+    };
+    readonly __staticRegistry: 
+        UAudioCaptureBlueprintLibrary['__static_UAudioCaptureBlueprintLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UAudioCaptureBlueprintLibrary: UAudioCaptureBlueprintLibrary;
 
 declare interface UAudioCaptureComponent extends USynthComponent {
-    JitterLatencyFrames: number;
+    readonly __properties_UAudioCaptureComponent: {
+        JitterLatencyFrames: number;
+    };
+    readonly __staticRegistry: 
+        USynthComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioCaptureComponent['__properties_UAudioCaptureComponent'] &
+        USynthComponent['__propertyRegistry'];
 }
-declare const UAudioCaptureComponent: UAudioCaptureComponent;
 
 declare interface UAudioCaptureFunctionLibrary extends UBlueprintFunctionLibrary {
-    CreateAudioCapture(): UAudioCapture;
+    readonly __static_UAudioCaptureFunctionLibrary: {
+        CreateAudioCapture(): UAudioCapture;
+    };
+    readonly __staticRegistry: 
+        UAudioCaptureFunctionLibrary['__static_UAudioCaptureFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UAudioCaptureFunctionLibrary: UAudioCaptureFunctionLibrary;
 

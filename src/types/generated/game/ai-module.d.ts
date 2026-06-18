@@ -1,83 +1,111 @@
 declare interface AAIController extends AController {
-    bStartAILogicOnPossess: boolean;
-    bStopAILogicOnUnposses: boolean;
-    bLOSflag: boolean;
-    bSkipExtraLOSChecks: boolean;
-    bAllowStrafe: boolean;
-    bWantsPlayerState: boolean;
-    bSetControlRotationFromPawnOrientation: boolean;
-    PathFollowingComponent: UPathFollowingComponent;
-    BrainComponent: UBrainComponent;
-    PerceptionComponent: UAIPerceptionComponent;
-    Blackboard: UBlackboardComponent;
-    CachedGameplayTasksComponent: UGameplayTasksComponent;
-    DefaultNavigationFilterClass: TSubclassOf<UNavigationQueryFilter>;
-    ReceiveMoveCompleted: FAIControllerReceiveMoveCompleted;
-    UseBlackboard(BlackboardAsset: UBlackboardData, BlackboardComponent: UBlackboardComponent): boolean;
-    UnclaimTaskResource(ResourceClass: TSubclassOf<UGameplayTaskResource>): void;
-    SetPathFollowingComponent(NewPFComponent: UPathFollowingComponent): void;
-    SetMoveBlockDetection(bEnable: boolean): void;
-    RunBehaviorTree(BTAsset: UBehaviorTree): boolean;
-    OnUsingBlackBoard(BlackboardComp: UBlackboardComponent, BlackboardAsset: UBlackboardData): void;
-    OnGameplayTaskResourcesClaimed(NewlyClaimed: FGameplayResourceSet, FreshlyReleased: FGameplayResourceSet): void;
-    MoveToLocation(Dest: FVector, AcceptanceRadius: number, bStopOnOverlap: boolean, bUsePathfinding: boolean, bProjectDestinationToNavigation: boolean, bCanStrafe: boolean, FilterClass: TSubclassOf<UNavigationQueryFilter>, bAllowPartialPath: boolean): EPathFollowingRequestResult;
-    MoveToActor(Goal: AActor, AcceptanceRadius: number, bStopOnOverlap: boolean, bUsePathfinding: boolean, bCanStrafe: boolean, FilterClass: TSubclassOf<UNavigationQueryFilter>, bAllowPartialPath: boolean): EPathFollowingRequestResult;
-    K2_SetFocus(NewFocus: AActor): void;
-    K2_SetFocalPoint(FP: FVector): void;
-    K2_ClearFocus(): void;
-    HasPartialPath(): boolean;
-    GetPathFollowingComponent(): UPathFollowingComponent;
-    GetMoveStatus(): EPathFollowingStatus;
-    GetImmediateMoveDestination(): FVector;
-    GetFocusActor(): AActor;
-    GetFocalPointOnActor(Actor: AActor): FVector;
-    GetFocalPoint(): FVector;
-    GetAIPerceptionComponent(): UAIPerceptionComponent;
-    ClaimTaskResource(ResourceClass: TSubclassOf<UGameplayTaskResource>): void;
+    readonly __static_AAIController: {
+        UseBlackboard(BlackboardAsset: UBlackboardData, BlackboardComponent: UBlackboardComponent): boolean;
+        UnclaimTaskResource(ResourceClass: TSubclassOf<UGameplayTaskResource>): void;
+        SetPathFollowingComponent(NewPFComponent: UPathFollowingComponent): void;
+        SetMoveBlockDetection(bEnable: boolean): void;
+        RunBehaviorTree(BTAsset: UBehaviorTree): boolean;
+        OnUsingBlackBoard(BlackboardComp: UBlackboardComponent, BlackboardAsset: UBlackboardData): void;
+        OnGameplayTaskResourcesClaimed(NewlyClaimed: FGameplayResourceSet, FreshlyReleased: FGameplayResourceSet): void;
+        MoveToLocation(Dest: FVector, AcceptanceRadius: number, bStopOnOverlap: boolean, bUsePathfinding: boolean, bProjectDestinationToNavigation: boolean, bCanStrafe: boolean, FilterClass: TSubclassOf<UNavigationQueryFilter>, bAllowPartialPath: boolean): EPathFollowingRequestResult;
+        MoveToActor(Goal: AActor, AcceptanceRadius: number, bStopOnOverlap: boolean, bUsePathfinding: boolean, bCanStrafe: boolean, FilterClass: TSubclassOf<UNavigationQueryFilter>, bAllowPartialPath: boolean): EPathFollowingRequestResult;
+        K2_SetFocus(NewFocus: AActor): void;
+        K2_SetFocalPoint(FP: FVector): void;
+        K2_ClearFocus(): void;
+        HasPartialPath(): boolean;
+        GetPathFollowingComponent(): UPathFollowingComponent;
+        GetMoveStatus(): EPathFollowingStatus;
+        GetImmediateMoveDestination(): FVector;
+        GetFocusActor(): AActor;
+        GetFocalPointOnActor(Actor: AActor): FVector;
+        GetFocalPoint(): FVector;
+        GetAIPerceptionComponent(): UAIPerceptionComponent;
+        ClaimTaskResource(ResourceClass: TSubclassOf<UGameplayTaskResource>): void;
+    };
+    readonly __properties_AAIController: {
+        bStartAILogicOnPossess: boolean;
+        bStopAILogicOnUnposses: boolean;
+        bLOSflag: boolean;
+        bSkipExtraLOSChecks: boolean;
+        bAllowStrafe: boolean;
+        bWantsPlayerState: boolean;
+        bSetControlRotationFromPawnOrientation: boolean;
+        PathFollowingComponent: UPathFollowingComponent;
+        BrainComponent: UBrainComponent;
+        PerceptionComponent: UAIPerceptionComponent;
+        Blackboard: UBlackboardComponent;
+        CachedGameplayTasksComponent: UGameplayTasksComponent;
+        DefaultNavigationFilterClass: TSubclassOf<UNavigationQueryFilter>;
+        ReceiveMoveCompleted: FAIControllerReceiveMoveCompleted;
+    };
+    readonly __staticRegistry: 
+        AAIController['__static_AAIController'] &
+        AController['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AAIController['__properties_AAIController'] &
+        AController['__propertyRegistry'];
 }
-declare const AAIController: AAIController;
 
 declare interface ADetourCrowdAIController extends AAIController {
-
+    readonly __staticRegistry: 
+        AAIController['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AAIController['__propertyRegistry'];
 }
-declare const ADetourCrowdAIController: ADetourCrowdAIController;
 
 declare interface AEQSTestingPawn extends ACharacter {
-    QueryTemplate: UEnvQuery;
-    QueryParams: TArray<FEnvNamedValue>;
-    QueryConfig: TArray<FAIDynamicParam>;
-    TimeLimitPerStep: number;
-    StepToDebugDraw: number;
-    HighlightMode: EEnvQueryHightlightMode;
-    bDrawLabels: boolean;
-    bDrawFailedItems: boolean;
-    bReRunQueryOnlyOnFinishedMove: boolean;
-    bShouldBeVisibleInGame: boolean;
-    bTickDuringGame: boolean;
-    bRunQueryOnSelectionChanged: boolean;
-    QueryingMode: EEnvQueryRunMode;
-    NavAgentProperties: FNavAgentProperties;
+    readonly __properties_AEQSTestingPawn: {
+        QueryTemplate: UEnvQuery;
+        QueryParams: FEnvNamedValue[];
+        QueryConfig: FAIDynamicParam[];
+        TimeLimitPerStep: number;
+        StepToDebugDraw: number;
+        HighlightMode: EEnvQueryHightlightMode;
+        bDrawLabels: boolean;
+        bDrawFailedItems: boolean;
+        bReRunQueryOnlyOnFinishedMove: boolean;
+        bShouldBeVisibleInGame: boolean;
+        bTickDuringGame: boolean;
+        bRunQueryOnSelectionChanged: boolean;
+        QueryingMode: EEnvQueryRunMode;
+        NavAgentProperties: FNavAgentProperties;
+    };
+    readonly __staticRegistry: 
+        ACharacter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AEQSTestingPawn['__properties_AEQSTestingPawn'] &
+        ACharacter['__propertyRegistry'];
 }
-declare const AEQSTestingPawn: AEQSTestingPawn;
 
 declare interface AGridPathAIController extends AAIController {
-
+    readonly __staticRegistry: 
+        AAIController['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AAIController['__propertyRegistry'];
 }
-declare const AGridPathAIController: AGridPathAIController;
 
 declare interface ANavLinkProxy extends AActor {
-    PointLinks: TArray<FNavigationLink>;
-    SegmentLinks: TArray<FNavigationSegmentLink>;
-    SmartLinkComp: UNavLinkCustomComponent;
-    bSmartLinkIsRelevant: boolean;
-    OnSmartLinkReached: FNavLinkProxyOnSmartLinkReached;
-    SetSmartLinkEnabled(bEnabled: boolean): void;
-    ResumePathFollowing(Agent: AActor): void;
-    ReceiveSmartLinkReached(Agent: AActor, Destination: FVector): void;
-    IsSmartLinkEnabled(): boolean;
-    HasMovingAgents(): boolean;
+    readonly __static_ANavLinkProxy: {
+        SetSmartLinkEnabled(bEnabled: boolean): void;
+        ResumePathFollowing(Agent: AActor): void;
+        ReceiveSmartLinkReached(Agent: AActor, Destination: FVector): void;
+        IsSmartLinkEnabled(): boolean;
+        HasMovingAgents(): boolean;
+    };
+    readonly __properties_ANavLinkProxy: {
+        PointLinks: FNavigationLink[];
+        SegmentLinks: FNavigationSegmentLink[];
+        SmartLinkComp: UNavLinkCustomComponent;
+        bSmartLinkIsRelevant: boolean;
+        OnSmartLinkReached: FNavLinkProxyOnSmartLinkReached;
+    };
+    readonly __staticRegistry: 
+        ANavLinkProxy['__static_ANavLinkProxy'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ANavLinkProxy['__properties_ANavLinkProxy'] &
+        AActor['__propertyRegistry'];
 }
-declare const ANavLinkProxy: ANavLinkProxy;
 
 declare interface FAIDamageEvent {
     Amount: number;
@@ -85,87 +113,73 @@ declare interface FAIDamageEvent {
     HitLocation: FVector;
     DamagedActor: AActor;
     Instigator: AActor;
-    Tag: FName;
+    Tag: string;
 }
-declare const FAIDamageEvent: FAIDamageEvent;
 
 declare interface FAIDataProviderBoolValue extends FAIDataProviderTypedValue {
     DefaultValue: boolean;
 }
-declare const FAIDataProviderBoolValue: FAIDataProviderBoolValue;
 
 declare interface FAIDataProviderFloatValue extends FAIDataProviderTypedValue {
     DefaultValue: number;
 }
-declare const FAIDataProviderFloatValue: FAIDataProviderFloatValue;
 
 declare interface FAIDataProviderIntValue extends FAIDataProviderTypedValue {
     DefaultValue: number;
 }
-declare const FAIDataProviderIntValue: FAIDataProviderIntValue;
 
 declare interface FAIDataProviderStructValue extends FAIDataProviderValue {
 
 }
-declare const FAIDataProviderStructValue: FAIDataProviderStructValue;
 
 declare interface FAIDataProviderTypedValue extends FAIDataProviderValue {
     PropertyType: UClass;
 }
-declare const FAIDataProviderTypedValue: FAIDataProviderTypedValue;
 
 declare interface FAIDataProviderValue {
     DataBinding: UAIDataProvider;
-    DataField: FName;
+    DataField: string;
 }
-declare const FAIDataProviderValue: FAIDataProviderValue;
 
 declare interface FAIDynamicParam {
-    ParamName: FName;
+    ParamName: string;
     ParamType: EAIParamType;
     bAllowBBKey: boolean;
     Value: number;
     BBKey: FBlackboardKeySelector;
 }
-declare const FAIDynamicParam: FAIDynamicParam;
 
 declare interface FAIMoveRequest {
     GoalActor: TWeakObjectPtr<AActor>;
 }
-declare const FAIMoveRequest: FAIMoveRequest;
 
 declare interface FAINoiseEvent {
     NoiseLocation: FVector;
     Loudness: number;
     MaxRange: number;
     Instigator: AActor;
-    Tag: FName;
+    Tag: string;
 }
-declare const FAINoiseEvent: FAINoiseEvent;
 
 declare interface FAIPredictionEvent {
     Requestor: AActor;
     PredictedActor: AActor;
 }
-declare const FAIPredictionEvent: FAIPredictionEvent;
 
 declare interface FAIRequestID {
-    RequestID: uint32;
+    RequestID: number;
 }
-declare const FAIRequestID: FAIRequestID;
 
 declare interface FAISenseAffiliationFilter {
     bDetectEnemies: boolean;
     bDetectNeutrals: boolean;
     bDetectFriendlies: boolean;
 }
-declare const FAISenseAffiliationFilter: FAISenseAffiliationFilter;
 
 declare interface FAISightEvent {
     SeenActor: AActor;
     Observer: AActor;
 }
-declare const FAISightEvent: FAISightEvent;
 
 declare interface FAIStimulus {
     Age: number;
@@ -173,78 +187,65 @@ declare interface FAIStimulus {
     Strength: number;
     StimulusLocation: FVector;
     ReceiverLocation: FVector;
-    Tag: FName;
+    Tag: string;
     bSuccessfullySensed: boolean;
 }
-declare const FAIStimulus: FAIStimulus;
 
 declare interface FAITeamStimulusEvent {
     Broadcaster: AActor;
     Enemy: AActor;
 }
-declare const FAITeamStimulusEvent: FAITeamStimulusEvent;
 
 declare interface FAITouchEvent {
     TouchReceiver: AActor;
     OtherActor: AActor;
 }
-declare const FAITouchEvent: FAITouchEvent;
 
 declare interface FActorPerceptionBlueprintInfo {
     Target: AActor;
-    LastSensedStimuli: TArray<FAIStimulus>;
+    LastSensedStimuli: FAIStimulus[];
     bIsHostile: boolean;
     bIsFriendly: boolean;
 }
-declare const FActorPerceptionBlueprintInfo: FActorPerceptionBlueprintInfo;
 
 declare interface FActorPerceptionUpdateInfo {
     TargetId: number;
     Target: TWeakObjectPtr<AActor>;
     Stimulus: FAIStimulus;
 }
-declare const FActorPerceptionUpdateInfo: FActorPerceptionUpdateInfo;
 
 declare interface FBTCompositeChild {
     ChildComposite: UBTCompositeNode;
     ChildTask: UBTTaskNode;
-    Decorators: TArray<UBTDecorator>;
-    DecoratorOps: TArray<FBTDecoratorLogic>;
+    Decorators: UBTDecorator[];
+    DecoratorOps: FBTDecoratorLogic[];
 }
-declare const FBTCompositeChild: FBTCompositeChild;
 
 declare interface FBTDecoratorLogic {
     Operation: EBTDecoratorLogic;
-    Number: uint16;
+    Number: number;
 }
-declare const FBTDecoratorLogic: FBTDecoratorLogic;
 
 declare interface FBehaviorTreeTemplateInfo {
     Asset: UBehaviorTree;
     Template: UBTCompositeNode;
 }
-declare const FBehaviorTreeTemplateInfo: FBehaviorTreeTemplateInfo;
 
 declare interface FBlackboardEntry {
-    EntryName: FName;
+    EntryName: string;
     KeyType: UBlackboardKeyType;
     bInstanceSynced: boolean;
 }
-declare const FBlackboardEntry: FBlackboardEntry;
 
 declare interface FBlackboardKeySelector {
-    AllowedTypes: TArray<UBlackboardKeyType>;
-    SelectedKeyName: FName;
+    AllowedTypes: UBlackboardKeyType[];
+    SelectedKeyName: string;
     SelectedKeyType: TSubclassOf<UBlackboardKeyType>;
     SelectedKeyID: number;
     bNoneIsAllowedValue: boolean;
 }
-declare const FBlackboardKeySelector: FBlackboardKeySelector;
 
-declare interface FCompactIndexedHandleBase {
-
-}
-declare const FCompactIndexedHandleBase: FCompactIndexedHandleBase;
+declare type FCompactIndexedHandleBase = object;
 
 declare interface FCrowdAvoidanceConfig {
     VelocityBias: number;
@@ -253,32 +254,26 @@ declare interface FCrowdAvoidanceConfig {
     SideBiasWeight: number;
     ImpactTimeWeight: number;
     ImpactTimeRange: number;
-    CustomPatternIdx: uint8;
-    AdaptiveDivisions: uint8;
-    AdaptiveRings: uint8;
-    AdaptiveDepth: uint8;
+    CustomPatternIdx: number;
+    AdaptiveDivisions: number;
+    AdaptiveRings: number;
+    AdaptiveDepth: number;
 }
-declare const FCrowdAvoidanceConfig: FCrowdAvoidanceConfig;
 
 declare interface FCrowdAvoidanceSamplingPattern {
-    Angles: TArray<number>;
-    Radii: TArray<number>;
+    Angles: number[];
+    Radii: number[];
 }
-declare const FCrowdAvoidanceSamplingPattern: FCrowdAvoidanceSamplingPattern;
 
-declare interface FDefault__AISenseBlueprintListener {
-
-}
-declare const FDefault__AISenseBlueprintListener: FDefault__AISenseBlueprintListener;
+declare type FDefault__AISenseBlueprintListener = object;
 
 declare interface FEQSParametrizedQueryExecutionRequest {
     QueryTemplate: UEnvQuery;
-    QueryConfig: TArray<FAIDynamicParam>;
+    QueryConfig: FAIDynamicParam[];
     EQSQueryBlackboardKey: FBlackboardKeySelector;
     RunMode: EEnvQueryRunMode;
     bUseBBKeyForQueryTemplate: boolean;
 }
-declare const FEQSParametrizedQueryExecutionRequest: FEQSParametrizedQueryExecutionRequest;
 
 declare interface FEnvDirection {
     LineFrom: TSubclassOf<UEnvQueryContext>;
@@ -286,14 +281,12 @@ declare interface FEnvDirection {
     Rotation: TSubclassOf<UEnvQueryContext>;
     DirMode: EEnvDirection;
 }
-declare const FEnvDirection: FEnvDirection;
 
 declare interface FEnvNamedValue {
-    ParamName: FName;
+    ParamName: string;
     ParamType: EAIParamType;
     Value: number;
 }
-declare const FEnvNamedValue: FEnvNamedValue;
 
 declare interface FEnvOverlapData {
     ExtentX: number;
@@ -306,12 +299,10 @@ declare interface FEnvOverlapData {
     bOverlapComplex: boolean;
     bSkipOverlapQuerier: boolean;
 }
-declare const FEnvOverlapData: FEnvOverlapData;
 
 declare interface FEnvQueryInstanceCache {
     Template: UEnvQuery;
 }
-declare const FEnvQueryInstanceCache: FEnvQueryInstanceCache;
 
 declare interface FEnvQueryManagerConfig {
     MaxAllowedTestingTime: number;
@@ -322,21 +313,18 @@ declare interface FEnvQueryManagerConfig {
     HandlingResultTimeWarningSeconds: number;
     GenerationTimeWarningSeconds: number;
 }
-declare const FEnvQueryManagerConfig: FEnvQueryManagerConfig;
 
 declare interface FEnvQueryRequest {
     QueryTemplate: UEnvQuery;
     Owner: UObject;
     World: UWorld;
 }
-declare const FEnvQueryRequest: FEnvQueryRequest;
 
 declare interface FEnvQueryResult {
     ItemType: TSubclassOf<UEnvQueryItemType>;
     OptionIndex: number;
     QueryID: number;
 }
-declare const FEnvQueryResult: FEnvQueryResult;
 
 declare interface FEnvTraceData {
     VersionNum: number;
@@ -349,7 +337,7 @@ declare interface FEnvTraceData {
     PostProjectionVerticalOffset: number;
     TraceChannel: ETraceTypeQuery;
     SerializedChannel: ECollisionChannel;
-    TraceProfileName: FName;
+    TraceProfileName: string;
     TraceShape: EEnvTraceShape;
     TraceMode: EEnvQueryTrace;
     bTraceComplex: boolean;
@@ -359,1458 +347,2410 @@ declare interface FEnvTraceData {
     bCanDisableTrace: boolean;
     bCanProjectDown: boolean;
 }
-declare const FEnvTraceData: FEnvTraceData;
 
 declare interface FGenericTeamId {
-    TeamID: uint8;
+    TeamID: number;
 }
-declare const FGenericTeamId: FGenericTeamId;
 
 declare interface FIndexedHandleBase extends FSimpleIndexedHandleBase {
 
 }
-declare const FIndexedHandleBase: FIndexedHandleBase;
 
 declare interface FIntervalCountdown {
     Interval: number;
 }
-declare const FIntervalCountdown: FIntervalCountdown;
 
 declare interface FRecastGraphWrapper {
     RecastNavMeshActor: ARecastNavMesh;
 }
-declare const FRecastGraphWrapper: FRecastGraphWrapper;
 
 declare interface FSequentialIDBase {
-    Value: uint32;
+    Value: number;
 }
-declare const FSequentialIDBase: FSequentialIDBase;
 
-declare interface FSimpleIndexedHandleBase {
-
-}
-declare const FSimpleIndexedHandleBase: FSimpleIndexedHandleBase;
+declare type FSimpleIndexedHandleBase = object;
 
 declare interface FValueOrBBKey_Bool extends FValueOrBlackboardKeyBase {
     DefaultValue: boolean;
 }
-declare const FValueOrBBKey_Bool: FValueOrBBKey_Bool;
 
 declare interface FValueOrBBKey_Class extends FValueOrBlackboardKeyBase {
     DefaultValue: UClass;
     BaseClass: UClass;
 }
-declare const FValueOrBBKey_Class: FValueOrBBKey_Class;
 
 declare interface FValueOrBBKey_Enum extends FValueOrBlackboardKeyBase {
-    DefaultValue: uint8;
+    DefaultValue: number;
     EnumType: UEnum;
-    NativeEnumTypeName: FString;
+    NativeEnumTypeName: string;
 }
-declare const FValueOrBBKey_Enum: FValueOrBBKey_Enum;
 
 declare interface FValueOrBBKey_Float extends FValueOrBlackboardKeyBase {
     DefaultValue: number;
 }
-declare const FValueOrBBKey_Float: FValueOrBBKey_Float;
 
 declare interface FValueOrBBKey_Int32 extends FValueOrBlackboardKeyBase {
     DefaultValue: number;
 }
-declare const FValueOrBBKey_Int32: FValueOrBBKey_Int32;
 
 declare interface FValueOrBBKey_Name extends FValueOrBlackboardKeyBase {
-    DefaultValue: FName;
+    DefaultValue: string;
 }
-declare const FValueOrBBKey_Name: FValueOrBBKey_Name;
 
 declare interface FValueOrBBKey_Object extends FValueOrBlackboardKeyBase {
     DefaultValue: UObject;
     BaseClass: UClass;
 }
-declare const FValueOrBBKey_Object: FValueOrBBKey_Object;
 
 declare interface FValueOrBBKey_Rotator extends FValueOrBlackboardKeyBase {
     DefaultValue: FRotator;
 }
-declare const FValueOrBBKey_Rotator: FValueOrBBKey_Rotator;
 
 declare interface FValueOrBBKey_String extends FValueOrBlackboardKeyBase {
-    DefaultValue: FString;
+    DefaultValue: string;
 }
-declare const FValueOrBBKey_String: FValueOrBBKey_String;
 
 declare interface FValueOrBBKey_Struct extends FValueOrBlackboardKeyBase {
     DefaultValue: FInstancedStruct;
 }
-declare const FValueOrBBKey_Struct: FValueOrBBKey_Struct;
 
 declare interface FValueOrBBKey_Vector extends FValueOrBlackboardKeyBase {
     DefaultValue: FVector;
 }
-declare const FValueOrBBKey_Vector: FValueOrBBKey_Vector;
 
 declare interface FValueOrBlackboardKeyBase {
-    Key: FName;
+    Key: string;
 }
-declare const FValueOrBlackboardKeyBase: FValueOrBlackboardKeyBase;
 
 declare interface IAIPerceptionListenerInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IAIPerceptionListenerInterface: IAIPerceptionListenerInterface;
 
 declare interface IAIResourceInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IAIResourceInterface: IAIResourceInterface;
 
 declare interface IAISightTargetInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IAISightTargetInterface: IAISightTargetInterface;
 
 declare interface IBlackboardAssetProvider extends IInterface {
-    GetBlackboardAsset(): UBlackboardData;
+    readonly __static_IBlackboardAssetProvider: {
+        GetBlackboardAsset(): UBlackboardData;
+    };
+    readonly __staticRegistry: 
+        IBlackboardAssetProvider['__static_IBlackboardAssetProvider'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IBlackboardAssetProvider: IBlackboardAssetProvider;
 
 declare interface ICrowdAgentInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const ICrowdAgentInterface: ICrowdAgentInterface;
 
 declare interface IEQSQueryResultSourceInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IEQSQueryResultSourceInterface: IEQSQueryResultSourceInterface;
 
 declare interface IGenericTeamAgentInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IGenericTeamAgentInterface: IGenericTeamAgentInterface;
 
 declare interface UAIAsyncTaskBlueprintProxy extends UObject {
-    OnSuccess: FAIAsyncTaskBlueprintProxyOnSuccess;
-    OnFail: FAIAsyncTaskBlueprintProxyOnFail;
-    OnMoveCompleted(RequestID: FAIRequestID, MovementResult: EPathFollowingResult): void;
+    readonly __static_UAIAsyncTaskBlueprintProxy: {
+        OnMoveCompleted(RequestID: FAIRequestID, MovementResult: EPathFollowingResult): void;
+    };
+    readonly __properties_UAIAsyncTaskBlueprintProxy: {
+        OnSuccess: FAIAsyncTaskBlueprintProxyOnSuccess;
+        OnFail: FAIAsyncTaskBlueprintProxyOnFail;
+    };
+    readonly __staticRegistry: 
+        UAIAsyncTaskBlueprintProxy['__static_UAIAsyncTaskBlueprintProxy'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAIAsyncTaskBlueprintProxy['__properties_UAIAsyncTaskBlueprintProxy'] &
+        UObject['__propertyRegistry'];
 }
-declare const UAIAsyncTaskBlueprintProxy: UAIAsyncTaskBlueprintProxy;
 
 declare interface UAIBlueprintHelperLibrary extends UBlueprintFunctionLibrary {
-    UnlockAIResourcesWithAnimation(AnimInstance: UAnimInstance, bUnlockMovement: boolean, UnlockAILogic: boolean): void;
-    SpawnAIFromClass(WorldContextObject: UObject, PawnClass: TSubclassOf<APawn>, BehaviorTree: UBehaviorTree, Location: FVector, Rotation: FRotator, bNoCollisionFail: boolean, Owner: AActor): APawn;
-    SimpleMoveToLocation(Controller: AController, Goal: FVector): void;
-    SimpleMoveToActor(Controller: AController, Goal: AActor): void;
-    SendAIMessage(Target: APawn, Message: FName, MessageSource: UObject, bSuccess: boolean): void;
-    LockAIResourcesWithAnimation(AnimInstance: UAnimInstance, bLockMovement: boolean, LockAILogic: boolean): void;
-    IsValidAIRotation(Rotation: FRotator): boolean;
-    IsValidAILocation(Location: FVector): boolean;
-    IsValidAIDirection(DirectionVector: FVector): boolean;
-    GetNextNavLinkIndex(Controller: AController): number;
-    GetCurrentPathPoints(Controller: AController): TArray<FVector>;
-    GetCurrentPathIndex(Controller: AController): number;
-    GetCurrentPath(Controller: AController): UNavigationPath;
-    GetBlackboard(Target: AActor): UBlackboardComponent;
-    GetAIController(ControlledActor: AActor): AAIController;
-    CreateMoveToProxyObject(WorldContextObject: UObject, Pawn: APawn, Destination: FVector, targetActor: AActor, AcceptanceRadius: number, bStopOnOverlap: boolean): UAIAsyncTaskBlueprintProxy;
+    readonly __static_UAIBlueprintHelperLibrary: {
+        UnlockAIResourcesWithAnimation(AnimInstance: UAnimInstance, bUnlockMovement: boolean, UnlockAILogic: boolean): void;
+        SpawnAIFromClass(WorldContextObject: UObject, PawnClass: TSubclassOf<APawn>, BehaviorTree: UBehaviorTree, Location: FVector, Rotation: FRotator, bNoCollisionFail: boolean, Owner: AActor): APawn;
+        SimpleMoveToLocation(Controller: AController, Goal: FVector): void;
+        SimpleMoveToActor(Controller: AController, Goal: AActor): void;
+        SendAIMessage(Target: APawn, Message: string, MessageSource: UObject, bSuccess: boolean): void;
+        LockAIResourcesWithAnimation(AnimInstance: UAnimInstance, bLockMovement: boolean, LockAILogic: boolean): void;
+        IsValidAIRotation(Rotation: FRotator): boolean;
+        IsValidAILocation(Location: FVector): boolean;
+        IsValidAIDirection(DirectionVector: FVector): boolean;
+        GetNextNavLinkIndex(Controller: AController): number;
+        GetCurrentPathPoints(Controller: AController): FVector[];
+        GetCurrentPathIndex(Controller: AController): number;
+        GetCurrentPath(Controller: AController): UNavigationPath;
+        GetBlackboard(Target: AActor): UBlackboardComponent;
+        GetAIController(ControlledActor: AActor): AAIController;
+        CreateMoveToProxyObject(WorldContextObject: UObject, Pawn: APawn, Destination: FVector, targetActor: AActor, AcceptanceRadius: number, bStopOnOverlap: boolean): UAIAsyncTaskBlueprintProxy;
+    };
+    readonly __staticRegistry: 
+        UAIBlueprintHelperLibrary['__static_UAIBlueprintHelperLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UAIBlueprintHelperLibrary: UAIBlueprintHelperLibrary;
 
 declare interface UAIDataProvider extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UAIDataProvider: UAIDataProvider;
 
 declare interface UAIDataProvider_QueryParams extends UAIDataProvider {
-    ParamName: FName;
-    FloatValue: number;
-    IntValue: number;
-    boolValue: boolean;
+    readonly __properties_UAIDataProvider_QueryParams: {
+        ParamName: string;
+        FloatValue: number;
+        IntValue: number;
+        boolValue: boolean;
+    };
+    readonly __staticRegistry: 
+        UAIDataProvider['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAIDataProvider_QueryParams['__properties_UAIDataProvider_QueryParams'] &
+        UAIDataProvider['__propertyRegistry'];
 }
-declare const UAIDataProvider_QueryParams: UAIDataProvider_QueryParams;
 
 declare interface UAIDataProvider_Random extends UAIDataProvider_QueryParams {
-    min: number;
-    max: number;
-    bInteger: boolean;
+    readonly __properties_UAIDataProvider_Random: {
+        min: number;
+        max: number;
+        bInteger: boolean;
+    };
+    readonly __staticRegistry: 
+        UAIDataProvider_QueryParams['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAIDataProvider_Random['__properties_UAIDataProvider_Random'] &
+        UAIDataProvider_QueryParams['__propertyRegistry'];
 }
-declare const UAIDataProvider_Random: UAIDataProvider_Random;
 
 declare interface UAIHotSpotManager extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UAIHotSpotManager: UAIHotSpotManager;
 
 declare interface UAIPerceptionComponent extends UActorComponent {
-    SensesConfig: TArray<UAISenseConfig>;
-    DominantSense: TSubclassOf<UAISense>;
-    AIOwner: AAIController;
-    OnPerceptionUpdated: FAIPerceptionComponentOnPerceptionUpdated;
-    OnTargetPerceptionForgotten: FAIPerceptionComponentOnTargetPerceptionForgotten;
-    OnTargetPerceptionUpdated: FAIPerceptionComponentOnTargetPerceptionUpdated;
-    OnTargetPerceptionInfoUpdated: FAIPerceptionComponentOnTargetPerceptionInfoUpdated;
-    SetSenseEnabled(SenseClass: TSubclassOf<UAISense>, bEnable: boolean): void;
-    RequestStimuliListenerUpdate(): void;
-    OnOwnerEndPlay(Actor: AActor, EndPlayReason: EEndPlayReason): void;
-    IsSenseEnabled(SenseClass: TSubclassOf<UAISense>): boolean;
-    GetPerceivedHostileActorsBySense(SenseToUse: TSubclassOf<UAISense>, OutActors: TArray<AActor>): void;
-    GetPerceivedHostileActors(OutActors: TArray<AActor>): void;
-    GetKnownPerceivedActors(SenseToUse: TSubclassOf<UAISense>, OutActors: TArray<AActor>): void;
-    GetCurrentlyPerceivedActors(SenseToUse: TSubclassOf<UAISense>, OutActors: TArray<AActor>): void;
-    GetActorsPerception(Actor: AActor, Info: FActorPerceptionBlueprintInfo): boolean;
-    ForgetAll(): void;
+    readonly __static_UAIPerceptionComponent: {
+        SetSenseEnabled(SenseClass: TSubclassOf<UAISense>, bEnable: boolean): void;
+        RequestStimuliListenerUpdate(): void;
+        OnOwnerEndPlay(Actor: AActor, EndPlayReason: EEndPlayReason): void;
+        IsSenseEnabled(SenseClass: TSubclassOf<UAISense>): boolean;
+        GetPerceivedHostileActorsBySense(SenseToUse: TSubclassOf<UAISense>, OutActors: AActor[]): void;
+        GetPerceivedHostileActors(OutActors: AActor[]): void;
+        GetKnownPerceivedActors(SenseToUse: TSubclassOf<UAISense>, OutActors: AActor[]): void;
+        GetCurrentlyPerceivedActors(SenseToUse: TSubclassOf<UAISense>, OutActors: AActor[]): void;
+        GetActorsPerception(Actor: AActor, Info: FActorPerceptionBlueprintInfo): boolean;
+        ForgetAll(): void;
+    };
+    readonly __properties_UAIPerceptionComponent: {
+        SensesConfig: UAISenseConfig[];
+        DominantSense: TSubclassOf<UAISense>;
+        AIOwner: AAIController;
+        OnPerceptionUpdated: FAIPerceptionComponentOnPerceptionUpdated;
+        OnTargetPerceptionForgotten: FAIPerceptionComponentOnTargetPerceptionForgotten;
+        OnTargetPerceptionUpdated: FAIPerceptionComponentOnTargetPerceptionUpdated;
+        OnTargetPerceptionInfoUpdated: FAIPerceptionComponentOnTargetPerceptionInfoUpdated;
+    };
+    readonly __staticRegistry: 
+        UAIPerceptionComponent['__static_UAIPerceptionComponent'] &
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAIPerceptionComponent['__properties_UAIPerceptionComponent'] &
+        UActorComponent['__propertyRegistry'];
 }
-declare const UAIPerceptionComponent: UAIPerceptionComponent;
 
 declare interface UAIPerceptionStimuliSourceComponent extends UActorComponent {
-    bAutoRegisterAsSource: boolean;
-    RegisterAsSourceForSenses: TArray<TSubclassOf<UAISense>>;
-    UnregisterFromSense(SenseClass: TSubclassOf<UAISense>): void;
-    UnregisterFromPerceptionSystem(): void;
-    RegisterWithPerceptionSystem(): void;
-    RegisterForSense(SenseClass: TSubclassOf<UAISense>): void;
+    readonly __static_UAIPerceptionStimuliSourceComponent: {
+        UnregisterFromSense(SenseClass: TSubclassOf<UAISense>): void;
+        UnregisterFromPerceptionSystem(): void;
+        RegisterWithPerceptionSystem(): void;
+        RegisterForSense(SenseClass: TSubclassOf<UAISense>): void;
+    };
+    readonly __properties_UAIPerceptionStimuliSourceComponent: {
+        bAutoRegisterAsSource: boolean;
+        RegisterAsSourceForSenses: TSubclassOf<UAISense>[];
+    };
+    readonly __staticRegistry: 
+        UAIPerceptionStimuliSourceComponent['__static_UAIPerceptionStimuliSourceComponent'] &
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAIPerceptionStimuliSourceComponent['__properties_UAIPerceptionStimuliSourceComponent'] &
+        UActorComponent['__propertyRegistry'];
 }
-declare const UAIPerceptionStimuliSourceComponent: UAIPerceptionStimuliSourceComponent;
 
 declare interface UAIPerceptionSystem extends UAISubsystem {
-    Senses: TArray<UAISense>;
-    PerceptionAgingRate: number;
-    ReportPerceptionEvent(WorldContextObject: UObject, PerceptionEvent: UAISenseEvent): void;
-    ReportEvent(PerceptionEvent: UAISenseEvent): void;
-    RegisterPerceptionStimuliSource(WorldContextObject: UObject, Sense: TSubclassOf<UAISense>, Target: AActor): boolean;
-    OnPerceptionStimuliSourceEndPlay(Actor: AActor, EndPlayReason: EEndPlayReason): void;
-    GetSenseClassForStimulus(WorldContextObject: UObject, Stimulus: FAIStimulus): TSubclassOf<UAISense>;
+    readonly __static_UAIPerceptionSystem: {
+        ReportPerceptionEvent(WorldContextObject: UObject, PerceptionEvent: UAISenseEvent): void;
+        ReportEvent(PerceptionEvent: UAISenseEvent): void;
+        RegisterPerceptionStimuliSource(WorldContextObject: UObject, Sense: TSubclassOf<UAISense>, Target: AActor): boolean;
+        OnPerceptionStimuliSourceEndPlay(Actor: AActor, EndPlayReason: EEndPlayReason): void;
+        GetSenseClassForStimulus(WorldContextObject: UObject, Stimulus: FAIStimulus): TSubclassOf<UAISense>;
+    };
+    readonly __properties_UAIPerceptionSystem: {
+        Senses: UAISense[];
+        PerceptionAgingRate: number;
+    };
+    readonly __staticRegistry: 
+        UAIPerceptionSystem['__static_UAIPerceptionSystem'] &
+        UAISubsystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAIPerceptionSystem['__properties_UAIPerceptionSystem'] &
+        UAISubsystem['__propertyRegistry'];
 }
-declare const UAIPerceptionSystem: UAIPerceptionSystem;
 
 declare interface UAIResource_Logic extends UGameplayTaskResource {
-
+    readonly __staticRegistry: 
+        UGameplayTaskResource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayTaskResource['__propertyRegistry'];
 }
-declare const UAIResource_Logic: UAIResource_Logic;
 
 declare interface UAIResource_Movement extends UGameplayTaskResource {
-
+    readonly __staticRegistry: 
+        UGameplayTaskResource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayTaskResource['__propertyRegistry'];
 }
-declare const UAIResource_Movement: UAIResource_Movement;
 
 declare interface UAISense extends UObject {
-    NotifyType: EAISenseNotifyType;
-    bWantsNewPawnNotification: boolean;
-    bAutoRegisterAllPawnsAsSources: boolean;
-    PerceptionSystemInstance: UAIPerceptionSystem;
+    readonly __properties_UAISense: {
+        NotifyType: EAISenseNotifyType;
+        bWantsNewPawnNotification: boolean;
+        bAutoRegisterAllPawnsAsSources: boolean;
+        PerceptionSystemInstance: UAIPerceptionSystem;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISense['__properties_UAISense'] &
+        UObject['__propertyRegistry'];
 }
-declare const UAISense: UAISense;
 
 declare interface UAISenseBlueprintListener extends UUserDefinedStruct {
-
+    readonly __staticRegistry: 
+        UUserDefinedStruct['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UUserDefinedStruct['__propertyRegistry'];
 }
-declare const UAISenseBlueprintListener: UAISenseBlueprintListener;
 
 declare interface UAISenseConfig extends UObject {
-    DebugColor: FColor;
-    MaxAge: number;
-    bStartsEnabled: boolean;
+    readonly __properties_UAISenseConfig: {
+        DebugColor: FColor;
+        MaxAge: number;
+        bStartsEnabled: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISenseConfig['__properties_UAISenseConfig'] &
+        UObject['__propertyRegistry'];
 }
-declare const UAISenseConfig: UAISenseConfig;
 
 declare interface UAISenseConfig_Blueprint extends UAISenseConfig {
-    Implementation: TSubclassOf<UAISense_Blueprint>;
+    readonly __properties_UAISenseConfig_Blueprint: {
+        Implementation: TSubclassOf<UAISense_Blueprint>;
+    };
+    readonly __staticRegistry: 
+        UAISenseConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISenseConfig_Blueprint['__properties_UAISenseConfig_Blueprint'] &
+        UAISenseConfig['__propertyRegistry'];
 }
-declare const UAISenseConfig_Blueprint: UAISenseConfig_Blueprint;
 
 declare interface UAISenseConfig_Damage extends UAISenseConfig {
-    Implementation: TSubclassOf<UAISense_Damage>;
+    readonly __properties_UAISenseConfig_Damage: {
+        Implementation: TSubclassOf<UAISense_Damage>;
+    };
+    readonly __staticRegistry: 
+        UAISenseConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISenseConfig_Damage['__properties_UAISenseConfig_Damage'] &
+        UAISenseConfig['__propertyRegistry'];
 }
-declare const UAISenseConfig_Damage: UAISenseConfig_Damage;
 
 declare interface UAISenseConfig_Hearing extends UAISenseConfig {
-    Implementation: TSubclassOf<UAISense_Hearing>;
-    HearingRange: number;
-    LoSHearingRange: number;
-    bUseLoSHearing: boolean;
-    DetectionByAffiliation: FAISenseAffiliationFilter;
+    readonly __properties_UAISenseConfig_Hearing: {
+        Implementation: TSubclassOf<UAISense_Hearing>;
+        HearingRange: number;
+        LoSHearingRange: number;
+        bUseLoSHearing: boolean;
+        DetectionByAffiliation: FAISenseAffiliationFilter;
+    };
+    readonly __staticRegistry: 
+        UAISenseConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISenseConfig_Hearing['__properties_UAISenseConfig_Hearing'] &
+        UAISenseConfig['__propertyRegistry'];
 }
-declare const UAISenseConfig_Hearing: UAISenseConfig_Hearing;
 
 declare interface UAISenseConfig_Prediction extends UAISenseConfig {
-
+    readonly __staticRegistry: 
+        UAISenseConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISenseConfig['__propertyRegistry'];
 }
-declare const UAISenseConfig_Prediction: UAISenseConfig_Prediction;
 
 declare interface UAISenseConfig_Sight extends UAISenseConfig {
-    Implementation: TSubclassOf<UAISense_Sight>;
-    SightRadius: number;
-    LoseSightRadius: number;
-    PeripheralVisionAngleDegrees: number;
-    DetectionByAffiliation: FAISenseAffiliationFilter;
-    AutoSuccessRangeFromLastSeenLocation: number;
-    PointOfViewBackwardOffset: number;
-    NearClippingRadius: number;
+    readonly __properties_UAISenseConfig_Sight: {
+        Implementation: TSubclassOf<UAISense_Sight>;
+        SightRadius: number;
+        LoseSightRadius: number;
+        PeripheralVisionAngleDegrees: number;
+        DetectionByAffiliation: FAISenseAffiliationFilter;
+        AutoSuccessRangeFromLastSeenLocation: number;
+        PointOfViewBackwardOffset: number;
+        NearClippingRadius: number;
+    };
+    readonly __staticRegistry: 
+        UAISenseConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISenseConfig_Sight['__properties_UAISenseConfig_Sight'] &
+        UAISenseConfig['__propertyRegistry'];
 }
-declare const UAISenseConfig_Sight: UAISenseConfig_Sight;
 
 declare interface UAISenseConfig_Team extends UAISenseConfig {
-
+    readonly __staticRegistry: 
+        UAISenseConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISenseConfig['__propertyRegistry'];
 }
-declare const UAISenseConfig_Team: UAISenseConfig_Team;
 
 declare interface UAISenseConfig_Touch extends UAISenseConfig {
-    DetectionByAffiliation: FAISenseAffiliationFilter;
+    readonly __properties_UAISenseConfig_Touch: {
+        DetectionByAffiliation: FAISenseAffiliationFilter;
+    };
+    readonly __staticRegistry: 
+        UAISenseConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISenseConfig_Touch['__properties_UAISenseConfig_Touch'] &
+        UAISenseConfig['__propertyRegistry'];
 }
-declare const UAISenseConfig_Touch: UAISenseConfig_Touch;
 
 declare interface UAISenseEvent extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UAISenseEvent: UAISenseEvent;
 
 declare interface UAISenseEvent_Damage extends UAISenseEvent {
-    Event: FAIDamageEvent;
+    readonly __properties_UAISenseEvent_Damage: {
+        Event: FAIDamageEvent;
+    };
+    readonly __staticRegistry: 
+        UAISenseEvent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISenseEvent_Damage['__properties_UAISenseEvent_Damage'] &
+        UAISenseEvent['__propertyRegistry'];
 }
-declare const UAISenseEvent_Damage: UAISenseEvent_Damage;
 
 declare interface UAISenseEvent_Hearing extends UAISenseEvent {
-    Event: FAINoiseEvent;
+    readonly __properties_UAISenseEvent_Hearing: {
+        Event: FAINoiseEvent;
+    };
+    readonly __staticRegistry: 
+        UAISenseEvent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISenseEvent_Hearing['__properties_UAISenseEvent_Hearing'] &
+        UAISenseEvent['__propertyRegistry'];
 }
-declare const UAISenseEvent_Hearing: UAISenseEvent_Hearing;
 
 declare interface UAISense_Blueprint extends UAISense {
-    ListenerDataType: TSubclassOf<UUserDefinedStruct>;
-    ListenerContainer: TArray<UAIPerceptionComponent>;
-    UnprocessedEvents: TArray<UAISenseEvent>;
-    OnUpdate(EventsToProcess: TArray<UAISenseEvent>): number;
-    OnListenerUpdated(ActorListener: AActor, PerceptionComponent: UAIPerceptionComponent): void;
-    OnListenerUnregistered(ActorListener: AActor, PerceptionComponent: UAIPerceptionComponent): void;
-    OnListenerRegistered(ActorListener: AActor, PerceptionComponent: UAIPerceptionComponent): void;
-    K2_OnNewPawn(NewPawn: APawn): void;
-    GetAllListenerComponents(ListenerComponents: TArray<UAIPerceptionComponent>): void;
-    GetAllListenerActors(ListenerActors: TArray<AActor>): void;
+    readonly __static_UAISense_Blueprint: {
+        OnUpdate(EventsToProcess: UAISenseEvent[]): number;
+        OnListenerUpdated(ActorListener: AActor, PerceptionComponent: UAIPerceptionComponent): void;
+        OnListenerUnregistered(ActorListener: AActor, PerceptionComponent: UAIPerceptionComponent): void;
+        OnListenerRegistered(ActorListener: AActor, PerceptionComponent: UAIPerceptionComponent): void;
+        K2_OnNewPawn(NewPawn: APawn): void;
+        GetAllListenerComponents(ListenerComponents: UAIPerceptionComponent[]): void;
+        GetAllListenerActors(ListenerActors: AActor[]): void;
+    };
+    readonly __properties_UAISense_Blueprint: {
+        ListenerDataType: TSubclassOf<UUserDefinedStruct>;
+        ListenerContainer: UAIPerceptionComponent[];
+        UnprocessedEvents: UAISenseEvent[];
+    };
+    readonly __staticRegistry: 
+        UAISense_Blueprint['__static_UAISense_Blueprint'] &
+        UAISense['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISense_Blueprint['__properties_UAISense_Blueprint'] &
+        UAISense['__propertyRegistry'];
 }
-declare const UAISense_Blueprint: UAISense_Blueprint;
 
 declare interface UAISense_Damage extends UAISense {
-    RegisteredEvents: TArray<FAIDamageEvent>;
-    ReportDamageEvent(WorldContextObject: UObject, DamagedActor: AActor, Instigator: AActor, damageAmount: number, EventLocation: FVector, HitLocation: FVector, Tag: FName): void;
+    readonly __static_UAISense_Damage: {
+        ReportDamageEvent(WorldContextObject: UObject, DamagedActor: AActor, Instigator: AActor, damageAmount: number, EventLocation: FVector, HitLocation: FVector, Tag: string): void;
+    };
+    readonly __properties_UAISense_Damage: {
+        RegisteredEvents: FAIDamageEvent[];
+    };
+    readonly __staticRegistry: 
+        UAISense_Damage['__static_UAISense_Damage'] &
+        UAISense['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISense_Damage['__properties_UAISense_Damage'] &
+        UAISense['__propertyRegistry'];
 }
-declare const UAISense_Damage: UAISense_Damage;
 
 declare interface UAISense_Hearing extends UAISense {
-    NoiseEvents: TArray<FAINoiseEvent>;
-    SpeedOfSoundSq: number;
-    ReportNoiseEvent(WorldContextObject: UObject, NoiseLocation: FVector, Loudness: number, Instigator: AActor, MaxRange: number, Tag: FName): void;
+    readonly __static_UAISense_Hearing: {
+        ReportNoiseEvent(WorldContextObject: UObject, NoiseLocation: FVector, Loudness: number, Instigator: AActor, MaxRange: number, Tag: string): void;
+    };
+    readonly __properties_UAISense_Hearing: {
+        NoiseEvents: FAINoiseEvent[];
+        SpeedOfSoundSq: number;
+    };
+    readonly __staticRegistry: 
+        UAISense_Hearing['__static_UAISense_Hearing'] &
+        UAISense['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISense_Hearing['__properties_UAISense_Hearing'] &
+        UAISense['__propertyRegistry'];
 }
-declare const UAISense_Hearing: UAISense_Hearing;
 
 declare interface UAISense_Prediction extends UAISense {
-    RegisteredEvents: TArray<FAIPredictionEvent>;
-    RequestPawnPredictionEvent(Requestor: APawn, PredictedActor: AActor, PredictionTime: number): void;
-    RequestControllerPredictionEvent(Requestor: AAIController, PredictedActor: AActor, PredictionTime: number): void;
+    readonly __static_UAISense_Prediction: {
+        RequestPawnPredictionEvent(Requestor: APawn, PredictedActor: AActor, PredictionTime: number): void;
+        RequestControllerPredictionEvent(Requestor: AAIController, PredictedActor: AActor, PredictionTime: number): void;
+    };
+    readonly __properties_UAISense_Prediction: {
+        RegisteredEvents: FAIPredictionEvent[];
+    };
+    readonly __staticRegistry: 
+        UAISense_Prediction['__static_UAISense_Prediction'] &
+        UAISense['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISense_Prediction['__properties_UAISense_Prediction'] &
+        UAISense['__propertyRegistry'];
 }
-declare const UAISense_Prediction: UAISense_Prediction;
 
 declare interface UAISense_Sight extends UAISense {
-    MaxTracesPerTick: number;
-    MaxAsyncTracesPerTick: number;
-    MinQueriesPerTimeSliceCheck: number;
-    MaxTimeSlicePerTick: number;
-    HighImportanceQueryDistanceThreshold: number;
-    MaxQueryImportance: number;
-    SightLimitQueryImportance: number;
-    PendingQueriesBudgetReductionRatio: number;
-    bUseAsynchronousTraceForDefaultSightQueries: boolean;
+    readonly __properties_UAISense_Sight: {
+        MaxTracesPerTick: number;
+        MaxAsyncTracesPerTick: number;
+        MinQueriesPerTimeSliceCheck: number;
+        MaxTimeSlicePerTick: number;
+        HighImportanceQueryDistanceThreshold: number;
+        MaxQueryImportance: number;
+        SightLimitQueryImportance: number;
+        PendingQueriesBudgetReductionRatio: number;
+        bUseAsynchronousTraceForDefaultSightQueries: boolean;
+    };
+    readonly __staticRegistry: 
+        UAISense['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISense_Sight['__properties_UAISense_Sight'] &
+        UAISense['__propertyRegistry'];
 }
-declare const UAISense_Sight: UAISense_Sight;
 
 declare interface UAISense_Team extends UAISense {
-    RegisteredEvents: TArray<FAITeamStimulusEvent>;
+    readonly __properties_UAISense_Team: {
+        RegisteredEvents: FAITeamStimulusEvent[];
+    };
+    readonly __staticRegistry: 
+        UAISense['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISense_Team['__properties_UAISense_Team'] &
+        UAISense['__propertyRegistry'];
 }
-declare const UAISense_Team: UAISense_Team;
 
 declare interface UAISense_Touch extends UAISense {
-    RegisteredEvents: TArray<FAITouchEvent>;
-    ReportTouchEvent(WorldContextObject: UObject, TouchReceiver: AActor, OtherActor: AActor, Location: FVector): void;
+    readonly __static_UAISense_Touch: {
+        ReportTouchEvent(WorldContextObject: UObject, TouchReceiver: AActor, OtherActor: AActor, Location: FVector): void;
+    };
+    readonly __properties_UAISense_Touch: {
+        RegisteredEvents: FAITouchEvent[];
+    };
+    readonly __staticRegistry: 
+        UAISense_Touch['__static_UAISense_Touch'] &
+        UAISense['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISense_Touch['__properties_UAISense_Touch'] &
+        UAISense['__propertyRegistry'];
 }
-declare const UAISense_Touch: UAISense_Touch;
 
 declare interface UAISubsystem extends UObject {
-    AISystem: UAISystem;
+    readonly __properties_UAISubsystem: {
+        AISystem: UAISystem;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISubsystem['__properties_UAISubsystem'] &
+        UObject['__propertyRegistry'];
 }
-declare const UAISubsystem: UAISubsystem;
 
 declare interface UAISystem extends UAISystemBase {
-    PerceptionSystemClassName: FSoftClassPath;
-    HotSpotManagerClassName: FSoftClassPath;
-    EnvQueryManagerClassName: FSoftClassPath;
-    AcceptanceRadius: number;
-    PathfollowingRegularPathPointAcceptanceRadius: number;
-    PathfollowingNavLinkAcceptanceRadius: number;
-    bFinishMoveOnGoalOverlap: boolean;
-    bAcceptPartialPaths: boolean;
-    bAllowStrafing: boolean;
-    bAllowControllersAsEQSQuerier: boolean;
-    bEnableDebuggerPlugin: boolean;
-    bForgetStaleActors: boolean;
-    bAddBlackboardSelfKey: boolean;
-    bClearBBEntryOnBTEQSFail: boolean;
-    bBlackboardKeyDecoratorAllowsNoneAsValue: boolean;
-    DefaultBlackboard: TSoftObjectPtr<UBlackboardData>;
-    DefaultSightCollisionChannel: ECollisionChannel;
-    BehaviorTreeManager: UBehaviorTreeManager;
-    EnvironmentQueryManager: UEnvQueryManager;
-    PerceptionSystem: UAIPerceptionSystem;
-    AllProxyObjects: TArray<UAIAsyncTaskBlueprintProxy>;
-    HotSpotManager: UAIHotSpotManager;
-    NavLocalGrids: UNavLocalGridManager;
-    AILoggingVerbose(): void;
-    AIIgnorePlayers(): void;
+    readonly __static_UAISystem: {
+        AILoggingVerbose(): void;
+        AIIgnorePlayers(): void;
+    };
+    readonly __properties_UAISystem: {
+        PerceptionSystemClassName: FSoftClassPath;
+        HotSpotManagerClassName: FSoftClassPath;
+        EnvQueryManagerClassName: FSoftClassPath;
+        AcceptanceRadius: number;
+        PathfollowingRegularPathPointAcceptanceRadius: number;
+        PathfollowingNavLinkAcceptanceRadius: number;
+        bFinishMoveOnGoalOverlap: boolean;
+        bAcceptPartialPaths: boolean;
+        bAllowStrafing: boolean;
+        bAllowControllersAsEQSQuerier: boolean;
+        bEnableDebuggerPlugin: boolean;
+        bForgetStaleActors: boolean;
+        bAddBlackboardSelfKey: boolean;
+        bClearBBEntryOnBTEQSFail: boolean;
+        bBlackboardKeyDecoratorAllowsNoneAsValue: boolean;
+        DefaultBlackboard: TSoftObjectPtr<UBlackboardData>;
+        DefaultSightCollisionChannel: ECollisionChannel;
+        BehaviorTreeManager: UBehaviorTreeManager;
+        EnvironmentQueryManager: UEnvQueryManager;
+        PerceptionSystem: UAIPerceptionSystem;
+        AllProxyObjects: UAIAsyncTaskBlueprintProxy[];
+        HotSpotManager: UAIHotSpotManager;
+        NavLocalGrids: UNavLocalGridManager;
+    };
+    readonly __staticRegistry: 
+        UAISystem['__static_UAISystem'] &
+        UAISystemBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAISystem['__properties_UAISystem'] &
+        UAISystemBase['__propertyRegistry'];
 }
-declare const UAISystem: UAISystem;
 
 declare interface UAITask extends UGameplayTask {
-    OwnerController: AAIController;
+    readonly __properties_UAITask: {
+        OwnerController: AAIController;
+    };
+    readonly __staticRegistry: 
+        UGameplayTask['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAITask['__properties_UAITask'] &
+        UGameplayTask['__propertyRegistry'];
 }
-declare const UAITask: UAITask;
 
 declare interface UAITask_LockLogic extends UAITask {
-
+    readonly __staticRegistry: 
+        UAITask['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAITask['__propertyRegistry'];
 }
-declare const UAITask_LockLogic: UAITask_LockLogic;
 
 declare interface UAITask_MoveTo extends UAITask {
-    OnRequestFailed: FAITask_MoveToOnRequestFailed;
-    OnMoveFinished: FAITask_MoveToOnMoveFinished;
-    MoveRequest: FAIMoveRequest;
-    AIMoveTo(Controller: AAIController, GoalLocation: FVector, GoalActor: AActor, AcceptanceRadius: number, StopOnOverlap: EAIOptionFlag, AcceptPartialPath: EAIOptionFlag, bUsePathfinding: boolean, bLockAILogic: boolean, bUseContinuousGoalTracking: boolean, ProjectGoalOnNavigation: EAIOptionFlag, RequireNavigableEndLocation: EAIOptionFlag): UAITask_MoveTo;
+    readonly __static_UAITask_MoveTo: {
+        AIMoveTo(Controller: AAIController, GoalLocation: FVector, GoalActor: AActor, AcceptanceRadius: number, StopOnOverlap: EAIOptionFlag, AcceptPartialPath: EAIOptionFlag, bUsePathfinding: boolean, bLockAILogic: boolean, bUseContinuousGoalTracking: boolean, ProjectGoalOnNavigation: EAIOptionFlag, RequireNavigableEndLocation: EAIOptionFlag): UAITask_MoveTo;
+    };
+    readonly __properties_UAITask_MoveTo: {
+        OnRequestFailed: FAITask_MoveToOnRequestFailed;
+        OnMoveFinished: FAITask_MoveToOnMoveFinished;
+        MoveRequest: FAIMoveRequest;
+    };
+    readonly __staticRegistry: 
+        UAITask_MoveTo['__static_UAITask_MoveTo'] &
+        UAITask['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAITask_MoveTo['__properties_UAITask_MoveTo'] &
+        UAITask['__propertyRegistry'];
 }
-declare const UAITask_MoveTo: UAITask_MoveTo;
 
 declare interface UAITask_RunEQS extends UAITask {
-    RunEQS(Controller: AAIController, QueryTemplate: UEnvQuery): UAITask_RunEQS;
+    readonly __static_UAITask_RunEQS: {
+        RunEQS(Controller: AAIController, QueryTemplate: UEnvQuery): UAITask_RunEQS;
+    };
+    readonly __staticRegistry: 
+        UAITask_RunEQS['__static_UAITask_RunEQS'] &
+        UAITask['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAITask['__propertyRegistry'];
 }
-declare const UAITask_RunEQS: UAITask_RunEQS;
 
 declare interface UBTAuxiliaryNode extends UBTNode {
-
+    readonly __staticRegistry: 
+        UBTNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTNode['__propertyRegistry'];
 }
-declare const UBTAuxiliaryNode: UBTAuxiliaryNode;
 
 declare interface UBTCompositeNode extends UBTNode {
-    Children: TArray<FBTCompositeChild>;
-    Services: TArray<UBTService>;
-    bApplyDecoratorScope: boolean;
+    readonly __properties_UBTCompositeNode: {
+        Children: FBTCompositeChild[];
+        Services: UBTService[];
+        bApplyDecoratorScope: boolean;
+    };
+    readonly __staticRegistry: 
+        UBTNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTCompositeNode['__properties_UBTCompositeNode'] &
+        UBTNode['__propertyRegistry'];
 }
-declare const UBTCompositeNode: UBTCompositeNode;
 
 declare interface UBTComposite_Selector extends UBTCompositeNode {
-
+    readonly __staticRegistry: 
+        UBTCompositeNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTCompositeNode['__propertyRegistry'];
 }
-declare const UBTComposite_Selector: UBTComposite_Selector;
 
 declare interface UBTComposite_Sequence extends UBTCompositeNode {
-
+    readonly __staticRegistry: 
+        UBTCompositeNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTCompositeNode['__propertyRegistry'];
 }
-declare const UBTComposite_Sequence: UBTComposite_Sequence;
 
 declare interface UBTComposite_SimpleParallel extends UBTCompositeNode {
-    FinishMode: EBTParallelMode;
+    readonly __properties_UBTComposite_SimpleParallel: {
+        FinishMode: EBTParallelMode;
+    };
+    readonly __staticRegistry: 
+        UBTCompositeNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTComposite_SimpleParallel['__properties_UBTComposite_SimpleParallel'] &
+        UBTCompositeNode['__propertyRegistry'];
 }
-declare const UBTComposite_SimpleParallel: UBTComposite_SimpleParallel;
 
 declare interface UBTDecorator extends UBTAuxiliaryNode {
-    bInverseCondition: boolean;
-    FlowAbortMode: EBTFlowAbortMode;
+    readonly __properties_UBTDecorator: {
+        bInverseCondition: boolean;
+        FlowAbortMode: EBTFlowAbortMode;
+    };
+    readonly __staticRegistry: 
+        UBTAuxiliaryNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator['__properties_UBTDecorator'] &
+        UBTAuxiliaryNode['__propertyRegistry'];
 }
-declare const UBTDecorator: UBTDecorator;
 
 declare interface UBTDecorator_Blackboard extends UBTDecorator_BlackboardBase {
-    IntValue: number;
-    FloatValue: number;
-    StringValue: FString;
-    CachedDescription: FString;
-    OperationType: uint8;
-    NotifyObserver: EBTBlackboardRestart;
+    readonly __properties_UBTDecorator_Blackboard: {
+        IntValue: number;
+        FloatValue: number;
+        StringValue: string;
+        CachedDescription: string;
+        OperationType: number;
+        NotifyObserver: EBTBlackboardRestart;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_Blackboard['__properties_UBTDecorator_Blackboard'] &
+        UBTDecorator_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTDecorator_Blackboard: UBTDecorator_Blackboard;
 
 declare interface UBTDecorator_BlackboardBase extends UBTDecorator {
-    BlackboardKey: FBlackboardKeySelector;
+    readonly __properties_UBTDecorator_BlackboardBase: {
+        BlackboardKey: FBlackboardKeySelector;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_BlackboardBase['__properties_UBTDecorator_BlackboardBase'] &
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_BlackboardBase: UBTDecorator_BlackboardBase;
 
 declare interface UBTDecorator_BlueprintBase extends UBTDecorator {
-    AIOwner: AAIController;
-    ActorOwner: AActor;
-    ObservedKeyNames: TArray<FName>;
-    bShowPropertyDetails: boolean;
-    bCheckConditionOnlyBlackBoardChanges: boolean;
-    ReceiveTickAI(OwnerController: AAIController, ControlledPawn: APawn, DeltaSeconds: number): void;
-    ReceiveTick(OwnerActor: AActor, DeltaSeconds: number): void;
-    ReceiveObserverDeactivatedAI(OwnerController: AAIController, ControlledPawn: APawn): void;
-    ReceiveObserverDeactivated(OwnerActor: AActor): void;
-    ReceiveObserverActivatedAI(OwnerController: AAIController, ControlledPawn: APawn): void;
-    ReceiveObserverActivated(OwnerActor: AActor): void;
-    ReceiveExecutionStartAI(OwnerController: AAIController, ControlledPawn: APawn): void;
-    ReceiveExecutionStart(OwnerActor: AActor): void;
-    ReceiveExecutionFinishAI(OwnerController: AAIController, ControlledPawn: APawn, NodeResult: EBTNodeResult): void;
-    ReceiveExecutionFinish(OwnerActor: AActor, NodeResult: EBTNodeResult): void;
-    PerformConditionCheckAI(OwnerController: AAIController, ControlledPawn: APawn): boolean;
-    PerformConditionCheck(OwnerActor: AActor): boolean;
-    IsDecoratorObserverActive(): boolean;
-    IsDecoratorExecutionActive(): boolean;
+    readonly __static_UBTDecorator_BlueprintBase: {
+        ReceiveTickAI(OwnerController: AAIController, ControlledPawn: APawn, DeltaSeconds: number): void;
+        ReceiveTick(OwnerActor: AActor, DeltaSeconds: number): void;
+        ReceiveObserverDeactivatedAI(OwnerController: AAIController, ControlledPawn: APawn): void;
+        ReceiveObserverDeactivated(OwnerActor: AActor): void;
+        ReceiveObserverActivatedAI(OwnerController: AAIController, ControlledPawn: APawn): void;
+        ReceiveObserverActivated(OwnerActor: AActor): void;
+        ReceiveExecutionStartAI(OwnerController: AAIController, ControlledPawn: APawn): void;
+        ReceiveExecutionStart(OwnerActor: AActor): void;
+        ReceiveExecutionFinishAI(OwnerController: AAIController, ControlledPawn: APawn, NodeResult: EBTNodeResult): void;
+        ReceiveExecutionFinish(OwnerActor: AActor, NodeResult: EBTNodeResult): void;
+        PerformConditionCheckAI(OwnerController: AAIController, ControlledPawn: APawn): boolean;
+        PerformConditionCheck(OwnerActor: AActor): boolean;
+        IsDecoratorObserverActive(): boolean;
+        IsDecoratorExecutionActive(): boolean;
+    };
+    readonly __properties_UBTDecorator_BlueprintBase: {
+        AIOwner: AAIController;
+        ActorOwner: AActor;
+        ObservedKeyNames: string[];
+        bShowPropertyDetails: boolean;
+        bCheckConditionOnlyBlackBoardChanges: boolean;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator_BlueprintBase['__static_UBTDecorator_BlueprintBase'] &
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_BlueprintBase['__properties_UBTDecorator_BlueprintBase'] &
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_BlueprintBase: UBTDecorator_BlueprintBase;
 
 declare interface UBTDecorator_CheckGameplayTagsOnActor extends UBTDecorator {
-    ActorToCheck: FBlackboardKeySelector;
-    TagsToMatch: EGameplayContainerMatchType;
-    GameplayTags: FGameplayTagContainer;
-    CachedDescription: FString;
+    readonly __properties_UBTDecorator_CheckGameplayTagsOnActor: {
+        ActorToCheck: FBlackboardKeySelector;
+        TagsToMatch: EGameplayContainerMatchType;
+        GameplayTags: FGameplayTagContainer;
+        CachedDescription: string;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_CheckGameplayTagsOnActor['__properties_UBTDecorator_CheckGameplayTagsOnActor'] &
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_CheckGameplayTagsOnActor: UBTDecorator_CheckGameplayTagsOnActor;
 
 declare interface UBTDecorator_CompareBBEntries extends UBTDecorator {
-    Operator: EBlackBoardEntryComparison;
-    BlackboardKeyA: FBlackboardKeySelector;
-    BlackboardKeyB: FBlackboardKeySelector;
+    readonly __properties_UBTDecorator_CompareBBEntries: {
+        Operator: EBlackBoardEntryComparison;
+        BlackboardKeyA: FBlackboardKeySelector;
+        BlackboardKeyB: FBlackboardKeySelector;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_CompareBBEntries['__properties_UBTDecorator_CompareBBEntries'] &
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_CompareBBEntries: UBTDecorator_CompareBBEntries;
 
 declare interface UBTDecorator_ConditionalLoop extends UBTDecorator_Blackboard {
-
+    readonly __staticRegistry: 
+        UBTDecorator_Blackboard['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_Blackboard['__propertyRegistry'];
 }
-declare const UBTDecorator_ConditionalLoop: UBTDecorator_ConditionalLoop;
 
 declare interface UBTDecorator_ConeCheck extends UBTDecorator {
-    ConeHalfAngle: FValueOrBBKey_Float;
-    ConeOrigin: FBlackboardKeySelector;
-    ConeDirection: FBlackboardKeySelector;
-    Observed: FBlackboardKeySelector;
+    readonly __properties_UBTDecorator_ConeCheck: {
+        ConeHalfAngle: FValueOrBBKey_Float;
+        ConeOrigin: FBlackboardKeySelector;
+        ConeDirection: FBlackboardKeySelector;
+        Observed: FBlackboardKeySelector;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_ConeCheck['__properties_UBTDecorator_ConeCheck'] &
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_ConeCheck: UBTDecorator_ConeCheck;
 
 declare interface UBTDecorator_Cooldown extends UBTDecorator {
-    CoolDownTime: FValueOrBBKey_Float;
+    readonly __properties_UBTDecorator_Cooldown: {
+        CoolDownTime: FValueOrBBKey_Float;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_Cooldown['__properties_UBTDecorator_Cooldown'] &
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_Cooldown: UBTDecorator_Cooldown;
 
 declare interface UBTDecorator_DoesPathExist extends UBTDecorator {
-    BlackboardKeyA: FBlackboardKeySelector;
-    BlackboardKeyB: FBlackboardKeySelector;
-    bUseSelf: boolean;
-    PathQueryType: FValueOrBBKey_Enum;
-    FilterClass: FValueOrBBKey_Class;
+    readonly __properties_UBTDecorator_DoesPathExist: {
+        BlackboardKeyA: FBlackboardKeySelector;
+        BlackboardKeyB: FBlackboardKeySelector;
+        bUseSelf: boolean;
+        PathQueryType: FValueOrBBKey_Enum;
+        FilterClass: FValueOrBBKey_Class;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_DoesPathExist['__properties_UBTDecorator_DoesPathExist'] &
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_DoesPathExist: UBTDecorator_DoesPathExist;
 
 declare interface UBTDecorator_ForceSuccess extends UBTDecorator {
-
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_ForceSuccess: UBTDecorator_ForceSuccess;
 
 declare interface UBTDecorator_IsAtLocation extends UBTDecorator_BlackboardBase {
-    AcceptableRadius: number;
-    ParametrizedAcceptableRadius: FAIDataProviderFloatValue;
-    GeometricDistanceType: FAIDistanceType;
-    bUseParametrizedRadius: boolean;
-    bUseNavAgentGoalLocation: FValueOrBBKey_Bool;
-    bPathFindingBasedTest: FValueOrBBKey_Bool;
+    readonly __properties_UBTDecorator_IsAtLocation: {
+        AcceptableRadius: number;
+        ParametrizedAcceptableRadius: FAIDataProviderFloatValue;
+        GeometricDistanceType: FAIDistanceType;
+        bUseParametrizedRadius: boolean;
+        bUseNavAgentGoalLocation: FValueOrBBKey_Bool;
+        bPathFindingBasedTest: FValueOrBBKey_Bool;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_IsAtLocation['__properties_UBTDecorator_IsAtLocation'] &
+        UBTDecorator_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTDecorator_IsAtLocation: UBTDecorator_IsAtLocation;
 
 declare interface UBTDecorator_IsBBEntryOfClass extends UBTDecorator_BlackboardBase {
-    TestClass: FValueOrBBKey_Class;
+    readonly __properties_UBTDecorator_IsBBEntryOfClass: {
+        TestClass: FValueOrBBKey_Class;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_IsBBEntryOfClass['__properties_UBTDecorator_IsBBEntryOfClass'] &
+        UBTDecorator_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTDecorator_IsBBEntryOfClass: UBTDecorator_IsBBEntryOfClass;
 
 declare interface UBTDecorator_KeepInCone extends UBTDecorator {
-    ConeHalfAngle: FValueOrBBKey_Float;
-    ConeOrigin: FBlackboardKeySelector;
-    Observed: FBlackboardKeySelector;
-    bUseSelfAsOrigin: boolean;
-    bUseSelfAsObserved: boolean;
+    readonly __properties_UBTDecorator_KeepInCone: {
+        ConeHalfAngle: FValueOrBBKey_Float;
+        ConeOrigin: FBlackboardKeySelector;
+        Observed: FBlackboardKeySelector;
+        bUseSelfAsOrigin: boolean;
+        bUseSelfAsObserved: boolean;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_KeepInCone['__properties_UBTDecorator_KeepInCone'] &
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_KeepInCone: UBTDecorator_KeepInCone;
 
 declare interface UBTDecorator_Loop extends UBTDecorator {
-    NumLoops: FValueOrBBKey_Int32;
-    bInfiniteLoop: boolean;
-    InfiniteLoopTimeoutTime: FValueOrBBKey_Float;
+    readonly __properties_UBTDecorator_Loop: {
+        NumLoops: FValueOrBBKey_Int32;
+        bInfiniteLoop: boolean;
+        InfiniteLoopTimeoutTime: FValueOrBBKey_Float;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_Loop['__properties_UBTDecorator_Loop'] &
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_Loop: UBTDecorator_Loop;
 
 declare interface UBTDecorator_LoopUntil extends UBTDecorator {
-    RequiredResult: FValueOrBBKey_Enum;
+    readonly __properties_UBTDecorator_LoopUntil: {
+        RequiredResult: FValueOrBBKey_Enum;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_LoopUntil['__properties_UBTDecorator_LoopUntil'] &
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_LoopUntil: UBTDecorator_LoopUntil;
 
 declare interface UBTDecorator_ReachedMoveGoal extends UBTDecorator {
-
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_ReachedMoveGoal: UBTDecorator_ReachedMoveGoal;
 
 declare interface UBTDecorator_SetTagCooldown extends UBTDecorator {
-    CooldownTag: FGameplayTag;
-    CooldownDuration: FValueOrBBKey_Float;
-    bAddToExistingDuration: FValueOrBBKey_Bool;
+    readonly __properties_UBTDecorator_SetTagCooldown: {
+        CooldownTag: FGameplayTag;
+        CooldownDuration: FValueOrBBKey_Float;
+        bAddToExistingDuration: FValueOrBBKey_Bool;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_SetTagCooldown['__properties_UBTDecorator_SetTagCooldown'] &
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_SetTagCooldown: UBTDecorator_SetTagCooldown;
 
 declare interface UBTDecorator_TagCooldown extends UBTDecorator {
-    CooldownTag: FGameplayTag;
-    CooldownDuration: FValueOrBBKey_Float;
-    bAddToExistingDuration: FValueOrBBKey_Bool;
-    bActivatesCooldown: FValueOrBBKey_Bool;
+    readonly __properties_UBTDecorator_TagCooldown: {
+        CooldownTag: FGameplayTag;
+        CooldownDuration: FValueOrBBKey_Float;
+        bAddToExistingDuration: FValueOrBBKey_Bool;
+        bActivatesCooldown: FValueOrBBKey_Bool;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_TagCooldown['__properties_UBTDecorator_TagCooldown'] &
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_TagCooldown: UBTDecorator_TagCooldown;
 
 declare interface UBTDecorator_TimeLimit extends UBTDecorator {
-    TimeLimit: FValueOrBBKey_Float;
+    readonly __properties_UBTDecorator_TimeLimit: {
+        TimeLimit: FValueOrBBKey_Float;
+    };
+    readonly __staticRegistry: 
+        UBTDecorator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTDecorator_TimeLimit['__properties_UBTDecorator_TimeLimit'] &
+        UBTDecorator['__propertyRegistry'];
 }
-declare const UBTDecorator_TimeLimit: UBTDecorator_TimeLimit;
 
 declare interface UBTFunctionLibrary extends UBlueprintFunctionLibrary {
-    StopUsingExternalEvent(NodeOwner: UBTNode): void;
-    StartUsingExternalEvent(NodeOwner: UBTNode, owningActor: AActor): void;
-    SetBlackboardValueAsVector(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: FVector): void;
-    SetBlackboardValueAsString(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: string | FString): void;
-    SetBlackboardValueAsRotator(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: FRotator): void;
-    SetBlackboardValueAsObject(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: UObject): void;
-    SetBlackboardValueAsName(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: FName): void;
-    SetBlackboardValueAsInt(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: number): void;
-    SetBlackboardValueAsFloat(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: number): void;
-    SetBlackboardValueAsEnum(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: uint8): void;
-    SetBlackboardValueAsClass(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: UClass): void;
-    SetBlackboardValueAsBool(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: boolean): void;
-    GetOwnersBlackboard(NodeOwner: UBTNode): UBlackboardComponent;
-    GetOwnerComponent(NodeOwner: UBTNode): UBehaviorTreeComponent;
-    GetBlackboardValueAsVector(NodeOwner: UBTNode, Key: FBlackboardKeySelector): FVector;
-    GetBlackboardValueAsString(NodeOwner: UBTNode, Key: FBlackboardKeySelector): FString;
-    GetBlackboardValueAsRotator(NodeOwner: UBTNode, Key: FBlackboardKeySelector): FRotator;
-    GetBlackboardValueAsObject(NodeOwner: UBTNode, Key: FBlackboardKeySelector): UObject;
-    GetBlackboardValueAsName(NodeOwner: UBTNode, Key: FBlackboardKeySelector): FName;
-    GetBlackboardValueAsInt(NodeOwner: UBTNode, Key: FBlackboardKeySelector): number;
-    GetBlackboardValueAsFloat(NodeOwner: UBTNode, Key: FBlackboardKeySelector): number;
-    GetBlackboardValueAsEnum(NodeOwner: UBTNode, Key: FBlackboardKeySelector): uint8;
-    GetBlackboardValueAsClass(NodeOwner: UBTNode, Key: FBlackboardKeySelector): UClass;
-    GetBlackboardValueAsBool(NodeOwner: UBTNode, Key: FBlackboardKeySelector): boolean;
-    GetBlackboardValueAsActor(NodeOwner: UBTNode, Key: FBlackboardKeySelector): AActor;
-    ClearBlackboardValueAsVector(NodeOwner: UBTNode, Key: FBlackboardKeySelector): void;
-    ClearBlackboardValue(NodeOwner: UBTNode, Key: FBlackboardKeySelector): void;
+    readonly __static_UBTFunctionLibrary: {
+        StopUsingExternalEvent(NodeOwner: UBTNode): void;
+        StartUsingExternalEvent(NodeOwner: UBTNode, owningActor: AActor): void;
+        SetBlackboardValueAsVector(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: FVector): void;
+        SetBlackboardValueAsString(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: string): void;
+        SetBlackboardValueAsRotator(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: FRotator): void;
+        SetBlackboardValueAsObject(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: UObject): void;
+        SetBlackboardValueAsName(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: string): void;
+        SetBlackboardValueAsInt(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: number): void;
+        SetBlackboardValueAsFloat(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: number): void;
+        SetBlackboardValueAsEnum(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: number): void;
+        SetBlackboardValueAsClass(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: UClass): void;
+        SetBlackboardValueAsBool(NodeOwner: UBTNode, Key: FBlackboardKeySelector, Value: boolean): void;
+        GetOwnersBlackboard(NodeOwner: UBTNode): UBlackboardComponent;
+        GetOwnerComponent(NodeOwner: UBTNode): UBehaviorTreeComponent;
+        GetBlackboardValueAsVector(NodeOwner: UBTNode, Key: FBlackboardKeySelector): FVector;
+        GetBlackboardValueAsString(NodeOwner: UBTNode, Key: FBlackboardKeySelector): string;
+        GetBlackboardValueAsRotator(NodeOwner: UBTNode, Key: FBlackboardKeySelector): FRotator;
+        GetBlackboardValueAsObject(NodeOwner: UBTNode, Key: FBlackboardKeySelector): UObject;
+        GetBlackboardValueAsName(NodeOwner: UBTNode, Key: FBlackboardKeySelector): string;
+        GetBlackboardValueAsInt(NodeOwner: UBTNode, Key: FBlackboardKeySelector): number;
+        GetBlackboardValueAsFloat(NodeOwner: UBTNode, Key: FBlackboardKeySelector): number;
+        GetBlackboardValueAsEnum(NodeOwner: UBTNode, Key: FBlackboardKeySelector): number;
+        GetBlackboardValueAsClass(NodeOwner: UBTNode, Key: FBlackboardKeySelector): UClass;
+        GetBlackboardValueAsBool(NodeOwner: UBTNode, Key: FBlackboardKeySelector): boolean;
+        GetBlackboardValueAsActor(NodeOwner: UBTNode, Key: FBlackboardKeySelector): AActor;
+        ClearBlackboardValueAsVector(NodeOwner: UBTNode, Key: FBlackboardKeySelector): void;
+        ClearBlackboardValue(NodeOwner: UBTNode, Key: FBlackboardKeySelector): void;
+    };
+    readonly __staticRegistry: 
+        UBTFunctionLibrary['__static_UBTFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UBTFunctionLibrary: UBTFunctionLibrary;
 
 declare interface UBTNode extends UObject {
-    NodeName: FString;
-    TreeAsset: UBehaviorTree;
-    ParentNode: UBTCompositeNode;
+    readonly __properties_UBTNode: {
+        NodeName: string;
+        TreeAsset: UBehaviorTree;
+        ParentNode: UBTCompositeNode;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTNode['__properties_UBTNode'] &
+        UObject['__propertyRegistry'];
 }
-declare const UBTNode: UBTNode;
 
 declare interface UBTService extends UBTAuxiliaryNode {
-    Interval: number;
-    RandomDeviation: number;
-    bCallTickOnSearchStart: boolean;
-    bRestartTimerOnEachActivation: boolean;
+    readonly __properties_UBTService: {
+        Interval: number;
+        RandomDeviation: number;
+        bCallTickOnSearchStart: boolean;
+        bRestartTimerOnEachActivation: boolean;
+    };
+    readonly __staticRegistry: 
+        UBTAuxiliaryNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTService['__properties_UBTService'] &
+        UBTAuxiliaryNode['__propertyRegistry'];
 }
-declare const UBTService: UBTService;
 
 declare interface UBTService_BlackboardBase extends UBTService {
-    BlackboardKey: FBlackboardKeySelector;
+    readonly __properties_UBTService_BlackboardBase: {
+        BlackboardKey: FBlackboardKeySelector;
+    };
+    readonly __staticRegistry: 
+        UBTService['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTService_BlackboardBase['__properties_UBTService_BlackboardBase'] &
+        UBTService['__propertyRegistry'];
 }
-declare const UBTService_BlackboardBase: UBTService_BlackboardBase;
 
 declare interface UBTService_BlueprintBase extends UBTService {
-    AIOwner: AAIController;
-    ActorOwner: AActor;
-    bShowPropertyDetails: boolean;
-    bShowEventDetails: boolean;
-    ReceiveTickAI(OwnerController: AAIController, ControlledPawn: APawn, DeltaSeconds: number): void;
-    ReceiveTick(OwnerActor: AActor, DeltaSeconds: number): void;
-    ReceiveSearchStartAI(OwnerController: AAIController, ControlledPawn: APawn): void;
-    ReceiveSearchStart(OwnerActor: AActor): void;
-    ReceiveDeactivationAI(OwnerController: AAIController, ControlledPawn: APawn): void;
-    ReceiveDeactivation(OwnerActor: AActor): void;
-    ReceiveActivationAI(OwnerController: AAIController, ControlledPawn: APawn): void;
-    ReceiveActivation(OwnerActor: AActor): void;
-    IsServiceActive(): boolean;
+    readonly __static_UBTService_BlueprintBase: {
+        ReceiveTickAI(OwnerController: AAIController, ControlledPawn: APawn, DeltaSeconds: number): void;
+        ReceiveTick(OwnerActor: AActor, DeltaSeconds: number): void;
+        ReceiveSearchStartAI(OwnerController: AAIController, ControlledPawn: APawn): void;
+        ReceiveSearchStart(OwnerActor: AActor): void;
+        ReceiveDeactivationAI(OwnerController: AAIController, ControlledPawn: APawn): void;
+        ReceiveDeactivation(OwnerActor: AActor): void;
+        ReceiveActivationAI(OwnerController: AAIController, ControlledPawn: APawn): void;
+        ReceiveActivation(OwnerActor: AActor): void;
+        IsServiceActive(): boolean;
+    };
+    readonly __properties_UBTService_BlueprintBase: {
+        AIOwner: AAIController;
+        ActorOwner: AActor;
+        bShowPropertyDetails: boolean;
+        bShowEventDetails: boolean;
+    };
+    readonly __staticRegistry: 
+        UBTService_BlueprintBase['__static_UBTService_BlueprintBase'] &
+        UBTService['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTService_BlueprintBase['__properties_UBTService_BlueprintBase'] &
+        UBTService['__propertyRegistry'];
 }
-declare const UBTService_BlueprintBase: UBTService_BlueprintBase;
 
 declare interface UBTService_DefaultFocus extends UBTService_BlackboardBase {
-    FocusPriority: uint8;
+    readonly __properties_UBTService_DefaultFocus: {
+        FocusPriority: number;
+    };
+    readonly __staticRegistry: 
+        UBTService_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTService_DefaultFocus['__properties_UBTService_DefaultFocus'] &
+        UBTService_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTService_DefaultFocus: UBTService_DefaultFocus;
 
 declare interface UBTService_RunEQS extends UBTService_BlackboardBase {
-    EQSRequest: FEQSParametrizedQueryExecutionRequest;
-    bUpdateBBOnFail: boolean;
+    readonly __properties_UBTService_RunEQS: {
+        EQSRequest: FEQSParametrizedQueryExecutionRequest;
+        bUpdateBBOnFail: boolean;
+    };
+    readonly __staticRegistry: 
+        UBTService_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTService_RunEQS['__properties_UBTService_RunEQS'] &
+        UBTService_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTService_RunEQS: UBTService_RunEQS;
 
 declare interface UBTTaskNode extends UBTNode {
-    Services: TArray<UBTService>;
-    bIgnoreRestartSelf: boolean;
+    readonly __properties_UBTTaskNode: {
+        Services: UBTService[];
+        bIgnoreRestartSelf: boolean;
+    };
+    readonly __staticRegistry: 
+        UBTNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTaskNode['__properties_UBTTaskNode'] &
+        UBTNode['__propertyRegistry'];
 }
-declare const UBTTaskNode: UBTTaskNode;
 
 declare interface UBTTask_BlackboardBase extends UBTTaskNode {
-    BlackboardKey: FBlackboardKeySelector;
+    readonly __properties_UBTTask_BlackboardBase: {
+        BlackboardKey: FBlackboardKeySelector;
+    };
+    readonly __staticRegistry: 
+        UBTTaskNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_BlackboardBase['__properties_UBTTask_BlackboardBase'] &
+        UBTTaskNode['__propertyRegistry'];
 }
-declare const UBTTask_BlackboardBase: UBTTask_BlackboardBase;
 
 declare interface UBTTask_BlueprintBase extends UBTTaskNode {
-    AIOwner: AAIController;
-    ActorOwner: AActor;
-    TickInterval: FIntervalCountdown;
-    bShowPropertyDetails: boolean;
-    SetFinishOnMessageWithId(MessageName: FName, RequestID: number): void;
-    SetFinishOnMessage(MessageName: FName): void;
-    ReceiveTickAI(OwnerController: AAIController, ControlledPawn: APawn, DeltaSeconds: number): void;
-    ReceiveTick(OwnerActor: AActor, DeltaSeconds: number): void;
-    ReceiveExecuteAI(OwnerController: AAIController, ControlledPawn: APawn): void;
-    ReceiveExecute(OwnerActor: AActor): void;
-    ReceiveAbortAI(OwnerController: AAIController, ControlledPawn: APawn): void;
-    ReceiveAbort(OwnerActor: AActor): void;
-    IsTaskExecuting(): boolean;
-    IsTaskAborting(): boolean;
-    FinishExecute(bSuccess: boolean): void;
-    FinishAbort(): void;
+    readonly __static_UBTTask_BlueprintBase: {
+        SetFinishOnMessageWithId(MessageName: string, RequestID: number): void;
+        SetFinishOnMessage(MessageName: string): void;
+        ReceiveTickAI(OwnerController: AAIController, ControlledPawn: APawn, DeltaSeconds: number): void;
+        ReceiveTick(OwnerActor: AActor, DeltaSeconds: number): void;
+        ReceiveExecuteAI(OwnerController: AAIController, ControlledPawn: APawn): void;
+        ReceiveExecute(OwnerActor: AActor): void;
+        ReceiveAbortAI(OwnerController: AAIController, ControlledPawn: APawn): void;
+        ReceiveAbort(OwnerActor: AActor): void;
+        IsTaskExecuting(): boolean;
+        IsTaskAborting(): boolean;
+        FinishExecute(bSuccess: boolean): void;
+        FinishAbort(): void;
+    };
+    readonly __properties_UBTTask_BlueprintBase: {
+        AIOwner: AAIController;
+        ActorOwner: AActor;
+        TickInterval: FIntervalCountdown;
+        bShowPropertyDetails: boolean;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlueprintBase['__static_UBTTask_BlueprintBase'] &
+        UBTTaskNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_BlueprintBase['__properties_UBTTask_BlueprintBase'] &
+        UBTTaskNode['__propertyRegistry'];
 }
-declare const UBTTask_BlueprintBase: UBTTask_BlueprintBase;
 
 declare interface UBTTask_FinishWithResult extends UBTTaskNode {
-    Result: FValueOrBBKey_Enum;
+    readonly __properties_UBTTask_FinishWithResult: {
+        Result: FValueOrBBKey_Enum;
+    };
+    readonly __staticRegistry: 
+        UBTTaskNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_FinishWithResult['__properties_UBTTask_FinishWithResult'] &
+        UBTTaskNode['__propertyRegistry'];
 }
-declare const UBTTask_FinishWithResult: UBTTask_FinishWithResult;
 
 declare interface UBTTask_GameplayTaskBase extends UBTTaskNode {
-    bWaitForGameplayTask: FValueOrBBKey_Bool;
+    readonly __properties_UBTTask_GameplayTaskBase: {
+        bWaitForGameplayTask: FValueOrBBKey_Bool;
+    };
+    readonly __staticRegistry: 
+        UBTTaskNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_GameplayTaskBase['__properties_UBTTask_GameplayTaskBase'] &
+        UBTTaskNode['__propertyRegistry'];
 }
-declare const UBTTask_GameplayTaskBase: UBTTask_GameplayTaskBase;
 
 declare interface UBTTask_MakeNoise extends UBTTaskNode {
-    Loudnes: FValueOrBBKey_Float;
+    readonly __properties_UBTTask_MakeNoise: {
+        Loudnes: FValueOrBBKey_Float;
+    };
+    readonly __staticRegistry: 
+        UBTTaskNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_MakeNoise['__properties_UBTTask_MakeNoise'] &
+        UBTTaskNode['__propertyRegistry'];
 }
-declare const UBTTask_MakeNoise: UBTTask_MakeNoise;
 
 declare interface UBTTask_MoveDirectlyToward extends UBTTask_MoveTo {
-
+    readonly __staticRegistry: 
+        UBTTask_MoveTo['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_MoveTo['__propertyRegistry'];
 }
-declare const UBTTask_MoveDirectlyToward: UBTTask_MoveDirectlyToward;
 
 declare interface UBTTask_MoveTo extends UBTTask_BlackboardBase {
-    AcceptableRadius: FValueOrBBKey_Float;
-    FilterClass: FValueOrBBKey_Class;
-    ObservedBlackboardValueTolerance: FValueOrBBKey_Float;
-    bAllowStrafe: FValueOrBBKey_Bool;
-    bAllowPartialPath: FValueOrBBKey_Bool;
-    bTrackMovingGoal: FValueOrBBKey_Bool;
-    bRequireNavigableEndLocation: FValueOrBBKey_Bool;
-    bProjectGoalLocation: FValueOrBBKey_Bool;
-    bReachTestIncludesAgentRadius: FValueOrBBKey_Bool;
-    bReachTestIncludesGoalRadius: FValueOrBBKey_Bool;
-    bStartFromPreviousPath: FValueOrBBKey_Bool;
-    bObserveBlackboardValue: boolean;
+    readonly __properties_UBTTask_MoveTo: {
+        AcceptableRadius: FValueOrBBKey_Float;
+        FilterClass: FValueOrBBKey_Class;
+        ObservedBlackboardValueTolerance: FValueOrBBKey_Float;
+        bAllowStrafe: FValueOrBBKey_Bool;
+        bAllowPartialPath: FValueOrBBKey_Bool;
+        bTrackMovingGoal: FValueOrBBKey_Bool;
+        bRequireNavigableEndLocation: FValueOrBBKey_Bool;
+        bProjectGoalLocation: FValueOrBBKey_Bool;
+        bReachTestIncludesAgentRadius: FValueOrBBKey_Bool;
+        bReachTestIncludesGoalRadius: FValueOrBBKey_Bool;
+        bStartFromPreviousPath: FValueOrBBKey_Bool;
+        bObserveBlackboardValue: boolean;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_MoveTo['__properties_UBTTask_MoveTo'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_MoveTo: UBTTask_MoveTo;
 
 declare interface UBTTask_PlayAnimation extends UBTTaskNode {
-    AnimationToPlay: FValueOrBBKey_Object;
-    bLooping: FValueOrBBKey_Bool;
-    bNonBlocking: FValueOrBBKey_Bool;
-    MyOwnerComp: UBehaviorTreeComponent;
-    CachedSkelMesh: USkeletalMeshComponent;
+    readonly __properties_UBTTask_PlayAnimation: {
+        AnimationToPlay: FValueOrBBKey_Object;
+        bLooping: FValueOrBBKey_Bool;
+        bNonBlocking: FValueOrBBKey_Bool;
+        MyOwnerComp: UBehaviorTreeComponent;
+        CachedSkelMesh: USkeletalMeshComponent;
+    };
+    readonly __staticRegistry: 
+        UBTTaskNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_PlayAnimation['__properties_UBTTask_PlayAnimation'] &
+        UBTTaskNode['__propertyRegistry'];
 }
-declare const UBTTask_PlayAnimation: UBTTask_PlayAnimation;
 
 declare interface UBTTask_PlaySound extends UBTTaskNode {
-    SoundToPlay: FValueOrBBKey_Object;
+    readonly __properties_UBTTask_PlaySound: {
+        SoundToPlay: FValueOrBBKey_Object;
+    };
+    readonly __staticRegistry: 
+        UBTTaskNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_PlaySound['__properties_UBTTask_PlaySound'] &
+        UBTTaskNode['__propertyRegistry'];
 }
-declare const UBTTask_PlaySound: UBTTask_PlaySound;
 
 declare interface UBTTask_RotateToFaceBBEntry extends UBTTask_BlackboardBase {
-    Precision: FValueOrBBKey_Float;
+    readonly __properties_UBTTask_RotateToFaceBBEntry: {
+        Precision: FValueOrBBKey_Float;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_RotateToFaceBBEntry['__properties_UBTTask_RotateToFaceBBEntry'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_RotateToFaceBBEntry: UBTTask_RotateToFaceBBEntry;
 
 declare interface UBTTask_RunBehavior extends UBTTaskNode {
-    BehaviorAsset: UBehaviorTree;
+    readonly __properties_UBTTask_RunBehavior: {
+        BehaviorAsset: UBehaviorTree;
+    };
+    readonly __staticRegistry: 
+        UBTTaskNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_RunBehavior['__properties_UBTTask_RunBehavior'] &
+        UBTTaskNode['__propertyRegistry'];
 }
-declare const UBTTask_RunBehavior: UBTTask_RunBehavior;
 
 declare interface UBTTask_RunBehaviorDynamic extends UBTTaskNode {
-    InjectionTag: FGameplayTag;
-    DefaultBehaviorAsset: UBehaviorTree;
-    BehaviorAsset: UBehaviorTree;
+    readonly __properties_UBTTask_RunBehaviorDynamic: {
+        InjectionTag: FGameplayTag;
+        DefaultBehaviorAsset: UBehaviorTree;
+        BehaviorAsset: UBehaviorTree;
+    };
+    readonly __staticRegistry: 
+        UBTTaskNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_RunBehaviorDynamic['__properties_UBTTask_RunBehaviorDynamic'] &
+        UBTTaskNode['__propertyRegistry'];
 }
-declare const UBTTask_RunBehaviorDynamic: UBTTask_RunBehaviorDynamic;
 
 declare interface UBTTask_RunEQSQuery extends UBTTask_BlackboardBase {
-    bUseBBKey: boolean;
-    EQSRequest: FEQSParametrizedQueryExecutionRequest;
-    bUpdateBBOnFail: boolean;
+    readonly __properties_UBTTask_RunEQSQuery: {
+        bUseBBKey: boolean;
+        EQSRequest: FEQSParametrizedQueryExecutionRequest;
+        bUpdateBBOnFail: boolean;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_RunEQSQuery['__properties_UBTTask_RunEQSQuery'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_RunEQSQuery: UBTTask_RunEQSQuery;
 
 declare interface UBTTask_SetKeyValueBool extends UBTTask_BlackboardBase {
-    Value: FValueOrBBKey_Bool;
+    readonly __properties_UBTTask_SetKeyValueBool: {
+        Value: FValueOrBBKey_Bool;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_SetKeyValueBool['__properties_UBTTask_SetKeyValueBool'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_SetKeyValueBool: UBTTask_SetKeyValueBool;
 
 declare interface UBTTask_SetKeyValueClass extends UBTTask_BlackboardBase {
-    BaseClass: UClass;
-    Value: FValueOrBBKey_Class;
+    readonly __properties_UBTTask_SetKeyValueClass: {
+        BaseClass: UClass;
+        Value: FValueOrBBKey_Class;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_SetKeyValueClass['__properties_UBTTask_SetKeyValueClass'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_SetKeyValueClass: UBTTask_SetKeyValueClass;
 
 declare interface UBTTask_SetKeyValueEnum extends UBTTask_BlackboardBase {
-    EnumType: UEnum;
-    Value: FValueOrBBKey_Enum;
+    readonly __properties_UBTTask_SetKeyValueEnum: {
+        EnumType: UEnum;
+        Value: FValueOrBBKey_Enum;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_SetKeyValueEnum['__properties_UBTTask_SetKeyValueEnum'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_SetKeyValueEnum: UBTTask_SetKeyValueEnum;
 
 declare interface UBTTask_SetKeyValueFloat extends UBTTask_BlackboardBase {
-    Value: FValueOrBBKey_Float;
+    readonly __properties_UBTTask_SetKeyValueFloat: {
+        Value: FValueOrBBKey_Float;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_SetKeyValueFloat['__properties_UBTTask_SetKeyValueFloat'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_SetKeyValueFloat: UBTTask_SetKeyValueFloat;
 
 declare interface UBTTask_SetKeyValueInt32 extends UBTTask_BlackboardBase {
-    Value: FValueOrBBKey_Int32;
+    readonly __properties_UBTTask_SetKeyValueInt32: {
+        Value: FValueOrBBKey_Int32;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_SetKeyValueInt32['__properties_UBTTask_SetKeyValueInt32'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_SetKeyValueInt32: UBTTask_SetKeyValueInt32;
 
 declare interface UBTTask_SetKeyValueName extends UBTTask_BlackboardBase {
-    Value: FValueOrBBKey_Name;
+    readonly __properties_UBTTask_SetKeyValueName: {
+        Value: FValueOrBBKey_Name;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_SetKeyValueName['__properties_UBTTask_SetKeyValueName'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_SetKeyValueName: UBTTask_SetKeyValueName;
 
 declare interface UBTTask_SetKeyValueObject extends UBTTask_BlackboardBase {
-    BaseClass: UClass;
-    Value: FValueOrBBKey_Object;
+    readonly __properties_UBTTask_SetKeyValueObject: {
+        BaseClass: UClass;
+        Value: FValueOrBBKey_Object;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_SetKeyValueObject['__properties_UBTTask_SetKeyValueObject'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_SetKeyValueObject: UBTTask_SetKeyValueObject;
 
 declare interface UBTTask_SetKeyValueRotator extends UBTTask_BlackboardBase {
-    Value: FValueOrBBKey_Rotator;
+    readonly __properties_UBTTask_SetKeyValueRotator: {
+        Value: FValueOrBBKey_Rotator;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_SetKeyValueRotator['__properties_UBTTask_SetKeyValueRotator'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_SetKeyValueRotator: UBTTask_SetKeyValueRotator;
 
 declare interface UBTTask_SetKeyValueString extends UBTTask_BlackboardBase {
-    Value: FValueOrBBKey_String;
+    readonly __properties_UBTTask_SetKeyValueString: {
+        Value: FValueOrBBKey_String;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_SetKeyValueString['__properties_UBTTask_SetKeyValueString'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_SetKeyValueString: UBTTask_SetKeyValueString;
 
 declare interface UBTTask_SetKeyValueStruct extends UBTTask_BlackboardBase {
-    StructType: UScriptStruct;
-    Value: FValueOrBBKey_Struct;
+    readonly __properties_UBTTask_SetKeyValueStruct: {
+        StructType: UScriptStruct;
+        Value: FValueOrBBKey_Struct;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_SetKeyValueStruct['__properties_UBTTask_SetKeyValueStruct'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_SetKeyValueStruct: UBTTask_SetKeyValueStruct;
 
 declare interface UBTTask_SetKeyValueVector extends UBTTask_BlackboardBase {
-    Value: FValueOrBBKey_Vector;
+    readonly __properties_UBTTask_SetKeyValueVector: {
+        Value: FValueOrBBKey_Vector;
+    };
+    readonly __staticRegistry: 
+        UBTTask_BlackboardBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_SetKeyValueVector['__properties_UBTTask_SetKeyValueVector'] &
+        UBTTask_BlackboardBase['__propertyRegistry'];
 }
-declare const UBTTask_SetKeyValueVector: UBTTask_SetKeyValueVector;
 
 declare interface UBTTask_SetTagCooldown extends UBTTaskNode {
-    CooldownTag: FGameplayTag;
-    bAddToExistingDuration: FValueOrBBKey_Bool;
-    CooldownDuration: FValueOrBBKey_Float;
+    readonly __properties_UBTTask_SetTagCooldown: {
+        CooldownTag: FGameplayTag;
+        bAddToExistingDuration: FValueOrBBKey_Bool;
+        CooldownDuration: FValueOrBBKey_Float;
+    };
+    readonly __staticRegistry: 
+        UBTTaskNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_SetTagCooldown['__properties_UBTTask_SetTagCooldown'] &
+        UBTTaskNode['__propertyRegistry'];
 }
-declare const UBTTask_SetTagCooldown: UBTTask_SetTagCooldown;
 
 declare interface UBTTask_Wait extends UBTTaskNode {
-    WaitTime: FValueOrBBKey_Float;
-    RandomDeviation: FValueOrBBKey_Float;
+    readonly __properties_UBTTask_Wait: {
+        WaitTime: FValueOrBBKey_Float;
+        RandomDeviation: FValueOrBBKey_Float;
+    };
+    readonly __staticRegistry: 
+        UBTTaskNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_Wait['__properties_UBTTask_Wait'] &
+        UBTTaskNode['__propertyRegistry'];
 }
-declare const UBTTask_Wait: UBTTask_Wait;
 
 declare interface UBTTask_WaitBlackboardTime extends UBTTask_Wait {
-    BlackboardKey: FBlackboardKeySelector;
+    readonly __properties_UBTTask_WaitBlackboardTime: {
+        BlackboardKey: FBlackboardKeySelector;
+    };
+    readonly __staticRegistry: 
+        UBTTask_Wait['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBTTask_WaitBlackboardTime['__properties_UBTTask_WaitBlackboardTime'] &
+        UBTTask_Wait['__propertyRegistry'];
 }
-declare const UBTTask_WaitBlackboardTime: UBTTask_WaitBlackboardTime;
 
 declare interface UBehaviorTree extends UObject {
-    RootNode: UBTCompositeNode;
-    BlackboardAsset: UBlackboardData;
-    RootDecorators: TArray<UBTDecorator>;
-    RootDecoratorOps: TArray<FBTDecoratorLogic>;
+    readonly __properties_UBehaviorTree: {
+        RootNode: UBTCompositeNode;
+        BlackboardAsset: UBlackboardData;
+        RootDecorators: UBTDecorator[];
+        RootDecoratorOps: FBTDecoratorLogic[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBehaviorTree['__properties_UBehaviorTree'] &
+        UObject['__propertyRegistry'];
 }
-declare const UBehaviorTree: UBehaviorTree;
 
 declare interface UBehaviorTreeComponent extends UBrainComponent {
-    NodeInstances: TArray<UBTNode>;
-    DefaultBehaviorTreeAsset: UBehaviorTree;
-    SetDynamicSubtree(InjectTag: FGameplayTag, BehaviorAsset: UBehaviorTree): void;
-    GetTagCooldownEndTime(CooldownTag: FGameplayTag): number;
-    AddCooldownTagDuration(CooldownTag: FGameplayTag, CooldownDuration: number, bAddToExistingDuration: boolean): void;
+    readonly __static_UBehaviorTreeComponent: {
+        SetDynamicSubtree(InjectTag: FGameplayTag, BehaviorAsset: UBehaviorTree): void;
+        GetTagCooldownEndTime(CooldownTag: FGameplayTag): number;
+        AddCooldownTagDuration(CooldownTag: FGameplayTag, CooldownDuration: number, bAddToExistingDuration: boolean): void;
+    };
+    readonly __properties_UBehaviorTreeComponent: {
+        NodeInstances: UBTNode[];
+        DefaultBehaviorTreeAsset: UBehaviorTree;
+    };
+    readonly __staticRegistry: 
+        UBehaviorTreeComponent['__static_UBehaviorTreeComponent'] &
+        UBrainComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBehaviorTreeComponent['__properties_UBehaviorTreeComponent'] &
+        UBrainComponent['__propertyRegistry'];
 }
-declare const UBehaviorTreeComponent: UBehaviorTreeComponent;
 
 declare interface UBehaviorTreeManager extends UObject {
-    MaxDebuggerSteps: number;
-    LoadedTemplates: TArray<FBehaviorTreeTemplateInfo>;
-    ActiveComponents: TArray<UBehaviorTreeComponent>;
+    readonly __properties_UBehaviorTreeManager: {
+        MaxDebuggerSteps: number;
+        LoadedTemplates: FBehaviorTreeTemplateInfo[];
+        ActiveComponents: UBehaviorTreeComponent[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBehaviorTreeManager['__properties_UBehaviorTreeManager'] &
+        UObject['__propertyRegistry'];
 }
-declare const UBehaviorTreeManager: UBehaviorTreeManager;
 
 declare interface UBehaviorTreeTypes extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UBehaviorTreeTypes: UBehaviorTreeTypes;
 
 declare interface UBlackboardComponent extends UActorComponent {
-    BrainComp: UBrainComponent;
-    DefaultBlackboardAsset: UBlackboardData;
-    BlackboardAsset: UBlackboardData;
-    KeyInstances: TArray<UBlackboardKeyType>;
-    SetValueAsVector(KeyName: FName, VectorValue: FVector): void;
-    SetValueAsString(KeyName: FName, StringValue: string | FString): void;
-    SetValueAsRotator(KeyName: FName, VectorValue: FRotator): void;
-    SetValueAsObject(KeyName: FName, ObjectValue: UObject): void;
-    SetValueAsName(KeyName: FName, nameValue: FName): void;
-    SetValueAsInt(KeyName: FName, IntValue: number): void;
-    SetValueAsFloat(KeyName: FName, FloatValue: number): void;
-    SetValueAsEnum(KeyName: FName, EnumValue: uint8): void;
-    SetValueAsClass(KeyName: FName, ClassValue: UClass): void;
-    SetValueAsBool(KeyName: FName, boolValue: boolean): void;
-    IsVectorValueSet(KeyName: FName): boolean;
-    GetValueAsVector(KeyName: FName): FVector;
-    GetValueAsString(KeyName: FName): FString;
-    GetValueAsRotator(KeyName: FName): FRotator;
-    GetValueAsObject(KeyName: FName): UObject;
-    GetValueAsName(KeyName: FName): FName;
-    GetValueAsInt(KeyName: FName): number;
-    GetValueAsFloat(KeyName: FName): number;
-    GetValueAsEnum(KeyName: FName): uint8;
-    GetValueAsClass(KeyName: FName): UClass;
-    GetValueAsBool(KeyName: FName): boolean;
-    GetRotationFromEntry(KeyName: FName, ResultRotation: FRotator): boolean;
-    GetLocationFromEntry(KeyName: FName, ResultLocation: FVector): boolean;
-    ClearValue(KeyName: FName): void;
+    readonly __static_UBlackboardComponent: {
+        SetValueAsVector(KeyName: string, VectorValue: FVector): void;
+        SetValueAsString(KeyName: string, StringValue: string): void;
+        SetValueAsRotator(KeyName: string, VectorValue: FRotator): void;
+        SetValueAsObject(KeyName: string, ObjectValue: UObject): void;
+        SetValueAsName(KeyName: string, nameValue: string): void;
+        SetValueAsInt(KeyName: string, IntValue: number): void;
+        SetValueAsFloat(KeyName: string, FloatValue: number): void;
+        SetValueAsEnum(KeyName: string, EnumValue: number): void;
+        SetValueAsClass(KeyName: string, ClassValue: UClass): void;
+        SetValueAsBool(KeyName: string, boolValue: boolean): void;
+        IsVectorValueSet(KeyName: string): boolean;
+        GetValueAsVector(KeyName: string): FVector;
+        GetValueAsString(KeyName: string): string;
+        GetValueAsRotator(KeyName: string): FRotator;
+        GetValueAsObject(KeyName: string): UObject;
+        GetValueAsName(KeyName: string): string;
+        GetValueAsInt(KeyName: string): number;
+        GetValueAsFloat(KeyName: string): number;
+        GetValueAsEnum(KeyName: string): number;
+        GetValueAsClass(KeyName: string): UClass;
+        GetValueAsBool(KeyName: string): boolean;
+        GetRotationFromEntry(KeyName: string, ResultRotation: FRotator): boolean;
+        GetLocationFromEntry(KeyName: string, ResultLocation: FVector): boolean;
+        ClearValue(KeyName: string): void;
+    };
+    readonly __properties_UBlackboardComponent: {
+        BrainComp: UBrainComponent;
+        DefaultBlackboardAsset: UBlackboardData;
+        BlackboardAsset: UBlackboardData;
+        KeyInstances: UBlackboardKeyType[];
+    };
+    readonly __staticRegistry: 
+        UBlackboardComponent['__static_UBlackboardComponent'] &
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardComponent['__properties_UBlackboardComponent'] &
+        UActorComponent['__propertyRegistry'];
 }
-declare const UBlackboardComponent: UBlackboardComponent;
 
 declare interface UBlackboardData extends UDataAsset {
-    Parent: UBlackboardData;
-    Keys: TArray<FBlackboardEntry>;
-    bHasSynchronizedKeys: boolean;
+    readonly __properties_UBlackboardData: {
+        Parent: UBlackboardData;
+        Keys: FBlackboardEntry[];
+        bHasSynchronizedKeys: boolean;
+    };
+    readonly __staticRegistry: 
+        UDataAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardData['__properties_UBlackboardData'] &
+        UDataAsset['__propertyRegistry'];
 }
-declare const UBlackboardData: UBlackboardData;
 
 declare interface UBlackboardKeyType extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UBlackboardKeyType: UBlackboardKeyType;
 
 declare interface UBlackboardKeyType_Bool extends UBlackboardKeyType {
-    bDefaultValue: boolean;
+    readonly __properties_UBlackboardKeyType_Bool: {
+        bDefaultValue: boolean;
+    };
+    readonly __staticRegistry: 
+        UBlackboardKeyType['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardKeyType_Bool['__properties_UBlackboardKeyType_Bool'] &
+        UBlackboardKeyType['__propertyRegistry'];
 }
-declare const UBlackboardKeyType_Bool: UBlackboardKeyType_Bool;
 
 declare interface UBlackboardKeyType_Class extends UBlackboardKeyType {
-    BaseClass: UClass;
-    DefaultValue: UClass;
+    readonly __properties_UBlackboardKeyType_Class: {
+        BaseClass: UClass;
+        DefaultValue: UClass;
+    };
+    readonly __staticRegistry: 
+        UBlackboardKeyType['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardKeyType_Class['__properties_UBlackboardKeyType_Class'] &
+        UBlackboardKeyType['__propertyRegistry'];
 }
-declare const UBlackboardKeyType_Class: UBlackboardKeyType_Class;
 
 declare interface UBlackboardKeyType_Enum extends UBlackboardKeyType {
-    EnumType: UEnum;
-    EnumName: FString;
-    DefaultValue: uint8;
-    bIsEnumNameValid: boolean;
+    readonly __properties_UBlackboardKeyType_Enum: {
+        EnumType: UEnum;
+        EnumName: string;
+        DefaultValue: number;
+        bIsEnumNameValid: boolean;
+    };
+    readonly __staticRegistry: 
+        UBlackboardKeyType['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardKeyType_Enum['__properties_UBlackboardKeyType_Enum'] &
+        UBlackboardKeyType['__propertyRegistry'];
 }
-declare const UBlackboardKeyType_Enum: UBlackboardKeyType_Enum;
 
 declare interface UBlackboardKeyType_Float extends UBlackboardKeyType {
-    DefaultValue: number;
+    readonly __properties_UBlackboardKeyType_Float: {
+        DefaultValue: number;
+    };
+    readonly __staticRegistry: 
+        UBlackboardKeyType['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardKeyType_Float['__properties_UBlackboardKeyType_Float'] &
+        UBlackboardKeyType['__propertyRegistry'];
 }
-declare const UBlackboardKeyType_Float: UBlackboardKeyType_Float;
 
 declare interface UBlackboardKeyType_Int extends UBlackboardKeyType {
-    DefaultValue: number;
+    readonly __properties_UBlackboardKeyType_Int: {
+        DefaultValue: number;
+    };
+    readonly __staticRegistry: 
+        UBlackboardKeyType['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardKeyType_Int['__properties_UBlackboardKeyType_Int'] &
+        UBlackboardKeyType['__propertyRegistry'];
 }
-declare const UBlackboardKeyType_Int: UBlackboardKeyType_Int;
 
 declare interface UBlackboardKeyType_Name extends UBlackboardKeyType {
-    DefaultValue: FName;
+    readonly __properties_UBlackboardKeyType_Name: {
+        DefaultValue: string;
+    };
+    readonly __staticRegistry: 
+        UBlackboardKeyType['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardKeyType_Name['__properties_UBlackboardKeyType_Name'] &
+        UBlackboardKeyType['__propertyRegistry'];
 }
-declare const UBlackboardKeyType_Name: UBlackboardKeyType_Name;
 
 declare interface UBlackboardKeyType_NativeEnum extends UBlackboardKeyType {
-    EnumName: FString;
-    EnumType: UEnum;
+    readonly __properties_UBlackboardKeyType_NativeEnum: {
+        EnumName: string;
+        EnumType: UEnum;
+    };
+    readonly __staticRegistry: 
+        UBlackboardKeyType['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardKeyType_NativeEnum['__properties_UBlackboardKeyType_NativeEnum'] &
+        UBlackboardKeyType['__propertyRegistry'];
 }
-declare const UBlackboardKeyType_NativeEnum: UBlackboardKeyType_NativeEnum;
 
 declare interface UBlackboardKeyType_Object extends UBlackboardKeyType {
-    BaseClass: UClass;
-    DefaultValue: UObject;
+    readonly __properties_UBlackboardKeyType_Object: {
+        BaseClass: UClass;
+        DefaultValue: UObject;
+    };
+    readonly __staticRegistry: 
+        UBlackboardKeyType['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardKeyType_Object['__properties_UBlackboardKeyType_Object'] &
+        UBlackboardKeyType['__propertyRegistry'];
 }
-declare const UBlackboardKeyType_Object: UBlackboardKeyType_Object;
 
 declare interface UBlackboardKeyType_Rotator extends UBlackboardKeyType {
-    DefaultValue: FRotator;
-    bUseDefaultValue: boolean;
+    readonly __properties_UBlackboardKeyType_Rotator: {
+        DefaultValue: FRotator;
+        bUseDefaultValue: boolean;
+    };
+    readonly __staticRegistry: 
+        UBlackboardKeyType['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardKeyType_Rotator['__properties_UBlackboardKeyType_Rotator'] &
+        UBlackboardKeyType['__propertyRegistry'];
 }
-declare const UBlackboardKeyType_Rotator: UBlackboardKeyType_Rotator;
 
 declare interface UBlackboardKeyType_String extends UBlackboardKeyType {
-    StringValue: FString;
-    DefaultValue: FString;
+    readonly __properties_UBlackboardKeyType_String: {
+        StringValue: string;
+        DefaultValue: string;
+    };
+    readonly __staticRegistry: 
+        UBlackboardKeyType['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardKeyType_String['__properties_UBlackboardKeyType_String'] &
+        UBlackboardKeyType['__propertyRegistry'];
 }
-declare const UBlackboardKeyType_String: UBlackboardKeyType_String;
 
 declare interface UBlackboardKeyType_Struct extends UBlackboardKeyType {
-    DefaultValue: FInstancedStruct;
-    Value: FInstancedStruct;
+    readonly __properties_UBlackboardKeyType_Struct: {
+        DefaultValue: FInstancedStruct;
+        Value: FInstancedStruct;
+    };
+    readonly __staticRegistry: 
+        UBlackboardKeyType['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardKeyType_Struct['__properties_UBlackboardKeyType_Struct'] &
+        UBlackboardKeyType['__propertyRegistry'];
 }
-declare const UBlackboardKeyType_Struct: UBlackboardKeyType_Struct;
 
 declare interface UBlackboardKeyType_Vector extends UBlackboardKeyType {
-    DefaultValue: FVector;
-    bUseDefaultValue: boolean;
+    readonly __properties_UBlackboardKeyType_Vector: {
+        DefaultValue: FVector;
+        bUseDefaultValue: boolean;
+    };
+    readonly __staticRegistry: 
+        UBlackboardKeyType['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlackboardKeyType_Vector['__properties_UBlackboardKeyType_Vector'] &
+        UBlackboardKeyType['__propertyRegistry'];
 }
-declare const UBlackboardKeyType_Vector: UBlackboardKeyType_Vector;
 
 declare interface UBrainComponent extends UActorComponent {
-    BlackboardComp: UBlackboardComponent;
-    AIOwner: AAIController;
-    StopLogic(Reason: string | FString): void;
-    StartLogic(): void;
-    RestartLogic(): void;
-    IsRunning(): boolean;
-    IsPaused(): boolean;
+    readonly __static_UBrainComponent: {
+        StopLogic(Reason: string): void;
+        StartLogic(): void;
+        RestartLogic(): void;
+        IsRunning(): boolean;
+        IsPaused(): boolean;
+    };
+    readonly __properties_UBrainComponent: {
+        BlackboardComp: UBlackboardComponent;
+        AIOwner: AAIController;
+    };
+    readonly __staticRegistry: 
+        UBrainComponent['__static_UBrainComponent'] &
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBrainComponent['__properties_UBrainComponent'] &
+        UActorComponent['__propertyRegistry'];
 }
-declare const UBrainComponent: UBrainComponent;
 
 declare interface UCrowdFollowingComponent extends UPathFollowingComponent {
-    CrowdAgentMoveDirection: FVector;
-    SuspendCrowdSteering(bSuspend: boolean): void;
+    readonly __static_UCrowdFollowingComponent: {
+        SuspendCrowdSteering(bSuspend: boolean): void;
+    };
+    readonly __properties_UCrowdFollowingComponent: {
+        CrowdAgentMoveDirection: FVector;
+    };
+    readonly __staticRegistry: 
+        UCrowdFollowingComponent['__static_UCrowdFollowingComponent'] &
+        UPathFollowingComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCrowdFollowingComponent['__properties_UCrowdFollowingComponent'] &
+        UPathFollowingComponent['__propertyRegistry'];
 }
-declare const UCrowdFollowingComponent: UCrowdFollowingComponent;
 
 declare interface UCrowdManager extends UCrowdManagerBase {
-    MyNavData: ANavigationData;
-    AvoidanceConfig: TArray<FCrowdAvoidanceConfig>;
-    SamplingPatterns: TArray<FCrowdAvoidanceSamplingPattern>;
-    MaxAgents: number;
-    MaxAgentRadius: number;
-    MaxAvoidedAgents: number;
-    MaxAvoidedWalls: number;
-    NavmeshCheckInterval: number;
-    PathOptimizationInterval: number;
-    SeparationDirClamp: number;
-    PathOffsetRadiusMultiplier: number;
-    bResolveCollisions: boolean;
+    readonly __properties_UCrowdManager: {
+        MyNavData: ANavigationData;
+        AvoidanceConfig: FCrowdAvoidanceConfig[];
+        SamplingPatterns: FCrowdAvoidanceSamplingPattern[];
+        MaxAgents: number;
+        MaxAgentRadius: number;
+        MaxAvoidedAgents: number;
+        MaxAvoidedWalls: number;
+        NavmeshCheckInterval: number;
+        PathOptimizationInterval: number;
+        SeparationDirClamp: number;
+        PathOffsetRadiusMultiplier: number;
+        bResolveCollisions: boolean;
+    };
+    readonly __staticRegistry: 
+        UCrowdManagerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCrowdManager['__properties_UCrowdManager'] &
+        UCrowdManagerBase['__propertyRegistry'];
 }
-declare const UCrowdManager: UCrowdManager;
 
 declare interface UEQSRenderingComponent extends UDebugDrawComponent {
-
+    readonly __staticRegistry: 
+        UDebugDrawComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDebugDrawComponent['__propertyRegistry'];
 }
-declare const UEQSRenderingComponent: UEQSRenderingComponent;
 
 declare interface UEnvQuery extends UDataAsset {
-    QueryName: FName;
-    Options: TArray<UEnvQueryOption>;
+    readonly __properties_UEnvQuery: {
+        QueryName: string;
+        Options: UEnvQueryOption[];
+    };
+    readonly __staticRegistry: 
+        UDataAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQuery['__properties_UEnvQuery'] &
+        UDataAsset['__propertyRegistry'];
 }
-declare const UEnvQuery: UEnvQuery;
 
 declare interface UEnvQueryContext extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UEnvQueryContext: UEnvQueryContext;
 
 declare interface UEnvQueryContext_BlueprintBase extends UEnvQueryContext {
-    ProvideSingleLocation(QuerierObject: UObject, QuerierActor: AActor, ResultingLocation: FVector): void;
-    ProvideSingleActor(QuerierObject: UObject, QuerierActor: AActor, ResultingActor: AActor): void;
-    ProvideLocationsSet(QuerierObject: UObject, QuerierActor: AActor, ResultingLocationSet: TArray<FVector>): void;
-    ProvideActorsSet(QuerierObject: UObject, QuerierActor: AActor, ResultingActorsSet: TArray<AActor>): void;
+    readonly __static_UEnvQueryContext_BlueprintBase: {
+        ProvideSingleLocation(QuerierObject: UObject, QuerierActor: AActor, ResultingLocation: FVector): void;
+        ProvideSingleActor(QuerierObject: UObject, QuerierActor: AActor, ResultingActor: AActor): void;
+        ProvideLocationsSet(QuerierObject: UObject, QuerierActor: AActor, ResultingLocationSet: FVector[]): void;
+        ProvideActorsSet(QuerierObject: UObject, QuerierActor: AActor, ResultingActorsSet: AActor[]): void;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryContext_BlueprintBase['__static_UEnvQueryContext_BlueprintBase'] &
+        UEnvQueryContext['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryContext['__propertyRegistry'];
 }
-declare const UEnvQueryContext_BlueprintBase: UEnvQueryContext_BlueprintBase;
 
 declare interface UEnvQueryContext_Item extends UEnvQueryContext {
-
+    readonly __staticRegistry: 
+        UEnvQueryContext['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryContext['__propertyRegistry'];
 }
-declare const UEnvQueryContext_Item: UEnvQueryContext_Item;
 
 declare interface UEnvQueryContext_NavigationData extends UEnvQueryContext {
-    NavAgentProperties: FNavAgentProperties;
+    readonly __properties_UEnvQueryContext_NavigationData: {
+        NavAgentProperties: FNavAgentProperties;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryContext['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryContext_NavigationData['__properties_UEnvQueryContext_NavigationData'] &
+        UEnvQueryContext['__propertyRegistry'];
 }
-declare const UEnvQueryContext_NavigationData: UEnvQueryContext_NavigationData;
 
 declare interface UEnvQueryContext_Querier extends UEnvQueryContext {
-
+    readonly __staticRegistry: 
+        UEnvQueryContext['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryContext['__propertyRegistry'];
 }
-declare const UEnvQueryContext_Querier: UEnvQueryContext_Querier;
 
 declare interface UEnvQueryDebugHelpers extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UEnvQueryDebugHelpers: UEnvQueryDebugHelpers;
 
 declare interface UEnvQueryGenerator extends UEnvQueryNode {
-    OptionName: FString;
-    ItemType: TSubclassOf<UEnvQueryItemType>;
-    bAutoSortTests: boolean;
-    bCanRunAsync: boolean;
+    readonly __properties_UEnvQueryGenerator: {
+        OptionName: string;
+        ItemType: TSubclassOf<UEnvQueryItemType>;
+        bAutoSortTests: boolean;
+        bCanRunAsync: boolean;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryGenerator['__properties_UEnvQueryGenerator'] &
+        UEnvQueryNode['__propertyRegistry'];
 }
-declare const UEnvQueryGenerator: UEnvQueryGenerator;
 
 declare interface UEnvQueryGenerator_ActorsOfClass extends UEnvQueryGenerator {
-    SearchedActorClass: TSubclassOf<AActor>;
-    GenerateOnlyActorsInRadius: FAIDataProviderBoolValue;
-    SearchRadius: FAIDataProviderFloatValue;
-    SearchCenter: TSubclassOf<UEnvQueryContext>;
+    readonly __properties_UEnvQueryGenerator_ActorsOfClass: {
+        SearchedActorClass: TSubclassOf<AActor>;
+        GenerateOnlyActorsInRadius: FAIDataProviderBoolValue;
+        SearchRadius: FAIDataProviderFloatValue;
+        SearchCenter: TSubclassOf<UEnvQueryContext>;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryGenerator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryGenerator_ActorsOfClass['__properties_UEnvQueryGenerator_ActorsOfClass'] &
+        UEnvQueryGenerator['__propertyRegistry'];
 }
-declare const UEnvQueryGenerator_ActorsOfClass: UEnvQueryGenerator_ActorsOfClass;
 
 declare interface UEnvQueryGenerator_BlueprintBase extends UEnvQueryGenerator {
-    GeneratorsActionDescription: FText;
-    Context: TSubclassOf<UEnvQueryContext>;
-    GeneratedItemType: TSubclassOf<UEnvQueryItemType>;
-    GetQuerier(): UObject;
-    DoItemGenerationFromActors(ContextActors: TArray<AActor>): void;
-    DoItemGeneration(ContextLocations: TArray<FVector>): void;
-    AddGeneratedVector(GeneratedVector: FVector): void;
-    AddGeneratedActor(GeneratedActor: AActor): void;
+    readonly __static_UEnvQueryGenerator_BlueprintBase: {
+        GetQuerier(): UObject;
+        DoItemGenerationFromActors(ContextActors: AActor[]): void;
+        DoItemGeneration(ContextLocations: FVector[]): void;
+        AddGeneratedVector(GeneratedVector: FVector): void;
+        AddGeneratedActor(GeneratedActor: AActor): void;
+    };
+    readonly __properties_UEnvQueryGenerator_BlueprintBase: {
+        GeneratorsActionDescription: string;
+        Context: TSubclassOf<UEnvQueryContext>;
+        GeneratedItemType: TSubclassOf<UEnvQueryItemType>;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryGenerator_BlueprintBase['__static_UEnvQueryGenerator_BlueprintBase'] &
+        UEnvQueryGenerator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryGenerator_BlueprintBase['__properties_UEnvQueryGenerator_BlueprintBase'] &
+        UEnvQueryGenerator['__propertyRegistry'];
 }
-declare const UEnvQueryGenerator_BlueprintBase: UEnvQueryGenerator_BlueprintBase;
 
 declare interface UEnvQueryGenerator_Composite extends UEnvQueryGenerator {
-    Generators: TArray<UEnvQueryGenerator>;
-    bAllowDifferentItemTypes: boolean;
-    bHasMatchingItemType: boolean;
-    ForcedItemType: TSubclassOf<UEnvQueryItemType>;
+    readonly __properties_UEnvQueryGenerator_Composite: {
+        Generators: UEnvQueryGenerator[];
+        bAllowDifferentItemTypes: boolean;
+        bHasMatchingItemType: boolean;
+        ForcedItemType: TSubclassOf<UEnvQueryItemType>;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryGenerator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryGenerator_Composite['__properties_UEnvQueryGenerator_Composite'] &
+        UEnvQueryGenerator['__propertyRegistry'];
 }
-declare const UEnvQueryGenerator_Composite: UEnvQueryGenerator_Composite;
 
 declare interface UEnvQueryGenerator_Cone extends UEnvQueryGenerator_ProjectedPoints {
-    AlignedPointsDistance: FAIDataProviderFloatValue;
-    ConeDegrees: FAIDataProviderFloatValue;
-    AngleStep: FAIDataProviderFloatValue;
-    Range: FAIDataProviderFloatValue;
-    CenterActor: TSubclassOf<UEnvQueryContext>;
-    bIncludeContextLocation: boolean;
+    readonly __properties_UEnvQueryGenerator_Cone: {
+        AlignedPointsDistance: FAIDataProviderFloatValue;
+        ConeDegrees: FAIDataProviderFloatValue;
+        AngleStep: FAIDataProviderFloatValue;
+        Range: FAIDataProviderFloatValue;
+        CenterActor: TSubclassOf<UEnvQueryContext>;
+        bIncludeContextLocation: boolean;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryGenerator_ProjectedPoints['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryGenerator_Cone['__properties_UEnvQueryGenerator_Cone'] &
+        UEnvQueryGenerator_ProjectedPoints['__propertyRegistry'];
 }
-declare const UEnvQueryGenerator_Cone: UEnvQueryGenerator_Cone;
 
 declare interface UEnvQueryGenerator_CurrentLocation extends UEnvQueryGenerator_ProjectedPoints {
-    QueryContext: TSubclassOf<UEnvQueryContext>;
+    readonly __properties_UEnvQueryGenerator_CurrentLocation: {
+        QueryContext: TSubclassOf<UEnvQueryContext>;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryGenerator_ProjectedPoints['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryGenerator_CurrentLocation['__properties_UEnvQueryGenerator_CurrentLocation'] &
+        UEnvQueryGenerator_ProjectedPoints['__propertyRegistry'];
 }
-declare const UEnvQueryGenerator_CurrentLocation: UEnvQueryGenerator_CurrentLocation;
 
 declare interface UEnvQueryGenerator_Donut extends UEnvQueryGenerator_ProjectedPoints {
-    InnerRadius: FAIDataProviderFloatValue;
-    OuterRadius: FAIDataProviderFloatValue;
-    NumberOfRings: FAIDataProviderIntValue;
-    PointsPerRing: FAIDataProviderIntValue;
-    ArcDirection: FEnvDirection;
-    ArcAngle: FAIDataProviderFloatValue;
-    bUseSpiralPattern: boolean;
-    Center: TSubclassOf<UEnvQueryContext>;
-    bDefineArc: boolean;
+    readonly __properties_UEnvQueryGenerator_Donut: {
+        InnerRadius: FAIDataProviderFloatValue;
+        OuterRadius: FAIDataProviderFloatValue;
+        NumberOfRings: FAIDataProviderIntValue;
+        PointsPerRing: FAIDataProviderIntValue;
+        ArcDirection: FEnvDirection;
+        ArcAngle: FAIDataProviderFloatValue;
+        bUseSpiralPattern: boolean;
+        Center: TSubclassOf<UEnvQueryContext>;
+        bDefineArc: boolean;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryGenerator_ProjectedPoints['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryGenerator_Donut['__properties_UEnvQueryGenerator_Donut'] &
+        UEnvQueryGenerator_ProjectedPoints['__propertyRegistry'];
 }
-declare const UEnvQueryGenerator_Donut: UEnvQueryGenerator_Donut;
 
 declare interface UEnvQueryGenerator_OnCircle extends UEnvQueryGenerator_ProjectedPoints {
-    CircleRadius: FAIDataProviderFloatValue;
-    PointOnCircleSpacingMethod: EPointOnCircleSpacingMethod;
-    SpaceBetween: FAIDataProviderFloatValue;
-    NumberOfPoints: FAIDataProviderIntValue;
-    ArcDirection: FEnvDirection;
-    ArcDirectionOffsetDegrees: FAIDataProviderFloatValue;
-    ArcAngle: FAIDataProviderFloatValue;
-    CircleCenter: TSubclassOf<UEnvQueryContext>;
-    bIgnoreAnyContextActorsWhenGeneratingCircle: boolean;
-    CircleCenterZOffset: FAIDataProviderFloatValue;
-    TraceData: FEnvTraceData;
-    bDefineArc: boolean;
+    readonly __properties_UEnvQueryGenerator_OnCircle: {
+        CircleRadius: FAIDataProviderFloatValue;
+        PointOnCircleSpacingMethod: EPointOnCircleSpacingMethod;
+        SpaceBetween: FAIDataProviderFloatValue;
+        NumberOfPoints: FAIDataProviderIntValue;
+        ArcDirection: FEnvDirection;
+        ArcDirectionOffsetDegrees: FAIDataProviderFloatValue;
+        ArcAngle: FAIDataProviderFloatValue;
+        CircleCenter: TSubclassOf<UEnvQueryContext>;
+        bIgnoreAnyContextActorsWhenGeneratingCircle: boolean;
+        CircleCenterZOffset: FAIDataProviderFloatValue;
+        TraceData: FEnvTraceData;
+        bDefineArc: boolean;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryGenerator_ProjectedPoints['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryGenerator_OnCircle['__properties_UEnvQueryGenerator_OnCircle'] &
+        UEnvQueryGenerator_ProjectedPoints['__propertyRegistry'];
 }
-declare const UEnvQueryGenerator_OnCircle: UEnvQueryGenerator_OnCircle;
 
 declare interface UEnvQueryGenerator_PathingGrid extends UEnvQueryGenerator_SimpleGrid {
-    PathToItem: FAIDataProviderBoolValue;
-    NavigationFilter: TSubclassOf<UNavigationQueryFilter>;
-    ScanRangeMultiplier: FAIDataProviderFloatValue;
+    readonly __properties_UEnvQueryGenerator_PathingGrid: {
+        PathToItem: FAIDataProviderBoolValue;
+        NavigationFilter: TSubclassOf<UNavigationQueryFilter>;
+        ScanRangeMultiplier: FAIDataProviderFloatValue;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryGenerator_SimpleGrid['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryGenerator_PathingGrid['__properties_UEnvQueryGenerator_PathingGrid'] &
+        UEnvQueryGenerator_SimpleGrid['__propertyRegistry'];
 }
-declare const UEnvQueryGenerator_PathingGrid: UEnvQueryGenerator_PathingGrid;
 
 declare interface UEnvQueryGenerator_PerceivedActors extends UEnvQueryGenerator {
-    AllowedActorClass: TSubclassOf<AActor>;
-    SearchRadius: FAIDataProviderFloatValue;
-    ListenerContext: TSubclassOf<UEnvQueryContext>;
-    SenseToUse: TSubclassOf<UAISense>;
-    bIncludeKnownActors: boolean;
+    readonly __properties_UEnvQueryGenerator_PerceivedActors: {
+        AllowedActorClass: TSubclassOf<AActor>;
+        SearchRadius: FAIDataProviderFloatValue;
+        ListenerContext: TSubclassOf<UEnvQueryContext>;
+        SenseToUse: TSubclassOf<UAISense>;
+        bIncludeKnownActors: boolean;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryGenerator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryGenerator_PerceivedActors['__properties_UEnvQueryGenerator_PerceivedActors'] &
+        UEnvQueryGenerator['__propertyRegistry'];
 }
-declare const UEnvQueryGenerator_PerceivedActors: UEnvQueryGenerator_PerceivedActors;
 
 declare interface UEnvQueryGenerator_ProjectedPoints extends UEnvQueryGenerator {
-    ProjectionData: FEnvTraceData;
-    NavDataOverrideContext: TSubclassOf<UEnvQueryContext>;
+    readonly __properties_UEnvQueryGenerator_ProjectedPoints: {
+        ProjectionData: FEnvTraceData;
+        NavDataOverrideContext: TSubclassOf<UEnvQueryContext>;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryGenerator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryGenerator_ProjectedPoints['__properties_UEnvQueryGenerator_ProjectedPoints'] &
+        UEnvQueryGenerator['__propertyRegistry'];
 }
-declare const UEnvQueryGenerator_ProjectedPoints: UEnvQueryGenerator_ProjectedPoints;
 
 declare interface UEnvQueryGenerator_SimpleGrid extends UEnvQueryGenerator_ProjectedPoints {
-    GridSize: FAIDataProviderFloatValue;
-    SpaceBetween: FAIDataProviderFloatValue;
-    GenerateAround: TSubclassOf<UEnvQueryContext>;
+    readonly __properties_UEnvQueryGenerator_SimpleGrid: {
+        GridSize: FAIDataProviderFloatValue;
+        SpaceBetween: FAIDataProviderFloatValue;
+        GenerateAround: TSubclassOf<UEnvQueryContext>;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryGenerator_ProjectedPoints['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryGenerator_SimpleGrid['__properties_UEnvQueryGenerator_SimpleGrid'] &
+        UEnvQueryGenerator_ProjectedPoints['__propertyRegistry'];
 }
-declare const UEnvQueryGenerator_SimpleGrid: UEnvQueryGenerator_SimpleGrid;
 
 declare interface UEnvQueryInstanceBlueprintWrapper extends UObject {
-    QueryID: number;
-    ItemType: TSubclassOf<UEnvQueryItemType>;
-    OptionIndex: number;
-    OnQueryFinishedEvent: FEnvQueryInstanceBlueprintWrapperOnQueryFinishedEvent;
-    SetNamedParam(ParamName: FName, Value: number): void;
-    GetResultsAsLocations(): TArray<FVector>;
-    GetResultsAsActors(): TArray<AActor>;
-    GetQueryResultsAsLocations(ResultLocations: TArray<FVector>): boolean;
-    GetQueryResultsAsActors(ResultActors: TArray<AActor>): boolean;
-    GetItemScore(ItemIndex: number): number;
-    EQSQueryDoneSignature__DelegateSignature(QueryInstance: UEnvQueryInstanceBlueprintWrapper, QueryStatus: EEnvQueryStatus): void;
+    readonly __static_UEnvQueryInstanceBlueprintWrapper: {
+        SetNamedParam(ParamName: string, Value: number): void;
+        GetResultsAsLocations(): FVector[];
+        GetResultsAsActors(): AActor[];
+        GetQueryResultsAsLocations(ResultLocations: FVector[]): boolean;
+        GetQueryResultsAsActors(ResultActors: AActor[]): boolean;
+        GetItemScore(ItemIndex: number): number;
+        EQSQueryDoneSignature__DelegateSignature(QueryInstance: UEnvQueryInstanceBlueprintWrapper, QueryStatus: EEnvQueryStatus): void;
+    };
+    readonly __properties_UEnvQueryInstanceBlueprintWrapper: {
+        QueryID: number;
+        ItemType: TSubclassOf<UEnvQueryItemType>;
+        OptionIndex: number;
+        OnQueryFinishedEvent: FEnvQueryInstanceBlueprintWrapperOnQueryFinishedEvent;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryInstanceBlueprintWrapper['__static_UEnvQueryInstanceBlueprintWrapper'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryInstanceBlueprintWrapper['__properties_UEnvQueryInstanceBlueprintWrapper'] &
+        UObject['__propertyRegistry'];
 }
-declare const UEnvQueryInstanceBlueprintWrapper: UEnvQueryInstanceBlueprintWrapper;
 
 declare interface UEnvQueryItemType extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UEnvQueryItemType: UEnvQueryItemType;
 
 declare interface UEnvQueryItemType_Actor extends UEnvQueryItemType_ActorBase {
-
+    readonly __staticRegistry: 
+        UEnvQueryItemType_ActorBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryItemType_ActorBase['__propertyRegistry'];
 }
-declare const UEnvQueryItemType_Actor: UEnvQueryItemType_Actor;
 
 declare interface UEnvQueryItemType_ActorBase extends UEnvQueryItemType_VectorBase {
-
+    readonly __staticRegistry: 
+        UEnvQueryItemType_VectorBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryItemType_VectorBase['__propertyRegistry'];
 }
-declare const UEnvQueryItemType_ActorBase: UEnvQueryItemType_ActorBase;
 
 declare interface UEnvQueryItemType_Direction extends UEnvQueryItemType_VectorBase {
-
+    readonly __staticRegistry: 
+        UEnvQueryItemType_VectorBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryItemType_VectorBase['__propertyRegistry'];
 }
-declare const UEnvQueryItemType_Direction: UEnvQueryItemType_Direction;
 
 declare interface UEnvQueryItemType_Point extends UEnvQueryItemType_VectorBase {
-
+    readonly __staticRegistry: 
+        UEnvQueryItemType_VectorBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryItemType_VectorBase['__propertyRegistry'];
 }
-declare const UEnvQueryItemType_Point: UEnvQueryItemType_Point;
 
 declare interface UEnvQueryItemType_VectorBase extends UEnvQueryItemType {
-
+    readonly __staticRegistry: 
+        UEnvQueryItemType['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryItemType['__propertyRegistry'];
 }
-declare const UEnvQueryItemType_VectorBase: UEnvQueryItemType_VectorBase;
 
 declare interface UEnvQueryManager extends UAISubsystem {
-    InstanceCache: TArray<FEnvQueryInstanceCache>;
-    LocalContexts: TArray<UEnvQueryContext>;
-    GCShieldedWrappers: TArray<UEnvQueryInstanceBlueprintWrapper>;
-    MaxAllowedTestingTime: number;
-    bTestQueriesUsingBreadth: boolean;
-    QueryCountWarningThreshold: number;
-    QueryCountWarningInterval: number;
-    ExecutionTimeWarningSeconds: number;
-    HandlingResultTimeWarningSeconds: number;
-    GenerationTimeWarningSeconds: number;
-    RunEQSQuery(WorldContextObject: UObject, QueryTemplate: UEnvQuery, Querier: UObject, RunMode: EEnvQueryRunMode, WrapperClass: TSubclassOf<UEnvQueryInstanceBlueprintWrapper>): UEnvQueryInstanceBlueprintWrapper;
+    readonly __static_UEnvQueryManager: {
+        RunEQSQuery(WorldContextObject: UObject, QueryTemplate: UEnvQuery, Querier: UObject, RunMode: EEnvQueryRunMode, WrapperClass: TSubclassOf<UEnvQueryInstanceBlueprintWrapper>): UEnvQueryInstanceBlueprintWrapper;
+    };
+    readonly __properties_UEnvQueryManager: {
+        InstanceCache: FEnvQueryInstanceCache[];
+        LocalContexts: UEnvQueryContext[];
+        GCShieldedWrappers: UEnvQueryInstanceBlueprintWrapper[];
+        MaxAllowedTestingTime: number;
+        bTestQueriesUsingBreadth: boolean;
+        QueryCountWarningThreshold: number;
+        QueryCountWarningInterval: number;
+        ExecutionTimeWarningSeconds: number;
+        HandlingResultTimeWarningSeconds: number;
+        GenerationTimeWarningSeconds: number;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryManager['__static_UEnvQueryManager'] &
+        UAISubsystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryManager['__properties_UEnvQueryManager'] &
+        UAISubsystem['__propertyRegistry'];
 }
-declare const UEnvQueryManager: UEnvQueryManager;
 
 declare interface UEnvQueryNode extends UObject {
-    VerNum: number;
+    readonly __properties_UEnvQueryNode: {
+        VerNum: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryNode['__properties_UEnvQueryNode'] &
+        UObject['__propertyRegistry'];
 }
-declare const UEnvQueryNode: UEnvQueryNode;
 
 declare interface UEnvQueryOption extends UObject {
-    Generator: UEnvQueryGenerator;
-    Tests: TArray<UEnvQueryTest>;
+    readonly __properties_UEnvQueryOption: {
+        Generator: UEnvQueryGenerator;
+        Tests: UEnvQueryTest[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryOption['__properties_UEnvQueryOption'] &
+        UObject['__propertyRegistry'];
 }
-declare const UEnvQueryOption: UEnvQueryOption;
 
 declare interface UEnvQueryTest extends UEnvQueryNode {
-    TestOrder: number;
-    TestPurpose: EEnvTestPurpose;
-    TestComment: FString;
-    MultipleContextFilterOp: EEnvTestFilterOperator;
-    MultipleContextScoreOp: EEnvTestScoreOperator;
-    FilterType: EEnvTestFilterType;
-    boolValue: FAIDataProviderBoolValue;
-    FloatValueMin: FAIDataProviderFloatValue;
-    FloatValueMax: FAIDataProviderFloatValue;
-    ScoringEquation: EEnvTestScoreEquation;
-    ClampMinType: EEnvQueryTestClamping;
-    ClampMaxType: EEnvQueryTestClamping;
-    NormalizationType: EEQSNormalizationType;
-    ScoreClampMin: FAIDataProviderFloatValue;
-    ScoreClampMax: FAIDataProviderFloatValue;
-    ScoringFactor: FAIDataProviderFloatValue;
-    ReferenceValue: FAIDataProviderFloatValue;
-    bDefineReferenceValue: boolean;
-    bWorkOnFloatValues: boolean;
+    readonly __properties_UEnvQueryTest: {
+        TestOrder: number;
+        TestPurpose: EEnvTestPurpose;
+        TestComment: string;
+        MultipleContextFilterOp: EEnvTestFilterOperator;
+        MultipleContextScoreOp: EEnvTestScoreOperator;
+        FilterType: EEnvTestFilterType;
+        boolValue: FAIDataProviderBoolValue;
+        FloatValueMin: FAIDataProviderFloatValue;
+        FloatValueMax: FAIDataProviderFloatValue;
+        ScoringEquation: EEnvTestScoreEquation;
+        ClampMinType: EEnvQueryTestClamping;
+        ClampMaxType: EEnvQueryTestClamping;
+        NormalizationType: EEQSNormalizationType;
+        ScoreClampMin: FAIDataProviderFloatValue;
+        ScoreClampMax: FAIDataProviderFloatValue;
+        ScoringFactor: FAIDataProviderFloatValue;
+        ReferenceValue: FAIDataProviderFloatValue;
+        bDefineReferenceValue: boolean;
+        bWorkOnFloatValues: boolean;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryTest['__properties_UEnvQueryTest'] &
+        UEnvQueryNode['__propertyRegistry'];
 }
-declare const UEnvQueryTest: UEnvQueryTest;
 
 declare interface UEnvQueryTest_Distance extends UEnvQueryTest {
-    TestMode: EEnvTestDistance;
-    DistanceTo: TSubclassOf<UEnvQueryContext>;
+    readonly __properties_UEnvQueryTest_Distance: {
+        TestMode: EEnvTestDistance;
+        DistanceTo: TSubclassOf<UEnvQueryContext>;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryTest['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryTest_Distance['__properties_UEnvQueryTest_Distance'] &
+        UEnvQueryTest['__propertyRegistry'];
 }
-declare const UEnvQueryTest_Distance: UEnvQueryTest_Distance;
 
 declare interface UEnvQueryTest_Dot extends UEnvQueryTest {
-    LineA: FEnvDirection;
-    LineB: FEnvDirection;
-    TestMode: EEnvTestDot;
-    bAbsoluteValue: boolean;
+    readonly __properties_UEnvQueryTest_Dot: {
+        LineA: FEnvDirection;
+        LineB: FEnvDirection;
+        TestMode: EEnvTestDot;
+        bAbsoluteValue: boolean;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryTest['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryTest_Dot['__properties_UEnvQueryTest_Dot'] &
+        UEnvQueryTest['__propertyRegistry'];
 }
-declare const UEnvQueryTest_Dot: UEnvQueryTest_Dot;
 
 declare interface UEnvQueryTest_GameplayTags extends UEnvQueryTest {
-    TagQueryToMatch: FGameplayTagQuery;
-    bRejectIncompatibleItems: boolean;
-    bUpdatedToUseQuery: boolean;
-    TagsToMatch: EGameplayContainerMatchType;
-    GameplayTags: FGameplayTagContainer;
+    readonly __properties_UEnvQueryTest_GameplayTags: {
+        TagQueryToMatch: FGameplayTagQuery;
+        bRejectIncompatibleItems: boolean;
+        bUpdatedToUseQuery: boolean;
+        TagsToMatch: EGameplayContainerMatchType;
+        GameplayTags: FGameplayTagContainer;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryTest['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryTest_GameplayTags['__properties_UEnvQueryTest_GameplayTags'] &
+        UEnvQueryTest['__propertyRegistry'];
 }
-declare const UEnvQueryTest_GameplayTags: UEnvQueryTest_GameplayTags;
 
 declare interface UEnvQueryTest_Overlap extends UEnvQueryTest {
-    OverlapData: FEnvOverlapData;
+    readonly __properties_UEnvQueryTest_Overlap: {
+        OverlapData: FEnvOverlapData;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryTest['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryTest_Overlap['__properties_UEnvQueryTest_Overlap'] &
+        UEnvQueryTest['__propertyRegistry'];
 }
-declare const UEnvQueryTest_Overlap: UEnvQueryTest_Overlap;
 
 declare interface UEnvQueryTest_Pathfinding extends UEnvQueryTest {
-    TestMode: EEnvTestPathfinding;
-    Context: TSubclassOf<UEnvQueryContext>;
-    PathFromContext: FAIDataProviderBoolValue;
-    SkipUnreachable: FAIDataProviderBoolValue;
-    FilterClass: TSubclassOf<UNavigationQueryFilter>;
+    readonly __properties_UEnvQueryTest_Pathfinding: {
+        TestMode: EEnvTestPathfinding;
+        Context: TSubclassOf<UEnvQueryContext>;
+        PathFromContext: FAIDataProviderBoolValue;
+        SkipUnreachable: FAIDataProviderBoolValue;
+        FilterClass: TSubclassOf<UNavigationQueryFilter>;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryTest['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryTest_Pathfinding['__properties_UEnvQueryTest_Pathfinding'] &
+        UEnvQueryTest['__propertyRegistry'];
 }
-declare const UEnvQueryTest_Pathfinding: UEnvQueryTest_Pathfinding;
 
 declare interface UEnvQueryTest_PathfindingBatch extends UEnvQueryTest_Pathfinding {
-    ScanRangeMultiplier: FAIDataProviderFloatValue;
+    readonly __properties_UEnvQueryTest_PathfindingBatch: {
+        ScanRangeMultiplier: FAIDataProviderFloatValue;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryTest_Pathfinding['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryTest_PathfindingBatch['__properties_UEnvQueryTest_PathfindingBatch'] &
+        UEnvQueryTest_Pathfinding['__propertyRegistry'];
 }
-declare const UEnvQueryTest_PathfindingBatch: UEnvQueryTest_PathfindingBatch;
 
 declare interface UEnvQueryTest_Project extends UEnvQueryTest {
-    ProjectionData: FEnvTraceData;
+    readonly __properties_UEnvQueryTest_Project: {
+        ProjectionData: FEnvTraceData;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryTest['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryTest_Project['__properties_UEnvQueryTest_Project'] &
+        UEnvQueryTest['__propertyRegistry'];
 }
-declare const UEnvQueryTest_Project: UEnvQueryTest_Project;
 
 declare interface UEnvQueryTest_Random extends UEnvQueryTest {
-
+    readonly __staticRegistry: 
+        UEnvQueryTest['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryTest['__propertyRegistry'];
 }
-declare const UEnvQueryTest_Random: UEnvQueryTest_Random;
 
 declare interface UEnvQueryTest_Trace extends UEnvQueryTest {
-    TraceData: FEnvTraceData;
-    TraceFromContext: FAIDataProviderBoolValue;
-    ItemHeightOffset: FAIDataProviderFloatValue;
-    ContextHeightOffset: FAIDataProviderFloatValue;
-    Context: TSubclassOf<UEnvQueryContext>;
+    readonly __properties_UEnvQueryTest_Trace: {
+        TraceData: FEnvTraceData;
+        TraceFromContext: FAIDataProviderBoolValue;
+        ItemHeightOffset: FAIDataProviderFloatValue;
+        ContextHeightOffset: FAIDataProviderFloatValue;
+        Context: TSubclassOf<UEnvQueryContext>;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryTest['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryTest_Trace['__properties_UEnvQueryTest_Trace'] &
+        UEnvQueryTest['__propertyRegistry'];
 }
-declare const UEnvQueryTest_Trace: UEnvQueryTest_Trace;
 
 declare interface UEnvQueryTest_Volume extends UEnvQueryTest {
-    VolumeContext: TSubclassOf<UEnvQueryContext>;
-    VolumeClass: TSubclassOf<AVolume>;
-    bDoComplexVolumeTest: boolean;
-    bSkipTestIfNoVolumes: boolean;
+    readonly __properties_UEnvQueryTest_Volume: {
+        VolumeContext: TSubclassOf<UEnvQueryContext>;
+        VolumeClass: TSubclassOf<AVolume>;
+        bDoComplexVolumeTest: boolean;
+        bSkipTestIfNoVolumes: boolean;
+    };
+    readonly __staticRegistry: 
+        UEnvQueryTest['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvQueryTest_Volume['__properties_UEnvQueryTest_Volume'] &
+        UEnvQueryTest['__propertyRegistry'];
 }
-declare const UEnvQueryTest_Volume: UEnvQueryTest_Volume;
 
 declare interface UEnvQueryTypes extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UEnvQueryTypes: UEnvQueryTypes;
 
 declare interface UGeneratedNavLinksProxy extends UBaseGeneratedNavLinksProxy {
-    OnSmartLinkReached: FGeneratedNavLinksProxyOnSmartLinkReached;
-    ReceiveSmartLinkReached(Agent: AActor, Destination: FVector): void;
+    readonly __static_UGeneratedNavLinksProxy: {
+        ReceiveSmartLinkReached(Agent: AActor, Destination: FVector): void;
+    };
+    readonly __properties_UGeneratedNavLinksProxy: {
+        OnSmartLinkReached: FGeneratedNavLinksProxyOnSmartLinkReached;
+    };
+    readonly __staticRegistry: 
+        UGeneratedNavLinksProxy['__static_UGeneratedNavLinksProxy'] &
+        UBaseGeneratedNavLinksProxy['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGeneratedNavLinksProxy['__properties_UGeneratedNavLinksProxy'] &
+        UBaseGeneratedNavLinksProxy['__propertyRegistry'];
 }
-declare const UGeneratedNavLinksProxy: UGeneratedNavLinksProxy;
 
 declare interface UGridPathFollowingComponent extends UPathFollowingComponent {
-    GridManager: UNavLocalGridManager;
+    readonly __properties_UGridPathFollowingComponent: {
+        GridManager: UNavLocalGridManager;
+    };
+    readonly __staticRegistry: 
+        UPathFollowingComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGridPathFollowingComponent['__properties_UGridPathFollowingComponent'] &
+        UPathFollowingComponent['__propertyRegistry'];
 }
-declare const UGridPathFollowingComponent: UGridPathFollowingComponent;
 
 declare interface UNavFilter_AIControllerDefault extends UNavigationQueryFilter {
-
+    readonly __staticRegistry: 
+        UNavigationQueryFilter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNavigationQueryFilter['__propertyRegistry'];
 }
-declare const UNavFilter_AIControllerDefault: UNavFilter_AIControllerDefault;
 
 declare interface UNavLocalGridManager extends UObject {
-    SetLocalNavigationGridDensity(WorldContextObject: UObject, CellSize: number): boolean;
-    RemoveLocalNavigationGrid(WorldContextObject: UObject, GridId: number, bRebuildGrids: boolean): void;
-    FindLocalNavigationGridPath(WorldContextObject: UObject, Start: FVector, End: FVector, PathPoints: TArray<FVector>): boolean;
-    AddLocalNavigationGridForPoints(WorldContextObject: UObject, Locations: TArray<FVector>, Radius2D: number, Height: number, bRebuildGrids: boolean): number;
-    AddLocalNavigationGridForPoint(WorldContextObject: UObject, Location: FVector, Radius2D: number, Height: number, bRebuildGrids: boolean): number;
-    AddLocalNavigationGridForCapsule(WorldContextObject: UObject, Location: FVector, CapsuleRadius: number, CapsuleHalfHeight: number, Radius2D: number, Height: number, bRebuildGrids: boolean): number;
-    AddLocalNavigationGridForBox(WorldContextObject: UObject, Location: FVector, Extent: FVector, Rotation: FRotator, Radius2D: number, Height: number, bRebuildGrids: boolean): number;
+    readonly __static_UNavLocalGridManager: {
+        SetLocalNavigationGridDensity(WorldContextObject: UObject, CellSize: number): boolean;
+        RemoveLocalNavigationGrid(WorldContextObject: UObject, GridId: number, bRebuildGrids: boolean): void;
+        FindLocalNavigationGridPath(WorldContextObject: UObject, Start: FVector, End: FVector, PathPoints: FVector[]): boolean;
+        AddLocalNavigationGridForPoints(WorldContextObject: UObject, Locations: FVector[], Radius2D: number, Height: number, bRebuildGrids: boolean): number;
+        AddLocalNavigationGridForPoint(WorldContextObject: UObject, Location: FVector, Radius2D: number, Height: number, bRebuildGrids: boolean): number;
+        AddLocalNavigationGridForCapsule(WorldContextObject: UObject, Location: FVector, CapsuleRadius: number, CapsuleHalfHeight: number, Radius2D: number, Height: number, bRebuildGrids: boolean): number;
+        AddLocalNavigationGridForBox(WorldContextObject: UObject, Location: FVector, Extent: FVector, Rotation: FRotator, Radius2D: number, Height: number, bRebuildGrids: boolean): number;
+    };
+    readonly __staticRegistry: 
+        UNavLocalGridManager['__static_UNavLocalGridManager'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNavLocalGridManager: UNavLocalGridManager;
 
 declare interface UPathFollowingComponent extends UActorComponent {
-    MovementComp: UNavMovementComponent;
-    MyNavData: ANavigationData;
-    OnNavDataRegistered(NavData: ANavigationData): void;
-    OnActorBump(SelfActor: AActor, OtherActor: AActor, NormalImpulse: FVector, Hit: FHitResult): void;
-    GetPathDestination(): FVector;
-    GetPathActionType(): EPathFollowingAction;
+    readonly __static_UPathFollowingComponent: {
+        OnNavDataRegistered(NavData: ANavigationData): void;
+        OnActorBump(SelfActor: AActor, OtherActor: AActor, NormalImpulse: FVector, Hit: FHitResult): void;
+        GetPathDestination(): FVector;
+        GetPathActionType(): EPathFollowingAction;
+    };
+    readonly __properties_UPathFollowingComponent: {
+        MovementComp: UNavMovementComponent;
+        MyNavData: ANavigationData;
+    };
+    readonly __staticRegistry: 
+        UPathFollowingComponent['__static_UPathFollowingComponent'] &
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPathFollowingComponent['__properties_UPathFollowingComponent'] &
+        UActorComponent['__propertyRegistry'];
 }
-declare const UPathFollowingComponent: UPathFollowingComponent;
 
 declare interface UPathFollowingManager extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UPathFollowingManager: UPathFollowingManager;
 
 declare interface UPawnSensingComponent extends UActorComponent {
-    HearingThreshold: number;
-    LOSHearingThreshold: number;
-    SightRadius: number;
-    SensingInterval: number;
-    HearingMaxSoundAge: number;
-    bEnableSensingUpdates: boolean;
-    bOnlySensePlayers: boolean;
-    bSeePawns: boolean;
-    bHearNoises: boolean;
-    OnSeePawn: FPawnSensingComponentOnSeePawn;
-    OnHearNoise: FPawnSensingComponentOnHearNoise;
-    PeripheralVisionAngle: number;
-    PeripheralVisionCosine: number;
-    SetSensingUpdatesEnabled(bEnabled: boolean): void;
-    SetSensingInterval(NewSensingInterval: number): void;
-    SetPeripheralVisionAngle(NewPeripheralVisionAngle: number): void;
-    SeePawnDelegate__DelegateSignature(Pawn: APawn): void;
-    HearNoiseDelegate__DelegateSignature(Instigator: APawn, Location: FVector, Volume: number): void;
-    GetPeripheralVisionCosine(): number;
-    GetPeripheralVisionAngle(): number;
+    readonly __static_UPawnSensingComponent: {
+        SetSensingUpdatesEnabled(bEnabled: boolean): void;
+        SetSensingInterval(NewSensingInterval: number): void;
+        SetPeripheralVisionAngle(NewPeripheralVisionAngle: number): void;
+        SeePawnDelegate__DelegateSignature(Pawn: APawn): void;
+        HearNoiseDelegate__DelegateSignature(Instigator: APawn, Location: FVector, Volume: number): void;
+        GetPeripheralVisionCosine(): number;
+        GetPeripheralVisionAngle(): number;
+    };
+    readonly __properties_UPawnSensingComponent: {
+        HearingThreshold: number;
+        LOSHearingThreshold: number;
+        SightRadius: number;
+        SensingInterval: number;
+        HearingMaxSoundAge: number;
+        bEnableSensingUpdates: boolean;
+        bOnlySensePlayers: boolean;
+        bSeePawns: boolean;
+        bHearNoises: boolean;
+        OnSeePawn: FPawnSensingComponentOnSeePawn;
+        OnHearNoise: FPawnSensingComponentOnHearNoise;
+        PeripheralVisionAngle: number;
+        PeripheralVisionCosine: number;
+    };
+    readonly __staticRegistry: 
+        UPawnSensingComponent['__static_UPawnSensingComponent'] &
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPawnSensingComponent['__properties_UPawnSensingComponent'] &
+        UActorComponent['__propertyRegistry'];
 }
-declare const UPawnSensingComponent: UPawnSensingComponent;
 
 declare interface UValueOrBBKeyBlueprintUtility extends UBlueprintFunctionLibrary {
-    GetVector(Value: FValueOrBBKey_Vector, BehaviorTreeComp: UBehaviorTreeComponent): FVector;
-    GetStruct(Value: FValueOrBBKey_Struct, BehaviorTreeComp: UBehaviorTreeComponent): FInstancedStruct;
-    GetString(Value: FValueOrBBKey_String, BehaviorTreeComp: UBehaviorTreeComponent): FString;
-    GetRotator(Value: FValueOrBBKey_Rotator, BehaviorTreeComp: UBehaviorTreeComponent): FRotator;
-    GetObject(Value: FValueOrBBKey_Object, BehaviorTreeComp: UBehaviorTreeComponent): UObject;
-    GetName(Value: FValueOrBBKey_Name, BehaviorTreeComp: UBehaviorTreeComponent): FName;
-    GetInt32(Value: FValueOrBBKey_Int32, BehaviorTreeComp: UBehaviorTreeComponent): number;
-    GetFloat(Value: FValueOrBBKey_Float, BehaviorTreeComp: UBehaviorTreeComponent): number;
-    GetEnum(Value: FValueOrBBKey_Enum, BehaviorTreeComp: UBehaviorTreeComponent): uint8;
-    GetClass(Value: FValueOrBBKey_Class, BehaviorTreeComp: UBehaviorTreeComponent): UClass;
-    GetBool(Value: FValueOrBBKey_Bool, BehaviorTreeComp: UBehaviorTreeComponent): boolean;
-    GetClass(): UClass;
+    readonly __static_UValueOrBBKeyBlueprintUtility: {
+        GetVector(Value: FValueOrBBKey_Vector, BehaviorTreeComp: UBehaviorTreeComponent): FVector;
+        GetStruct(Value: FValueOrBBKey_Struct, BehaviorTreeComp: UBehaviorTreeComponent): FInstancedStruct;
+        GetString(Value: FValueOrBBKey_String, BehaviorTreeComp: UBehaviorTreeComponent): string;
+        GetRotator(Value: FValueOrBBKey_Rotator, BehaviorTreeComp: UBehaviorTreeComponent): FRotator;
+        GetObject(Value: FValueOrBBKey_Object, BehaviorTreeComp: UBehaviorTreeComponent): UObject;
+        GetName(Value: FValueOrBBKey_Name, BehaviorTreeComp: UBehaviorTreeComponent): string;
+        GetInt32(Value: FValueOrBBKey_Int32, BehaviorTreeComp: UBehaviorTreeComponent): number;
+        GetFloat(Value: FValueOrBBKey_Float, BehaviorTreeComp: UBehaviorTreeComponent): number;
+        GetEnum(Value: FValueOrBBKey_Enum, BehaviorTreeComp: UBehaviorTreeComponent): number;
+        GetClass(Value: FValueOrBBKey_Class, BehaviorTreeComp: UBehaviorTreeComponent): UClass;
+        GetBool(Value: FValueOrBBKey_Bool, BehaviorTreeComp: UBehaviorTreeComponent): boolean;
+    };
+    readonly __staticRegistry: 
+        UValueOrBBKeyBlueprintUtility['__static_UValueOrBBKeyBlueprintUtility'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UValueOrBBKeyBlueprintUtility: UValueOrBBKeyBlueprintUtility;
 
 declare interface UVisualLoggerExtension extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UVisualLoggerExtension: UVisualLoggerExtension;
 

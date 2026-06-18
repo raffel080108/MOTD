@@ -13,18 +13,12 @@ export class ConfigHandlerWithSerialization<TData, TSerializedData> extends Conf
     }
 
     protected save(): void {
-        ModUtil.saveConfig(this.configName, this.serializeCallback(this.data), () => {
-            this.fileOperationCompleted();
-        });
+        ModUtil.saveConfig(this.configName, this.serializeCallback(this.data));
     }
 
     protected load(): void {
-        ModUtil.loadConfig(this.configName, (success: boolean, data: unknown) => {
-            if (success && data !== undefined) {
-                this.parseData(this.deserializeCallback(data as Partial<TSerializedData>));
-            }
+        const data = ModUtil.loadConfig(this.configName);
 
-            this.fileOperationCompleted();
-        });
+        this.parseData(this.deserializeCallback(data as Partial<TSerializedData>));
     }
 }

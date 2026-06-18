@@ -1,5 +1,11 @@
 declare interface ABP_Skysphere_HoxxesStars_C extends AActor {
-    StaticMeshComponent0: UStaticMeshComponent;
+    readonly __properties_ABP_Skysphere_HoxxesStars_C: {
+        StaticMeshComponent0: UStaticMeshComponent;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ABP_Skysphere_HoxxesStars_C['__properties_ABP_Skysphere_HoxxesStars_C'] &
+        AActor['__propertyRegistry'];
 }
-declare const ABP_Skysphere_HoxxesStars_C: ABP_Skysphere_HoxxesStars_C;
 

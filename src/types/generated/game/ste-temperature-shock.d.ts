@@ -1,5 +1,7 @@
 declare interface USTE_TemperatureShock_C extends UStatusEffect {
-
+    readonly __staticRegistry: 
+        UStatusEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStatusEffect['__propertyRegistry'];
 }
-declare const USTE_TemperatureShock_C: USTE_TemperatureShock_C;
 

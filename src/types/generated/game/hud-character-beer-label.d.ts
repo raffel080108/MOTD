@@ -1,9 +1,18 @@
 declare interface UHUD_CharacterBeerLabel_C extends UUserWidget {
-    UberGraphFrame: FPointerToUberGraphFrame;
-    BarBuff: UImage;
-    buff: UTemporaryBuff;
-    PreConstruct(IsDesignTime: boolean): void;
-    ExecuteUbergraph_HUD_CharacterBeerLabel(EntryPoint: number): void;
+    readonly __static_UHUD_CharacterBeerLabel_C: {
+        PreConstruct(IsDesignTime: boolean): void;
+        ExecuteUbergraph_HUD_CharacterBeerLabel(EntryPoint: number): void;
+    };
+    readonly __properties_UHUD_CharacterBeerLabel_C: {
+        UberGraphFrame: FPointerToUberGraphFrame;
+        BarBuff: UImage;
+        buff: UTemporaryBuff;
+    };
+    readonly __staticRegistry: 
+        UHUD_CharacterBeerLabel_C['__static_UHUD_CharacterBeerLabel_C'] &
+        UUserWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UHUD_CharacterBeerLabel_C['__properties_UHUD_CharacterBeerLabel_C'] &
+        UUserWidget['__propertyRegistry'];
 }
-declare const UHUD_CharacterBeerLabel_C: UHUD_CharacterBeerLabel_C;
 

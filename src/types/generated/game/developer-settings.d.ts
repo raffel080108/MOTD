@@ -1,31 +1,41 @@
 declare interface FPerPlatformSettings {
-    Settings: TArray<UPlatformSettings>;
+    Settings: UPlatformSettings[];
 }
-declare const FPerPlatformSettings: FPerPlatformSettings;
 
 declare interface FPlatformSettingsInstances {
     PlatformInstance: UPlatformSettings;
-    OtherPlatforms: Record<FName, UPlatformSettings>;
+    OtherPlatforms: TMap<string, UPlatformSettings>;
 }
-declare const FPlatformSettingsInstances: FPlatformSettingsInstances;
 
 declare interface UDeveloperSettings extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UDeveloperSettings: UDeveloperSettings;
 
 declare interface UDeveloperSettingsBackedByCVars extends UDeveloperSettings {
-
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UDeveloperSettingsBackedByCVars: UDeveloperSettingsBackedByCVars;
 
 declare interface UPlatformSettings extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UPlatformSettings: UPlatformSettings;
 
 declare interface UPlatformSettingsManager extends UObject {
-    SettingsMap: Record<string | number | symbol, FPlatformSettingsInstances>;
+    readonly __properties_UPlatformSettingsManager: {
+        SettingsMap: TMap<TSubclassOf<UPlatformSettings>, FPlatformSettingsInstances>;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPlatformSettingsManager['__properties_UPlatformSettingsManager'] &
+        UObject['__propertyRegistry'];
 }
-declare const UPlatformSettingsManager: UPlatformSettingsManager;
 

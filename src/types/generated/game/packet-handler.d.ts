@@ -1,10 +1,18 @@
 declare interface UHandlerComponentFactory extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UHandlerComponentFactory: UHandlerComponentFactory;
 
 declare interface UPacketHandlerProfileConfig extends UObject {
-    Components: TArray<FString>;
+    readonly __properties_UPacketHandlerProfileConfig: {
+        Components: string[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPacketHandlerProfileConfig['__properties_UPacketHandlerProfileConfig'] &
+        UObject['__propertyRegistry'];
 }
-declare const UPacketHandlerProfileConfig: UPacketHandlerProfileConfig;
 

@@ -1,24 +1,37 @@
 declare interface FOverlayItem {
     StartTime: FTimespan;
     EndTime: FTimespan;
-    Text: FString;
+    Text: string;
     position: FVector2D;
 }
-declare const FOverlayItem: FOverlayItem;
 
 declare interface UBasicOverlays extends UOverlays {
-    Overlays: TArray<FOverlayItem>;
+    readonly __properties_UBasicOverlays: {
+        Overlays: FOverlayItem[];
+    };
+    readonly __staticRegistry: 
+        UOverlays['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBasicOverlays['__properties_UBasicOverlays'] &
+        UOverlays['__propertyRegistry'];
 }
-declare const UBasicOverlays: UBasicOverlays;
 
 declare interface ULocalizedOverlays extends UOverlays {
-    DefaultOverlays: UBasicOverlays;
-    LocaleToOverlaysMap: Record<FString, UBasicOverlays>;
+    readonly __properties_ULocalizedOverlays: {
+        DefaultOverlays: UBasicOverlays;
+        LocaleToOverlaysMap: TMap<string, UBasicOverlays>;
+    };
+    readonly __staticRegistry: 
+        UOverlays['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULocalizedOverlays['__properties_ULocalizedOverlays'] &
+        UOverlays['__propertyRegistry'];
 }
-declare const ULocalizedOverlays: ULocalizedOverlays;
 
 declare interface UOverlays extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UOverlays: UOverlays;
 

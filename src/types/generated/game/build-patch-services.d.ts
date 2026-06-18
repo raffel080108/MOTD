@@ -1,57 +1,58 @@
 declare interface FChunkInfoData {
     Guid: FGuid;
-    Hash: uint64;
+    Hash: number;
     ShaHash: FSHAHashData;
-    FileSize: int64;
-    GroupNumber: uint8;
+    FileSize: number;
+    GroupNumber: number;
 }
-declare const FChunkInfoData: FChunkInfoData;
 
 declare interface FChunkPartData {
     Guid: FGuid;
-    Offset: uint32;
-    Size: uint32;
+    Offset: number;
+    Size: number;
 }
-declare const FChunkPartData: FChunkPartData;
 
 declare interface FCustomFieldData {
-    Key: FString;
-    Value: FString;
+    Key: string;
+    Value: string;
 }
-declare const FCustomFieldData: FCustomFieldData;
 
 declare interface FFileManifestData {
-    Filename: FString;
+    Filename: string;
     FileHash: FSHAHashData;
-    FileChunkParts: TArray<FChunkPartData>;
-    InstallTags: TArray<FString>;
+    FileChunkParts: FChunkPartData[];
+    InstallTags: string[];
     bIsUnixExecutable: boolean;
-    SymlinkTarget: FString;
+    SymlinkTarget: string;
     bIsReadOnly: boolean;
     bIsCompressed: boolean;
 }
-declare const FFileManifestData: FFileManifestData;
 
 declare interface FSHAHashData {
-    Hash: uint8;
+    Hash: number;
 }
-declare const FSHAHashData: FSHAHashData;
 
 declare interface UBuildPatchManifest extends UObject {
-    ManifestFileVersion: uint8;
-    bIsFileData: boolean;
-    AppID: uint32;
-    AppName: FString;
-    BuildVersion: FString;
-    LaunchExe: FString;
-    LaunchCommand: FString;
-    PrereqIds: TSet<FString>;
-    PrereqName: FString;
-    PrereqPath: FString;
-    PrereqArgs: FString;
-    FileManifestList: TArray<FFileManifestData>;
-    ChunkList: TArray<FChunkInfoData>;
-    CustomFields: TArray<FCustomFieldData>;
+    readonly __properties_UBuildPatchManifest: {
+        ManifestFileVersion: number;
+        bIsFileData: boolean;
+        AppID: number;
+        AppName: string;
+        BuildVersion: string;
+        LaunchExe: string;
+        LaunchCommand: string;
+        PrereqIds: string[];
+        PrereqName: string;
+        PrereqPath: string;
+        PrereqArgs: string;
+        FileManifestList: FFileManifestData[];
+        ChunkList: FChunkInfoData[];
+        CustomFields: FCustomFieldData[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBuildPatchManifest['__properties_UBuildPatchManifest'] &
+        UObject['__propertyRegistry'];
 }
-declare const UBuildPatchManifest: UBuildPatchManifest;
 

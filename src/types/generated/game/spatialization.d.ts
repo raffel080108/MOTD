@@ -1,6 +1,12 @@
 declare interface UITDSpatializationSourceSettings extends USpatializationPluginSourceSettingsBase {
-    bEnableILD: boolean;
-    PanningIntensityOverDistance: FRuntimeFloatCurve;
+    readonly __properties_UITDSpatializationSourceSettings: {
+        bEnableILD: boolean;
+        PanningIntensityOverDistance: FRuntimeFloatCurve;
+    };
+    readonly __staticRegistry: 
+        USpatializationPluginSourceSettingsBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UITDSpatializationSourceSettings['__properties_UITDSpatializationSourceSettings'] &
+        USpatializationPluginSourceSettingsBase['__propertyRegistry'];
 }
-declare const UITDSpatializationSourceSettings: UITDSpatializationSourceSettings;
 

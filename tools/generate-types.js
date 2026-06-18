@@ -3,18 +3,16 @@ const path = require('path');
 
 process.chdir(path.join(__dirname, '..'));
 
-const originalWriteFile = fs.writeFileSync;
-fs.writeFileSync = function(filePath, content, options) {
-    if (typeof content === 'string' && content.includes('[]')) {
-        content = content.replace(/(?<!\.\.\.[\w_]*):\s*([\w_<>|]+)\[\]/g, ': TArray<$1>');
-    }
-    return originalWriteFile.call(fs, filePath, content, options);
-};
-
-const SOURCE_ROOT = "D:\\SteamLibrary\\steamapps\\common\\Deep Rock Galactic RogueCore\\RogueCore\\Binaries\\Win64\\ue4ss\\Mods\\shared";
+const SOURCE_ROOT = "D:\\SteamLibrary2\\steamapps\\common\\Deep Rock Galactic RogueCore\\RogueCore\\Binaries\\Win64\\ue4ss\\Mods\\shared";
 const TARGET_ROOT = path.join(process.cwd(), 'src', 'types', 'generated');
 
 const MANUAL_TYPE_OVERRIDES = path.join(process.cwd(), 'src', 'types', 'generator-manual-types.d.ts');
+
+const UseInterfaceRegistrySyntax = true;
+
+const IgnoreInterfaceRegistrySyntax = [
+
+];
 
 const FOLDER_MAPPINGS = [
 	{ src: 'types', dest: 'game' },
@@ -23,6 +21,7 @@ const FOLDER_MAPPINGS = [
 
 const FILE_BLACKLIST = new Set([
     'UEHelpers.lua',
+    'Types.lua'
 ]);
 
 const RENAME_TARGETS = {
@@ -50,15 +49,14 @@ const STUB_BLACKLIST = new Set([
 const TYPE_MAP = {
     'boolean': 'boolean', 'double': 'number', 'float': 'number',
     'int32': 'number', 'integer': 'number', 'string': 'string',
-    'void': 'void', 'nil': 'void', 'any': 'any', 'number': 'number', 'unknown': 'unknown',
-    'fname': 'FName', 'fstring': 'FString', 'ftext': 'FText', 'record': 'Record',
-    'table': 'Record<string | number, any>', 'function': '(() => void)'
+    'void': 'void', 'nil': 'void', 'unknown': 'unknown', 'number': 'number', 'unknown': 'unknown',
+    'fname': 'string', 'fstring': 'string', 'ftext': 'string', 'record': 'Record',
+    'table': 'Record<string | number, unknown>', 'function': '(() => void)',
+    'int16': 'number', 'int64': 'number', 'int8': 'number', 'uint16': 'number', 'uint32': 'number', 'uint64': 'number', 'uint8': 'number',
 };
 
 const INDEXABLE_KEY_CLASSES = new Set([
-    'FString',
-    'FName',
-    'FText'
+
 ]);
 
 const DEFINED_TYPES = new Set();
@@ -69,6 +67,14 @@ const DUPLICATED_CLASSES = new Set();
 const MANUAL_GLOBALS_CACHE = {}; 
 const MANUAL_OVERRIDDEN_TYPES = new Set();
 
+GLOBAL_CLASSES_REGISTRY['UObject'] = {
+    parent: '',
+    items: [],
+    files: new Set(['NATIVE_ENGINE_CORE'])
+};
+
+DEFINED_TYPES.add('UObject');
+
 function toKebabCase(filename) {
     // Isolate the base name from the extension (.d.ts)
     const extIndex = filename.indexOf('.d.ts');
@@ -78,13 +84,13 @@ function toKebabCase(filename) {
     const extension = filename.substring(extIndex);
 
     const kebabBase = baseName
-        // Insert a hyphen before any uppercase letter followed by lowercase ones
+        // Insert a hyphen before unknown uppercase letter followed by lowercase ones
         .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
         // Insert a hyphen between acronyms and adjacent words
         .replace(/([A-Z])([A-Z][a-z])/g, '$1-$2')
-        // Convert any existing underscores into hyphens
+        // Convert unknown existing underscores into hyphens
         .replace(/_/g, '-')
-        // Clean up any double hyphens, spaces, or trailing/leading dash artifacts
+        // Clean up unknown double hyphens, spaces, or trailing/leading dash artifacts
         .replace(/[\s\-]+/g, '-')
         .replace(/^-+|-+$/g, '')
         .toLowerCase();
@@ -93,7 +99,7 @@ function toKebabCase(filename) {
 }
 
 function cleanType(luaType, skipTracking = false) {
-    if (!luaType) return 'any';
+    if (!luaType) return 'unknown';
     
     let clean = luaType.split('#')[0].trim();
 
@@ -164,17 +170,17 @@ function cleanType(luaType, skipTracking = false) {
                 if (currentParam.trim()) paramParts.push(currentParam.trim());
 
                 formattedParams = paramParts.map(param => {
-                    if (param === '...') return '...args: any[]';
+                    if (param === '...') return '...args: unknown[]';
                     
                     const colonIndex = param.indexOf(':');
                     if (colonIndex !== -1) {
                         const name = param.substring(0, colonIndex).trim();
                         let type = param.substring(colonIndex + 1).trim();
-                        if (name === '...') return '...args: any[]';
-                        if (!type || type.match(/^[\s\t\-#]*$/)) type = 'any';
+                        if (name === '...') return '...args: unknown[]';
+                        if (!type || type.match(/^[\s\t\-#]*$/)) type = 'unknown';
                         return `${name}: ${cleanType(type, skipTracking)}`;
                     }
-                    return `${param}: any`;
+                    return `${param}: unknown`;
                 }).join(', ');
             }
 
@@ -239,18 +245,10 @@ function cleanType(luaType, skipTracking = false) {
 
         const resolvedInners = paramParts.map(p => cleanType(p, skipTracking));
 
-        if (containerName === 'TArray') {
-            let inner = resolvedInners[0];
+        if (containerName === 'TArray' || containerName === 'TSet') {
+            let inner = resolvedInners[0] || 'unknown';
             if (inner.includes('|')) inner = `(${inner})`;
             return isOptional ? `${inner}[] | undefined` : `${inner}[]`;
-        }
-        if (containerName === 'TMap') {
-            let rK = resolvedInners[0];
-            let rV = resolvedInners[1] || 'any';
-            if (rK === 'any' || (!['string', 'number', 'symbol', 'FName', 'FString'].includes(rK) && !rK.startsWith('string'))) {
-                rK = 'string | number | symbol';
-            }
-            return `Record<${rK}, ${rV}>`;
         }
 
         const finalGenericSignature = `${containerName}<${resolvedInners.join(', ')}>`;
@@ -281,8 +279,8 @@ function cleanType(luaType, skipTracking = false) {
     if (clean.endsWith('[]')) {
         const inner = clean.slice(0, -2);
         let resolvedInner = cleanType(inner, skipTracking);
-        
-        return `TArray<${resolvedInner}>`;
+        if (resolvedInner.includes('|')) resolvedInner = `(${resolvedInner})`;
+        return `${resolvedInner}[]`;
     }
 
     return clean;
@@ -459,7 +457,7 @@ function parseEmmyLuaFile(lines, filename) {
 
                     const argsArray = [];
                     rawArgs.forEach(arg => {
-                        if (arg === '...') { argsArray.push('...args: any[]'); return; }
+                        if (arg === '...') { argsArray.push('...args: unknown[]'); return; }
                         
                         const p = pendingParams.find(param => param.name === arg) || 
                                   pendingParams.find(param => param.name.toLowerCase() === arg.toLowerCase());
@@ -468,7 +466,7 @@ function parseEmmyLuaFile(lines, filename) {
                             const nameWithSuffix = p.isOptional ? `${arg}?` : arg;
                             argsArray.push(`${nameWithSuffix}: ${p.type}`);
                         } else {
-                            argsArray.push(`${arg}: any`);
+                            argsArray.push(`${arg}: unknown`);
                         }
                     });
 
@@ -497,13 +495,13 @@ function parseEmmyLuaFile(lines, filename) {
                     const argsData = [];
                     rawArgs.forEach(arg => {
                         if (arg === '...') { 
-                            argsData.push({ name: arg, type: 'any[]', isRest: true, isOptional: false }); 
+                            argsData.push({ name: arg, type: 'unknown[]', isRest: true, isOptional: false }); 
                             return; 
                         }
                         const p = pendingParams.find(param => param.name === arg) || 
                         pendingParams.find(param => param.name.toLowerCase() === arg.toLowerCase());
                             
-                        let finalParamType = p ? p.type : 'any';
+                        let finalParamType = p ? p.type : 'unknown';
                         
                         if (finalParamType === 'FString') {
                             finalParamType = 'string | FString';
@@ -535,7 +533,7 @@ function parseEmmyLuaFile(lines, filename) {
 
                     // Map down the final strings using the appropriate syntax rule fallback
                     const argsArray = argsData.map(argObj => {
-                        if (argObj.isRest) return `...args: any[]`;
+                        if (argObj.isRest) return `...args: unknown[]`;
                         
                         if (argObj.isOptional) {
                             if (hasInvalidLayoutOrder) {
@@ -660,7 +658,7 @@ function parseEmmyLuaFile(lines, filename) {
                             const fieldPropName = fieldPropParts[0].trim();
                             const fieldPropType = fieldPropParts.slice(1).join(':').trim().slice(0, -1);
                             
-                            GLOBAL_CLASSES_REGISTRY[className].items[existingIndex] = `    ${fieldPropName}: ${fieldPropType} & (() => any); /* Systemic collision handling intersect */`;
+                            GLOBAL_CLASSES_REGISTRY[className].items[existingIndex] = `    ${fieldPropName}: ${fieldPropType} & (() => unknown); /* Systemic collision handling intersect */`;
                             return;
                         }
 
@@ -880,7 +878,7 @@ Object.keys(GLOBAL_CLASSES_REGISTRY).forEach(className => {
                     if (fieldsToIntersect.has(propName)) {
                         const propTypeParts = item.split(':');
                         const propTypeClean = propTypeParts.slice(1).join(':').trim().slice(0, -1);
-                        return `    ${propName}: ${propTypeClean} & (() => any); /* Systemic inheritance field-vs-method collision intersection override */`;
+                        return `    ${propName}: ${propTypeClean} & (() => unknown); /* Systemic inheritance field-vs-method collision intersection override */`;
                     }
                 }
                 return item;
@@ -911,27 +909,90 @@ Object.keys(GLOBAL_CLASSES_REGISTRY).forEach(className => {
                 const parentStr = cData.parent ? ` extends ${cData.parent}` : '';
                 
                 let interfaceParams = '';
-                let globalParams = '';
                 let itemStringText = cData.items.join(' ');
 
                 const hasStandaloneK = /:\s*K\b|\bkey:\s*K\b|<K\s*,/.test(itemStringText);
                 const hasStandaloneT = /:\s*T\b|\bElement:\s*T\b|<T>/.test(itemStringText);
 
                 if (hasStandaloneK) {
-                    interfaceParams = '<K = any, V = any>';
-                    globalParams = '<any, any>';
+                    interfaceParams = '<K = unknown, V = unknown>';
                 } else if (GENERIC_USAGE_MAP[cName] || hasStandaloneT) {
-                    interfaceParams = '<T = any>';
-                    globalParams = '<any>';
+                    interfaceParams = '<T = unknown>';
+                }
+
+                let finalInterfaceBodyContent = '';
+                const isBlacklistedFile = IgnoreInterfaceRegistrySyntax.includes(fileData.name.replace('.d.ts', '.lua'));
+                const inheritsFromUObject = cName === 'UObject' || cName === 'UUObject' || isSubclassOf(cName, 'UObject') || isSubclassOf(cName, 'UUObject');
+
+                if (UseInterfaceRegistrySyntax && !isBlacklistedFile && inheritsFromUObject) {
+                    const runtimeFields = [];
+                    const staticMethods = [];
+                    const reflectionProperties = [];
+
+                    cData.items.forEach(item => {
+                        const trimmed = item.trim();
+                        if (trimmed.includes('(') && trimmed.includes(')')) {
+                            staticMethods.push(`        ${trimmed}`);
+                        } else {
+                            reflectionProperties.push(`        ${trimmed}`);
+                        }
+                    });
+
+                    const hasStaticMethods = staticMethods.length > 0;
+                    const hasReflectionProps = reflectionProperties.length > 0;
+
+                    if (hasStaticMethods) {
+                        runtimeFields.push(`    readonly __static_${cName}: {\n${staticMethods.join('\n')}\n    };`);
+                    }
+                    if (hasReflectionProps) {
+                        runtimeFields.push(`    readonly __properties_${cName}: {\n${reflectionProperties.join('\n')}\n    };`);
+                    }
+
+                    const parentName = cData.parent;
+                    const isNativeUObjectParent = parentName === 'UObject' || parentName === 'UUObject';
+                    const hasValidParent = isNativeUObjectParent || (parentName && GLOBAL_CLASSES_REGISTRY[parentName]);
+
+                    let finalStaticTypeExpression = 'object';
+                    if (hasStaticMethods && hasValidParent) {
+                        finalStaticTypeExpression = `${cName}['__static_${cName}'] &\n        ${parentName}['__staticRegistry']`;
+                    } else if (hasStaticMethods) {
+                        finalStaticTypeExpression = `${cName}['__static_${cName}']`;
+                    } else if (hasValidParent) {
+                        finalStaticTypeExpression = `${parentName}['__staticRegistry']`;
+                    }
+
+                    let finalPropTypeExpression = 'object';
+                    if (hasReflectionProps && hasValidParent) {
+                        finalPropTypeExpression = `${cName}['__properties_${cName}'] &\n        ${parentName}['__propertyRegistry']`;
+                    } else if (hasReflectionProps) {
+                        finalPropTypeExpression = `${cName}['__properties_${cName}']`;
+                    } else if (hasValidParent) {
+                        finalPropTypeExpression = `${parentName}['__propertyRegistry']`;
+                    }
+
+                    // Directly append the registry properties to our local runtime fields array
+                    runtimeFields.push(`    readonly __staticRegistry: \n        ${finalStaticTypeExpression};`);
+                    runtimeFields.push(`    readonly __propertyRegistry: \n        ${finalPropTypeExpression};`);
+
+                    finalInterfaceBodyContent = runtimeFields.join('\n');
+                } else {
+                    finalInterfaceBodyContent = cData.items.map(i => `    ${i.trim()}`).join('\n');
                 }
 
                 if (INDEXABLE_KEY_CLASSES.has(cName)) {
-                    finalFileContent += `declare interface _Internal_${cName}${interfaceParams}${parentStr} {\n${cData.items.join('\n')}\n}\n`;
+                    finalFileContent += `declare interface _Internal_${cName}${interfaceParams}${parentStr} {\n${finalInterfaceBodyContent}\n}\n`;
                     finalFileContent += `declare type ${cName} = string & _Internal_${cName};\n`;
-                    finalFileContent += `declare const ${cName}: _Internal_${cName};\n\n`;
+                    finalFileContent += `declare let ${cName}: _Internal_${cName};\n\n`;
                 } else {
-                    finalFileContent += `declare interface ${cName}${interfaceParams}${parentStr} {\n${cData.items.join('\n')}\n}\n`;
-                    finalFileContent += `declare const ${cName}: ${cName}${globalParams};\n\n`;
+                    const isEmptyNonUObject = !inheritsFromUObject && finalInterfaceBodyContent.trim().length === 0 && parentStr.length === 0;
+
+                    if (isEmptyNonUObject) {
+                        finalFileContent += `declare type ${cName} = object;\n\n`;
+                    } else {
+                        if (inheritsFromUObject || finalInterfaceBodyContent.trim().length > 0 || parentStr.length > 0) {
+                            finalFileContent += `declare interface ${cName}${interfaceParams}${parentStr} {\n${finalInterfaceBodyContent}\n}\n\n`;
+                        }
+                    }
                 }
             });
             
@@ -996,40 +1057,109 @@ Object.keys(GLOBAL_CLASSES_REGISTRY).forEach(className => {
 
             const parentStr = cData.parent ? ` extends ${cData.parent}` : '';
             let interfaceParams = '';
-            let globalParams = '';
             
+            let itemStringText = cData.items.join(' ');
             if (GENERIC_USAGE_MAP[cName] && GENERIC_USAGE_MAP[cName].size > 0) {
                 const usages = Array.from(GENERIC_USAGE_MAP[cName]);
-                let fallbackBound = 'any';
+                let fallbackBound = 'unknown';
                 if (cName === 'TSubclassOf' || usages.includes('UClass') || usages.some(u => u.startsWith('U') || u.startsWith('A'))) {
                     fallbackBound = 'UClass';
                 }
 
-                let itemStringText = cData.items.join(' ');
                 if (itemStringText.includes(': K') || itemStringText.includes('key: K') || itemStringText.includes('<K,')) {
-                    interfaceParams = '<K = any, V = any>'; globalParams = '<any, any>';
+                    interfaceParams = '<K = unknown, V = unknown>';
                 } else {
-                    interfaceParams = `<T extends ${fallbackBound} = ${fallbackBound}>`; globalParams = `<${fallbackBound}>`;
+                    interfaceParams = `<T extends ${fallbackBound} = ${fallbackBound}>`;
                 }
             } else {
-                let itemStringText = cData.items.join(' ');
                 if (itemStringText.includes(': K') || itemStringText.includes('key: K')) {
-                    interfaceParams = '<K = any, V = any>'; globalParams = '<any, any>';
+                    interfaceParams = '<K = unknown, V = unknown>';
                 } else if (itemStringText.includes(': T') || itemStringText.includes('Element: T') || itemStringText.includes('<T>')) {
-                    interfaceParams = '<T = any>'; globalParams = '<any>';
+                    interfaceParams = '<T = unknown>';
                 }
+            }
+
+            let finalMergeBodyContent = '';
+            const filesListArray = Array.from(cData.files || []);
+            const isAnySourceBlacklisted = filesListArray.some(f => IgnoreInterfaceRegistrySyntax.includes(f));
+            const inheritsFromUObjectMerged = cName === 'UObject' || cName === 'UUObject' || isSubclassOf(cName, 'UObject') || isSubclassOf(cName, 'UUObject');
+
+            if (UseInterfaceRegistrySyntax && !isAnySourceBlacklisted && inheritsFromUObjectMerged) {
+                const runtimeFields = [];
+                const staticMethods = [];
+                const reflectionProperties = [];
+
+                cData.items.forEach(item => {
+                    const trimmed = item.trim();
+                    if (trimmed.includes('(') && trimmed.includes(')')) {
+                        staticMethods.push(`        ${trimmed}`);
+                    } else {
+                        reflectionProperties.push(`        ${trimmed}`);
+                    }
+                });
+
+                if (cName === 'UObject' || cName === 'UUObject') {
+                    runtimeFields.push(`    IsValid(): boolean;`);
+                }
+
+                const hasStaticMethods = staticMethods.length > 0;
+                const hasReflectionProps = reflectionProperties.length > 0;
+
+                if (hasStaticMethods) {
+                    runtimeFields.push(`    readonly __static_${cName}: {\n${staticMethods.join('\n')}\n    };`);
+                }
+                if (hasReflectionProps) {
+                    runtimeFields.push(`    readonly __properties_${cName}: {\n${reflectionProperties.join('\n')}\n    };`);
+                }
+
+                const parentName = cData.parent;
+                const isNativeUObjectParent = parentName === 'UObject' || parentName === 'UUObject';
+                const hasValidParent = isNativeUObjectParent || (parentName && GLOBAL_CLASSES_REGISTRY[parentName]);
+
+                let finalStaticTypeExpression = 'object';
+                if (hasStaticMethods && hasValidParent) {
+                    finalStaticTypeExpression = `${cName}['__static_${cName}'] &\n        ${parentName}['__staticRegistry']`;
+                } else if (hasStaticMethods) {
+                    finalStaticTypeExpression = `${cName}['__static_${cName}']`;
+                } else if (hasValidParent) {
+                    finalStaticTypeExpression = `${parentName}['__staticRegistry']`;
+                }
+
+                let finalPropTypeExpression = 'object';
+                if (hasReflectionProps && hasValidParent) {
+                    finalPropTypeExpression = `${cName}['__properties_${cName}'] &\n        ${parentName}['__propertyRegistry']`;
+                } else if (hasReflectionProps) {
+                    finalPropTypeExpression = `${cName}['__properties_${cName}']`;
+                } else if (hasValidParent) {
+                    finalPropTypeExpression = `${parentName}['__propertyRegistry']`;
+                }
+
+                // Directly append the registry properties to our local merged fields array
+                runtimeFields.push(`    readonly __staticRegistry: \n        ${finalStaticTypeExpression};`);
+                runtimeFields.push(`    readonly __propertyRegistry: \n        ${finalPropTypeExpression};`);
+
+                finalMergeBodyContent = runtimeFields.join('\n');
+            } else {
+                finalMergeBodyContent = cData.items.map(i => `    ${i.trim()}`).join('\n');
             }
 
             mergedOutput += `/** Merged declaration from sources: [${originFiles}] */\n`;
             if (INDEXABLE_KEY_CLASSES.has(cName)) {
-                mergedOutput += `declare interface _Internal_${cName}${interfaceParams}${parentStr} {\n${cData.items.join('\n')}\n}\n`;
+                mergedOutput += `declare interface _Internal_${cName}${interfaceParams}${parentStr} {\n${finalMergeBodyContent}\n}\n`;
                 mergedOutput += `declare type ${cName} = string & _Internal_${cName};\n`;
-                mergedOutput += `declare const ${cName}: _Internal_${cName};\n\n`;
+                mergedOutput += `declare let ${cName}: _Internal_${cName};\n\n`;
             } else {
-                mergedOutput += `declare interface ${cName}${interfaceParams}${parentStr} {\n${cData.items.join('\n')}\n}\n`;
-                mergedOutput += `declare const ${cName}: ${cName}${globalParams};\n\n`;
+                const isEmptyNonUObjectMerged = !inheritsFromUObjectMerged && finalMergeBodyContent.trim().length === 0 && parentStr.length === 0;
+
+                if (isEmptyNonUObjectMerged) {
+                    mergedOutput += `declare type ${cName} = object;\n\n`;
+                } else {
+                    if (inheritsFromUObjectMerged || finalMergeBodyContent.trim().length > 0 || parentStr.length > 0) {
+                        mergedOutput += `declare interface ${cName}${interfaceParams}${parentStr} {\n${finalMergeBodyContent}\n}\n\n`;
+                    }
+                }
             }
-			
+
             mergeCount++;
             
             DEFINED_TYPES.add(cName);
@@ -1049,9 +1179,9 @@ Object.keys(GLOBAL_CLASSES_REGISTRY).forEach(className => {
             } else {
                 let genericParamSignature = '';
                 if (GENERIC_USAGE_MAP[usedType]) {
-                    genericParamSignature = '<T = any>';
+                    genericParamSignature = '<T = unknown>';
                 }
-                stubOutput += `declare type ${usedType}${genericParamSignature} = any;\n`;
+                stubOutput += `declare type ${usedType}${genericParamSignature} = unknown;\n`;
                 stubCount++;
             }
             DEFINED_TYPES.add(usedType);

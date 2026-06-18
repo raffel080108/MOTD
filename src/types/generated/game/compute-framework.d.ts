@@ -1,7 +1,6 @@
 declare interface FArrayShaderValue {
-    ArrayOfValues: TArray<uint8>;
+    ArrayOfValues: number[];
 }
-declare const FArrayShaderValue: FArrayShaderValue;
 
 declare interface FComputeGraphEdge {
     KernelIndex: number;
@@ -9,138 +8,173 @@ declare interface FComputeGraphEdge {
     DataInterfaceIndex: number;
     DataInterfaceBindingIndex: number;
     bKernelInput: boolean;
-    BindingFunctionNameOverride: FString;
-    BindingFunctionNamespace: FString;
+    BindingFunctionNameOverride: string;
+    BindingFunctionNamespace: string;
 }
-declare const FComputeGraphEdge: FComputeGraphEdge;
 
 declare interface FComputeGraphInstance {
-    DataProviders: TArray<UComputeDataProvider>;
+    DataProviders: UComputeDataProvider[];
 }
-declare const FComputeGraphInstance: FComputeGraphInstance;
 
 declare interface FComputeKernelDefinition {
-    Symbol: FString;
-    Define: FString;
+    Symbol: string;
+    Define: string;
 }
-declare const FComputeKernelDefinition: FComputeKernelDefinition;
 
 declare interface FComputeKernelDefinitionSet {
-    Defines: TArray<FComputeKernelDefinition>;
+    Defines: FComputeKernelDefinition[];
 }
-declare const FComputeKernelDefinitionSet: FComputeKernelDefinitionSet;
 
 declare interface FComputeKernelPermutationBool {
-    Name: FString;
+    Name: string;
     Value: boolean;
 }
-declare const FComputeKernelPermutationBool: FComputeKernelPermutationBool;
 
 declare interface FComputeKernelPermutationSet {
-    BooleanOptions: TArray<FComputeKernelPermutationBool>;
+    BooleanOptions: FComputeKernelPermutationBool[];
 }
-declare const FComputeKernelPermutationSet: FComputeKernelPermutationSet;
 
 declare interface FComputeKernelPermutationVector {
-    Permutations: Record<FString, uint32>;
-    BitCount: uint32;
+    Permutations: TMap<string, number>;
+    BitCount: number;
 }
-declare const FComputeKernelPermutationVector: FComputeKernelPermutationVector;
 
 declare interface FShaderFunctionDefinition {
-    Name: FString;
-    ParamTypes: TArray<FShaderParamTypeDefinition>;
+    Name: string;
+    ParamTypes: FShaderParamTypeDefinition[];
     bHasReturnType: boolean;
 }
-declare const FShaderFunctionDefinition: FShaderFunctionDefinition;
 
 declare interface FShaderParamTypeDefinition {
-    TypeDeclaration: FString;
-    Name: FString;
+    TypeDeclaration: string;
+    Name: string;
     ValueType: FShaderValueTypeHandle;
-    ArrayElementCount: uint16;
+    ArrayElementCount: number;
     BindingType: EShaderParamBindingType;
     ResourceType: EShaderResourceType;
     Modifier: EShaderParamModifier;
 }
-declare const FShaderParamTypeDefinition: FShaderParamTypeDefinition;
 
 declare interface FShaderValueContainer {
-    ShaderValue: TArray<uint8>;
-    ArrayList: TArray<FArrayShaderValue>;
+    ShaderValue: number[];
+    ArrayList: FArrayShaderValue[];
 }
-declare const FShaderValueContainer: FShaderValueContainer;
 
 declare interface FShaderValueType {
     Type: EShaderFundamentalType;
     DimensionType: EShaderFundamentalDimensionType;
-    Name: FName;
+    Name: string;
     bIsDynamicArray: boolean;
 }
-declare const FShaderValueType: FShaderValueType;
 
-declare interface FShaderValueTypeHandle {
-
-}
-declare const FShaderValueTypeHandle: FShaderValueTypeHandle;
+declare type FShaderValueTypeHandle = object;
 
 declare interface UComputeDataInterface extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UComputeDataInterface: UComputeDataInterface;
 
 declare interface UComputeDataProvider extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UComputeDataProvider: UComputeDataProvider;
 
 declare interface UComputeGraph extends UObject {
-    KernelInvocations: TArray<UComputeKernel>;
-    DataInterfaces: TArray<UComputeDataInterface>;
-    GraphEdges: TArray<FComputeGraphEdge>;
-    Bindings: TArray<UClass>;
-    DataInterfaceToBinding: TArray<number>;
+    readonly __properties_UComputeGraph: {
+        KernelInvocations: UComputeKernel[];
+        DataInterfaces: UComputeDataInterface[];
+        GraphEdges: FComputeGraphEdge[];
+        Bindings: UClass[];
+        DataInterfaceToBinding: number[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UComputeGraph['__properties_UComputeGraph'] &
+        UObject['__propertyRegistry'];
 }
-declare const UComputeGraph: UComputeGraph;
 
 declare interface UComputeGraphComponent extends UActorComponent {
-    ComputeGraph: UComputeGraph;
-    ComputeGraphInstance: FComputeGraphInstance;
-    QueueExecute(): void;
-    DestroyDataProviders(): void;
-    CreateDataProviders(InBindingIndex: number, InBindingObject: UObject): void;
+    readonly __static_UComputeGraphComponent: {
+        QueueExecute(): void;
+        DestroyDataProviders(): void;
+        CreateDataProviders(InBindingIndex: number, InBindingObject: UObject): void;
+    };
+    readonly __properties_UComputeGraphComponent: {
+        ComputeGraph: UComputeGraph;
+        ComputeGraphInstance: FComputeGraphInstance;
+    };
+    readonly __staticRegistry: 
+        UComputeGraphComponent['__static_UComputeGraphComponent'] &
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UComputeGraphComponent['__properties_UComputeGraphComponent'] &
+        UActorComponent['__propertyRegistry'];
 }
-declare const UComputeGraphComponent: UComputeGraphComponent;
 
 declare interface UComputeKernel extends UObject {
-    KernelSource: UComputeKernelSource;
-    KernelFlags: number;
+    readonly __properties_UComputeKernel: {
+        KernelSource: UComputeKernelSource;
+        KernelFlags: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UComputeKernel['__properties_UComputeKernel'] &
+        UObject['__propertyRegistry'];
 }
-declare const UComputeKernel: UComputeKernel;
 
 declare interface UComputeKernelFromText extends UComputeKernelSource {
-    SourceFile: FFilePath;
+    readonly __properties_UComputeKernelFromText: {
+        SourceFile: FFilePath;
+    };
+    readonly __staticRegistry: 
+        UComputeKernelSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UComputeKernelFromText['__properties_UComputeKernelFromText'] &
+        UComputeKernelSource['__propertyRegistry'];
 }
-declare const UComputeKernelFromText: UComputeKernelFromText;
 
 declare interface UComputeKernelSource extends UObject {
-    EntryPoint: FString;
-    GroupSize: FIntVector;
-    PermutationSet: FComputeKernelPermutationSet;
-    DefinitionsSet: FComputeKernelDefinitionSet;
-    AdditionalSources: TArray<UComputeSource>;
-    ExternalInputs: TArray<FShaderFunctionDefinition>;
-    ExternalOutputs: TArray<FShaderFunctionDefinition>;
+    readonly __properties_UComputeKernelSource: {
+        EntryPoint: string;
+        GroupSize: FIntVector;
+        PermutationSet: FComputeKernelPermutationSet;
+        DefinitionsSet: FComputeKernelDefinitionSet;
+        AdditionalSources: UComputeSource[];
+        ExternalInputs: FShaderFunctionDefinition[];
+        ExternalOutputs: FShaderFunctionDefinition[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UComputeKernelSource['__properties_UComputeKernelSource'] &
+        UObject['__propertyRegistry'];
 }
-declare const UComputeKernelSource: UComputeKernelSource;
 
 declare interface UComputeSource extends UObject {
-    AdditionalSources: TArray<UComputeSource>;
+    readonly __properties_UComputeSource: {
+        AdditionalSources: UComputeSource[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UComputeSource['__properties_UComputeSource'] &
+        UObject['__propertyRegistry'];
 }
-declare const UComputeSource: UComputeSource;
 
 declare interface UComputeSourceFromText extends UComputeSource {
-    SourceFile: FFilePath;
+    readonly __properties_UComputeSourceFromText: {
+        SourceFile: FFilePath;
+    };
+    readonly __staticRegistry: 
+        UComputeSource['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UComputeSourceFromText['__properties_UComputeSourceFromText'] &
+        UComputeSource['__propertyRegistry'];
 }
-declare const UComputeSourceFromText: UComputeSourceFromText;
 

@@ -1,16 +1,14 @@
 declare interface FGLTFExportMessages {
-    Suggestions: TArray<FString>;
-    Warnings: TArray<FString>;
-    Errors: TArray<FString>;
+    Suggestions: string[];
+    Warnings: string[];
+    Errors: string[];
 }
-declare const FGLTFExportMessages: FGLTFExportMessages;
 
 declare interface FGLTFMaterialBakeSize {
     X: number;
     Y: number;
     bAutoDetect: boolean;
 }
-declare const FGLTFMaterialBakeSize: FGLTFMaterialBakeSize;
 
 declare interface FGLTFOverrideMaterialBakeSettings {
     bOverrideSize: boolean;
@@ -20,102 +18,145 @@ declare interface FGLTFOverrideMaterialBakeSettings {
     bOverrideTiling: boolean;
     Tiling: TextureAddress;
 }
-declare const FGLTFOverrideMaterialBakeSettings: FGLTFOverrideMaterialBakeSettings;
 
 declare interface UGLTFAnimSequenceExporter extends UGLTFExporter {
-
+    readonly __staticRegistry: 
+        UGLTFExporter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGLTFExporter['__propertyRegistry'];
 }
-declare const UGLTFAnimSequenceExporter: UGLTFAnimSequenceExporter;
 
 declare interface UGLTFExportOptions extends UObject {
-    ExportUniformScale: number;
-    bExportPreviewMesh: boolean;
-    bSkipNearDefaultValues: boolean;
-    bIncludeCopyrightNotice: boolean;
-    bExportProxyMaterials: boolean;
-    bUseImporterMaterialMapping: boolean;
-    bExportUnlitMaterials: boolean;
-    bExportClearCoatMaterials: boolean;
-    bExportClothMaterials: boolean;
-    bExportThinTranslucentMaterials: boolean;
-    bExportSpecularGlossinessMaterials: boolean;
-    bExportEmissiveStrength: boolean;
-    BakeMaterialInputs: EGLTFMaterialBakeMode;
-    DefaultMaterialBakeSize: FGLTFMaterialBakeSize;
-    DefaultMaterialBakeFilter: TextureFilter;
-    DefaultMaterialBakeTiling: TextureAddress;
-    DefaultInputBakeSettings: Record<string | number | symbol, FGLTFOverrideMaterialBakeSettings>;
-    DefaultLevelOfDetail: number;
-    bExportSourceModel: boolean;
-    bExportVertexColors: boolean;
-    bExportVertexSkinWeights: boolean;
-    bMakeSkinnedMeshesRoot: boolean;
-    bUseMeshQuantization: boolean;
-    bExportLevelSequences: boolean;
-    bExportAnimationSequences: boolean;
-    TextureImageFormat: EGLTFTextureImageFormat;
-    TextureImageQuality: number;
-    bExportTextureTransforms: boolean;
-    bExportLightmaps: boolean;
-    bAdjustNormalmaps: boolean;
-    bExportHiddenInGame: boolean;
-    bExportLights: boolean;
-    bExportCameras: boolean;
-    ExportMaterialVariants: EGLTFMaterialVariantMode;
-    ResetToDefault(): void;
+    readonly __static_UGLTFExportOptions: {
+        ResetToDefault(): void;
+    };
+    readonly __properties_UGLTFExportOptions: {
+        ExportUniformScale: number;
+        bExportPreviewMesh: boolean;
+        bSkipNearDefaultValues: boolean;
+        bIncludeCopyrightNotice: boolean;
+        bExportProxyMaterials: boolean;
+        bUseImporterMaterialMapping: boolean;
+        bExportUnlitMaterials: boolean;
+        bExportClearCoatMaterials: boolean;
+        bExportClothMaterials: boolean;
+        bExportThinTranslucentMaterials: boolean;
+        bExportSpecularGlossinessMaterials: boolean;
+        bExportEmissiveStrength: boolean;
+        BakeMaterialInputs: EGLTFMaterialBakeMode;
+        DefaultMaterialBakeSize: FGLTFMaterialBakeSize;
+        DefaultMaterialBakeFilter: TextureFilter;
+        DefaultMaterialBakeTiling: TextureAddress;
+        DefaultInputBakeSettings: TMap<EGLTFMaterialPropertyGroup, FGLTFOverrideMaterialBakeSettings>;
+        DefaultLevelOfDetail: number;
+        bExportSourceModel: boolean;
+        bExportVertexColors: boolean;
+        bExportVertexSkinWeights: boolean;
+        bMakeSkinnedMeshesRoot: boolean;
+        bUseMeshQuantization: boolean;
+        bExportLevelSequences: boolean;
+        bExportAnimationSequences: boolean;
+        TextureImageFormat: EGLTFTextureImageFormat;
+        TextureImageQuality: number;
+        bExportTextureTransforms: boolean;
+        bExportLightmaps: boolean;
+        bAdjustNormalmaps: boolean;
+        bExportHiddenInGame: boolean;
+        bExportLights: boolean;
+        bExportCameras: boolean;
+        ExportMaterialVariants: EGLTFMaterialVariantMode;
+    };
+    readonly __staticRegistry: 
+        UGLTFExportOptions['__static_UGLTFExportOptions'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGLTFExportOptions['__properties_UGLTFExportOptions'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGLTFExportOptions: UGLTFExportOptions;
 
 declare interface UGLTFExporter extends UExporter {
-    ExportToGLTF(Object: UObject, FilePath: string | FString, Options: UGLTFExportOptions, SelectedActors: TSet<AActor>, OutMessages: FGLTFExportMessages): boolean;
+    readonly __static_UGLTFExporter: {
+        ExportToGLTF(Object: UObject, FilePath: string, Options: UGLTFExportOptions, SelectedActors: AActor[], OutMessages: FGLTFExportMessages): boolean;
+    };
+    readonly __staticRegistry: 
+        UGLTFExporter['__static_UGLTFExporter'] &
+        UExporter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UExporter['__propertyRegistry'];
 }
-declare const UGLTFExporter: UGLTFExporter;
 
 declare interface UGLTFLevelExporter extends UGLTFExporter {
-
+    readonly __staticRegistry: 
+        UGLTFExporter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGLTFExporter['__propertyRegistry'];
 }
-declare const UGLTFLevelExporter: UGLTFLevelExporter;
 
 declare interface UGLTFLevelSequenceExporter extends UGLTFExporter {
-
+    readonly __staticRegistry: 
+        UGLTFExporter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGLTFExporter['__propertyRegistry'];
 }
-declare const UGLTFLevelSequenceExporter: UGLTFLevelSequenceExporter;
 
 declare interface UGLTFLevelVariantSetsExporter extends UGLTFExporter {
-
+    readonly __staticRegistry: 
+        UGLTFExporter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGLTFExporter['__propertyRegistry'];
 }
-declare const UGLTFLevelVariantSetsExporter: UGLTFLevelVariantSetsExporter;
 
 declare interface UGLTFMaterialExportOptions extends UAssetUserData {
-    Proxy: UMaterialInterface;
-    Default: FGLTFOverrideMaterialBakeSettings;
-    Inputs: Record<string | number | symbol, FGLTFOverrideMaterialBakeSettings>;
+    readonly __properties_UGLTFMaterialExportOptions: {
+        Proxy: UMaterialInterface;
+        Default: FGLTFOverrideMaterialBakeSettings;
+        Inputs: TMap<EGLTFMaterialPropertyGroup, FGLTFOverrideMaterialBakeSettings>;
+    };
+    readonly __staticRegistry: 
+        UAssetUserData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGLTFMaterialExportOptions['__properties_UGLTFMaterialExportOptions'] &
+        UAssetUserData['__propertyRegistry'];
 }
-declare const UGLTFMaterialExportOptions: UGLTFMaterialExportOptions;
 
 declare interface UGLTFMaterialExporter extends UGLTFExporter {
-
+    readonly __staticRegistry: 
+        UGLTFExporter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGLTFExporter['__propertyRegistry'];
 }
-declare const UGLTFMaterialExporter: UGLTFMaterialExporter;
 
 declare interface UGLTFProxyOptions extends UObject {
-    bBakeMaterialInputs: boolean;
-    bUseThinTranslucentShadingModel: boolean;
-    DefaultMaterialBakeSize: FGLTFMaterialBakeSize;
-    DefaultMaterialBakeFilter: TextureFilter;
-    DefaultMaterialBakeTiling: TextureAddress;
-    DefaultInputBakeSettings: Record<string | number | symbol, FGLTFOverrideMaterialBakeSettings>;
-    ResetToDefault(): void;
+    readonly __static_UGLTFProxyOptions: {
+        ResetToDefault(): void;
+    };
+    readonly __properties_UGLTFProxyOptions: {
+        bBakeMaterialInputs: boolean;
+        bUseThinTranslucentShadingModel: boolean;
+        DefaultMaterialBakeSize: FGLTFMaterialBakeSize;
+        DefaultMaterialBakeFilter: TextureFilter;
+        DefaultMaterialBakeTiling: TextureAddress;
+        DefaultInputBakeSettings: TMap<EGLTFMaterialPropertyGroup, FGLTFOverrideMaterialBakeSettings>;
+    };
+    readonly __staticRegistry: 
+        UGLTFProxyOptions['__static_UGLTFProxyOptions'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGLTFProxyOptions['__properties_UGLTFProxyOptions'] &
+        UObject['__propertyRegistry'];
 }
-declare const UGLTFProxyOptions: UGLTFProxyOptions;
 
 declare interface UGLTFSkeletalMeshExporter extends UGLTFExporter {
-
+    readonly __staticRegistry: 
+        UGLTFExporter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGLTFExporter['__propertyRegistry'];
 }
-declare const UGLTFSkeletalMeshExporter: UGLTFSkeletalMeshExporter;
 
 declare interface UGLTFStaticMeshExporter extends UGLTFExporter {
-
+    readonly __staticRegistry: 
+        UGLTFExporter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGLTFExporter['__propertyRegistry'];
 }
-declare const UGLTFStaticMeshExporter: UGLTFStaticMeshExporter;
 

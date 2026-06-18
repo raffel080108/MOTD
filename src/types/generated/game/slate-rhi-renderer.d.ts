@@ -1,31 +1,56 @@
 declare interface FSlatePostSettings {
     bEnabled: boolean;
     PostProcessorClass: TSubclassOf<USlateRHIPostBufferProcessor>;
-    PathToSlatePostRT: FString;
+    PathToSlatePostRT: string;
     CachedSlatePostRT: UTextureRenderTarget2D;
 }
-declare const FSlatePostSettings: FSlatePostSettings;
 
 declare interface USlateFXSubsystem extends UEngineSubsystem {
-    SlatePostBufferProcessors: Record<string | number | symbol, USlateRHIPostBufferProcessor>;
-    GetSlatePostProcessor(InPostBufferBit: ESlatePostRT): USlateRHIPostBufferProcessor;
+    readonly __static_USlateFXSubsystem: {
+        GetSlatePostProcessor(InPostBufferBit: ESlatePostRT): USlateRHIPostBufferProcessor;
+    };
+    readonly __properties_USlateFXSubsystem: {
+        SlatePostBufferProcessors: TMap<ESlatePostRT, USlateRHIPostBufferProcessor>;
+    };
+    readonly __staticRegistry: 
+        USlateFXSubsystem['__static_USlateFXSubsystem'] &
+        UEngineSubsystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USlateFXSubsystem['__properties_USlateFXSubsystem'] &
+        UEngineSubsystem['__propertyRegistry'];
 }
-declare const USlateFXSubsystem: USlateFXSubsystem;
 
 declare interface USlatePostBufferBlur extends USlateRHIPostBufferProcessor {
-    GaussianBlurStrength: number;
+    readonly __properties_USlatePostBufferBlur: {
+        GaussianBlurStrength: number;
+    };
+    readonly __staticRegistry: 
+        USlateRHIPostBufferProcessor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USlatePostBufferBlur['__properties_USlatePostBufferBlur'] &
+        USlateRHIPostBufferProcessor['__propertyRegistry'];
 }
-declare const USlatePostBufferBlur: USlatePostBufferBlur;
 
 declare interface USlateRHIPostBufferProcessor extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const USlateRHIPostBufferProcessor: USlateRHIPostBufferProcessor;
 
 declare interface USlateRHIRendererSettings extends UDeveloperSettings {
-    SlatePostSettings: Record<string | number | symbol, FSlatePostSettings>;
-    GetSlatePostSetting(InPostBufferBit: ESlatePostRT): FSlatePostSettings;
-    GetMutableSlatePostSetting(InPostBufferBit: ESlatePostRT): FSlatePostSettings;
+    readonly __static_USlateRHIRendererSettings: {
+        GetSlatePostSetting(InPostBufferBit: ESlatePostRT): FSlatePostSettings;
+        GetMutableSlatePostSetting(InPostBufferBit: ESlatePostRT): FSlatePostSettings;
+    };
+    readonly __properties_USlateRHIRendererSettings: {
+        SlatePostSettings: TMap<ESlatePostRT, FSlatePostSettings>;
+    };
+    readonly __staticRegistry: 
+        USlateRHIRendererSettings['__static_USlateRHIRendererSettings'] &
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USlateRHIRendererSettings['__properties_USlateRHIRendererSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const USlateRHIRendererSettings: USlateRHIRendererSettings;
 

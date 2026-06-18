@@ -1,5 +1,11 @@
 declare interface UBPL_NamedIntegerSubsystem_C extends UBlueprintFunctionLibrary {
-    TakeShowroomIdleMontageBoolean(__WorldContext: UObject, Value: boolean): void;
+    readonly __static_UBPL_NamedIntegerSubsystem_C: {
+        TakeShowroomIdleMontageBoolean(__WorldContext: UObject, Value: boolean): void;
+    };
+    readonly __staticRegistry: 
+        UBPL_NamedIntegerSubsystem_C['__static_UBPL_NamedIntegerSubsystem_C'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UBPL_NamedIntegerSubsystem_C: UBPL_NamedIntegerSubsystem_C;
 

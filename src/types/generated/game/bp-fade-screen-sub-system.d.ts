@@ -1,5 +1,7 @@
 declare interface UBP_FadeScreenSubSystem_C extends UFadeScreenSubSystem {
-
+    readonly __staticRegistry: 
+        UFadeScreenSubSystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFadeScreenSubSystem['__propertyRegistry'];
 }
-declare const UBP_FadeScreenSubSystem_C: UBP_FadeScreenSubSystem_C;
 

@@ -1,27 +1,45 @@
 declare interface UMovieSceneTakeSection extends UMovieSceneSection {
-    HoursCurve: FMovieSceneIntegerChannel;
-    MinutesCurve: FMovieSceneIntegerChannel;
-    SecondsCurve: FMovieSceneIntegerChannel;
-    FramesCurve: FMovieSceneIntegerChannel;
-    SubFramesCurve: FMovieSceneFloatChannel;
-    RateCurve: FMovieSceneFloatChannel;
-    Slate: FMovieSceneStringChannel;
+    readonly __properties_UMovieSceneTakeSection: {
+        HoursCurve: FMovieSceneIntegerChannel;
+        MinutesCurve: FMovieSceneIntegerChannel;
+        SecondsCurve: FMovieSceneIntegerChannel;
+        FramesCurve: FMovieSceneIntegerChannel;
+        SubFramesCurve: FMovieSceneFloatChannel;
+        RateCurve: FMovieSceneFloatChannel;
+        Slate: FMovieSceneStringChannel;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneTakeSection['__properties_UMovieSceneTakeSection'] &
+        UMovieSceneSection['__propertyRegistry'];
 }
-declare const UMovieSceneTakeSection: UMovieSceneTakeSection;
 
 declare interface UMovieSceneTakeSettings extends UObject {
-    HoursName: FString;
-    MinutesName: FString;
-    SecondsName: FString;
-    FramesName: FString;
-    SubFramesName: FString;
-    RateName: FString;
-    SlateName: FString;
+    readonly __properties_UMovieSceneTakeSettings: {
+        HoursName: string;
+        MinutesName: string;
+        SecondsName: string;
+        FramesName: string;
+        SubFramesName: string;
+        RateName: string;
+        SlateName: string;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneTakeSettings['__properties_UMovieSceneTakeSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneTakeSettings: UMovieSceneTakeSettings;
 
 declare interface UMovieSceneTakeTrack extends UMovieSceneNameableTrack {
-    Sections: TArray<UMovieSceneSection>;
+    readonly __properties_UMovieSceneTakeTrack: {
+        Sections: UMovieSceneSection[];
+    };
+    readonly __staticRegistry: 
+        UMovieSceneNameableTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneTakeTrack['__properties_UMovieSceneTakeTrack'] &
+        UMovieSceneNameableTrack['__propertyRegistry'];
 }
-declare const UMovieSceneTakeTrack: UMovieSceneTakeTrack;
 

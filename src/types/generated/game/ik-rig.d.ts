@@ -1,18 +1,17 @@
 declare interface FAnimNode_IKRig extends FAnimNode_CustomProperty {
     Source: FPoseLink;
     RigDefinitionAsset: UIKRigDefinition;
-    Goals: TArray<FIKRigGoal>;
+    Goals: FIKRigGoal[];
     bStartFromRefPose: boolean;
     AlphaInputType: EAnimAlphaInputType;
     bAlphaBoolEnabled: boolean;
     alpha: number;
     AlphaScaleBias: FInputScaleBias;
     AlphaBoolBlend: FInputAlphaBoolBlend;
-    AlphaCurveName: FName;
+    AlphaCurveName: string;
     AlphaScaleBiasClamp: FInputScaleBiasClamp;
-    GoalCreators: TArray<UActorComponent>;
+    GoalCreators: UActorComponent[];
 }
-declare const FAnimNode_IKRig: FAnimNode_IKRig;
 
 declare interface FAnimNode_RetargetPoseFromMesh extends FAnimNode_Base {
     Source: FPoseLink;
@@ -25,119 +24,96 @@ declare interface FAnimNode_RetargetPoseFromMesh extends FAnimNode_Base {
     bSuppressWarnings: boolean;
     bUseAttachedParent: boolean;
 }
-declare const FAnimNode_RetargetPoseFromMesh: FAnimNode_RetargetPoseFromMesh;
 
 declare interface FBoneChain {
-    ChainName: FName;
+    ChainName: string;
     StartBone: FBoneReference;
     EndBone: FBoneReference;
-    IKGoalName: FName;
+    IKGoalName: string;
 }
-declare const FBoneChain: FBoneChain;
 
 declare interface FCurveRemapPair {
-    SourceCurve: FName;
-    TargetCurve: FName;
+    SourceCurve: string;
+    TargetCurve: string;
 }
-declare const FCurveRemapPair: FCurveRemapPair;
 
-declare interface FGoalBone {
-
-}
-declare const FGoalBone: FGoalBone;
+declare type FGoalBone = object;
 
 declare interface FIKRetargetAdditivePoseOp extends FIKRetargetOpBase {
     Settings: FIKRetargetAdditivePoseOpSettings;
 }
-declare const FIKRetargetAdditivePoseOp: FIKRetargetAdditivePoseOp;
 
 declare interface FIKRetargetAdditivePoseOpSettings extends FIKRetargetOpSettingsBase {
-    PoseToApply: FName;
+    PoseToApply: string;
     alpha: number;
 }
-declare const FIKRetargetAdditivePoseOpSettings: FIKRetargetAdditivePoseOpSettings;
 
 declare interface FIKRetargetAlignPoleVectorOp extends FIKRetargetOpBase {
     Settings: FIKRetargetAlignPoleVectorOpSettings;
     ChainMapping: FRetargetChainMapping;
 }
-declare const FIKRetargetAlignPoleVectorOp: FIKRetargetAlignPoleVectorOp;
 
 declare interface FIKRetargetAlignPoleVectorOpSettings extends FIKRetargetOpSettingsBase {
     IKRigAsset: UIKRigDefinition;
-    ChainsToAlign: TArray<FRetargetPoleVectorSettings>;
+    ChainsToAlign: FRetargetPoleVectorSettings[];
 }
-declare const FIKRetargetAlignPoleVectorOpSettings: FIKRetargetAlignPoleVectorOpSettings;
 
 declare interface FIKRetargetCopyBasePoseOp extends FIKRetargetOpBase {
     Settings: FIKRetargetCopyBasePoseOpSettings;
 }
-declare const FIKRetargetCopyBasePoseOp: FIKRetargetCopyBasePoseOp;
 
 declare interface FIKRetargetCopyBasePoseOpSettings extends FIKRetargetOpSettingsBase {
     bCopyBasePose: boolean;
-    CopyBasePoseRoot: FName;
+    CopyBasePoseRoot: string;
 }
-declare const FIKRetargetCopyBasePoseOpSettings: FIKRetargetCopyBasePoseOpSettings;
 
 declare interface FIKRetargetCurveRemapOp extends FIKRetargetOpBase {
     Settings: FIKRetargetCurveRemapOpSettings;
 }
-declare const FIKRetargetCurveRemapOp: FIKRetargetCurveRemapOp;
 
 declare interface FIKRetargetCurveRemapOpSettings extends FIKRetargetOpSettingsBase {
     bCopyAllSourceCurves: boolean;
     bRemapCurves: boolean;
-    CurvesToRemap: TArray<FCurveRemapPair>;
+    CurvesToRemap: FCurveRemapPair[];
 }
-declare const FIKRetargetCurveRemapOpSettings: FIKRetargetCurveRemapOpSettings;
 
 declare interface FIKRetargetFKChainsOp extends FIKRetargetOpBase {
     Settings: FIKRetargetFKChainsOpSettings;
     ChainMapping: FRetargetChainMapping;
 }
-declare const FIKRetargetFKChainsOp: FIKRetargetFKChainsOp;
 
 declare interface FIKRetargetFKChainsOpSettings extends FIKRetargetOpSettingsBase {
     IKRigAsset: UIKRigDefinition;
-    ChainsToRetarget: TArray<FRetargetFKChainSettings>;
+    ChainsToRetarget: FRetargetFKChainSettings[];
     bDrawChainLines: boolean;
     bDrawSingleBoneChains: boolean;
     ChainDrawThickness: number;
     ChainDrawSize: number;
 }
-declare const FIKRetargetFKChainsOpSettings: FIKRetargetFKChainsOpSettings;
 
 declare interface FIKRetargetIKChainsOp extends FIKRetargetOpBase {
     Settings: FIKRetargetIKChainsOpSettings;
 }
-declare const FIKRetargetIKChainsOp: FIKRetargetIKChainsOp;
 
 declare interface FIKRetargetIKChainsOpSettings extends FIKRetargetOpSettingsBase {
-    ChainsToRetarget: TArray<FRetargetIKChainSettings>;
+    ChainsToRetarget: FRetargetIKChainSettings[];
     bDrawFinalGoals: boolean;
     bDrawSourceLocations: boolean;
     GoalDrawSize: number;
     GoalDrawThickness: number;
 }
-declare const FIKRetargetIKChainsOpSettings: FIKRetargetIKChainsOpSettings;
 
 declare interface FIKRetargetOpBase {
     bIsEnabled: boolean;
-    Name: FName;
-    ParentOpName: FName;
+    Name: string;
+    ParentOpName: string;
 }
-declare const FIKRetargetOpBase: FIKRetargetOpBase;
 
-declare interface FIKRetargetOpSettingsBase {
-
-}
-declare const FIKRetargetOpSettingsBase: FIKRetargetOpSettingsBase;
+declare type FIKRetargetOpSettingsBase = object;
 
 declare interface FIKRetargetPelvisMotionOp extends FIKRetargetOpBase {
     Settings: FIKRetargetPelvisMotionOpSettings;
 }
-declare const FIKRetargetPelvisMotionOp: FIKRetargetPelvisMotionOp;
 
 declare interface FIKRetargetPelvisMotionOpSettings extends FIKRetargetOpSettingsBase {
     SourcePelvisBone: FBoneReference;
@@ -156,15 +132,13 @@ declare interface FIKRetargetPelvisMotionOpSettings extends FIKRetargetOpSetting
     DebugDrawSize: number;
     DebugDrawThickness: number;
 }
-declare const FIKRetargetPelvisMotionOpSettings: FIKRetargetPelvisMotionOpSettings;
 
 declare interface FIKRetargetPinBoneOp extends FIKRetargetOpBase {
     Settings: FIKRetargetPinBoneOpSettings;
 }
-declare const FIKRetargetPinBoneOp: FIKRetargetPinBoneOp;
 
 declare interface FIKRetargetPinBoneOpSettings extends FIKRetargetOpSettingsBase {
-    BonesToPin: TArray<FPinBoneData>;
+    BonesToPin: FPinBoneData[];
     SkeletonToCopyFrom: ERetargetSourceOrTarget;
     bCopyTranslation: boolean;
     TranslationMode: EPinBoneTranslationMode;
@@ -175,18 +149,15 @@ declare interface FIKRetargetPinBoneOpSettings extends FIKRetargetOpSettingsBase
     GlobalOffset: FTransform;
     LocalOffset: FTransform;
 }
-declare const FIKRetargetPinBoneOpSettings: FIKRetargetPinBoneOpSettings;
 
 declare interface FIKRetargetPose {
     RootTranslationOffset: FVector;
-    BoneRotationOffsets: Record<FName, FQuat>;
+    BoneRotationOffsets: TMap<string, FQuat>;
 }
-declare const FIKRetargetPose: FIKRetargetPose;
 
 declare interface FIKRetargetRootMotionOp extends FIKRetargetOpBase {
     Settings: FIKRetargetRootMotionOpSettings;
 }
-declare const FIKRetargetRootMotionOp: FIKRetargetRootMotionOp;
 
 declare interface FIKRetargetRootMotionOpSettings extends FIKRetargetOpSettingsBase {
     SourceRoot: FBoneReference;
@@ -199,57 +170,49 @@ declare interface FIKRetargetRootMotionOpSettings extends FIKRetargetOpSettingsB
     bMaintainOffsetFromPelvis: boolean;
     bPropagateToNonRetargetedChildren: boolean;
 }
-declare const FIKRetargetRootMotionOpSettings: FIKRetargetRootMotionOpSettings;
 
 declare interface FIKRetargetRunIKRigOp extends FIKRetargetOpBase {
     Settings: FIKRetargetRunIKRigOpSettings;
     ChainMapping: FRetargetChainMapping;
 }
-declare const FIKRetargetRunIKRigOp: FIKRetargetRunIKRigOp;
 
 declare interface FIKRetargetRunIKRigOpSettings extends FIKRetargetOpSettingsBase {
     IKRigAsset: UIKRigDefinition;
-    ExcludedGoals: TArray<FName>;
+    ExcludedGoals: string[];
     bDrawGoals: boolean;
     bDrawGoalBoneLocations: boolean;
     GoalDrawSize: number;
     GoalDrawThickness: number;
 }
-declare const FIKRetargetRunIKRigOpSettings: FIKRetargetRunIKRigOpSettings;
 
 declare interface FIKRetargetScaleSourceOp extends FIKRetargetOpBase {
     Settings: FIKRetargetScaleSourceOpSettings;
 }
-declare const FIKRetargetScaleSourceOp: FIKRetargetScaleSourceOp;
 
 declare interface FIKRetargetScaleSourceOpSettings extends FIKRetargetOpSettingsBase {
     SourceScaleFactor: number;
 }
-declare const FIKRetargetScaleSourceOpSettings: FIKRetargetScaleSourceOpSettings;
 
 declare interface FIKRetargetSpeedPlantingOp extends FIKRetargetOpBase {
     Settings: FIKRetargetSpeedPlantingOpSettings;
 }
-declare const FIKRetargetSpeedPlantingOp: FIKRetargetSpeedPlantingOp;
 
 declare interface FIKRetargetSpeedPlantingOpSettings extends FIKRetargetOpSettingsBase {
-    ChainsToSpeedPlant: TArray<FRetargetSpeedPlantingSettings>;
+    ChainsToSpeedPlant: FRetargetSpeedPlantingSettings[];
     SpeedThreshold: number;
     Stiffness: number;
     CriticalDamping: number;
 }
-declare const FIKRetargetSpeedPlantingOpSettings: FIKRetargetSpeedPlantingOpSettings;
 
 declare interface FIKRetargetStrideWarpingOp extends FIKRetargetOpBase {
     Settings: FIKRetargetStrideWarpingOpSettings;
 }
-declare const FIKRetargetStrideWarpingOp: FIKRetargetStrideWarpingOp;
 
 declare interface FIKRetargetStrideWarpingOpSettings extends FIKRetargetOpSettingsBase {
-    ChainSettings: TArray<FRetargetStrideWarpChainSettings>;
+    ChainSettings: FRetargetStrideWarpChainSettings[];
     DirectionSource: EWarpingDirectionSource;
     ForwardDirection: EBasicAxis;
-    DirectionChain: FName;
+    DirectionChain: string;
     WarpForwards: number;
     SidewaysOffset: number;
     WarpSplay: number;
@@ -257,16 +220,14 @@ declare interface FIKRetargetStrideWarpingOpSettings extends FIKRetargetOpSettin
     DebugDrawSize: number;
     DebugDrawThickness: number;
 }
-declare const FIKRetargetStrideWarpingOpSettings: FIKRetargetStrideWarpingOpSettings;
 
 declare interface FIKRigBodyMoverGoalSettings extends FIKRigGoalSettingsBase {
-    BoneName: FName;
+    BoneName: string;
     InfluenceMultiplier: number;
 }
-declare const FIKRigBodyMoverGoalSettings: FIKRigBodyMoverGoalSettings;
 
 declare interface FIKRigBodyMoverSettings extends FIKRigSolverSettingsBase {
-    StartBone: FName;
+    StartBone: string;
     PositionAlpha: number;
     PositionPositiveX: number;
     PositionNegativeX: number;
@@ -279,18 +240,15 @@ declare interface FIKRigBodyMoverSettings extends FIKRigSolverSettingsBase {
     RotateYAlpha: number;
     RotateZAlpha: number;
 }
-declare const FIKRigBodyMoverSettings: FIKRigBodyMoverSettings;
 
 declare interface FIKRigBodyMoverSolver extends FIKRigSolverBase {
     Settings: FIKRigBodyMoverSettings;
-    AllGoalSettings: TArray<FIKRigBodyMoverGoalSettings>;
+    AllGoalSettings: FIKRigBodyMoverGoalSettings[];
 }
-declare const FIKRigBodyMoverSolver: FIKRigBodyMoverSolver;
 
 declare interface FIKRigBoneSettingsBase extends FIKRigSettingsBase {
-    bone: FName;
+    bone: string;
 }
-declare const FIKRigBoneSettingsBase: FIKRigBoneSettingsBase;
 
 declare interface FIKRigFBIKBoneSettings extends FIKRigBoneSettingsBase {
     RotationStiffness: number;
@@ -307,20 +265,18 @@ declare interface FIKRigFBIKBoneSettings extends FIKRigBoneSettingsBase {
     bUsePreferredAngles: boolean;
     PreferredAngles: FVector;
 }
-declare const FIKRigFBIKBoneSettings: FIKRigFBIKBoneSettings;
 
 declare interface FIKRigFBIKGoalSettings extends FIKRigGoalSettingsBase {
-    BoneName: FName;
+    BoneName: string;
     ChainDepth: number;
     StrengthAlpha: number;
     PullChainAlpha: number;
     PinRotation: number;
     IndexInSolver: number;
 }
-declare const FIKRigFBIKGoalSettings: FIKRigFBIKGoalSettings;
 
 declare interface FIKRigFBIKSettings extends FIKRigSolverSettingsBase {
-    RootBone: FName;
+    RootBone: string;
     Iterations: number;
     SubIterations: number;
     MassMultiplier: number;
@@ -331,18 +287,16 @@ declare interface FIKRigFBIKSettings extends FIKRigSolverSettingsBase {
     MaxAngle: number;
     OverRelaxation: number;
 }
-declare const FIKRigFBIKSettings: FIKRigFBIKSettings;
 
 declare interface FIKRigFullBodyIKSolver extends FIKRigSolverBase {
     Settings: FIKRigFBIKSettings;
-    AllGoalSettings: TArray<FIKRigFBIKGoalSettings>;
-    AllBoneSettings: TArray<FIKRigFBIKBoneSettings>;
+    AllGoalSettings: FIKRigFBIKGoalSettings[];
+    AllBoneSettings: FIKRigFBIKBoneSettings[];
 }
-declare const FIKRigFullBodyIKSolver: FIKRigFullBodyIKSolver;
 
 declare interface FIKRigGoal {
-    Name: FName;
-    BoneName: FName;
+    Name: string;
+    BoneName: string;
     TransformSource: EIKRigGoalTransformSource;
     SourceBone: FBoneReference;
     position: FVector;
@@ -355,97 +309,71 @@ declare interface FIKRigGoal {
     FinalBlendedRotation: FQuat;
     bEnabled: boolean;
 }
-declare const FIKRigGoal: FIKRigGoal;
 
-declare interface FIKRigGoalContainer {
-
-}
-declare const FIKRigGoalContainer: FIKRigGoalContainer;
+declare type FIKRigGoalContainer = object;
 
 declare interface FIKRigGoalSettingsBase extends FIKRigSettingsBase {
-    Goal: FName;
+    Goal: string;
 }
-declare const FIKRigGoalSettingsBase: FIKRigGoalSettingsBase;
 
-declare interface FIKRigInputSkeleton {
-
-}
-declare const FIKRigInputSkeleton: FIKRigInputSkeleton;
+declare type FIKRigInputSkeleton = object;
 
 declare interface FIKRigLimbSolver extends FIKRigSolverBase {
     Settings: FIKRigLimbSolverSettings;
 }
-declare const FIKRigLimbSolver: FIKRigLimbSolver;
 
 declare interface FIKRigLimbSolverSettings extends FLimbSolverSettings {
-    StartBone: FName;
-    GoalName: FName;
-    EndBone: FName;
+    StartBone: string;
+    GoalName: string;
+    EndBone: string;
 }
-declare const FIKRigLimbSolverSettings: FIKRigLimbSolverSettings;
 
 declare interface FIKRigPoleSolver extends FIKRigSolverBase {
     Settings: FIKRigPoleSolverSettings;
 }
-declare const FIKRigPoleSolver: FIKRigPoleSolver;
 
 declare interface FIKRigPoleSolverSettings extends FIKRigSolverSettingsBase {
-    StartBone: FName;
-    EndBone: FName;
-    AimAtGoal: FName;
+    StartBone: string;
+    EndBone: string;
+    AimAtGoal: string;
     alpha: number;
 }
-declare const FIKRigPoleSolverSettings: FIKRigPoleSolverSettings;
 
 declare interface FIKRigSetTransform extends FIKRigSolverBase {
     Settings: FIKRigSetTransformSettings;
 }
-declare const FIKRigSetTransform: FIKRigSetTransform;
 
 declare interface FIKRigSetTransformSettings extends FIKRigSolverSettingsBase {
-    Goal: FName;
-    BoneToAffect: FName;
+    Goal: string;
+    BoneToAffect: string;
     PositionAlpha: number;
     RotationAlpha: number;
     alpha: number;
     bPropagateToChildren: boolean;
 }
-declare const FIKRigSetTransformSettings: FIKRigSetTransformSettings;
 
-declare interface FIKRigSettingsBase {
-
-}
-declare const FIKRigSettingsBase: FIKRigSettingsBase;
+declare type FIKRigSettingsBase = object;
 
 declare interface FIKRigSkeleton {
-    BoneNames: TArray<FName>;
-    ParentIndices: TArray<number>;
-    ExcludedBones: TArray<FName>;
-    CurrentPoseGlobal: TArray<FTransform>;
-    CurrentPoseLocal: TArray<FTransform>;
-    RefPoseGlobal: TArray<FTransform>;
+    BoneNames: string[];
+    ParentIndices: number[];
+    ExcludedBones: string[];
+    CurrentPoseGlobal: FTransform[];
+    CurrentPoseLocal: FTransform[];
+    RefPoseGlobal: FTransform[];
 }
-declare const FIKRigSkeleton: FIKRigSkeleton;
 
 declare interface FIKRigSolverBase {
     bIsEnabled: boolean;
 }
-declare const FIKRigSolverBase: FIKRigSolverBase;
 
 declare interface FIKRigSolverSettingsBase extends FIKRigSettingsBase {
 
 }
-declare const FIKRigSolverSettingsBase: FIKRigSolverSettingsBase;
 
-declare interface FLimbLink {
+declare type FLimbLink = object;
 
-}
-declare const FLimbLink: FLimbLink;
-
-declare interface FLimbSolver {
-
-}
-declare const FLimbSolver: FLimbSolver;
+declare type FLimbSolver = object;
 
 declare interface FLimbSolverSettings extends FIKRigSolverSettingsBase {
     ReachPrecision: number;
@@ -459,44 +387,38 @@ declare interface FLimbSolverSettings extends FIKRigSolverSettingsBase {
     bEnableTwistCorrection: boolean;
     EndBoneForwardAxis: EAxis;
 }
-declare const FLimbSolverSettings: FLimbSolverSettings;
 
 declare interface FPinBoneData {
     BoneToCopyFrom: FBoneReference;
     BoneToCopyTo: FBoneReference;
-    BoneToPin: FName;
-    BoneToPinTo: FName;
+    BoneToPin: string;
+    BoneToPinTo: string;
 }
-declare const FPinBoneData: FPinBoneData;
 
 declare interface FRetargetChainMapping {
-    ChainMap: TArray<FRetargetChainPair>;
+    ChainMap: FRetargetChainPair[];
     SourceIKRig: UIKRigDefinition;
     TargetIKRig: UIKRigDefinition;
 }
-declare const FRetargetChainMapping: FRetargetChainMapping;
 
 declare interface FRetargetChainPair {
-    TargetChainName: FName;
-    SourceChainName: FName;
+    TargetChainName: string;
+    SourceChainName: string;
 }
-declare const FRetargetChainPair: FRetargetChainPair;
 
 declare interface FRetargetDefinition {
-    RootBone: FName;
-    BoneChains: TArray<FBoneChain>;
+    RootBone: string;
+    BoneChains: FBoneChain[];
 }
-declare const FRetargetDefinition: FRetargetDefinition;
 
 declare interface FRetargetFKChainSettings {
-    TargetChainName: FName;
+    TargetChainName: string;
     EnableFK: boolean;
     RotationMode: EFKChainRotationMode;
     RotationAlpha: number;
     TranslationMode: EFKChainTranslationMode;
     TranslationAlpha: number;
 }
-declare const FRetargetFKChainSettings: FRetargetFKChainSettings;
 
 declare interface FRetargetGlobalSettings {
     bEnableRoot: boolean;
@@ -504,20 +426,19 @@ declare interface FRetargetGlobalSettings {
     bEnableIK: boolean;
     bEnablePost: boolean;
     bCopyBasePose: boolean;
-    CopyBasePoseRoot: FName;
+    CopyBasePoseRoot: string;
     SourceScaleFactor: number;
     bWarping: boolean;
     DirectionSource: EWarpingDirectionSource;
     ForwardDirection: EBasicAxis;
-    DirectionChain: FName;
+    DirectionChain: string;
     WarpForwards: number;
     SidewaysOffset: number;
     WarpSplay: number;
 }
-declare const FRetargetGlobalSettings: FRetargetGlobalSettings;
 
 declare interface FRetargetIKChainSettings {
-    TargetChainName: FName;
+    TargetChainName: string;
     EnableIK: boolean;
     BlendToSource: number;
     BlendToSourceTranslation: number;
@@ -529,50 +450,44 @@ declare interface FRetargetIKChainSettings {
     ScaleVertical: number;
     Extension: number;
 }
-declare const FRetargetIKChainSettings: FRetargetIKChainSettings;
 
 declare interface FRetargetOpProfile {
-    OpToApplySettingsTo: FName;
+    OpToApplySettingsTo: string;
     SettingsToApply: FInstancedStruct;
 }
-declare const FRetargetOpProfile: FRetargetOpProfile;
 
 declare interface FRetargetPoleVectorSettings {
-    TargetChainName: FName;
+    TargetChainName: string;
     bEnabled: boolean;
     AlignAlpha: number;
     StaticAngularOffset: number;
     MaintainOffset: boolean;
 }
-declare const FRetargetPoleVectorSettings: FRetargetPoleVectorSettings;
 
 declare interface FRetargetProfile {
-    RetargetOpProfiles: TArray<FRetargetOpProfile>;
+    RetargetOpProfiles: FRetargetOpProfile[];
     bApplyTargetRetargetPose: boolean;
-    TargetRetargetPoseName: FName;
+    TargetRetargetPoseName: string;
     bApplySourceRetargetPose: boolean;
-    SourceRetargetPoseName: FName;
+    SourceRetargetPoseName: string;
     bForceAllIKOff: boolean;
     bApplyChainSettings: boolean;
-    ChainSettings: Record<FName, FTargetChainSettings>;
+    ChainSettings: TMap<string, FTargetChainSettings>;
     bApplyRootSettings: boolean;
     RootSettings: FTargetRootSettings;
     bApplyGlobalSettings: boolean;
     GlobalSettings: FRetargetGlobalSettings;
 }
-declare const FRetargetProfile: FRetargetProfile;
 
 declare interface FRetargetSpeedPlantingSettings {
-    TargetChainName: FName;
-    SpeedCurveName: FName;
+    TargetChainName: string;
+    SpeedCurveName: string;
 }
-declare const FRetargetSpeedPlantingSettings: FRetargetSpeedPlantingSettings;
 
 declare interface FRetargetStrideWarpChainSettings {
-    TargetChainName: FName;
+    TargetChainName: string;
     EnableStrideWarping: boolean;
 }
-declare const FRetargetStrideWarpChainSettings: FRetargetStrideWarpChainSettings;
 
 declare interface FTargetChainFKSettings {
     EnableFK: boolean;
@@ -584,7 +499,6 @@ declare interface FTargetChainFKSettings {
     PoleVectorMaintainOffset: boolean;
     PoleVectorOffset: number;
 }
-declare const FTargetChainFKSettings: FTargetChainFKSettings;
 
 declare interface FTargetChainIKSettings {
     EnableIK: boolean;
@@ -599,23 +513,20 @@ declare interface FTargetChainIKSettings {
     Extension: number;
     bAffectedByIKWarping: boolean;
 }
-declare const FTargetChainIKSettings: FTargetChainIKSettings;
 
 declare interface FTargetChainSettings {
     FK: FTargetChainFKSettings;
     IK: FTargetChainIKSettings;
     SpeedPlanting: FTargetChainSpeedPlantSettings;
 }
-declare const FTargetChainSettings: FTargetChainSettings;
 
 declare interface FTargetChainSpeedPlantSettings {
     EnableSpeedPlanting: boolean;
-    SpeedCurveName: FName;
+    SpeedCurveName: string;
     SpeedThreshold: number;
     UnplantStiffness: number;
     UnplantCriticalDamping: number;
 }
-declare const FTargetChainSpeedPlantSettings: FTargetChainSpeedPlantSettings;
 
 declare interface FTargetRootSettings {
     RotationAlpha: number;
@@ -629,442 +540,723 @@ declare interface FTargetRootSettings {
     AffectIKHorizontal: number;
     AffectIKVertical: number;
 }
-declare const FTargetRootSettings: FTargetRootSettings;
 
 declare interface IIKGoalCreatorInterface extends IInterface {
-    AddIKGoals(OutGoals: Record<FName, FIKRigGoal>): void;
+    readonly __static_IIKGoalCreatorInterface: {
+        AddIKGoals(OutGoals: TMap<string, FIKRigGoal>): void;
+    };
+    readonly __staticRegistry: 
+        IIKGoalCreatorInterface['__static_IIKGoalCreatorInterface'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IIKGoalCreatorInterface: IIKGoalCreatorInterface;
 
 declare interface UCurveRemapOp extends URetargetOpBase {
-    CurvesToRemap: TArray<FCurveRemapPair>;
-    bCopyAllSourceCurves: boolean;
+    readonly __properties_UCurveRemapOp: {
+        CurvesToRemap: FCurveRemapPair[];
+        bCopyAllSourceCurves: boolean;
+    };
+    readonly __staticRegistry: 
+        URetargetOpBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCurveRemapOp['__properties_UCurveRemapOp'] &
+        URetargetOpBase['__propertyRegistry'];
 }
-declare const UCurveRemapOp: UCurveRemapOp;
 
 declare interface UIKRetargetAdditivePoseController extends UIKRetargetOpControllerBase {
-    SetSettings(InSettings: FIKRetargetAdditivePoseOpSettings): void;
-    GetSettings(): FIKRetargetAdditivePoseOpSettings;
+    readonly __static_UIKRetargetAdditivePoseController: {
+        SetSettings(InSettings: FIKRetargetAdditivePoseOpSettings): void;
+        GetSettings(): FIKRetargetAdditivePoseOpSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRetargetAdditivePoseController['__static_UIKRetargetAdditivePoseController'] &
+        UIKRetargetOpControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetOpControllerBase['__propertyRegistry'];
 }
-declare const UIKRetargetAdditivePoseController: UIKRetargetAdditivePoseController;
 
 declare interface UIKRetargetAlignPoleVectorController extends UIKRetargetOpControllerBase {
-    SetSettings(InSettings: FIKRetargetAlignPoleVectorOpSettings): void;
-    GetSettings(): FIKRetargetAlignPoleVectorOpSettings;
+    readonly __static_UIKRetargetAlignPoleVectorController: {
+        SetSettings(InSettings: FIKRetargetAlignPoleVectorOpSettings): void;
+        GetSettings(): FIKRetargetAlignPoleVectorOpSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRetargetAlignPoleVectorController['__static_UIKRetargetAlignPoleVectorController'] &
+        UIKRetargetOpControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetOpControllerBase['__propertyRegistry'];
 }
-declare const UIKRetargetAlignPoleVectorController: UIKRetargetAlignPoleVectorController;
 
 declare interface UIKRetargetCopyBasePoseController extends UIKRetargetOpControllerBase {
-    SetSettings(InSettings: FIKRetargetCopyBasePoseOpSettings): void;
-    GetSettings(): FIKRetargetCopyBasePoseOpSettings;
+    readonly __static_UIKRetargetCopyBasePoseController: {
+        SetSettings(InSettings: FIKRetargetCopyBasePoseOpSettings): void;
+        GetSettings(): FIKRetargetCopyBasePoseOpSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRetargetCopyBasePoseController['__static_UIKRetargetCopyBasePoseController'] &
+        UIKRetargetOpControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetOpControllerBase['__propertyRegistry'];
 }
-declare const UIKRetargetCopyBasePoseController: UIKRetargetCopyBasePoseController;
 
 declare interface UIKRetargetCurveRemapController extends UIKRetargetOpControllerBase {
-    SetSettings(InSettings: FIKRetargetCurveRemapOpSettings): void;
-    GetSettings(): FIKRetargetCurveRemapOpSettings;
+    readonly __static_UIKRetargetCurveRemapController: {
+        SetSettings(InSettings: FIKRetargetCurveRemapOpSettings): void;
+        GetSettings(): FIKRetargetCurveRemapOpSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRetargetCurveRemapController['__static_UIKRetargetCurveRemapController'] &
+        UIKRetargetOpControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetOpControllerBase['__propertyRegistry'];
 }
-declare const UIKRetargetCurveRemapController: UIKRetargetCurveRemapController;
 
 declare interface UIKRetargetFKChainsController extends UIKRetargetOpControllerBase {
-    SetSettings(InSettings: FIKRetargetFKChainsOpSettings): void;
-    GetSettings(): FIKRetargetFKChainsOpSettings;
+    readonly __static_UIKRetargetFKChainsController: {
+        SetSettings(InSettings: FIKRetargetFKChainsOpSettings): void;
+        GetSettings(): FIKRetargetFKChainsOpSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRetargetFKChainsController['__static_UIKRetargetFKChainsController'] &
+        UIKRetargetOpControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetOpControllerBase['__propertyRegistry'];
 }
-declare const UIKRetargetFKChainsController: UIKRetargetFKChainsController;
 
 declare interface UIKRetargetGlobalSettings extends UObject {
-    Settings: FRetargetGlobalSettings;
+    readonly __properties_UIKRetargetGlobalSettings: {
+        Settings: FRetargetGlobalSettings;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetGlobalSettings['__properties_UIKRetargetGlobalSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const UIKRetargetGlobalSettings: UIKRetargetGlobalSettings;
 
 declare interface UIKRetargetIKChainsController extends UIKRetargetOpControllerBase {
-    SetSettings(InSettings: FIKRetargetIKChainsOpSettings): void;
-    GetSettings(): FIKRetargetIKChainsOpSettings;
+    readonly __static_UIKRetargetIKChainsController: {
+        SetSettings(InSettings: FIKRetargetIKChainsOpSettings): void;
+        GetSettings(): FIKRetargetIKChainsOpSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRetargetIKChainsController['__static_UIKRetargetIKChainsController'] &
+        UIKRetargetOpControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetOpControllerBase['__propertyRegistry'];
 }
-declare const UIKRetargetIKChainsController: UIKRetargetIKChainsController;
 
 declare interface UIKRetargetOpControllerBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UIKRetargetOpControllerBase: UIKRetargetOpControllerBase;
 
 declare interface UIKRetargetPelvisMotionController extends UIKRetargetOpControllerBase {
-    SetTargetPelvisBone(InTargetPelvisBone: FName): void;
-    SetSourcePelvisBone(InSourcePelvisBone: FName): void;
-    SetSettings(InSettings: FIKRetargetPelvisMotionOpSettings): void;
-    GetTargetPelvisBone(): FName;
-    GetSourcePelvisBone(): FName;
-    GetSettings(): FIKRetargetPelvisMotionOpSettings;
+    readonly __static_UIKRetargetPelvisMotionController: {
+        SetTargetPelvisBone(InTargetPelvisBone: string): void;
+        SetSourcePelvisBone(InSourcePelvisBone: string): void;
+        SetSettings(InSettings: FIKRetargetPelvisMotionOpSettings): void;
+        GetTargetPelvisBone(): string;
+        GetSourcePelvisBone(): string;
+        GetSettings(): FIKRetargetPelvisMotionOpSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRetargetPelvisMotionController['__static_UIKRetargetPelvisMotionController'] &
+        UIKRetargetOpControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetOpControllerBase['__propertyRegistry'];
 }
-declare const UIKRetargetPelvisMotionController: UIKRetargetPelvisMotionController;
 
 declare interface UIKRetargetPinBoneController extends UIKRetargetOpControllerBase {
-    SetSettings(InSettings: FIKRetargetPinBoneOpSettings): void;
-    SetBonePair(InBoneToCopyFrom: FName, InBoneToCopyTo: FName): void;
-    GetSettings(): FIKRetargetPinBoneOpSettings;
-    GetAllBonePairs(): [Record<FName, FName>];
-    ClearAllBonePairs(): void;
+    readonly __static_UIKRetargetPinBoneController: {
+        SetSettings(InSettings: FIKRetargetPinBoneOpSettings): void;
+        SetBonePair(InBoneToCopyFrom: string, InBoneToCopyTo: string): void;
+        GetSettings(): FIKRetargetPinBoneOpSettings;
+        GetAllBonePairs(): [TMap<string, string>];
+        ClearAllBonePairs(): void;
+    };
+    readonly __staticRegistry: 
+        UIKRetargetPinBoneController['__static_UIKRetargetPinBoneController'] &
+        UIKRetargetOpControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetOpControllerBase['__propertyRegistry'];
 }
-declare const UIKRetargetPinBoneController: UIKRetargetPinBoneController;
 
 declare interface UIKRetargetProcessor extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UIKRetargetProcessor: UIKRetargetProcessor;
 
 declare interface UIKRetargetRootMotionController extends UIKRetargetOpControllerBase {
-    SetTargetRootBone(InTargetRootBone: FName): void;
-    SetTargetPelvisBone(InTargetPelvisBone: FName): void;
-    SetSourceRootBone(InSourceRootBone: FName): void;
-    SetSettings(InSettings: FIKRetargetRootMotionOpSettings): void;
-    GetTargetRootBone(): FName;
-    GetTargetPelvisBone(): FName;
-    GetSourceRootBone(): FName;
-    GetSettings(): FIKRetargetRootMotionOpSettings;
+    readonly __static_UIKRetargetRootMotionController: {
+        SetTargetRootBone(InTargetRootBone: string): void;
+        SetTargetPelvisBone(InTargetPelvisBone: string): void;
+        SetSourceRootBone(InSourceRootBone: string): void;
+        SetSettings(InSettings: FIKRetargetRootMotionOpSettings): void;
+        GetTargetRootBone(): string;
+        GetTargetPelvisBone(): string;
+        GetSourceRootBone(): string;
+        GetSettings(): FIKRetargetRootMotionOpSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRetargetRootMotionController['__static_UIKRetargetRootMotionController'] &
+        UIKRetargetOpControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetOpControllerBase['__propertyRegistry'];
 }
-declare const UIKRetargetRootMotionController: UIKRetargetRootMotionController;
 
 declare interface UIKRetargetRunIKRigController extends UIKRetargetOpControllerBase {
-    SetSettings(InSettings: FIKRetargetRunIKRigOpSettings): void;
-    GetSettings(): FIKRetargetRunIKRigOpSettings;
+    readonly __static_UIKRetargetRunIKRigController: {
+        SetSettings(InSettings: FIKRetargetRunIKRigOpSettings): void;
+        GetSettings(): FIKRetargetRunIKRigOpSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRetargetRunIKRigController['__static_UIKRetargetRunIKRigController'] &
+        UIKRetargetOpControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetOpControllerBase['__propertyRegistry'];
 }
-declare const UIKRetargetRunIKRigController: UIKRetargetRunIKRigController;
 
 declare interface UIKRetargetScaleSourceController extends UIKRetargetOpControllerBase {
-    SetSettings(InSettings: FIKRetargetScaleSourceOpSettings): void;
-    GetSettings(): FIKRetargetScaleSourceOpSettings;
+    readonly __static_UIKRetargetScaleSourceController: {
+        SetSettings(InSettings: FIKRetargetScaleSourceOpSettings): void;
+        GetSettings(): FIKRetargetScaleSourceOpSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRetargetScaleSourceController['__static_UIKRetargetScaleSourceController'] &
+        UIKRetargetOpControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetOpControllerBase['__propertyRegistry'];
 }
-declare const UIKRetargetScaleSourceController: UIKRetargetScaleSourceController;
 
 declare interface UIKRetargetSpeedPlantingController extends UIKRetargetOpControllerBase {
-    SetSettings(InSettings: FIKRetargetSpeedPlantingOpSettings): void;
-    GetSettings(): FIKRetargetSpeedPlantingOpSettings;
+    readonly __static_UIKRetargetSpeedPlantingController: {
+        SetSettings(InSettings: FIKRetargetSpeedPlantingOpSettings): void;
+        GetSettings(): FIKRetargetSpeedPlantingOpSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRetargetSpeedPlantingController['__static_UIKRetargetSpeedPlantingController'] &
+        UIKRetargetOpControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetOpControllerBase['__propertyRegistry'];
 }
-declare const UIKRetargetSpeedPlantingController: UIKRetargetSpeedPlantingController;
 
 declare interface UIKRetargetStrideWarpingController extends UIKRetargetOpControllerBase {
-    SetSettings(InSettings: FIKRetargetStrideWarpingOpSettings): void;
-    GetSettings(): FIKRetargetStrideWarpingOpSettings;
+    readonly __static_UIKRetargetStrideWarpingController: {
+        SetSettings(InSettings: FIKRetargetStrideWarpingOpSettings): void;
+        GetSettings(): FIKRetargetStrideWarpingOpSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRetargetStrideWarpingController['__static_UIKRetargetStrideWarpingController'] &
+        UIKRetargetOpControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargetOpControllerBase['__propertyRegistry'];
 }
-declare const UIKRetargetStrideWarpingController: UIKRetargetStrideWarpingController;
 
 declare interface UIKRetargeter extends UObject {
-    Version: number;
-    SourceIKRigAsset: UIKRigDefinition;
-    TargetIKRigAsset: UIKRigDefinition;
-    RetargetOps: TArray<FInstancedStruct>;
-    Profiles: Record<FName, FRetargetProfile>;
-    CurrentProfile: FName;
-    SourceRetargetPoses: Record<FName, FIKRetargetPose>;
-    TargetRetargetPoses: Record<FName, FIKRetargetPose>;
-    CurrentSourceRetargetPose: FName;
-    CurrentTargetRetargetPose: FName;
-    bRetargetRoot: boolean;
-    bRetargetFK: boolean;
-    bRetargetIK: boolean;
-    TargetActorOffset: number;
-    TargetActorScale: number;
-    RetargetPoses: Record<FName, FIKRetargetPose>;
-    CurrentRetargetPose: FName;
-    ChainMap: FRetargetChainMapping;
-    ChainSettings: TArray<URetargetChainSettings>;
-    RootSettings: URetargetRootSettings;
-    GlobalSettings: UIKRetargetGlobalSettings;
-    OpStack: URetargetOpStack;
-    SetRootSettingsInRetargetProfile(RetargetProfile: FRetargetProfile, RootSettings: FTargetRootSettings): void;
-    SetGlobalSettingsInRetargetProfile(RetargetProfile: FRetargetProfile, GlobalSettings: FRetargetGlobalSettings): void;
-    SetChainSpeedPlantSettingsInRetargetProfile(RetargetProfile: FRetargetProfile, SpeedPlantSettings: FTargetChainSpeedPlantSettings, TargetChainName: FName): void;
-    SetChainSettingsInRetargetProfile(RetargetProfile: FRetargetProfile, ChainSettings: FTargetChainSettings, TargetChainName: FName): void;
-    SetChainIKSettingsInRetargetProfile(RetargetProfile: FRetargetProfile, IKSettings: FTargetChainIKSettings, TargetChainName: FName): void;
-    SetChainFKSettingsInRetargetProfile(RetargetProfile: FRetargetProfile, FKSettings: FTargetChainFKSettings, TargetChainName: FName): void;
-    HasTargetIKRig(): boolean;
-    HasSourceIKRig(): boolean;
-    GetRootSettingsFromRetargetProfile(RetargetProfile: FRetargetProfile): FTargetRootSettings;
-    GetRootSettingsFromRetargetAsset(RetargetAsset: UIKRetargeter, OptionalProfileName: FName, OutSettings: FTargetRootSettings): void;
-    GetGlobalSettingsFromRetargetProfile(RetargetProfile: FRetargetProfile): FRetargetGlobalSettings;
-    GetGlobalSettingsFromRetargetAsset(RetargetAsset: UIKRetargeter, OptionalProfileName: FName, OutSettings: FRetargetGlobalSettings): void;
-    GetChainUsingGoalFromRetargetAsset(RetargetAsset: UIKRetargeter, IKGoalName: FName): FTargetChainSettings;
-    GetChainSettingsFromRetargetProfile(RetargetProfile: FRetargetProfile, TargetChainName: FName): FTargetChainSettings;
-    GetChainSettingsFromRetargetAsset(RetargetAsset: UIKRetargeter, TargetChainName: FName, OptionalProfileName: FName): FTargetChainSettings;
+    readonly __static_UIKRetargeter: {
+        SetRootSettingsInRetargetProfile(RetargetProfile: FRetargetProfile, RootSettings: FTargetRootSettings): void;
+        SetGlobalSettingsInRetargetProfile(RetargetProfile: FRetargetProfile, GlobalSettings: FRetargetGlobalSettings): void;
+        SetChainSpeedPlantSettingsInRetargetProfile(RetargetProfile: FRetargetProfile, SpeedPlantSettings: FTargetChainSpeedPlantSettings, TargetChainName: string): void;
+        SetChainSettingsInRetargetProfile(RetargetProfile: FRetargetProfile, ChainSettings: FTargetChainSettings, TargetChainName: string): void;
+        SetChainIKSettingsInRetargetProfile(RetargetProfile: FRetargetProfile, IKSettings: FTargetChainIKSettings, TargetChainName: string): void;
+        SetChainFKSettingsInRetargetProfile(RetargetProfile: FRetargetProfile, FKSettings: FTargetChainFKSettings, TargetChainName: string): void;
+        HasTargetIKRig(): boolean;
+        HasSourceIKRig(): boolean;
+        GetRootSettingsFromRetargetProfile(RetargetProfile: FRetargetProfile): FTargetRootSettings;
+        GetRootSettingsFromRetargetAsset(RetargetAsset: UIKRetargeter, OptionalProfileName: string, OutSettings: FTargetRootSettings): void;
+        GetGlobalSettingsFromRetargetProfile(RetargetProfile: FRetargetProfile): FRetargetGlobalSettings;
+        GetGlobalSettingsFromRetargetAsset(RetargetAsset: UIKRetargeter, OptionalProfileName: string, OutSettings: FRetargetGlobalSettings): void;
+        GetChainUsingGoalFromRetargetAsset(RetargetAsset: UIKRetargeter, IKGoalName: string): FTargetChainSettings;
+        GetChainSettingsFromRetargetProfile(RetargetProfile: FRetargetProfile, TargetChainName: string): FTargetChainSettings;
+        GetChainSettingsFromRetargetAsset(RetargetAsset: UIKRetargeter, TargetChainName: string, OptionalProfileName: string): FTargetChainSettings;
+    };
+    readonly __properties_UIKRetargeter: {
+        Version: number;
+        SourceIKRigAsset: UIKRigDefinition;
+        TargetIKRigAsset: UIKRigDefinition;
+        RetargetOps: FInstancedStruct[];
+        Profiles: TMap<string, FRetargetProfile>;
+        CurrentProfile: string;
+        SourceRetargetPoses: TMap<string, FIKRetargetPose>;
+        TargetRetargetPoses: TMap<string, FIKRetargetPose>;
+        CurrentSourceRetargetPose: string;
+        CurrentTargetRetargetPose: string;
+        bRetargetRoot: boolean;
+        bRetargetFK: boolean;
+        bRetargetIK: boolean;
+        TargetActorOffset: number;
+        TargetActorScale: number;
+        RetargetPoses: TMap<string, FIKRetargetPose>;
+        CurrentRetargetPose: string;
+        ChainMap: FRetargetChainMapping;
+        ChainSettings: URetargetChainSettings[];
+        RootSettings: URetargetRootSettings;
+        GlobalSettings: UIKRetargetGlobalSettings;
+        OpStack: URetargetOpStack;
+    };
+    readonly __staticRegistry: 
+        UIKRetargeter['__static_UIKRetargeter'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRetargeter['__properties_UIKRetargeter'] &
+        UObject['__propertyRegistry'];
 }
-declare const UIKRetargeter: UIKRetargeter;
 
 declare interface UIKRigBodyMoverController extends UIKRigSolverControllerBase {
-    SetSolverSettings(InSettings: FIKRigBodyMoverSettings): void;
-    SetGoalSettings(InGoalName: FName, InSettings: FIKRigBodyMoverGoalSettings): void;
-    GetSolverSettings(): FIKRigBodyMoverSettings;
-    GetGoalSettings(InGoalName: FName): FIKRigBodyMoverGoalSettings;
+    readonly __static_UIKRigBodyMoverController: {
+        SetSolverSettings(InSettings: FIKRigBodyMoverSettings): void;
+        SetGoalSettings(InGoalName: string, InSettings: FIKRigBodyMoverGoalSettings): void;
+        GetSolverSettings(): FIKRigBodyMoverSettings;
+        GetGoalSettings(InGoalName: string): FIKRigBodyMoverGoalSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRigBodyMoverController['__static_UIKRigBodyMoverController'] &
+        UIKRigSolverControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRigSolverControllerBase['__propertyRegistry'];
 }
-declare const UIKRigBodyMoverController: UIKRigBodyMoverController;
 
 declare interface UIKRigComponent extends UActorComponent {
-    SetIKRigGoalTransform(GoalName: FName, Transform: FTransform, PositionAlpha: number, RotationAlpha: number): void;
-    SetIKRigGoalPositionAndRotation(GoalName: FName, position: FVector, Rotation: FQuat, PositionAlpha: number, RotationAlpha: number): void;
-    SetIKRigGoal(Goal: FIKRigGoal): void;
-    ClearAllGoals(): void;
+    readonly __static_UIKRigComponent: {
+        SetIKRigGoalTransform(GoalName: string, Transform: FTransform, PositionAlpha: number, RotationAlpha: number): void;
+        SetIKRigGoalPositionAndRotation(GoalName: string, position: FVector, Rotation: FQuat, PositionAlpha: number, RotationAlpha: number): void;
+        SetIKRigGoal(Goal: FIKRigGoal): void;
+        ClearAllGoals(): void;
+    };
+    readonly __staticRegistry: 
+        UIKRigComponent['__static_UIKRigComponent'] &
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UActorComponent['__propertyRegistry'];
 }
-declare const UIKRigComponent: UIKRigComponent;
 
 declare interface UIKRigDefinition extends UObject {
-    PreviewSkeletalMesh: TSoftObjectPtr<USkeletalMesh>;
-    Skeleton: FIKRigSkeleton;
-    Goals: TArray<UIKRigEffectorGoal>;
-    SolverStack: TArray<FInstancedStruct>;
-    RetargetDefinition: FRetargetDefinition;
-    Solvers: TArray<UIKRigSolver>;
+    readonly __properties_UIKRigDefinition: {
+        PreviewSkeletalMesh: TSoftObjectPtr<USkeletalMesh>;
+        Skeleton: FIKRigSkeleton;
+        Goals: UIKRigEffectorGoal[];
+        SolverStack: FInstancedStruct[];
+        RetargetDefinition: FRetargetDefinition;
+        Solvers: UIKRigSolver[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRigDefinition['__properties_UIKRigDefinition'] &
+        UObject['__propertyRegistry'];
 }
-declare const UIKRigDefinition: UIKRigDefinition;
 
 declare interface UIKRigEffectorGoal extends UObject {
-    GoalName: FName;
-    BoneName: FName;
-    PositionAlpha: number;
-    RotationAlpha: number;
-    CurrentTransform: FTransform;
-    InitialTransform: FTransform;
+    readonly __properties_UIKRigEffectorGoal: {
+        GoalName: string;
+        BoneName: string;
+        PositionAlpha: number;
+        RotationAlpha: number;
+        CurrentTransform: FTransform;
+        InitialTransform: FTransform;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRigEffectorGoal['__properties_UIKRigEffectorGoal'] &
+        UObject['__propertyRegistry'];
 }
-declare const UIKRigEffectorGoal: UIKRigEffectorGoal;
 
 declare interface UIKRigFBIKController extends UIKRigSolverControllerBase {
-    SetSolverSettings(InSettings: FIKRigFBIKSettings): void;
-    SetGoalSettings(InGoalName: FName, InSettings: FIKRigFBIKGoalSettings): void;
-    SetBoneSettings(InBoneName: FName, InSettings: FIKRigFBIKBoneSettings): void;
-    GetSolverSettings(): FIKRigFBIKSettings;
-    GetGoalSettings(InGoalName: FName): FIKRigFBIKGoalSettings;
-    GetBoneSettings(InBoneName: FName): FIKRigFBIKBoneSettings;
+    readonly __static_UIKRigFBIKController: {
+        SetSolverSettings(InSettings: FIKRigFBIKSettings): void;
+        SetGoalSettings(InGoalName: string, InSettings: FIKRigFBIKGoalSettings): void;
+        SetBoneSettings(InBoneName: string, InSettings: FIKRigFBIKBoneSettings): void;
+        GetSolverSettings(): FIKRigFBIKSettings;
+        GetGoalSettings(InGoalName: string): FIKRigFBIKGoalSettings;
+        GetBoneSettings(InBoneName: string): FIKRigFBIKBoneSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRigFBIKController['__static_UIKRigFBIKController'] &
+        UIKRigSolverControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRigSolverControllerBase['__propertyRegistry'];
 }
-declare const UIKRigFBIKController: UIKRigFBIKController;
 
 declare interface UIKRigFBIKSolver extends UIKRigSolver {
-    RootBone: FName;
-    Iterations: number;
-    SubIterations: number;
-    MassMultiplier: number;
-    bAllowStretch: boolean;
-    RootBehavior: EPBIKRootBehavior;
-    PrePullRootSettings: FRootPrePullSettings;
-    PullChainAlpha: number;
-    MaxAngle: number;
-    OverRelaxation: number;
-    Effectors: TArray<UIKRig_FBIKEffector>;
-    BoneSettings: TArray<UIKRig_FBIKBoneSettings>;
-    GetEffectors(): TArray<UIKRig_FBIKEffector>;
-    GetBoneSettings(): TArray<UIKRig_FBIKBoneSettings>;
+    readonly __static_UIKRigFBIKSolver: {
+        GetEffectors(): UIKRig_FBIKEffector[];
+        GetBoneSettings(): UIKRig_FBIKBoneSettings[];
+    };
+    readonly __properties_UIKRigFBIKSolver: {
+        RootBone: string;
+        Iterations: number;
+        SubIterations: number;
+        MassMultiplier: number;
+        bAllowStretch: boolean;
+        RootBehavior: EPBIKRootBehavior;
+        PrePullRootSettings: FRootPrePullSettings;
+        PullChainAlpha: number;
+        MaxAngle: number;
+        OverRelaxation: number;
+        Effectors: UIKRig_FBIKEffector[];
+        BoneSettings: UIKRig_FBIKBoneSettings[];
+    };
+    readonly __staticRegistry: 
+        UIKRigFBIKSolver['__static_UIKRigFBIKSolver'] &
+        UIKRigSolver['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRigFBIKSolver['__properties_UIKRigFBIKSolver'] &
+        UIKRigSolver['__propertyRegistry'];
 }
-declare const UIKRigFBIKSolver: UIKRigFBIKSolver;
 
 declare interface UIKRigLimbSolverController extends UIKRigSolverControllerBase {
-    SetSolverSettings(InSettings: FIKRigLimbSolverSettings): void;
-    GetSolverSettings(): FIKRigLimbSolverSettings;
+    readonly __static_UIKRigLimbSolverController: {
+        SetSolverSettings(InSettings: FIKRigLimbSolverSettings): void;
+        GetSolverSettings(): FIKRigLimbSolverSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRigLimbSolverController['__static_UIKRigLimbSolverController'] &
+        UIKRigSolverControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRigSolverControllerBase['__propertyRegistry'];
 }
-declare const UIKRigLimbSolverController: UIKRigLimbSolverController;
 
 declare interface UIKRigPoleSolverController extends UIKRigSolverControllerBase {
-    SetSolverSettings(InSettings: FIKRigPoleSolverSettings): void;
-    GetSolverSettings(): FIKRigPoleSolverSettings;
+    readonly __static_UIKRigPoleSolverController: {
+        SetSolverSettings(InSettings: FIKRigPoleSolverSettings): void;
+        GetSolverSettings(): FIKRigPoleSolverSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRigPoleSolverController['__static_UIKRigPoleSolverController'] &
+        UIKRigSolverControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRigSolverControllerBase['__propertyRegistry'];
 }
-declare const UIKRigPoleSolverController: UIKRigPoleSolverController;
 
 declare interface UIKRigProcessor extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UIKRigProcessor: UIKRigProcessor;
 
 declare interface UIKRigSetTransformController extends UIKRigSolverControllerBase {
-    SetSolverSettings(InSettings: FIKRigSetTransformSettings): void;
-    GetSolverSettings(): FIKRigSetTransformSettings;
+    readonly __static_UIKRigSetTransformController: {
+        SetSolverSettings(InSettings: FIKRigSetTransformSettings): void;
+        GetSolverSettings(): FIKRigSetTransformSettings;
+    };
+    readonly __staticRegistry: 
+        UIKRigSetTransformController['__static_UIKRigSetTransformController'] &
+        UIKRigSolverControllerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRigSolverControllerBase['__propertyRegistry'];
 }
-declare const UIKRigSetTransformController: UIKRigSetTransformController;
 
 declare interface UIKRigSolver extends UObject {
-    bIsEnabled: boolean;
+    readonly __properties_UIKRigSolver: {
+        bIsEnabled: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRigSolver['__properties_UIKRigSolver'] &
+        UObject['__propertyRegistry'];
 }
-declare const UIKRigSolver: UIKRigSolver;
 
 declare interface UIKRigSolverControllerBase extends UObject {
-    SetEnabled(bIsEnabled: boolean): void;
-    GetEnabled(): boolean;
+    readonly __static_UIKRigSolverControllerBase: {
+        SetEnabled(bIsEnabled: boolean): void;
+        GetEnabled(): boolean;
+    };
+    readonly __staticRegistry: 
+        UIKRigSolverControllerBase['__static_UIKRigSolverControllerBase'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UIKRigSolverControllerBase: UIKRigSolverControllerBase;
 
 declare interface UIKRig_BodyMover extends UIKRigSolver {
-    RootBone: FName;
-    PositionAlpha: number;
-    PositionPositiveX: number;
-    PositionNegativeX: number;
-    PositionPositiveY: number;
-    PositionNegativeY: number;
-    PositionPositiveZ: number;
-    PositionNegativeZ: number;
-    RotationAlpha: number;
-    RotateXAlpha: number;
-    RotateYAlpha: number;
-    RotateZAlpha: number;
-    Effectors: TArray<UIKRig_BodyMoverEffector>;
+    readonly __properties_UIKRig_BodyMover: {
+        RootBone: string;
+        PositionAlpha: number;
+        PositionPositiveX: number;
+        PositionNegativeX: number;
+        PositionPositiveY: number;
+        PositionNegativeY: number;
+        PositionPositiveZ: number;
+        PositionNegativeZ: number;
+        RotationAlpha: number;
+        RotateXAlpha: number;
+        RotateYAlpha: number;
+        RotateZAlpha: number;
+        Effectors: UIKRig_BodyMoverEffector[];
+    };
+    readonly __staticRegistry: 
+        UIKRigSolver['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRig_BodyMover['__properties_UIKRig_BodyMover'] &
+        UIKRigSolver['__propertyRegistry'];
 }
-declare const UIKRig_BodyMover: UIKRig_BodyMover;
 
 declare interface UIKRig_BodyMoverEffector extends UObject {
-    GoalName: FName;
-    BoneName: FName;
-    InfluenceMultiplier: number;
+    readonly __properties_UIKRig_BodyMoverEffector: {
+        GoalName: string;
+        BoneName: string;
+        InfluenceMultiplier: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRig_BodyMoverEffector['__properties_UIKRig_BodyMoverEffector'] &
+        UObject['__propertyRegistry'];
 }
-declare const UIKRig_BodyMoverEffector: UIKRig_BodyMoverEffector;
 
 declare interface UIKRig_FBIKBoneSettings extends UObject {
-    bone: FName;
-    RotationStiffness: number;
-    PositionStiffness: number;
-    X: EPBIKLimitType;
-    MinX: number;
-    MaxX: number;
-    Y: EPBIKLimitType;
-    MinY: number;
-    MaxY: number;
-    Z: EPBIKLimitType;
-    MinZ: number;
-    MaxZ: number;
-    bUsePreferredAngles: boolean;
-    PreferredAngles: FVector;
+    readonly __properties_UIKRig_FBIKBoneSettings: {
+        bone: string;
+        RotationStiffness: number;
+        PositionStiffness: number;
+        X: EPBIKLimitType;
+        MinX: number;
+        MaxX: number;
+        Y: EPBIKLimitType;
+        MinY: number;
+        MaxY: number;
+        Z: EPBIKLimitType;
+        MinZ: number;
+        MaxZ: number;
+        bUsePreferredAngles: boolean;
+        PreferredAngles: FVector;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRig_FBIKBoneSettings['__properties_UIKRig_FBIKBoneSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const UIKRig_FBIKBoneSettings: UIKRig_FBIKBoneSettings;
 
 declare interface UIKRig_FBIKEffector extends UObject {
-    GoalName: FName;
-    BoneName: FName;
-    ChainDepth: number;
-    StrengthAlpha: number;
-    PullChainAlpha: number;
-    PinRotation: number;
+    readonly __properties_UIKRig_FBIKEffector: {
+        GoalName: string;
+        BoneName: string;
+        ChainDepth: number;
+        StrengthAlpha: number;
+        PullChainAlpha: number;
+        PinRotation: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRig_FBIKEffector['__properties_UIKRig_FBIKEffector'] &
+        UObject['__propertyRegistry'];
 }
-declare const UIKRig_FBIKEffector: UIKRig_FBIKEffector;
 
 declare interface UIKRig_LimbEffector extends UObject {
-    GoalName: FName;
-    BoneName: FName;
+    readonly __properties_UIKRig_LimbEffector: {
+        GoalName: string;
+        BoneName: string;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRig_LimbEffector['__properties_UIKRig_LimbEffector'] &
+        UObject['__propertyRegistry'];
 }
-declare const UIKRig_LimbEffector: UIKRig_LimbEffector;
 
 declare interface UIKRig_LimbSolver extends UIKRigSolver {
-    RootName: FName;
-    ReachPrecision: number;
-    HingeRotationAxis: EAxis;
-    MaxIterations: number;
-    bEnableLimit: boolean;
-    MinRotationAngle: number;
-    bAveragePull: boolean;
-    PullDistribution: number;
-    ReachStepAlpha: number;
-    bEnableTwistCorrection: boolean;
-    EndBoneForwardAxis: EAxis;
-    Effector: UIKRig_LimbEffector;
+    readonly __properties_UIKRig_LimbSolver: {
+        RootName: string;
+        ReachPrecision: number;
+        HingeRotationAxis: EAxis;
+        MaxIterations: number;
+        bEnableLimit: boolean;
+        MinRotationAngle: number;
+        bAveragePull: boolean;
+        PullDistribution: number;
+        ReachStepAlpha: number;
+        bEnableTwistCorrection: boolean;
+        EndBoneForwardAxis: EAxis;
+        Effector: UIKRig_LimbEffector;
+    };
+    readonly __staticRegistry: 
+        UIKRigSolver['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRig_LimbSolver['__properties_UIKRig_LimbSolver'] &
+        UIKRigSolver['__propertyRegistry'];
 }
-declare const UIKRig_LimbSolver: UIKRig_LimbSolver;
 
 declare interface UIKRig_PoleSolver extends UIKRigSolver {
-    RootName: FName;
-    EndName: FName;
-    Effector: UIKRig_PoleSolverEffector;
+    readonly __properties_UIKRig_PoleSolver: {
+        RootName: string;
+        EndName: string;
+        Effector: UIKRig_PoleSolverEffector;
+    };
+    readonly __staticRegistry: 
+        UIKRigSolver['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRig_PoleSolver['__properties_UIKRig_PoleSolver'] &
+        UIKRigSolver['__propertyRegistry'];
 }
-declare const UIKRig_PoleSolver: UIKRig_PoleSolver;
 
 declare interface UIKRig_PoleSolverEffector extends UObject {
-    GoalName: FName;
-    BoneName: FName;
-    alpha: number;
+    readonly __properties_UIKRig_PoleSolverEffector: {
+        GoalName: string;
+        BoneName: string;
+        alpha: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRig_PoleSolverEffector['__properties_UIKRig_PoleSolverEffector'] &
+        UObject['__propertyRegistry'];
 }
-declare const UIKRig_PoleSolverEffector: UIKRig_PoleSolverEffector;
 
 declare interface UIKRig_SetTransform extends UIKRigSolver {
-    Goal: FName;
-    RootBone: FName;
-    Effector: UIKRig_SetTransformEffector;
+    readonly __properties_UIKRig_SetTransform: {
+        Goal: string;
+        RootBone: string;
+        Effector: UIKRig_SetTransformEffector;
+    };
+    readonly __staticRegistry: 
+        UIKRigSolver['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRig_SetTransform['__properties_UIKRig_SetTransform'] &
+        UIKRigSolver['__propertyRegistry'];
 }
-declare const UIKRig_SetTransform: UIKRig_SetTransform;
 
 declare interface UIKRig_SetTransformEffector extends UObject {
-    bEnablePosition: boolean;
-    bEnableRotation: boolean;
-    alpha: number;
+    readonly __properties_UIKRig_SetTransformEffector: {
+        bEnablePosition: boolean;
+        bEnableRotation: boolean;
+        alpha: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIKRig_SetTransformEffector['__properties_UIKRig_SetTransformEffector'] &
+        UObject['__propertyRegistry'];
 }
-declare const UIKRig_SetTransformEffector: UIKRig_SetTransformEffector;
 
 declare interface UPinBoneOp extends URetargetOpBase {
-    BonesToPin: TArray<FPinBoneData>;
-    PinTo: ERetargetSourceOrTarget;
-    bCopyTranslation: boolean;
-    bCopyRotation: boolean;
-    bCopyScale: boolean;
-    TranslationMode: EPinBoneTranslationMode;
-    RotationMode: EPinBoneRotationMode;
-    GlobalOffset: FTransform;
-    LocalOffset: FTransform;
-    bMaintainOffset: boolean;
-    PinType: EPinBoneType;
+    readonly __properties_UPinBoneOp: {
+        BonesToPin: FPinBoneData[];
+        PinTo: ERetargetSourceOrTarget;
+        bCopyTranslation: boolean;
+        bCopyRotation: boolean;
+        bCopyScale: boolean;
+        TranslationMode: EPinBoneTranslationMode;
+        RotationMode: EPinBoneRotationMode;
+        GlobalOffset: FTransform;
+        LocalOffset: FTransform;
+        bMaintainOffset: boolean;
+        PinType: EPinBoneType;
+    };
+    readonly __staticRegistry: 
+        URetargetOpBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPinBoneOp['__properties_UPinBoneOp'] &
+        URetargetOpBase['__propertyRegistry'];
 }
-declare const UPinBoneOp: UPinBoneOp;
 
 declare interface URetargetChainSettings extends UObject {
-    SourceChain: FName;
-    TargetChain: FName;
-    Settings: FTargetChainSettings;
-    CopyPoseUsingFK: boolean;
-    RotationMode: ERetargetRotationMode;
-    RotationAlpha: number;
-    TranslationMode: ERetargetTranslationMode;
-    TranslationAlpha: number;
-    DriveIKGoal: boolean;
-    BlendToSource: number;
-    BlendToSourceWeights: FVector;
-    StaticOffset: FVector;
-    StaticLocalOffset: FVector;
-    StaticRotationOffset: FRotator;
-    Extension: number;
-    UseSpeedCurveToPlantIK: boolean;
-    SpeedCurveName: FName;
-    VelocityThreshold: number;
-    UnplantStiffness: number;
-    UnplantCriticalDamping: number;
+    readonly __properties_URetargetChainSettings: {
+        SourceChain: string;
+        TargetChain: string;
+        Settings: FTargetChainSettings;
+        CopyPoseUsingFK: boolean;
+        RotationMode: ERetargetRotationMode;
+        RotationAlpha: number;
+        TranslationMode: ERetargetTranslationMode;
+        TranslationAlpha: number;
+        DriveIKGoal: boolean;
+        BlendToSource: number;
+        BlendToSourceWeights: FVector;
+        StaticOffset: FVector;
+        StaticLocalOffset: FVector;
+        StaticRotationOffset: FRotator;
+        Extension: number;
+        UseSpeedCurveToPlantIK: boolean;
+        SpeedCurveName: string;
+        VelocityThreshold: number;
+        UnplantStiffness: number;
+        UnplantCriticalDamping: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        URetargetChainSettings['__properties_URetargetChainSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const URetargetChainSettings: URetargetChainSettings;
 
 declare interface URetargetOpBase extends UObject {
-    bIsEnabled: boolean;
+    readonly __properties_URetargetOpBase: {
+        bIsEnabled: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        URetargetOpBase['__properties_URetargetOpBase'] &
+        UObject['__propertyRegistry'];
 }
-declare const URetargetOpBase: URetargetOpBase;
 
 declare interface URetargetOpStack extends UObject {
-    RetargetOps: TArray<URetargetOpBase>;
+    readonly __properties_URetargetOpStack: {
+        RetargetOps: URetargetOpBase[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        URetargetOpStack['__properties_URetargetOpStack'] &
+        UObject['__propertyRegistry'];
 }
-declare const URetargetOpStack: URetargetOpStack;
 
 declare interface URetargetProfileLibrary extends UBlueprintFunctionLibrary {
-    GetOpControllerFromRetargetProfile(InRetargetProfile: FRetargetProfile, InRetargetOpName: FName): UIKRetargetOpControllerBase;
-    CopyRetargetProfileFromRetargetAsset(InRetargetAsset: UIKRetargeter): FRetargetProfile;
+    readonly __static_URetargetProfileLibrary: {
+        GetOpControllerFromRetargetProfile(InRetargetProfile: FRetargetProfile, InRetargetOpName: string): UIKRetargetOpControllerBase;
+        CopyRetargetProfileFromRetargetAsset(InRetargetAsset: UIKRetargeter): FRetargetProfile;
+    };
+    readonly __staticRegistry: 
+        URetargetProfileLibrary['__static_URetargetProfileLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const URetargetProfileLibrary: URetargetProfileLibrary;
 
 declare interface URetargetRootSettings extends UObject {
-    Settings: FTargetRootSettings;
-    RetargetRootTranslation: boolean;
-    GlobalScaleHorizontal: number;
-    GlobalScaleVertical: number;
-    BlendToSource: FVector;
-    StaticOffset: FVector;
-    StaticRotationOffset: FRotator;
+    readonly __properties_URetargetRootSettings: {
+        Settings: FTargetRootSettings;
+        RetargetRootTranslation: boolean;
+        GlobalScaleHorizontal: number;
+        GlobalScaleVertical: number;
+        BlendToSource: FVector;
+        StaticOffset: FVector;
+        StaticRotationOffset: FRotator;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        URetargetRootSettings['__properties_URetargetRootSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const URetargetRootSettings: URetargetRootSettings;
 
 declare interface URootMotionGeneratorOp extends URetargetOpBase {
-    SourceRootBone: FName;
-    TargetRootBone: FName;
-    TargetPelvisBone: FName;
-    RootMotionSource: ERootMotionSource;
-    RootHeightSource: ERootMotionHeightSource;
-    bPropagateToNonRetargetedChildren: boolean;
-    bMaintainOffsetFromPelvis: boolean;
-    bRotateWithPelvis: boolean;
-    GlobalOffset: FTransform;
+    readonly __properties_URootMotionGeneratorOp: {
+        SourceRootBone: string;
+        TargetRootBone: string;
+        TargetPelvisBone: string;
+        RootMotionSource: ERootMotionSource;
+        RootHeightSource: ERootMotionHeightSource;
+        bPropagateToNonRetargetedChildren: boolean;
+        bMaintainOffsetFromPelvis: boolean;
+        bRotateWithPelvis: boolean;
+        GlobalOffset: FTransform;
+    };
+    readonly __staticRegistry: 
+        URetargetOpBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        URootMotionGeneratorOp['__properties_URootMotionGeneratorOp'] &
+        URetargetOpBase['__propertyRegistry'];
 }
-declare const URootMotionGeneratorOp: URootMotionGeneratorOp;
 

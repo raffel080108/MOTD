@@ -3,28 +3,39 @@ declare interface FMetaHumanCustomizableBodyPart {
     ControlRigLODThreshold: number;
     PhysicsAsset: UPhysicsAsset;
     RigidBodyLODThreshold: number;
-    ComponentName: FString;
+    ComponentName: string;
 }
-declare const FMetaHumanCustomizableBodyPart: FMetaHumanCustomizableBodyPart;
 
 declare interface UMetaHumanComponentBase extends UActorComponent {
-    BodyComponentName: FString;
-    BodyType: EMetaHumanBodyType;
-    bEnableBodyCorrectives: boolean;
-    FaceComponentName: FString;
-    RigLogicLODThreshold: number;
-    bEnableNeckCorrectives: boolean;
-    NeckCorrectivesLODThreshold: number;
-    bEnableNeckProcControlRig: boolean;
-    NeckProcControlRigLODThreshold: number;
-    Torso: FMetaHumanCustomizableBodyPart;
-    Legs: FMetaHumanCustomizableBodyPart;
-    Feet: FMetaHumanCustomizableBodyPart;
+    readonly __properties_UMetaHumanComponentBase: {
+        BodyComponentName: string;
+        BodyType: EMetaHumanBodyType;
+        bEnableBodyCorrectives: boolean;
+        FaceComponentName: string;
+        RigLogicLODThreshold: number;
+        bEnableNeckCorrectives: boolean;
+        NeckCorrectivesLODThreshold: number;
+        bEnableNeckProcControlRig: boolean;
+        NeckProcControlRigLODThreshold: number;
+        Torso: FMetaHumanCustomizableBodyPart;
+        Legs: FMetaHumanCustomizableBodyPart;
+        Feet: FMetaHumanCustomizableBodyPart;
+    };
+    readonly __staticRegistry: 
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMetaHumanComponentBase['__properties_UMetaHumanComponentBase'] &
+        UActorComponent['__propertyRegistry'];
 }
-declare const UMetaHumanComponentBase: UMetaHumanComponentBase;
 
 declare interface UMetaHumanComponentUE extends UMetaHumanComponentBase {
-    PostProcessAnimBP: TSoftClassPtr<UAnimInstance>;
+    readonly __properties_UMetaHumanComponentUE: {
+        PostProcessAnimBP: TSoftClassPtr<UAnimInstance>;
+    };
+    readonly __staticRegistry: 
+        UMetaHumanComponentBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMetaHumanComponentUE['__properties_UMetaHumanComponentUE'] &
+        UMetaHumanComponentBase['__propertyRegistry'];
 }
-declare const UMetaHumanComponentUE: UMetaHumanComponentUE;
 

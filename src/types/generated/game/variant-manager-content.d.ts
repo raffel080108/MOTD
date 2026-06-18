@@ -1,153 +1,224 @@
 declare interface ALevelVariantSetsActor extends AActor {
-    LevelVariantSets: FSoftObjectPath;
-    DirectorInstances: Record<string | number | symbol, ULevelVariantSetsFunctionDirector>;
-    SwitchOnVariantByName(VariantSetName: string | FString, VariantName: string | FString): boolean;
-    SwitchOnVariantByIndex(VariantSetIndex: number, VariantIndex: number): boolean;
-    SetLevelVariantSets(InVariantSets: ULevelVariantSets): void;
-    GetLevelVariantSets(bLoad: boolean): ULevelVariantSets;
+    readonly __static_ALevelVariantSetsActor: {
+        SwitchOnVariantByName(VariantSetName: string, VariantName: string): boolean;
+        SwitchOnVariantByIndex(VariantSetIndex: number, VariantIndex: number): boolean;
+        SetLevelVariantSets(InVariantSets: ULevelVariantSets): void;
+        GetLevelVariantSets(bLoad: boolean): ULevelVariantSets;
+    };
+    readonly __properties_ALevelVariantSetsActor: {
+        LevelVariantSets: FSoftObjectPath;
+        DirectorInstances: TMap<UClass, ULevelVariantSetsFunctionDirector>;
+    };
+    readonly __staticRegistry: 
+        ALevelVariantSetsActor['__static_ALevelVariantSetsActor'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ALevelVariantSetsActor['__properties_ALevelVariantSetsActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const ALevelVariantSetsActor: ALevelVariantSetsActor;
 
 declare interface ASwitchActor extends AActor {
-    SceneComponent: USceneComponent;
-    LastSelectedOption: number;
-    SelectOption(OptionIndex: number): void;
-    GetSelectedOption(): number;
-    GetOptions(): TArray<AActor>;
+    readonly __static_ASwitchActor: {
+        SelectOption(OptionIndex: number): void;
+        GetSelectedOption(): number;
+        GetOptions(): AActor[];
+    };
+    readonly __properties_ASwitchActor: {
+        SceneComponent: USceneComponent;
+        LastSelectedOption: number;
+    };
+    readonly __staticRegistry: 
+        ASwitchActor['__static_ASwitchActor'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ASwitchActor['__properties_ASwitchActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const ASwitchActor: ASwitchActor;
 
 declare interface FCapturedPropSegment {
-    PropertyName: FString;
+    PropertyName: string;
     PropertyIndex: number;
-    ComponentName: FString;
+    ComponentName: string;
 }
-declare const FCapturedPropSegment: FCapturedPropSegment;
 
 declare interface FFunctionCaller {
-    FunctionName: FName;
+    FunctionName: string;
 }
-declare const FFunctionCaller: FFunctionCaller;
 
 declare interface FVariantDependency {
     VariantSet: TSoftObjectPtr<UVariantSet>;
     Variant: TSoftObjectPtr<UVariant>;
     bEnabled: boolean;
 }
-declare const FVariantDependency: FVariantDependency;
 
 declare interface ULevelVariantSets extends UObject {
-    DirectorClass: UClass;
-    VariantSets: TArray<UVariantSet>;
-    GetVariantSetByName(VariantSetName: string | FString): UVariantSet;
-    GetVariantSet(VariantSetIndex: number): UVariantSet;
-    GetNumVariantSets(): number;
+    readonly __static_ULevelVariantSets: {
+        GetVariantSetByName(VariantSetName: string): UVariantSet;
+        GetVariantSet(VariantSetIndex: number): UVariantSet;
+        GetNumVariantSets(): number;
+    };
+    readonly __properties_ULevelVariantSets: {
+        DirectorClass: UClass;
+        VariantSets: UVariantSet[];
+    };
+    readonly __staticRegistry: 
+        ULevelVariantSets['__static_ULevelVariantSets'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULevelVariantSets['__properties_ULevelVariantSets'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULevelVariantSets: ULevelVariantSets;
 
 declare interface ULevelVariantSetsFunctionDirector extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULevelVariantSetsFunctionDirector: ULevelVariantSetsFunctionDirector;
 
 declare interface UPropertyValue extends UObject {
-    Properties: TArray<TFieldPath<FProperty>>;
-    PropertyIndices: TArray<number>;
-    CapturedPropSegments: TArray<FCapturedPropSegment>;
-    FullDisplayString: FString;
-    PropertySetterName: FName;
-    PropertySetterParameterDefaults: Record<FString, FString>;
-    bHasRecordedData: boolean;
-    LeafPropertyClass: UClass;
-    ValueBytes: TArray<uint8>;
-    PropCategory: EPropertyValueCategory;
-    HasRecordedData(): boolean;
-    GetPropertyTooltip(): FText;
-    GetFullDisplayString(): FString;
+    readonly __static_UPropertyValue: {
+        HasRecordedData(): boolean;
+        GetPropertyTooltip(): string;
+        GetFullDisplayString(): string;
+    };
+    readonly __properties_UPropertyValue: {
+        Properties: TFieldPath<FProperty>[];
+        PropertyIndices: number[];
+        CapturedPropSegments: FCapturedPropSegment[];
+        FullDisplayString: string;
+        PropertySetterName: string;
+        PropertySetterParameterDefaults: TMap<string, string>;
+        bHasRecordedData: boolean;
+        LeafPropertyClass: UClass;
+        ValueBytes: number[];
+        PropCategory: EPropertyValueCategory;
+    };
+    readonly __staticRegistry: 
+        UPropertyValue['__static_UPropertyValue'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPropertyValue['__properties_UPropertyValue'] &
+        UObject['__propertyRegistry'];
 }
-declare const UPropertyValue: UPropertyValue;
 
 declare interface UPropertyValueColor extends UPropertyValue {
-
+    readonly __staticRegistry: 
+        UPropertyValue['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPropertyValue['__propertyRegistry'];
 }
-declare const UPropertyValueColor: UPropertyValueColor;
 
 declare interface UPropertyValueMaterial extends UPropertyValue {
-
+    readonly __staticRegistry: 
+        UPropertyValue['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPropertyValue['__propertyRegistry'];
 }
-declare const UPropertyValueMaterial: UPropertyValueMaterial;
 
 declare interface UPropertyValueOption extends UPropertyValue {
-
+    readonly __staticRegistry: 
+        UPropertyValue['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPropertyValue['__propertyRegistry'];
 }
-declare const UPropertyValueOption: UPropertyValueOption;
 
 declare interface UPropertyValueSoftObject extends UPropertyValue {
-
+    readonly __staticRegistry: 
+        UPropertyValue['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPropertyValue['__propertyRegistry'];
 }
-declare const UPropertyValueSoftObject: UPropertyValueSoftObject;
 
 declare interface UPropertyValueTransform extends UPropertyValue {
-
+    readonly __staticRegistry: 
+        UPropertyValue['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPropertyValue['__propertyRegistry'];
 }
-declare const UPropertyValueTransform: UPropertyValueTransform;
 
 declare interface UPropertyValueVisibility extends UPropertyValue {
-
+    readonly __staticRegistry: 
+        UPropertyValue['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPropertyValue['__propertyRegistry'];
 }
-declare const UPropertyValueVisibility: UPropertyValueVisibility;
 
 declare interface UVariant extends UObject {
-    Dependencies: TArray<FVariantDependency>;
-    DisplayText: FText;
-    ObjectBindings: TArray<UVariantObjectBinding>;
-    Thumbnail: UTexture2D;
-    SwitchOn(): void;
-    SetThumbnailFromTexture(NewThumbnail: UTexture2D): void;
-    SetThumbnailFromFile(FilePath: string | FString): void;
-    SetThumbnailFromEditorViewport(): void;
-    SetThumbnailFromCamera(WorldContextObject: UObject, CameraTransform: FTransform, FOVDegrees: number, MinZ: number, Gamma: number): void;
-    SetDisplayText(NewDisplayText: FText): void;
-    SetDependency(Index: number, Dependency: FVariantDependency): void;
-    IsActive(): boolean;
-    GetThumbnail(): UTexture2D;
-    GetParent(): UVariantSet;
-    GetNumDependencies(): number;
-    GetNumActors(): number;
-    GetDisplayText(): FText;
-    GetDependents(LevelVariantSets: ULevelVariantSets, bOnlyEnabledDependencies: boolean): TArray<UVariant>;
-    GetDependency(Index: number): FVariantDependency;
-    GetActor(ActorIndex: number): AActor;
-    DeleteDependency(Index: number): void;
-    AddDependency(Dependency: FVariantDependency): number;
+    readonly __static_UVariant: {
+        SwitchOn(): void;
+        SetThumbnailFromTexture(NewThumbnail: UTexture2D): void;
+        SetThumbnailFromFile(FilePath: string): void;
+        SetThumbnailFromEditorViewport(): void;
+        SetThumbnailFromCamera(WorldContextObject: UObject, CameraTransform: FTransform, FOVDegrees: number, MinZ: number, Gamma: number): void;
+        SetDisplayText(NewDisplayText: string): void;
+        SetDependency(Index: number, Dependency: FVariantDependency): void;
+        IsActive(): boolean;
+        GetThumbnail(): UTexture2D;
+        GetParent(): UVariantSet;
+        GetNumDependencies(): number;
+        GetNumActors(): number;
+        GetDisplayText(): string;
+        GetDependents(LevelVariantSets: ULevelVariantSets, bOnlyEnabledDependencies: boolean): UVariant[];
+        GetDependency(Index: number): FVariantDependency;
+        GetActor(ActorIndex: number): AActor;
+        DeleteDependency(Index: number): void;
+        AddDependency(Dependency: FVariantDependency): number;
+    };
+    readonly __properties_UVariant: {
+        Dependencies: FVariantDependency[];
+        DisplayText: string;
+        ObjectBindings: UVariantObjectBinding[];
+        Thumbnail: UTexture2D;
+    };
+    readonly __staticRegistry: 
+        UVariant['__static_UVariant'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVariant['__properties_UVariant'] &
+        UObject['__propertyRegistry'];
 }
-declare const UVariant: UVariant;
 
 declare interface UVariantObjectBinding extends UObject {
-    CachedActorLabel: FString;
-    ObjectPtr: FSoftObjectPath;
-    LazyObjectPtr: TLazyObjectPtr<UObject>;
-    CapturedProperties: TArray<UPropertyValue>;
-    FunctionCallers: TArray<FFunctionCaller>;
+    readonly __properties_UVariantObjectBinding: {
+        CachedActorLabel: string;
+        ObjectPtr: FSoftObjectPath;
+        LazyObjectPtr: TLazyObjectPtr<UObject>;
+        CapturedProperties: UPropertyValue[];
+        FunctionCallers: FFunctionCaller[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVariantObjectBinding['__properties_UVariantObjectBinding'] &
+        UObject['__propertyRegistry'];
 }
-declare const UVariantObjectBinding: UVariantObjectBinding;
 
 declare interface UVariantSet extends UObject {
-    DisplayText: FText;
-    bExpanded: boolean;
-    Variants: TArray<UVariant>;
-    Thumbnail: UTexture2D;
-    SetThumbnailFromTexture(NewThumbnail: UTexture2D): void;
-    SetThumbnailFromFile(FilePath: string | FString): void;
-    SetThumbnailFromEditorViewport(): void;
-    SetThumbnailFromCamera(WorldContextObject: UObject, CameraTransform: FTransform, FOVDegrees: number, MinZ: number, Gamma: number): void;
-    SetDisplayText(NewDisplayText: FText): void;
-    GetVariantByName(VariantName: string | FString): UVariant;
-    GetVariant(VariantIndex: number): UVariant;
-    GetThumbnail(): UTexture2D;
-    GetParent(): ULevelVariantSets;
-    GetNumVariants(): number;
-    GetDisplayText(): FText;
+    readonly __static_UVariantSet: {
+        SetThumbnailFromTexture(NewThumbnail: UTexture2D): void;
+        SetThumbnailFromFile(FilePath: string): void;
+        SetThumbnailFromEditorViewport(): void;
+        SetThumbnailFromCamera(WorldContextObject: UObject, CameraTransform: FTransform, FOVDegrees: number, MinZ: number, Gamma: number): void;
+        SetDisplayText(NewDisplayText: string): void;
+        GetVariantByName(VariantName: string): UVariant;
+        GetVariant(VariantIndex: number): UVariant;
+        GetThumbnail(): UTexture2D;
+        GetParent(): ULevelVariantSets;
+        GetNumVariants(): number;
+        GetDisplayText(): string;
+    };
+    readonly __properties_UVariantSet: {
+        DisplayText: string;
+        bExpanded: boolean;
+        Variants: UVariant[];
+        Thumbnail: UTexture2D;
+    };
+    readonly __staticRegistry: 
+        UVariantSet['__static_UVariantSet'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVariantSet['__properties_UVariantSet'] &
+        UObject['__propertyRegistry'];
 }
-declare const UVariantSet: UVariantSet;
 

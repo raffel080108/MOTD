@@ -1,5 +1,11 @@
 declare interface UBPL_SpacerigNotifications_C extends UBlueprintFunctionLibrary {
-    NotifyNewIncomingMessage(__WorldContext: UObject): void;
+    readonly __static_UBPL_SpacerigNotifications_C: {
+        NotifyNewIncomingMessage(__WorldContext: UObject): void;
+    };
+    readonly __staticRegistry: 
+        UBPL_SpacerigNotifications_C['__static_UBPL_SpacerigNotifications_C'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UBPL_SpacerigNotifications_C: UBPL_SpacerigNotifications_C;
 

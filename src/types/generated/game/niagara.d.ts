@@ -1,74 +1,104 @@
 declare interface ANiagaraActor extends AActor {
-    NiagaraComponent: UNiagaraComponent;
-    bDestroyOnSystemFinish: boolean;
-    SetDestroyOnSystemFinish(bShouldDestroyOnSystemFinish: boolean): void;
-    OnNiagaraSystemFinished(FinishedComponent: UNiagaraComponent): void;
-    GetDestroyOnSystemFinish(): boolean;
+    readonly __static_ANiagaraActor: {
+        SetDestroyOnSystemFinish(bShouldDestroyOnSystemFinish: boolean): void;
+        OnNiagaraSystemFinished(FinishedComponent: UNiagaraComponent): void;
+        GetDestroyOnSystemFinish(): boolean;
+    };
+    readonly __properties_ANiagaraActor: {
+        NiagaraComponent: UNiagaraComponent;
+        bDestroyOnSystemFinish: boolean;
+    };
+    readonly __staticRegistry: 
+        ANiagaraActor['__static_ANiagaraActor'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ANiagaraActor['__properties_ANiagaraActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const ANiagaraActor: ANiagaraActor;
 
 declare interface ANiagaraLensEffectBase extends ANiagaraActor {
-    DesiredRelativeTransform: FTransform;
-    BaseAuthoredFOV: number;
-    bAllowMultipleInstances: boolean;
-    bResetWhenRetriggered: boolean;
-    EmittersToTreatAsSame: TArray<TSubclassOf<AActor>>;
-    OwningCameraManager: APlayerCameraManager;
+    readonly __properties_ANiagaraLensEffectBase: {
+        DesiredRelativeTransform: FTransform;
+        BaseAuthoredFOV: number;
+        bAllowMultipleInstances: boolean;
+        bResetWhenRetriggered: boolean;
+        EmittersToTreatAsSame: TSubclassOf<AActor>[];
+        OwningCameraManager: APlayerCameraManager;
+    };
+    readonly __staticRegistry: 
+        ANiagaraActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ANiagaraLensEffectBase['__properties_ANiagaraLensEffectBase'] &
+        ANiagaraActor['__propertyRegistry'];
 }
-declare const ANiagaraLensEffectBase: ANiagaraLensEffectBase;
 
 declare interface ANiagaraPerfBaselineActor extends AActor {
-    Controller: UNiagaraBaselineController;
-    Label: UTextRenderComponent;
+    readonly __properties_ANiagaraPerfBaselineActor: {
+        Controller: UNiagaraBaselineController;
+        Label: UTextRenderComponent;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ANiagaraPerfBaselineActor['__properties_ANiagaraPerfBaselineActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const ANiagaraPerfBaselineActor: ANiagaraPerfBaselineActor;
 
 declare interface ANiagaraPreviewBase extends AActor {
-    SetSystem(InSystem: UNiagaraSystem): void;
-    SetLabelText(InXAxisText: FText, InYAxisText: FText): void;
+    readonly __static_ANiagaraPreviewBase: {
+        SetSystem(InSystem: UNiagaraSystem): void;
+        SetLabelText(InXAxisText: string, InYAxisText: string): void;
+    };
+    readonly __staticRegistry: 
+        ANiagaraPreviewBase['__static_ANiagaraPreviewBase'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AActor['__propertyRegistry'];
 }
-declare const ANiagaraPreviewBase: ANiagaraPreviewBase;
 
 declare interface ANiagaraPreviewGrid extends AActor {
-    System: UNiagaraSystem;
-    ResetMode: ENiagaraPreviewGridResetMode;
-    PreviewAxisX: UNiagaraPreviewAxis;
-    PreviewAxisY: UNiagaraPreviewAxis;
-    PreviewClass: TSubclassOf<ANiagaraPreviewBase>;
-    SpacingX: number;
-    SpacingY: number;
-    NumX: number;
-    NumY: number;
-    PreviewComponents: TArray<UChildActorComponent>;
-    SetPaused(bPaused: boolean): void;
-    GetPreviews(OutPreviews: TArray<UNiagaraComponent>): void;
-    DeactivatePreviews(): void;
-    ActivatePreviews(bReset: boolean): void;
+    readonly __static_ANiagaraPreviewGrid: {
+        SetPaused(bPaused: boolean): void;
+        GetPreviews(OutPreviews: UNiagaraComponent[]): void;
+        DeactivatePreviews(): void;
+        ActivatePreviews(bReset: boolean): void;
+    };
+    readonly __properties_ANiagaraPreviewGrid: {
+        System: UNiagaraSystem;
+        ResetMode: ENiagaraPreviewGridResetMode;
+        PreviewAxisX: UNiagaraPreviewAxis;
+        PreviewAxisY: UNiagaraPreviewAxis;
+        PreviewClass: TSubclassOf<ANiagaraPreviewBase>;
+        SpacingX: number;
+        SpacingY: number;
+        NumX: number;
+        NumY: number;
+        PreviewComponents: UChildActorComponent[];
+    };
+    readonly __staticRegistry: 
+        ANiagaraPreviewGrid['__static_ANiagaraPreviewGrid'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ANiagaraPreviewGrid['__properties_ANiagaraPreviewGrid'] &
+        AActor['__propertyRegistry'];
 }
-declare const ANiagaraPreviewGrid: ANiagaraPreviewGrid;
 
 declare interface FBasicParticleData {
     position: FVector;
     Size: number;
     Velocity: FVector;
 }
-declare const FBasicParticleData: FBasicParticleData;
 
-declare interface FEmitterCompiledScriptPair {
-
-}
-declare const FEmitterCompiledScriptPair: FEmitterCompiledScriptPair;
+declare type FEmitterCompiledScriptPair = object;
 
 declare interface FMeshTriCoordinate {
     Tri: number;
     BaryCoord: FVector3f;
 }
-declare const FMeshTriCoordinate: FMeshTriCoordinate;
 
 declare interface FMovieSceneNiagaraBoolParameterSectionTemplate extends FMovieSceneNiagaraParameterSectionTemplate {
     BoolChannel: FMovieSceneBoolChannel;
 }
-declare const FMovieSceneNiagaraBoolParameterSectionTemplate: FMovieSceneNiagaraBoolParameterSectionTemplate;
 
 declare interface FMovieSceneNiagaraColorParameterSectionTemplate extends FMovieSceneNiagaraParameterSectionTemplate {
     RedChannel: FMovieSceneFloatChannel;
@@ -76,22 +106,18 @@ declare interface FMovieSceneNiagaraColorParameterSectionTemplate extends FMovie
     BlueChannel: FMovieSceneFloatChannel;
     AlphaChannel: FMovieSceneFloatChannel;
 }
-declare const FMovieSceneNiagaraColorParameterSectionTemplate: FMovieSceneNiagaraColorParameterSectionTemplate;
 
 declare interface FMovieSceneNiagaraFloatParameterSectionTemplate extends FMovieSceneNiagaraParameterSectionTemplate {
     FloatChannel: FMovieSceneFloatChannel;
 }
-declare const FMovieSceneNiagaraFloatParameterSectionTemplate: FMovieSceneNiagaraFloatParameterSectionTemplate;
 
 declare interface FMovieSceneNiagaraIntegerParameterSectionTemplate extends FMovieSceneNiagaraParameterSectionTemplate {
     IntegerChannel: FMovieSceneIntegerChannel;
 }
-declare const FMovieSceneNiagaraIntegerParameterSectionTemplate: FMovieSceneNiagaraIntegerParameterSectionTemplate;
 
 declare interface FMovieSceneNiagaraParameterSectionTemplate extends FMovieSceneEvalTemplate {
     Parameter: FNiagaraVariable;
 }
-declare const FMovieSceneNiagaraParameterSectionTemplate: FMovieSceneNiagaraParameterSectionTemplate;
 
 declare interface FMovieSceneNiagaraSystemTrackImplementation extends FMovieSceneTrackImplementation {
     SpawnSectionStartFrame: FFrameNumber;
@@ -102,92 +128,76 @@ declare interface FMovieSceneNiagaraSystemTrackImplementation extends FMovieScen
     AgeUpdateMode: ENiagaraAgeUpdateMode;
     bAllowScalability: boolean;
 }
-declare const FMovieSceneNiagaraSystemTrackImplementation: FMovieSceneNiagaraSystemTrackImplementation;
 
 declare interface FMovieSceneNiagaraSystemTrackTemplate extends FMovieSceneEvalTemplate {
 
 }
-declare const FMovieSceneNiagaraSystemTrackTemplate: FMovieSceneNiagaraSystemTrackTemplate;
 
 declare interface FMovieSceneNiagaraVectorParameterSectionTemplate extends FMovieSceneNiagaraParameterSectionTemplate {
     VectorChannels: FMovieSceneFloatChannel;
     ChannelsUsed: number;
 }
-declare const FMovieSceneNiagaraVectorParameterSectionTemplate: FMovieSceneNiagaraVectorParameterSectionTemplate;
 
 declare interface FNCPool {
-    FreeElements: TArray<FNCPoolElement>;
+    FreeElements: FNCPoolElement[];
 }
-declare const FNCPool: FNCPool;
 
-declare interface FNCPoolElement {
-
-}
-declare const FNCPoolElement: FNCPoolElement;
+declare type FNCPoolElement = object;
 
 declare interface FNDCIsland {
     Owner: UNiagaraDataChannelHandler_Islands;
     Bounds: FBoxSphereBounds;
-    SpawnedComponents: TArray<UNiagaraComponent>;
+    SpawnedComponents: UNiagaraComponent[];
 }
-declare const FNDCIsland: FNDCIsland;
 
 declare interface FNDCIslandDebugDrawSettings {
     bEnabled: boolean;
     bShowIslandBounds: boolean;
 }
-declare const FNDCIslandDebugDrawSettings: FNDCIslandDebugDrawSettings;
 
 declare interface FNDIArraySimCacheDataFrame {
     NumElements: number;
     DataOffset: number;
 }
-declare const FNDIArraySimCacheDataFrame: FNDIArraySimCacheDataFrame;
 
 declare interface FNDIDataChannelCompiledData {
-    FunctionInfo: TArray<FNDIDataChannelFunctionInfo>;
-    GPUScriptParameterInfos: Record<string | number | symbol, FNDIDataChannel_GPUScriptParameterAccessInfo>;
-    TotalParams: uint32;
+    FunctionInfo: FNDIDataChannelFunctionInfo[];
+    GPUScriptParameterInfos: TMap<FNiagaraCompileHash, FNDIDataChannel_GPUScriptParameterAccessInfo>;
+    TotalParams: number;
     bUsedByCPU: boolean;
     bUsedByGPU: boolean;
     bNeedsSpawnDataTable: boolean;
     bSpawnsParticles: boolean;
     bCallsWrite: boolean;
 }
-declare const FNDIDataChannelCompiledData: FNDIDataChannelCompiledData;
 
 declare interface FNDIDataChannelFunctionInfo {
-    FunctionName: FName;
-    Inputs: TArray<FNiagaraVariableBase>;
-    Outputs: TArray<FNiagaraVariableBase>;
+    FunctionName: string;
+    Inputs: FNiagaraVariableBase[];
+    Outputs: FNiagaraVariableBase[];
 }
-declare const FNDIDataChannelFunctionInfo: FNDIDataChannelFunctionInfo;
 
 declare interface FNDIDataChannelWriteCompiledData extends FNDIDataChannelCompiledData {
     DataLayout: FNiagaraDataSetCompiledData;
 }
-declare const FNDIDataChannelWriteCompiledData: FNDIDataChannelWriteCompiledData;
 
 declare interface FNDIDataChannelWriteSimCacheFrame {
     NumElements: number;
-    VariableData: TArray<FNDIDataChannelWriteSimCacheFrameBuffer>;
+    VariableData: FNDIDataChannelWriteSimCacheFrameBuffer[];
     bVisibleToGame: boolean;
     bVisibleToCPUSims: boolean;
     bVisibleToGPUSims: boolean;
 }
-declare const FNDIDataChannelWriteSimCacheFrame: FNDIDataChannelWriteSimCacheFrame;
 
 declare interface FNDIDataChannelWriteSimCacheFrameBuffer {
-    Data: TArray<uint8>;
+    Data: number[];
     Size: number;
     SourceVar: FNiagaraVariableBase;
 }
-declare const FNDIDataChannelWriteSimCacheFrameBuffer: FNDIDataChannelWriteSimCacheFrameBuffer;
 
 declare interface FNDIDataChannel_GPUScriptParameterAccessInfo {
-    SortedParameters: TArray<FNiagaraVariableBase>;
+    SortedParameters: FNiagaraVariableBase[];
 }
-declare const FNDIDataChannel_GPUScriptParameterAccessInfo: FNDIDataChannel_GPUScriptParameterAccessInfo;
 
 declare interface FNDIMemoryBufferSimCacheDataFrame {
     CpuBufferSize: number;
@@ -195,7 +205,6 @@ declare interface FNDIMemoryBufferSimCacheDataFrame {
     GpuBufferSize: number;
     GpuDataOffset: number;
 }
-declare const FNDIMemoryBufferSimCacheDataFrame: FNDIMemoryBufferSimCacheDataFrame;
 
 declare interface FNDIRenderTargetSimCacheFrame {
     Size: FIntVector;
@@ -203,27 +212,23 @@ declare interface FNDIRenderTargetSimCacheFrame {
     UncompressedSize: number;
     CompressedSize: number;
 }
-declare const FNDIRenderTargetSimCacheFrame: FNDIRenderTargetSimCacheFrame;
 
 declare interface FNDIStaticMeshSectionFilter {
-    AllowedMaterialSlots: TArray<number>;
+    AllowedMaterialSlots: number[];
 }
-declare const FNDIStaticMeshSectionFilter: FNDIStaticMeshSectionFilter;
 
 declare interface FNiagaraAssetTagDefinition {
-    AssetTag: FText;
+    AssetTag: string;
     AssetFlags: number;
-    Description: FText;
+    Description: string;
     DisplayType: ENiagaraAssetTagDefinitionImportance;
     Color: FLinearColor;
     TagGuid: FGuid;
 }
-declare const FNiagaraAssetTagDefinition: FNiagaraAssetTagDefinition;
 
 declare interface FNiagaraAssetTagDefinitionReference {
     AssetTagDefinitionGuid: FGuid;
 }
-declare const FNiagaraAssetTagDefinitionReference: FNiagaraAssetTagDefinitionReference;
 
 declare interface FNiagaraAssetVersion {
     MajorVersion: number;
@@ -231,7 +236,6 @@ declare interface FNiagaraAssetVersion {
     VersionGuid: FGuid;
     bIsVisibleInVersionSelector: boolean;
 }
-declare const FNiagaraAssetVersion: FNiagaraAssetVersion;
 
 declare interface FNiagaraBakerCameraSettings {
     ViewMode: ENiagaraBakerViewMode;
@@ -243,44 +247,38 @@ declare interface FNiagaraBakerCameraSettings {
     bUseAspectRatio: boolean;
     AspectRatio: number;
 }
-declare const FNiagaraBakerCameraSettings: FNiagaraBakerCameraSettings;
 
 declare interface FNiagaraBakerTextureSettings {
-    OutputName: FName;
+    OutputName: string;
     SourceBinding: FNiagaraBakerTextureSource;
     bUseFrameSize: boolean;
     FrameSize: FIntPoint;
     TextureSize: FIntPoint;
     GeneratedTexture: UTexture2D;
 }
-declare const FNiagaraBakerTextureSettings: FNiagaraBakerTextureSettings;
 
 declare interface FNiagaraBakerTextureSource {
-    DisplayString: FString;
-    SourceName: FName;
+    DisplayString: string;
+    SourceName: string;
 }
-declare const FNiagaraBakerTextureSource: FNiagaraBakerTextureSource;
 
 declare interface FNiagaraBool {
     Value: number;
 }
-declare const FNiagaraBool: FNiagaraBool;
 
 declare interface FNiagaraBoolParameterMetaData {
     DisplayMode: ENiagaraBoolDisplayMode;
-    OverrideNameTrue: FName;
-    OverrideNameFalse: FName;
+    OverrideNameTrue: string;
+    OverrideNameFalse: string;
     IconOverrideTrue: UTexture2D;
     IconOverrideFalse: UTexture2D;
 }
-declare const FNiagaraBoolParameterMetaData: FNiagaraBoolParameterMetaData;
 
 declare interface FNiagaraBoundParameter {
     Parameter: FNiagaraVariableBase;
     SrcOffset: number;
     DestOffset: number;
 }
-declare const FNiagaraBoundParameter: FNiagaraBoundParameter;
 
 declare interface FNiagaraCollisionEventPayload {
     CollisionPos: FVector;
@@ -289,57 +287,47 @@ declare interface FNiagaraCollisionEventPayload {
     ParticleIndex: number;
     PhysicalMaterialIndex: number;
 }
-declare const FNiagaraCollisionEventPayload: FNiagaraCollisionEventPayload;
 
 declare interface FNiagaraCompileDependency {
-    LinkerErrorMessage: FString;
+    LinkerErrorMessage: string;
     NodeGuid: FGuid;
     PinGuid: FGuid;
-    StackGuids: TArray<FGuid>;
+    StackGuids: FGuid[];
     DependentVariable: FNiagaraVariableBase;
     bDependentVariableFromCustomIterationNamespace: boolean;
 }
-declare const FNiagaraCompileDependency: FNiagaraCompileDependency;
 
 declare interface FNiagaraCompileHashVisitorDebugInfo {
-    Object: FString;
-    PropertyKeys: TArray<FString>;
-    PropertyValues: TArray<FString>;
+    Object: string;
+    PropertyKeys: string[];
+    PropertyValues: string[];
 }
-declare const FNiagaraCompileHashVisitorDebugInfo: FNiagaraCompileHashVisitorDebugInfo;
 
 declare interface FNiagaraCompilerTag {
     Variable: FNiagaraVariable;
-    StringValue: FString;
+    StringValue: string;
 }
-declare const FNiagaraCompilerTag: FNiagaraCompilerTag;
 
 declare interface FNiagaraComponentPropertyBinding {
     AttributeBinding: FNiagaraVariableAttributeBinding;
-    PropertyName: FName;
+    PropertyName: string;
     PropertyType: FNiagaraTypeDefinition;
-    MetadataSetterName: FName;
-    PropertySetterParameterDefaults: Record<FString, FString>;
+    MetadataSetterName: string;
+    PropertySetterParameterDefaults: TMap<string, string>;
 }
-declare const FNiagaraComponentPropertyBinding: FNiagaraComponentPropertyBinding;
 
-declare interface FNiagaraCulledComponentInfo {
-
-}
-declare const FNiagaraCulledComponentInfo: FNiagaraCulledComponentInfo;
+declare type FNiagaraCulledComponentInfo = object;
 
 declare interface FNiagaraDataChannelGameDataLayout {
-    VariableIndices: Record<string | number | symbol, number>;
-    LwcConverters: TArray<FNiagaraLwcStructConverter>;
+    VariableIndices: TMap<FNiagaraVariableBase, number>;
+    LwcConverters: FNiagaraLwcStructConverter[];
 }
-declare const FNiagaraDataChannelGameDataLayout: FNiagaraDataChannelGameDataLayout;
 
 declare interface FNiagaraDataChannelSearchParameters {
     OwningComponent: USceneComponent;
     Location: FVector;
     bOverrideLocation: boolean;
 }
-declare const FNiagaraDataChannelSearchParameters: FNiagaraDataChannelSearchParameters;
 
 declare interface FNiagaraDataChannelUpdateContext {
     Reader: UNiagaraDataChannelReader;
@@ -347,53 +335,46 @@ declare interface FNiagaraDataChannelUpdateContext {
     LastNewDataIndex: number;
     NewElementCount: number;
 }
-declare const FNiagaraDataChannelUpdateContext: FNiagaraDataChannelUpdateContext;
 
 declare interface FNiagaraDataChannelVariable extends FNiagaraVariableBase {
 
 }
-declare const FNiagaraDataChannelVariable: FNiagaraDataChannelVariable;
 
 declare interface FNiagaraDataInterfaceEmitterBinding {
     BindingMode: ENiagaraDataInterfaceEmitterBindingMode;
-    EmitterName: FName;
+    EmitterName: string;
 }
-declare const FNiagaraDataInterfaceEmitterBinding: FNiagaraDataInterfaceEmitterBinding;
 
 declare interface FNiagaraDataInterfaceSplineLUT {
-    Positions: TArray<FVector>;
-    Scales: TArray<FVector>;
-    Rotations: TArray<FQuat>;
+    Positions: FVector[];
+    Scales: FVector[];
+    Rotations: FQuat[];
     SplineLength: number;
     SplineDistanceStep: number;
     InvSplineDistanceStep: number;
     MaxIndex: number;
 }
-declare const FNiagaraDataInterfaceSplineLUT: FNiagaraDataInterfaceSplineLUT;
 
 declare interface FNiagaraDataSetCompiledData {
-    Variables: TArray<FNiagaraVariableBase>;
-    VariableLayouts: TArray<FNiagaraVariableLayoutInfo>;
+    Variables: FNiagaraVariableBase[];
+    VariableLayouts: FNiagaraVariableLayoutInfo[];
     ID: FNiagaraDataSetID;
-    TotalFloatComponents: uint32;
-    TotalInt32Components: uint32;
-    TotalHalfComponents: uint32;
+    TotalFloatComponents: number;
+    TotalInt32Components: number;
+    TotalHalfComponents: number;
     bRequiresPersistentIDs: boolean;
     SimTarget: ENiagaraSimTarget;
 }
-declare const FNiagaraDataSetCompiledData: FNiagaraDataSetCompiledData;
 
 declare interface FNiagaraDataSetID {
-    Name: FName;
+    Name: string;
     Type: ENiagaraDataSetType;
 }
-declare const FNiagaraDataSetID: FNiagaraDataSetID;
 
 declare interface FNiagaraDataSetProperties {
     ID: FNiagaraDataSetID;
-    Variables: TArray<FNiagaraVariableBase>;
+    Variables: FNiagaraVariableBase[];
 }
-declare const FNiagaraDataSetProperties: FNiagaraDataSetProperties;
 
 declare interface FNiagaraDebugHUDSettingsData {
     bHudEnabled: boolean;
@@ -407,13 +388,13 @@ declare interface FNiagaraDebugHUDSettingsData {
     bOverviewShowFilteredSystemOnly: boolean;
     bShowGlobalBudgetInfo: boolean;
     bSystemFilterEnabled: boolean;
-    SystemFilter: FString;
+    SystemFilter: string;
     bEmitterFilterEnabled: boolean;
-    EmitterFilter: FString;
+    EmitterFilter: string;
     bActorFilterEnabled: boolean;
-    ActorFilter: FString;
+    ActorFilter: string;
     bComponentFilterEnabled: boolean;
-    ComponentFilter: FString;
+    ComponentFilter: string;
     bValidateSystemSimulationDataBuffers: boolean;
     bValidateParticleDataBuffers: boolean;
     bValidationLogErrors: boolean;
@@ -421,10 +402,10 @@ declare interface FNiagaraDebugHUDSettingsData {
     SystemDebugVerbosity: ENiagaraDebugHudVerbosity;
     SystemEmitterVerbosity: ENiagaraDebugHudVerbosity;
     DataInterfaceVerbosity: ENiagaraDebugHudVerbosity;
-    SystemVariables: TArray<FNiagaraDebugHUDVariable>;
+    SystemVariables: FNiagaraDebugHUDVariable[];
     bSystemShowActiveOnlyInWorld: boolean;
     bShowParticleVariables: boolean;
-    ParticlesVariables: TArray<FNiagaraDebugHUDVariable>;
+    ParticlesVariables: FNiagaraDebugHUDVariable[];
     bEnableGpuParticleReadback: boolean;
     bShowParticleIndex: boolean;
     bShowParticlesVariablesWithSystem: boolean;
@@ -463,7 +444,7 @@ declare interface FNiagaraDebugHUDSettingsData {
     MessageWarningTextColor: FLinearColor;
     MessageErrorTextColor: FLinearColor;
     SystemColorTableOpacity: number;
-    SystemColorSeed: uint32;
+    SystemColorSeed: number;
     SystemColorHSVMin: FVector;
     SystemColorHSVMax: FVector;
     PlaybackMode: ENiagaraDebugPlaybackMode;
@@ -472,13 +453,11 @@ declare interface FNiagaraDebugHUDSettingsData {
     bLoopTimeEnabled: boolean;
     LoopTime: number;
 }
-declare const FNiagaraDebugHUDSettingsData: FNiagaraDebugHUDSettingsData;
 
 declare interface FNiagaraDebugHUDVariable {
     bEnabled: boolean;
-    Name: FString;
+    Name: string;
 }
-declare const FNiagaraDebugHUDVariable: FNiagaraDebugHUDVariable;
 
 declare interface FNiagaraDebugHudTextOptions {
     Font: ENiagaraDebugHudFont;
@@ -486,36 +465,30 @@ declare interface FNiagaraDebugHudTextOptions {
     VerticalAlignment: ENiagaraDebugHudVAlign;
     ScreenOffset: FVector2D;
 }
-declare const FNiagaraDebugHudTextOptions: FNiagaraDebugHudTextOptions;
 
 declare interface FNiagaraDebuggerAcceptConnection {
     SessionId: FGuid;
     InstanceId: FGuid;
 }
-declare const FNiagaraDebuggerAcceptConnection: FNiagaraDebuggerAcceptConnection;
 
 declare interface FNiagaraDebuggerConnectionClosed {
     SessionId: FGuid;
     InstanceId: FGuid;
 }
-declare const FNiagaraDebuggerConnectionClosed: FNiagaraDebuggerConnectionClosed;
 
 declare interface FNiagaraDebuggerExecuteConsoleCommand {
-    Command: FString;
+    Command: string;
     bRequiresWorld: boolean;
 }
-declare const FNiagaraDebuggerExecuteConsoleCommand: FNiagaraDebuggerExecuteConsoleCommand;
 
 declare interface FNiagaraDebuggerOutlinerUpdate {
     OutlinerData: FNiagaraOutlinerData;
 }
-declare const FNiagaraDebuggerOutlinerUpdate: FNiagaraDebuggerOutlinerUpdate;
 
 declare interface FNiagaraDebuggerRequestConnection {
     SessionId: FGuid;
     InstanceId: FGuid;
 }
-declare const FNiagaraDebuggerRequestConnection: FNiagaraDebuggerRequestConnection;
 
 declare interface FNiagaraDetailsLevelScaleOverrides {
     Low: number;
@@ -524,62 +497,52 @@ declare interface FNiagaraDetailsLevelScaleOverrides {
     Epic: number;
     Cine: number;
 }
-declare const FNiagaraDetailsLevelScaleOverrides: FNiagaraDetailsLevelScaleOverrides;
 
 declare interface FNiagaraDeviceProfileStateEntry {
-    ProfileName: FName;
-    QualityLevelMask: uint32;
-    SetQualityLevelMask: uint32;
+    ProfileName: string;
+    QualityLevelMask: number;
+    SetQualityLevelMask: number;
 }
-declare const FNiagaraDeviceProfileStateEntry: FNiagaraDeviceProfileStateEntry;
 
 declare interface FNiagaraDistributionBase {
     Mode: ENiagaraDistributionMode;
     ParameterBinding: FNiagaraVariableBase;
     ParameterExpression: FInstancedStruct;
 }
-declare const FNiagaraDistributionBase: FNiagaraDistributionBase;
 
 declare interface FNiagaraDistributionColor extends FNiagaraDistributionBase {
-    Values: TArray<FLinearColor>;
+    Values: FLinearColor[];
     ValuesTimeRange: FVector2f;
 }
-declare const FNiagaraDistributionColor: FNiagaraDistributionColor;
 
 declare interface FNiagaraDistributionCurveFloat extends FNiagaraDistributionBase {
-    Values: TArray<number>;
+    Values: number[];
     ValuesTimeRange: FVector2f;
 }
-declare const FNiagaraDistributionCurveFloat: FNiagaraDistributionCurveFloat;
 
 declare interface FNiagaraDistributionCurveVector3 extends FNiagaraDistributionBase {
-    Values: TArray<FVector3f>;
+    Values: FVector3f[];
     ValuesTimeRange: FVector2f;
 }
-declare const FNiagaraDistributionCurveVector3: FNiagaraDistributionCurveVector3;
 
 declare interface FNiagaraDistributionFloat extends FNiagaraDistributionBase {
-    Values: TArray<number>;
+    Values: number[];
     ValuesTimeRange: FVector2f;
 }
-declare const FNiagaraDistributionFloat: FNiagaraDistributionFloat;
 
 declare interface FNiagaraDistributionPosition extends FNiagaraDistributionVector3 {
 
 }
-declare const FNiagaraDistributionPosition: FNiagaraDistributionPosition;
 
 declare interface FNiagaraDistributionRangeColor extends FNiagaraDistributionBase {
     min: FLinearColor;
     max: FLinearColor;
 }
-declare const FNiagaraDistributionRangeColor: FNiagaraDistributionRangeColor;
 
 declare interface FNiagaraDistributionRangeFloat extends FNiagaraDistributionBase {
     min: number;
     max: number;
 }
-declare const FNiagaraDistributionRangeFloat: FNiagaraDistributionRangeFloat;
 
 declare interface FNiagaraDistributionRangeInt {
     Mode: ENiagaraDistributionMode;
@@ -588,51 +551,43 @@ declare interface FNiagaraDistributionRangeInt {
     min: number;
     max: number;
 }
-declare const FNiagaraDistributionRangeInt: FNiagaraDistributionRangeInt;
 
 declare interface FNiagaraDistributionRangeVector2 extends FNiagaraDistributionBase {
     min: FVector2f;
     max: FVector2f;
 }
-declare const FNiagaraDistributionRangeVector2: FNiagaraDistributionRangeVector2;
 
 declare interface FNiagaraDistributionRangeVector3 extends FNiagaraDistributionBase {
     min: FVector3f;
     max: FVector3f;
 }
-declare const FNiagaraDistributionRangeVector3: FNiagaraDistributionRangeVector3;
 
 declare interface FNiagaraDistributionVector2 extends FNiagaraDistributionBase {
-    Values: TArray<FVector2f>;
+    Values: FVector2f[];
     ValuesTimeRange: FVector2f;
 }
-declare const FNiagaraDistributionVector2: FNiagaraDistributionVector2;
 
 declare interface FNiagaraDistributionVector3 extends FNiagaraDistributionBase {
-    Values: TArray<FVector3f>;
+    Values: FVector3f[];
     ValuesTimeRange: FVector2f;
 }
-declare const FNiagaraDistributionVector3: FNiagaraDistributionVector3;
 
 declare interface FNiagaraDouble {
     Value: number;
 }
-declare const FNiagaraDouble: FNiagaraDouble;
 
 declare interface FNiagaraDynamicMeshMaterial {
     Material: UMaterialInterface;
     MaterialUserParamBinding: FNiagaraUserParameterBinding;
 }
-declare const FNiagaraDynamicMeshMaterial: FNiagaraDynamicMeshMaterial;
 
 declare interface FNiagaraDynamicMeshSection {
     NumTriangles: number;
     MaterialIndex: number;
 }
-declare const FNiagaraDynamicMeshSection: FNiagaraDynamicMeshSection;
 
 declare interface FNiagaraEmitterCompiledData {
-    SpawnAttributes: TArray<FName>;
+    SpawnAttributes: string[];
     EmitterSpawnIntervalVar: FNiagaraVariable;
     EmitterInterpSpawnStartDTVar: FNiagaraVariable;
     EmitterSpawnGroupVar: FNiagaraVariable;
@@ -642,52 +597,44 @@ declare interface FNiagaraEmitterCompiledData {
     EmitterTotalSpawnedParticlesVar: FNiagaraVariable;
     DataSetCompiledData: FNiagaraDataSetCompiledData;
 }
-declare const FNiagaraEmitterCompiledData: FNiagaraEmitterCompiledData;
 
 declare interface FNiagaraEmitterHandle {
-    Name: FName;
+    Name: string;
     ID: FGuid;
-    IdName: FName;
+    IdName: string;
     bIsEnabled: boolean;
     EmitterMode: ENiagaraEmitterMode;
     VersionedInstance: FVersionedNiagaraEmitter;
     StatelessEmitter: UNiagaraStatelessEmitter;
 }
-declare const FNiagaraEmitterHandle: FNiagaraEmitterHandle;
 
 declare interface FNiagaraEmitterID {
     ID: number;
 }
-declare const FNiagaraEmitterID: FNiagaraEmitterID;
 
 declare interface FNiagaraEmitterScalabilityOverride extends FNiagaraEmitterScalabilitySettings {
     bOverrideSpawnCountScale: boolean;
 }
-declare const FNiagaraEmitterScalabilityOverride: FNiagaraEmitterScalabilityOverride;
 
 declare interface FNiagaraEmitterScalabilityOverrides {
-    Overrides: TArray<FNiagaraEmitterScalabilityOverride>;
+    Overrides: FNiagaraEmitterScalabilityOverride[];
 }
-declare const FNiagaraEmitterScalabilityOverrides: FNiagaraEmitterScalabilityOverrides;
 
 declare interface FNiagaraEmitterScalabilitySettings {
     Platforms: FNiagaraPlatformSet;
     bScaleSpawnCount: boolean;
     SpawnCountScale: number;
 }
-declare const FNiagaraEmitterScalabilitySettings: FNiagaraEmitterScalabilitySettings;
 
 declare interface FNiagaraEmitterScalabilitySettingsArray {
-    Settings: TArray<FNiagaraEmitterScalabilitySettings>;
+    Settings: FNiagaraEmitterScalabilitySettings[];
 }
-declare const FNiagaraEmitterScalabilitySettingsArray: FNiagaraEmitterScalabilitySettingsArray;
 
 declare interface FNiagaraEmitterScriptProperties {
     Script: UNiagaraScript;
-    EventReceivers: TArray<FNiagaraEventReceiverProperties>;
-    EventGenerators: TArray<FNiagaraEventGeneratorProperties>;
+    EventReceivers: FNiagaraEventReceiverProperties[];
+    EventGenerators: FNiagaraEventGeneratorProperties[];
 }
-declare const FNiagaraEmitterScriptProperties: FNiagaraEmitterScriptProperties;
 
 declare interface FNiagaraEmitterStateData {
     InactiveResponse: ENiagaraEmitterInactiveResponse;
@@ -712,58 +659,51 @@ declare interface FNiagaraEmitterStateData {
     VisibilityCullReaction: ENiagaraExecutionStateManagement;
     VisibilityCullDelay: number;
 }
-declare const FNiagaraEmitterStateData: FNiagaraEmitterStateData;
 
 declare interface FNiagaraEnumParameterMetaData {
-    OverrideName: FName;
+    OverrideName: string;
     IconOverride: UTexture2D;
     bUseColorOverride: boolean;
     ColorOverride: FLinearColor;
 }
-declare const FNiagaraEnumParameterMetaData: FNiagaraEnumParameterMetaData;
 
 declare interface FNiagaraEventGeneratorProperties {
     MaxEventsPerFrame: number;
-    ID: FName;
+    ID: string;
     DataSetCompiledData: FNiagaraDataSetCompiledData;
 }
-declare const FNiagaraEventGeneratorProperties: FNiagaraEventGeneratorProperties;
 
 declare interface FNiagaraEventReceiverProperties {
-    Name: FName;
-    SourceEventGenerator: FName;
-    SourceEmitter: FName;
+    Name: string;
+    SourceEventGenerator: string;
+    SourceEmitter: string;
 }
-declare const FNiagaraEventReceiverProperties: FNiagaraEventReceiverProperties;
 
 declare interface FNiagaraEventScriptProperties extends FNiagaraEmitterScriptProperties {
     ExecutionMode: EScriptExecutionMode;
-    SpawnNumber: uint32;
-    MaxEventsPerFrame: uint32;
+    SpawnNumber: number;
+    MaxEventsPerFrame: number;
     SourceEmitterID: FGuid;
-    SourceEventName: FName;
+    SourceEventName: string;
     bRandomSpawnNumber: boolean;
-    MinSpawnNumber: uint32;
+    MinSpawnNumber: number;
     UpdateAttributeInitialValues: boolean;
 }
-declare const FNiagaraEventScriptProperties: FNiagaraEventScriptProperties;
 
 declare interface FNiagaraExternalUObjectInfo {
     Variable: FNiagaraVariableBase;
-    ExternalName: FName;
+    ExternalName: string;
 }
-declare const FNiagaraExternalUObjectInfo: FNiagaraExternalUObjectInfo;
 
 declare interface FNiagaraFloat {
     Value: number;
 }
-declare const FNiagaraFloat: FNiagaraFloat;
 
 declare interface FNiagaraFunctionSignature {
-    Name: FName;
-    Inputs: TArray<FNiagaraVariable>;
-    Outputs: TArray<FNiagaraVariableBase>;
-    OwnerName: FName;
+    Name: string;
+    Inputs: FNiagaraVariable[];
+    Outputs: FNiagaraVariableBase[];
+    OwnerName: string;
     bRequiresContext: boolean;
     bRequiresExecPin: boolean;
     bMemberFunction: boolean;
@@ -776,13 +716,12 @@ declare interface FNiagaraFunctionSignature {
     bIsCompileTagGenerator: boolean;
     bHidden: boolean;
     ModuleUsageBitmask: number;
-    MiscUsageBitMask: uint16;
+    MiscUsageBitMask: number;
     ContextStageIndex: number;
-    RequiredInputs: int16;
-    RequiredOutputs: int16;
-    FunctionSpecifiers: Record<FName, FName>;
+    RequiredInputs: number;
+    RequiredOutputs: number;
+    FunctionSpecifiers: TMap<string, string>;
 }
-declare const FNiagaraFunctionSignature: FNiagaraFunctionSignature;
 
 declare interface FNiagaraGlobalBudgetScaling {
     bCullByGlobalBudget: boolean;
@@ -794,57 +733,46 @@ declare interface FNiagaraGlobalBudgetScaling {
     MaxInstanceCountScaleByGlobalBudgetUse: FNiagaraLinearRamp;
     MaxSystemInstanceCountScaleByGlobalBudgetUse: FNiagaraLinearRamp;
 }
-declare const FNiagaraGlobalBudgetScaling: FNiagaraGlobalBudgetScaling;
 
 declare interface FNiagaraGraphViewSettings {
     Location: FDeprecateSlateVector2D;
     Zoom: number;
     bIsValid: boolean;
 }
-declare const FNiagaraGraphViewSettings: FNiagaraGraphViewSettings;
 
 declare interface FNiagaraHalf {
-    Value: uint16;
+    Value: number;
 }
-declare const FNiagaraHalf: FNiagaraHalf;
 
 declare interface FNiagaraHalfVector2 {
-    X: uint16;
-    Y: uint16;
+    X: number;
+    Y: number;
 }
-declare const FNiagaraHalfVector2: FNiagaraHalfVector2;
 
 declare interface FNiagaraHalfVector3 {
-    X: uint16;
-    Y: uint16;
-    Z: uint16;
+    X: number;
+    Y: number;
+    Z: number;
 }
-declare const FNiagaraHalfVector3: FNiagaraHalfVector3;
 
 declare interface FNiagaraHalfVector4 {
-    X: uint16;
-    Y: uint16;
-    Z: uint16;
-    W: uint16;
+    X: number;
+    Y: number;
+    Z: number;
+    W: number;
 }
-declare const FNiagaraHalfVector4: FNiagaraHalfVector4;
 
 declare interface FNiagaraID {
     Index: number;
     AcquireTag: number;
 }
-declare const FNiagaraID: FNiagaraID;
 
-declare interface FNiagaraInlineDynamicInputFormatToken {
-
-}
-declare const FNiagaraInlineDynamicInputFormatToken: FNiagaraInlineDynamicInputFormatToken;
+declare type FNiagaraInlineDynamicInputFormatToken = object;
 
 declare interface FNiagaraInputConditionMetadata {
-    InputName: FName;
-    TargetValues: TArray<FString>;
+    InputName: string;
+    TargetValues: string[];
 }
-declare const FNiagaraInputConditionMetadata: FNiagaraInputConditionMetadata;
 
 declare interface FNiagaraInputParameterCustomization {
     WidgetType: ENiagaraInputWidgetType;
@@ -854,18 +782,16 @@ declare interface FNiagaraInputParameterCustomization {
     MaxValue: number;
     bHasStepWidth: boolean;
     StepWidth: number;
-    InputDropdownValues: TArray<FWidgetNamedInputValue>;
-    EnumStyleDropdownValues: TArray<FNiagaraWidgetNamedIntegerInputValue>;
+    InputDropdownValues: FWidgetNamedInputValue[];
+    EnumStyleDropdownValues: FNiagaraWidgetNamedIntegerInputValue[];
     MaxSegmentsPerRow: number;
-    SegmentValueOverrides: TArray<FWidgetSegmentValueOverride>;
+    SegmentValueOverrides: FWidgetSegmentValueOverride[];
     bBroadcastValueChangesOnCommitOnly: boolean;
 }
-declare const FNiagaraInputParameterCustomization: FNiagaraInputParameterCustomization;
 
 declare interface FNiagaraInt32 {
     Value: number;
 }
-declare const FNiagaraInt32: FNiagaraInt32;
 
 declare interface FNiagaraLinearRamp {
     StartX: number;
@@ -873,22 +799,19 @@ declare interface FNiagaraLinearRamp {
     EndX: number;
     EndY: number;
 }
-declare const FNiagaraLinearRamp: FNiagaraLinearRamp;
 
 declare interface FNiagaraLwcStructConverter {
     LWCSize: number;
     SWCSize: number;
-    ConversionSteps: TArray<FNiagaraStructConversionStep>;
+    ConversionSteps: FNiagaraStructConversionStep[];
 }
-declare const FNiagaraLwcStructConverter: FNiagaraLwcStructConverter;
 
 declare interface FNiagaraMaterialAttributeBinding {
-    MaterialParameterName: FName;
+    MaterialParameterName: string;
     NiagaraVariable: FNiagaraVariableBase;
     ResolvedNiagaraVariable: FNiagaraVariableBase;
     NiagaraChildVariable: FNiagaraVariableBase;
 }
-declare const FNiagaraMaterialAttributeBinding: FNiagaraMaterialAttributeBinding;
 
 declare interface FNiagaraMatrix {
     Row0: FVector4f;
@@ -896,19 +819,16 @@ declare interface FNiagaraMatrix {
     Row2: FVector4f;
     Row3: FVector4f;
 }
-declare const FNiagaraMatrix: FNiagaraMatrix;
 
 declare interface FNiagaraMeshMICOverride {
     OriginalMaterial: UMaterialInterface;
     ReplacementMaterial: UMaterialInstanceConstant;
 }
-declare const FNiagaraMeshMICOverride: FNiagaraMeshMICOverride;
 
 declare interface FNiagaraMeshMaterialOverride {
     ExplicitMat: UMaterialInterface;
     UserParamBinding: FNiagaraUserParameterBinding;
 }
-declare const FNiagaraMeshMaterialOverride: FNiagaraMeshMaterialOverride;
 
 declare interface FNiagaraMeshRendererMeshProperties extends FNiagaraMeshRendererMeshPropertiesBase {
     MeshParameterBinding: FNiagaraParameterBinding;
@@ -919,7 +839,6 @@ declare interface FNiagaraMeshRendererMeshProperties extends FNiagaraMeshRendere
     bUseLODRange: boolean;
     LODRange: FIntVector2;
 }
-declare const FNiagaraMeshRendererMeshProperties: FNiagaraMeshRendererMeshProperties;
 
 declare interface FNiagaraMeshRendererMeshPropertiesBase {
     mesh: UStaticMesh;
@@ -928,63 +847,51 @@ declare interface FNiagaraMeshRendererMeshPropertiesBase {
     PivotOffset: FVector;
     PivotOffsetSpace: ENiagaraMeshPivotOffsetSpace;
 }
-declare const FNiagaraMeshRendererMeshPropertiesBase: FNiagaraMeshRendererMeshPropertiesBase;
 
-declare interface FNiagaraMessageStore {
-
-}
-declare const FNiagaraMessageStore: FNiagaraMessageStore;
+declare type FNiagaraMessageStore = object;
 
 declare interface FNiagaraModuleDependency {
-    ID: FName;
+    ID: string;
     Type: ENiagaraModuleDependencyType;
     ScriptConstraint: ENiagaraModuleDependencyScriptConstraint;
-    RequiredVersion: FString;
+    RequiredVersion: string;
     OnlyEvaluateInScriptUsage: number;
-    Description: FText;
+    Description: string;
 }
-declare const FNiagaraModuleDependency: FNiagaraModuleDependency;
 
-declare interface FNiagaraNumeric {
-
-}
-declare const FNiagaraNumeric: FNiagaraNumeric;
+declare type FNiagaraNumeric = object;
 
 declare interface FNiagaraOutlinerCaptureSettings {
     bTriggerCapture: boolean;
-    CaptureDelayFrames: uint32;
+    CaptureDelayFrames: number;
     bGatherPerfData: boolean;
-    SimCacheCaptureFrames: uint32;
+    SimCacheCaptureFrames: number;
 }
-declare const FNiagaraOutlinerCaptureSettings: FNiagaraOutlinerCaptureSettings;
 
 declare interface FNiagaraOutlinerData {
-    WorldData: Record<FString, FNiagaraOutlinerWorldData>;
+    WorldData: TMap<string, FNiagaraOutlinerWorldData>;
 }
-declare const FNiagaraOutlinerData: FNiagaraOutlinerData;
 
 declare interface FNiagaraOutlinerEmitterInstanceData {
-    EmitterName: FString;
+    EmitterName: string;
     SimTarget: ENiagaraSimTarget;
     ExecState: ENiagaraExecutionState;
     NumParticles: number;
     bRequiresPersistentIDs: boolean;
 }
-declare const FNiagaraOutlinerEmitterInstanceData: FNiagaraOutlinerEmitterInstanceData;
 
 declare interface FNiagaraOutlinerSystemData {
-    SystemInstances: TArray<FNiagaraOutlinerSystemInstanceData>;
+    SystemInstances: FNiagaraOutlinerSystemInstanceData[];
     AveragePerFrameTime: FNiagaraOutlinerTimingData;
     MaxPerFrameTime: FNiagaraOutlinerTimingData;
     AveragePerInstanceTime: FNiagaraOutlinerTimingData;
     MaxPerInstanceTime: FNiagaraOutlinerTimingData;
 }
-declare const FNiagaraOutlinerSystemData: FNiagaraOutlinerSystemData;
 
 declare interface FNiagaraOutlinerSystemInstanceData {
-    ComponentName: FString;
+    ComponentName: string;
     LWCTile: FVector3f;
-    Emitters: TArray<FNiagaraOutlinerEmitterInstanceData>;
+    Emitters: FNiagaraOutlinerEmitterInstanceData[];
     ActualExecutionState: ENiagaraExecutionState;
     RequestedExecutionState: ENiagaraExecutionState;
     ScalabilityState: FNiagaraScalabilityState;
@@ -1003,65 +910,53 @@ declare interface FNiagaraOutlinerSystemInstanceData {
     bRequiresRayTracingScene: boolean;
     bRequiresCurrentFrameNDC: boolean;
 }
-declare const FNiagaraOutlinerSystemInstanceData: FNiagaraOutlinerSystemInstanceData;
 
 declare interface FNiagaraOutlinerTimingData {
     GameThread: number;
     RenderThread: number;
 }
-declare const FNiagaraOutlinerTimingData: FNiagaraOutlinerTimingData;
 
 declare interface FNiagaraOutlinerWorldData {
-    Systems: Record<FString, FNiagaraOutlinerSystemData>;
+    Systems: TMap<string, FNiagaraOutlinerSystemData>;
     bHasBegunPlay: boolean;
-    WorldType: uint8;
-    NetMode: uint8;
+    WorldType: number;
+    NetMode: number;
     AveragePerFrameTime: FNiagaraOutlinerTimingData;
     MaxPerFrameTime: FNiagaraOutlinerTimingData;
 }
-declare const FNiagaraOutlinerWorldData: FNiagaraOutlinerWorldData;
 
 declare interface FNiagaraParameterBinding {
     ResolvedParameter: FNiagaraVariableBase;
 }
-declare const FNiagaraParameterBinding: FNiagaraParameterBinding;
 
 declare interface FNiagaraParameterBindingWithValue extends FNiagaraParameterBinding {
-    DefaultValue: TArray<uint8>;
+    DefaultValue: number[];
 }
-declare const FNiagaraParameterBindingWithValue: FNiagaraParameterBindingWithValue;
 
 declare interface FNiagaraParameterDataSetBinding {
     ParameterOffset: number;
     DataSetComponentOffset: number;
 }
-declare const FNiagaraParameterDataSetBinding: FNiagaraParameterDataSetBinding;
 
 declare interface FNiagaraParameterDataSetBindingCollection {
-    FloatOffsets: TArray<FNiagaraParameterDataSetBinding>;
-    Int32Offsets: TArray<FNiagaraParameterDataSetBinding>;
+    FloatOffsets: FNiagaraParameterDataSetBinding[];
+    Int32Offsets: FNiagaraParameterDataSetBinding[];
 }
-declare const FNiagaraParameterDataSetBindingCollection: FNiagaraParameterDataSetBindingCollection;
 
-declare interface FNiagaraParameterMap {
-
-}
-declare const FNiagaraParameterMap: FNiagaraParameterMap;
+declare type FNiagaraParameterMap = object;
 
 declare interface FNiagaraParameterStore {
     Owner: TWeakObjectPtr<UObject>;
-    SortedParameterOffsets: TArray<FNiagaraVariableWithOffset>;
-    ParameterData: TArray<uint8>;
-    DataInterfaces: TArray<UNiagaraDataInterface>;
-    UObjects: TArray<UObject>;
-    OriginalPositionData: TArray<FNiagaraPositionSource>;
+    SortedParameterOffsets: FNiagaraVariableWithOffset[];
+    ParameterData: number[];
+    DataInterfaces: UNiagaraDataInterface[];
+    UObjects: UObject[];
+    OriginalPositionData: FNiagaraPositionSource[];
 }
-declare const FNiagaraParameterStore: FNiagaraParameterStore;
 
 declare interface FNiagaraParameters {
-    Parameters: TArray<FNiagaraVariable>;
+    Parameters: FNiagaraVariable[];
 }
-declare const FNiagaraParameters: FNiagaraParameters;
 
 declare interface FNiagaraPerfBaselineStats {
     PerInstanceAvg_GT: number;
@@ -1069,17 +964,15 @@ declare interface FNiagaraPerfBaselineStats {
     PerInstanceMax_GT: number;
     PerInstanceMax_RT: number;
 }
-declare const FNiagaraPerfBaselineStats: FNiagaraPerfBaselineStats;
 
 declare interface FNiagaraPlatformSet {
-    DeviceProfileStates: TArray<FNiagaraDeviceProfileStateEntry>;
-    CVarConditions: TArray<FNiagaraPlatformSetCVarCondition>;
+    DeviceProfileStates: FNiagaraDeviceProfileStateEntry[];
+    CVarConditions: FNiagaraPlatformSetCVarCondition[];
     QualityLevelMask: number;
 }
-declare const FNiagaraPlatformSet: FNiagaraPlatformSet;
 
 declare interface FNiagaraPlatformSetCVarCondition {
-    CVarName: FName;
+    CVarName: string;
     PassResponse: ENiagaraCVarConditionResponse;
     FailResponse: ENiagaraCVarConditionResponse;
     Value: boolean;
@@ -1092,81 +985,69 @@ declare interface FNiagaraPlatformSetCVarCondition {
     bUseMinFloat: boolean;
     bUseMaxFloat: boolean;
 }
-declare const FNiagaraPlatformSetCVarCondition: FNiagaraPlatformSetCVarCondition;
 
 declare interface FNiagaraPlatformSetConflictEntry {
-    ProfileName: FName;
+    ProfileName: string;
     QualityLevelMask: number;
 }
-declare const FNiagaraPlatformSetConflictEntry: FNiagaraPlatformSetConflictEntry;
 
 declare interface FNiagaraPlatformSetConflictInfo {
     SetAIndex: number;
     SetBIndex: number;
-    Conflicts: TArray<FNiagaraPlatformSetConflictEntry>;
+    Conflicts: FNiagaraPlatformSetConflictEntry[];
 }
-declare const FNiagaraPlatformSetConflictInfo: FNiagaraPlatformSetConflictInfo;
 
 declare interface FNiagaraPlatformSetRedirect {
-    ProfileNames: TArray<FName>;
+    ProfileNames: string[];
     Mode: ENiagaraDeviceProfileRedirectMode;
-    RedirectProfileName: FName;
+    RedirectProfileName: string;
     CVarConditionEnabled: FNiagaraPlatformSetCVarCondition;
     CVarConditionDisabled: FNiagaraPlatformSetCVarCondition;
 }
-declare const FNiagaraPlatformSetRedirect: FNiagaraPlatformSetRedirect;
 
 declare interface FNiagaraPosition extends FVector3f {
 
 }
-declare const FNiagaraPosition: FNiagaraPosition;
 
 declare interface FNiagaraPositionSource {
-    Name: FName;
+    Name: string;
     Value: FVector;
 }
-declare const FNiagaraPositionSource: FNiagaraPositionSource;
 
 declare interface FNiagaraRandInfo {
     Seed1: number;
     Seed2: number;
     Seed3: number;
 }
-declare const FNiagaraRandInfo: FNiagaraRandInfo;
 
 declare interface FNiagaraRendererMaterialParameters {
-    AttributeBindings: TArray<FNiagaraMaterialAttributeBinding>;
-    ScalarParameters: TArray<FNiagaraRendererMaterialScalarParameter>;
-    VectorParameters: TArray<FNiagaraRendererMaterialVectorParameter>;
-    TextureParameters: TArray<FNiagaraRendererMaterialTextureParameter>;
-    StaticBoolParameters: TArray<FNiagaraRendererMaterialStaticBoolParameter>;
+    AttributeBindings: FNiagaraMaterialAttributeBinding[];
+    ScalarParameters: FNiagaraRendererMaterialScalarParameter[];
+    VectorParameters: FNiagaraRendererMaterialVectorParameter[];
+    TextureParameters: FNiagaraRendererMaterialTextureParameter[];
+    StaticBoolParameters: FNiagaraRendererMaterialStaticBoolParameter[];
 }
-declare const FNiagaraRendererMaterialParameters: FNiagaraRendererMaterialParameters;
 
 declare interface FNiagaraRendererMaterialScalarParameter {
-    MaterialParameterName: FName;
+    MaterialParameterName: string;
     Value: number;
 }
-declare const FNiagaraRendererMaterialScalarParameter: FNiagaraRendererMaterialScalarParameter;
 
 declare interface FNiagaraRendererMaterialStaticBoolParameter {
-    MaterialParameterName: FName;
-    StaticVariableName: FName;
+    MaterialParameterName: string;
+    StaticVariableName: string;
     StaticValue: TOptional<boolean>;
 }
-declare const FNiagaraRendererMaterialStaticBoolParameter: FNiagaraRendererMaterialStaticBoolParameter;
 
 declare interface FNiagaraRendererMaterialTextureParameter {
-    MaterialParameterName: FName;
+    MaterialParameterName: string;
     Texture: UTexture;
 }
-declare const FNiagaraRendererMaterialTextureParameter: FNiagaraRendererMaterialTextureParameter;
 
 declare interface FNiagaraRendererMaterialVectorParameter {
-    MaterialParameterName: FName;
+    MaterialParameterName: string;
     Value: FLinearColor;
 }
-declare const FNiagaraRendererMaterialVectorParameter: FNiagaraRendererMaterialVectorParameter;
 
 declare interface FNiagaraRendererReadbackParameters {
     bExportPosition: boolean;
@@ -1177,32 +1058,25 @@ declare interface FNiagaraRendererReadbackParameters {
     bApplyWPO: boolean;
     ViewIndexToCapture: TOptional<number>;
 }
-declare const FNiagaraRendererReadbackParameters: FNiagaraRendererReadbackParameters;
 
-declare interface FNiagaraRequestSimpleClientInfoMessage {
-
-}
-declare const FNiagaraRequestSimpleClientInfoMessage: FNiagaraRequestSimpleClientInfoMessage;
+declare type FNiagaraRequestSimpleClientInfoMessage = object;
 
 declare interface FNiagaraResolvedUObjectInfo {
-    ReadVariableName: FName;
+    ReadVariableName: string;
     ResolvedVariable: FNiagaraVariableBase;
     Object: UObject;
 }
-declare const FNiagaraResolvedUObjectInfo: FNiagaraResolvedUObjectInfo;
 
 declare interface FNiagaraResolvedUserDataInterfaceBinding {
     UserParameterStoreDataInterfaceIndex: number;
     ScriptParameterStoreDataInterfaceIndex: number;
 }
-declare const FNiagaraResolvedUserDataInterfaceBinding: FNiagaraResolvedUserDataInterfaceBinding;
 
 declare interface FNiagaraRibbonShapeCustomVertex {
     position: FVector2f;
     Normal: FVector2f;
     TextureV: number;
 }
-declare const FNiagaraRibbonShapeCustomVertex: FNiagaraRibbonShapeCustomVertex;
 
 declare interface FNiagaraRibbonUVSettings {
     DistributionMode: ENiagaraRibbonUVDistributionMode;
@@ -1214,13 +1088,11 @@ declare interface FNiagaraRibbonUVSettings {
     Offset: FVector2D;
     Scale: FVector2D;
 }
-declare const FNiagaraRibbonUVSettings: FNiagaraRibbonUVSettings;
 
 declare interface FNiagaraScalabilityManager {
     EffectType: UNiagaraEffectType;
-    ManagedComponents: TArray<UNiagaraComponent>;
+    ManagedComponents: UNiagaraComponent[];
 }
-declare const FNiagaraScalabilityManager: FNiagaraScalabilityManager;
 
 declare interface FNiagaraScalabilityState {
     Significance: number;
@@ -1234,92 +1106,80 @@ declare interface FNiagaraScalabilityState {
     bCulledByVisibility: boolean;
     bCulledByGlobalBudget: boolean;
 }
-declare const FNiagaraScalabilityState: FNiagaraScalabilityState;
 
 declare interface FNiagaraScriptAsyncCompileData {
-    RapidIterationParameters: TArray<FNiagaraVariable>;
-    NamedDataInterfaces: Record<FName, UNiagaraDataInterface>;
+    RapidIterationParameters: FNiagaraVariable[];
+    NamedDataInterfaces: TMap<string, UNiagaraDataInterface>;
 }
-declare const FNiagaraScriptAsyncCompileData: FNiagaraScriptAsyncCompileData;
 
 declare interface FNiagaraScriptDataInterfaceCompileInfo {
-    Name: FName;
+    Name: string;
     UserPtrIdx: number;
     Type: FNiagaraTypeDefinition;
-    RegisteredParameterMapRead: FName;
-    RegisteredParameterMapWrite: FName;
+    RegisteredParameterMapRead: string;
+    RegisteredParameterMapWrite: string;
     bIsPlaceholder: boolean;
-    SourceEmitterName: FString;
+    SourceEmitterName: string;
 }
-declare const FNiagaraScriptDataInterfaceCompileInfo: FNiagaraScriptDataInterfaceCompileInfo;
 
 declare interface FNiagaraScriptDataInterfaceInfo {
     DataInterface: UNiagaraDataInterface;
-    Name: FName;
-    CompileName: FName;
+    Name: string;
+    CompileName: string;
     UserPtrIdx: number;
     Type: FNiagaraTypeDefinition;
-    RegisteredParameterMapRead: FName;
-    RegisteredParameterMapWrite: FName;
-    SourceEmitterName: FString;
+    RegisteredParameterMapRead: string;
+    RegisteredParameterMapWrite: string;
+    SourceEmitterName: string;
 }
-declare const FNiagaraScriptDataInterfaceInfo: FNiagaraScriptDataInterfaceInfo;
 
 declare interface FNiagaraScriptDataUsageInfo {
     bReadsAttributeData: boolean;
 }
-declare const FNiagaraScriptDataUsageInfo: FNiagaraScriptDataUsageInfo;
 
 declare interface FNiagaraScriptExecutionPaddingInfo {
-    SrcOffset: uint16;
-    DestOffset: uint16;
-    SrcSize: uint16;
-    DestSize: uint16;
+    SrcOffset: number;
+    DestOffset: number;
+    SrcSize: number;
+    DestSize: number;
 }
-declare const FNiagaraScriptExecutionPaddingInfo: FNiagaraScriptExecutionPaddingInfo;
 
 declare interface FNiagaraScriptExecutionParameterStore extends FNiagaraParameterStore {
     ParameterSize: number;
     bInitialized: boolean;
 }
-declare const FNiagaraScriptExecutionParameterStore: FNiagaraScriptExecutionParameterStore;
 
 declare interface FNiagaraScriptHighlight {
     Color: FLinearColor;
-    DisplayName: FText;
+    DisplayName: string;
 }
-declare const FNiagaraScriptHighlight: FNiagaraScriptHighlight;
 
 declare interface FNiagaraScriptInstanceParameterStore extends FNiagaraParameterStore {
 
 }
-declare const FNiagaraScriptInstanceParameterStore: FNiagaraScriptInstanceParameterStore;
 
 declare interface FNiagaraScriptResolvedDataInterfaceInfo {
-    Name: FName;
-    CompileName: FName;
-    ResolvedSourceEmitterName: FString;
+    Name: string;
+    CompileName: string;
+    ResolvedSourceEmitterName: string;
     ResolvedVariable: FNiagaraVariableBase;
     ParameterStoreVariable: FNiagaraVariableBase;
     bIsInternal: boolean;
     ResolvedDataInterface: UNiagaraDataInterface;
     UserPtrIdx: number;
 }
-declare const FNiagaraScriptResolvedDataInterfaceInfo: FNiagaraScriptResolvedDataInterfaceInfo;
 
 declare interface FNiagaraScriptUObjectCompileInfo {
     Variable: FNiagaraVariableBase;
     Object: UObject;
     ObjectPath: FSoftObjectPath;
-    RegisteredParameterMapRead: FName;
-    RegisteredParameterMapWrites: TArray<FName>;
+    RegisteredParameterMapRead: string;
+    RegisteredParameterMapWrites: string[];
 }
-declare const FNiagaraScriptUObjectCompileInfo: FNiagaraScriptUObjectCompileInfo;
 
 declare interface FNiagaraScriptVariableBinding {
-    Name: FName;
+    Name: string;
 }
-declare const FNiagaraScriptVariableBinding: FNiagaraScriptVariableBinding;
 
 declare interface FNiagaraSimCacheCaptureParameters {
     bAppendToSimCache: boolean;
@@ -1331,7 +1191,6 @@ declare interface FNiagaraSimCacheCaptureParameters {
     bCaptureAllFramesImmediatly: boolean;
     ImmediateCaptureDeltaTime: number;
 }
-declare const FNiagaraSimCacheCaptureParameters: FNiagaraSimCacheCaptureParameters;
 
 declare interface FNiagaraSimCacheCreateParameters {
     AttributeCaptureMode: ENiagaraSimCacheAttributeCaptureMode;
@@ -1341,48 +1200,43 @@ declare interface FNiagaraSimCacheCreateParameters {
     bAllowVelocityExtrapolation: boolean;
     bAllowSerializeLargeCache: boolean;
     bIncludeDebugData: boolean;
-    RebaseIncludeAttributes: TArray<FName>;
-    RebaseExcludeAttributes: TArray<FName>;
-    InterpolationIncludeAttributes: TArray<FName>;
-    InterpolationExcludeAttributes: TArray<FName>;
-    ExplicitCaptureAttributes: TArray<FName>;
+    RebaseIncludeAttributes: string[];
+    RebaseExcludeAttributes: string[];
+    InterpolationIncludeAttributes: string[];
+    InterpolationExcludeAttributes: string[];
+    ExplicitCaptureAttributes: string[];
 }
-declare const FNiagaraSimCacheCreateParameters: FNiagaraSimCacheCreateParameters;
 
 declare interface FNiagaraSimCacheDataBuffers {
-    NumInstances: uint32;
-    IDAcquireTag: uint32;
-    IDToIndexTableElements: uint32;
+    NumInstances: number;
+    IDAcquireTag: number;
+    IDToIndexTableElements: number;
 }
-declare const FNiagaraSimCacheDataBuffers: FNiagaraSimCacheDataBuffers;
 
 declare interface FNiagaraSimCacheDataBuffersLayout {
-    LayoutName: FName;
+    LayoutName: string;
     SimTarget: ENiagaraSimTarget;
-    Variables: TArray<FNiagaraSimCacheVariable>;
-    FloatCount: uint16;
-    HalfCount: uint16;
-    Int32Count: uint16;
+    Variables: FNiagaraSimCacheVariable[];
+    FloatCount: number;
+    HalfCount: number;
+    Int32Count: number;
     bLocalSpace: boolean;
     bAllowInterpolation: boolean;
     bAllowVelocityExtrapolation: boolean;
-    RebaseVariableNames: TArray<FName>;
-    InterpVariableNames: TArray<FName>;
-    ComponentVelocity: uint16;
+    RebaseVariableNames: string[];
+    InterpVariableNames: string[];
+    ComponentVelocity: number;
 }
-declare const FNiagaraSimCacheDataBuffersLayout: FNiagaraSimCacheDataBuffersLayout;
 
 declare interface FNiagaraSimCacheDebugDataFrame {
-    DebugParameterStores: Record<FString, FNiagaraParameterStore>;
+    DebugParameterStores: TMap<string, FNiagaraParameterStore>;
 }
-declare const FNiagaraSimCacheDebugDataFrame: FNiagaraSimCacheDebugDataFrame;
 
 declare interface FNiagaraSimCacheEmitterFrame {
     LocalBounds: FBox;
     TotalSpawnedParticles: number;
     ParticleDataBuffers: FNiagaraSimCacheDataBuffers;
 }
-declare const FNiagaraSimCacheEmitterFrame: FNiagaraSimCacheEmitterFrame;
 
 declare interface FNiagaraSimCacheFrame {
     LocalToWorld: FTransform;
@@ -1390,53 +1244,44 @@ declare interface FNiagaraSimCacheFrame {
     SimulationAge: number;
     SimulationTickCount: number;
     SystemData: FNiagaraSimCacheSystemFrame;
-    EmitterData: TArray<FNiagaraSimCacheEmitterFrame>;
+    EmitterData: FNiagaraSimCacheEmitterFrame[];
 }
-declare const FNiagaraSimCacheFrame: FNiagaraSimCacheFrame;
 
 declare interface FNiagaraSimCacheLayout {
     SystemLayout: FNiagaraSimCacheDataBuffersLayout;
-    EmitterLayouts: TArray<FNiagaraSimCacheDataBuffersLayout>;
+    EmitterLayouts: FNiagaraSimCacheDataBuffersLayout[];
 }
-declare const FNiagaraSimCacheLayout: FNiagaraSimCacheLayout;
 
 declare interface FNiagaraSimCacheSystemFrame {
     LocalBounds: FBox;
     SystemDataBuffers: FNiagaraSimCacheDataBuffers;
 }
-declare const FNiagaraSimCacheSystemFrame: FNiagaraSimCacheSystemFrame;
 
 declare interface FNiagaraSimCacheVariable {
     Variable: FNiagaraVariableBase;
-    FloatOffset: uint16;
-    FloatCount: uint16;
-    HalfOffset: uint16;
-    HalfCount: uint16;
-    Int32Offset: uint16;
-    Int32Count: uint16;
+    FloatOffset: number;
+    FloatCount: number;
+    HalfOffset: number;
+    HalfCount: number;
+    Int32Offset: number;
+    Int32Count: number;
 }
-declare const FNiagaraSimCacheVariable: FNiagaraSimCacheVariable;
 
 declare interface FNiagaraSimStageExecutionLoopData {
-    NumLoopsBinding: FName;
+    NumLoopsBinding: string;
     NumLoops: number;
     StartStageIndex: number;
     EndStageIndex: number;
 }
-declare const FNiagaraSimStageExecutionLoopData: FNiagaraSimStageExecutionLoopData;
 
-declare interface FNiagaraSimStageExecutionLoopEditorData {
-
-}
-declare const FNiagaraSimStageExecutionLoopEditorData: FNiagaraSimStageExecutionLoopEditorData;
+declare type FNiagaraSimStageExecutionLoopEditorData = object;
 
 declare interface FNiagaraSimpleClientInfo {
-    Systems: TArray<FString>;
-    Actors: TArray<FString>;
-    Components: TArray<FString>;
-    Emitters: TArray<FString>;
+    Systems: string[];
+    Actors: string[];
+    Components: string[];
+    Emitters: string[];
 }
-declare const FNiagaraSimpleClientInfo: FNiagaraSimpleClientInfo;
 
 declare interface FNiagaraSpawnInfo {
     count: number;
@@ -1444,22 +1289,19 @@ declare interface FNiagaraSpawnInfo {
     IntervalDt: number;
     SpawnGroup: number;
 }
-declare const FNiagaraSpawnInfo: FNiagaraSpawnInfo;
 
 declare interface FNiagaraStackSection {
-    SectionIdentifier: FName;
-    SectionDisplayName: FText;
-    Categories: TArray<FText>;
-    ToolTip: FText;
+    SectionIdentifier: string;
+    SectionDisplayName: string;
+    Categories: string[];
+    ToolTip: string;
     bEnabled: boolean;
 }
-declare const FNiagaraStackSection: FNiagaraStackSection;
 
 declare interface FNiagaraStatScope {
-    FullName: FName;
-    FriendlyName: FName;
+    FullName: string;
+    FriendlyName: string;
 }
-declare const FNiagaraStatScope: FNiagaraStatScope;
 
 declare interface FNiagaraStatelessDynamicParameterSet {
     bXChannelEnabled: boolean;
@@ -1471,207 +1313,168 @@ declare interface FNiagaraStatelessDynamicParameterSet {
     ZChannelDistribution: FNiagaraDistributionFloat;
     WChannelDistribution: FNiagaraDistributionFloat;
 }
-declare const FNiagaraStatelessDynamicParameterSet: FNiagaraStatelessDynamicParameterSet;
 
-declare interface FNiagaraStatelessExpression {
-
-}
-declare const FNiagaraStatelessExpression: FNiagaraStatelessExpression;
+declare type FNiagaraStatelessExpression = object;
 
 declare interface FNiagaraStatelessExpressionColor extends FNiagaraStatelessExpression {
 
 }
-declare const FNiagaraStatelessExpressionColor: FNiagaraStatelessExpressionColor;
 
 declare interface FNiagaraStatelessExpressionColorAdd extends FNiagaraStatelessExpressionColor {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionColorAdd: FNiagaraStatelessExpressionColorAdd;
 
 declare interface FNiagaraStatelessExpressionColorBinding extends FNiagaraStatelessExpressionColor {
-    A: FName;
+    A: string;
 }
-declare const FNiagaraStatelessExpressionColorBinding: FNiagaraStatelessExpressionColorBinding;
 
 declare interface FNiagaraStatelessExpressionColorConstant extends FNiagaraStatelessExpressionColor {
     A: FLinearColor;
 }
-declare const FNiagaraStatelessExpressionColorConstant: FNiagaraStatelessExpressionColorConstant;
 
 declare interface FNiagaraStatelessExpressionColorDivide extends FNiagaraStatelessExpressionColor {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionColorDivide: FNiagaraStatelessExpressionColorDivide;
 
 declare interface FNiagaraStatelessExpressionColorMultiply extends FNiagaraStatelessExpressionColor {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionColorMultiply: FNiagaraStatelessExpressionColorMultiply;
 
 declare interface FNiagaraStatelessExpressionColorSubtract extends FNiagaraStatelessExpressionColor {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionColorSubtract: FNiagaraStatelessExpressionColorSubtract;
 
 declare interface FNiagaraStatelessExpressionFloat extends FNiagaraStatelessExpression {
 
 }
-declare const FNiagaraStatelessExpressionFloat: FNiagaraStatelessExpressionFloat;
 
 declare interface FNiagaraStatelessExpressionFloatAdd extends FNiagaraStatelessExpressionFloat {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionFloatAdd: FNiagaraStatelessExpressionFloatAdd;
 
 declare interface FNiagaraStatelessExpressionFloatBinding extends FNiagaraStatelessExpressionFloat {
-    A: FName;
+    A: string;
 }
-declare const FNiagaraStatelessExpressionFloatBinding: FNiagaraStatelessExpressionFloatBinding;
 
 declare interface FNiagaraStatelessExpressionFloatConstant extends FNiagaraStatelessExpressionFloat {
     A: number;
 }
-declare const FNiagaraStatelessExpressionFloatConstant: FNiagaraStatelessExpressionFloatConstant;
 
 declare interface FNiagaraStatelessExpressionFloatDivide extends FNiagaraStatelessExpressionFloat {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionFloatDivide: FNiagaraStatelessExpressionFloatDivide;
 
 declare interface FNiagaraStatelessExpressionFloatMultiply extends FNiagaraStatelessExpressionFloat {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionFloatMultiply: FNiagaraStatelessExpressionFloatMultiply;
 
 declare interface FNiagaraStatelessExpressionFloatSubtract extends FNiagaraStatelessExpressionFloat {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionFloatSubtract: FNiagaraStatelessExpressionFloatSubtract;
 
 declare interface FNiagaraStatelessExpressionVec2 extends FNiagaraStatelessExpression {
 
 }
-declare const FNiagaraStatelessExpressionVec2: FNiagaraStatelessExpressionVec2;
 
 declare interface FNiagaraStatelessExpressionVec2Add extends FNiagaraStatelessExpressionVec2 {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionVec2Add: FNiagaraStatelessExpressionVec2Add;
 
 declare interface FNiagaraStatelessExpressionVec2Binding extends FNiagaraStatelessExpressionVec2 {
-    A: FName;
+    A: string;
 }
-declare const FNiagaraStatelessExpressionVec2Binding: FNiagaraStatelessExpressionVec2Binding;
 
 declare interface FNiagaraStatelessExpressionVec2Constant extends FNiagaraStatelessExpressionVec2 {
     A: FVector2f;
 }
-declare const FNiagaraStatelessExpressionVec2Constant: FNiagaraStatelessExpressionVec2Constant;
 
 declare interface FNiagaraStatelessExpressionVec2Divide extends FNiagaraStatelessExpressionVec2 {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionVec2Divide: FNiagaraStatelessExpressionVec2Divide;
 
 declare interface FNiagaraStatelessExpressionVec2Multiply extends FNiagaraStatelessExpressionVec2 {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionVec2Multiply: FNiagaraStatelessExpressionVec2Multiply;
 
 declare interface FNiagaraStatelessExpressionVec2Subtract extends FNiagaraStatelessExpressionVec2 {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionVec2Subtract: FNiagaraStatelessExpressionVec2Subtract;
 
 declare interface FNiagaraStatelessExpressionVec3 extends FNiagaraStatelessExpression {
 
 }
-declare const FNiagaraStatelessExpressionVec3: FNiagaraStatelessExpressionVec3;
 
 declare interface FNiagaraStatelessExpressionVec3Add extends FNiagaraStatelessExpressionVec3 {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionVec3Add: FNiagaraStatelessExpressionVec3Add;
 
 declare interface FNiagaraStatelessExpressionVec3Binding extends FNiagaraStatelessExpressionVec3 {
-    A: FName;
+    A: string;
 }
-declare const FNiagaraStatelessExpressionVec3Binding: FNiagaraStatelessExpressionVec3Binding;
 
 declare interface FNiagaraStatelessExpressionVec3Constant extends FNiagaraStatelessExpressionVec3 {
     A: FVector3f;
 }
-declare const FNiagaraStatelessExpressionVec3Constant: FNiagaraStatelessExpressionVec3Constant;
 
 declare interface FNiagaraStatelessExpressionVec3Divide extends FNiagaraStatelessExpressionVec3 {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionVec3Divide: FNiagaraStatelessExpressionVec3Divide;
 
 declare interface FNiagaraStatelessExpressionVec3Multiply extends FNiagaraStatelessExpressionVec3 {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionVec3Multiply: FNiagaraStatelessExpressionVec3Multiply;
 
 declare interface FNiagaraStatelessExpressionVec3Subtract extends FNiagaraStatelessExpressionVec3 {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionVec3Subtract: FNiagaraStatelessExpressionVec3Subtract;
 
 declare interface FNiagaraStatelessExpressionVec4 extends FNiagaraStatelessExpression {
 
 }
-declare const FNiagaraStatelessExpressionVec4: FNiagaraStatelessExpressionVec4;
 
 declare interface FNiagaraStatelessExpressionVec4Add extends FNiagaraStatelessExpressionVec4 {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionVec4Add: FNiagaraStatelessExpressionVec4Add;
 
 declare interface FNiagaraStatelessExpressionVec4Binding extends FNiagaraStatelessExpressionVec4 {
-    A: FName;
+    A: string;
 }
-declare const FNiagaraStatelessExpressionVec4Binding: FNiagaraStatelessExpressionVec4Binding;
 
 declare interface FNiagaraStatelessExpressionVec4Constant extends FNiagaraStatelessExpressionVec4 {
     A: FVector4f;
 }
-declare const FNiagaraStatelessExpressionVec4Constant: FNiagaraStatelessExpressionVec4Constant;
 
 declare interface FNiagaraStatelessExpressionVec4Divide extends FNiagaraStatelessExpressionVec4 {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionVec4Divide: FNiagaraStatelessExpressionVec4Divide;
 
 declare interface FNiagaraStatelessExpressionVec4Multiply extends FNiagaraStatelessExpressionVec4 {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionVec4Multiply: FNiagaraStatelessExpressionVec4Multiply;
 
 declare interface FNiagaraStatelessExpressionVec4Subtract extends FNiagaraStatelessExpressionVec4 {
     A: FInstancedStruct;
     B: FInstancedStruct;
 }
-declare const FNiagaraStatelessExpressionVec4Subtract: FNiagaraStatelessExpressionVec4Subtract;
 
 declare interface FNiagaraStatelessSpawnInfo {
     Type: ENiagaraStatelessSpawnInfoType;
@@ -1684,7 +1487,6 @@ declare interface FNiagaraStatelessSpawnInfo {
     SpawnProbability: FNiagaraDistributionRangeFloat;
     LoopCountLimit: FNiagaraDistributionRangeInt;
 }
-declare const FNiagaraStatelessSpawnInfo: FNiagaraStatelessSpawnInfo;
 
 declare interface FNiagaraStructConversionStep {
     LWCBytes: number;
@@ -1693,13 +1495,11 @@ declare interface FNiagaraStructConversionStep {
     SimulationOffset: number;
     ConversionType: ENiagaraStructConversionType;
 }
-declare const FNiagaraStructConversionStep: FNiagaraStructConversionStep;
 
 declare interface FNiagaraSystemAsyncCompileResults {
-    RootObjects: TArray<UObject>;
-    ExposedVariables: TArray<FNiagaraVariable>;
+    RootObjects: UObject[];
+    ExposedVariables: FNiagaraVariable[];
 }
-declare const FNiagaraSystemAsyncCompileResults: FNiagaraSystemAsyncCompileResults;
 
 declare interface FNiagaraSystemCompiledData {
     InstanceParamStore: FNiagaraParameterStore;
@@ -1709,13 +1509,12 @@ declare interface FNiagaraSystemCompiledData {
     SpawnInstanceGlobalBinding: FNiagaraParameterDataSetBindingCollection;
     SpawnInstanceSystemBinding: FNiagaraParameterDataSetBindingCollection;
     SpawnInstanceOwnerBinding: FNiagaraParameterDataSetBindingCollection;
-    SpawnInstanceEmitterBindings: TArray<FNiagaraParameterDataSetBindingCollection>;
+    SpawnInstanceEmitterBindings: FNiagaraParameterDataSetBindingCollection[];
     UpdateInstanceGlobalBinding: FNiagaraParameterDataSetBindingCollection;
     UpdateInstanceSystemBinding: FNiagaraParameterDataSetBindingCollection;
     UpdateInstanceOwnerBinding: FNiagaraParameterDataSetBindingCollection;
-    UpdateInstanceEmitterBindings: TArray<FNiagaraParameterDataSetBindingCollection>;
+    UpdateInstanceEmitterBindings: FNiagaraParameterDataSetBindingCollection[];
 }
-declare const FNiagaraSystemCompiledData: FNiagaraSystemCompiledData;
 
 declare interface FNiagaraSystemScalabilityOverride extends FNiagaraSystemScalabilitySettings {
     bOverrideDistanceSettings: boolean;
@@ -1725,12 +1524,10 @@ declare interface FNiagaraSystemScalabilityOverride extends FNiagaraSystemScalab
     bOverrideGlobalBudgetScalingSettings: boolean;
     bOverrideCullProxySettings: boolean;
 }
-declare const FNiagaraSystemScalabilityOverride: FNiagaraSystemScalabilityOverride;
 
 declare interface FNiagaraSystemScalabilityOverrides {
-    Overrides: TArray<FNiagaraSystemScalabilityOverride>;
+    Overrides: FNiagaraSystemScalabilityOverride[];
 }
-declare const FNiagaraSystemScalabilityOverrides: FNiagaraSystemScalabilityOverrides;
 
 declare interface FNiagaraSystemScalabilitySettings {
     Platforms: FNiagaraPlatformSet;
@@ -1747,25 +1544,21 @@ declare interface FNiagaraSystemScalabilitySettings {
     VisibilityCulling: FNiagaraSystemVisibilityCullingSettings;
     BudgetScaling: FNiagaraGlobalBudgetScaling;
 }
-declare const FNiagaraSystemScalabilitySettings: FNiagaraSystemScalabilitySettings;
 
 declare interface FNiagaraSystemScalabilitySettingsArray {
-    Settings: TArray<FNiagaraSystemScalabilitySettings>;
+    Settings: FNiagaraSystemScalabilitySettings[];
 }
-declare const FNiagaraSystemScalabilitySettingsArray: FNiagaraSystemScalabilitySettingsArray;
 
 declare interface FNiagaraSystemSimCacheCaptureReply {
-    ComponentName: FName;
-    SimCacheData: TArray<uint8>;
+    ComponentName: string;
+    SimCacheData: number[];
 }
-declare const FNiagaraSystemSimCacheCaptureReply: FNiagaraSystemSimCacheCaptureReply;
 
 declare interface FNiagaraSystemSimCacheCaptureRequest {
-    ComponentName: FName;
-    CaptureDelayFrames: uint32;
-    CaptureFrames: uint32;
+    ComponentName: string;
+    CaptureDelayFrames: number;
+    CaptureFrames: number;
 }
-declare const FNiagaraSystemSimCacheCaptureRequest: FNiagaraSystemSimCacheCaptureRequest;
 
 declare interface FNiagaraSystemStateData {
     bRunSpawnScript: boolean;
@@ -1781,17 +1574,15 @@ declare interface FNiagaraSystemStateData {
     LoopCount: number;
     LoopDelay: FNiagaraDistributionRangeFloat;
 }
-declare const FNiagaraSystemStateData: FNiagaraSystemStateData;
 
 declare interface FNiagaraSystemUpdateContext {
-    ComponentsToReset: TArray<UNiagaraComponent>;
-    ComponentsToReInit: TArray<UNiagaraComponent>;
-    ComponentsToNotifySimDestroy: TArray<UNiagaraComponent>;
-    ComponentsToDestroyInstance: TArray<UNiagaraComponent>;
-    SystemSimsToDestroy: TArray<UNiagaraSystem>;
-    SystemSimsToRecache: TArray<UNiagaraSystem>;
+    ComponentsToReset: UNiagaraComponent[];
+    ComponentsToReInit: UNiagaraComponent[];
+    ComponentsToNotifySimDestroy: UNiagaraComponent[];
+    ComponentsToDestroyInstance: UNiagaraComponent[];
+    SystemSimsToDestroy: UNiagaraSystem[];
+    SystemSimsToRecache: UNiagaraSystem[];
 }
-declare const FNiagaraSystemUpdateContext: FNiagaraSystemUpdateContext;
 
 declare interface FNiagaraSystemVisibilityCullingSettings {
     bCullWhenNotRendered: boolean;
@@ -1800,210 +1591,180 @@ declare interface FNiagaraSystemVisibilityCullingSettings {
     MaxTimeOutsideViewFrustum: number;
     MaxTimeWithoutRender: number;
 }
-declare const FNiagaraSystemVisibilityCullingSettings: FNiagaraSystemVisibilityCullingSettings;
 
 declare interface FNiagaraTypeDefinition {
     ClassStructOrEnum: UObject;
-    UnderlyingType: uint16;
-    Flags: uint8;
+    UnderlyingType: number;
+    Flags: number;
 }
-declare const FNiagaraTypeDefinition: FNiagaraTypeDefinition;
 
 declare interface FNiagaraTypeDefinitionHandle {
     RegisteredTypeIndex: number;
 }
-declare const FNiagaraTypeDefinitionHandle: FNiagaraTypeDefinitionHandle;
 
 declare interface FNiagaraTypeLayoutInfo {
-    NumFloatComponents: uint16;
-    NumInt32Components: uint16;
-    NumHalfComponents: uint16;
-    ComponentsOffsets: TArray<uint32>;
+    NumFloatComponents: number;
+    NumInt32Components: number;
+    NumHalfComponents: number;
+    ComponentsOffsets: number[];
 }
-declare const FNiagaraTypeLayoutInfo: FNiagaraTypeLayoutInfo;
 
 declare interface FNiagaraUObjectPropertyReaderRemap {
-    GraphName: FName;
-    RemapName: FName;
+    GraphName: string;
+    RemapName: string;
 }
-declare const FNiagaraUObjectPropertyReaderRemap: FNiagaraUObjectPropertyReaderRemap;
 
 declare interface FNiagaraUserParameterBinding {
     Parameter: FNiagaraVariable;
 }
-declare const FNiagaraUserParameterBinding: FNiagaraUserParameterBinding;
 
 declare interface FNiagaraUserRedirectionParameterStore extends FNiagaraParameterStore {
-    UserParameterRedirects: Record<string | number | symbol, FNiagaraVariable>;
+    UserParameterRedirects: TMap<FNiagaraVariable, FNiagaraVariable>;
 }
-declare const FNiagaraUserRedirectionParameterStore: FNiagaraUserRedirectionParameterStore;
 
 declare interface FNiagaraVMExecutableByteCode {
-    Data: TArray<uint8>;
+    Data: number[];
     UncompressedSize: number;
 }
-declare const FNiagaraVMExecutableByteCode: FNiagaraVMExecutableByteCode;
 
 declare interface FNiagaraVMExecutableData {
     ByteCode: FNiagaraVMExecutableByteCode;
     OptimizedByteCode: FNiagaraVMExecutableByteCode;
     NumTempRegisters: number;
     NumUserPtrs: number;
-    CompileTags: TArray<FNiagaraCompilerTag>;
-    ScriptLiterals: TArray<uint8>;
-    Attributes: TArray<FNiagaraVariableBase>;
+    CompileTags: FNiagaraCompilerTag[];
+    ScriptLiterals: number[];
+    Attributes: FNiagaraVariableBase[];
     DataUsage: FNiagaraScriptDataUsageInfo;
-    UObjectInfos: TArray<FNiagaraScriptUObjectCompileInfo>;
-    DataInterfaceInfo: TArray<FNiagaraScriptDataInterfaceCompileInfo>;
-    CalledVMExternalFunctions: TArray<FVMExternalFunctionBindingInfo>;
-    ReadDataSets: TArray<FNiagaraDataSetID>;
-    WriteDataSets: TArray<FNiagaraDataSetProperties>;
-    StatScopes: TArray<FNiagaraStatScope>;
+    UObjectInfos: FNiagaraScriptUObjectCompileInfo[];
+    DataInterfaceInfo: FNiagaraScriptDataInterfaceCompileInfo[];
+    CalledVMExternalFunctions: FVMExternalFunctionBindingInfo[];
+    ReadDataSets: FNiagaraDataSetID[];
+    WriteDataSets: FNiagaraDataSetProperties[];
+    StatScopes: FNiagaraStatScope[];
     ShaderScriptParametersMetadata: FNiagaraShaderScriptParametersMetadata;
     LastCompileStatus: ENiagaraScriptCompileStatus;
-    SimulationStageMetaData: TArray<FSimulationStageMetaData>;
-    ExperimentalContextData: TArray<uint8>;
+    SimulationStageMetaData: FSimulationStageMetaData[];
+    ExperimentalContextData: number[];
     bReadsSignificanceIndex: boolean;
     bNeedsGPUContextInit: boolean;
 }
-declare const FNiagaraVMExecutableData: FNiagaraVMExecutableData;
 
 declare interface FNiagaraVMExecutableDataId {
     CompilerVersionID: FGuid;
     InterpolatedSpawnMode: ENiagaraInterpolatedSpawnMode;
     BaseScriptCompileHash: FNiagaraCompileHash;
 }
-declare const FNiagaraVMExecutableDataId: FNiagaraVMExecutableDataId;
 
 declare interface FNiagaraVariable extends FNiagaraVariableBase {
-    VarData: TArray<uint8>;
+    VarData: number[];
 }
-declare const FNiagaraVariable: FNiagaraVariable;
 
 declare interface FNiagaraVariableAttributeBinding {
     RootVariable: FNiagaraVariable;
     ParamMapVariable: FNiagaraVariableBase;
-    DataSetName: FName;
+    DataSetName: string;
     BindingSourceMode: ENiagaraBindingSource;
     bBindingExistsOnSource: boolean;
     bIsCachedParticleValue: boolean;
 }
-declare const FNiagaraVariableAttributeBinding: FNiagaraVariableAttributeBinding;
 
 declare interface FNiagaraVariableBase {
-    Name: FName;
+    Name: string;
     TypeDefHandle: FNiagaraTypeDefinitionHandle;
 }
-declare const FNiagaraVariableBase: FNiagaraVariableBase;
 
 declare interface FNiagaraVariableDataInterfaceBinding {
     BoundVariable: FNiagaraVariable;
 }
-declare const FNiagaraVariableDataInterfaceBinding: FNiagaraVariableDataInterfaceBinding;
 
 declare interface FNiagaraVariableInfo {
     Variable: FNiagaraVariable;
-    Definition: FText;
+    Definition: string;
     DataInterface: UNiagaraDataInterface;
 }
-declare const FNiagaraVariableInfo: FNiagaraVariableInfo;
 
 declare interface FNiagaraVariableLayoutInfo {
-    FloatComponentStart: uint16;
-    Int32ComponentStart: uint16;
-    HalfComponentStart: uint16;
+    FloatComponentStart: number;
+    Int32ComponentStart: number;
+    HalfComponentStart: number;
     LayoutInfo: FNiagaraTypeLayoutInfo;
 }
-declare const FNiagaraVariableLayoutInfo: FNiagaraVariableLayoutInfo;
 
 declare interface FNiagaraVariableMetaData {
-    Description: FText;
+    Description: string;
     DisplayUnit: EUnit;
     bAdvancedDisplay: boolean;
     bDisplayInOverviewStack: boolean;
     InlineParameterSortPriority: number;
     bOverrideColor: boolean;
     InlineParameterColorOverride: FLinearColor;
-    InlineParameterEnumOverrides: TArray<FNiagaraEnumParameterMetaData>;
+    InlineParameterEnumOverrides: FNiagaraEnumParameterMetaData[];
     bEnableBoolOverride: boolean;
     InlineParameterBoolOverride: FNiagaraBoolParameterMetaData;
     bInlineEditConditionToggle: boolean;
     EditCondition: FNiagaraInputConditionMetadata;
     VisibleCondition: FNiagaraInputConditionMetadata;
-    PropertyMetaData: Record<FName, FString>;
-    AlternateAliases: TArray<FName>;
+    PropertyMetaData: TMap<string, string>;
+    AlternateAliases: string[];
     WidgetCustomization: FNiagaraInputParameterCustomization;
     VariableGUID: FGuid;
     bIsStaticSwitch: boolean;
     StaticSwitchDefaultValue: number;
-    CategoryName: FText;
-    ParentAttribute: FName;
+    CategoryName: string;
+    ParentAttribute: string;
     EditorSortPriority: number;
 }
-declare const FNiagaraVariableMetaData: FNiagaraVariableMetaData;
 
 declare interface FNiagaraVariableWithOffset extends FNiagaraVariableBase {
     Offset: number;
     StructConverter: FNiagaraLwcStructConverter;
 }
-declare const FNiagaraVariableWithOffset: FNiagaraVariableWithOffset;
 
 declare interface FNiagaraVariant {
     Object: UObject;
     DataInterface: UNiagaraDataInterface;
-    Bytes: TArray<uint8>;
+    Bytes: number[];
     CurrentMode: ENiagaraVariantMode;
 }
-declare const FNiagaraVariant: FNiagaraVariant;
 
 declare interface FNiagaraWidgetNamedIntegerInputValue {
-    DisplayName: FText;
-    ToolTip: FText;
+    DisplayName: string;
+    ToolTip: string;
 }
-declare const FNiagaraWidgetNamedIntegerInputValue: FNiagaraWidgetNamedIntegerInputValue;
 
-declare interface FNiagaraWildcard {
-
-}
-declare const FNiagaraWildcard: FNiagaraWildcard;
+declare type FNiagaraWildcard = object;
 
 declare interface FNiagaraWorldManagerTickFunction extends FTickFunction {
 
 }
-declare const FNiagaraWorldManagerTickFunction: FNiagaraWorldManagerTickFunction;
 
-declare interface FParameterDefinitionsSubscription {
-
-}
-declare const FParameterDefinitionsSubscription: FParameterDefinitionsSubscription;
+declare type FParameterDefinitionsSubscription = object;
 
 declare interface FVMExternalFunctionBindingInfo {
-    Name: FName;
-    OwnerName: FName;
-    InputParamLocations: TArray<boolean>;
+    Name: string;
+    OwnerName: string;
+    InputParamLocations: boolean[];
     NumOutputs: number;
-    FunctionSpecifiers: TArray<FVMFunctionSpecifier>;
-    VariadicInputs: TArray<FNiagaraVariableBase>;
-    VariadicOutputs: TArray<FNiagaraVariableBase>;
+    FunctionSpecifiers: FVMFunctionSpecifier[];
+    VariadicInputs: FNiagaraVariableBase[];
+    VariadicOutputs: FNiagaraVariableBase[];
 }
-declare const FVMExternalFunctionBindingInfo: FVMExternalFunctionBindingInfo;
 
 declare interface FVMFunctionSpecifier {
-    Key: FName;
-    Value: FName;
+    Key: string;
+    Value: string;
 }
-declare const FVMFunctionSpecifier: FVMFunctionSpecifier;
 
 declare interface FVersionedNiagaraEmitter {
     Emitter: UNiagaraEmitter;
     Version: FGuid;
 }
-declare const FVersionedNiagaraEmitter: FVersionedNiagaraEmitter;
 
 declare interface FVersionedNiagaraEmitterData {
     Version: FNiagaraAssetVersion;
     bDeprecated: boolean;
-    DeprecationMessage: FText;
+    DeprecationMessage: string;
     bLocalSpace: boolean;
     bDeterminism: boolean;
     RandomSeed: number;
@@ -2012,2048 +1773,3179 @@ declare interface FVersionedNiagaraEmitterData {
     CalculateBoundsMode: ENiagaraEmitterCalculateBoundMode;
     FixedBounds: FBox;
     bRequiresPersistentIDs: boolean;
-    EventHandlerScriptProps: TArray<FNiagaraEventScriptProperties>;
+    EventHandlerScriptProps: FNiagaraEventScriptProperties[];
     Platforms: FNiagaraPlatformSet;
     ScalabilityOverrides: FNiagaraEmitterScalabilityOverrides;
     MaxGPUParticlesSpawnPerFrame: number;
     AllocationMode: EParticleAllocationMode;
     PreAllocationCount: number;
-    EmitterDependencies: TArray<FNiagaraDataInterfaceEmitterBinding>;
+    EmitterDependencies: FNiagaraDataInterfaceEmitterBinding[];
     UpdateScriptProps: FNiagaraEmitterScriptProperties;
     SpawnScriptProps: FNiagaraEmitterScriptProperties;
     RendererBindings: FNiagaraParameterStore;
-    RendererBindingsExternalObjects: TArray<FNiagaraExternalUObjectInfo>;
-    ResolvedDIBindings: Record<string | number | symbol, FNiagaraVariableBase>;
-    RendererProperties: TArray<UNiagaraRendererProperties>;
-    SimulationStages: TArray<UNiagaraSimulationStageBase>;
-    SimStageExecutionLoops: TArray<FNiagaraSimStageExecutionLoopData>;
+    RendererBindingsExternalObjects: FNiagaraExternalUObjectInfo[];
+    ResolvedDIBindings: TMap<FNiagaraVariableBase, FNiagaraVariableBase>;
+    RendererProperties: UNiagaraRendererProperties[];
+    SimulationStages: UNiagaraSimulationStageBase[];
+    SimStageExecutionLoops: FNiagaraSimStageExecutionLoopData[];
     GPUComputeScript: UNiagaraScript;
-    SharedEventGeneratorIds: TArray<FName>;
+    SharedEventGeneratorIds: string[];
     CurrentScalabilitySettings: FNiagaraEmitterScalabilitySettings;
 }
-declare const FVersionedNiagaraEmitterData: FVersionedNiagaraEmitterData;
 
-declare interface FVersionedNiagaraScriptData {
-
-}
-declare const FVersionedNiagaraScriptData: FVersionedNiagaraScriptData;
+declare type FVersionedNiagaraScriptData = object;
 
 declare interface FWidgetNamedInputValue {
     Value: number;
-    DisplayName: FText;
-    ToolTip: FText;
+    DisplayName: string;
+    ToolTip: string;
 }
-declare const FWidgetNamedInputValue: FWidgetNamedInputValue;
 
 declare interface FWidgetSegmentValueOverride {
     EnumIndexToOverride: number;
     bOverrideDisplayName: boolean;
-    DisplayNameOverride: FText;
+    DisplayNameOverride: string;
     DisplayIcon: UTexture2D;
 }
-declare const FWidgetSegmentValueOverride: FWidgetSegmentValueOverride;
 
 declare interface INiagaraParticleCallbackHandler extends IInterface {
-    ReceiveParticleData(Data: TArray<FBasicParticleData>, NiagaraSystem: UNiagaraSystem, SimulationPositionOffset: FVector): void;
+    readonly __static_INiagaraParticleCallbackHandler: {
+        ReceiveParticleData(Data: FBasicParticleData[], NiagaraSystem: UNiagaraSystem, SimulationPositionOffset: FVector): void;
+    };
+    readonly __staticRegistry: 
+        INiagaraParticleCallbackHandler['__static_INiagaraParticleCallbackHandler'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const INiagaraParticleCallbackHandler: INiagaraParticleCallbackHandler;
 
 declare interface INiagaraPhysicsAssetDICollectorInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const INiagaraPhysicsAssetDICollectorInterface: INiagaraPhysicsAssetDICollectorInterface;
 
 declare interface INiagaraRenderableMeshArrayInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const INiagaraRenderableMeshArrayInterface: INiagaraRenderableMeshArrayInterface;
 
 declare interface INiagaraRenderableMeshInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const INiagaraRenderableMeshInterface: INiagaraRenderableMeshInterface;
 
 declare interface INiagaraSimCacheCustomStorageInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const INiagaraSimCacheCustomStorageInterface: INiagaraSimCacheCustomStorageInterface;
 
 declare interface UAsyncNiagaraCaptureSimCache extends UCancellableAsyncAction {
-    CaptureSimCache: UNiagaraSimCache;
-    CaptureComponent: UNiagaraComponent;
-    CaptureComplete: FAsyncNiagaraCaptureSimCacheCaptureComplete;
-    OnCaptureComplete__DelegateSignature(bSuccess: boolean): void;
-    CaptureNiagaraSimCacheUntilComplete(SimCache: UNiagaraSimCache, CreateParameters: FNiagaraSimCacheCreateParameters, NiagaraComponent: UNiagaraComponent, OutSimCache: UNiagaraSimCache, CaptureRate: number, bAdvanceSimulation: boolean, AdvanceDeltaTime: number): UAsyncNiagaraCaptureSimCache;
-    CaptureNiagaraSimCacheMultiFrame(SimCache: UNiagaraSimCache, CreateParameters: FNiagaraSimCacheCreateParameters, NiagaraComponent: UNiagaraComponent, OutSimCache: UNiagaraSimCache, NumFrames: number, CaptureRate: number, bAdvanceSimulation: boolean, AdvanceDeltaTime: number): UAsyncNiagaraCaptureSimCache;
-    CaptureNiagaraSimCache(SimCache: UNiagaraSimCache, CreateParameters: FNiagaraSimCacheCreateParameters, NiagaraComponent: UNiagaraComponent, CaptureParameters: FNiagaraSimCacheCaptureParameters, OutSimCache: UNiagaraSimCache): UAsyncNiagaraCaptureSimCache;
+    readonly __static_UAsyncNiagaraCaptureSimCache: {
+        OnCaptureComplete__DelegateSignature(bSuccess: boolean): void;
+        CaptureNiagaraSimCacheUntilComplete(SimCache: UNiagaraSimCache, CreateParameters: FNiagaraSimCacheCreateParameters, NiagaraComponent: UNiagaraComponent, OutSimCache: UNiagaraSimCache, CaptureRate: number, bAdvanceSimulation: boolean, AdvanceDeltaTime: number): UAsyncNiagaraCaptureSimCache;
+        CaptureNiagaraSimCacheMultiFrame(SimCache: UNiagaraSimCache, CreateParameters: FNiagaraSimCacheCreateParameters, NiagaraComponent: UNiagaraComponent, OutSimCache: UNiagaraSimCache, NumFrames: number, CaptureRate: number, bAdvanceSimulation: boolean, AdvanceDeltaTime: number): UAsyncNiagaraCaptureSimCache;
+        CaptureNiagaraSimCache(SimCache: UNiagaraSimCache, CreateParameters: FNiagaraSimCacheCreateParameters, NiagaraComponent: UNiagaraComponent, CaptureParameters: FNiagaraSimCacheCaptureParameters, OutSimCache: UNiagaraSimCache): UAsyncNiagaraCaptureSimCache;
+    };
+    readonly __properties_UAsyncNiagaraCaptureSimCache: {
+        CaptureSimCache: UNiagaraSimCache;
+        CaptureComponent: UNiagaraComponent;
+        CaptureComplete: FAsyncNiagaraCaptureSimCacheCaptureComplete;
+    };
+    readonly __staticRegistry: 
+        UAsyncNiagaraCaptureSimCache['__static_UAsyncNiagaraCaptureSimCache'] &
+        UCancellableAsyncAction['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAsyncNiagaraCaptureSimCache['__properties_UAsyncNiagaraCaptureSimCache'] &
+        UCancellableAsyncAction['__propertyRegistry'];
 }
-declare const UAsyncNiagaraCaptureSimCache: UAsyncNiagaraCaptureSimCache;
 
 declare interface UMovieSceneNiagaraBoolParameterTrack extends UMovieSceneNiagaraParameterTrack {
-
+    readonly __staticRegistry: 
+        UMovieSceneNiagaraParameterTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneNiagaraParameterTrack['__propertyRegistry'];
 }
-declare const UMovieSceneNiagaraBoolParameterTrack: UMovieSceneNiagaraBoolParameterTrack;
 
 declare interface UMovieSceneNiagaraColorParameterTrack extends UMovieSceneNiagaraParameterTrack {
-
+    readonly __staticRegistry: 
+        UMovieSceneNiagaraParameterTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneNiagaraParameterTrack['__propertyRegistry'];
 }
-declare const UMovieSceneNiagaraColorParameterTrack: UMovieSceneNiagaraColorParameterTrack;
 
 declare interface UMovieSceneNiagaraFloatParameterTrack extends UMovieSceneNiagaraParameterTrack {
-
+    readonly __staticRegistry: 
+        UMovieSceneNiagaraParameterTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneNiagaraParameterTrack['__propertyRegistry'];
 }
-declare const UMovieSceneNiagaraFloatParameterTrack: UMovieSceneNiagaraFloatParameterTrack;
 
 declare interface UMovieSceneNiagaraIntegerParameterTrack extends UMovieSceneNiagaraParameterTrack {
-
+    readonly __staticRegistry: 
+        UMovieSceneNiagaraParameterTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneNiagaraParameterTrack['__propertyRegistry'];
 }
-declare const UMovieSceneNiagaraIntegerParameterTrack: UMovieSceneNiagaraIntegerParameterTrack;
 
 declare interface UMovieSceneNiagaraParameterTrack extends UMovieSceneNiagaraTrack {
-    Parameter: FNiagaraVariable;
+    readonly __properties_UMovieSceneNiagaraParameterTrack: {
+        Parameter: FNiagaraVariable;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneNiagaraTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneNiagaraParameterTrack['__properties_UMovieSceneNiagaraParameterTrack'] &
+        UMovieSceneNiagaraTrack['__propertyRegistry'];
 }
-declare const UMovieSceneNiagaraParameterTrack: UMovieSceneNiagaraParameterTrack;
 
 declare interface UMovieSceneNiagaraSystemSpawnSection extends UMovieSceneSection {
-    SectionStartBehavior: ENiagaraSystemSpawnSectionStartBehavior;
-    SectionEvaluateBehavior: ENiagaraSystemSpawnSectionEvaluateBehavior;
-    SectionEndBehavior: ENiagaraSystemSpawnSectionEndBehavior;
-    AgeUpdateMode: ENiagaraAgeUpdateMode;
-    bAllowScalability: boolean;
+    readonly __properties_UMovieSceneNiagaraSystemSpawnSection: {
+        SectionStartBehavior: ENiagaraSystemSpawnSectionStartBehavior;
+        SectionEvaluateBehavior: ENiagaraSystemSpawnSectionEvaluateBehavior;
+        SectionEndBehavior: ENiagaraSystemSpawnSectionEndBehavior;
+        AgeUpdateMode: ENiagaraAgeUpdateMode;
+        bAllowScalability: boolean;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneNiagaraSystemSpawnSection['__properties_UMovieSceneNiagaraSystemSpawnSection'] &
+        UMovieSceneSection['__propertyRegistry'];
 }
-declare const UMovieSceneNiagaraSystemSpawnSection: UMovieSceneNiagaraSystemSpawnSection;
 
 declare interface UMovieSceneNiagaraSystemTrack extends UMovieSceneNiagaraTrack {
-
+    readonly __staticRegistry: 
+        UMovieSceneNiagaraTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneNiagaraTrack['__propertyRegistry'];
 }
-declare const UMovieSceneNiagaraSystemTrack: UMovieSceneNiagaraSystemTrack;
 
 declare interface UMovieSceneNiagaraTrack extends UMovieSceneNameableTrack {
-    Sections: TArray<UMovieSceneSection>;
+    readonly __properties_UMovieSceneNiagaraTrack: {
+        Sections: UMovieSceneSection[];
+    };
+    readonly __staticRegistry: 
+        UMovieSceneNameableTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneNiagaraTrack['__properties_UMovieSceneNiagaraTrack'] &
+        UMovieSceneNameableTrack['__propertyRegistry'];
 }
-declare const UMovieSceneNiagaraTrack: UMovieSceneNiagaraTrack;
 
 declare interface UMovieSceneNiagaraVectorParameterTrack extends UMovieSceneNiagaraParameterTrack {
-    ChannelsUsed: number;
+    readonly __properties_UMovieSceneNiagaraVectorParameterTrack: {
+        ChannelsUsed: number;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneNiagaraParameterTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneNiagaraVectorParameterTrack['__properties_UMovieSceneNiagaraVectorParameterTrack'] &
+        UMovieSceneNiagaraParameterTrack['__propertyRegistry'];
 }
-declare const UMovieSceneNiagaraVectorParameterTrack: UMovieSceneNiagaraVectorParameterTrack;
 
 declare interface UNDIArraySimCacheData extends UObject {
-    CpuFrameData: TArray<FNDIArraySimCacheDataFrame>;
-    GpuFrameData: TArray<FNDIArraySimCacheDataFrame>;
-    BufferData: TArray<uint8>;
+    readonly __properties_UNDIArraySimCacheData: {
+        CpuFrameData: FNDIArraySimCacheDataFrame[];
+        GpuFrameData: FNDIArraySimCacheDataFrame[];
+        BufferData: number[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNDIArraySimCacheData['__properties_UNDIArraySimCacheData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNDIArraySimCacheData: UNDIArraySimCacheData;
 
 declare interface UNDIDataChannelWriteSimCacheData extends UObject {
-    FrameData: TArray<FNDIDataChannelWriteSimCacheFrame>;
-    DataChannelReference: FSoftObjectPath;
-    DataInterface: UNiagaraDataInterfaceDataChannelWrite;
+    readonly __properties_UNDIDataChannelWriteSimCacheData: {
+        FrameData: FNDIDataChannelWriteSimCacheFrame[];
+        DataChannelReference: FSoftObjectPath;
+        DataInterface: UNiagaraDataInterfaceDataChannelWrite;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNDIDataChannelWriteSimCacheData['__properties_UNDIDataChannelWriteSimCacheData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNDIDataChannelWriteSimCacheData: UNDIDataChannelWriteSimCacheData;
 
 declare interface UNDILandscapeSimCacheData extends UObject {
-    HeightFieldTextures: TArray<UTexture2D>;
+    readonly __properties_UNDILandscapeSimCacheData: {
+        HeightFieldTextures: UTexture2D[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNDILandscapeSimCacheData['__properties_UNDILandscapeSimCacheData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNDILandscapeSimCacheData: UNDILandscapeSimCacheData;
 
 declare interface UNDIMemoryBufferSimCacheData extends UObject {
-    FrameData: TArray<FNDIMemoryBufferSimCacheDataFrame>;
-    BufferData: TArray<uint32>;
+    readonly __properties_UNDIMemoryBufferSimCacheData: {
+        FrameData: FNDIMemoryBufferSimCacheDataFrame[];
+        BufferData: number[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNDIMemoryBufferSimCacheData['__properties_UNDIMemoryBufferSimCacheData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNDIMemoryBufferSimCacheData: UNDIMemoryBufferSimCacheData;
 
 declare interface UNDIRenderTargetSimCacheData extends UObject {
-    CompressionType: FName;
-    Frames: TArray<FNDIRenderTargetSimCacheFrame>;
+    readonly __properties_UNDIRenderTargetSimCacheData: {
+        CompressionType: string;
+        Frames: FNDIRenderTargetSimCacheFrame[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNDIRenderTargetSimCacheData['__properties_UNDIRenderTargetSimCacheData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNDIRenderTargetSimCacheData: UNDIRenderTargetSimCacheData;
 
 declare interface UNDISimpleCounterSimCacheData extends UObject {
-    Values: TArray<number>;
+    readonly __properties_UNDISimpleCounterSimCacheData: {
+        Values: number[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNDISimpleCounterSimCacheData['__properties_UNDISimpleCounterSimCacheData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNDISimpleCounterSimCacheData: UNDISimpleCounterSimCacheData;
 
 declare interface UNiagaraAssetTagDefinitions extends UObject {
-    DisplayName: FText;
-    Description: FText;
-    TagDefinitions: TArray<FNiagaraAssetTagDefinition>;
-    bDisplayTagsAsFlatList: boolean;
-    SortOrder: number;
+    readonly __properties_UNiagaraAssetTagDefinitions: {
+        DisplayName: string;
+        Description: string;
+        TagDefinitions: FNiagaraAssetTagDefinition[];
+        bDisplayTagsAsFlatList: boolean;
+        SortOrder: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraAssetTagDefinitions['__properties_UNiagaraAssetTagDefinitions'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraAssetTagDefinitions: UNiagaraAssetTagDefinitions;
 
 declare interface UNiagaraBakerOutput extends UObject {
-    OutputName: FString;
+    readonly __properties_UNiagaraBakerOutput: {
+        OutputName: string;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraBakerOutput['__properties_UNiagaraBakerOutput'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraBakerOutput: UNiagaraBakerOutput;
 
 declare interface UNiagaraBakerOutputSimCache extends UNiagaraBakerOutput {
-    SimCacheAssetPathFormat: FString;
-    CreateParameters: FNiagaraSimCacheCreateParameters;
+    readonly __properties_UNiagaraBakerOutputSimCache: {
+        SimCacheAssetPathFormat: string;
+        CreateParameters: FNiagaraSimCacheCreateParameters;
+    };
+    readonly __staticRegistry: 
+        UNiagaraBakerOutput['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraBakerOutputSimCache['__properties_UNiagaraBakerOutputSimCache'] &
+        UNiagaraBakerOutput['__propertyRegistry'];
 }
-declare const UNiagaraBakerOutputSimCache: UNiagaraBakerOutputSimCache;
 
 declare interface UNiagaraBakerOutputSparseVolumeTexture extends UNiagaraBakerOutput {
-    SourceBinding: FNiagaraBakerTextureSource;
-    VolumeWorldSpaceSizeBinding: FNiagaraParameterBinding;
-    SparseVolumeTextureAssetPathFormat: FString;
-    bEnableLoopedOutput: boolean;
-    LoopedSparseVolumeTextureAssetPathFormat: FString;
-    StartTime: number;
-    BlendDuration: number;
+    readonly __properties_UNiagaraBakerOutputSparseVolumeTexture: {
+        SourceBinding: FNiagaraBakerTextureSource;
+        VolumeWorldSpaceSizeBinding: FNiagaraParameterBinding;
+        SparseVolumeTextureAssetPathFormat: string;
+        bEnableLoopedOutput: boolean;
+        LoopedSparseVolumeTextureAssetPathFormat: string;
+        StartTime: number;
+        BlendDuration: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraBakerOutput['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraBakerOutputSparseVolumeTexture['__properties_UNiagaraBakerOutputSparseVolumeTexture'] &
+        UNiagaraBakerOutput['__propertyRegistry'];
 }
-declare const UNiagaraBakerOutputSparseVolumeTexture: UNiagaraBakerOutputSparseVolumeTexture;
 
 declare interface UNiagaraBakerOutputStaticMesh extends UNiagaraBakerOutput {
-    FramesAssetPathFormat: FString;
-    ExportParameters: FNiagaraRendererReadbackParameters;
+    readonly __properties_UNiagaraBakerOutputStaticMesh: {
+        FramesAssetPathFormat: string;
+        ExportParameters: FNiagaraRendererReadbackParameters;
+    };
+    readonly __staticRegistry: 
+        UNiagaraBakerOutput['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraBakerOutputStaticMesh['__properties_UNiagaraBakerOutputStaticMesh'] &
+        UNiagaraBakerOutput['__propertyRegistry'];
 }
-declare const UNiagaraBakerOutputStaticMesh: UNiagaraBakerOutputStaticMesh;
 
 declare interface UNiagaraBakerOutputTexture2D extends UNiagaraBakerOutput {
-    SourceBinding: FNiagaraBakerTextureSource;
-    bGenerateAtlas: boolean;
-    bGenerateFrames: boolean;
-    bExportFrames: boolean;
-    bSetTextureAddressX: boolean;
-    bSetTextureAddressY: boolean;
-    FrameSize: FIntPoint;
-    AtlasTextureSize: FIntPoint;
-    TextureAddressX: TextureAddress;
-    TextureAddressY: TextureAddress;
-    AtlasAssetPathFormat: FString;
-    FramesAssetPathFormat: FString;
-    FramesExportPathFormat: FString;
+    readonly __properties_UNiagaraBakerOutputTexture2D: {
+        SourceBinding: FNiagaraBakerTextureSource;
+        bGenerateAtlas: boolean;
+        bGenerateFrames: boolean;
+        bExportFrames: boolean;
+        bSetTextureAddressX: boolean;
+        bSetTextureAddressY: boolean;
+        FrameSize: FIntPoint;
+        AtlasTextureSize: FIntPoint;
+        TextureAddressX: TextureAddress;
+        TextureAddressY: TextureAddress;
+        AtlasAssetPathFormat: string;
+        FramesAssetPathFormat: string;
+        FramesExportPathFormat: string;
+    };
+    readonly __staticRegistry: 
+        UNiagaraBakerOutput['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraBakerOutputTexture2D['__properties_UNiagaraBakerOutputTexture2D'] &
+        UNiagaraBakerOutput['__propertyRegistry'];
 }
-declare const UNiagaraBakerOutputTexture2D: UNiagaraBakerOutputTexture2D;
 
 declare interface UNiagaraBakerOutputVolumeTexture extends UNiagaraBakerOutput {
-    SourceBinding: FNiagaraBakerTextureSource;
-    bGenerateAtlas: boolean;
-    bGenerateFrames: boolean;
-    bExportFrames: boolean;
-    AtlasAssetPathFormat: FString;
-    FramesAssetPathFormat: FString;
-    FramesExportPathFormat: FString;
+    readonly __properties_UNiagaraBakerOutputVolumeTexture: {
+        SourceBinding: FNiagaraBakerTextureSource;
+        bGenerateAtlas: boolean;
+        bGenerateFrames: boolean;
+        bExportFrames: boolean;
+        AtlasAssetPathFormat: string;
+        FramesAssetPathFormat: string;
+        FramesExportPathFormat: string;
+    };
+    readonly __staticRegistry: 
+        UNiagaraBakerOutput['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraBakerOutputVolumeTexture['__properties_UNiagaraBakerOutputVolumeTexture'] &
+        UNiagaraBakerOutput['__propertyRegistry'];
 }
-declare const UNiagaraBakerOutputVolumeTexture: UNiagaraBakerOutputVolumeTexture;
 
 declare interface UNiagaraBakerSettings extends UObject {
-    StartSeconds: number;
-    DurationSeconds: number;
-    FramesPerSecond: number;
-    bLockToSimulationFrameRate: boolean;
-    bPreviewLooping: boolean;
-    FramesPerDimension: FIntPoint;
-    Outputs: TArray<UNiagaraBakerOutput>;
-    CameraSettings: TArray<FNiagaraBakerCameraSettings>;
-    CurrentCameraIndex: number;
-    BakeQualityLevel: FName;
-    bRenderComponentOnly: boolean;
-    bPreviewLoopedOutput: boolean;
-    OutputTextures: TArray<FNiagaraBakerTextureSettings>;
-    CameraViewportMode: ENiagaraBakerViewMode;
-    CameraViewportLocation: FVector;
-    CameraViewportRotation: FRotator;
-    CameraOrbitDistance: number;
-    CameraFOV: number;
-    CameraOrthoWidth: number;
-    bUseCameraAspectRatio: boolean;
-    CameraAspectRatio: number;
+    readonly __properties_UNiagaraBakerSettings: {
+        StartSeconds: number;
+        DurationSeconds: number;
+        FramesPerSecond: number;
+        bLockToSimulationFrameRate: boolean;
+        bPreviewLooping: boolean;
+        FramesPerDimension: FIntPoint;
+        Outputs: UNiagaraBakerOutput[];
+        CameraSettings: FNiagaraBakerCameraSettings[];
+        CurrentCameraIndex: number;
+        BakeQualityLevel: string;
+        bRenderComponentOnly: boolean;
+        bPreviewLoopedOutput: boolean;
+        OutputTextures: FNiagaraBakerTextureSettings[];
+        CameraViewportMode: ENiagaraBakerViewMode;
+        CameraViewportLocation: FVector;
+        CameraViewportRotation: FRotator;
+        CameraOrbitDistance: number;
+        CameraFOV: number;
+        CameraOrthoWidth: number;
+        bUseCameraAspectRatio: boolean;
+        CameraAspectRatio: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraBakerSettings['__properties_UNiagaraBakerSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraBakerSettings: UNiagaraBakerSettings;
 
 declare interface UNiagaraBaselineController extends UObject {
-    TestDuration: number;
-    EffectType: UNiagaraEffectType;
-    Owner: ANiagaraPerfBaselineActor;
-    System: TSoftObjectPtr<UNiagaraSystem>;
-    OnTickTest(): boolean;
-    OnOwnerTick(DeltaTime: number): void;
-    OnEndTest(Stats: FNiagaraPerfBaselineStats): void;
-    OnBeginTest(): void;
-    GetSystem(): UNiagaraSystem;
+    readonly __static_UNiagaraBaselineController: {
+        OnTickTest(): boolean;
+        OnOwnerTick(DeltaTime: number): void;
+        OnEndTest(Stats: FNiagaraPerfBaselineStats): void;
+        OnBeginTest(): void;
+        GetSystem(): UNiagaraSystem;
+    };
+    readonly __properties_UNiagaraBaselineController: {
+        TestDuration: number;
+        EffectType: UNiagaraEffectType;
+        Owner: ANiagaraPerfBaselineActor;
+        System: TSoftObjectPtr<UNiagaraSystem>;
+    };
+    readonly __staticRegistry: 
+        UNiagaraBaselineController['__static_UNiagaraBaselineController'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraBaselineController['__properties_UNiagaraBaselineController'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraBaselineController: UNiagaraBaselineController;
 
 declare interface UNiagaraBaselineController_Basic extends UNiagaraBaselineController {
-    NumInstances: number;
-    SpawnedComponents: TArray<UNiagaraComponent>;
+    readonly __properties_UNiagaraBaselineController_Basic: {
+        NumInstances: number;
+        SpawnedComponents: UNiagaraComponent[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraBaselineController['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraBaselineController_Basic['__properties_UNiagaraBaselineController_Basic'] &
+        UNiagaraBaselineController['__propertyRegistry'];
 }
-declare const UNiagaraBaselineController_Basic: UNiagaraBaselineController_Basic;
 
 declare interface UNiagaraComponent extends UFXSystemComponent {
-    Asset: UNiagaraSystem;
-    TickBehavior: ENiagaraTickBehavior;
-    RandomSeedOffset: number;
-    OverrideParameters: FNiagaraUserRedirectionParameterStore;
-    bEnableGpuComputeDebug: boolean;
-    bOverrideWarmupSettings: boolean;
-    WarmupTickCount: number;
-    WarmupTickDelta: number;
-    bAutoDestroy: boolean;
-    bRenderingEnabled: boolean;
-    bAutoManageAttachment: boolean;
-    bAutoAttachWeldSimulatedBodies: boolean;
-    MaxTimeBeforeForceUpdateTransform: number;
-    OcclusionQueryMode: ENiagaraOcclusionQueryMode;
-    OnSystemFinished: FNiagaraComponentOnSystemFinished;
-    AutoAttachParent: TWeakObjectPtr<USceneComponent>;
-    AutoAttachSocketName: FName;
-    AutoAttachLocationRule: EAttachmentRule;
-    AutoAttachRotationRule: EAttachmentRule;
-    AutoAttachScaleRule: EAttachmentRule;
-    bAllowScalability: boolean;
-    SimCache: UNiagaraSimCache;
-    CullProxy: UNiagaraCullProxyComponent;
-    SetVariableVec4(InVariableName: FName, InValue: FVector4): void;
-    SetVariableVec3(InVariableName: FName, InValue: FVector): void;
-    SetVariableVec2(InVariableName: FName, InValue: FVector2D): void;
-    SetVariableTextureRenderTarget(InVariableName: FName, TextureRenderTarget: UTextureRenderTarget): void;
-    SetVariableTexture(InVariableName: FName, Texture: UTexture): void;
-    SetVariableStaticMesh(InVariableName: FName, InValue: UStaticMesh): void;
-    SetVariableQuat(InVariableName: FName, InValue: FQuat): void;
-    SetVariablePosition(InVariableName: FName, InValue: FVector): void;
-    SetVariableObject(InVariableName: FName, Object: UObject): void;
-    SetVariableMatrix(InVariableName: FName, InValue: FMatrix): void;
-    SetVariableMaterial(InVariableName: FName, Object: UMaterialInterface): void;
-    SetVariableLinearColor(InVariableName: FName, InValue: FLinearColor): void;
-    SetVariableInt(InVariableName: FName, InValue: number): void;
-    SetVariableFloat(InVariableName: FName, InValue: number): void;
-    SetVariableBool(InVariableName: FName, InValue: boolean): void;
-    SetVariableActor(InVariableName: FName, Actor: AActor): void;
-    SetTickBehavior(NewTickBehavior: ENiagaraTickBehavior): void;
-    SetSystemFixedBounds(LocalBounds: FBox): void;
-    SetSimCache(SimCache: UNiagaraSimCache, bResetSystem: boolean): void;
-    SetSeekDelta(InSeekDelta: number): void;
-    SetRenderingEnabled(bInRenderingEnabled: boolean): void;
-    SetRandomSeedOffset(NewRandomSeedOffset: number): void;
-    SetPreviewLODDistance(bEnablePreviewLODDistance: boolean, PreviewLODDistance: number, PreviewMaxDistance: number): void;
-    SetPaused(bInPaused: boolean): void;
-    SetOcclusionQueryMode(Mode: ENiagaraOcclusionQueryMode): void;
-    SetNiagaraVariableVec4(InVariableName: string | FString, InValue: FVector4): void;
-    SetNiagaraVariableVec3(InVariableName: string | FString, InValue: FVector): void;
-    SetNiagaraVariableVec2(InVariableName: string | FString, InValue: FVector2D): void;
-    SetNiagaraVariableQuat(InVariableName: string | FString, InValue: FQuat): void;
-    SetNiagaraVariablePosition(InVariableName: string | FString, InValue: FVector): void;
-    SetNiagaraVariableObject(InVariableName: string | FString, Object: UObject): void;
-    SetNiagaraVariableMatrix(InVariableName: string | FString, InValue: FMatrix): void;
-    SetNiagaraVariableLinearColor(InVariableName: string | FString, InValue: FLinearColor): void;
-    SetNiagaraVariableInt(InVariableName: string | FString, InValue: number): void;
-    SetNiagaraVariableFloat(InVariableName: string | FString, InValue: number): void;
-    SetNiagaraVariableBool(InVariableName: string | FString, InValue: boolean): void;
-    SetNiagaraVariableActor(InVariableName: string | FString, Actor: AActor): void;
-    SetMaxSimTime(InMaxTime: number): void;
-    SetLockDesiredAgeDeltaTimeToSeekDelta(bLock: boolean): void;
-    SetGpuComputeDebug(bEnableDebug: boolean): void;
-    SetForceSolo(bInForceSolo: boolean): void;
-    SetForceLocalPlayerEffect(bIsPlayerEffect: boolean): void;
-    SetEmitterFixedBounds(EmitterName: FName, LocalBounds: FBox): void;
-    SetDesiredAge(InDesiredAge: number): void;
-    SetCustomTimeDilation(Dilation: number): void;
-    SetCanRenderWhileSeeking(bInCanRenderWhileSeeking: boolean): void;
-    SetAutoDestroy(bInAutoDestroy: boolean): void;
-    SetAsset(InAsset: UNiagaraSystem, bResetExistingOverrideParameters: boolean): void;
-    SetAllowScalability(bAllow: boolean): void;
-    SetAgeUpdateMode(InAgeUpdateMode: ENiagaraAgeUpdateMode): void;
-    SeekToDesiredAge(InDesiredAge: number): void;
-    ResetSystem(): void;
-    ReinitializeSystem(): void;
-    IsPaused(): boolean;
-    InitForPerformanceBaseline(): void;
-    GetTickBehavior(): ENiagaraTickBehavior;
-    GetSystemFixedBounds(): FBox;
-    GetSimCache(): UNiagaraSimCache;
-    GetSeekDelta(): number;
-    GetRandomSeedOffset(): number;
-    GetPreviewLODDistanceEnabled(): boolean;
-    GetPreviewLODDistance(): number;
-    GetOcclusionQueryMode(): ENiagaraOcclusionQueryMode;
-    GetMaxSimTime(): number;
-    GetLockDesiredAgeDeltaTimeToSeekDelta(): boolean;
-    GetForceSolo(): boolean;
-    GetForceLocalPlayerEffect(): boolean;
-    GetEmitterFixedBounds(EmitterName: FName): FBox;
-    GetDesiredAge(): number;
-    GetDataInterface(Name: string | FString): UNiagaraDataInterface;
-    GetCustomTimeDilation(): number;
-    GetAsset(): UNiagaraSystem;
-    GetAllowScalability(): boolean;
-    GetAgeUpdateMode(): ENiagaraAgeUpdateMode;
-    ClearSystemFixedBounds(): void;
-    ClearSimCache(bResetSystem: boolean): void;
-    ClearEmitterFixedBounds(EmitterName: FName): void;
-    AdvanceSimulationByTime(SimulateTime: number, TickDeltaSeconds: number): void;
-    AdvanceSimulation(TickCount: number, TickDeltaSeconds: number): void;
+    readonly __static_UNiagaraComponent: {
+        SetVariableVec4(InVariableName: string, InValue: FVector4): void;
+        SetVariableVec3(InVariableName: string, InValue: FVector): void;
+        SetVariableVec2(InVariableName: string, InValue: FVector2D): void;
+        SetVariableTextureRenderTarget(InVariableName: string, TextureRenderTarget: UTextureRenderTarget): void;
+        SetVariableTexture(InVariableName: string, Texture: UTexture): void;
+        SetVariableStaticMesh(InVariableName: string, InValue: UStaticMesh): void;
+        SetVariableQuat(InVariableName: string, InValue: FQuat): void;
+        SetVariablePosition(InVariableName: string, InValue: FVector): void;
+        SetVariableObject(InVariableName: string, Object: UObject): void;
+        SetVariableMatrix(InVariableName: string, InValue: FMatrix): void;
+        SetVariableMaterial(InVariableName: string, Object: UMaterialInterface): void;
+        SetVariableLinearColor(InVariableName: string, InValue: FLinearColor): void;
+        SetVariableInt(InVariableName: string, InValue: number): void;
+        SetVariableFloat(InVariableName: string, InValue: number): void;
+        SetVariableBool(InVariableName: string, InValue: boolean): void;
+        SetVariableActor(InVariableName: string, Actor: AActor): void;
+        SetTickBehavior(NewTickBehavior: ENiagaraTickBehavior): void;
+        SetSystemFixedBounds(LocalBounds: FBox): void;
+        SetSimCache(SimCache: UNiagaraSimCache, bResetSystem: boolean): void;
+        SetSeekDelta(InSeekDelta: number): void;
+        SetRenderingEnabled(bInRenderingEnabled: boolean): void;
+        SetRandomSeedOffset(NewRandomSeedOffset: number): void;
+        SetPreviewLODDistance(bEnablePreviewLODDistance: boolean, PreviewLODDistance: number, PreviewMaxDistance: number): void;
+        SetPaused(bInPaused: boolean): void;
+        SetOcclusionQueryMode(Mode: ENiagaraOcclusionQueryMode): void;
+        SetNiagaraVariableVec4(InVariableName: string, InValue: FVector4): void;
+        SetNiagaraVariableVec3(InVariableName: string, InValue: FVector): void;
+        SetNiagaraVariableVec2(InVariableName: string, InValue: FVector2D): void;
+        SetNiagaraVariableQuat(InVariableName: string, InValue: FQuat): void;
+        SetNiagaraVariablePosition(InVariableName: string, InValue: FVector): void;
+        SetNiagaraVariableObject(InVariableName: string, Object: UObject): void;
+        SetNiagaraVariableMatrix(InVariableName: string, InValue: FMatrix): void;
+        SetNiagaraVariableLinearColor(InVariableName: string, InValue: FLinearColor): void;
+        SetNiagaraVariableInt(InVariableName: string, InValue: number): void;
+        SetNiagaraVariableFloat(InVariableName: string, InValue: number): void;
+        SetNiagaraVariableBool(InVariableName: string, InValue: boolean): void;
+        SetNiagaraVariableActor(InVariableName: string, Actor: AActor): void;
+        SetMaxSimTime(InMaxTime: number): void;
+        SetLockDesiredAgeDeltaTimeToSeekDelta(bLock: boolean): void;
+        SetGpuComputeDebug(bEnableDebug: boolean): void;
+        SetForceSolo(bInForceSolo: boolean): void;
+        SetForceLocalPlayerEffect(bIsPlayerEffect: boolean): void;
+        SetEmitterFixedBounds(EmitterName: string, LocalBounds: FBox): void;
+        SetDesiredAge(InDesiredAge: number): void;
+        SetCustomTimeDilation(Dilation: number): void;
+        SetCanRenderWhileSeeking(bInCanRenderWhileSeeking: boolean): void;
+        SetAutoDestroy(bInAutoDestroy: boolean): void;
+        SetAsset(InAsset: UNiagaraSystem, bResetExistingOverrideParameters: boolean): void;
+        SetAllowScalability(bAllow: boolean): void;
+        SetAgeUpdateMode(InAgeUpdateMode: ENiagaraAgeUpdateMode): void;
+        SeekToDesiredAge(InDesiredAge: number): void;
+        ResetSystem(): void;
+        ReinitializeSystem(): void;
+        IsPaused(): boolean;
+        InitForPerformanceBaseline(): void;
+        GetTickBehavior(): ENiagaraTickBehavior;
+        GetSystemFixedBounds(): FBox;
+        GetSimCache(): UNiagaraSimCache;
+        GetSeekDelta(): number;
+        GetRandomSeedOffset(): number;
+        GetPreviewLODDistanceEnabled(): boolean;
+        GetPreviewLODDistance(): number;
+        GetOcclusionQueryMode(): ENiagaraOcclusionQueryMode;
+        GetMaxSimTime(): number;
+        GetLockDesiredAgeDeltaTimeToSeekDelta(): boolean;
+        GetForceSolo(): boolean;
+        GetForceLocalPlayerEffect(): boolean;
+        GetEmitterFixedBounds(EmitterName: string): FBox;
+        GetDesiredAge(): number;
+        GetDataInterface(Name: string): UNiagaraDataInterface;
+        GetCustomTimeDilation(): number;
+        GetAsset(): UNiagaraSystem;
+        GetAllowScalability(): boolean;
+        GetAgeUpdateMode(): ENiagaraAgeUpdateMode;
+        ClearSystemFixedBounds(): void;
+        ClearSimCache(bResetSystem: boolean): void;
+        ClearEmitterFixedBounds(EmitterName: string): void;
+        AdvanceSimulationByTime(SimulateTime: number, TickDeltaSeconds: number): void;
+        AdvanceSimulation(TickCount: number, TickDeltaSeconds: number): void;
+    };
+    readonly __properties_UNiagaraComponent: {
+        Asset: UNiagaraSystem;
+        TickBehavior: ENiagaraTickBehavior;
+        RandomSeedOffset: number;
+        OverrideParameters: FNiagaraUserRedirectionParameterStore;
+        bEnableGpuComputeDebug: boolean;
+        bOverrideWarmupSettings: boolean;
+        WarmupTickCount: number;
+        WarmupTickDelta: number;
+        bAutoDestroy: boolean;
+        bRenderingEnabled: boolean;
+        bAutoManageAttachment: boolean;
+        bAutoAttachWeldSimulatedBodies: boolean;
+        MaxTimeBeforeForceUpdateTransform: number;
+        OcclusionQueryMode: ENiagaraOcclusionQueryMode;
+        OnSystemFinished: FNiagaraComponentOnSystemFinished;
+        AutoAttachParent: TWeakObjectPtr<USceneComponent>;
+        AutoAttachSocketName: string;
+        AutoAttachLocationRule: EAttachmentRule;
+        AutoAttachRotationRule: EAttachmentRule;
+        AutoAttachScaleRule: EAttachmentRule;
+        bAllowScalability: boolean;
+        SimCache: UNiagaraSimCache;
+        CullProxy: UNiagaraCullProxyComponent;
+    };
+    readonly __staticRegistry: 
+        UNiagaraComponent['__static_UNiagaraComponent'] &
+        UFXSystemComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraComponent['__properties_UNiagaraComponent'] &
+        UFXSystemComponent['__propertyRegistry'];
 }
-declare const UNiagaraComponent: UNiagaraComponent;
 
 declare interface UNiagaraComponentPool extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraComponentPool: UNiagaraComponentPool;
 
 declare interface UNiagaraComponentRendererProperties extends UNiagaraRendererProperties {
-    ComponentType: TSubclassOf<USceneComponent>;
-    ComponentCountLimit: uint32;
-    EnabledBinding: FNiagaraVariableAttributeBinding;
-    RendererVisibilityTagBinding: FNiagaraVariableAttributeBinding;
-    bAssignComponentsOnParticleID: boolean;
-    bCreateComponentFirstParticleFrame: boolean;
-    bOnlyActivateNewlyAquiredComponents: boolean;
-    RendererVisibility: number;
-    TemplateComponent: USceneComponent;
-    PropertyBindings: TArray<FNiagaraComponentPropertyBinding>;
+    readonly __properties_UNiagaraComponentRendererProperties: {
+        ComponentType: TSubclassOf<USceneComponent>;
+        ComponentCountLimit: number;
+        EnabledBinding: FNiagaraVariableAttributeBinding;
+        RendererVisibilityTagBinding: FNiagaraVariableAttributeBinding;
+        bAssignComponentsOnParticleID: boolean;
+        bCreateComponentFirstParticleFrame: boolean;
+        bOnlyActivateNewlyAquiredComponents: boolean;
+        RendererVisibility: number;
+        TemplateComponent: USceneComponent;
+        PropertyBindings: FNiagaraComponentPropertyBinding[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraRendererProperties['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraComponentRendererProperties['__properties_UNiagaraComponentRendererProperties'] &
+        UNiagaraRendererProperties['__propertyRegistry'];
 }
-declare const UNiagaraComponentRendererProperties: UNiagaraComponentRendererProperties;
 
 declare interface UNiagaraConvertInPlaceUtilityBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraConvertInPlaceUtilityBase: UNiagaraConvertInPlaceUtilityBase;
 
 declare interface UNiagaraCullProxyComponent extends UNiagaraComponent {
-    Instances: TArray<FNiagaraCulledComponentInfo>;
+    readonly __properties_UNiagaraCullProxyComponent: {
+        Instances: FNiagaraCulledComponentInfo[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraCullProxyComponent['__properties_UNiagaraCullProxyComponent'] &
+        UNiagaraComponent['__propertyRegistry'];
 }
-declare const UNiagaraCullProxyComponent: UNiagaraCullProxyComponent;
 
 declare interface UNiagaraDIRigidMeshCollisionFunctionLibrary extends UBlueprintFunctionLibrary {
-    SetSourceActors(NiagaraSystem: UNiagaraComponent, OverrideName: FName, SourceActors: TArray<AActor>): void;
+    readonly __static_UNiagaraDIRigidMeshCollisionFunctionLibrary: {
+        SetSourceActors(NiagaraSystem: UNiagaraComponent, OverrideName: string, SourceActors: AActor[]): void;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDIRigidMeshCollisionFunctionLibrary['__static_UNiagaraDIRigidMeshCollisionFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UNiagaraDIRigidMeshCollisionFunctionLibrary: UNiagaraDIRigidMeshCollisionFunctionLibrary;
 
 declare interface UNiagaraDataChannel extends UObject {
-    ChannelVariables: TArray<FNiagaraDataChannelVariable>;
-    bKeepPreviousFrameData: boolean;
-    bEnforceTickGroupReadWriteOrder: boolean;
-    FinalWriteTickGroup: ETickingGroup;
+    readonly __properties_UNiagaraDataChannel: {
+        ChannelVariables: FNiagaraDataChannelVariable[];
+        bKeepPreviousFrameData: boolean;
+        bEnforceTickGroupReadWriteOrder: boolean;
+        FinalWriteTickGroup: ETickingGroup;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataChannel['__properties_UNiagaraDataChannel'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraDataChannel: UNiagaraDataChannel;
 
 declare interface UNiagaraDataChannelAsset extends UObject {
-    DataChannel: UNiagaraDataChannel;
+    readonly __properties_UNiagaraDataChannelAsset: {
+        DataChannel: UNiagaraDataChannel;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataChannelAsset['__properties_UNiagaraDataChannelAsset'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraDataChannelAsset: UNiagaraDataChannelAsset;
 
 declare interface UNiagaraDataChannelHandler extends UObject {
-    DataChannel: TWeakObjectPtr<UNiagaraDataChannel>;
-    Writer: UNiagaraDataChannelWriter;
-    Reader: UNiagaraDataChannelReader;
-    UnsubscribeFromDataChannelUpdates(UnsubscribeToken: number): void;
-    SubscribeToDataChannelUpdates(UpdateDelegate: FSubscribeToDataChannelUpdatesUpdateDelegate, SearchParams: FNiagaraDataChannelSearchParameters, UnsubscribeToken: number): void;
-    GetDataChannelWriter(): UNiagaraDataChannelWriter;
-    GetDataChannelReader(): UNiagaraDataChannelReader;
+    readonly __static_UNiagaraDataChannelHandler: {
+        UnsubscribeFromDataChannelUpdates(UnsubscribeToken: number): void;
+        SubscribeToDataChannelUpdates(UpdateDelegate: FSubscribeToDataChannelUpdatesUpdateDelegate, SearchParams: FNiagaraDataChannelSearchParameters, UnsubscribeToken: number): void;
+        GetDataChannelWriter(): UNiagaraDataChannelWriter;
+        GetDataChannelReader(): UNiagaraDataChannelReader;
+    };
+    readonly __properties_UNiagaraDataChannelHandler: {
+        DataChannel: TWeakObjectPtr<UNiagaraDataChannel>;
+        Writer: UNiagaraDataChannelWriter;
+        Reader: UNiagaraDataChannelReader;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataChannelHandler['__static_UNiagaraDataChannelHandler'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataChannelHandler['__properties_UNiagaraDataChannelHandler'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraDataChannelHandler: UNiagaraDataChannelHandler;
 
 declare interface UNiagaraDataChannelHandler_Global extends UNiagaraDataChannelHandler {
-
+    readonly __staticRegistry: 
+        UNiagaraDataChannelHandler['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataChannelHandler['__propertyRegistry'];
 }
-declare const UNiagaraDataChannelHandler_Global: UNiagaraDataChannelHandler_Global;
 
 declare interface UNiagaraDataChannelHandler_Islands extends UNiagaraDataChannelHandler {
-    ActiveIslands: TArray<number>;
-    FreeIslands: TArray<number>;
-    IslandPool: TArray<FNDCIsland>;
+    readonly __properties_UNiagaraDataChannelHandler_Islands: {
+        ActiveIslands: number[];
+        FreeIslands: number[];
+        IslandPool: FNDCIsland[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataChannelHandler['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataChannelHandler_Islands['__properties_UNiagaraDataChannelHandler_Islands'] &
+        UNiagaraDataChannelHandler['__propertyRegistry'];
 }
-declare const UNiagaraDataChannelHandler_Islands: UNiagaraDataChannelHandler_Islands;
 
 declare interface UNiagaraDataChannelLibrary extends UBlueprintFunctionLibrary {
-    WriteToNiagaraDataChannelSingle(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, SearchParams: FNiagaraDataChannelSearchParameters, bVisibleToBlueprint: boolean, bVisibleToNiagaraCPU: boolean, bVisibleToNiagaraGPU: boolean): void;
-    WriteToNiagaraDataChannel(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, SearchParams: FNiagaraDataChannelSearchParameters, count: number, bVisibleToGame: boolean, bVisibleToCPU: boolean, bVisibleToGPU: boolean, DebugSource: string | FString): UNiagaraDataChannelWriter;
-    UnsubscribeFromNiagaraDataChannel(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, UnsubscribeToken: number): void;
-    SubscribeToNiagaraDataChannel(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, SearchParams: FNiagaraDataChannelSearchParameters, UpdateDelegate: FSubscribeToNiagaraDataChannelUpdateDelegate, UnsubscribeToken: number): void;
-    ReadFromNiagaraDataChannelSingle(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, Index: number, SearchParams: FNiagaraDataChannelSearchParameters, bReadPreviousFrame: boolean, ReadResult: ENiagartaDataChannelReadResult): void;
-    ReadFromNiagaraDataChannel(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, SearchParams: FNiagaraDataChannelSearchParameters, bReadPreviousFrame: boolean): UNiagaraDataChannelReader;
-    GetNiagaraDataChannel(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset): UNiagaraDataChannelHandler;
-    GetDataChannelElementCount(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, SearchParams: FNiagaraDataChannelSearchParameters, bReadPreviousFrame: boolean): number;
+    readonly __static_UNiagaraDataChannelLibrary: {
+        WriteToNiagaraDataChannelSingle(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, SearchParams: FNiagaraDataChannelSearchParameters, bVisibleToBlueprint: boolean, bVisibleToNiagaraCPU: boolean, bVisibleToNiagaraGPU: boolean): void;
+        WriteToNiagaraDataChannel(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, SearchParams: FNiagaraDataChannelSearchParameters, count: number, bVisibleToGame: boolean, bVisibleToCPU: boolean, bVisibleToGPU: boolean, DebugSource: string): UNiagaraDataChannelWriter;
+        UnsubscribeFromNiagaraDataChannel(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, UnsubscribeToken: number): void;
+        SubscribeToNiagaraDataChannel(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, SearchParams: FNiagaraDataChannelSearchParameters, UpdateDelegate: FSubscribeToNiagaraDataChannelUpdateDelegate, UnsubscribeToken: number): void;
+        ReadFromNiagaraDataChannelSingle(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, Index: number, SearchParams: FNiagaraDataChannelSearchParameters, bReadPreviousFrame: boolean, ReadResult: ENiagartaDataChannelReadResult): void;
+        ReadFromNiagaraDataChannel(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, SearchParams: FNiagaraDataChannelSearchParameters, bReadPreviousFrame: boolean): UNiagaraDataChannelReader;
+        GetNiagaraDataChannel(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset): UNiagaraDataChannelHandler;
+        GetDataChannelElementCount(WorldContextObject: UObject, Channel: UNiagaraDataChannelAsset, SearchParams: FNiagaraDataChannelSearchParameters, bReadPreviousFrame: boolean): number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataChannelLibrary['__static_UNiagaraDataChannelLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UNiagaraDataChannelLibrary: UNiagaraDataChannelLibrary;
 
 declare interface UNiagaraDataChannelReader extends UObject {
-    Owner: UNiagaraDataChannelHandler;
-    ReadVector4(VarName: FName, Index: number, IsValid: boolean): FVector4;
-    ReadVector2D(VarName: FName, Index: number, IsValid: boolean): FVector2D;
-    ReadVector(VarName: FName, Index: number, IsValid: boolean): FVector;
-    ReadSpawnInfo(VarName: FName, Index: number, IsValid: boolean): FNiagaraSpawnInfo;
-    ReadQuat(VarName: FName, Index: number, IsValid: boolean): FQuat;
-    ReadPosition(VarName: FName, Index: number, IsValid: boolean): FVector;
-    ReadLinearColor(VarName: FName, Index: number, IsValid: boolean): FLinearColor;
-    ReadInt(VarName: FName, Index: number, IsValid: boolean): number;
-    ReadID(VarName: FName, Index: number, IsValid: boolean): FNiagaraID;
-    ReadFloat(VarName: FName, Index: number, IsValid: boolean): number;
-    ReadEnum(VarName: FName, Index: number, IsValid: boolean): uint8;
-    ReadBool(VarName: FName, Index: number, IsValid: boolean): boolean;
-    Num(): number;
-    InitAccess(SearchParams: FNiagaraDataChannelSearchParameters, bReadPrevFrameData: boolean): boolean;
+    readonly __static_UNiagaraDataChannelReader: {
+        ReadVector4(VarName: string, Index: number, IsValid: boolean): FVector4;
+        ReadVector2D(VarName: string, Index: number, IsValid: boolean): FVector2D;
+        ReadVector(VarName: string, Index: number, IsValid: boolean): FVector;
+        ReadSpawnInfo(VarName: string, Index: number, IsValid: boolean): FNiagaraSpawnInfo;
+        ReadQuat(VarName: string, Index: number, IsValid: boolean): FQuat;
+        ReadPosition(VarName: string, Index: number, IsValid: boolean): FVector;
+        ReadLinearColor(VarName: string, Index: number, IsValid: boolean): FLinearColor;
+        ReadInt(VarName: string, Index: number, IsValid: boolean): number;
+        ReadID(VarName: string, Index: number, IsValid: boolean): FNiagaraID;
+        ReadFloat(VarName: string, Index: number, IsValid: boolean): number;
+        ReadEnum(VarName: string, Index: number, IsValid: boolean): number;
+        ReadBool(VarName: string, Index: number, IsValid: boolean): boolean;
+        Num(): number;
+        InitAccess(SearchParams: FNiagaraDataChannelSearchParameters, bReadPrevFrameData: boolean): boolean;
+    };
+    readonly __properties_UNiagaraDataChannelReader: {
+        Owner: UNiagaraDataChannelHandler;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataChannelReader['__static_UNiagaraDataChannelReader'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataChannelReader['__properties_UNiagaraDataChannelReader'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraDataChannelReader: UNiagaraDataChannelReader;
 
 declare interface UNiagaraDataChannelWriter extends UObject {
-    Owner: UNiagaraDataChannelHandler;
-    WriteVector4(VarName: FName, Index: number, InData: FVector4): void;
-    WriteVector2D(VarName: FName, Index: number, InData: FVector2D): void;
-    WriteVector(VarName: FName, Index: number, InData: FVector): void;
-    WriteSpawnInfo(VarName: FName, Index: number, InData: FNiagaraSpawnInfo): void;
-    WriteQuat(VarName: FName, Index: number, InData: FQuat): void;
-    WritePosition(VarName: FName, Index: number, InData: FVector): void;
-    WriteLinearColor(VarName: FName, Index: number, InData: FLinearColor): void;
-    WriteInt(VarName: FName, Index: number, InData: number): void;
-    WriteID(VarName: FName, Index: number, InData: FNiagaraID): void;
-    WriteFloat(VarName: FName, Index: number, InData: number): void;
-    WriteEnum(VarName: FName, Index: number, InData: uint8): void;
-    WriteBool(VarName: FName, Index: number, InData: boolean): void;
-    Num(): number;
-    InitWrite(SearchParams: FNiagaraDataChannelSearchParameters, count: number, bVisibleToGame: boolean, bVisibleToCPU: boolean, bVisibleToGPU: boolean, DebugSource: string | FString): boolean;
+    readonly __static_UNiagaraDataChannelWriter: {
+        WriteVector4(VarName: string, Index: number, InData: FVector4): void;
+        WriteVector2D(VarName: string, Index: number, InData: FVector2D): void;
+        WriteVector(VarName: string, Index: number, InData: FVector): void;
+        WriteSpawnInfo(VarName: string, Index: number, InData: FNiagaraSpawnInfo): void;
+        WriteQuat(VarName: string, Index: number, InData: FQuat): void;
+        WritePosition(VarName: string, Index: number, InData: FVector): void;
+        WriteLinearColor(VarName: string, Index: number, InData: FLinearColor): void;
+        WriteInt(VarName: string, Index: number, InData: number): void;
+        WriteID(VarName: string, Index: number, InData: FNiagaraID): void;
+        WriteFloat(VarName: string, Index: number, InData: number): void;
+        WriteEnum(VarName: string, Index: number, InData: number): void;
+        WriteBool(VarName: string, Index: number, InData: boolean): void;
+        Num(): number;
+        InitWrite(SearchParams: FNiagaraDataChannelSearchParameters, count: number, bVisibleToGame: boolean, bVisibleToCPU: boolean, bVisibleToGPU: boolean, DebugSource: string): boolean;
+    };
+    readonly __properties_UNiagaraDataChannelWriter: {
+        Owner: UNiagaraDataChannelHandler;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataChannelWriter['__static_UNiagaraDataChannelWriter'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataChannelWriter['__properties_UNiagaraDataChannelWriter'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraDataChannelWriter: UNiagaraDataChannelWriter;
 
 declare interface UNiagaraDataChannel_Global extends UNiagaraDataChannel {
-
+    readonly __staticRegistry: 
+        UNiagaraDataChannel['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataChannel['__propertyRegistry'];
 }
-declare const UNiagaraDataChannel_Global: UNiagaraDataChannel_Global;
 
 declare interface UNiagaraDataChannel_Islands extends UNiagaraDataChannel {
-    Mode: ENiagraDataChannel_IslandMode;
-    InitialExtents: FVector;
-    MaxExtents: FVector;
-    PerElementExtents: FVector;
-    Systems: TArray<TSoftObjectPtr<UNiagaraSystem>>;
-    IslandPoolSize: number;
-    DebugDrawSettings: FNDCIslandDebugDrawSettings;
-    SystemsInternal: TArray<UNiagaraSystem>;
+    readonly __properties_UNiagaraDataChannel_Islands: {
+        Mode: ENiagraDataChannel_IslandMode;
+        InitialExtents: FVector;
+        MaxExtents: FVector;
+        PerElementExtents: FVector;
+        Systems: TSoftObjectPtr<UNiagaraSystem>[];
+        IslandPoolSize: number;
+        DebugDrawSettings: FNDCIslandDebugDrawSettings;
+        SystemsInternal: UNiagaraSystem[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataChannel['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataChannel_Islands['__properties_UNiagaraDataChannel_Islands'] &
+        UNiagaraDataChannel['__propertyRegistry'];
 }
-declare const UNiagaraDataChannel_Islands: UNiagaraDataChannel_Islands;
 
 declare interface UNiagaraDataInterface extends UNiagaraDataInterfaceBase {
-
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterface: UNiagaraDataInterface;
 
 declare interface UNiagaraDataInterface2DArrayTexture extends UNiagaraDataInterface {
-    Texture: UTexture;
-    TextureUserParameter: FNiagaraUserParameterBinding;
+    readonly __properties_UNiagaraDataInterface2DArrayTexture: {
+        Texture: UTexture;
+        TextureUserParameter: FNiagaraUserParameterBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterface2DArrayTexture['__properties_UNiagaraDataInterface2DArrayTexture'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterface2DArrayTexture: UNiagaraDataInterface2DArrayTexture;
 
 declare interface UNiagaraDataInterfaceActorComponent extends UNiagaraDataInterface {
-    SourceMode: ENDIActorComponentSourceMode;
-    LocalPlayerIndex: number;
-    SourceActor: TLazyObjectPtr<AActor>;
-    ActorOrComponentParameter: FNiagaraUserParameterBinding;
-    bRequireCurrentFrameData: boolean;
+    readonly __properties_UNiagaraDataInterfaceActorComponent: {
+        SourceMode: ENDIActorComponentSourceMode;
+        LocalPlayerIndex: number;
+        SourceActor: TLazyObjectPtr<AActor>;
+        ActorOrComponentParameter: FNiagaraUserParameterBinding;
+        bRequireCurrentFrameData: boolean;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceActorComponent['__properties_UNiagaraDataInterfaceActorComponent'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceActorComponent: UNiagaraDataInterfaceActorComponent;
 
 declare interface UNiagaraDataInterfaceArray extends UNiagaraDataInterfaceRWBase {
-    GpuSyncMode: ENiagaraGpuSyncMode;
-    MaxElements: number;
+    readonly __properties_UNiagaraDataInterfaceArray: {
+        GpuSyncMode: ENiagaraGpuSyncMode;
+        MaxElements: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceRWBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArray['__properties_UNiagaraDataInterfaceArray'] &
+        UNiagaraDataInterfaceRWBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArray: UNiagaraDataInterfaceArray;
 
 declare interface UNiagaraDataInterfaceArrayBool extends UNiagaraDataInterfaceArray {
-    BoolData: TArray<boolean>;
+    readonly __properties_UNiagaraDataInterfaceArrayBool: {
+        BoolData: boolean[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArray['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArrayBool['__properties_UNiagaraDataInterfaceArrayBool'] &
+        UNiagaraDataInterfaceArray['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayBool: UNiagaraDataInterfaceArrayBool;
 
 declare interface UNiagaraDataInterfaceArrayColor extends UNiagaraDataInterfaceArray {
-    ColorData: TArray<FLinearColor>;
+    readonly __properties_UNiagaraDataInterfaceArrayColor: {
+        ColorData: FLinearColor[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArray['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArrayColor['__properties_UNiagaraDataInterfaceArrayColor'] &
+        UNiagaraDataInterfaceArray['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayColor: UNiagaraDataInterfaceArrayColor;
 
 declare interface UNiagaraDataInterfaceArrayFloat extends UNiagaraDataInterfaceArray {
-    FloatData: TArray<number>;
+    readonly __properties_UNiagaraDataInterfaceArrayFloat: {
+        FloatData: number[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArray['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArrayFloat['__properties_UNiagaraDataInterfaceArrayFloat'] &
+        UNiagaraDataInterfaceArray['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayFloat: UNiagaraDataInterfaceArrayFloat;
 
 declare interface UNiagaraDataInterfaceArrayFloat2 extends UNiagaraDataInterfaceArray {
-    InternalFloatData: TArray<FVector2f>;
+    readonly __properties_UNiagaraDataInterfaceArrayFloat2: {
+        InternalFloatData: FVector2f[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArray['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArrayFloat2['__properties_UNiagaraDataInterfaceArrayFloat2'] &
+        UNiagaraDataInterfaceArray['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayFloat2: UNiagaraDataInterfaceArrayFloat2;
 
 declare interface UNiagaraDataInterfaceArrayFloat3 extends UNiagaraDataInterfaceArray {
-    InternalFloatData: TArray<FVector3f>;
+    readonly __properties_UNiagaraDataInterfaceArrayFloat3: {
+        InternalFloatData: FVector3f[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArray['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArrayFloat3['__properties_UNiagaraDataInterfaceArrayFloat3'] &
+        UNiagaraDataInterfaceArray['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayFloat3: UNiagaraDataInterfaceArrayFloat3;
 
 declare interface UNiagaraDataInterfaceArrayFloat4 extends UNiagaraDataInterfaceArray {
-    InternalFloatData: TArray<FVector4f>;
+    readonly __properties_UNiagaraDataInterfaceArrayFloat4: {
+        InternalFloatData: FVector4f[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArray['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArrayFloat4['__properties_UNiagaraDataInterfaceArrayFloat4'] &
+        UNiagaraDataInterfaceArray['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayFloat4: UNiagaraDataInterfaceArrayFloat4;
 
 declare interface UNiagaraDataInterfaceArrayFunctionLibrary extends UBlueprintFunctionLibrary {
-    SetNiagaraArrayVectorValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number, Value: FVector, bSizeToFit: boolean): void;
-    SetNiagaraArrayVector4Value(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number, Value: FVector4, bSizeToFit: boolean): void;
-    SetNiagaraArrayVector4(NiagaraSystem: UNiagaraComponent, OverrideName: FName, ArrayData: TArray<FVector4>): void;
-    SetNiagaraArrayVector2DValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number, Value: FVector2D, bSizeToFit: boolean): void;
-    SetNiagaraArrayVector2D(NiagaraSystem: UNiagaraComponent, OverrideName: FName, ArrayData: TArray<FVector2D>): void;
-    SetNiagaraArrayVector(NiagaraSystem: UNiagaraComponent, OverrideName: FName, ArrayData: TArray<FVector>): void;
-    SetNiagaraArrayUInt8Value(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number, Value: number, bSizeToFit: boolean): void;
-    SetNiagaraArrayUInt8(NiagaraSystem: UNiagaraComponent, OverrideName: FName, ArrayData: TArray<number>): void;
-    SetNiagaraArrayQuatValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number, Value: FQuat, bSizeToFit: boolean): void;
-    SetNiagaraArrayQuat(NiagaraSystem: UNiagaraComponent, OverrideName: FName, ArrayData: TArray<FQuat>): void;
-    SetNiagaraArrayPositionValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number, Value: FVector, bSizeToFit: boolean): void;
-    SetNiagaraArrayPosition(NiagaraSystem: UNiagaraComponent, OverrideName: FName, ArrayData: TArray<FVector>): void;
-    SetNiagaraArrayMatrixValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number, Value: FMatrix, bSizeToFit: boolean, bApplyLWCRebase: boolean): void;
-    SetNiagaraArrayMatrix(NiagaraSystem: UNiagaraComponent, OverrideName: FName, ArrayData: TArray<FMatrix>, bApplyLWCRebase: boolean): void;
-    SetNiagaraArrayInt32Value(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number, Value: number, bSizeToFit: boolean): void;
-    SetNiagaraArrayInt32(NiagaraSystem: UNiagaraComponent, OverrideName: FName, ArrayData: TArray<number>): void;
-    SetNiagaraArrayFloatValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number, Value: number, bSizeToFit: boolean): void;
-    SetNiagaraArrayFloat(NiagaraSystem: UNiagaraComponent, OverrideName: FName, ArrayData: TArray<number>): void;
-    SetNiagaraArrayColorValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number, Value: FLinearColor, bSizeToFit: boolean): void;
-    SetNiagaraArrayColor(NiagaraSystem: UNiagaraComponent, OverrideName: FName, ArrayData: TArray<FLinearColor>): void;
-    SetNiagaraArrayBoolValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number, Value: boolean, bSizeToFit: boolean): void;
-    SetNiagaraArrayBool(NiagaraSystem: UNiagaraComponent, OverrideName: FName, ArrayData: TArray<boolean>): void;
-    GetNiagaraArrayVectorValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number): FVector;
-    GetNiagaraArrayVector4Value(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number): FVector4;
-    GetNiagaraArrayVector4(NiagaraSystem: UNiagaraComponent, OverrideName: FName): TArray<FVector4>;
-    GetNiagaraArrayVector2DValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number): FVector2D;
-    GetNiagaraArrayVector2D(NiagaraSystem: UNiagaraComponent, OverrideName: FName): TArray<FVector2D>;
-    GetNiagaraArrayVector(NiagaraSystem: UNiagaraComponent, OverrideName: FName): TArray<FVector>;
-    GetNiagaraArrayUInt8Value(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number): number;
-    GetNiagaraArrayUInt8(NiagaraSystem: UNiagaraComponent, OverrideName: FName): TArray<number>;
-    GetNiagaraArrayQuatValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number): FQuat;
-    GetNiagaraArrayQuat(NiagaraSystem: UNiagaraComponent, OverrideName: FName): TArray<FQuat>;
-    GetNiagaraArrayPositionValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number): FVector;
-    GetNiagaraArrayPosition(NiagaraSystem: UNiagaraComponent, OverrideName: FName): TArray<FVector>;
-    GetNiagaraArrayMatrixValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number, bApplyLWCRebase: boolean): FMatrix;
-    GetNiagaraArrayMatrix(NiagaraSystem: UNiagaraComponent, OverrideName: FName, bApplyLWCRebase: boolean): TArray<FMatrix>;
-    GetNiagaraArrayInt32Value(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number): number;
-    GetNiagaraArrayInt32(NiagaraSystem: UNiagaraComponent, OverrideName: FName): TArray<number>;
-    GetNiagaraArrayFloatValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number): number;
-    GetNiagaraArrayFloat(NiagaraSystem: UNiagaraComponent, OverrideName: FName): TArray<number>;
-    GetNiagaraArrayColorValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number): FLinearColor;
-    GetNiagaraArrayColor(NiagaraSystem: UNiagaraComponent, OverrideName: FName): TArray<FLinearColor>;
-    GetNiagaraArrayBoolValue(NiagaraSystem: UNiagaraComponent, OverrideName: FName, Index: number): boolean;
-    GetNiagaraArrayBool(NiagaraSystem: UNiagaraComponent, OverrideName: FName): TArray<boolean>;
+    readonly __static_UNiagaraDataInterfaceArrayFunctionLibrary: {
+        SetNiagaraArrayVectorValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number, Value: FVector, bSizeToFit: boolean): void;
+        SetNiagaraArrayVector4Value(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number, Value: FVector4, bSizeToFit: boolean): void;
+        SetNiagaraArrayVector4(NiagaraSystem: UNiagaraComponent, OverrideName: string, ArrayData: FVector4[]): void;
+        SetNiagaraArrayVector2DValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number, Value: FVector2D, bSizeToFit: boolean): void;
+        SetNiagaraArrayVector2D(NiagaraSystem: UNiagaraComponent, OverrideName: string, ArrayData: FVector2D[]): void;
+        SetNiagaraArrayVector(NiagaraSystem: UNiagaraComponent, OverrideName: string, ArrayData: FVector[]): void;
+        SetNiagaraArrayUInt8Value(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number, Value: number, bSizeToFit: boolean): void;
+        SetNiagaraArrayUInt8(NiagaraSystem: UNiagaraComponent, OverrideName: string, ArrayData: number[]): void;
+        SetNiagaraArrayQuatValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number, Value: FQuat, bSizeToFit: boolean): void;
+        SetNiagaraArrayQuat(NiagaraSystem: UNiagaraComponent, OverrideName: string, ArrayData: FQuat[]): void;
+        SetNiagaraArrayPositionValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number, Value: FVector, bSizeToFit: boolean): void;
+        SetNiagaraArrayPosition(NiagaraSystem: UNiagaraComponent, OverrideName: string, ArrayData: FVector[]): void;
+        SetNiagaraArrayMatrixValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number, Value: FMatrix, bSizeToFit: boolean, bApplyLWCRebase: boolean): void;
+        SetNiagaraArrayMatrix(NiagaraSystem: UNiagaraComponent, OverrideName: string, ArrayData: FMatrix[], bApplyLWCRebase: boolean): void;
+        SetNiagaraArrayInt32Value(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number, Value: number, bSizeToFit: boolean): void;
+        SetNiagaraArrayInt32(NiagaraSystem: UNiagaraComponent, OverrideName: string, ArrayData: number[]): void;
+        SetNiagaraArrayFloatValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number, Value: number, bSizeToFit: boolean): void;
+        SetNiagaraArrayFloat(NiagaraSystem: UNiagaraComponent, OverrideName: string, ArrayData: number[]): void;
+        SetNiagaraArrayColorValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number, Value: FLinearColor, bSizeToFit: boolean): void;
+        SetNiagaraArrayColor(NiagaraSystem: UNiagaraComponent, OverrideName: string, ArrayData: FLinearColor[]): void;
+        SetNiagaraArrayBoolValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number, Value: boolean, bSizeToFit: boolean): void;
+        SetNiagaraArrayBool(NiagaraSystem: UNiagaraComponent, OverrideName: string, ArrayData: boolean[]): void;
+        GetNiagaraArrayVectorValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number): FVector;
+        GetNiagaraArrayVector4Value(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number): FVector4;
+        GetNiagaraArrayVector4(NiagaraSystem: UNiagaraComponent, OverrideName: string): FVector4[];
+        GetNiagaraArrayVector2DValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number): FVector2D;
+        GetNiagaraArrayVector2D(NiagaraSystem: UNiagaraComponent, OverrideName: string): FVector2D[];
+        GetNiagaraArrayVector(NiagaraSystem: UNiagaraComponent, OverrideName: string): FVector[];
+        GetNiagaraArrayUInt8Value(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number): number;
+        GetNiagaraArrayUInt8(NiagaraSystem: UNiagaraComponent, OverrideName: string): number[];
+        GetNiagaraArrayQuatValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number): FQuat;
+        GetNiagaraArrayQuat(NiagaraSystem: UNiagaraComponent, OverrideName: string): FQuat[];
+        GetNiagaraArrayPositionValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number): FVector;
+        GetNiagaraArrayPosition(NiagaraSystem: UNiagaraComponent, OverrideName: string): FVector[];
+        GetNiagaraArrayMatrixValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number, bApplyLWCRebase: boolean): FMatrix;
+        GetNiagaraArrayMatrix(NiagaraSystem: UNiagaraComponent, OverrideName: string, bApplyLWCRebase: boolean): FMatrix[];
+        GetNiagaraArrayInt32Value(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number): number;
+        GetNiagaraArrayInt32(NiagaraSystem: UNiagaraComponent, OverrideName: string): number[];
+        GetNiagaraArrayFloatValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number): number;
+        GetNiagaraArrayFloat(NiagaraSystem: UNiagaraComponent, OverrideName: string): number[];
+        GetNiagaraArrayColorValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number): FLinearColor;
+        GetNiagaraArrayColor(NiagaraSystem: UNiagaraComponent, OverrideName: string): FLinearColor[];
+        GetNiagaraArrayBoolValue(NiagaraSystem: UNiagaraComponent, OverrideName: string, Index: number): boolean;
+        GetNiagaraArrayBool(NiagaraSystem: UNiagaraComponent, OverrideName: string): boolean[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArrayFunctionLibrary['__static_UNiagaraDataInterfaceArrayFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayFunctionLibrary: UNiagaraDataInterfaceArrayFunctionLibrary;
 
 declare interface UNiagaraDataInterfaceArrayInt32 extends UNiagaraDataInterfaceArray {
-    IntData: TArray<number>;
+    readonly __properties_UNiagaraDataInterfaceArrayInt32: {
+        IntData: number[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArray['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArrayInt32['__properties_UNiagaraDataInterfaceArrayInt32'] &
+        UNiagaraDataInterfaceArray['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayInt32: UNiagaraDataInterfaceArrayInt32;
 
 declare interface UNiagaraDataInterfaceArrayMatrix extends UNiagaraDataInterfaceArray {
-    InternalMatrixData: TArray<FMatrix44f>;
+    readonly __properties_UNiagaraDataInterfaceArrayMatrix: {
+        InternalMatrixData: FMatrix44f[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArray['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArrayMatrix['__properties_UNiagaraDataInterfaceArrayMatrix'] &
+        UNiagaraDataInterfaceArray['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayMatrix: UNiagaraDataInterfaceArrayMatrix;
 
 declare interface UNiagaraDataInterfaceArrayMesh extends UNiagaraDataInterfaceArray {
-    MeshData: TArray<FNiagaraMeshRendererMeshPropertiesBase>;
-    SetNiagaraArrayMeshSM(NiagaraComponent: UNiagaraComponent, OverrideName: FName, ArrayData: TArray<UStaticMesh>): void;
-    SetNiagaraArrayMesh(NiagaraComponent: UNiagaraComponent, OverrideName: FName, ArrayData: TArray<FNiagaraMeshRendererMeshPropertiesBase>): void;
+    readonly __static_UNiagaraDataInterfaceArrayMesh: {
+        SetNiagaraArrayMeshSM(NiagaraComponent: UNiagaraComponent, OverrideName: string, ArrayData: UStaticMesh[]): void;
+        SetNiagaraArrayMesh(NiagaraComponent: UNiagaraComponent, OverrideName: string, ArrayData: FNiagaraMeshRendererMeshPropertiesBase[]): void;
+    };
+    readonly __properties_UNiagaraDataInterfaceArrayMesh: {
+        MeshData: FNiagaraMeshRendererMeshPropertiesBase[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArrayMesh['__static_UNiagaraDataInterfaceArrayMesh'] &
+        UNiagaraDataInterfaceArray['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArrayMesh['__properties_UNiagaraDataInterfaceArrayMesh'] &
+        UNiagaraDataInterfaceArray['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayMesh: UNiagaraDataInterfaceArrayMesh;
 
 declare interface UNiagaraDataInterfaceArrayNiagaraID extends UNiagaraDataInterfaceArray {
-    IntData: TArray<FNiagaraID>;
+    readonly __properties_UNiagaraDataInterfaceArrayNiagaraID: {
+        IntData: FNiagaraID[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArray['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArrayNiagaraID['__properties_UNiagaraDataInterfaceArrayNiagaraID'] &
+        UNiagaraDataInterfaceArray['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayNiagaraID: UNiagaraDataInterfaceArrayNiagaraID;
 
 declare interface UNiagaraDataInterfaceArrayPosition extends UNiagaraDataInterfaceArray {
-    PositionData: TArray<FNiagaraPosition>;
+    readonly __properties_UNiagaraDataInterfaceArrayPosition: {
+        PositionData: FNiagaraPosition[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArray['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArrayPosition['__properties_UNiagaraDataInterfaceArrayPosition'] &
+        UNiagaraDataInterfaceArray['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayPosition: UNiagaraDataInterfaceArrayPosition;
 
 declare interface UNiagaraDataInterfaceArrayQuat extends UNiagaraDataInterfaceArray {
-    InternalQuatData: TArray<FQuat4f>;
+    readonly __properties_UNiagaraDataInterfaceArrayQuat: {
+        InternalQuatData: FQuat4f[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArray['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArrayQuat['__properties_UNiagaraDataInterfaceArrayQuat'] &
+        UNiagaraDataInterfaceArray['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayQuat: UNiagaraDataInterfaceArrayQuat;
 
 declare interface UNiagaraDataInterfaceArrayUInt8 extends UNiagaraDataInterfaceArray {
-    InternalIntData: TArray<uint8>;
+    readonly __properties_UNiagaraDataInterfaceArrayUInt8: {
+        InternalIntData: number[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceArray['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceArrayUInt8['__properties_UNiagaraDataInterfaceArrayUInt8'] &
+        UNiagaraDataInterfaceArray['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceArrayUInt8: UNiagaraDataInterfaceArrayUInt8;
 
 declare interface UNiagaraDataInterfaceAsyncGpuTrace extends UNiagaraDataInterface {
-    MaxTracesPerParticle: number;
-    MaxRetraces: number;
-    TraceProvider: ENDICollisionQuery_AsyncGpuTraceProvider;
+    readonly __properties_UNiagaraDataInterfaceAsyncGpuTrace: {
+        MaxTracesPerParticle: number;
+        MaxRetraces: number;
+        TraceProvider: ENDICollisionQuery_AsyncGpuTraceProvider;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceAsyncGpuTrace['__properties_UNiagaraDataInterfaceAsyncGpuTrace'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceAsyncGpuTrace: UNiagaraDataInterfaceAsyncGpuTrace;
 
 declare interface UNiagaraDataInterfaceAudioOscilloscope extends UNiagaraDataInterface {
-    Submix: USoundSubmix;
-    Resolution: number;
-    ScopeInMilliseconds: number;
+    readonly __properties_UNiagaraDataInterfaceAudioOscilloscope: {
+        Submix: USoundSubmix;
+        Resolution: number;
+        ScopeInMilliseconds: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceAudioOscilloscope['__properties_UNiagaraDataInterfaceAudioOscilloscope'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceAudioOscilloscope: UNiagaraDataInterfaceAudioOscilloscope;
 
 declare interface UNiagaraDataInterfaceAudioPlayer extends UNiagaraDataInterface {
-    SoundToPlay: USoundBase;
-    Attenuation: USoundAttenuation;
-    Concurrency: USoundConcurrency;
-    ParameterNames: TArray<FName>;
-    ConfigurationUserParameter: FNiagaraUserParameterBinding;
-    bLimitPlaysPerTick: boolean;
-    MaxPlaysPerTick: number;
-    bStopWhenComponentIsDestroyed: boolean;
-    bAllowLoopingOneShotSounds: boolean;
+    readonly __properties_UNiagaraDataInterfaceAudioPlayer: {
+        SoundToPlay: USoundBase;
+        Attenuation: USoundAttenuation;
+        Concurrency: USoundConcurrency;
+        ParameterNames: string[];
+        ConfigurationUserParameter: FNiagaraUserParameterBinding;
+        bLimitPlaysPerTick: boolean;
+        MaxPlaysPerTick: number;
+        bStopWhenComponentIsDestroyed: boolean;
+        bAllowLoopingOneShotSounds: boolean;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceAudioPlayer['__properties_UNiagaraDataInterfaceAudioPlayer'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceAudioPlayer: UNiagaraDataInterfaceAudioPlayer;
 
 declare interface UNiagaraDataInterfaceAudioPlayerSettings extends UObject {
-    bOverrideConcurrency: boolean;
-    Concurrency: USoundConcurrency;
-    bOverrideAttenuationSettings: boolean;
-    AttenuationSettings: FSoundAttenuationSettings;
+    readonly __properties_UNiagaraDataInterfaceAudioPlayerSettings: {
+        bOverrideConcurrency: boolean;
+        Concurrency: USoundConcurrency;
+        bOverrideAttenuationSettings: boolean;
+        AttenuationSettings: FSoundAttenuationSettings;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceAudioPlayerSettings['__properties_UNiagaraDataInterfaceAudioPlayerSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceAudioPlayerSettings: UNiagaraDataInterfaceAudioPlayerSettings;
 
 declare interface UNiagaraDataInterfaceAudioSpectrum extends UNiagaraDataInterfaceAudioSubmix {
-    Resolution: number;
-    MinimumFrequency: number;
-    MaximumFrequency: number;
-    NoiseFloorDb: number;
+    readonly __properties_UNiagaraDataInterfaceAudioSpectrum: {
+        Resolution: number;
+        MinimumFrequency: number;
+        MaximumFrequency: number;
+        NoiseFloorDb: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceAudioSubmix['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceAudioSpectrum['__properties_UNiagaraDataInterfaceAudioSpectrum'] &
+        UNiagaraDataInterfaceAudioSubmix['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceAudioSpectrum: UNiagaraDataInterfaceAudioSpectrum;
 
 declare interface UNiagaraDataInterfaceAudioSubmix extends UNiagaraDataInterface {
-    Submix: USoundSubmix;
+    readonly __properties_UNiagaraDataInterfaceAudioSubmix: {
+        Submix: USoundSubmix;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceAudioSubmix['__properties_UNiagaraDataInterfaceAudioSubmix'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceAudioSubmix: UNiagaraDataInterfaceAudioSubmix;
 
 declare interface UNiagaraDataInterfaceCamera extends UNiagaraDataInterface {
-    PlayerControllerIndex: number;
-    bRequireCurrentFrameData: boolean;
+    readonly __properties_UNiagaraDataInterfaceCamera: {
+        PlayerControllerIndex: number;
+        bRequireCurrentFrameData: boolean;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceCamera['__properties_UNiagaraDataInterfaceCamera'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceCamera: UNiagaraDataInterfaceCamera;
 
 declare interface UNiagaraDataInterfaceCollisionQuery extends UNiagaraDataInterface {
-
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceCollisionQuery: UNiagaraDataInterfaceCollisionQuery;
 
 declare interface UNiagaraDataInterfaceColorCurve extends UNiagaraDataInterfaceCurveBase {
-    RedCurve: FRichCurve;
-    GreenCurve: FRichCurve;
-    BlueCurve: FRichCurve;
-    AlphaCurve: FRichCurve;
+    readonly __properties_UNiagaraDataInterfaceColorCurve: {
+        RedCurve: FRichCurve;
+        GreenCurve: FRichCurve;
+        BlueCurve: FRichCurve;
+        AlphaCurve: FRichCurve;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceCurveBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceColorCurve['__properties_UNiagaraDataInterfaceColorCurve'] &
+        UNiagaraDataInterfaceCurveBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceColorCurve: UNiagaraDataInterfaceColorCurve;
 
 declare interface UNiagaraDataInterfaceConsoleVariable extends UNiagaraDataInterface {
-
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceConsoleVariable: UNiagaraDataInterfaceConsoleVariable;
 
 declare interface UNiagaraDataInterfaceCubeTexture extends UNiagaraDataInterface {
-    Texture: UTexture;
-    TextureUserParameter: FNiagaraUserParameterBinding;
+    readonly __properties_UNiagaraDataInterfaceCubeTexture: {
+        Texture: UTexture;
+        TextureUserParameter: FNiagaraUserParameterBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceCubeTexture['__properties_UNiagaraDataInterfaceCubeTexture'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceCubeTexture: UNiagaraDataInterfaceCubeTexture;
 
 declare interface UNiagaraDataInterfaceCurlNoise extends UNiagaraDataInterface {
-    Seed: uint32;
+    readonly __properties_UNiagaraDataInterfaceCurlNoise: {
+        Seed: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceCurlNoise['__properties_UNiagaraDataInterfaceCurlNoise'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceCurlNoise: UNiagaraDataInterfaceCurlNoise;
 
 declare interface UNiagaraDataInterfaceCurve extends UNiagaraDataInterfaceCurveBase {
-    Curve: FRichCurve;
+    readonly __properties_UNiagaraDataInterfaceCurve: {
+        Curve: FRichCurve;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceCurveBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceCurve['__properties_UNiagaraDataInterfaceCurve'] &
+        UNiagaraDataInterfaceCurveBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceCurve: UNiagaraDataInterfaceCurve;
 
 declare interface UNiagaraDataInterfaceCurveBase extends UNiagaraDataInterface {
-    ShaderLUT: TArray<number>;
-    LUTMinTime: number;
-    LUTMaxTime: number;
-    LUTInvTimeRange: number;
-    LUTNumSamplesMinusOne: number;
-    bUseLUT: boolean;
-    bExposeCurve: boolean;
-    ExposedName: FName;
-    ExposedTexture: UTexture2D;
+    readonly __properties_UNiagaraDataInterfaceCurveBase: {
+        ShaderLUT: number[];
+        LUTMinTime: number;
+        LUTMaxTime: number;
+        LUTInvTimeRange: number;
+        LUTNumSamplesMinusOne: number;
+        bUseLUT: boolean;
+        bExposeCurve: boolean;
+        ExposedName: string;
+        ExposedTexture: UTexture2D;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceCurveBase['__properties_UNiagaraDataInterfaceCurveBase'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceCurveBase: UNiagaraDataInterfaceCurveBase;
 
 declare interface UNiagaraDataInterfaceDataChannelRead extends UNiagaraDataInterfaceRWBase {
-    Channel: UNiagaraDataChannelAsset;
-    bReadCurrentFrame: boolean;
-    bUpdateSourceDataEveryTick: boolean;
-    bOverrideSpawnGroupToDataChannelIndex: boolean;
-    bOnlySpawnOnceOnSubticks: boolean;
-    CompiledData: FNDIDataChannelCompiledData;
+    readonly __properties_UNiagaraDataInterfaceDataChannelRead: {
+        Channel: UNiagaraDataChannelAsset;
+        bReadCurrentFrame: boolean;
+        bUpdateSourceDataEveryTick: boolean;
+        bOverrideSpawnGroupToDataChannelIndex: boolean;
+        bOnlySpawnOnceOnSubticks: boolean;
+        CompiledData: FNDIDataChannelCompiledData;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceRWBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceDataChannelRead['__properties_UNiagaraDataInterfaceDataChannelRead'] &
+        UNiagaraDataInterfaceRWBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceDataChannelRead: UNiagaraDataInterfaceDataChannelRead;
 
 declare interface UNiagaraDataInterfaceDataChannelWrite extends UNiagaraDataInterface {
-    AllocationMode: ENiagaraDataChannelAllocationMode;
-    AllocationCount: uint32;
-    bPublishToGame: boolean;
-    bPublishToCPU: boolean;
-    bPublishToGPU: boolean;
-    bUpdateDestinationDataEveryTick: boolean;
-    bOnlyWriteOnceOnSubticks: boolean;
-    Channel: UNiagaraDataChannelAsset;
-    CompiledData: FNDIDataChannelWriteCompiledData;
+    readonly __properties_UNiagaraDataInterfaceDataChannelWrite: {
+        AllocationMode: ENiagaraDataChannelAllocationMode;
+        AllocationCount: number;
+        bPublishToGame: boolean;
+        bPublishToCPU: boolean;
+        bPublishToGPU: boolean;
+        bUpdateDestinationDataEveryTick: boolean;
+        bOnlyWriteOnceOnSubticks: boolean;
+        Channel: UNiagaraDataChannelAsset;
+        CompiledData: FNDIDataChannelWriteCompiledData;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceDataChannelWrite['__properties_UNiagaraDataInterfaceDataChannelWrite'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceDataChannelWrite: UNiagaraDataInterfaceDataChannelWrite;
 
 declare interface UNiagaraDataInterfaceDataTable extends UNiagaraDataInterface {
-    DataTable: UDataTable;
-    FilteredRowNames: TArray<FName>;
-    ObjectParameterBinding: FNiagaraUserParameterBinding;
-    bCreateFilteredTable: boolean;
+    readonly __properties_UNiagaraDataInterfaceDataTable: {
+        DataTable: UDataTable;
+        FilteredRowNames: string[];
+        ObjectParameterBinding: FNiagaraUserParameterBinding;
+        bCreateFilteredTable: boolean;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceDataTable['__properties_UNiagaraDataInterfaceDataTable'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceDataTable: UNiagaraDataInterfaceDataTable;
 
 declare interface UNiagaraDataInterfaceDebugDraw extends UNiagaraDataInterface {
-    OverrideMaxLineInstances: uint32;
+    readonly __properties_UNiagaraDataInterfaceDebugDraw: {
+        OverrideMaxLineInstances: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceDebugDraw['__properties_UNiagaraDataInterfaceDebugDraw'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceDebugDraw: UNiagaraDataInterfaceDebugDraw;
 
 declare interface UNiagaraDataInterfaceDynamicMesh extends UNiagaraDataInterface {
-    Sections: TArray<FNiagaraDynamicMeshSection>;
-    Materials: TArray<FNiagaraDynamicMeshMaterial>;
-    NumVertices: number;
-    NumTexCoords: number;
-    bHasColors: boolean;
-    bHasTangentBasis: boolean;
-    bClearTrianglesPerFrame: boolean;
-    DefaultBounds: FBox;
+    readonly __properties_UNiagaraDataInterfaceDynamicMesh: {
+        Sections: FNiagaraDynamicMeshSection[];
+        Materials: FNiagaraDynamicMeshMaterial[];
+        NumVertices: number;
+        NumTexCoords: number;
+        bHasColors: boolean;
+        bHasTangentBasis: boolean;
+        bClearTrianglesPerFrame: boolean;
+        DefaultBounds: FBox;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceDynamicMesh['__properties_UNiagaraDataInterfaceDynamicMesh'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceDynamicMesh: UNiagaraDataInterfaceDynamicMesh;
 
 declare interface UNiagaraDataInterfaceEmitterProperties extends UNiagaraDataInterface {
-    EmitterBinding: FNiagaraDataInterfaceEmitterBinding;
+    readonly __properties_UNiagaraDataInterfaceEmitterProperties: {
+        EmitterBinding: FNiagaraDataInterfaceEmitterBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceEmitterProperties['__properties_UNiagaraDataInterfaceEmitterProperties'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceEmitterProperties: UNiagaraDataInterfaceEmitterProperties;
 
 declare interface UNiagaraDataInterfaceExport extends UNiagaraDataInterface {
-    CallbackHandlerParameter: FNiagaraUserParameterBinding;
-    GPUAllocationMode: ENDIExport_GPUAllocationMode;
-    GPUAllocationFixedSize: number;
-    GPUAllocationPerParticleSize: number;
+    readonly __properties_UNiagaraDataInterfaceExport: {
+        CallbackHandlerParameter: FNiagaraUserParameterBinding;
+        GPUAllocationMode: ENDIExport_GPUAllocationMode;
+        GPUAllocationFixedSize: number;
+        GPUAllocationPerParticleSize: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceExport['__properties_UNiagaraDataInterfaceExport'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceExport: UNiagaraDataInterfaceExport;
 
 declare interface UNiagaraDataInterfaceGBuffer extends UNiagaraDataInterface {
-
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceGBuffer: UNiagaraDataInterfaceGBuffer;
 
 declare interface UNiagaraDataInterfaceGrid2D extends UNiagaraDataInterfaceRWBase {
-    ClearBeforeNonIterationStage: boolean;
-    NumCellsX: number;
-    NumCellsY: number;
-    NumCellsMaxAxis: number;
-    NumAttributes: number;
-    SetGridFromMaxAxis: boolean;
-    WorldBBoxSize: FVector2D;
+    readonly __properties_UNiagaraDataInterfaceGrid2D: {
+        ClearBeforeNonIterationStage: boolean;
+        NumCellsX: number;
+        NumCellsY: number;
+        NumCellsMaxAxis: number;
+        NumAttributes: number;
+        SetGridFromMaxAxis: boolean;
+        WorldBBoxSize: FVector2D;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceRWBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceGrid2D['__properties_UNiagaraDataInterfaceGrid2D'] &
+        UNiagaraDataInterfaceRWBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceGrid2D: UNiagaraDataInterfaceGrid2D;
 
 declare interface UNiagaraDataInterfaceGrid2DCollection extends UNiagaraDataInterfaceGrid2D {
-    RenderTargetUserParameter: FNiagaraUserParameterBinding;
-    OverrideBufferFormat: ENiagaraGpuBufferFormat;
-    bOverrideFormat: boolean;
-    ManagedRenderTargets: Record<string | number | symbol, UTextureRenderTarget2DArray>;
-    GetTextureSize(Component: UNiagaraComponent, SizeX: number, SizeY: number): void;
-    GetRawTextureSize(Component: UNiagaraComponent, SizeX: number, SizeY: number): void;
-    FillTexture2D(Component: UNiagaraComponent, Dest: UTextureRenderTarget2D, AttributeIndex: number): boolean;
-    FillRawTexture2D(Component: UNiagaraComponent, Dest: UTextureRenderTarget2D, TilesX: number, TilesY: number): boolean;
+    readonly __static_UNiagaraDataInterfaceGrid2DCollection: {
+        GetTextureSize(Component: UNiagaraComponent, SizeX: number, SizeY: number): void;
+        GetRawTextureSize(Component: UNiagaraComponent, SizeX: number, SizeY: number): void;
+        FillTexture2D(Component: UNiagaraComponent, Dest: UTextureRenderTarget2D, AttributeIndex: number): boolean;
+        FillRawTexture2D(Component: UNiagaraComponent, Dest: UTextureRenderTarget2D, TilesX: number, TilesY: number): boolean;
+    };
+    readonly __properties_UNiagaraDataInterfaceGrid2DCollection: {
+        RenderTargetUserParameter: FNiagaraUserParameterBinding;
+        OverrideBufferFormat: ENiagaraGpuBufferFormat;
+        bOverrideFormat: boolean;
+        ManagedRenderTargets: TMap<number, UTextureRenderTarget2DArray>;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceGrid2DCollection['__static_UNiagaraDataInterfaceGrid2DCollection'] &
+        UNiagaraDataInterfaceGrid2D['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceGrid2DCollection['__properties_UNiagaraDataInterfaceGrid2DCollection'] &
+        UNiagaraDataInterfaceGrid2D['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceGrid2DCollection: UNiagaraDataInterfaceGrid2DCollection;
 
 declare interface UNiagaraDataInterfaceGrid2DCollectionReader extends UNiagaraDataInterfaceGrid2DCollection {
-    EmitterName: FString;
-    DIName: FString;
+    readonly __properties_UNiagaraDataInterfaceGrid2DCollectionReader: {
+        EmitterName: string;
+        DIName: string;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceGrid2DCollection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceGrid2DCollectionReader['__properties_UNiagaraDataInterfaceGrid2DCollectionReader'] &
+        UNiagaraDataInterfaceGrid2DCollection['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceGrid2DCollectionReader: UNiagaraDataInterfaceGrid2DCollectionReader;
 
 declare interface UNiagaraDataInterfaceGrid3D extends UNiagaraDataInterfaceRWBase {
-    ClearBeforeNonIterationStage: boolean;
-    NumCells: FIntVector;
-    CellSize: number;
-    NumCellsMaxAxis: number;
-    SetResolutionMethod: ESetResolutionMethod;
-    WorldBBoxSize: FVector;
+    readonly __properties_UNiagaraDataInterfaceGrid3D: {
+        ClearBeforeNonIterationStage: boolean;
+        NumCells: FIntVector;
+        CellSize: number;
+        NumCellsMaxAxis: number;
+        SetResolutionMethod: ESetResolutionMethod;
+        WorldBBoxSize: FVector;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceRWBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceGrid3D['__properties_UNiagaraDataInterfaceGrid3D'] &
+        UNiagaraDataInterfaceRWBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceGrid3D: UNiagaraDataInterfaceGrid3D;
 
 declare interface UNiagaraDataInterfaceGrid3DCollection extends UNiagaraDataInterfaceGrid3D {
-    NumAttributes: number;
-    RenderTargetUserParameter: FNiagaraUserParameterBinding;
-    OverrideBufferFormat: ENiagaraGpuBufferFormat;
-    bOverrideFormat: boolean;
-    GetTextureSize(Component: UNiagaraComponent, SizeX: number, SizeY: number, SizeZ: number): void;
-    GetRawTextureSize(Component: UNiagaraComponent, SizeX: number, SizeY: number, SizeZ: number): void;
-    FillVolumeTexture(Component: UNiagaraComponent, Dest: UVolumeTexture, AttributeIndex: number): boolean;
-    FillRawVolumeTexture(Component: UNiagaraComponent, Dest: UVolumeTexture, TilesX: number, TilesY: number, TileZ: number): boolean;
+    readonly __static_UNiagaraDataInterfaceGrid3DCollection: {
+        GetTextureSize(Component: UNiagaraComponent, SizeX: number, SizeY: number, SizeZ: number): void;
+        GetRawTextureSize(Component: UNiagaraComponent, SizeX: number, SizeY: number, SizeZ: number): void;
+        FillVolumeTexture(Component: UNiagaraComponent, Dest: UVolumeTexture, AttributeIndex: number): boolean;
+        FillRawVolumeTexture(Component: UNiagaraComponent, Dest: UVolumeTexture, TilesX: number, TilesY: number, TileZ: number): boolean;
+    };
+    readonly __properties_UNiagaraDataInterfaceGrid3DCollection: {
+        NumAttributes: number;
+        RenderTargetUserParameter: FNiagaraUserParameterBinding;
+        OverrideBufferFormat: ENiagaraGpuBufferFormat;
+        bOverrideFormat: boolean;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceGrid3DCollection['__static_UNiagaraDataInterfaceGrid3DCollection'] &
+        UNiagaraDataInterfaceGrid3D['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceGrid3DCollection['__properties_UNiagaraDataInterfaceGrid3DCollection'] &
+        UNiagaraDataInterfaceGrid3D['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceGrid3DCollection: UNiagaraDataInterfaceGrid3DCollection;
 
 declare interface UNiagaraDataInterfaceGrid3DCollectionReader extends UNiagaraDataInterfaceGrid3DCollection {
-    EmitterName: FString;
-    DIName: FString;
+    readonly __properties_UNiagaraDataInterfaceGrid3DCollectionReader: {
+        EmitterName: string;
+        DIName: string;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceGrid3DCollection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceGrid3DCollectionReader['__properties_UNiagaraDataInterfaceGrid3DCollectionReader'] &
+        UNiagaraDataInterfaceGrid3DCollection['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceGrid3DCollectionReader: UNiagaraDataInterfaceGrid3DCollectionReader;
 
 declare interface UNiagaraDataInterfaceIntRenderTarget2D extends UNiagaraDataInterfaceRWBase {
-    Size: FIntPoint;
-    RenderTargetUserParameter: FNiagaraUserParameterBinding;
+    readonly __properties_UNiagaraDataInterfaceIntRenderTarget2D: {
+        Size: FIntPoint;
+        RenderTargetUserParameter: FNiagaraUserParameterBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceRWBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceIntRenderTarget2D['__properties_UNiagaraDataInterfaceIntRenderTarget2D'] &
+        UNiagaraDataInterfaceRWBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceIntRenderTarget2D: UNiagaraDataInterfaceIntRenderTarget2D;
 
 declare interface UNiagaraDataInterfaceLandscape extends UNiagaraDataInterface {
-    SourceLandscape: AActor;
-    SourceMode: ENDILandscape_SourceMode;
-    PhysicalMaterials: TArray<UPhysicalMaterial>;
-    bVirtualTexturesSupported: boolean;
+    readonly __properties_UNiagaraDataInterfaceLandscape: {
+        SourceLandscape: AActor;
+        SourceMode: ENDILandscape_SourceMode;
+        PhysicalMaterials: UPhysicalMaterial[];
+        bVirtualTexturesSupported: boolean;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceLandscape['__properties_UNiagaraDataInterfaceLandscape'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceLandscape: UNiagaraDataInterfaceLandscape;
 
 declare interface UNiagaraDataInterfaceMemoryBuffer extends UNiagaraDataInterface {
-    DefaultNumElements: number;
-    GpuSyncMode: ENiagaraGpuSyncMode;
+    readonly __properties_UNiagaraDataInterfaceMemoryBuffer: {
+        DefaultNumElements: number;
+        GpuSyncMode: ENiagaraGpuSyncMode;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceMemoryBuffer['__properties_UNiagaraDataInterfaceMemoryBuffer'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceMemoryBuffer: UNiagaraDataInterfaceMemoryBuffer;
 
 declare interface UNiagaraDataInterfaceMeshRendererInfo extends UNiagaraDataInterface {
-    MeshRenderer: UNiagaraMeshRendererProperties;
+    readonly __properties_UNiagaraDataInterfaceMeshRendererInfo: {
+        MeshRenderer: UNiagaraMeshRendererProperties;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceMeshRendererInfo['__properties_UNiagaraDataInterfaceMeshRendererInfo'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceMeshRendererInfo: UNiagaraDataInterfaceMeshRendererInfo;
 
 declare interface UNiagaraDataInterfaceNeighborGrid3D extends UNiagaraDataInterfaceGrid3D {
-    MaxNeighborsPerCell: uint32;
+    readonly __properties_UNiagaraDataInterfaceNeighborGrid3D: {
+        MaxNeighborsPerCell: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceGrid3D['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceNeighborGrid3D['__properties_UNiagaraDataInterfaceNeighborGrid3D'] &
+        UNiagaraDataInterfaceGrid3D['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceNeighborGrid3D: UNiagaraDataInterfaceNeighborGrid3D;
 
 declare interface UNiagaraDataInterfaceOcclusion extends UNiagaraDataInterface {
-
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceOcclusion: UNiagaraDataInterfaceOcclusion;
 
 declare interface UNiagaraDataInterfaceParticleRead extends UNiagaraDataInterfaceRWBase {
-    EmitterBinding: FNiagaraDataInterfaceEmitterBinding;
+    readonly __properties_UNiagaraDataInterfaceParticleRead: {
+        EmitterBinding: FNiagaraDataInterfaceEmitterBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceRWBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceParticleRead['__properties_UNiagaraDataInterfaceParticleRead'] &
+        UNiagaraDataInterfaceRWBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceParticleRead: UNiagaraDataInterfaceParticleRead;
 
 declare interface UNiagaraDataInterfacePhysicsAsset extends UNiagaraDataInterface {
-    DefaultSource: UPhysicsAsset;
-    SoftSourceActor: TSoftObjectPtr<AActor>;
-    MeshUserParameter: FNiagaraUserParameterBinding;
+    readonly __properties_UNiagaraDataInterfacePhysicsAsset: {
+        DefaultSource: UPhysicsAsset;
+        SoftSourceActor: TSoftObjectPtr<AActor>;
+        MeshUserParameter: FNiagaraUserParameterBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfacePhysicsAsset['__properties_UNiagaraDataInterfacePhysicsAsset'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfacePhysicsAsset: UNiagaraDataInterfacePhysicsAsset;
 
 declare interface UNiagaraDataInterfacePlatformSet extends UNiagaraDataInterface {
-    Platforms: FNiagaraPlatformSet;
+    readonly __properties_UNiagaraDataInterfacePlatformSet: {
+        Platforms: FNiagaraPlatformSet;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfacePlatformSet['__properties_UNiagaraDataInterfacePlatformSet'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfacePlatformSet: UNiagaraDataInterfacePlatformSet;
 
 declare interface UNiagaraDataInterfaceRWBase extends UNiagaraDataInterface {
-
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceRWBase: UNiagaraDataInterfaceRWBase;
 
 declare interface UNiagaraDataInterfaceRasterizationGrid3D extends UNiagaraDataInterfaceGrid3D {
-    NumAttributes: number;
-    Precision: number;
-    ResetValue: number;
+    readonly __properties_UNiagaraDataInterfaceRasterizationGrid3D: {
+        NumAttributes: number;
+        Precision: number;
+        ResetValue: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceGrid3D['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceRasterizationGrid3D['__properties_UNiagaraDataInterfaceRasterizationGrid3D'] &
+        UNiagaraDataInterfaceGrid3D['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceRasterizationGrid3D: UNiagaraDataInterfaceRasterizationGrid3D;
 
 declare interface UNiagaraDataInterfaceRenderTarget2D extends UNiagaraDataInterfaceRWBase {
-    Size: FIntPoint;
-    MipMapGeneration: ENiagaraMipMapGeneration;
-    MipMapGenerationType: ENiagaraMipMapGenerationType;
-    OverrideRenderTargetFormat: ETextureRenderTargetFormat;
-    OverrideRenderTargetFilter: TextureFilter;
-    bInheritUserParameterSettings: boolean;
-    bOverrideFormat: boolean;
-    RenderTargetUserParameter: FNiagaraUserParameterBinding;
+    readonly __properties_UNiagaraDataInterfaceRenderTarget2D: {
+        Size: FIntPoint;
+        MipMapGeneration: ENiagaraMipMapGeneration;
+        MipMapGenerationType: ENiagaraMipMapGenerationType;
+        OverrideRenderTargetFormat: ETextureRenderTargetFormat;
+        OverrideRenderTargetFilter: TextureFilter;
+        bInheritUserParameterSettings: boolean;
+        bOverrideFormat: boolean;
+        RenderTargetUserParameter: FNiagaraUserParameterBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceRWBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceRenderTarget2D['__properties_UNiagaraDataInterfaceRenderTarget2D'] &
+        UNiagaraDataInterfaceRWBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceRenderTarget2D: UNiagaraDataInterfaceRenderTarget2D;
 
 declare interface UNiagaraDataInterfaceRenderTarget2DArray extends UNiagaraDataInterfaceRWBase {
-    Size: FIntVector;
-    OverrideRenderTargetFormat: ETextureRenderTargetFormat;
-    OverrideRenderTargetFilter: TextureFilter;
-    bInheritUserParameterSettings: boolean;
-    bOverrideFormat: boolean;
-    RenderTargetUserParameter: FNiagaraUserParameterBinding;
+    readonly __properties_UNiagaraDataInterfaceRenderTarget2DArray: {
+        Size: FIntVector;
+        OverrideRenderTargetFormat: ETextureRenderTargetFormat;
+        OverrideRenderTargetFilter: TextureFilter;
+        bInheritUserParameterSettings: boolean;
+        bOverrideFormat: boolean;
+        RenderTargetUserParameter: FNiagaraUserParameterBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceRWBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceRenderTarget2DArray['__properties_UNiagaraDataInterfaceRenderTarget2DArray'] &
+        UNiagaraDataInterfaceRWBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceRenderTarget2DArray: UNiagaraDataInterfaceRenderTarget2DArray;
 
 declare interface UNiagaraDataInterfaceRenderTargetCube extends UNiagaraDataInterfaceRWBase {
-    Size: number;
-    OverrideRenderTargetFormat: ETextureRenderTargetFormat;
-    OverrideRenderTargetFilter: TextureFilter;
-    bInheritUserParameterSettings: boolean;
-    bOverrideFormat: boolean;
-    RenderTargetUserParameter: FNiagaraUserParameterBinding;
+    readonly __properties_UNiagaraDataInterfaceRenderTargetCube: {
+        Size: number;
+        OverrideRenderTargetFormat: ETextureRenderTargetFormat;
+        OverrideRenderTargetFilter: TextureFilter;
+        bInheritUserParameterSettings: boolean;
+        bOverrideFormat: boolean;
+        RenderTargetUserParameter: FNiagaraUserParameterBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceRWBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceRenderTargetCube['__properties_UNiagaraDataInterfaceRenderTargetCube'] &
+        UNiagaraDataInterfaceRWBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceRenderTargetCube: UNiagaraDataInterfaceRenderTargetCube;
 
 declare interface UNiagaraDataInterfaceRenderTargetVolume extends UNiagaraDataInterfaceRWBase {
-    Size: FIntVector;
-    OverrideRenderTargetFormat: ETextureRenderTargetFormat;
-    OverrideRenderTargetFilter: TextureFilter;
-    bInheritUserParameterSettings: boolean;
-    bOverrideFormat: boolean;
-    RenderTargetUserParameter: FNiagaraUserParameterBinding;
+    readonly __properties_UNiagaraDataInterfaceRenderTargetVolume: {
+        Size: FIntVector;
+        OverrideRenderTargetFormat: ETextureRenderTargetFormat;
+        OverrideRenderTargetFilter: TextureFilter;
+        bInheritUserParameterSettings: boolean;
+        bOverrideFormat: boolean;
+        RenderTargetUserParameter: FNiagaraUserParameterBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceRWBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceRenderTargetVolume['__properties_UNiagaraDataInterfaceRenderTargetVolume'] &
+        UNiagaraDataInterfaceRWBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceRenderTargetVolume: UNiagaraDataInterfaceRenderTargetVolume;
 
 declare interface UNiagaraDataInterfaceRigidMeshCollisionQuery extends UNiagaraDataInterface {
-    ActorTags: TArray<FName>;
-    ComponentTags: TArray<FName>;
-    SourceActors: TArray<TSoftObjectPtr<AActor>>;
-    OnlyUseMoveable: boolean;
-    UseComplexCollisions: boolean;
-    bFilterByObjectType: boolean;
-    GlobalSearchAllowed: boolean;
-    GlobalSearchForced: boolean;
-    GlobalSearchFallback_Unscripted: boolean;
-    MaxNumPrimitives: number;
+    readonly __properties_UNiagaraDataInterfaceRigidMeshCollisionQuery: {
+        ActorTags: string[];
+        ComponentTags: string[];
+        SourceActors: TSoftObjectPtr<AActor>[];
+        OnlyUseMoveable: boolean;
+        UseComplexCollisions: boolean;
+        bFilterByObjectType: boolean;
+        GlobalSearchAllowed: boolean;
+        GlobalSearchForced: boolean;
+        GlobalSearchFallback_Unscripted: boolean;
+        MaxNumPrimitives: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceRigidMeshCollisionQuery['__properties_UNiagaraDataInterfaceRigidMeshCollisionQuery'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceRigidMeshCollisionQuery: UNiagaraDataInterfaceRigidMeshCollisionQuery;
 
 declare interface UNiagaraDataInterfaceSceneCapture2D extends UNiagaraDataInterface {
-    SourceMode: ENDISceneCapture2DSourceMode;
-    SceneCaptureUserParameter: FNiagaraUserParameterBinding;
-    bAutoMoveWithComponent: boolean;
-    AutoMoveOffsetLocationMode: ENDISceneCapture2DOffsetMode;
-    AutoMoveOffsetLocation: FVector;
-    AutoMoveOffsetRotationMode: ENDISceneCapture2DOffsetMode;
-    AutoMoveOffsetRotation: FRotator;
-    ManagedCaptureSource: ESceneCaptureSource;
-    ManagedTextureSize: FIntPoint;
-    ManagedTextureFormat: ETextureRenderTargetFormat;
-    ManagedProjectionType: ECameraProjectionMode;
-    ManagedFOVAngle: number;
-    ManagedOrthoWidth: number;
-    bManagedCaptureEveryFrame: boolean;
-    bManagedCaptureOnMovement: boolean;
-    ManagedShowOnlyActors: TArray<AActor>;
-    ManagedCaptureComponents: Record<string | number | symbol, USceneCaptureComponent2D>;
-    SetSceneCapture2DManagedShowOnlyActors(NiagaraSystem: UNiagaraComponent, ParameterName: FName, ShowOnlyActors: TArray<AActor>): void;
+    readonly __static_UNiagaraDataInterfaceSceneCapture2D: {
+        SetSceneCapture2DManagedShowOnlyActors(NiagaraSystem: UNiagaraComponent, ParameterName: string, ShowOnlyActors: AActor[]): void;
+    };
+    readonly __properties_UNiagaraDataInterfaceSceneCapture2D: {
+        SourceMode: ENDISceneCapture2DSourceMode;
+        SceneCaptureUserParameter: FNiagaraUserParameterBinding;
+        bAutoMoveWithComponent: boolean;
+        AutoMoveOffsetLocationMode: ENDISceneCapture2DOffsetMode;
+        AutoMoveOffsetLocation: FVector;
+        AutoMoveOffsetRotationMode: ENDISceneCapture2DOffsetMode;
+        AutoMoveOffsetRotation: FRotator;
+        ManagedCaptureSource: ESceneCaptureSource;
+        ManagedTextureSize: FIntPoint;
+        ManagedTextureFormat: ETextureRenderTargetFormat;
+        ManagedProjectionType: ECameraProjectionMode;
+        ManagedFOVAngle: number;
+        ManagedOrthoWidth: number;
+        bManagedCaptureEveryFrame: boolean;
+        bManagedCaptureOnMovement: boolean;
+        ManagedShowOnlyActors: AActor[];
+        ManagedCaptureComponents: TMap<number, USceneCaptureComponent2D>;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceSceneCapture2D['__static_UNiagaraDataInterfaceSceneCapture2D'] &
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceSceneCapture2D['__properties_UNiagaraDataInterfaceSceneCapture2D'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceSceneCapture2D: UNiagaraDataInterfaceSceneCapture2D;
 
 declare interface UNiagaraDataInterfaceSimCacheReader extends UNiagaraDataInterface {
-    SimCacheBinding: FNiagaraUserParameterBinding;
-    SimCache: UNiagaraSimCache;
-    EmitterBinding: FName;
+    readonly __properties_UNiagaraDataInterfaceSimCacheReader: {
+        SimCacheBinding: FNiagaraUserParameterBinding;
+        SimCache: UNiagaraSimCache;
+        EmitterBinding: string;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceSimCacheReader['__properties_UNiagaraDataInterfaceSimCacheReader'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceSimCacheReader: UNiagaraDataInterfaceSimCacheReader;
 
 declare interface UNiagaraDataInterfaceSimpleCounter extends UNiagaraDataInterfaceRWBase {
-    GpuSyncMode: ENiagaraGpuSyncMode;
-    InitialValue: number;
+    readonly __properties_UNiagaraDataInterfaceSimpleCounter: {
+        GpuSyncMode: ENiagaraGpuSyncMode;
+        InitialValue: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceRWBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceSimpleCounter['__properties_UNiagaraDataInterfaceSimpleCounter'] &
+        UNiagaraDataInterfaceRWBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceSimpleCounter: UNiagaraDataInterfaceSimpleCounter;
 
 declare interface UNiagaraDataInterfaceSkeletalMesh extends UNiagaraDataInterface {
-    SourceMode: ENDISkeletalMesh_SourceMode;
-    DefaultMesh: USkeletalMesh;
-    SoftSourceActor: TSoftObjectPtr<AActor>;
-    ComponentTags: TArray<FName>;
-    SourceComponent: USkeletalMeshComponent;
-    MeshUserParameter: FNiagaraUserParameterBinding;
-    SkinningMode: ENDISkeletalMesh_SkinningMode;
-    SamplingRegions: TArray<FName>;
-    WholeMeshLOD: number;
-    FilteredBones: TArray<FName>;
-    FilteredSockets: TArray<FName>;
-    ExcludeBoneName: FName;
-    bExcludeBone: boolean;
-    UvSetIndex: number;
-    bRequireCurrentFrameData: boolean;
-    bReadDeformedGeometry: boolean;
-    OnSourceEndPlay(InSource: AActor, Reason: EEndPlayReason): void;
+    readonly __static_UNiagaraDataInterfaceSkeletalMesh: {
+        OnSourceEndPlay(InSource: AActor, Reason: EEndPlayReason): void;
+    };
+    readonly __properties_UNiagaraDataInterfaceSkeletalMesh: {
+        SourceMode: ENDISkeletalMesh_SourceMode;
+        DefaultMesh: USkeletalMesh;
+        SoftSourceActor: TSoftObjectPtr<AActor>;
+        ComponentTags: string[];
+        SourceComponent: USkeletalMeshComponent;
+        MeshUserParameter: FNiagaraUserParameterBinding;
+        SkinningMode: ENDISkeletalMesh_SkinningMode;
+        SamplingRegions: string[];
+        WholeMeshLOD: number;
+        FilteredBones: string[];
+        FilteredSockets: string[];
+        ExcludeBoneName: string;
+        bExcludeBone: boolean;
+        UvSetIndex: number;
+        bRequireCurrentFrameData: boolean;
+        bReadDeformedGeometry: boolean;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceSkeletalMesh['__static_UNiagaraDataInterfaceSkeletalMesh'] &
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceSkeletalMesh['__properties_UNiagaraDataInterfaceSkeletalMesh'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceSkeletalMesh: UNiagaraDataInterfaceSkeletalMesh;
 
 declare interface UNiagaraDataInterfaceSocketReader extends UNiagaraDataInterface {
-    SourceMode: ENDISocketReaderSourceMode;
-    FilteredSockets: TArray<FName>;
-    SourceActor: TLazyObjectPtr<AActor>;
-    SourceAsset: UObject;
-    AttachComponentClass: UClass;
-    AttachComponentTag: FName;
-    ObjectParameterBinding: FNiagaraUserParameterBinding;
-    bUpdateSocketsPerFrame: boolean;
-    bRequireCurrentFrameData: boolean;
+    readonly __properties_UNiagaraDataInterfaceSocketReader: {
+        SourceMode: ENDISocketReaderSourceMode;
+        FilteredSockets: string[];
+        SourceActor: TLazyObjectPtr<AActor>;
+        SourceAsset: UObject;
+        AttachComponentClass: UClass;
+        AttachComponentTag: string;
+        ObjectParameterBinding: FNiagaraUserParameterBinding;
+        bUpdateSocketsPerFrame: boolean;
+        bRequireCurrentFrameData: boolean;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceSocketReader['__properties_UNiagaraDataInterfaceSocketReader'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceSocketReader: UNiagaraDataInterfaceSocketReader;
 
 declare interface UNiagaraDataInterfaceSparseVolumeTexture extends UNiagaraDataInterface {
-    SparseVolumeTexture: USparseVolumeTexture;
-    SparseVolumeTextureUserParameter: FNiagaraUserParameterBinding;
-    BlockingStreamingRequests: boolean;
+    readonly __properties_UNiagaraDataInterfaceSparseVolumeTexture: {
+        SparseVolumeTexture: USparseVolumeTexture;
+        SparseVolumeTextureUserParameter: FNiagaraUserParameterBinding;
+        BlockingStreamingRequests: boolean;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceSparseVolumeTexture['__properties_UNiagaraDataInterfaceSparseVolumeTexture'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceSparseVolumeTexture: UNiagaraDataInterfaceSparseVolumeTexture;
 
 declare interface UNiagaraDataInterfaceSpline extends UNiagaraDataInterface {
-    SoftSourceActor: TSoftObjectPtr<AActor>;
-    SplineUserParameter: FNiagaraUserParameterBinding;
-    bUseLUT: boolean;
-    NumLUTSteps: number;
+    readonly __properties_UNiagaraDataInterfaceSpline: {
+        SoftSourceActor: TSoftObjectPtr<AActor>;
+        SplineUserParameter: FNiagaraUserParameterBinding;
+        bUseLUT: boolean;
+        NumLUTSteps: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceSpline['__properties_UNiagaraDataInterfaceSpline'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceSpline: UNiagaraDataInterfaceSpline;
 
 declare interface UNiagaraDataInterfaceSpriteRendererInfo extends UNiagaraDataInterface {
-    SpriteRenderer: UNiagaraSpriteRendererProperties;
+    readonly __properties_UNiagaraDataInterfaceSpriteRendererInfo: {
+        SpriteRenderer: UNiagaraSpriteRendererProperties;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceSpriteRendererInfo['__properties_UNiagaraDataInterfaceSpriteRendererInfo'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceSpriteRendererInfo: UNiagaraDataInterfaceSpriteRendererInfo;
 
 declare interface UNiagaraDataInterfaceStaticMesh extends UNiagaraDataInterface {
-    SourceMode: ENDIStaticMesh_SourceMode;
-    DefaultMesh: UStaticMesh;
-    SoftSourceActor: TSoftObjectPtr<AActor>;
-    SourceComponent: TWeakObjectPtr<UStaticMeshComponent>;
-    SectionFilter: FNDIStaticMeshSectionFilter;
-    bCaptureTransformsPerFrame: boolean;
-    bUsePhysicsBodyVelocity: boolean;
-    bAllowSamplingFromStreamingLODs: boolean;
-    LODIndex: number;
-    LODIndexUserParameter: FNiagaraUserParameterBinding;
-    MeshParameterBinding: FNiagaraUserParameterBinding;
-    InstanceIndex: number;
-    FilteredSockets: TArray<FName>;
-    SetNiagaraStaticMeshDIInstanceIndex(NiagaraSystem: UNiagaraComponent, UserParameterName: FName, NewInstanceIndex: number): void;
-    OnSourceEndPlay(InSource: AActor, Reason: EEndPlayReason): void;
+    readonly __static_UNiagaraDataInterfaceStaticMesh: {
+        SetNiagaraStaticMeshDIInstanceIndex(NiagaraSystem: UNiagaraComponent, UserParameterName: string, NewInstanceIndex: number): void;
+        OnSourceEndPlay(InSource: AActor, Reason: EEndPlayReason): void;
+    };
+    readonly __properties_UNiagaraDataInterfaceStaticMesh: {
+        SourceMode: ENDIStaticMesh_SourceMode;
+        DefaultMesh: UStaticMesh;
+        SoftSourceActor: TSoftObjectPtr<AActor>;
+        SourceComponent: TWeakObjectPtr<UStaticMeshComponent>;
+        SectionFilter: FNDIStaticMeshSectionFilter;
+        bCaptureTransformsPerFrame: boolean;
+        bUsePhysicsBodyVelocity: boolean;
+        bAllowSamplingFromStreamingLODs: boolean;
+        LODIndex: number;
+        LODIndexUserParameter: FNiagaraUserParameterBinding;
+        MeshParameterBinding: FNiagaraUserParameterBinding;
+        InstanceIndex: number;
+        FilteredSockets: string[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceStaticMesh['__static_UNiagaraDataInterfaceStaticMesh'] &
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceStaticMesh['__properties_UNiagaraDataInterfaceStaticMesh'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceStaticMesh: UNiagaraDataInterfaceStaticMesh;
 
 declare interface UNiagaraDataInterfaceTexture extends UNiagaraDataInterface {
-    Texture: UTexture;
-    TextureUserParameter: FNiagaraUserParameterBinding;
+    readonly __properties_UNiagaraDataInterfaceTexture: {
+        Texture: UTexture;
+        TextureUserParameter: FNiagaraUserParameterBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceTexture['__properties_UNiagaraDataInterfaceTexture'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceTexture: UNiagaraDataInterfaceTexture;
 
 declare interface UNiagaraDataInterfaceUObjectPropertyReader extends UNiagaraDataInterface {
-    SourceMode: ENDIObjectPropertyReaderSourceMode;
-    UObjectParameterBinding: FNiagaraUserParameterBinding;
-    PropertyRemap: TArray<FNiagaraUObjectPropertyReaderRemap>;
-    SourceActor: TSoftObjectPtr<AActor>;
-    SourceActorComponentClass: UClass;
-    SetUObjectReaderPropertyRemap(NiagaraComponent: UNiagaraComponent, UserParameterName: FName, GraphName: FName, RemapName: FName): void;
+    readonly __static_UNiagaraDataInterfaceUObjectPropertyReader: {
+        SetUObjectReaderPropertyRemap(NiagaraComponent: UNiagaraComponent, UserParameterName: string, GraphName: string, RemapName: string): void;
+    };
+    readonly __properties_UNiagaraDataInterfaceUObjectPropertyReader: {
+        SourceMode: ENDIObjectPropertyReaderSourceMode;
+        UObjectParameterBinding: FNiagaraUserParameterBinding;
+        PropertyRemap: FNiagaraUObjectPropertyReaderRemap[];
+        SourceActor: TSoftObjectPtr<AActor>;
+        SourceActorComponentClass: UClass;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceUObjectPropertyReader['__static_UNiagaraDataInterfaceUObjectPropertyReader'] &
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceUObjectPropertyReader['__properties_UNiagaraDataInterfaceUObjectPropertyReader'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceUObjectPropertyReader: UNiagaraDataInterfaceUObjectPropertyReader;
 
 declare interface UNiagaraDataInterfaceVector2DCurve extends UNiagaraDataInterfaceCurveBase {
-    XCurve: FRichCurve;
-    YCurve: FRichCurve;
+    readonly __properties_UNiagaraDataInterfaceVector2DCurve: {
+        XCurve: FRichCurve;
+        YCurve: FRichCurve;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceCurveBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceVector2DCurve['__properties_UNiagaraDataInterfaceVector2DCurve'] &
+        UNiagaraDataInterfaceCurveBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceVector2DCurve: UNiagaraDataInterfaceVector2DCurve;
 
 declare interface UNiagaraDataInterfaceVector4Curve extends UNiagaraDataInterfaceCurveBase {
-    XCurve: FRichCurve;
-    YCurve: FRichCurve;
-    ZCurve: FRichCurve;
-    WCurve: FRichCurve;
+    readonly __properties_UNiagaraDataInterfaceVector4Curve: {
+        XCurve: FRichCurve;
+        YCurve: FRichCurve;
+        ZCurve: FRichCurve;
+        WCurve: FRichCurve;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceCurveBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceVector4Curve['__properties_UNiagaraDataInterfaceVector4Curve'] &
+        UNiagaraDataInterfaceCurveBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceVector4Curve: UNiagaraDataInterfaceVector4Curve;
 
 declare interface UNiagaraDataInterfaceVectorCurve extends UNiagaraDataInterfaceCurveBase {
-    XCurve: FRichCurve;
-    YCurve: FRichCurve;
-    ZCurve: FRichCurve;
+    readonly __properties_UNiagaraDataInterfaceVectorCurve: {
+        XCurve: FRichCurve;
+        YCurve: FRichCurve;
+        ZCurve: FRichCurve;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterfaceCurveBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceVectorCurve['__properties_UNiagaraDataInterfaceVectorCurve'] &
+        UNiagaraDataInterfaceCurveBase['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceVectorCurve: UNiagaraDataInterfaceVectorCurve;
 
 declare interface UNiagaraDataInterfaceVectorField extends UNiagaraDataInterface {
-    Field: UVectorField;
-    bTileX: boolean;
-    bTileY: boolean;
-    bTileZ: boolean;
+    readonly __properties_UNiagaraDataInterfaceVectorField: {
+        Field: UVectorField;
+        bTileX: boolean;
+        bTileY: boolean;
+        bTileZ: boolean;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceVectorField['__properties_UNiagaraDataInterfaceVectorField'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceVectorField: UNiagaraDataInterfaceVectorField;
 
 declare interface UNiagaraDataInterfaceVirtualTexture extends UNiagaraDataInterface {
-    Texture: URuntimeVirtualTexture;
-    TextureUserParameter: FNiagaraUserParameterBinding;
+    readonly __properties_UNiagaraDataInterfaceVirtualTexture: {
+        Texture: URuntimeVirtualTexture;
+        TextureUserParameter: FNiagaraUserParameterBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceVirtualTexture['__properties_UNiagaraDataInterfaceVirtualTexture'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceVirtualTexture: UNiagaraDataInterfaceVirtualTexture;
 
 declare interface UNiagaraDataInterfaceVolumeCache extends UNiagaraDataInterface {
-    VolumeCache: UVolumeCache;
+    readonly __properties_UNiagaraDataInterfaceVolumeCache: {
+        VolumeCache: UVolumeCache;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceVolumeCache['__properties_UNiagaraDataInterfaceVolumeCache'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceVolumeCache: UNiagaraDataInterfaceVolumeCache;
 
 declare interface UNiagaraDataInterfaceVolumeTexture extends UNiagaraDataInterface {
-    Texture: UTexture;
-    TextureUserParameter: FNiagaraUserParameterBinding;
+    readonly __properties_UNiagaraDataInterfaceVolumeTexture: {
+        Texture: UTexture;
+        TextureUserParameter: FNiagaraUserParameterBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraDataInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDataInterfaceVolumeTexture['__properties_UNiagaraDataInterfaceVolumeTexture'] &
+        UNiagaraDataInterface['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceVolumeTexture: UNiagaraDataInterfaceVolumeTexture;
 
 declare interface UNiagaraDebugHUDSettings extends UObject {
-    Data: FNiagaraDebugHUDSettingsData;
+    readonly __properties_UNiagaraDebugHUDSettings: {
+        Data: FNiagaraDebugHUDSettingsData;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDebugHUDSettings['__properties_UNiagaraDebugHUDSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraDebugHUDSettings: UNiagaraDebugHUDSettings;
 
 declare interface UNiagaraDecalRendererProperties extends UNiagaraRendererProperties {
-    Material: UMaterialInterface;
-    MaterialParameterBinding: FNiagaraParameterBinding;
-    SourceMode: ENiagaraRendererSourceDataMode;
-    RendererVisibility: number;
-    DecalScreenSizeFade: number;
-    PositionBinding: FNiagaraVariableAttributeBinding;
-    DecalOrientationBinding: FNiagaraVariableAttributeBinding;
-    DecalSizeBinding: FNiagaraVariableAttributeBinding;
-    DecalFadeBinding: FNiagaraVariableAttributeBinding;
-    DecalSortOrderBinding: FNiagaraVariableAttributeBinding;
-    DecalColorBinding: FNiagaraVariableAttributeBinding;
-    DecalVisibleBinding: FNiagaraVariableAttributeBinding;
-    RendererVisibilityTagBinding: FNiagaraVariableAttributeBinding;
-    MaterialParameters: FNiagaraRendererMaterialParameters;
+    readonly __properties_UNiagaraDecalRendererProperties: {
+        Material: UMaterialInterface;
+        MaterialParameterBinding: FNiagaraParameterBinding;
+        SourceMode: ENiagaraRendererSourceDataMode;
+        RendererVisibility: number;
+        DecalScreenSizeFade: number;
+        PositionBinding: FNiagaraVariableAttributeBinding;
+        DecalOrientationBinding: FNiagaraVariableAttributeBinding;
+        DecalSizeBinding: FNiagaraVariableAttributeBinding;
+        DecalFadeBinding: FNiagaraVariableAttributeBinding;
+        DecalSortOrderBinding: FNiagaraVariableAttributeBinding;
+        DecalColorBinding: FNiagaraVariableAttributeBinding;
+        DecalVisibleBinding: FNiagaraVariableAttributeBinding;
+        RendererVisibilityTagBinding: FNiagaraVariableAttributeBinding;
+        MaterialParameters: FNiagaraRendererMaterialParameters;
+    };
+    readonly __staticRegistry: 
+        UNiagaraRendererProperties['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraDecalRendererProperties['__properties_UNiagaraDecalRendererProperties'] &
+        UNiagaraRendererProperties['__propertyRegistry'];
 }
-declare const UNiagaraDecalRendererProperties: UNiagaraDecalRendererProperties;
 
 declare interface UNiagaraEditorDataBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraEditorDataBase: UNiagaraEditorDataBase;
 
 declare interface UNiagaraEditorParametersAdapterBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraEditorParametersAdapterBase: UNiagaraEditorParametersAdapterBase;
 
 declare interface UNiagaraEffectType extends UObject {
-    bAllowCullingForLocalPlayers: boolean;
-    UpdateFrequency: ENiagaraScalabilityUpdateFrequency;
-    CullReaction: ENiagaraCullReaction;
-    SignificanceHandler: UNiagaraSignificanceHandler;
-    DetailLevelScalabilitySettings: TArray<FNiagaraSystemScalabilitySettings>;
-    SystemScalabilitySettings: FNiagaraSystemScalabilitySettingsArray;
-    EmitterScalabilitySettings: FNiagaraEmitterScalabilitySettingsArray;
-    PerformanceBaselineController: UNiagaraBaselineController;
-    PerfBaselineStats: FNiagaraPerfBaselineStats;
-    PerfBaselineVersion: FGuid;
+    readonly __properties_UNiagaraEffectType: {
+        bAllowCullingForLocalPlayers: boolean;
+        UpdateFrequency: ENiagaraScalabilityUpdateFrequency;
+        CullReaction: ENiagaraCullReaction;
+        SignificanceHandler: UNiagaraSignificanceHandler;
+        DetailLevelScalabilitySettings: FNiagaraSystemScalabilitySettings[];
+        SystemScalabilitySettings: FNiagaraSystemScalabilitySettingsArray;
+        EmitterScalabilitySettings: FNiagaraEmitterScalabilitySettingsArray;
+        PerformanceBaselineController: UNiagaraBaselineController;
+        PerfBaselineStats: FNiagaraPerfBaselineStats;
+        PerfBaselineVersion: FGuid;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraEffectType['__properties_UNiagaraEffectType'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraEffectType: UNiagaraEffectType;
 
 declare interface UNiagaraEmitter extends UObject {
-    ExposedVersion: FGuid;
-    bVersioningEnabled: boolean;
-    VersionData: TArray<FVersionedNiagaraEmitterData>;
-    UniqueEmitterName: FString;
+    readonly __properties_UNiagaraEmitter: {
+        ExposedVersion: FGuid;
+        bVersioningEnabled: boolean;
+        VersionData: FVersionedNiagaraEmitterData[];
+        UniqueEmitterName: string;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraEmitter['__properties_UNiagaraEmitter'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraEmitter: UNiagaraEmitter;
 
 declare interface UNiagaraEventReceiverEmitterAction extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraEventReceiverEmitterAction: UNiagaraEventReceiverEmitterAction;
 
 declare interface UNiagaraEventReceiverEmitterAction_SpawnParticles extends UNiagaraEventReceiverEmitterAction {
-    NumParticles: uint32;
+    readonly __properties_UNiagaraEventReceiverEmitterAction_SpawnParticles: {
+        NumParticles: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraEventReceiverEmitterAction['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraEventReceiverEmitterAction_SpawnParticles['__properties_UNiagaraEventReceiverEmitterAction_SpawnParticles'] &
+        UNiagaraEventReceiverEmitterAction['__propertyRegistry'];
 }
-declare const UNiagaraEventReceiverEmitterAction_SpawnParticles: UNiagaraEventReceiverEmitterAction_SpawnParticles;
 
 declare interface UNiagaraFunctionLibrary extends UBlueprintFunctionLibrary {
-    SpawnSystemAttachedWithParams(SpawnParams: FFXSystemSpawnParameters): UNiagaraComponent;
-    SpawnSystemAttached(SystemTemplate: UNiagaraSystem, AttachToComponent: USceneComponent, AttachPointName: FName, Location: FVector, Rotation: FRotator, LocationType: EAttachLocation, bAutoDestroy: boolean, bAutoActivate: boolean, PoolingMethod: ENCPoolMethod, bPreCullCheck: boolean): UNiagaraComponent;
-    SpawnSystemAtLocationWithParams(SpawnParams: FFXSystemSpawnParameters): UNiagaraComponent;
-    SpawnSystemAtLocation(WorldContextObject: UObject, SystemTemplate: UNiagaraSystem, Location: FVector, Rotation: FRotator, Scale: FVector, bAutoDestroy: boolean, bAutoActivate: boolean, PoolingMethod: ENCPoolMethod, bPreCullCheck: boolean): UNiagaraComponent;
-    SetVolumeTextureObject(NiagaraSystem: UNiagaraComponent, OverrideName: string | FString, Texture: UVolumeTexture): void;
-    SetTextureObject(NiagaraSystem: UNiagaraComponent, OverrideName: string | FString, Texture: UTexture): void;
-    SetTexture2DArrayObject(NiagaraSystem: UNiagaraComponent, OverrideName: string | FString, Texture: UTexture2DArray): void;
-    SetSkeletalMeshDataInterfaceSamplingRegions(NiagaraSystem: UNiagaraComponent, OverrideName: string | FString, SamplingRegions: TArray<FName>): void;
-    SetSkeletalMeshDataInterfaceFilteredSockets(NiagaraSystem: UNiagaraComponent, OverrideName: string | FString, FilteredSockets: TArray<FName>): void;
-    SetSkeletalMeshDataInterfaceFilteredBones(NiagaraSystem: UNiagaraComponent, OverrideName: string | FString, FilteredBones: TArray<FName>): void;
-    SetSceneCapture2DDataInterfaceManagedMode(NiagaraSystem: UNiagaraComponent, DIName: FName, ManagedCaptureSource: ESceneCaptureSource, ManagedTextureSize: FIntPoint, ManagedTextureFormat: ETextureRenderTargetFormat, ManagedProjectionType: ECameraProjectionMode, ManagedFOVAngle: number, ManagedOrthoWidth: number, bManagedCaptureEveryFrame: boolean, bManagedCaptureOnMovement: boolean, ShowOnlyActors: TArray<AActor>): void;
-    SetComponentNiagaraGPURayTracedCollisionGroup(WorldContextObject: UObject, Primitive: UPrimitiveComponent, CollisionGroup: number): void;
-    SetActorNiagaraGPURayTracedCollisionGroup(WorldContextObject: UObject, Actor: AActor, CollisionGroup: number): void;
-    ReleaseNiagaraGPURayTracedCollisionGroup(WorldContextObject: UObject, CollisionGroup: number): void;
-    OverrideSystemUserVariableStaticMeshComponent(NiagaraSystem: UNiagaraComponent, OverrideName: string | FString, StaticMeshComponent: UStaticMeshComponent): void;
-    OverrideSystemUserVariableStaticMesh(NiagaraSystem: UNiagaraComponent, OverrideName: string | FString, StaticMesh: UStaticMesh): void;
-    OverrideSystemUserVariableSkeletalMeshComponent(NiagaraSystem: UNiagaraComponent, OverrideName: string | FString, SkeletalMeshComponent: USkeletalMeshComponent): void;
-    GetNiagaraParameterCollection(WorldContextObject: UObject, Collection: UNiagaraParameterCollection): UNiagaraParameterCollectionInstance;
-    AcquireNiagaraGPURayTracedCollisionGroup(WorldContextObject: UObject): number;
+    readonly __static_UNiagaraFunctionLibrary: {
+        SpawnSystemAttachedWithParams(SpawnParams: FFXSystemSpawnParameters): UNiagaraComponent;
+        SpawnSystemAttached(SystemTemplate: UNiagaraSystem, AttachToComponent: USceneComponent, AttachPointName: string, Location: FVector, Rotation: FRotator, LocationType: EAttachLocation, bAutoDestroy: boolean, bAutoActivate: boolean, PoolingMethod: ENCPoolMethod, bPreCullCheck: boolean): UNiagaraComponent;
+        SpawnSystemAtLocationWithParams(SpawnParams: FFXSystemSpawnParameters): UNiagaraComponent;
+        SpawnSystemAtLocation(WorldContextObject: UObject, SystemTemplate: UNiagaraSystem, Location: FVector, Rotation: FRotator, Scale: FVector, bAutoDestroy: boolean, bAutoActivate: boolean, PoolingMethod: ENCPoolMethod, bPreCullCheck: boolean): UNiagaraComponent;
+        SetVolumeTextureObject(NiagaraSystem: UNiagaraComponent, OverrideName: string, Texture: UVolumeTexture): void;
+        SetTextureObject(NiagaraSystem: UNiagaraComponent, OverrideName: string, Texture: UTexture): void;
+        SetTexture2DArrayObject(NiagaraSystem: UNiagaraComponent, OverrideName: string, Texture: UTexture2DArray): void;
+        SetSkeletalMeshDataInterfaceSamplingRegions(NiagaraSystem: UNiagaraComponent, OverrideName: string, SamplingRegions: string[]): void;
+        SetSkeletalMeshDataInterfaceFilteredSockets(NiagaraSystem: UNiagaraComponent, OverrideName: string, FilteredSockets: string[]): void;
+        SetSkeletalMeshDataInterfaceFilteredBones(NiagaraSystem: UNiagaraComponent, OverrideName: string, FilteredBones: string[]): void;
+        SetSceneCapture2DDataInterfaceManagedMode(NiagaraSystem: UNiagaraComponent, DIName: string, ManagedCaptureSource: ESceneCaptureSource, ManagedTextureSize: FIntPoint, ManagedTextureFormat: ETextureRenderTargetFormat, ManagedProjectionType: ECameraProjectionMode, ManagedFOVAngle: number, ManagedOrthoWidth: number, bManagedCaptureEveryFrame: boolean, bManagedCaptureOnMovement: boolean, ShowOnlyActors: AActor[]): void;
+        SetComponentNiagaraGPURayTracedCollisionGroup(WorldContextObject: UObject, Primitive: UPrimitiveComponent, CollisionGroup: number): void;
+        SetActorNiagaraGPURayTracedCollisionGroup(WorldContextObject: UObject, Actor: AActor, CollisionGroup: number): void;
+        ReleaseNiagaraGPURayTracedCollisionGroup(WorldContextObject: UObject, CollisionGroup: number): void;
+        OverrideSystemUserVariableStaticMeshComponent(NiagaraSystem: UNiagaraComponent, OverrideName: string, StaticMeshComponent: UStaticMeshComponent): void;
+        OverrideSystemUserVariableStaticMesh(NiagaraSystem: UNiagaraComponent, OverrideName: string, StaticMesh: UStaticMesh): void;
+        OverrideSystemUserVariableSkeletalMeshComponent(NiagaraSystem: UNiagaraComponent, OverrideName: string, SkeletalMeshComponent: USkeletalMeshComponent): void;
+        GetNiagaraParameterCollection(WorldContextObject: UObject, Collection: UNiagaraParameterCollection): UNiagaraParameterCollectionInstance;
+        AcquireNiagaraGPURayTracedCollisionGroup(WorldContextObject: UObject): number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraFunctionLibrary['__static_UNiagaraFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UNiagaraFunctionLibrary: UNiagaraFunctionLibrary;
 
 declare interface UNiagaraLightRendererProperties extends UNiagaraRendererProperties {
-    SourceMode: ENiagaraRendererSourceDataMode;
-    bUseInverseSquaredFalloff: boolean;
-    bAffectsTranslucency: boolean;
-    bAlphaScalesBrightness: boolean;
-    bOverrideInverseExposureBlend: boolean;
-    RadiusScale: number;
-    DefaultExponent: number;
-    SpecularScale: number;
-    DiffuseScale: number;
-    ColorAdd: FVector3f;
-    InverseExposureBlend: number;
-    RendererVisibility: number;
-    LightRenderingEnabledBinding: FNiagaraVariableAttributeBinding;
-    LightExponentBinding: FNiagaraVariableAttributeBinding;
-    PositionBinding: FNiagaraVariableAttributeBinding;
-    ColorBinding: FNiagaraVariableAttributeBinding;
-    RadiusBinding: FNiagaraVariableAttributeBinding;
-    VolumetricScatteringBinding: FNiagaraVariableAttributeBinding;
-    RendererVisibilityTagBinding: FNiagaraVariableAttributeBinding;
-    SpecularScaleBinding: FNiagaraVariableAttributeBinding;
-    DiffuseScaleBinding: FNiagaraVariableAttributeBinding;
+    readonly __properties_UNiagaraLightRendererProperties: {
+        SourceMode: ENiagaraRendererSourceDataMode;
+        bUseInverseSquaredFalloff: boolean;
+        bAffectsTranslucency: boolean;
+        bAlphaScalesBrightness: boolean;
+        bOverrideInverseExposureBlend: boolean;
+        RadiusScale: number;
+        DefaultExponent: number;
+        SpecularScale: number;
+        DiffuseScale: number;
+        ColorAdd: FVector3f;
+        InverseExposureBlend: number;
+        RendererVisibility: number;
+        LightRenderingEnabledBinding: FNiagaraVariableAttributeBinding;
+        LightExponentBinding: FNiagaraVariableAttributeBinding;
+        PositionBinding: FNiagaraVariableAttributeBinding;
+        ColorBinding: FNiagaraVariableAttributeBinding;
+        RadiusBinding: FNiagaraVariableAttributeBinding;
+        VolumetricScatteringBinding: FNiagaraVariableAttributeBinding;
+        RendererVisibilityTagBinding: FNiagaraVariableAttributeBinding;
+        SpecularScaleBinding: FNiagaraVariableAttributeBinding;
+        DiffuseScaleBinding: FNiagaraVariableAttributeBinding;
+    };
+    readonly __staticRegistry: 
+        UNiagaraRendererProperties['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraLightRendererProperties['__properties_UNiagaraLightRendererProperties'] &
+        UNiagaraRendererProperties['__propertyRegistry'];
 }
-declare const UNiagaraLightRendererProperties: UNiagaraLightRendererProperties;
 
 declare interface UNiagaraMeshRendererProperties extends UNiagaraRendererProperties {
-    Meshes: TArray<FNiagaraMeshRendererMeshProperties>;
-    MeshesBinding: FNiagaraParameterBinding;
-    SourceMode: ENiagaraRendererSourceDataMode;
-    SortMode: ENiagaraSortMode;
-    SortPrecision: ENiagaraRendererSortPrecision;
-    GpuTranslucentLatency: ENiagaraRendererGpuTranslucentLatency;
-    bOverrideMaterials: boolean;
-    bSortOnlyWhenTranslucent: boolean;
-    bSubImageBlend: boolean;
-    bEnableFrustumCulling: boolean;
-    bEnableCameraDistanceCulling: boolean;
-    bEnableMeshFlipbook: boolean;
-    bLockedAxisEnable: boolean;
-    bCastShadows: boolean;
-    OverrideMaterials: TArray<FNiagaraMeshMaterialOverride>;
-    MICOverrideMaterials: TArray<FNiagaraMeshMICOverride>;
-    SubImageSize: FVector2D;
-    LockedAxis: FVector;
-    MeshBoundsScale: FVector;
-    FacingMode: ENiagaraMeshFacingMode;
-    LockedAxisSpace: ENiagaraMeshLockedAxisSpace;
-    MinCameraDistance: number;
-    MaxCameraDistance: number;
-    RendererVisibility: uint32;
-    PositionBinding: FNiagaraVariableAttributeBinding;
-    ColorBinding: FNiagaraVariableAttributeBinding;
-    VelocityBinding: FNiagaraVariableAttributeBinding;
-    MeshOrientationBinding: FNiagaraVariableAttributeBinding;
-    ScaleBinding: FNiagaraVariableAttributeBinding;
-    SubImageIndexBinding: FNiagaraVariableAttributeBinding;
-    DynamicMaterialBinding: FNiagaraVariableAttributeBinding;
-    DynamicMaterial1Binding: FNiagaraVariableAttributeBinding;
-    DynamicMaterial2Binding: FNiagaraVariableAttributeBinding;
-    DynamicMaterial3Binding: FNiagaraVariableAttributeBinding;
-    MaterialRandomBinding: FNiagaraVariableAttributeBinding;
-    CustomSortingBinding: FNiagaraVariableAttributeBinding;
-    NormalizedAgeBinding: FNiagaraVariableAttributeBinding;
-    CameraOffsetBinding: FNiagaraVariableAttributeBinding;
-    RendererVisibilityTagBinding: FNiagaraVariableAttributeBinding;
-    MeshIndexBinding: FNiagaraVariableAttributeBinding;
-    MaterialParameters: FNiagaraRendererMaterialParameters;
-    PrevPositionBinding: FNiagaraVariableAttributeBinding;
-    PrevScaleBinding: FNiagaraVariableAttributeBinding;
-    PrevMeshOrientationBinding: FNiagaraVariableAttributeBinding;
-    PrevCameraOffsetBinding: FNiagaraVariableAttributeBinding;
-    PrevVelocityBinding: FNiagaraVariableAttributeBinding;
-    MaterialParamValidMask: uint32;
+    readonly __properties_UNiagaraMeshRendererProperties: {
+        Meshes: FNiagaraMeshRendererMeshProperties[];
+        MeshesBinding: FNiagaraParameterBinding;
+        SourceMode: ENiagaraRendererSourceDataMode;
+        SortMode: ENiagaraSortMode;
+        SortPrecision: ENiagaraRendererSortPrecision;
+        GpuTranslucentLatency: ENiagaraRendererGpuTranslucentLatency;
+        bOverrideMaterials: boolean;
+        bSortOnlyWhenTranslucent: boolean;
+        bSubImageBlend: boolean;
+        bEnableFrustumCulling: boolean;
+        bEnableCameraDistanceCulling: boolean;
+        bEnableMeshFlipbook: boolean;
+        bLockedAxisEnable: boolean;
+        bCastShadows: boolean;
+        OverrideMaterials: FNiagaraMeshMaterialOverride[];
+        MICOverrideMaterials: FNiagaraMeshMICOverride[];
+        SubImageSize: FVector2D;
+        LockedAxis: FVector;
+        MeshBoundsScale: FVector;
+        FacingMode: ENiagaraMeshFacingMode;
+        LockedAxisSpace: ENiagaraMeshLockedAxisSpace;
+        MinCameraDistance: number;
+        MaxCameraDistance: number;
+        RendererVisibility: number;
+        PositionBinding: FNiagaraVariableAttributeBinding;
+        ColorBinding: FNiagaraVariableAttributeBinding;
+        VelocityBinding: FNiagaraVariableAttributeBinding;
+        MeshOrientationBinding: FNiagaraVariableAttributeBinding;
+        ScaleBinding: FNiagaraVariableAttributeBinding;
+        SubImageIndexBinding: FNiagaraVariableAttributeBinding;
+        DynamicMaterialBinding: FNiagaraVariableAttributeBinding;
+        DynamicMaterial1Binding: FNiagaraVariableAttributeBinding;
+        DynamicMaterial2Binding: FNiagaraVariableAttributeBinding;
+        DynamicMaterial3Binding: FNiagaraVariableAttributeBinding;
+        MaterialRandomBinding: FNiagaraVariableAttributeBinding;
+        CustomSortingBinding: FNiagaraVariableAttributeBinding;
+        NormalizedAgeBinding: FNiagaraVariableAttributeBinding;
+        CameraOffsetBinding: FNiagaraVariableAttributeBinding;
+        RendererVisibilityTagBinding: FNiagaraVariableAttributeBinding;
+        MeshIndexBinding: FNiagaraVariableAttributeBinding;
+        MaterialParameters: FNiagaraRendererMaterialParameters;
+        PrevPositionBinding: FNiagaraVariableAttributeBinding;
+        PrevScaleBinding: FNiagaraVariableAttributeBinding;
+        PrevMeshOrientationBinding: FNiagaraVariableAttributeBinding;
+        PrevCameraOffsetBinding: FNiagaraVariableAttributeBinding;
+        PrevVelocityBinding: FNiagaraVariableAttributeBinding;
+        MaterialParamValidMask: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraRendererProperties['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraMeshRendererProperties['__properties_UNiagaraMeshRendererProperties'] &
+        UNiagaraRendererProperties['__propertyRegistry'];
 }
-declare const UNiagaraMeshRendererProperties: UNiagaraMeshRendererProperties;
 
 declare interface UNiagaraMessageDataBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraMessageDataBase: UNiagaraMessageDataBase;
 
 declare interface UNiagaraParameterCollection extends UObject {
-    Namespace: FName;
-    Parameters: TArray<FNiagaraVariable>;
-    SourceMaterialCollection: UMaterialParameterCollection;
-    DefaultInstance: UNiagaraParameterCollectionInstance;
-    CompileId: FGuid;
+    readonly __properties_UNiagaraParameterCollection: {
+        Namespace: string;
+        Parameters: FNiagaraVariable[];
+        SourceMaterialCollection: UMaterialParameterCollection;
+        DefaultInstance: UNiagaraParameterCollectionInstance;
+        CompileId: FGuid;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraParameterCollection['__properties_UNiagaraParameterCollection'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraParameterCollection: UNiagaraParameterCollection;
 
 declare interface UNiagaraParameterCollectionInstance extends UObject {
-    Collection: UNiagaraParameterCollection;
-    OverridenParameters: TArray<FNiagaraVariable>;
-    ParameterStorage: FNiagaraParameterStore;
-    SourceMaterialCollectionInstance: UMaterialParameterCollectionInstance;
-    SetVectorParameter(InVariableName: string | FString, InValue: FVector): void;
-    SetVector4Parameter(InVariableName: string | FString, InValue: FVector4): void;
-    SetVector2DParameter(InVariableName: string | FString, InValue: FVector2D): void;
-    SetQuatParameter(InVariableName: string | FString, InValue: FQuat): void;
-    SetIntParameter(InVariableName: string | FString, InValue: number): void;
-    SetFloatParameter(InVariableName: string | FString, InValue: number): void;
-    SetColorParameter(InVariableName: string | FString, InValue: FLinearColor): void;
-    SetBoolParameter(InVariableName: string | FString, InValue: boolean): void;
-    GetVectorParameter(InVariableName: string | FString): FVector;
-    GetVector4Parameter(InVariableName: string | FString): FVector4;
-    GetVector2DParameter(InVariableName: string | FString): FVector2D;
-    GetQuatParameter(InVariableName: string | FString): FQuat;
-    GetIntParameter(InVariableName: string | FString): number;
-    GetFloatParameter(InVariableName: string | FString): number;
-    GetColorParameter(InVariableName: string | FString): FLinearColor;
-    GetBoolParameter(InVariableName: string | FString): boolean;
+    readonly __static_UNiagaraParameterCollectionInstance: {
+        SetVectorParameter(InVariableName: string, InValue: FVector): void;
+        SetVector4Parameter(InVariableName: string, InValue: FVector4): void;
+        SetVector2DParameter(InVariableName: string, InValue: FVector2D): void;
+        SetQuatParameter(InVariableName: string, InValue: FQuat): void;
+        SetIntParameter(InVariableName: string, InValue: number): void;
+        SetFloatParameter(InVariableName: string, InValue: number): void;
+        SetColorParameter(InVariableName: string, InValue: FLinearColor): void;
+        SetBoolParameter(InVariableName: string, InValue: boolean): void;
+        GetVectorParameter(InVariableName: string): FVector;
+        GetVector4Parameter(InVariableName: string): FVector4;
+        GetVector2DParameter(InVariableName: string): FVector2D;
+        GetQuatParameter(InVariableName: string): FQuat;
+        GetIntParameter(InVariableName: string): number;
+        GetFloatParameter(InVariableName: string): number;
+        GetColorParameter(InVariableName: string): FLinearColor;
+        GetBoolParameter(InVariableName: string): boolean;
+    };
+    readonly __properties_UNiagaraParameterCollectionInstance: {
+        Collection: UNiagaraParameterCollection;
+        OverridenParameters: FNiagaraVariable[];
+        ParameterStorage: FNiagaraParameterStore;
+        SourceMaterialCollectionInstance: UMaterialParameterCollectionInstance;
+    };
+    readonly __staticRegistry: 
+        UNiagaraParameterCollectionInstance['__static_UNiagaraParameterCollectionInstance'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraParameterCollectionInstance['__properties_UNiagaraParameterCollectionInstance'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraParameterCollectionInstance: UNiagaraParameterCollectionInstance;
 
 declare interface UNiagaraParameterDefinitionsBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraParameterDefinitionsBase: UNiagaraParameterDefinitionsBase;
 
 declare interface UNiagaraPrecompileContainer extends UObject {
-    Scripts: TArray<UNiagaraScript>;
-    System: UNiagaraSystem;
+    readonly __properties_UNiagaraPrecompileContainer: {
+        Scripts: UNiagaraScript[];
+        System: UNiagaraSystem;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraPrecompileContainer['__properties_UNiagaraPrecompileContainer'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraPrecompileContainer: UNiagaraPrecompileContainer;
 
 declare interface UNiagaraPreviewAxis extends UObject {
-    Num(): number;
-    ApplyToPreview(PreviewComponent: UNiagaraComponent, PreviewIndex: number, bIsXAxis: boolean, OutLabelText: string | FString): void;
+    readonly __static_UNiagaraPreviewAxis: {
+        Num(): number;
+        ApplyToPreview(PreviewComponent: UNiagaraComponent, PreviewIndex: number, bIsXAxis: boolean, OutLabelText: string): void;
+    };
+    readonly __staticRegistry: 
+        UNiagaraPreviewAxis['__static_UNiagaraPreviewAxis'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraPreviewAxis: UNiagaraPreviewAxis;
 
 declare interface UNiagaraPreviewAxis_InterpParamBase extends UNiagaraPreviewAxis {
-    Param: FName;
-    count: number;
+    readonly __properties_UNiagaraPreviewAxis_InterpParamBase: {
+        Param: string;
+        count: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraPreviewAxis['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraPreviewAxis_InterpParamBase['__properties_UNiagaraPreviewAxis_InterpParamBase'] &
+        UNiagaraPreviewAxis['__propertyRegistry'];
 }
-declare const UNiagaraPreviewAxis_InterpParamBase: UNiagaraPreviewAxis_InterpParamBase;
 
 declare interface UNiagaraPreviewAxis_InterpParamFloat extends UNiagaraPreviewAxis_InterpParamBase {
-    min: number;
-    max: number;
+    readonly __properties_UNiagaraPreviewAxis_InterpParamFloat: {
+        min: number;
+        max: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraPreviewAxis_InterpParamBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraPreviewAxis_InterpParamFloat['__properties_UNiagaraPreviewAxis_InterpParamFloat'] &
+        UNiagaraPreviewAxis_InterpParamBase['__propertyRegistry'];
 }
-declare const UNiagaraPreviewAxis_InterpParamFloat: UNiagaraPreviewAxis_InterpParamFloat;
 
 declare interface UNiagaraPreviewAxis_InterpParamInt32 extends UNiagaraPreviewAxis_InterpParamBase {
-    min: number;
-    max: number;
+    readonly __properties_UNiagaraPreviewAxis_InterpParamInt32: {
+        min: number;
+        max: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraPreviewAxis_InterpParamBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraPreviewAxis_InterpParamInt32['__properties_UNiagaraPreviewAxis_InterpParamInt32'] &
+        UNiagaraPreviewAxis_InterpParamBase['__propertyRegistry'];
 }
-declare const UNiagaraPreviewAxis_InterpParamInt32: UNiagaraPreviewAxis_InterpParamInt32;
 
 declare interface UNiagaraPreviewAxis_InterpParamLinearColor extends UNiagaraPreviewAxis_InterpParamBase {
-    min: FLinearColor;
-    max: FLinearColor;
+    readonly __properties_UNiagaraPreviewAxis_InterpParamLinearColor: {
+        min: FLinearColor;
+        max: FLinearColor;
+    };
+    readonly __staticRegistry: 
+        UNiagaraPreviewAxis_InterpParamBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraPreviewAxis_InterpParamLinearColor['__properties_UNiagaraPreviewAxis_InterpParamLinearColor'] &
+        UNiagaraPreviewAxis_InterpParamBase['__propertyRegistry'];
 }
-declare const UNiagaraPreviewAxis_InterpParamLinearColor: UNiagaraPreviewAxis_InterpParamLinearColor;
 
 declare interface UNiagaraPreviewAxis_InterpParamVector extends UNiagaraPreviewAxis_InterpParamBase {
-    min: FVector;
-    max: FVector;
+    readonly __properties_UNiagaraPreviewAxis_InterpParamVector: {
+        min: FVector;
+        max: FVector;
+    };
+    readonly __staticRegistry: 
+        UNiagaraPreviewAxis_InterpParamBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraPreviewAxis_InterpParamVector['__properties_UNiagaraPreviewAxis_InterpParamVector'] &
+        UNiagaraPreviewAxis_InterpParamBase['__propertyRegistry'];
 }
-declare const UNiagaraPreviewAxis_InterpParamVector: UNiagaraPreviewAxis_InterpParamVector;
 
 declare interface UNiagaraPreviewAxis_InterpParamVector2D extends UNiagaraPreviewAxis_InterpParamBase {
-    min: FVector2D;
-    max: FVector2D;
+    readonly __properties_UNiagaraPreviewAxis_InterpParamVector2D: {
+        min: FVector2D;
+        max: FVector2D;
+    };
+    readonly __staticRegistry: 
+        UNiagaraPreviewAxis_InterpParamBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraPreviewAxis_InterpParamVector2D['__properties_UNiagaraPreviewAxis_InterpParamVector2D'] &
+        UNiagaraPreviewAxis_InterpParamBase['__propertyRegistry'];
 }
-declare const UNiagaraPreviewAxis_InterpParamVector2D: UNiagaraPreviewAxis_InterpParamVector2D;
 
 declare interface UNiagaraPreviewAxis_InterpParamVector4 extends UNiagaraPreviewAxis_InterpParamBase {
-    min: FVector4;
-    max: FVector4;
+    readonly __properties_UNiagaraPreviewAxis_InterpParamVector4: {
+        min: FVector4;
+        max: FVector4;
+    };
+    readonly __staticRegistry: 
+        UNiagaraPreviewAxis_InterpParamBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraPreviewAxis_InterpParamVector4['__properties_UNiagaraPreviewAxis_InterpParamVector4'] &
+        UNiagaraPreviewAxis_InterpParamBase['__propertyRegistry'];
 }
-declare const UNiagaraPreviewAxis_InterpParamVector4: UNiagaraPreviewAxis_InterpParamVector4;
 
 declare interface UNiagaraRendererProperties extends UNiagaraMergeable {
-    Platforms: FNiagaraPlatformSet;
-    SortOrderHint: number;
-    MotionVectorSetting: ENiagaraRendererMotionVectorSetting;
-    bIsEnabled: boolean;
-    bAllowInCullProxies: boolean;
-    RendererEnabledBinding: FNiagaraVariableAttributeBinding;
-    OuterEmitterVersion: FGuid;
+    readonly __properties_UNiagaraRendererProperties: {
+        Platforms: FNiagaraPlatformSet;
+        SortOrderHint: number;
+        MotionVectorSetting: ENiagaraRendererMotionVectorSetting;
+        bIsEnabled: boolean;
+        bAllowInCullProxies: boolean;
+        RendererEnabledBinding: FNiagaraVariableAttributeBinding;
+        OuterEmitterVersion: FGuid;
+    };
+    readonly __staticRegistry: 
+        UNiagaraMergeable['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraRendererProperties['__properties_UNiagaraRendererProperties'] &
+        UNiagaraMergeable['__propertyRegistry'];
 }
-declare const UNiagaraRendererProperties: UNiagaraRendererProperties;
 
 declare interface UNiagaraRibbonRendererProperties extends UNiagaraRendererProperties {
-    Material: UMaterialInterface;
-    MaterialUserParamBinding: FNiagaraUserParameterBinding;
-    UV0Settings: FNiagaraRibbonUVSettings;
-    UV1Settings: FNiagaraRibbonUVSettings;
-    FacingMode: ENiagaraRibbonFacingMode;
-    MaxNumRibbons: number;
-    DrawDirection: ENiagaraRibbonDrawDirection;
-    Shape: ENiagaraRibbonShapeMode;
-    bEnableAccurateGeometry: boolean;
-    bUseMaterialBackfaceCulling: boolean;
-    bUseGeometryNormals: boolean;
-    bUseGPUInit: boolean;
-    bUseConstantFactor: boolean;
-    bScreenSpaceTessellation: boolean;
-    bLinkOrderUseUniqueID: boolean;
-    bCastShadows: boolean;
-    WidthSegmentationCount: number;
-    MultiPlaneCount: number;
-    TubeSubdivisions: number;
-    CustomVertices: TArray<FNiagaraRibbonShapeCustomVertex>;
-    TessellationMode: ENiagaraRibbonTessellationMode;
-    CurveTension: number;
-    TessellationFactor: number;
-    TessellationAngle: number;
-    PositionBinding: FNiagaraVariableAttributeBinding;
-    ColorBinding: FNiagaraVariableAttributeBinding;
-    VelocityBinding: FNiagaraVariableAttributeBinding;
-    NormalizedAgeBinding: FNiagaraVariableAttributeBinding;
-    RibbonTwistBinding: FNiagaraVariableAttributeBinding;
-    RibbonWidthBinding: FNiagaraVariableAttributeBinding;
-    RibbonFacingBinding: FNiagaraVariableAttributeBinding;
-    RibbonIdBinding: FNiagaraVariableAttributeBinding;
-    RibbonLinkOrderBinding: FNiagaraVariableAttributeBinding;
-    MaterialRandomBinding: FNiagaraVariableAttributeBinding;
-    DynamicMaterialBinding: FNiagaraVariableAttributeBinding;
-    DynamicMaterial1Binding: FNiagaraVariableAttributeBinding;
-    DynamicMaterial2Binding: FNiagaraVariableAttributeBinding;
-    DynamicMaterial3Binding: FNiagaraVariableAttributeBinding;
-    RibbonUVDistance: FNiagaraVariableAttributeBinding;
-    U0OverrideBinding: FNiagaraVariableAttributeBinding;
-    V0RangeOverrideBinding: FNiagaraVariableAttributeBinding;
-    U1OverrideBinding: FNiagaraVariableAttributeBinding;
-    V1RangeOverrideBinding: FNiagaraVariableAttributeBinding;
-    MaterialParameters: FNiagaraRendererMaterialParameters;
-    PrevPositionBinding: FNiagaraVariableAttributeBinding;
-    PrevRibbonWidthBinding: FNiagaraVariableAttributeBinding;
-    PrevRibbonFacingBinding: FNiagaraVariableAttributeBinding;
-    PrevRibbonTwistBinding: FNiagaraVariableAttributeBinding;
-    MaterialParamValidMask: uint32;
+    readonly __properties_UNiagaraRibbonRendererProperties: {
+        Material: UMaterialInterface;
+        MaterialUserParamBinding: FNiagaraUserParameterBinding;
+        UV0Settings: FNiagaraRibbonUVSettings;
+        UV1Settings: FNiagaraRibbonUVSettings;
+        FacingMode: ENiagaraRibbonFacingMode;
+        MaxNumRibbons: number;
+        DrawDirection: ENiagaraRibbonDrawDirection;
+        Shape: ENiagaraRibbonShapeMode;
+        bEnableAccurateGeometry: boolean;
+        bUseMaterialBackfaceCulling: boolean;
+        bUseGeometryNormals: boolean;
+        bUseGPUInit: boolean;
+        bUseConstantFactor: boolean;
+        bScreenSpaceTessellation: boolean;
+        bLinkOrderUseUniqueID: boolean;
+        bCastShadows: boolean;
+        WidthSegmentationCount: number;
+        MultiPlaneCount: number;
+        TubeSubdivisions: number;
+        CustomVertices: FNiagaraRibbonShapeCustomVertex[];
+        TessellationMode: ENiagaraRibbonTessellationMode;
+        CurveTension: number;
+        TessellationFactor: number;
+        TessellationAngle: number;
+        PositionBinding: FNiagaraVariableAttributeBinding;
+        ColorBinding: FNiagaraVariableAttributeBinding;
+        VelocityBinding: FNiagaraVariableAttributeBinding;
+        NormalizedAgeBinding: FNiagaraVariableAttributeBinding;
+        RibbonTwistBinding: FNiagaraVariableAttributeBinding;
+        RibbonWidthBinding: FNiagaraVariableAttributeBinding;
+        RibbonFacingBinding: FNiagaraVariableAttributeBinding;
+        RibbonIdBinding: FNiagaraVariableAttributeBinding;
+        RibbonLinkOrderBinding: FNiagaraVariableAttributeBinding;
+        MaterialRandomBinding: FNiagaraVariableAttributeBinding;
+        DynamicMaterialBinding: FNiagaraVariableAttributeBinding;
+        DynamicMaterial1Binding: FNiagaraVariableAttributeBinding;
+        DynamicMaterial2Binding: FNiagaraVariableAttributeBinding;
+        DynamicMaterial3Binding: FNiagaraVariableAttributeBinding;
+        RibbonUVDistance: FNiagaraVariableAttributeBinding;
+        U0OverrideBinding: FNiagaraVariableAttributeBinding;
+        V0RangeOverrideBinding: FNiagaraVariableAttributeBinding;
+        U1OverrideBinding: FNiagaraVariableAttributeBinding;
+        V1RangeOverrideBinding: FNiagaraVariableAttributeBinding;
+        MaterialParameters: FNiagaraRendererMaterialParameters;
+        PrevPositionBinding: FNiagaraVariableAttributeBinding;
+        PrevRibbonWidthBinding: FNiagaraVariableAttributeBinding;
+        PrevRibbonFacingBinding: FNiagaraVariableAttributeBinding;
+        PrevRibbonTwistBinding: FNiagaraVariableAttributeBinding;
+        MaterialParamValidMask: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraRendererProperties['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraRibbonRendererProperties['__properties_UNiagaraRibbonRendererProperties'] &
+        UNiagaraRendererProperties['__propertyRegistry'];
 }
-declare const UNiagaraRibbonRendererProperties: UNiagaraRibbonRendererProperties;
 
 declare interface UNiagaraScratchPadContainer extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraScratchPadContainer: UNiagaraScratchPadContainer;
 
 declare interface UNiagaraScript extends UNiagaraScriptBase {
-    Usage: ENiagaraScriptUsage;
-    UsageId: FGuid;
-    RapidIterationParameters: FNiagaraParameterStore;
-    ScriptExecutionParamStore: FNiagaraScriptExecutionParameterStore;
-    ScriptExecutionBoundParameters: TArray<FNiagaraBoundParameter>;
-    CachedScriptVMId: FNiagaraVMExecutableDataId;
-    CachedScriptVM: FNiagaraVMExecutableData;
-    CachedParameterCollectionReferences: TArray<UNiagaraParameterCollection>;
-    ResolvedDataInterfaces: TArray<FNiagaraScriptResolvedDataInterfaceInfo>;
-    ResolvedUserDataInterfaceBindings: TArray<FNiagaraResolvedUserDataInterfaceBinding>;
-    ResolvedUObjectInfos: TArray<FNiagaraResolvedUObjectInfo>;
-    RaiseOnGPUCompilationComplete(): void;
+    readonly __static_UNiagaraScript: {
+        RaiseOnGPUCompilationComplete(): void;
+    };
+    readonly __properties_UNiagaraScript: {
+        Usage: ENiagaraScriptUsage;
+        UsageId: FGuid;
+        RapidIterationParameters: FNiagaraParameterStore;
+        ScriptExecutionParamStore: FNiagaraScriptExecutionParameterStore;
+        ScriptExecutionBoundParameters: FNiagaraBoundParameter[];
+        CachedScriptVMId: FNiagaraVMExecutableDataId;
+        CachedScriptVM: FNiagaraVMExecutableData;
+        CachedParameterCollectionReferences: UNiagaraParameterCollection[];
+        ResolvedDataInterfaces: FNiagaraScriptResolvedDataInterfaceInfo[];
+        ResolvedUserDataInterfaceBindings: FNiagaraResolvedUserDataInterfaceBinding[];
+        ResolvedUObjectInfos: FNiagaraResolvedUObjectInfo[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraScript['__static_UNiagaraScript'] &
+        UNiagaraScriptBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraScript['__properties_UNiagaraScript'] &
+        UNiagaraScriptBase['__propertyRegistry'];
 }
-declare const UNiagaraScript: UNiagaraScript;
 
 declare interface UNiagaraScriptSourceBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraScriptSourceBase: UNiagaraScriptSourceBase;
 
 declare interface UNiagaraSettings extends UDeveloperSettings {
-    bSystemsSupportLargeWorldCoordinates: boolean;
-    LargeWorldCoordinateTileUpdateMode: ENiagaraLwcTileUpdateMode;
-    LargeWorldCoordinateMaxTilesBeforeReset: uint32;
-    bEnforceStrictStackTypes: boolean;
-    bAccurateQuatInterpolation: boolean;
-    InvalidNamespaceWriteSeverity: ENiagaraCompileErrorSeverity;
-    bLimitDeltaTime: boolean;
-    MaxDeltaTimePerTick: number;
-    DefaultEffectType: FSoftObjectPath;
-    bAllowCreateActorFromSystemWithNoEffectType: boolean;
-    PositionPinTypeColor: FLinearColor;
-    ByteCodeStripOption: ENiagaraStripScriptByteCodeOption;
-    QualityLevels: TArray<FText>;
-    ComponentRendererWarningsPerClass: Record<FString, FText>;
-    DefaultRenderTargetFormat: ETextureRenderTargetFormat;
-    DefaultGridFormat: ENiagaraGpuBufferFormat;
-    DefaultRendererMotionVectorSetting: ENiagaraDefaultRendererMotionVectorSetting;
-    DefaultPixelCoverageMode: ENiagaraDefaultRendererPixelCoverageMode;
-    DefaultSortPrecision: ENiagaraDefaultSortPrecision;
-    DefaultGpuTranslucentLatency: ENiagaraDefaultGpuTranslucentLatency;
-    DefaultLightInverseExposureBlend: number;
-    NDISkelMesh_SupportReadingDeformedGeometry: boolean;
-    NDISkelMesh_Support16BitIndexWeight: boolean;
-    NDISkelMesh_GpuMaxInfluences: ENDISkelMesh_GpuMaxInfluences;
-    NDISkelMesh_GpuUniformSamplingFormat: ENDISkelMesh_GpuUniformSamplingFormat;
-    NDISkelMesh_AdjacencyTriangleIndexFormat: ENDISkelMesh_AdjacencyTriangleIndexFormat;
-    NDIStaticMesh_AllowDistanceFields: boolean;
-    NDICollisionQuery_AsyncGpuTraceProviderOrder: TArray<ENDICollisionQuery_AsyncGpuTraceProvider>;
-    SimCacheAuxiliaryFileBasePath: FString;
-    SimCacheMaxCPUMemoryVolumetrics: int64;
-    PlatformSetRedirects: TArray<FNiagaraPlatformSetRedirect>;
+    readonly __properties_UNiagaraSettings: {
+        bSystemsSupportLargeWorldCoordinates: boolean;
+        LargeWorldCoordinateTileUpdateMode: ENiagaraLwcTileUpdateMode;
+        LargeWorldCoordinateMaxTilesBeforeReset: number;
+        bEnforceStrictStackTypes: boolean;
+        bAccurateQuatInterpolation: boolean;
+        InvalidNamespaceWriteSeverity: ENiagaraCompileErrorSeverity;
+        bLimitDeltaTime: boolean;
+        MaxDeltaTimePerTick: number;
+        DefaultEffectType: FSoftObjectPath;
+        bAllowCreateActorFromSystemWithNoEffectType: boolean;
+        PositionPinTypeColor: FLinearColor;
+        ByteCodeStripOption: ENiagaraStripScriptByteCodeOption;
+        QualityLevels: string[];
+        ComponentRendererWarningsPerClass: TMap<string, string>;
+        DefaultRenderTargetFormat: ETextureRenderTargetFormat;
+        DefaultGridFormat: ENiagaraGpuBufferFormat;
+        DefaultRendererMotionVectorSetting: ENiagaraDefaultRendererMotionVectorSetting;
+        DefaultPixelCoverageMode: ENiagaraDefaultRendererPixelCoverageMode;
+        DefaultSortPrecision: ENiagaraDefaultSortPrecision;
+        DefaultGpuTranslucentLatency: ENiagaraDefaultGpuTranslucentLatency;
+        DefaultLightInverseExposureBlend: number;
+        NDISkelMesh_SupportReadingDeformedGeometry: boolean;
+        NDISkelMesh_Support16BitIndexWeight: boolean;
+        NDISkelMesh_GpuMaxInfluences: ENDISkelMesh_GpuMaxInfluences;
+        NDISkelMesh_GpuUniformSamplingFormat: ENDISkelMesh_GpuUniformSamplingFormat;
+        NDISkelMesh_AdjacencyTriangleIndexFormat: ENDISkelMesh_AdjacencyTriangleIndexFormat;
+        NDIStaticMesh_AllowDistanceFields: boolean;
+        NDICollisionQuery_AsyncGpuTraceProviderOrder: ENDICollisionQuery_AsyncGpuTraceProvider[];
+        SimCacheAuxiliaryFileBasePath: string;
+        SimCacheMaxCPUMemoryVolumetrics: number;
+        PlatformSetRedirects: FNiagaraPlatformSetRedirect[];
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraSettings['__properties_UNiagaraSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UNiagaraSettings: UNiagaraSettings;
 
 declare interface UNiagaraSignificanceHandler extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraSignificanceHandler: UNiagaraSignificanceHandler;
 
 declare interface UNiagaraSignificanceHandlerAge extends UNiagaraSignificanceHandler {
-
+    readonly __staticRegistry: 
+        UNiagaraSignificanceHandler['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraSignificanceHandler['__propertyRegistry'];
 }
-declare const UNiagaraSignificanceHandlerAge: UNiagaraSignificanceHandlerAge;
 
 declare interface UNiagaraSignificanceHandlerDistance extends UNiagaraSignificanceHandler {
-
+    readonly __staticRegistry: 
+        UNiagaraSignificanceHandler['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraSignificanceHandler['__propertyRegistry'];
 }
-declare const UNiagaraSignificanceHandlerDistance: UNiagaraSignificanceHandlerDistance;
 
 declare interface UNiagaraSimCache extends UObject {
-    CacheGuid: FGuid;
-    SoftNiagaraSystem: TSoftObjectPtr<UNiagaraSystem>;
-    StartSeconds: number;
-    DurationSeconds: number;
-    CreateParameters: FNiagaraSimCacheCreateParameters;
-    bNeedsReadComponentMappingRecache: boolean;
-    CacheLayout: FNiagaraSimCacheLayout;
-    CacheFrames: TArray<FNiagaraSimCacheFrame>;
-    DataInterfaceStorage: Record<string | number | symbol, UObject>;
-    DebugData: UNiagaraSimCacheDebugData;
-    ReadVectorAttribute(OutValues: TArray<FVector>, AttributeName: FName, EmitterName: FName, FrameIndex: number): void;
-    ReadVector4Attribute(OutValues: TArray<FVector4>, AttributeName: FName, EmitterName: FName, FrameIndex: number): void;
-    ReadVector2Attribute(OutValues: TArray<FVector2D>, AttributeName: FName, EmitterName: FName, FrameIndex: number): void;
-    ReadQuatAttributeWithRebase(OutValues: TArray<FQuat>, Quat: FQuat, AttributeName: FName, EmitterName: FName, FrameIndex: number): void;
-    ReadQuatAttribute(OutValues: TArray<FQuat>, AttributeName: FName, EmitterName: FName, bLocalSpaceToWorld: boolean, FrameIndex: number): void;
-    ReadPositionAttributeWithRebase(OutValues: TArray<FVector>, Transform: FTransform, AttributeName: FName, EmitterName: FName, FrameIndex: number): void;
-    ReadPositionAttribute(OutValues: TArray<FVector>, AttributeName: FName, EmitterName: FName, bLocalSpaceToWorld: boolean, FrameIndex: number): void;
-    ReadIntAttribute(OutValues: TArray<number>, AttributeName: FName, EmitterName: FName, FrameIndex: number): void;
-    ReadIDAttribute(OutValues: TArray<FNiagaraID>, AttributeName: FName, EmitterName: FName, FrameIndex: number): void;
-    ReadFloatAttribute(OutValues: TArray<number>, AttributeName: FName, EmitterName: FName, FrameIndex: number): void;
-    ReadDataInterfaceAs(RequestedType: UClass, AttributeName: FName, FrameIndex: number): UObject;
-    ReadColorAttribute(OutValues: TArray<FLinearColor>, AttributeName: FName, EmitterName: FName, FrameIndex: number): void;
-    IsEmpty(): boolean;
-    IsCacheValid(): boolean;
-    GetStartSeconds(): number;
-    GetNumFrames(): number;
-    GetNumEmitters(): number;
-    GetEmitterNames(): TArray<FName>;
-    GetEmitterName(EmitterIndex: number): FName;
-    GetAttributeCaptureMode(): ENiagaraSimCacheAttributeCaptureMode;
+    readonly __static_UNiagaraSimCache: {
+        ReadVectorAttribute(OutValues: FVector[], AttributeName: string, EmitterName: string, FrameIndex: number): void;
+        ReadVector4Attribute(OutValues: FVector4[], AttributeName: string, EmitterName: string, FrameIndex: number): void;
+        ReadVector2Attribute(OutValues: FVector2D[], AttributeName: string, EmitterName: string, FrameIndex: number): void;
+        ReadQuatAttributeWithRebase(OutValues: FQuat[], Quat: FQuat, AttributeName: string, EmitterName: string, FrameIndex: number): void;
+        ReadQuatAttribute(OutValues: FQuat[], AttributeName: string, EmitterName: string, bLocalSpaceToWorld: boolean, FrameIndex: number): void;
+        ReadPositionAttributeWithRebase(OutValues: FVector[], Transform: FTransform, AttributeName: string, EmitterName: string, FrameIndex: number): void;
+        ReadPositionAttribute(OutValues: FVector[], AttributeName: string, EmitterName: string, bLocalSpaceToWorld: boolean, FrameIndex: number): void;
+        ReadIntAttribute(OutValues: number[], AttributeName: string, EmitterName: string, FrameIndex: number): void;
+        ReadIDAttribute(OutValues: FNiagaraID[], AttributeName: string, EmitterName: string, FrameIndex: number): void;
+        ReadFloatAttribute(OutValues: number[], AttributeName: string, EmitterName: string, FrameIndex: number): void;
+        ReadDataInterfaceAs(RequestedType: UClass, AttributeName: string, FrameIndex: number): UObject;
+        ReadColorAttribute(OutValues: FLinearColor[], AttributeName: string, EmitterName: string, FrameIndex: number): void;
+        IsEmpty(): boolean;
+        IsCacheValid(): boolean;
+        GetStartSeconds(): number;
+        GetNumFrames(): number;
+        GetNumEmitters(): number;
+        GetEmitterNames(): string[];
+        GetEmitterName(EmitterIndex: number): string;
+        GetAttributeCaptureMode(): ENiagaraSimCacheAttributeCaptureMode;
+    };
+    readonly __properties_UNiagaraSimCache: {
+        CacheGuid: FGuid;
+        SoftNiagaraSystem: TSoftObjectPtr<UNiagaraSystem>;
+        StartSeconds: number;
+        DurationSeconds: number;
+        CreateParameters: FNiagaraSimCacheCreateParameters;
+        bNeedsReadComponentMappingRecache: boolean;
+        CacheLayout: FNiagaraSimCacheLayout;
+        CacheFrames: FNiagaraSimCacheFrame[];
+        DataInterfaceStorage: TMap<FNiagaraVariableBase, UObject>;
+        DebugData: UNiagaraSimCacheDebugData;
+    };
+    readonly __staticRegistry: 
+        UNiagaraSimCache['__static_UNiagaraSimCache'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraSimCache['__properties_UNiagaraSimCache'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraSimCache: UNiagaraSimCache;
 
 declare interface UNiagaraSimCacheDebugData extends UObject {
-    Frames: TArray<FNiagaraSimCacheDebugDataFrame>;
+    readonly __properties_UNiagaraSimCacheDebugData: {
+        Frames: FNiagaraSimCacheDebugDataFrame[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraSimCacheDebugData['__properties_UNiagaraSimCacheDebugData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraSimCacheDebugData: UNiagaraSimCacheDebugData;
 
 declare interface UNiagaraSimCacheFunctionLibrary extends UBlueprintFunctionLibrary {
-    CreateNiagaraSimCache(WorldContextObject: UObject): UNiagaraSimCache;
-    CaptureNiagaraSimCacheImmediate(SimCache: UNiagaraSimCache, CreateParameters: FNiagaraSimCacheCreateParameters, NiagaraComponent: UNiagaraComponent, OutSimCache: UNiagaraSimCache, bAdvanceSimulation: boolean, AdvanceDeltaTime: number): boolean;
+    readonly __static_UNiagaraSimCacheFunctionLibrary: {
+        CreateNiagaraSimCache(WorldContextObject: UObject): UNiagaraSimCache;
+        CaptureNiagaraSimCacheImmediate(SimCache: UNiagaraSimCache, CreateParameters: FNiagaraSimCacheCreateParameters, NiagaraComponent: UNiagaraComponent, OutSimCache: UNiagaraSimCache, bAdvanceSimulation: boolean, AdvanceDeltaTime: number): boolean;
+    };
+    readonly __staticRegistry: 
+        UNiagaraSimCacheFunctionLibrary['__static_UNiagaraSimCacheFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UNiagaraSimCacheFunctionLibrary: UNiagaraSimCacheFunctionLibrary;
 
 declare interface UNiagaraSimulationStageBase extends UNiagaraMergeable {
-    Script: UNiagaraScript;
-    SimulationStageName: FName;
-    bEnabled: boolean;
+    readonly __properties_UNiagaraSimulationStageBase: {
+        Script: UNiagaraScript;
+        SimulationStageName: string;
+        bEnabled: boolean;
+    };
+    readonly __staticRegistry: 
+        UNiagaraMergeable['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraSimulationStageBase['__properties_UNiagaraSimulationStageBase'] &
+        UNiagaraMergeable['__propertyRegistry'];
 }
-declare const UNiagaraSimulationStageBase: UNiagaraSimulationStageBase;
 
 declare interface UNiagaraSimulationStageGeneric extends UNiagaraSimulationStageBase {
-    EnabledBinding: FNiagaraVariableAttributeBinding;
-    IterationSource: ENiagaraIterationSource;
-    NumIterations: FNiagaraParameterBindingWithValue;
-    ExecuteBehavior: ENiagaraSimStageExecuteBehavior;
-    bDisablePartialParticleUpdate: boolean;
-    DataInterface: FNiagaraVariableDataInterfaceBinding;
-    bParticleIterationStateEnabled: boolean;
-    ParticleIterationStateBinding: FNiagaraVariableAttributeBinding;
-    ParticleIterationStateRange: FIntPoint;
-    bGpuDispatchForceLinear: boolean;
-    bOverrideGpuDispatchNumThreads: boolean;
-    OverrideGpuDispatchNumThreadsX: FNiagaraParameterBindingWithValue;
-    OverrideGpuDispatchNumThreadsY: FNiagaraParameterBindingWithValue;
-    OverrideGpuDispatchNumThreadsZ: FNiagaraParameterBindingWithValue;
-    DirectDispatchType: ENiagaraGpuDispatchType;
-    DirectDispatchElementType: ENiagaraDirectDispatchElementType;
-    ElementCountX: FNiagaraParameterBindingWithValue;
-    ElementCountY: FNiagaraParameterBindingWithValue;
-    ElementCountZ: FNiagaraParameterBindingWithValue;
+    readonly __properties_UNiagaraSimulationStageGeneric: {
+        EnabledBinding: FNiagaraVariableAttributeBinding;
+        IterationSource: ENiagaraIterationSource;
+        NumIterations: FNiagaraParameterBindingWithValue;
+        ExecuteBehavior: ENiagaraSimStageExecuteBehavior;
+        bDisablePartialParticleUpdate: boolean;
+        DataInterface: FNiagaraVariableDataInterfaceBinding;
+        bParticleIterationStateEnabled: boolean;
+        ParticleIterationStateBinding: FNiagaraVariableAttributeBinding;
+        ParticleIterationStateRange: FIntPoint;
+        bGpuDispatchForceLinear: boolean;
+        bOverrideGpuDispatchNumThreads: boolean;
+        OverrideGpuDispatchNumThreadsX: FNiagaraParameterBindingWithValue;
+        OverrideGpuDispatchNumThreadsY: FNiagaraParameterBindingWithValue;
+        OverrideGpuDispatchNumThreadsZ: FNiagaraParameterBindingWithValue;
+        DirectDispatchType: ENiagaraGpuDispatchType;
+        DirectDispatchElementType: ENiagaraDirectDispatchElementType;
+        ElementCountX: FNiagaraParameterBindingWithValue;
+        ElementCountY: FNiagaraParameterBindingWithValue;
+        ElementCountZ: FNiagaraParameterBindingWithValue;
+    };
+    readonly __staticRegistry: 
+        UNiagaraSimulationStageBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraSimulationStageGeneric['__properties_UNiagaraSimulationStageGeneric'] &
+        UNiagaraSimulationStageBase['__propertyRegistry'];
 }
-declare const UNiagaraSimulationStageGeneric: UNiagaraSimulationStageGeneric;
 
 declare interface UNiagaraSpriteRendererProperties extends UNiagaraRendererProperties {
-    Material: UMaterialInterface;
-    MaterialUserParamBinding: FNiagaraUserParameterBinding;
-    SourceMode: ENiagaraRendererSourceDataMode;
-    Alignment: ENiagaraSpriteAlignment;
-    FacingMode: ENiagaraSpriteFacingMode;
-    SortMode: ENiagaraSortMode;
-    MacroUVRadius: number;
-    PivotInUVSpace: FVector2D;
-    SubImageSize: FVector2D;
-    bSubImageBlend: boolean;
-    bRemoveHMDRollInVR: boolean;
-    bSortOnlyWhenTranslucent: boolean;
-    bEnableCameraDistanceCulling: boolean;
-    bCastShadows: boolean;
-    SortPrecision: ENiagaraRendererSortPrecision;
-    GpuTranslucentLatency: ENiagaraRendererGpuTranslucentLatency;
-    PixelCoverageMode: ENiagaraRendererPixelCoverageMode;
-    PixelCoverageBlend: number;
-    MinFacingCameraBlendDistance: number;
-    MaxFacingCameraBlendDistance: number;
-    MinCameraDistance: number;
-    MaxCameraDistance: number;
-    RendererVisibility: uint32;
-    PositionBinding: FNiagaraVariableAttributeBinding;
-    ColorBinding: FNiagaraVariableAttributeBinding;
-    VelocityBinding: FNiagaraVariableAttributeBinding;
-    SpriteRotationBinding: FNiagaraVariableAttributeBinding;
-    SpriteSizeBinding: FNiagaraVariableAttributeBinding;
-    SpriteFacingBinding: FNiagaraVariableAttributeBinding;
-    SpriteAlignmentBinding: FNiagaraVariableAttributeBinding;
-    SubImageIndexBinding: FNiagaraVariableAttributeBinding;
-    DynamicMaterialBinding: FNiagaraVariableAttributeBinding;
-    DynamicMaterial1Binding: FNiagaraVariableAttributeBinding;
-    DynamicMaterial2Binding: FNiagaraVariableAttributeBinding;
-    DynamicMaterial3Binding: FNiagaraVariableAttributeBinding;
-    CameraOffsetBinding: FNiagaraVariableAttributeBinding;
-    UVScaleBinding: FNiagaraVariableAttributeBinding;
-    PivotOffsetBinding: FNiagaraVariableAttributeBinding;
-    MaterialRandomBinding: FNiagaraVariableAttributeBinding;
-    CustomSortingBinding: FNiagaraVariableAttributeBinding;
-    NormalizedAgeBinding: FNiagaraVariableAttributeBinding;
-    RendererVisibilityTagBinding: FNiagaraVariableAttributeBinding;
-    MaterialParameters: FNiagaraRendererMaterialParameters;
-    PrevPositionBinding: FNiagaraVariableAttributeBinding;
-    PrevVelocityBinding: FNiagaraVariableAttributeBinding;
-    PrevSpriteRotationBinding: FNiagaraVariableAttributeBinding;
-    PrevSpriteSizeBinding: FNiagaraVariableAttributeBinding;
-    PrevSpriteFacingBinding: FNiagaraVariableAttributeBinding;
-    PrevSpriteAlignmentBinding: FNiagaraVariableAttributeBinding;
-    PrevCameraOffsetBinding: FNiagaraVariableAttributeBinding;
-    PrevPivotOffsetBinding: FNiagaraVariableAttributeBinding;
-    MaterialParamValidMask: uint32;
+    readonly __properties_UNiagaraSpriteRendererProperties: {
+        Material: UMaterialInterface;
+        MaterialUserParamBinding: FNiagaraUserParameterBinding;
+        SourceMode: ENiagaraRendererSourceDataMode;
+        Alignment: ENiagaraSpriteAlignment;
+        FacingMode: ENiagaraSpriteFacingMode;
+        SortMode: ENiagaraSortMode;
+        MacroUVRadius: number;
+        PivotInUVSpace: FVector2D;
+        SubImageSize: FVector2D;
+        bSubImageBlend: boolean;
+        bRemoveHMDRollInVR: boolean;
+        bSortOnlyWhenTranslucent: boolean;
+        bEnableCameraDistanceCulling: boolean;
+        bCastShadows: boolean;
+        SortPrecision: ENiagaraRendererSortPrecision;
+        GpuTranslucentLatency: ENiagaraRendererGpuTranslucentLatency;
+        PixelCoverageMode: ENiagaraRendererPixelCoverageMode;
+        PixelCoverageBlend: number;
+        MinFacingCameraBlendDistance: number;
+        MaxFacingCameraBlendDistance: number;
+        MinCameraDistance: number;
+        MaxCameraDistance: number;
+        RendererVisibility: number;
+        PositionBinding: FNiagaraVariableAttributeBinding;
+        ColorBinding: FNiagaraVariableAttributeBinding;
+        VelocityBinding: FNiagaraVariableAttributeBinding;
+        SpriteRotationBinding: FNiagaraVariableAttributeBinding;
+        SpriteSizeBinding: FNiagaraVariableAttributeBinding;
+        SpriteFacingBinding: FNiagaraVariableAttributeBinding;
+        SpriteAlignmentBinding: FNiagaraVariableAttributeBinding;
+        SubImageIndexBinding: FNiagaraVariableAttributeBinding;
+        DynamicMaterialBinding: FNiagaraVariableAttributeBinding;
+        DynamicMaterial1Binding: FNiagaraVariableAttributeBinding;
+        DynamicMaterial2Binding: FNiagaraVariableAttributeBinding;
+        DynamicMaterial3Binding: FNiagaraVariableAttributeBinding;
+        CameraOffsetBinding: FNiagaraVariableAttributeBinding;
+        UVScaleBinding: FNiagaraVariableAttributeBinding;
+        PivotOffsetBinding: FNiagaraVariableAttributeBinding;
+        MaterialRandomBinding: FNiagaraVariableAttributeBinding;
+        CustomSortingBinding: FNiagaraVariableAttributeBinding;
+        NormalizedAgeBinding: FNiagaraVariableAttributeBinding;
+        RendererVisibilityTagBinding: FNiagaraVariableAttributeBinding;
+        MaterialParameters: FNiagaraRendererMaterialParameters;
+        PrevPositionBinding: FNiagaraVariableAttributeBinding;
+        PrevVelocityBinding: FNiagaraVariableAttributeBinding;
+        PrevSpriteRotationBinding: FNiagaraVariableAttributeBinding;
+        PrevSpriteSizeBinding: FNiagaraVariableAttributeBinding;
+        PrevSpriteFacingBinding: FNiagaraVariableAttributeBinding;
+        PrevSpriteAlignmentBinding: FNiagaraVariableAttributeBinding;
+        PrevCameraOffsetBinding: FNiagaraVariableAttributeBinding;
+        PrevPivotOffsetBinding: FNiagaraVariableAttributeBinding;
+        MaterialParamValidMask: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraRendererProperties['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraSpriteRendererProperties['__properties_UNiagaraSpriteRendererProperties'] &
+        UNiagaraRendererProperties['__propertyRegistry'];
 }
-declare const UNiagaraSpriteRendererProperties: UNiagaraSpriteRendererProperties;
 
 declare interface UNiagaraStatelessEmitter extends UObject {
-    UniqueEmitterName: FString;
-    EmitterTemplateClass: UClass;
-    bDeterministic: boolean;
-    AllowedFeatureMask: uint32;
-    RandomSeed: number;
-    FixedBounds: FBox;
-    EmitterState: FNiagaraEmitterStateData;
-    SpawnInfos: TArray<FNiagaraStatelessSpawnInfo>;
-    Modules: TArray<UNiagaraStatelessModule>;
-    RendererProperties: TArray<UNiagaraRendererProperties>;
-    Platforms: FNiagaraPlatformSet;
-    ScalabilityOverrides: FNiagaraEmitterScalabilityOverrides;
-    ParticleDataSetCompiledData: FNiagaraDataSetCompiledData;
-    ComponentOffsets: TArray<number>;
-    CachedParameterCollectionReferences: TArray<UNiagaraParameterCollection>;
+    readonly __properties_UNiagaraStatelessEmitter: {
+        UniqueEmitterName: string;
+        EmitterTemplateClass: UClass;
+        bDeterministic: boolean;
+        AllowedFeatureMask: number;
+        RandomSeed: number;
+        FixedBounds: FBox;
+        EmitterState: FNiagaraEmitterStateData;
+        SpawnInfos: FNiagaraStatelessSpawnInfo[];
+        Modules: UNiagaraStatelessModule[];
+        RendererProperties: UNiagaraRendererProperties[];
+        Platforms: FNiagaraPlatformSet;
+        ScalabilityOverrides: FNiagaraEmitterScalabilityOverrides;
+        ParticleDataSetCompiledData: FNiagaraDataSetCompiledData;
+        ComponentOffsets: number[];
+        CachedParameterCollectionReferences: UNiagaraParameterCollection[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessEmitter['__properties_UNiagaraStatelessEmitter'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraStatelessEmitter: UNiagaraStatelessEmitter;
 
 declare interface UNiagaraStatelessEmitterDefault extends UNiagaraStatelessEmitterTemplate {
-
+    readonly __staticRegistry: 
+        UNiagaraStatelessEmitterTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessEmitterTemplate['__propertyRegistry'];
 }
-declare const UNiagaraStatelessEmitterDefault: UNiagaraStatelessEmitterDefault;
 
 declare interface UNiagaraStatelessEmitterTemplate extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraStatelessEmitterTemplate: UNiagaraStatelessEmitterTemplate;
 
 declare interface UNiagaraStatelessModule extends UNiagaraMergeable {
-    bModuleEnabled: boolean;
+    readonly __properties_UNiagaraStatelessModule: {
+        bModuleEnabled: boolean;
+    };
+    readonly __staticRegistry: 
+        UNiagaraMergeable['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule['__properties_UNiagaraStatelessModule'] &
+        UNiagaraMergeable['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule: UNiagaraStatelessModule;
 
 declare interface UNiagaraStatelessModule_AccelerationForce extends UNiagaraStatelessModule {
-    AccelerationDistribution: FNiagaraDistributionRangeVector3;
-    CoordinateSpace: ENiagaraCoordinateSpace;
+    readonly __properties_UNiagaraStatelessModule_AccelerationForce: {
+        AccelerationDistribution: FNiagaraDistributionRangeVector3;
+        CoordinateSpace: ENiagaraCoordinateSpace;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_AccelerationForce['__properties_UNiagaraStatelessModule_AccelerationForce'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_AccelerationForce: UNiagaraStatelessModule_AccelerationForce;
 
 declare interface UNiagaraStatelessModule_AddVelocity extends UNiagaraStatelessModule {
-    VelocityType: ENSM_VelocityType;
-    LinearVelocityDistribution: FNiagaraDistributionRangeVector3;
-    LinearVelocityScale: FNiagaraDistributionRangeFloat;
-    ConeVelocityDistribution: FNiagaraDistributionRangeFloat;
-    ConeRotation: FRotator;
-    ConeAngle: number;
-    InnerCone: number;
-    PointVelocityDistribution: FNiagaraDistributionRangeFloat;
-    PointOrigin: FVector3f;
-    bSpeedFalloffFromConeAxisEnabled: boolean;
-    SpeedFalloffFromConeAxis: number;
-    CoordinateSpace: ENiagaraCoordinateSpace;
+    readonly __properties_UNiagaraStatelessModule_AddVelocity: {
+        VelocityType: ENSM_VelocityType;
+        LinearVelocityDistribution: FNiagaraDistributionRangeVector3;
+        LinearVelocityScale: FNiagaraDistributionRangeFloat;
+        ConeVelocityDistribution: FNiagaraDistributionRangeFloat;
+        ConeRotation: FRotator;
+        ConeAngle: number;
+        InnerCone: number;
+        PointVelocityDistribution: FNiagaraDistributionRangeFloat;
+        PointOrigin: FVector3f;
+        bSpeedFalloffFromConeAxisEnabled: boolean;
+        SpeedFalloffFromConeAxis: number;
+        CoordinateSpace: ENiagaraCoordinateSpace;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_AddVelocity['__properties_UNiagaraStatelessModule_AddVelocity'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_AddVelocity: UNiagaraStatelessModule_AddVelocity;
 
 declare interface UNiagaraStatelessModule_CalculateAccurateVelocity extends UNiagaraStatelessModule {
-
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_CalculateAccurateVelocity: UNiagaraStatelessModule_CalculateAccurateVelocity;
 
 declare interface UNiagaraStatelessModule_CameraOffset extends UNiagaraStatelessModule {
-    CameraOffsetDistribution: FNiagaraDistributionFloat;
+    readonly __properties_UNiagaraStatelessModule_CameraOffset: {
+        CameraOffsetDistribution: FNiagaraDistributionFloat;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_CameraOffset['__properties_UNiagaraStatelessModule_CameraOffset'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_CameraOffset: UNiagaraStatelessModule_CameraOffset;
 
 declare interface UNiagaraStatelessModule_CurlNoiseForce extends UNiagaraStatelessModule {
-    NoiseStrength: number;
-    NoiseFrequency: number;
+    readonly __properties_UNiagaraStatelessModule_CurlNoiseForce: {
+        NoiseStrength: number;
+        NoiseFrequency: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_CurlNoiseForce['__properties_UNiagaraStatelessModule_CurlNoiseForce'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_CurlNoiseForce: UNiagaraStatelessModule_CurlNoiseForce;
 
 declare interface UNiagaraStatelessModule_DecalAttributes extends UNiagaraStatelessModule {
-    bApplyOrientation: boolean;
-    bApplySize: boolean;
-    bApplyFade: boolean;
-    orientation: FNiagaraDistributionVector3;
-    OrientationCoordinateSpace: ENiagaraCoordinateSpace;
-    Size: FNiagaraDistributionVector3;
-    Fade: FNiagaraDistributionFloat;
-    IsOrientationEnabled(): boolean;
+    readonly __static_UNiagaraStatelessModule_DecalAttributes: {
+        IsOrientationEnabled(): boolean;
+    };
+    readonly __properties_UNiagaraStatelessModule_DecalAttributes: {
+        bApplyOrientation: boolean;
+        bApplySize: boolean;
+        bApplyFade: boolean;
+        orientation: FNiagaraDistributionVector3;
+        OrientationCoordinateSpace: ENiagaraCoordinateSpace;
+        Size: FNiagaraDistributionVector3;
+        Fade: FNiagaraDistributionFloat;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule_DecalAttributes['__static_UNiagaraStatelessModule_DecalAttributes'] &
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_DecalAttributes['__properties_UNiagaraStatelessModule_DecalAttributes'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_DecalAttributes: UNiagaraStatelessModule_DecalAttributes;
 
 declare interface UNiagaraStatelessModule_Drag extends UNiagaraStatelessModule {
-    DragDistribution: FNiagaraDistributionRangeFloat;
+    readonly __properties_UNiagaraStatelessModule_Drag: {
+        DragDistribution: FNiagaraDistributionRangeFloat;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_Drag['__properties_UNiagaraStatelessModule_Drag'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_Drag: UNiagaraStatelessModule_Drag;
 
 declare interface UNiagaraStatelessModule_DynamicMaterialParameters extends UNiagaraStatelessModule {
-    bParameter0Enabled: boolean;
-    bParameter1Enabled: boolean;
-    bParameter2Enabled: boolean;
-    bParameter3Enabled: boolean;
-    Parameter0: FNiagaraStatelessDynamicParameterSet;
-    Parameter1: FNiagaraStatelessDynamicParameterSet;
-    Parameter2: FNiagaraStatelessDynamicParameterSet;
-    Parameter3: FNiagaraStatelessDynamicParameterSet;
+    readonly __properties_UNiagaraStatelessModule_DynamicMaterialParameters: {
+        bParameter0Enabled: boolean;
+        bParameter1Enabled: boolean;
+        bParameter2Enabled: boolean;
+        bParameter3Enabled: boolean;
+        Parameter0: FNiagaraStatelessDynamicParameterSet;
+        Parameter1: FNiagaraStatelessDynamicParameterSet;
+        Parameter2: FNiagaraStatelessDynamicParameterSet;
+        Parameter3: FNiagaraStatelessDynamicParameterSet;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_DynamicMaterialParameters['__properties_UNiagaraStatelessModule_DynamicMaterialParameters'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_DynamicMaterialParameters: UNiagaraStatelessModule_DynamicMaterialParameters;
 
 declare interface UNiagaraStatelessModule_GravityForce extends UNiagaraStatelessModule {
-    GravityDistribution: FNiagaraDistributionRangeVector3;
+    readonly __properties_UNiagaraStatelessModule_GravityForce: {
+        GravityDistribution: FNiagaraDistributionRangeVector3;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_GravityForce['__properties_UNiagaraStatelessModule_GravityForce'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_GravityForce: UNiagaraStatelessModule_GravityForce;
 
 declare interface UNiagaraStatelessModule_InitialMeshOrientation extends UNiagaraStatelessModule {
-    MeshOrientationMode: ENSMInitialMeshOrientationMode;
-    OrientationVector: FNiagaraDistributionRangeVector3;
-    MeshAxisToOrient: FNiagaraDistributionRangeVector3;
-    Rotation: FNiagaraDistributionRangeVector3;
+    readonly __properties_UNiagaraStatelessModule_InitialMeshOrientation: {
+        MeshOrientationMode: ENSMInitialMeshOrientationMode;
+        OrientationVector: FNiagaraDistributionRangeVector3;
+        MeshAxisToOrient: FNiagaraDistributionRangeVector3;
+        Rotation: FNiagaraDistributionRangeVector3;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_InitialMeshOrientation['__properties_UNiagaraStatelessModule_InitialMeshOrientation'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_InitialMeshOrientation: UNiagaraStatelessModule_InitialMeshOrientation;
 
 declare interface UNiagaraStatelessModule_InitializeParticle extends UNiagaraStatelessModule {
-    LifetimeDistribution: FNiagaraDistributionRangeFloat;
-    ColorDistribution: FNiagaraDistributionRangeColor;
-    MassDistribution: FNiagaraDistributionRangeFloat;
-    SpriteSizeDistribution: FNiagaraDistributionRangeVector2;
-    SpriteRotationDistribution: FNiagaraDistributionRangeFloat;
-    MeshScaleDistribution: FNiagaraDistributionRangeVector3;
-    bWriteRibbonWidth: boolean;
-    RibbonWidthDistribution: FNiagaraDistributionRangeFloat;
-    InitialPositionDistribution: FNiagaraDistributionPosition;
+    readonly __properties_UNiagaraStatelessModule_InitializeParticle: {
+        LifetimeDistribution: FNiagaraDistributionRangeFloat;
+        ColorDistribution: FNiagaraDistributionRangeColor;
+        MassDistribution: FNiagaraDistributionRangeFloat;
+        SpriteSizeDistribution: FNiagaraDistributionRangeVector2;
+        SpriteRotationDistribution: FNiagaraDistributionRangeFloat;
+        MeshScaleDistribution: FNiagaraDistributionRangeVector3;
+        bWriteRibbonWidth: boolean;
+        RibbonWidthDistribution: FNiagaraDistributionRangeFloat;
+        InitialPositionDistribution: FNiagaraDistributionPosition;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_InitializeParticle['__properties_UNiagaraStatelessModule_InitializeParticle'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_InitializeParticle: UNiagaraStatelessModule_InitializeParticle;
 
 declare interface UNiagaraStatelessModule_LightAttributes extends UNiagaraStatelessModule {
-    bApplyRadius: boolean;
-    bApplyFalloffExponent: boolean;
-    bApplyDiffuseScale: boolean;
-    bApplySpecularScale: boolean;
-    bApplyVolumetricScattering: boolean;
-    Radius: FNiagaraDistributionFloat;
-    FalloffExponent: FNiagaraDistributionFloat;
-    DiffuseScale: FNiagaraDistributionFloat;
-    SpecularScale: FNiagaraDistributionFloat;
-    VolumetricScattering: FNiagaraDistributionFloat;
+    readonly __properties_UNiagaraStatelessModule_LightAttributes: {
+        bApplyRadius: boolean;
+        bApplyFalloffExponent: boolean;
+        bApplyDiffuseScale: boolean;
+        bApplySpecularScale: boolean;
+        bApplyVolumetricScattering: boolean;
+        Radius: FNiagaraDistributionFloat;
+        FalloffExponent: FNiagaraDistributionFloat;
+        DiffuseScale: FNiagaraDistributionFloat;
+        SpecularScale: FNiagaraDistributionFloat;
+        VolumetricScattering: FNiagaraDistributionFloat;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_LightAttributes['__properties_UNiagaraStatelessModule_LightAttributes'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_LightAttributes: UNiagaraStatelessModule_LightAttributes;
 
 declare interface UNiagaraStatelessModule_MeshIndex extends UNiagaraStatelessModule {
-    MeshIndex: FNiagaraDistributionRangeInt;
-    MeshIndexWeight: TArray<number>;
-    NeedsMeshIndexWeights(): boolean;
+    readonly __static_UNiagaraStatelessModule_MeshIndex: {
+        NeedsMeshIndexWeights(): boolean;
+    };
+    readonly __properties_UNiagaraStatelessModule_MeshIndex: {
+        MeshIndex: FNiagaraDistributionRangeInt;
+        MeshIndexWeight: number[];
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule_MeshIndex['__static_UNiagaraStatelessModule_MeshIndex'] &
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_MeshIndex['__properties_UNiagaraStatelessModule_MeshIndex'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_MeshIndex: UNiagaraStatelessModule_MeshIndex;
 
 declare interface UNiagaraStatelessModule_MeshRotationRate extends UNiagaraStatelessModule {
-    bUseRateScale: boolean;
-    RotationRateDistribution: FNiagaraDistributionRangeVector3;
-    RateScaleDistribution: FNiagaraDistributionCurveVector3;
+    readonly __properties_UNiagaraStatelessModule_MeshRotationRate: {
+        bUseRateScale: boolean;
+        RotationRateDistribution: FNiagaraDistributionRangeVector3;
+        RateScaleDistribution: FNiagaraDistributionCurveVector3;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_MeshRotationRate['__properties_UNiagaraStatelessModule_MeshRotationRate'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_MeshRotationRate: UNiagaraStatelessModule_MeshRotationRate;
 
 declare interface UNiagaraStatelessModule_RotateAroundPoint extends UNiagaraStatelessModule {
-    Rate: FNiagaraDistributionRangeFloat;
-    Radius: FNiagaraDistributionRangeFloat;
-    InitialPhase: FNiagaraDistributionRangeFloat;
+    readonly __properties_UNiagaraStatelessModule_RotateAroundPoint: {
+        Rate: FNiagaraDistributionRangeFloat;
+        Radius: FNiagaraDistributionRangeFloat;
+        InitialPhase: FNiagaraDistributionRangeFloat;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_RotateAroundPoint['__properties_UNiagaraStatelessModule_RotateAroundPoint'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_RotateAroundPoint: UNiagaraStatelessModule_RotateAroundPoint;
 
 declare interface UNiagaraStatelessModule_ScaleColor extends UNiagaraStatelessModule {
-    ScaleDistribution: FNiagaraDistributionColor;
+    readonly __properties_UNiagaraStatelessModule_ScaleColor: {
+        ScaleDistribution: FNiagaraDistributionColor;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_ScaleColor['__properties_UNiagaraStatelessModule_ScaleColor'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_ScaleColor: UNiagaraStatelessModule_ScaleColor;
 
 declare interface UNiagaraStatelessModule_ScaleMeshSize extends UNiagaraStatelessModule {
-    ScaleDistribution: FNiagaraDistributionVector3;
-    ScaleCurveRange: FNiagaraParameterBindingWithValue;
-    UseScaleCurveRange(): boolean;
+    readonly __static_UNiagaraStatelessModule_ScaleMeshSize: {
+        UseScaleCurveRange(): boolean;
+    };
+    readonly __properties_UNiagaraStatelessModule_ScaleMeshSize: {
+        ScaleDistribution: FNiagaraDistributionVector3;
+        ScaleCurveRange: FNiagaraParameterBindingWithValue;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule_ScaleMeshSize['__static_UNiagaraStatelessModule_ScaleMeshSize'] &
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_ScaleMeshSize['__properties_UNiagaraStatelessModule_ScaleMeshSize'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_ScaleMeshSize: UNiagaraStatelessModule_ScaleMeshSize;
 
 declare interface UNiagaraStatelessModule_ScaleMeshSizeBySpeed extends UNiagaraStatelessModule {
-    VelocityThreshold: FNiagaraDistributionRangeFloat;
-    MinScaleFactor: FNiagaraDistributionRangeVector3;
-    MaxScaleFactor: FNiagaraDistributionRangeVector3;
-    bSampleScaleFactorByCurve: boolean;
-    SampleFactorCurve: FNiagaraDistributionFloat;
+    readonly __properties_UNiagaraStatelessModule_ScaleMeshSizeBySpeed: {
+        VelocityThreshold: FNiagaraDistributionRangeFloat;
+        MinScaleFactor: FNiagaraDistributionRangeVector3;
+        MaxScaleFactor: FNiagaraDistributionRangeVector3;
+        bSampleScaleFactorByCurve: boolean;
+        SampleFactorCurve: FNiagaraDistributionFloat;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_ScaleMeshSizeBySpeed['__properties_UNiagaraStatelessModule_ScaleMeshSizeBySpeed'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_ScaleMeshSizeBySpeed: UNiagaraStatelessModule_ScaleMeshSizeBySpeed;
 
 declare interface UNiagaraStatelessModule_ScaleRibbonWidth extends UNiagaraStatelessModule {
-    ScaleDistribution: FNiagaraDistributionFloat;
-    ScaleCurveRange: FNiagaraParameterBindingWithValue;
-    UseScaleCurveRange(): boolean;
+    readonly __static_UNiagaraStatelessModule_ScaleRibbonWidth: {
+        UseScaleCurveRange(): boolean;
+    };
+    readonly __properties_UNiagaraStatelessModule_ScaleRibbonWidth: {
+        ScaleDistribution: FNiagaraDistributionFloat;
+        ScaleCurveRange: FNiagaraParameterBindingWithValue;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule_ScaleRibbonWidth['__static_UNiagaraStatelessModule_ScaleRibbonWidth'] &
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_ScaleRibbonWidth['__properties_UNiagaraStatelessModule_ScaleRibbonWidth'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_ScaleRibbonWidth: UNiagaraStatelessModule_ScaleRibbonWidth;
 
 declare interface UNiagaraStatelessModule_ScaleSpriteSize extends UNiagaraStatelessModule {
-    ScaleDistribution: FNiagaraDistributionVector2;
-    ScaleCurveRange: FNiagaraParameterBindingWithValue;
-    UseScaleCurveRange(): boolean;
+    readonly __static_UNiagaraStatelessModule_ScaleSpriteSize: {
+        UseScaleCurveRange(): boolean;
+    };
+    readonly __properties_UNiagaraStatelessModule_ScaleSpriteSize: {
+        ScaleDistribution: FNiagaraDistributionVector2;
+        ScaleCurveRange: FNiagaraParameterBindingWithValue;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule_ScaleSpriteSize['__static_UNiagaraStatelessModule_ScaleSpriteSize'] &
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_ScaleSpriteSize['__properties_UNiagaraStatelessModule_ScaleSpriteSize'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_ScaleSpriteSize: UNiagaraStatelessModule_ScaleSpriteSize;
 
 declare interface UNiagaraStatelessModule_ScaleSpriteSizeBySpeed extends UNiagaraStatelessModule {
-    VelocityThreshold: FNiagaraDistributionRangeFloat;
-    MinScaleFactor: FNiagaraDistributionRangeVector2;
-    MaxScaleFactor: FNiagaraDistributionRangeVector2;
-    bSampleScaleFactorByCurve: boolean;
-    SampleFactorCurve: FNiagaraDistributionFloat;
+    readonly __properties_UNiagaraStatelessModule_ScaleSpriteSizeBySpeed: {
+        VelocityThreshold: FNiagaraDistributionRangeFloat;
+        MinScaleFactor: FNiagaraDistributionRangeVector2;
+        MaxScaleFactor: FNiagaraDistributionRangeVector2;
+        bSampleScaleFactorByCurve: boolean;
+        SampleFactorCurve: FNiagaraDistributionFloat;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_ScaleSpriteSizeBySpeed['__properties_UNiagaraStatelessModule_ScaleSpriteSizeBySpeed'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_ScaleSpriteSizeBySpeed: UNiagaraStatelessModule_ScaleSpriteSizeBySpeed;
 
 declare interface UNiagaraStatelessModule_ShapeLocation extends UNiagaraStatelessModule {
-    ShapePrimitive: ENSM_ShapePrimitive;
-    BoxSize: FNiagaraDistributionRangeVector3;
-    bBoxSurfaceOnly: boolean;
-    BoxSurfaceExpansion: ENSM_SurfaceExpansionMode;
-    BoxSurfaceThickness: FNiagaraDistributionRangeFloat;
-    PlaneSize: FNiagaraDistributionRangeVector2;
-    bPlaneEdgesOnly: boolean;
-    PlaneEdgeExpansion: ENSM_SurfaceExpansionMode;
-    PlaneEdgeThickness: FNiagaraDistributionRangeFloat;
-    CylinderHeight: FNiagaraDistributionRangeFloat;
-    CylinderRadius: FNiagaraDistributionRangeFloat;
-    CylinderHeightMidpoint: FNiagaraDistributionRangeFloat;
-    RingRadius: FNiagaraDistributionRangeFloat;
-    DiscCoverage: FNiagaraDistributionRangeFloat;
-    RingUDistribution: FNiagaraDistributionRangeFloat;
-    SphereRadius: FNiagaraDistributionRangeFloat;
+    readonly __properties_UNiagaraStatelessModule_ShapeLocation: {
+        ShapePrimitive: ENSM_ShapePrimitive;
+        BoxSize: FNiagaraDistributionRangeVector3;
+        bBoxSurfaceOnly: boolean;
+        BoxSurfaceExpansion: ENSM_SurfaceExpansionMode;
+        BoxSurfaceThickness: FNiagaraDistributionRangeFloat;
+        PlaneSize: FNiagaraDistributionRangeVector2;
+        bPlaneEdgesOnly: boolean;
+        PlaneEdgeExpansion: ENSM_SurfaceExpansionMode;
+        PlaneEdgeThickness: FNiagaraDistributionRangeFloat;
+        CylinderHeight: FNiagaraDistributionRangeFloat;
+        CylinderRadius: FNiagaraDistributionRangeFloat;
+        CylinderHeightMidpoint: FNiagaraDistributionRangeFloat;
+        RingRadius: FNiagaraDistributionRangeFloat;
+        DiscCoverage: FNiagaraDistributionRangeFloat;
+        RingUDistribution: FNiagaraDistributionRangeFloat;
+        SphereRadius: FNiagaraDistributionRangeFloat;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_ShapeLocation['__properties_UNiagaraStatelessModule_ShapeLocation'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_ShapeLocation: UNiagaraStatelessModule_ShapeLocation;
 
 declare interface UNiagaraStatelessModule_SolveVelocitiesAndForces extends UNiagaraStatelessModule {
-
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_SolveVelocitiesAndForces: UNiagaraStatelessModule_SolveVelocitiesAndForces;
 
 declare interface UNiagaraStatelessModule_SpriteFacingAndAlignment extends UNiagaraStatelessModule {
-    bSpriteFacingEnabled: boolean;
-    bSpriteAlignmentEnabled: boolean;
-    SpriteFacing: FNiagaraDistributionRangeVector3;
-    SpriteAlignment: FNiagaraDistributionRangeVector3;
+    readonly __properties_UNiagaraStatelessModule_SpriteFacingAndAlignment: {
+        bSpriteFacingEnabled: boolean;
+        bSpriteAlignmentEnabled: boolean;
+        SpriteFacing: FNiagaraDistributionRangeVector3;
+        SpriteAlignment: FNiagaraDistributionRangeVector3;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_SpriteFacingAndAlignment['__properties_UNiagaraStatelessModule_SpriteFacingAndAlignment'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_SpriteFacingAndAlignment: UNiagaraStatelessModule_SpriteFacingAndAlignment;
 
 declare interface UNiagaraStatelessModule_SpriteRotationRate extends UNiagaraStatelessModule {
-    bUseRateScale: boolean;
-    RotationRateDistribution: FNiagaraDistributionRangeFloat;
-    RateScaleDistribution: FNiagaraDistributionCurveFloat;
+    readonly __properties_UNiagaraStatelessModule_SpriteRotationRate: {
+        bUseRateScale: boolean;
+        RotationRateDistribution: FNiagaraDistributionRangeFloat;
+        RateScaleDistribution: FNiagaraDistributionCurveFloat;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_SpriteRotationRate['__properties_UNiagaraStatelessModule_SpriteRotationRate'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_SpriteRotationRate: UNiagaraStatelessModule_SpriteRotationRate;
 
 declare interface UNiagaraStatelessModule_SubUVAnimation extends UNiagaraStatelessModule {
-    NumFrames: number;
-    FrameIndex: FNiagaraDistributionRangeInt;
-    bStartFrameRangeOverride_Enabled: boolean;
-    bEndFrameRangeOverride_Enabled: boolean;
-    StartFrameRangeOverride: number;
-    EndFrameRangeOverride: number;
-    AnimationMode: ENSMSubUVAnimation_Mode;
-    LoopsPerSecond: number;
-    RandomChangeInterval: number;
+    readonly __properties_UNiagaraStatelessModule_SubUVAnimation: {
+        NumFrames: number;
+        FrameIndex: FNiagaraDistributionRangeInt;
+        bStartFrameRangeOverride_Enabled: boolean;
+        bEndFrameRangeOverride_Enabled: boolean;
+        StartFrameRangeOverride: number;
+        EndFrameRangeOverride: number;
+        AnimationMode: ENSMSubUVAnimation_Mode;
+        LoopsPerSecond: number;
+        RandomChangeInterval: number;
+    };
+    readonly __staticRegistry: 
+        UNiagaraStatelessModule['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraStatelessModule_SubUVAnimation['__properties_UNiagaraStatelessModule_SubUVAnimation'] &
+        UNiagaraStatelessModule['__propertyRegistry'];
 }
-declare const UNiagaraStatelessModule_SubUVAnimation: UNiagaraStatelessModule_SubUVAnimation;
 
 declare interface UNiagaraSystem extends UFXSystemAsset {
-    bSupportLargeWorldCoordinates: boolean;
-    bOverrideCastShadow: boolean;
-    bOverrideReceivesDecals: boolean;
-    bOverrideRenderCustomDepth: boolean;
-    bOverrideCustomDepthStencilValue: boolean;
-    bOverrideCustomDepthStencilWriteMask: boolean;
-    bOverrideTranslucencySortPriority: boolean;
-    bOverrideTranslucencySortDistanceOffset: boolean;
-    bCastShadow: boolean;
-    bReceivesDecals: boolean;
-    bRenderCustomDepth: boolean;
-    bInitialOwnerVelocityFromActor: boolean;
-    LargeWorldCoordinateTileUpdateMode: TOptional<ENiagaraLwcTileUpdateMode>;
-    CustomDepthStencilWriteMask: ERendererStencilMask;
-    CustomDepthStencilValue: number;
-    TranslucencySortPriority: number;
-    TranslucencySortDistanceOffset: number;
-    bDumpDebugSystemInfo: boolean;
-    bDumpDebugEmitterInfo: boolean;
-    bRequireCurrentFrameData: boolean;
-    bOverrideScalabilitySettings: boolean;
-    bFixedBounds: boolean;
-    EffectType: UNiagaraEffectType;
-    bOverrideAllowCullingForLocalPlayers: boolean;
-    bAllowCullingForLocalPlayersOverride: boolean;
-    SystemScalabilityOverrides: FNiagaraSystemScalabilityOverrides;
-    Platforms: FNiagaraPlatformSet;
-    EmitterHandles: TArray<FNiagaraEmitterHandle>;
-    ParameterCollectionOverrides: TArray<UNiagaraParameterCollectionInstance>;
-    SystemSpawnScript: UNiagaraScript;
-    SystemUpdateScript: UNiagaraScript;
-    SystemCompiledData: FNiagaraSystemCompiledData;
-    ExposedParameters: FNiagaraUserRedirectionParameterStore;
-    FixedBounds: FBox;
-    bUseInitialStreamingBounds: boolean;
-    InitialStreamingBounds: FBox;
-    bNeedsGPUContextInitForDataInterfaces: boolean;
-    bDeterminism: boolean;
-    bFixedTickDelta: boolean;
-    RandomSeed: number;
-    WarmupTime: number;
-    WarmupTickCount: number;
-    WarmupTickDelta: number;
-    FixedTickDeltaTime: number;
-    bAllowSystemStateFastPath: boolean;
-    bSystemStateFastPathEnabled: boolean;
-    SystemStateDataStruct: FInstancedStruct;
+    readonly __properties_UNiagaraSystem: {
+        bSupportLargeWorldCoordinates: boolean;
+        bOverrideCastShadow: boolean;
+        bOverrideReceivesDecals: boolean;
+        bOverrideRenderCustomDepth: boolean;
+        bOverrideCustomDepthStencilValue: boolean;
+        bOverrideCustomDepthStencilWriteMask: boolean;
+        bOverrideTranslucencySortPriority: boolean;
+        bOverrideTranslucencySortDistanceOffset: boolean;
+        bCastShadow: boolean;
+        bReceivesDecals: boolean;
+        bRenderCustomDepth: boolean;
+        bInitialOwnerVelocityFromActor: boolean;
+        LargeWorldCoordinateTileUpdateMode: TOptional<ENiagaraLwcTileUpdateMode>;
+        CustomDepthStencilWriteMask: ERendererStencilMask;
+        CustomDepthStencilValue: number;
+        TranslucencySortPriority: number;
+        TranslucencySortDistanceOffset: number;
+        bDumpDebugSystemInfo: boolean;
+        bDumpDebugEmitterInfo: boolean;
+        bRequireCurrentFrameData: boolean;
+        bOverrideScalabilitySettings: boolean;
+        bFixedBounds: boolean;
+        EffectType: UNiagaraEffectType;
+        bOverrideAllowCullingForLocalPlayers: boolean;
+        bAllowCullingForLocalPlayersOverride: boolean;
+        SystemScalabilityOverrides: FNiagaraSystemScalabilityOverrides;
+        Platforms: FNiagaraPlatformSet;
+        EmitterHandles: FNiagaraEmitterHandle[];
+        ParameterCollectionOverrides: UNiagaraParameterCollectionInstance[];
+        SystemSpawnScript: UNiagaraScript;
+        SystemUpdateScript: UNiagaraScript;
+        SystemCompiledData: FNiagaraSystemCompiledData;
+        ExposedParameters: FNiagaraUserRedirectionParameterStore;
+        FixedBounds: FBox;
+        bUseInitialStreamingBounds: boolean;
+        InitialStreamingBounds: FBox;
+        bNeedsGPUContextInitForDataInterfaces: boolean;
+        bDeterminism: boolean;
+        bFixedTickDelta: boolean;
+        RandomSeed: number;
+        WarmupTime: number;
+        WarmupTickCount: number;
+        WarmupTickDelta: number;
+        FixedTickDeltaTime: number;
+        bAllowSystemStateFastPath: boolean;
+        bSystemStateFastPathEnabled: boolean;
+        SystemStateDataStruct: FInstancedStruct;
+    };
+    readonly __staticRegistry: 
+        UFXSystemAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraSystem['__properties_UNiagaraSystem'] &
+        UFXSystemAsset['__propertyRegistry'];
 }
-declare const UNiagaraSystem: UNiagaraSystem;
 
 declare interface UNiagaraValidationRule extends UObject {
-    bIsConfigDisabled: boolean;
+    readonly __properties_UNiagaraValidationRule: {
+        bIsConfigDisabled: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraValidationRule['__properties_UNiagaraValidationRule'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraValidationRule: UNiagaraValidationRule;
 
 declare interface UNiagaraValidationRuleSet extends UObject {
-    ValidationRules: TArray<UNiagaraValidationRule>;
+    readonly __properties_UNiagaraValidationRuleSet: {
+        ValidationRules: UNiagaraValidationRule[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraValidationRuleSet['__properties_UNiagaraValidationRuleSet'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraValidationRuleSet: UNiagaraValidationRuleSet;
 
 declare interface UNiagaraVolumeRendererProperties extends UNiagaraRendererProperties {
-    Material: UMaterialInterface;
-    MaterialParameterBinding: FNiagaraParameterBinding;
-    RendererVisibility: number;
-    StepFactor: number;
-    LightingDownsampleFactor: number;
-    ShadowStepFactor: number;
-    ShadowBiasFactor: number;
-    RendererVisibilityTagBinding: FNiagaraVariableAttributeBinding;
-    VolumeResolutionMaxAxisBinding: FNiagaraVariableAttributeBinding;
-    VolumeWorldSpaceSizeBinding: FNiagaraVariableAttributeBinding;
-    MaterialParameters: FNiagaraRendererMaterialParameters;
+    readonly __properties_UNiagaraVolumeRendererProperties: {
+        Material: UMaterialInterface;
+        MaterialParameterBinding: FNiagaraParameterBinding;
+        RendererVisibility: number;
+        StepFactor: number;
+        LightingDownsampleFactor: number;
+        ShadowStepFactor: number;
+        ShadowBiasFactor: number;
+        RendererVisibilityTagBinding: FNiagaraVariableAttributeBinding;
+        VolumeResolutionMaxAxisBinding: FNiagaraVariableAttributeBinding;
+        VolumeWorldSpaceSizeBinding: FNiagaraVariableAttributeBinding;
+        MaterialParameters: FNiagaraRendererMaterialParameters;
+    };
+    readonly __staticRegistry: 
+        UNiagaraRendererProperties['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraVolumeRendererProperties['__properties_UNiagaraVolumeRendererProperties'] &
+        UNiagaraRendererProperties['__propertyRegistry'];
 }
-declare const UNiagaraVolumeRendererProperties: UNiagaraVolumeRendererProperties;
 
 declare interface UVolumeCache extends UObject {
-    FilePath: FString;
-    CacheType: EVolumeCacheType;
-    Resolution: FIntVector;
-    FrameRangeStart: number;
-    FrameRangeEnd: number;
+    readonly __properties_UVolumeCache: {
+        FilePath: string;
+        CacheType: EVolumeCacheType;
+        Resolution: FIntVector;
+        FrameRangeStart: number;
+        FrameRangeEnd: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVolumeCache['__properties_UVolumeCache'] &
+        UObject['__propertyRegistry'];
 }
-declare const UVolumeCache: UVolumeCache;
 

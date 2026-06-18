@@ -1,16 +1,26 @@
 declare interface UNetConnectionEOS extends UIpConnection {
-
+    readonly __staticRegistry: 
+        UIpConnection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIpConnection['__propertyRegistry'];
 }
-declare const UNetConnectionEOS: UNetConnectionEOS;
 
 declare interface UNetDriverEOS extends UIpNetDriver {
-    bIsPassthrough: boolean;
-    bIsUsingP2PSockets: boolean;
+    readonly __properties_UNetDriverEOS: {
+        bIsPassthrough: boolean;
+        bIsUsingP2PSockets: boolean;
+    };
+    readonly __staticRegistry: 
+        UIpNetDriver['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetDriverEOS['__properties_UNetDriverEOS'] &
+        UIpNetDriver['__propertyRegistry'];
 }
-declare const UNetDriverEOS: UNetDriverEOS;
 
 declare interface UNetDriverEOSBase extends UNetDriverEOS {
-
+    readonly __staticRegistry: 
+        UNetDriverEOS['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetDriverEOS['__propertyRegistry'];
 }
-declare const UNetDriverEOSBase: UNetDriverEOSBase;
 

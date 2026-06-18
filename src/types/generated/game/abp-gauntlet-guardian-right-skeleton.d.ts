@@ -1,27 +1,31 @@
 declare interface UABP_Gauntlet_Guardian_Right_Skeleton_C extends UGuardianGloveAnimInstance {
-    AnimBlueprintClassConstantData: {
-        __NameProperty_227: FName;
-        __NameProperty_228: FName;
+    readonly __static_UABP_Gauntlet_Guardian_Right_Skeleton_C: {
+        AnimGraph(AnimGraph: FPoseLink): void;
+    };
+    readonly __properties_UABP_Gauntlet_Guardian_Right_Skeleton_C: {
+        AnimBlueprintClassConstantData: {
+        __NameProperty_227: string;
+        __NameProperty_228: string;
         __ByteProperty_229: ESequenceEvalReinit;
         __AnimSequenceBase_230: UAnimSequenceBase;
         __BoolProperty_231: boolean;
-        __NameProperty_232: FName;
+        __NameProperty_232: string;
         __IntProperty_233: number;
         __FloatProperty_234: number;
         __StructProperty_235: FInputScaleBiasClampConstants;
         __FloatProperty_236: number;
         __EnumProperty_237: EAnimSyncMethod;
         __ByteProperty_238: EAnimGroupRole;
-        __NameProperty_239: FName;
-        __NameProperty_240: FName;
-        __NameProperty_241: FName;
+        __NameProperty_239: string;
+        __NameProperty_240: string;
+        __NameProperty_241: string;
         __IntProperty_242: number;
         __StructProperty_243: FAnimNodeFunctionRef;
         __CurveFloat_244: UCurveFloat;
         __EnumProperty_245: EBlendListChildUpdateMode;
         __EnumProperty_246: EAlphaBlendOption;
         __EnumProperty_247: EBlendListTransitionType;
-        __ArrayProperty_248: TArray<number>;
+        __ArrayProperty_248: number[];
         __BoolProperty_249: boolean;
         __BlendProfile_250: UBlendProfile;
         AnimBlueprintExtension_PropertyAccess: FAnimSubsystem_PropertyAccess;
@@ -56,44 +60,49 @@ declare interface UABP_Gauntlet_Guardian_Right_Skeleton_C extends UGuardianGlove
         AnimGraphNode_StateMachine: FAnimNodeExposedValueHandler_PropertyAccess;
         AnimGraphNode_BlendListByBool: FAnimNodeExposedValueHandler_PropertyAccess;
     };
-    __AnimBlueprintMutables: {
+        __AnimBlueprintMutables: {
         __BoolProperty: boolean;
         __BoolProperty_0: boolean;
         __BoolProperty_1: boolean;
         __BoolProperty_2: boolean;
     };
-    AnimBlueprintExtension_PropertyAccess: FAnimSubsystemInstance;
-    AnimBlueprintExtension_Base: FAnimSubsystemInstance;
-    AnimGraphNode_Root: FAnimNode_Root;
-    AnimGraphNode_Slot: FAnimNode_Slot;
-    AnimGraphNode_TransitionResult_5: FAnimNode_TransitionResult;
-    AnimGraphNode_TransitionResult_4: FAnimNode_TransitionResult;
-    AnimGraphNode_SequencePlayer_6: FAnimNode_SequencePlayer;
-    AnimGraphNode_StateResult_5: FAnimNode_StateResult;
-    AnimGraphNode_SequencePlayer_5: FAnimNode_SequencePlayer;
-    AnimGraphNode_BlendListByBool_3: FAnimNode_BlendListByBool;
-    AnimGraphNode_BlendListByBool_2: FAnimNode_BlendListByBool;
-    AnimGraphNode_TransitionResult_3: FAnimNode_TransitionResult;
-    AnimGraphNode_TransitionResult_2: FAnimNode_TransitionResult;
-    AnimGraphNode_SequencePlayer_4: FAnimNode_SequencePlayer;
-    AnimGraphNode_StateResult_4: FAnimNode_StateResult;
-    AnimGraphNode_SequencePlayer_3: FAnimNode_SequencePlayer;
-    AnimGraphNode_StateResult_3: FAnimNode_StateResult;
-    AnimGraphNode_StateMachine_2: FAnimNode_StateMachine;
-    AnimGraphNode_SequenceEvaluator: FAnimNode_SequenceEvaluator;
-    AnimGraphNode_BlendListByBool_1: FAnimNode_BlendListByBool;
-    AnimGraphNode_SequencePlayer_2: FAnimNode_SequencePlayer;
-    AnimGraphNode_StateResult_2: FAnimNode_StateResult;
-    AnimGraphNode_StateMachine_1: FAnimNode_StateMachine;
-    AnimGraphNode_TransitionResult_1: FAnimNode_TransitionResult;
-    AnimGraphNode_TransitionResult: FAnimNode_TransitionResult;
-    AnimGraphNode_SequencePlayer_1: FAnimNode_SequencePlayer;
-    AnimGraphNode_StateResult_1: FAnimNode_StateResult;
-    AnimGraphNode_SequencePlayer: FAnimNode_SequencePlayer;
-    AnimGraphNode_StateResult: FAnimNode_StateResult;
-    AnimGraphNode_StateMachine: FAnimNode_StateMachine;
-    AnimGraphNode_BlendListByBool: FAnimNode_BlendListByBool;
-    AnimGraph(AnimGraph: FPoseLink): void;
+        AnimBlueprintExtension_PropertyAccess: FAnimSubsystemInstance;
+        AnimBlueprintExtension_Base: FAnimSubsystemInstance;
+        AnimGraphNode_Root: FAnimNode_Root;
+        AnimGraphNode_Slot: FAnimNode_Slot;
+        AnimGraphNode_TransitionResult_5: FAnimNode_TransitionResult;
+        AnimGraphNode_TransitionResult_4: FAnimNode_TransitionResult;
+        AnimGraphNode_SequencePlayer_6: FAnimNode_SequencePlayer;
+        AnimGraphNode_StateResult_5: FAnimNode_StateResult;
+        AnimGraphNode_SequencePlayer_5: FAnimNode_SequencePlayer;
+        AnimGraphNode_BlendListByBool_3: FAnimNode_BlendListByBool;
+        AnimGraphNode_BlendListByBool_2: FAnimNode_BlendListByBool;
+        AnimGraphNode_TransitionResult_3: FAnimNode_TransitionResult;
+        AnimGraphNode_TransitionResult_2: FAnimNode_TransitionResult;
+        AnimGraphNode_SequencePlayer_4: FAnimNode_SequencePlayer;
+        AnimGraphNode_StateResult_4: FAnimNode_StateResult;
+        AnimGraphNode_SequencePlayer_3: FAnimNode_SequencePlayer;
+        AnimGraphNode_StateResult_3: FAnimNode_StateResult;
+        AnimGraphNode_StateMachine_2: FAnimNode_StateMachine;
+        AnimGraphNode_SequenceEvaluator: FAnimNode_SequenceEvaluator;
+        AnimGraphNode_BlendListByBool_1: FAnimNode_BlendListByBool;
+        AnimGraphNode_SequencePlayer_2: FAnimNode_SequencePlayer;
+        AnimGraphNode_StateResult_2: FAnimNode_StateResult;
+        AnimGraphNode_StateMachine_1: FAnimNode_StateMachine;
+        AnimGraphNode_TransitionResult_1: FAnimNode_TransitionResult;
+        AnimGraphNode_TransitionResult: FAnimNode_TransitionResult;
+        AnimGraphNode_SequencePlayer_1: FAnimNode_SequencePlayer;
+        AnimGraphNode_StateResult_1: FAnimNode_StateResult;
+        AnimGraphNode_SequencePlayer: FAnimNode_SequencePlayer;
+        AnimGraphNode_StateResult: FAnimNode_StateResult;
+        AnimGraphNode_StateMachine: FAnimNode_StateMachine;
+        AnimGraphNode_BlendListByBool: FAnimNode_BlendListByBool;
+    };
+    readonly __staticRegistry: 
+        UABP_Gauntlet_Guardian_Right_Skeleton_C['__static_UABP_Gauntlet_Guardian_Right_Skeleton_C'] &
+        UGuardianGloveAnimInstance['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UABP_Gauntlet_Guardian_Right_Skeleton_C['__properties_UABP_Gauntlet_Guardian_Right_Skeleton_C'] &
+        UGuardianGloveAnimInstance['__propertyRegistry'];
 }
-declare const UABP_Gauntlet_Guardian_Right_Skeleton_C: UABP_Gauntlet_Guardian_Right_Skeleton_C;
 

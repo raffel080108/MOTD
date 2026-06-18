@@ -1,39 +1,53 @@
 declare interface FActorSequenceObjectReference {
     Type: EActorSequenceObjectReferenceType;
     ActorId: FGuid;
-    PathToComponent: FString;
+    PathToComponent: string;
 }
-declare const FActorSequenceObjectReference: FActorSequenceObjectReference;
 
 declare interface FActorSequenceObjectReferenceMap {
-    BindingIds: TArray<FGuid>;
-    References: TArray<FActorSequenceObjectReferences>;
+    BindingIds: FGuid[];
+    References: FActorSequenceObjectReferences[];
 }
-declare const FActorSequenceObjectReferenceMap: FActorSequenceObjectReferenceMap;
 
 declare interface FActorSequenceObjectReferences {
-    Array: TArray<FActorSequenceObjectReference>;
+    Array: FActorSequenceObjectReference[];
 }
-declare const FActorSequenceObjectReferences: FActorSequenceObjectReferences;
 
 declare interface UActorSequence extends UMovieSceneSequence {
-    MovieScene: UMovieScene;
-    ObjectReferences: FActorSequenceObjectReferenceMap;
+    readonly __properties_UActorSequence: {
+        MovieScene: UMovieScene;
+        ObjectReferences: FActorSequenceObjectReferenceMap;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSequence['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UActorSequence['__properties_UActorSequence'] &
+        UMovieSceneSequence['__propertyRegistry'];
 }
-declare const UActorSequence: UActorSequence;
 
 declare interface UActorSequenceComponent extends UActorComponent {
-    PlaybackSettings: FMovieSceneSequencePlaybackSettings;
-    Sequence: UActorSequence;
-    SequencePlayer: UActorSequencePlayer;
-    StopSequence(): void;
-    PlaySequence(): void;
-    PauseSequence(): void;
+    readonly __static_UActorSequenceComponent: {
+        StopSequence(): void;
+        PlaySequence(): void;
+        PauseSequence(): void;
+    };
+    readonly __properties_UActorSequenceComponent: {
+        PlaybackSettings: FMovieSceneSequencePlaybackSettings;
+        Sequence: UActorSequence;
+        SequencePlayer: UActorSequencePlayer;
+    };
+    readonly __staticRegistry: 
+        UActorSequenceComponent['__static_UActorSequenceComponent'] &
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UActorSequenceComponent['__properties_UActorSequenceComponent'] &
+        UActorComponent['__propertyRegistry'];
 }
-declare const UActorSequenceComponent: UActorSequenceComponent;
 
 declare interface UActorSequencePlayer extends UMovieSceneSequencePlayer {
-
+    readonly __staticRegistry: 
+        UMovieSceneSequencePlayer['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSequencePlayer['__propertyRegistry'];
 }
-declare const UActorSequencePlayer: UActorSequencePlayer;
 

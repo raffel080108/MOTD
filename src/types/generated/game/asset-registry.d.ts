@@ -5,48 +5,54 @@ declare interface FAssetRegistryDependencyOptions {
     bIncludeSoftManagementReferences: boolean;
     bIncludeHardManagementReferences: boolean;
 }
-declare const FAssetRegistryDependencyOptions: FAssetRegistryDependencyOptions;
 
 declare interface FTagAndValue {
-    Tag: FName;
-    Value: FString;
+    Tag: string;
+    Value: string;
 }
-declare const FTagAndValue: FTagAndValue;
 
 declare interface IAssetRegistry extends IInterface {
-    WaitForPackage(PackageName: string | FString): void;
-    WaitForCompletion(): void;
-    UseFilterToExcludeAssets(AssetDataList: TArray<FAssetData>, Filter: FARFilter): void;
-    SearchAllAssets(bSynchronousSearch: boolean): void;
-    ScanPathsSynchronous(InPaths: string | FString[], bForceRescan: boolean, bIgnoreDenyListScanFilters: boolean): void;
-    ScanModifiedAssetFiles(InFilePaths: string | FString[]): void;
-    ScanFilesSynchronous(InFilePaths: string | FString[], bForceRescan: boolean): void;
-    RunAssetsThroughFilter(AssetDataList: TArray<FAssetData>, Filter: FARFilter): void;
-    PrioritizeSearchPath(PathToPrioritize: string | FString): void;
-    K2_GetReferencers(PackageName: FName, ReferenceOptions: FAssetRegistryDependencyOptions, OutReferencers: TArray<FName>): boolean;
-    K2_GetDependencies(PackageName: FName, DependencyOptions: FAssetRegistryDependencyOptions, OutDependencies: TArray<FName>): boolean;
-    K2_GetAssetByObjectPath(ObjectPath: FSoftObjectPath, bIncludeOnlyOnDiskAssets: boolean, bSkipARFilteredAssets: boolean): FAssetData;
-    IsSearchAsync(): boolean;
-    IsSearchAllAssets(): boolean;
-    IsLoadingAssets(): boolean;
-    HasAssets(PackagePath: FName, bRecursive: boolean): boolean;
-    GetSubPaths(InBasePath: string | FString, OutPathList: string | FString[], bInRecurse: boolean): void;
-    GetInMemoryAssets(Filter: FARFilter, OutAssetData: TArray<FAssetData>, bSkipARFilteredAssets: boolean): boolean;
-    GetDerivedClassNames(ClassNames: TArray<FTopLevelAssetPath>, ExcludedClassNames: TSet<FTopLevelAssetPath>, OutDerivedClassNames: TSet<FTopLevelAssetPath>): void;
-    GetAssetsByPaths(PackagePaths: TArray<FName>, OutAssetData: TArray<FAssetData>, bRecursive: boolean, bIncludeOnlyOnDiskAssets: boolean): boolean;
-    GetAssetsByPath(PackagePath: FName, OutAssetData: TArray<FAssetData>, bRecursive: boolean, bIncludeOnlyOnDiskAssets: boolean): boolean;
-    GetAssetsByPackageName(PackageName: FName, OutAssetData: TArray<FAssetData>, bIncludeOnlyOnDiskAssets: boolean, bSkipARFilteredAssets: boolean): boolean;
-    GetAssetsByClass(ClassPathName: FTopLevelAssetPath, OutAssetData: TArray<FAssetData>, bSearchSubClasses: boolean): boolean;
-    GetAssets(Filter: FARFilter, OutAssetData: TArray<FAssetData>, bSkipARFilteredAssets: boolean): boolean;
-    GetAssetByObjectPath(ObjectPath: FName, bIncludeOnlyOnDiskAssets: boolean): FAssetData;
-    GetAncestorClassNames(ClassPathName: FTopLevelAssetPath, OutAncestorClassNames: TArray<FTopLevelAssetPath>): boolean;
-    GetAllCachedPaths(OutPathList: string | FString[]): void;
-    GetAllAssets(OutAssetData: TArray<FAssetData>, bIncludeOnlyOnDiskAssets: boolean): boolean;
+    readonly __static_IAssetRegistry: {
+        WaitForPackage(PackageName: string): void;
+        WaitForCompletion(): void;
+        UseFilterToExcludeAssets(AssetDataList: FAssetData[], Filter: FARFilter): void;
+        SearchAllAssets(bSynchronousSearch: boolean): void;
+        ScanPathsSynchronous(InPaths: string[], bForceRescan: boolean, bIgnoreDenyListScanFilters: boolean): void;
+        ScanModifiedAssetFiles(InFilePaths: string[]): void;
+        ScanFilesSynchronous(InFilePaths: string[], bForceRescan: boolean): void;
+        RunAssetsThroughFilter(AssetDataList: FAssetData[], Filter: FARFilter): void;
+        PrioritizeSearchPath(PathToPrioritize: string): void;
+        K2_GetReferencers(PackageName: string, ReferenceOptions: FAssetRegistryDependencyOptions, OutReferencers: string[]): boolean;
+        K2_GetDependencies(PackageName: string, DependencyOptions: FAssetRegistryDependencyOptions, OutDependencies: string[]): boolean;
+        K2_GetAssetByObjectPath(ObjectPath: FSoftObjectPath, bIncludeOnlyOnDiskAssets: boolean, bSkipARFilteredAssets: boolean): FAssetData;
+        IsSearchAsync(): boolean;
+        IsSearchAllAssets(): boolean;
+        IsLoadingAssets(): boolean;
+        HasAssets(PackagePath: string, bRecursive: boolean): boolean;
+        GetSubPaths(InBasePath: string, OutPathList: string[], bInRecurse: boolean): void;
+        GetInMemoryAssets(Filter: FARFilter, OutAssetData: FAssetData[], bSkipARFilteredAssets: boolean): boolean;
+        GetDerivedClassNames(ClassNames: FTopLevelAssetPath[], ExcludedClassNames: FTopLevelAssetPath[], OutDerivedClassNames: FTopLevelAssetPath[]): void;
+        GetAssetsByPaths(PackagePaths: string[], OutAssetData: FAssetData[], bRecursive: boolean, bIncludeOnlyOnDiskAssets: boolean): boolean;
+        GetAssetsByPath(PackagePath: string, OutAssetData: FAssetData[], bRecursive: boolean, bIncludeOnlyOnDiskAssets: boolean): boolean;
+        GetAssetsByPackageName(PackageName: string, OutAssetData: FAssetData[], bIncludeOnlyOnDiskAssets: boolean, bSkipARFilteredAssets: boolean): boolean;
+        GetAssetsByClass(ClassPathName: FTopLevelAssetPath, OutAssetData: FAssetData[], bSearchSubClasses: boolean): boolean;
+        GetAssets(Filter: FARFilter, OutAssetData: FAssetData[], bSkipARFilteredAssets: boolean): boolean;
+        GetAssetByObjectPath(ObjectPath: string, bIncludeOnlyOnDiskAssets: boolean): FAssetData;
+        GetAncestorClassNames(ClassPathName: FTopLevelAssetPath, OutAncestorClassNames: FTopLevelAssetPath[]): boolean;
+        GetAllCachedPaths(OutPathList: string[]): void;
+        GetAllAssets(OutAssetData: FAssetData[], bIncludeOnlyOnDiskAssets: boolean): boolean;
+    };
+    readonly __staticRegistry: 
+        IAssetRegistry['__static_IAssetRegistry'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IAssetRegistry: IAssetRegistry;
 
 declare interface UAssetRegistryImpl extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UAssetRegistryImpl: UAssetRegistryImpl;
 

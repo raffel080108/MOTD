@@ -1,7 +1,13 @@
 declare interface UMoviePlayerSettings extends UObject {
-    bWaitForMoviesToComplete: boolean;
-    bMoviesAreSkippable: boolean;
-    StartupMovies: TArray<FString>;
+    readonly __properties_UMoviePlayerSettings: {
+        bWaitForMoviesToComplete: boolean;
+        bMoviesAreSkippable: boolean;
+        StartupMovies: string[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMoviePlayerSettings['__properties_UMoviePlayerSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMoviePlayerSettings: UMoviePlayerSettings;
 

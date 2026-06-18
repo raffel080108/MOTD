@@ -5,10 +5,15 @@ declare interface FImageWriteOptions {
     bOverwriteFile: boolean;
     bAsync: boolean;
 }
-declare const FImageWriteOptions: FImageWriteOptions;
 
 declare interface UImageWriteBlueprintLibrary extends UBlueprintFunctionLibrary {
-    ExportToDisk(Texture: UTexture, Filename: string | FString, Options: FImageWriteOptions): void;
+    readonly __static_UImageWriteBlueprintLibrary: {
+        ExportToDisk(Texture: UTexture, Filename: string, Options: FImageWriteOptions): void;
+    };
+    readonly __staticRegistry: 
+        UImageWriteBlueprintLibrary['__static_UImageWriteBlueprintLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UImageWriteBlueprintLibrary: UImageWriteBlueprintLibrary;
 

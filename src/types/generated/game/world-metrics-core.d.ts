@@ -1,34 +1,47 @@
 declare interface FWorldMetricCollection {
-    Metrics: TArray<UWorldMetricInterface>;
+    Metrics: UWorldMetricInterface[];
     Subsystem: TWeakObjectPtr<UWorldMetricsSubsystem>;
     bIsEnabled: boolean;
 }
-declare const FWorldMetricCollection: FWorldMetricCollection;
 
 declare interface IWorldMetricsActorTrackerSubscriber extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IWorldMetricsActorTrackerSubscriber: IWorldMetricsActorTrackerSubscriber;
 
 declare interface UWorldMetricInterface extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UWorldMetricInterface: UWorldMetricInterface;
 
 declare interface UWorldMetricsActorTracker extends UWorldMetricsExtension {
-
+    readonly __staticRegistry: 
+        UWorldMetricsExtension['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UWorldMetricsExtension['__propertyRegistry'];
 }
-declare const UWorldMetricsActorTracker: UWorldMetricsActorTracker;
 
 declare interface UWorldMetricsExtension extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UWorldMetricsExtension: UWorldMetricsExtension;
 
 declare interface UWorldMetricsSubsystem extends UWorldSubsystem {
-    Metrics: TArray<UWorldMetricInterface>;
-    UpdateRateInSeconds: number;
-    WarmUpFrames: number;
+    readonly __properties_UWorldMetricsSubsystem: {
+        Metrics: UWorldMetricInterface[];
+        UpdateRateInSeconds: number;
+        WarmUpFrames: number;
+    };
+    readonly __staticRegistry: 
+        UWorldSubsystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UWorldMetricsSubsystem['__properties_UWorldMetricsSubsystem'] &
+        UWorldSubsystem['__propertyRegistry'];
 }
-declare const UWorldMetricsSubsystem: UWorldMetricsSubsystem;
 

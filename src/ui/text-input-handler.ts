@@ -1,4 +1,3 @@
-import { HookCallback, InputValidateType, TextInput } from "../motd/mod-types";
 import { Util } from "../util/util";
 
 export class TextInputHandler {
@@ -11,7 +10,7 @@ export class TextInputHandler {
         this.targetClassPath = targetClassPath;
     }
 
-    public registerTextInputHook(functionName: string, callback: HookCallback): void {
+    public registerTextInputHook(functionName: string, callback: UE4SSLHookCallback): void {
         RegisterHook(this.targetClassPath + ":" + functionName, callback);
     }
 
@@ -20,54 +19,65 @@ export class TextInputHandler {
             return;
         }
 
-        this.registerTextInputHook("TextCommitted", (self: RemoteUnrealParam<UObject>, textParam: RemoteUnrealParam<FText>, commitMethodParam: RemoteUnrealParam<ETextCommit>) => {
-            const widget = self.get() as TextInput;
-            const text = textParam.get();
-            const commitMethod = commitMethodParam.get();
-            
-            const textString = text.ToString();
-                        
-            switch(widget.InputValidateType) {
+        this.registerTextInputHook("TextCommitted", (self: UObject, args: unknown[]) => {
+            const widget = self as TextInput;
+            const text = args[0] as string;
+            const commitMethod = args[1] as ETextCommit;
+                                    
+            switch(GetProperty(widget, "InputValidateType")) {
                 case (InputValidateType.Number): {
-                    this.validate(widget, Util.isValidNumber(textString), text, commitMethod);
+                    this.validate(widget, Util.isValidNumber(text), text, commitMethod);
                     break;
                 }
 
                 case (InputValidateType.NumberNoDecimals): {
-                    this.validate(widget, Util.isValidNumber(textString, false), text, commitMethod);
+                    this.validate(widget, Util.isValidNumber(text, false), text, commitMethod);
                     break;
                 }
             }
         });
 
-        this.registerTextInputHook("TextChanged", (self: RemoteUnrealParam<UObject>, textParam: RemoteUnrealParam<FText>) => {
-            const widget = self.get() as TextInput;
+        this.registerTextInputHook("TextChanged", (self: UObject, args: unknown[]) => {
+            const widget = self as TextInput;
+            const text = args[0] as string;
+
             const widgetFullName = widget.GetFullName();
-            const text = textParam.get();
+            const maxTextLength = GetProperty(widget, "MaxTextLength") ?? 0;
 
-            const textString = text.ToString();
+            if (maxTextLength > 0 && text.length > maxTextLength) {
+                const lastInputText = this.lastInputText.get(widgetFullName) ?? GetProperty(widget, "DefaultText") ?? "";
 
-            if (widget.MaxTextLength > 0 && string.len(textString) > widget.MaxTextLength) {
-                const lastInputText = this.lastInputText.get(widgetFullName) ?? widget.DefaultText.ToString();
-                widget.EditableText.SetText(FText(lastInputText));
+                const editableTextWidget = GetProperty(widget, "EditableText");
+                if (editableTextWidget != undefined && editableTextWidget.IsValid()) {
+                    CallFunction(editableTextWidget, "SetText", lastInputText);
+                }
             } else {
-                this.lastInputText.set(widgetFullName, text.ToString());
+                this.lastInputText.set(widgetFullName, text);
             }
+        });
+
+        this.registerTextInputHook("SetText", (self: UObject, args: unknown[]) => {
+            const widget = self as TextInput;
+            const text = args[0] as string;
+
+            const widgetFullName = widget.GetFullName();
+            this.lastInputText.set(widgetFullName, text);
+            this.lastValidText.set(widgetFullName, text);
         });
 
         this.hooksActive = true;
     }
 
-    public validate(widget: TextInput, isValidInput: boolean, newText: FText, commitMethod: ETextCommit): void {
+    public validate(widget: TextInput, isValidInput: boolean, newText: string, commitMethod: ETextCommit): void {
         const widgetFullName = widget.GetFullName();
         if (isValidInput) {
-            this.lastValidText.set(widgetFullName, newText.ToString());
-            widget.ValidTextCommitted(newText, commitMethod);
-        } else {
-            const lastValidText = this.lastValidText.get(widgetFullName) ?? widget.DefaultText.ToString();
+            this.lastValidText.set(widgetFullName, newText);
 
-            widget.EditableText.SetText(FText(lastValidText));
-            this.lastInputText.set(widgetFullName, lastValidText);
+            CallFunction(widget, "ValidTextCommitted", newText, commitMethod);
+        } else {
+            const lastValidText = this.lastValidText.get(widgetFullName) ?? GetProperty(widget, "DefaultText") ?? "";
+
+            CallFunction(widget, "SetText", lastValidText);
         }
     }
 }

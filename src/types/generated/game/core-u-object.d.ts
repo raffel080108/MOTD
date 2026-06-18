@@ -1,241 +1,189 @@
 declare interface FARFilter {
-    PackageNames: TArray<FName>;
-    PackagePaths: TArray<FName>;
-    SoftObjectPaths: TArray<FSoftObjectPath>;
-    ClassNames: TArray<FName>;
-    ClassPaths: TArray<FTopLevelAssetPath>;
-    RecursiveClassesExclusionSet: TSet<FName>;
-    RecursiveClassPathsExclusionSet: TSet<FTopLevelAssetPath>;
+    PackageNames: string[];
+    PackagePaths: string[];
+    SoftObjectPaths: FSoftObjectPath[];
+    ClassNames: string[];
+    ClassPaths: FTopLevelAssetPath[];
+    RecursiveClassesExclusionSet: string[];
+    RecursiveClassPathsExclusionSet: FTopLevelAssetPath[];
     bRecursivePaths: boolean;
     bRecursiveClasses: boolean;
     bIncludeOnlyOnDiskAssets: boolean;
 }
-declare const FARFilter: FARFilter;
 
 declare interface FAssetBundleData {
-    Bundles: TArray<FAssetBundleEntry>;
+    Bundles: FAssetBundleEntry[];
 }
-declare const FAssetBundleData: FAssetBundleData;
 
 declare interface FAssetBundleEntry {
-    BundleName: FName;
-    AssetPaths: TArray<FTopLevelAssetPath>;
+    BundleName: string;
+    AssetPaths: FTopLevelAssetPath[];
 }
-declare const FAssetBundleEntry: FAssetBundleEntry;
 
 declare interface FAssetData {
-    PackageName: FName;
-    PackagePath: FName;
-    AssetName: FName;
-    AssetClass: FName;
+    PackageName: string;
+    PackagePath: string;
+    AssetName: string;
+    AssetClass: string;
     AssetClassPath: FTopLevelAssetPath;
 }
-declare const FAssetData: FAssetData;
 
 declare interface FAutomationEvent {
     Type: EAutomationEventType;
-    Message: FString;
-    Context: FString;
+    Message: string;
+    Context: string;
     Artifact: FGuid;
 }
-declare const FAutomationEvent: FAutomationEvent;
 
 declare interface FAutomationExecutionEntry {
     Event: FAutomationEvent;
-    Filename: FString;
+    Filename: string;
     LineNumber: number;
     Timestamp: FDateTime;
 }
-declare const FAutomationExecutionEntry: FAutomationExecutionEntry;
 
 declare interface FBox {
     min: FVector;
     max: FVector;
     IsValid: boolean;
 }
-declare const FBox: FBox;
 
 declare interface FBox2D {
     min: FVector2D;
     max: FVector2D;
     bIsValid: boolean;
 }
-declare const FBox2D: FBox2D;
 
 declare interface FBox2f {
     min: FVector2f;
     max: FVector2f;
     bIsValid: boolean;
 }
-declare const FBox2f: FBox2f;
 
 declare interface FBox3d {
     min: FVector3d;
     max: FVector3d;
     IsValid: boolean;
 }
-declare const FBox3d: FBox3d;
 
 declare interface FBox3f {
     min: FVector3f;
     max: FVector3f;
     IsValid: boolean;
 }
-declare const FBox3f: FBox3f;
 
 declare interface FBoxSphereBounds {
     Origin: FVector;
     BoxExtent: FVector;
     SphereRadius: number;
 }
-declare const FBoxSphereBounds: FBoxSphereBounds;
 
 declare interface FBoxSphereBounds3d {
     Origin: FVector3d;
     BoxExtent: FVector3d;
     SphereRadius: number;
 }
-declare const FBoxSphereBounds3d: FBoxSphereBounds3d;
 
 declare interface FBoxSphereBounds3f {
     Origin: FVector3f;
     BoxExtent: FVector3f;
     SphereRadius: number;
 }
-declare const FBoxSphereBounds3f: FBoxSphereBounds3f;
 
 declare interface FColor {
-    B: uint8;
-    G: uint8;
-    R: uint8;
-    A: uint8;
+    B: number;
+    G: number;
+    R: number;
+    A: number;
 }
-declare const FColor: FColor;
 
-declare interface FConstSharedStruct {
-
-}
-declare const FConstSharedStruct: FConstSharedStruct;
+declare type FConstSharedStruct = object;
 
 declare interface FDateTime {
-    Ticks: int64;
+    Ticks: number;
 }
-declare const FDateTime: FDateTime;
 
-declare interface FDefault__PropertyBag {
+declare type FDefault__PropertyBag = object;
 
-}
-declare const FDefault__PropertyBag: FDefault__PropertyBag;
+declare type FDefault__ScriptStruct = object;
 
-declare interface FDefault__ScriptStruct {
+declare type FDefault__UserDefinedStruct = object;
 
-}
-declare const FDefault__ScriptStruct: FDefault__ScriptStruct;
-
-declare interface FDefault__UserDefinedStruct {
-
-}
-declare const FDefault__UserDefinedStruct: FDefault__UserDefinedStruct;
-
-declare interface FDefault__VerseStruct {
-
-}
-declare const FDefault__VerseStruct: FDefault__VerseStruct;
+declare type FDefault__VerseStruct = object;
 
 declare interface FDirectoryPath {
-    Path: FString;
+    Path: string;
 }
-declare const FDirectoryPath: FDirectoryPath;
 
 declare interface FDoubleRange {
     LowerBound: FDoubleRangeBound;
     UpperBound: FDoubleRangeBound;
 }
-declare const FDoubleRange: FDoubleRange;
 
 declare interface FDoubleRangeBound {
     Type: ERangeBoundTypes;
     Value: number;
 }
-declare const FDoubleRangeBound: FDoubleRangeBound;
 
-declare interface FFallbackStruct {
-
-}
-declare const FFallbackStruct: FFallbackStruct;
+declare type FFallbackStruct = object;
 
 declare interface FFieldCookedMetaDataKey {
-    FieldPath: TArray<FName>;
+    FieldPath: string[];
 }
-declare const FFieldCookedMetaDataKey: FFieldCookedMetaDataKey;
 
 declare interface FFieldCookedMetaDataStore {
-    FieldMetaData: Record<FName, FString>;
-    SubFieldMetaData: Record<string | number | symbol, FFieldCookedMetaDataValue>;
+    FieldMetaData: TMap<string, string>;
+    SubFieldMetaData: TMap<FFieldCookedMetaDataKey, FFieldCookedMetaDataValue>;
 }
-declare const FFieldCookedMetaDataStore: FFieldCookedMetaDataStore;
 
 declare interface FFieldCookedMetaDataValue {
-    MetaData: Record<FName, FString>;
+    MetaData: TMap<string, string>;
 }
-declare const FFieldCookedMetaDataValue: FFieldCookedMetaDataValue;
 
 declare interface FFilePath {
-    FilePath: FString;
+    FilePath: string;
 }
-declare const FFilePath: FFilePath;
 
 declare interface FFloatInterval {
     min: number;
     max: number;
 }
-declare const FFloatInterval: FFloatInterval;
 
 declare interface FFloatRange {
     LowerBound: FFloatRangeBound;
     UpperBound: FFloatRangeBound;
 }
-declare const FFloatRange: FFloatRange;
 
 declare interface FFloatRangeBound {
     Type: ERangeBoundTypes;
     Value: number;
 }
-declare const FFloatRangeBound: FFloatRangeBound;
 
 declare interface FFrameNumber {
     Value: number;
 }
-declare const FFrameNumber: FFrameNumber;
 
 declare interface FFrameNumberRange {
     LowerBound: FFrameNumberRangeBound;
     UpperBound: FFrameNumberRangeBound;
 }
-declare const FFrameNumberRange: FFrameNumberRange;
 
 declare interface FFrameNumberRangeBound {
     Type: ERangeBoundTypes;
     Value: FFrameNumber;
 }
-declare const FFrameNumberRangeBound: FFrameNumberRangeBound;
 
 declare interface FFrameRate {
     Numerator: number;
     Denominator: number;
 }
-declare const FFrameRate: FFrameRate;
 
 declare interface FFrameTime {
     FrameNumber: FFrameNumber;
     SubFrame: number;
 }
-declare const FFrameTime: FFrameTime;
 
-declare interface FFreezablePerPlatformInt {
-
-}
-declare const FFreezablePerPlatformInt: FFreezablePerPlatformInt;
+declare type FFreezablePerPlatformInt = object;
 
 declare interface FGuid {
     A: number;
@@ -243,70 +191,54 @@ declare interface FGuid {
     C: number;
     D: number;
 }
-declare const FGuid: FGuid;
 
 declare interface FInputDeviceId {
     InternalId: number;
 }
-declare const FInputDeviceId: FInputDeviceId;
 
 declare interface FInstancedPropertyBag {
     Value: FInstancedStruct;
 }
-declare const FInstancedPropertyBag: FInstancedPropertyBag;
 
-declare interface FInstancedStruct {
+declare type FInstancedStruct = object;
 
-}
-declare const FInstancedStruct: FInstancedStruct;
-
-declare interface FInstancedStructContainer {
-
-}
-declare const FInstancedStructContainer: FInstancedStructContainer;
+declare type FInstancedStructContainer = object;
 
 declare interface FInt32Interval {
     min: number;
     max: number;
 }
-declare const FInt32Interval: FInt32Interval;
 
 declare interface FInt32Point {
     X: number;
     Y: number;
 }
-declare const FInt32Point: FInt32Point;
 
 declare interface FInt32Range {
     LowerBound: FInt32RangeBound;
     UpperBound: FInt32RangeBound;
 }
-declare const FInt32Range: FInt32Range;
 
 declare interface FInt32RangeBound {
     Type: ERangeBoundTypes;
     Value: number;
 }
-declare const FInt32RangeBound: FInt32RangeBound;
 
 declare interface FInt32Rect {
     min: FInt32Point;
     max: FInt32Point;
 }
-declare const FInt32Rect: FInt32Rect;
 
 declare interface FInt32Vector {
     X: number;
     Y: number;
     Z: number;
 }
-declare const FInt32Vector: FInt32Vector;
 
 declare interface FInt32Vector2 {
     X: number;
     Y: number;
 }
-declare const FInt32Vector2: FInt32Vector2;
 
 declare interface FInt32Vector4 {
     X: number;
@@ -314,65 +246,55 @@ declare interface FInt32Vector4 {
     Z: number;
     W: number;
 }
-declare const FInt32Vector4: FInt32Vector4;
 
 declare interface FInt64Point {
-    X: int64;
-    Y: int64;
+    X: number;
+    Y: number;
 }
-declare const FInt64Point: FInt64Point;
 
 declare interface FInt64Rect {
     min: FInt64Point;
     max: FInt64Point;
 }
-declare const FInt64Rect: FInt64Rect;
 
 declare interface FInt64Vector {
-    X: int64;
-    Y: int64;
-    Z: int64;
+    X: number;
+    Y: number;
+    Z: number;
 }
-declare const FInt64Vector: FInt64Vector;
 
 declare interface FInt64Vector2 {
-    X: int64;
-    Y: int64;
+    X: number;
+    Y: number;
 }
-declare const FInt64Vector2: FInt64Vector2;
 
 declare interface FInt64Vector4 {
-    X: int64;
-    Y: int64;
-    Z: int64;
-    W: int64;
+    X: number;
+    Y: number;
+    Z: number;
+    W: number;
 }
-declare const FInt64Vector4: FInt64Vector4;
 
 declare interface FIntPoint {
     X: number;
     Y: number;
 }
-declare const FIntPoint: FIntPoint;
 
 declare interface FIntRect {
     min: FIntPoint;
     max: FIntPoint;
 }
-declare const FIntRect: FIntRect;
 
 declare interface FIntVector {
     X: number;
     Y: number;
     Z: number;
 }
-declare const FIntVector: FIntVector;
 
 declare interface FIntVector2 {
     X: number;
     Y: number;
 }
-declare const FIntVector2: FIntVector2;
 
 declare interface FIntVector4 {
     X: number;
@@ -380,21 +302,18 @@ declare interface FIntVector4 {
     Z: number;
     W: number;
 }
-declare const FIntVector4: FIntVector4;
 
 declare interface FInterpCurveFloat {
-    Points: TArray<FInterpCurvePointFloat>;
+    Points: FInterpCurvePointFloat[];
     bIsLooped: boolean;
     LoopKeyOffset: number;
 }
-declare const FInterpCurveFloat: FInterpCurveFloat;
 
 declare interface FInterpCurveLinearColor {
-    Points: TArray<FInterpCurvePointLinearColor>;
+    Points: FInterpCurvePointLinearColor[];
     bIsLooped: boolean;
     LoopKeyOffset: number;
 }
-declare const FInterpCurveLinearColor: FInterpCurveLinearColor;
 
 declare interface FInterpCurvePointFloat {
     InVal: number;
@@ -403,7 +322,6 @@ declare interface FInterpCurvePointFloat {
     LeaveTangent: number;
     InterpMode: EInterpCurveMode;
 }
-declare const FInterpCurvePointFloat: FInterpCurvePointFloat;
 
 declare interface FInterpCurvePointLinearColor {
     InVal: number;
@@ -412,7 +330,6 @@ declare interface FInterpCurvePointLinearColor {
     LeaveTangent: FLinearColor;
     InterpMode: EInterpCurveMode;
 }
-declare const FInterpCurvePointLinearColor: FInterpCurvePointLinearColor;
 
 declare interface FInterpCurvePointQuat {
     InVal: number;
@@ -421,7 +338,6 @@ declare interface FInterpCurvePointQuat {
     LeaveTangent: FQuat;
     InterpMode: EInterpCurveMode;
 }
-declare const FInterpCurvePointQuat: FInterpCurvePointQuat;
 
 declare interface FInterpCurvePointTwoVectors {
     InVal: number;
@@ -430,7 +346,6 @@ declare interface FInterpCurvePointTwoVectors {
     LeaveTangent: FTwoVectors;
     InterpMode: EInterpCurveMode;
 }
-declare const FInterpCurvePointTwoVectors: FInterpCurvePointTwoVectors;
 
 declare interface FInterpCurvePointVector {
     InVal: number;
@@ -439,7 +354,6 @@ declare interface FInterpCurvePointVector {
     LeaveTangent: FVector;
     InterpMode: EInterpCurveMode;
 }
-declare const FInterpCurvePointVector: FInterpCurvePointVector;
 
 declare interface FInterpCurvePointVector2D {
     InVal: number;
@@ -448,35 +362,30 @@ declare interface FInterpCurvePointVector2D {
     LeaveTangent: FVector2D;
     InterpMode: EInterpCurveMode;
 }
-declare const FInterpCurvePointVector2D: FInterpCurvePointVector2D;
 
 declare interface FInterpCurveQuat {
-    Points: TArray<FInterpCurvePointQuat>;
+    Points: FInterpCurvePointQuat[];
     bIsLooped: boolean;
     LoopKeyOffset: number;
 }
-declare const FInterpCurveQuat: FInterpCurveQuat;
 
 declare interface FInterpCurveTwoVectors {
-    Points: TArray<FInterpCurvePointTwoVectors>;
+    Points: FInterpCurvePointTwoVectors[];
     bIsLooped: boolean;
     LoopKeyOffset: number;
 }
-declare const FInterpCurveTwoVectors: FInterpCurveTwoVectors;
 
 declare interface FInterpCurveVector {
-    Points: TArray<FInterpCurvePointVector>;
+    Points: FInterpCurvePointVector[];
     bIsLooped: boolean;
     LoopKeyOffset: number;
 }
-declare const FInterpCurveVector: FInterpCurveVector;
 
 declare interface FInterpCurveVector2D {
-    Points: TArray<FInterpCurvePointVector2D>;
+    Points: FInterpCurvePointVector2D[];
     bIsLooped: boolean;
     LoopKeyOffset: number;
 }
-declare const FInterpCurveVector2D: FInterpCurveVector2D;
 
 declare interface FLinearColor {
     R: number;
@@ -484,7 +393,6 @@ declare interface FLinearColor {
     B: number;
     A: number;
 }
-declare const FLinearColor: FLinearColor;
 
 declare interface FMatrix {
     XPlane: FPlane;
@@ -492,7 +400,6 @@ declare interface FMatrix {
     ZPlane: FPlane;
     WPlane: FPlane;
 }
-declare const FMatrix: FMatrix;
 
 declare interface FMatrix44d {
     XPlane: FPlane4d;
@@ -500,7 +407,6 @@ declare interface FMatrix44d {
     ZPlane: FPlane4d;
     WPlane: FPlane4d;
 }
-declare const FMatrix44d: FMatrix44d;
 
 declare interface FMatrix44f {
     XPlane: FPlane4f;
@@ -508,7 +414,6 @@ declare interface FMatrix44f {
     ZPlane: FPlane4f;
     WPlane: FPlane4f;
 }
-declare const FMatrix44f: FMatrix44f;
 
 declare interface FMusicalTime {
     Bar: number;
@@ -516,12 +421,10 @@ declare interface FMusicalTime {
     TicksPerBar: number;
     TicksPerBeat: number;
 }
-declare const FMusicalTime: FMusicalTime;
 
 declare interface FObjectCookedMetaDataStore {
-    ObjectMetaData: Record<FName, FString>;
+    ObjectMetaData: TMap<string, string>;
 }
-declare const FObjectCookedMetaDataStore: FObjectCookedMetaDataStore;
 
 declare interface FOrientedBox {
     Center: FVector;
@@ -532,168 +435,130 @@ declare interface FOrientedBox {
     ExtentY: number;
     ExtentZ: number;
 }
-declare const FOrientedBox: FOrientedBox;
 
 declare interface FOverriddenPropertyNode {
     NodeID: FOverriddenPropertyNodeID;
     Operation: EOverriddenPropertyOperation;
-    SubPropertyNodeKeys: Record<string | number | symbol, FOverriddenPropertyNodeID>;
+    SubPropertyNodeKeys: TMap<FOverriddenPropertyNodeID, FOverriddenPropertyNodeID>;
 }
-declare const FOverriddenPropertyNode: FOverriddenPropertyNode;
 
 declare interface FOverriddenPropertyNodeID {
-    Path: FName;
+    Path: string;
     Object: UObject;
 }
-declare const FOverriddenPropertyNodeID: FOverriddenPropertyNodeID;
 
 declare interface FOverriddenPropertySet {
     Owner: UObject;
     bWasAdded: boolean;
-    OverriddenPropertyNodes: TSet<FOverriddenPropertyNode>;
+    OverriddenPropertyNodes: FOverriddenPropertyNode[];
 }
-declare const FOverriddenPropertySet: FOverriddenPropertySet;
 
 declare interface FPackedNormal {
-    X: uint8;
-    Y: uint8;
-    Z: uint8;
-    W: uint8;
+    X: number;
+    Y: number;
+    Z: number;
+    W: number;
 }
-declare const FPackedNormal: FPackedNormal;
 
 declare interface FPackedRGB10A2N {
     Packed: number;
 }
-declare const FPackedRGB10A2N: FPackedRGB10A2N;
 
 declare interface FPackedRGBA16N {
     XY: number;
     ZW: number;
 }
-declare const FPackedRGBA16N: FPackedRGBA16N;
 
 declare interface FPackedRemoteObjectPathName {
-    RemoteIds: TArray<uint16>;
-    Names: TArray<uint16>;
+    RemoteIds: number[];
+    Names: number[];
 }
-declare const FPackedRemoteObjectPathName: FPackedRemoteObjectPathName;
 
 declare interface FPerPlatformBool {
     Default: boolean;
 }
-declare const FPerPlatformBool: FPerPlatformBool;
 
 declare interface FPerPlatformFloat {
     Default: number;
 }
-declare const FPerPlatformFloat: FPerPlatformFloat;
 
 declare interface FPerPlatformFrameRate {
     Default: FFrameRate;
 }
-declare const FPerPlatformFrameRate: FPerPlatformFrameRate;
 
 declare interface FPerPlatformInt {
     Default: number;
 }
-declare const FPerPlatformInt: FPerPlatformInt;
 
 declare interface FPlane extends FVector {
     W: number;
 }
-declare const FPlane: FPlane;
 
 declare interface FPlane4d extends FVector3d {
     W: number;
 }
-declare const FPlane4d: FPlane4d;
 
 declare interface FPlane4f extends FVector3f {
     W: number;
 }
-declare const FPlane4f: FPlane4f;
 
 declare interface FPlatformInputDeviceState {
     OwningPlatformUser: FPlatformUserId;
     ConnectionState: EInputDeviceConnectionState;
 }
-declare const FPlatformInputDeviceState: FPlatformInputDeviceState;
 
 declare interface FPlatformUserId {
     InternalId: number;
 }
-declare const FPlatformUserId: FPlatformUserId;
 
 declare interface FPolyglotTextData {
     Category: ELocalizedTextSourceCategory;
-    NativeCulture: FString;
-    Namespace: FString;
-    Key: FString;
-    NativeString: FString;
-    LocalizedStrings: Record<FString, FString>;
+    NativeCulture: string;
+    Namespace: string;
+    Key: string;
+    NativeString: string;
+    LocalizedStrings: TMap<string, string>;
     bIsMinimalPatch: boolean;
-    CachedText: FText;
+    CachedText: string;
 }
-declare const FPolyglotTextData: FPolyglotTextData;
 
 declare interface FPrimaryAssetId {
     PrimaryAssetType: FPrimaryAssetType;
-    PrimaryAssetName: FName;
+    PrimaryAssetName: string;
 }
-declare const FPrimaryAssetId: FPrimaryAssetId;
 
 declare interface FPrimaryAssetType {
-    Name: FName;
+    Name: string;
 }
-declare const FPrimaryAssetType: FPrimaryAssetType;
 
-declare interface FProfileLocus {
+declare type FProfileLocus = object;
 
-}
-declare const FProfileLocus: FProfileLocus;
+declare type FPropertyBagContainerTypes = object;
 
-declare interface FPropertyBagContainerTypes {
-
-}
-declare const FPropertyBagContainerTypes: FPropertyBagContainerTypes;
-
-declare interface FPropertyBagMissingStruct {
-
-}
-declare const FPropertyBagMissingStruct: FPropertyBagMissingStruct;
+declare type FPropertyBagMissingStruct = object;
 
 declare interface FPropertyBagPropertyDesc {
     ValueTypeObject: UObject;
     ID: FGuid;
-    Name: FName;
+    Name: string;
     ValueType: EPropertyBagPropertyType;
     ContainerTypes: FPropertyBagContainerTypes;
-    PropertyFlags: uint64;
+    PropertyFlags: number;
 }
-declare const FPropertyBagPropertyDesc: FPropertyBagPropertyDesc;
 
 declare interface FPropertyBagPropertyDescMetaData {
-    Key: FName;
-    Value: FString;
+    Key: string;
+    Value: string;
 }
-declare const FPropertyBagPropertyDescMetaData: FPropertyBagPropertyDescMetaData;
 
-declare interface FPropertyTextFName {
+declare type FPropertyTextFName = object;
 
-}
-declare const FPropertyTextFName: FPropertyTextFName;
-
-declare interface FPropertyTextString {
-
-}
-declare const FPropertyTextString: FPropertyTextString;
+declare type FPropertyTextString = object;
 
 declare interface FQualifiedFrameTime {
     Time: FFrameTime;
     Rate: FFrameRate;
 }
-declare const FQualifiedFrameTime: FQualifiedFrameTime;
 
 declare interface FQuat {
     X: number;
@@ -701,7 +566,6 @@ declare interface FQuat {
     Z: number;
     W: number;
 }
-declare const FQuat: FQuat;
 
 declare interface FQuat4d {
     X: number;
@@ -709,7 +573,6 @@ declare interface FQuat4d {
     Z: number;
     W: number;
 }
-declare const FQuat4d: FQuat4d;
 
 declare interface FQuat4f {
     X: number;
@@ -717,152 +580,122 @@ declare interface FQuat4f {
     Z: number;
     W: number;
 }
-declare const FQuat4f: FQuat4f;
 
 declare interface FRandomStream {
     InitialSeed: number;
     Seed: number;
 }
-declare const FRandomStream: FRandomStream;
 
 declare interface FRay {
     Origin: FVector;
     Direction: FVector;
 }
-declare const FRay: FRay;
 
 declare interface FRay3d {
     Origin: FVector3d;
     Direction: FVector3d;
 }
-declare const FRay3d: FRay3d;
 
 declare interface FRay3f {
     Origin: FVector3f;
     Direction: FVector3f;
 }
-declare const FRay3f: FRay3f;
 
 declare interface FRemoteObjectBytes {
-    Bytes: TArray<uint8>;
+    Bytes: number[];
 }
-declare const FRemoteObjectBytes: FRemoteObjectBytes;
 
 declare interface FRemoteObjectData {
     Tables: FRemoteObjectTables;
-    PathNames: TArray<FPackedRemoteObjectPathName>;
-    Bytes: TArray<FRemoteObjectBytes>;
+    PathNames: FPackedRemoteObjectPathName[];
+    Bytes: FRemoteObjectBytes[];
 }
-declare const FRemoteObjectData: FRemoteObjectData;
 
 declare interface FRemoteObjectId {
-    ID: uint64;
+    ID: number;
 }
-declare const FRemoteObjectId: FRemoteObjectId;
 
 declare interface FRemoteObjectPathName extends FRemoteObjectTables {
 
 }
-declare const FRemoteObjectPathName: FRemoteObjectPathName;
 
 declare interface FRemoteObjectReference {
     ObjectId: FRemoteObjectId;
     ServerId: FRemoteServerId;
 }
-declare const FRemoteObjectReference: FRemoteObjectReference;
 
 declare interface FRemoteObjectTables {
-    Names: TArray<FName>;
-    RemoteIds: TArray<FRemoteObjectId>;
+    Names: string[];
+    RemoteIds: FRemoteObjectId[];
 }
-declare const FRemoteObjectTables: FRemoteObjectTables;
 
 declare interface FRemoteServerId {
-    ID: uint32;
+    ID: number;
 }
-declare const FRemoteServerId: FRemoteServerId;
 
 declare interface FRemoteTransactionId {
-    ID: uint32;
+    ID: number;
 }
-declare const FRemoteTransactionId: FRemoteTransactionId;
 
 declare interface FRemoteWorkPriority {
-    PackedData: uint64;
+    PackedData: number;
 }
-declare const FRemoteWorkPriority: FRemoteWorkPriority;
 
 declare interface FRotator {
     pitch: number;
     Yaw: number;
     Roll: number;
 }
-declare const FRotator: FRotator;
 
 declare interface FRotator3d {
     pitch: number;
     Yaw: number;
     Roll: number;
 }
-declare const FRotator3d: FRotator3d;
 
 declare interface FRotator3f {
     pitch: number;
     Yaw: number;
     Roll: number;
 }
-declare const FRotator3f: FRotator3f;
 
-declare interface FSharedStruct {
-
-}
-declare const FSharedStruct: FSharedStruct;
+declare type FSharedStruct = object;
 
 declare interface FSoftClassPath extends FSoftObjectPath {
 
 }
-declare const FSoftClassPath: FSoftClassPath;
 
 declare interface FSoftObjectPath {
     AssetPath: FTopLevelAssetPath;
     SubPathString: FUtf8String;
 }
-declare const FSoftObjectPath: FSoftObjectPath;
 
-declare interface FSolarisProfilingData {
-
-}
-declare const FSolarisProfilingData: FSolarisProfilingData;
+declare type FSolarisProfilingData = object;
 
 declare interface FSphere {
     Center: FVector;
     W: number;
 }
-declare const FSphere: FSphere;
 
 declare interface FSphere3d {
     Center: FVector3d;
     W: number;
 }
-declare const FSphere3d: FSphere3d;
 
 declare interface FSphere3f {
     Center: FVector3f;
     W: number;
 }
-declare const FSphere3f: FSphere3f;
 
 declare interface FStructCookedMetaDataStore {
     ObjectMetaData: FObjectCookedMetaDataStore;
-    PropertiesMetaData: Record<FName, FFieldCookedMetaDataStore>;
+    PropertiesMetaData: TMap<string, FFieldCookedMetaDataStore>;
 }
-declare const FStructCookedMetaDataStore: FStructCookedMetaDataStore;
 
 declare interface FTemplateString {
-    Template: FString;
-    Resolved: FText;
+    Template: string;
+    Resolved: string;
 }
-declare const FTemplateString: FTemplateString;
 
 declare interface FTestUndeclaredScriptStructObjectReferencesTest {
     StrongObjectPointer: UObject;
@@ -870,14 +703,12 @@ declare interface FTestUndeclaredScriptStructObjectReferencesTest {
     SoftObjectPath: FSoftObjectPath;
     WeakObjectPointer: TWeakObjectPtr<UObject>;
 }
-declare const FTestUndeclaredScriptStructObjectReferencesTest: FTestUndeclaredScriptStructObjectReferencesTest;
 
 declare interface FTestUninitializedScriptStructMembersTest {
     UninitializedObjectReference: UObject;
     InitializedObjectReference: UObject;
     UnusedValue: number;
 }
-declare const FTestUninitializedScriptStructMembersTest: FTestUninitializedScriptStructMembersTest;
 
 declare interface FTimecode {
     Hours: number;
@@ -887,177 +718,150 @@ declare interface FTimecode {
     SubFrame: number;
     bDropFrameFormat: boolean;
 }
-declare const FTimecode: FTimecode;
 
 declare interface FTimespan {
-    Ticks: int64;
+    Ticks: number;
 }
-declare const FTimespan: FTimespan;
 
 declare interface FTopLevelAssetPath {
-    PackageName: FName;
-    AssetName: FName;
+    PackageName: string;
+    AssetName: string;
 }
-declare const FTopLevelAssetPath: FTopLevelAssetPath;
 
 declare interface FTransform {
     Rotation: FQuat;
     Translation: FVector;
     Scale3D: FVector;
 }
-declare const FTransform: FTransform;
 
 declare interface FTransform3d {
     Rotation: FQuat4d;
     Translation: FVector3d;
     Scale3D: FVector3d;
 }
-declare const FTransform3d: FTransform3d;
 
 declare interface FTransform3f {
     Rotation: FQuat4f;
     Translation: FVector3f;
     Scale3D: FVector3f;
 }
-declare const FTransform3f: FTransform3f;
 
 declare interface FTwoVectors {
     v1: FVector;
     v2: FVector;
 }
-declare const FTwoVectors: FTwoVectors;
 
 declare interface FUint32Point {
     X: number;
     Y: number;
 }
-declare const FUint32Point: FUint32Point;
 
 declare interface FUint32Rect {
     min: FUint32Point;
     max: FUint32Point;
 }
-declare const FUint32Rect: FUint32Rect;
 
 declare interface FUint32Vector {
-    X: uint32;
-    Y: uint32;
-    Z: uint32;
+    X: number;
+    Y: number;
+    Z: number;
 }
-declare const FUint32Vector: FUint32Vector;
 
 declare interface FUint32Vector2 {
-    X: uint32;
-    Y: uint32;
+    X: number;
+    Y: number;
 }
-declare const FUint32Vector2: FUint32Vector2;
 
 declare interface FUint32Vector4 {
-    X: uint32;
-    Y: uint32;
-    Z: uint32;
-    W: uint32;
+    X: number;
+    Y: number;
+    Z: number;
+    W: number;
 }
-declare const FUint32Vector4: FUint32Vector4;
 
 declare interface FUint64Point {
-    X: int64;
-    Y: int64;
+    X: number;
+    Y: number;
 }
-declare const FUint64Point: FUint64Point;
 
 declare interface FUint64Rect {
     min: FUint64Point;
     max: FUint64Point;
 }
-declare const FUint64Rect: FUint64Rect;
 
 declare interface FUint64Vector {
-    X: uint64;
-    Y: uint64;
-    Z: uint64;
+    X: number;
+    Y: number;
+    Z: number;
 }
-declare const FUint64Vector: FUint64Vector;
 
 declare interface FUint64Vector2 {
-    X: uint64;
-    Y: uint64;
+    X: number;
+    Y: number;
 }
-declare const FUint64Vector2: FUint64Vector2;
 
 declare interface FUint64Vector4 {
-    X: uint64;
-    Y: uint64;
-    Z: uint64;
-    W: uint64;
+    X: number;
+    Y: number;
+    Z: number;
+    W: number;
 }
-declare const FUint64Vector4: FUint64Vector4;
 
 declare interface FUintPoint {
     X: number;
     Y: number;
 }
-declare const FUintPoint: FUintPoint;
 
 declare interface FUintRect {
     min: FUintPoint;
     max: FUintPoint;
 }
-declare const FUintRect: FUintRect;
 
 declare interface FUintVector {
-    X: uint32;
-    Y: uint32;
-    Z: uint32;
+    X: number;
+    Y: number;
+    Z: number;
 }
-declare const FUintVector: FUintVector;
 
 declare interface FUintVector2 {
-    X: uint32;
-    Y: uint32;
+    X: number;
+    Y: number;
 }
-declare const FUintVector2: FUintVector2;
 
 declare interface FUintVector4 {
-    X: uint32;
-    Y: uint32;
-    Z: uint32;
-    W: uint32;
+    X: number;
+    Y: number;
+    Z: number;
+    W: number;
 }
-declare const FUintVector4: FUintVector4;
 
 declare interface FVector {
     X: number;
     Y: number;
     Z: number;
 }
-declare const FVector: FVector;
 
 declare interface FVector2D {
     X: number;
     Y: number;
 }
-declare const FVector2D: FVector2D;
 
 declare interface FVector2f {
     X: number;
     Y: number;
 }
-declare const FVector2f: FVector2f;
 
 declare interface FVector3d {
     X: number;
     Y: number;
     Z: number;
 }
-declare const FVector3d: FVector3d;
 
 declare interface FVector3f {
     X: number;
     Y: number;
     Z: number;
 }
-declare const FVector3f: FVector3f;
 
 declare interface FVector4 {
     X: number;
@@ -1065,7 +869,6 @@ declare interface FVector4 {
     Z: number;
     W: number;
 }
-declare const FVector4: FVector4;
 
 declare interface FVector4d {
     X: number;
@@ -1073,7 +876,6 @@ declare interface FVector4d {
     Z: number;
     W: number;
 }
-declare const FVector4d: FVector4d;
 
 declare interface FVector4f {
     X: number;
@@ -1081,382 +883,554 @@ declare interface FVector4f {
     Z: number;
     W: number;
 }
-declare const FVector4f: FVector4f;
 
 declare interface FVerseClassVarAccessor {
     Func: UFunction;
     bIsInstanceMember: boolean;
     bIsFallible: boolean;
 }
-declare const FVerseClassVarAccessor: FVerseClassVarAccessor;
 
 declare interface FVerseClassVarAccessors {
-    Getters: Record<number, FVerseClassVarAccessor>;
-    Setters: Record<number, FVerseClassVarAccessor>;
+    Getters: TMap<number, FVerseClassVarAccessor>;
+    Setters: TMap<number, FVerseClassVarAccessor>;
 }
-declare const FVerseClassVarAccessors: FVerseClassVarAccessors;
 
 declare interface FVersePersistentVar {
-    Path: FString;
+    Path: string;
     Property: TFieldPath<FMapProperty>;
 }
-declare const FVersePersistentVar: FVersePersistentVar;
 
 declare interface FVerseSessionVar {
     Property: TFieldPath<FMapProperty>;
 }
-declare const FVerseSessionVar: FVerseSessionVar;
 
 declare interface IEditorPathObjectInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IEditorPathObjectInterface: IEditorPathObjectInterface;
 
 declare interface IInterface extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const IInterface: IInterface;
 
 declare interface UArrayProperty extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const UArrayProperty: UArrayProperty;
 
 declare interface UBoolProperty extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const UBoolProperty: UBoolProperty;
 
 declare interface UByteProperty extends UNumericProperty {
-
+    readonly __staticRegistry: 
+        UNumericProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNumericProperty['__propertyRegistry'];
 }
-declare const UByteProperty: UByteProperty;
+
+declare interface UClass extends UStruct {
+    readonly __staticRegistry: 
+        UStruct['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStruct['__propertyRegistry'];
+}
 
 declare interface UClassCookedMetaData extends UObject {
-    ClassMetaData: FStructCookedMetaDataStore;
-    FunctionsMetaData: Record<FName, FStructCookedMetaDataStore>;
+    readonly __properties_UClassCookedMetaData: {
+        ClassMetaData: FStructCookedMetaDataStore;
+        FunctionsMetaData: TMap<string, FStructCookedMetaDataStore>;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UClassCookedMetaData['__properties_UClassCookedMetaData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UClassCookedMetaData: UClassCookedMetaData;
 
 declare interface UClassProperty extends UObjectProperty {
-
+    readonly __staticRegistry: 
+        UObjectProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObjectProperty['__propertyRegistry'];
 }
-declare const UClassProperty: UClassProperty;
 
 declare interface UDEPRECATED_MetaData extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UDEPRECATED_MetaData: UDEPRECATED_MetaData;
 
-declare interface UDefault__Class {
+declare type UDefault__Class = object;
 
-}
-declare const UDefault__Class: UDefault__Class;
+declare type UDefault__LinkerPlaceholderClass = object;
 
-declare interface UDefault__LinkerPlaceholderClass {
-
-}
-declare const UDefault__LinkerPlaceholderClass: UDefault__LinkerPlaceholderClass;
-
-declare interface UDefault__VerseClass {
-
-}
-declare const UDefault__VerseClass: UDefault__VerseClass;
+declare type UDefault__VerseClass = object;
 
 declare interface UDelegateFunction extends UFunction {
-
+    readonly __staticRegistry: 
+        UFunction['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFunction['__propertyRegistry'];
 }
-declare const UDelegateFunction: UDelegateFunction;
 
 declare interface UDelegateProperty extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const UDelegateProperty: UDelegateProperty;
 
 declare interface UDoubleProperty extends UNumericProperty {
-
+    readonly __staticRegistry: 
+        UNumericProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNumericProperty['__propertyRegistry'];
 }
-declare const UDoubleProperty: UDoubleProperty;
+
+declare interface UEnum extends UField {
+    readonly __staticRegistry: 
+        UField['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UField['__propertyRegistry'];
+}
 
 declare interface UEnumCookedMetaData extends UObject {
-    EnumMetaData: FObjectCookedMetaDataStore;
+    readonly __properties_UEnumCookedMetaData: {
+        EnumMetaData: FObjectCookedMetaDataStore;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnumCookedMetaData['__properties_UEnumCookedMetaData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UEnumCookedMetaData: UEnumCookedMetaData;
 
 declare interface UEnumProperty extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const UEnumProperty: UEnumProperty;
 
 declare interface UField extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UField: UField;
 
 declare interface UFloatProperty extends UNumericProperty {
-
+    readonly __staticRegistry: 
+        UNumericProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNumericProperty['__propertyRegistry'];
 }
-declare const UFloatProperty: UFloatProperty;
+
+declare interface UFunction extends UStruct {
+    readonly __staticRegistry: 
+        UStruct['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStruct['__propertyRegistry'];
+}
 
 declare interface UGCObjectReferencer extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UGCObjectReferencer: UGCObjectReferencer;
 
 declare interface UInt16Property extends UNumericProperty {
-
+    readonly __staticRegistry: 
+        UNumericProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNumericProperty['__propertyRegistry'];
 }
-declare const UInt16Property: UInt16Property;
 
 declare interface UInt64Property extends UNumericProperty {
-
+    readonly __staticRegistry: 
+        UNumericProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNumericProperty['__propertyRegistry'];
 }
-declare const UInt64Property: UInt64Property;
 
 declare interface UInt8Property extends UNumericProperty {
-
+    readonly __staticRegistry: 
+        UNumericProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNumericProperty['__propertyRegistry'];
 }
-declare const UInt8Property: UInt8Property;
 
 declare interface UIntProperty extends UNumericProperty {
-
+    readonly __staticRegistry: 
+        UNumericProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNumericProperty['__propertyRegistry'];
 }
-declare const UIntProperty: UIntProperty;
 
 declare interface UInterfaceProperty extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const UInterfaceProperty: UInterfaceProperty;
 
 declare interface ULazyObjectProperty extends UObjectPropertyBase {
-
+    readonly __staticRegistry: 
+        UObjectPropertyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObjectPropertyBase['__propertyRegistry'];
 }
-declare const ULazyObjectProperty: ULazyObjectProperty;
 
 declare interface ULinkerPlaceholderClass extends UClass {
-
+    readonly __staticRegistry: 
+        UClass['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UClass['__propertyRegistry'];
 }
-declare const ULinkerPlaceholderClass: ULinkerPlaceholderClass;
 
 declare interface ULinkerPlaceholderExportObject extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULinkerPlaceholderExportObject: ULinkerPlaceholderExportObject;
 
 declare interface ULinkerPlaceholderFunction extends UFunction {
-
+    readonly __staticRegistry: 
+        UFunction['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFunction['__propertyRegistry'];
 }
-declare const ULinkerPlaceholderFunction: ULinkerPlaceholderFunction;
 
 declare interface UMapProperty extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const UMapProperty: UMapProperty;
 
 declare interface UMulticastDelegateProperty extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const UMulticastDelegateProperty: UMulticastDelegateProperty;
 
 declare interface UMulticastDelegatePropertyWrapper extends UPropertyWrapper {
-
+    readonly __staticRegistry: 
+        UPropertyWrapper['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPropertyWrapper['__propertyRegistry'];
 }
-declare const UMulticastDelegatePropertyWrapper: UMulticastDelegatePropertyWrapper;
 
 declare interface UMulticastInlineDelegateProperty extends UMulticastDelegateProperty {
-
+    readonly __staticRegistry: 
+        UMulticastDelegateProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMulticastDelegateProperty['__propertyRegistry'];
 }
-declare const UMulticastInlineDelegateProperty: UMulticastInlineDelegateProperty;
 
 declare interface UMulticastInlineDelegatePropertyWrapper extends UMulticastDelegatePropertyWrapper {
-
+    readonly __staticRegistry: 
+        UMulticastDelegatePropertyWrapper['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMulticastDelegatePropertyWrapper['__propertyRegistry'];
 }
-declare const UMulticastInlineDelegatePropertyWrapper: UMulticastInlineDelegatePropertyWrapper;
 
 declare interface UMulticastSparseDelegateProperty extends UMulticastDelegateProperty {
-
+    readonly __staticRegistry: 
+        UMulticastDelegateProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMulticastDelegateProperty['__propertyRegistry'];
 }
-declare const UMulticastSparseDelegateProperty: UMulticastSparseDelegateProperty;
 
 declare interface UNameProperty extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const UNameProperty: UNameProperty;
 
 declare interface UNumericProperty extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const UNumericProperty: UNumericProperty;
 
 declare interface UObjectProperty extends UObjectPropertyBase {
-
+    readonly __staticRegistry: 
+        UObjectPropertyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObjectPropertyBase['__propertyRegistry'];
 }
-declare const UObjectProperty: UObjectProperty;
 
 declare interface UObjectPropertyBase extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const UObjectPropertyBase: UObjectPropertyBase;
 
 declare interface UObjectReachabilityStressData extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UObjectReachabilityStressData: UObjectReachabilityStressData;
 
 declare interface UObjectRedirector extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UObjectRedirector: UObjectRedirector;
 
 declare interface UPackage extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UPackage: UPackage;
 
 declare interface UPackageMap extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UPackageMap: UPackageMap;
 
 declare interface UProperty extends UField {
-
+    readonly __staticRegistry: 
+        UField['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UField['__propertyRegistry'];
 }
-declare const UProperty: UProperty;
 
 declare interface UPropertyBag extends UScriptStruct {
-    PropertyDescs: TArray<FPropertyBagPropertyDesc>;
+    readonly __properties_UPropertyBag: {
+        PropertyDescs: FPropertyBagPropertyDesc[];
+    };
+    readonly __staticRegistry: 
+        UScriptStruct['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPropertyBag['__properties_UPropertyBag'] &
+        UScriptStruct['__propertyRegistry'];
 }
-declare const UPropertyBag: UPropertyBag;
 
 declare interface UPropertyBagMissingObject extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UPropertyBagMissingObject: UPropertyBagMissingObject;
 
 declare interface UPropertyWrapper extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UPropertyWrapper: UPropertyWrapper;
 
 declare interface UScriptStruct extends UStruct {
-
+    readonly __staticRegistry: 
+        UStruct['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStruct['__propertyRegistry'];
 }
-declare const UScriptStruct: UScriptStruct;
 
 declare interface USetProperty extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const USetProperty: USetProperty;
 
 declare interface USoftClassProperty extends USoftObjectProperty {
-
+    readonly __staticRegistry: 
+        USoftObjectProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoftObjectProperty['__propertyRegistry'];
 }
-declare const USoftClassProperty: USoftClassProperty;
 
 declare interface USoftObjectProperty extends UObjectPropertyBase {
-
+    readonly __staticRegistry: 
+        UObjectPropertyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObjectPropertyBase['__propertyRegistry'];
 }
-declare const USoftObjectProperty: USoftObjectProperty;
 
 declare interface USparseDelegateFunction extends UDelegateFunction {
-
+    readonly __staticRegistry: 
+        UDelegateFunction['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDelegateFunction['__propertyRegistry'];
 }
-declare const USparseDelegateFunction: USparseDelegateFunction;
 
 declare interface UStrProperty extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const UStrProperty: UStrProperty;
+
+declare interface UStruct extends UField {
+    readonly __staticRegistry: 
+        UField['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UField['__propertyRegistry'];
+}
 
 declare interface UStructCookedMetaData extends UObject {
-    StructMetaData: FStructCookedMetaDataStore;
+    readonly __properties_UStructCookedMetaData: {
+        StructMetaData: FStructCookedMetaDataStore;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStructCookedMetaData['__properties_UStructCookedMetaData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UStructCookedMetaData: UStructCookedMetaData;
 
 declare interface UStructProperty extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const UStructProperty: UStructProperty;
 
 declare interface UTextBuffer extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UTextBuffer: UTextBuffer;
 
 declare interface UTextProperty extends UProperty {
-
+    readonly __staticRegistry: 
+        UProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProperty['__propertyRegistry'];
 }
-declare const UTextProperty: UTextProperty;
 
 declare interface UUInt16Property extends UNumericProperty {
-
+    readonly __staticRegistry: 
+        UNumericProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNumericProperty['__propertyRegistry'];
 }
-declare const UUInt16Property: UUInt16Property;
 
 declare interface UUInt32Property extends UNumericProperty {
-
+    readonly __staticRegistry: 
+        UNumericProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNumericProperty['__propertyRegistry'];
 }
-declare const UUInt32Property: UUInt32Property;
 
 declare interface UUInt64Property extends UNumericProperty {
-
+    readonly __staticRegistry: 
+        UNumericProperty['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNumericProperty['__propertyRegistry'];
 }
-declare const UUInt64Property: UUInt64Property;
 
 declare interface UUserDefinedStruct extends UScriptStruct {
-    status: EUserDefinedStructureStatus;
-    Guid: FGuid;
+    readonly __properties_UUserDefinedStruct: {
+        status: EUserDefinedStructureStatus;
+        Guid: FGuid;
+    };
+    readonly __staticRegistry: 
+        UScriptStruct['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UUserDefinedStruct['__properties_UUserDefinedStruct'] &
+        UScriptStruct['__propertyRegistry'];
 }
-declare const UUserDefinedStruct: UUserDefinedStruct;
 
 declare interface UUserDefinedStructEditorDataBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UUserDefinedStructEditorDataBase: UUserDefinedStructEditorDataBase;
 
 declare interface UVerseClass extends UClass {
-    SolClassFlags: uint32;
-    TaskClasses: TArray<UClass>;
-    InitInstanceFunction: UFunction;
-    PersistentVars: TArray<FVersePersistentVar>;
-    SessionVars: TArray<FVerseSessionVar>;
-    VarAccessors: Record<FName, FVerseClassVarAccessors>;
-    ConstructorEffects: EVerseEffectSet;
-    MangledPackageVersePath: FName;
-    PackageRelativeVersePath: FString;
-    DisplayNameToUENameFunctionMap: Record<FName, FName>;
-    DirectInterfaces: TArray<UClass>;
-    PropertiesWrittenByInitCDO: TArray<TFieldPath<FProperty>>;
-    FunctionMangledNames: Record<FName, FName>;
-    PredictsFunctionNames: TArray<FName>;
+    readonly __properties_UVerseClass: {
+        SolClassFlags: number;
+        TaskClasses: UClass[];
+        InitInstanceFunction: UFunction;
+        PersistentVars: FVersePersistentVar[];
+        SessionVars: FVerseSessionVar[];
+        VarAccessors: TMap<string, FVerseClassVarAccessors>;
+        ConstructorEffects: EVerseEffectSet;
+        MangledPackageVersePath: string;
+        PackageRelativeVersePath: string;
+        DisplayNameToUENameFunctionMap: TMap<string, string>;
+        DirectInterfaces: UClass[];
+        PropertiesWrittenByInitCDO: TFieldPath<FProperty>[];
+        FunctionMangledNames: TMap<string, string>;
+        PredictsFunctionNames: string[];
+    };
+    readonly __staticRegistry: 
+        UClass['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVerseClass['__properties_UVerseClass'] &
+        UClass['__propertyRegistry'];
 }
-declare const UVerseClass: UVerseClass;
 
 declare interface UVerseEnum extends UEnum {
-    VerseEnumFlags: EVerseEnumFlags;
-    QualifiedName: FUtf8String;
+    readonly __properties_UVerseEnum: {
+        VerseEnumFlags: EVerseEnumFlags;
+        QualifiedName: FUtf8String;
+    };
+    readonly __staticRegistry: 
+        UEnum['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVerseEnum['__properties_UVerseEnum'] &
+        UEnum['__propertyRegistry'];
 }
-declare const UVerseEnum: UVerseEnum;
 
 declare interface UVerseFunction extends UFunction {
-
+    readonly __staticRegistry: 
+        UFunction['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFunction['__propertyRegistry'];
 }
-declare const UVerseFunction: UVerseFunction;
 
 declare interface UVerseStruct extends UScriptStruct {
-    VerseClassFlags: uint32;
-    QualifiedName: FUtf8String;
-    InitFunction: UFunction;
-    ModuleClass: UClass;
-    Guid: FGuid;
-    FactoryFunction: UFunction;
-    OverrideFactoryFunction: UFunction;
-    ConstructorEffects: EVerseEffectSet;
+    readonly __properties_UVerseStruct: {
+        VerseClassFlags: number;
+        QualifiedName: FUtf8String;
+        InitFunction: UFunction;
+        ModuleClass: UClass;
+        Guid: FGuid;
+        FactoryFunction: UFunction;
+        OverrideFactoryFunction: UFunction;
+        ConstructorEffects: EVerseEffectSet;
+    };
+    readonly __staticRegistry: 
+        UScriptStruct['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVerseStruct['__properties_UVerseStruct'] &
+        UScriptStruct['__propertyRegistry'];
 }
-declare const UVerseStruct: UVerseStruct;
 
 declare interface UWeakObjectProperty extends UObjectPropertyBase {
-
+    readonly __staticRegistry: 
+        UObjectPropertyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObjectPropertyBase['__propertyRegistry'];
 }
-declare const UWeakObjectProperty: UWeakObjectProperty;
 

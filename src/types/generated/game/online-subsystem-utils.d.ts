@@ -1,473 +1,795 @@
 declare interface AOnlineBeacon extends AActor {
-    BeaconConnectionInitialTimeout: number;
-    BeaconConnectionTimeout: number;
-    NetDriver: UNetDriver;
+    readonly __properties_AOnlineBeacon: {
+        BeaconConnectionInitialTimeout: number;
+        BeaconConnectionTimeout: number;
+        NetDriver: UNetDriver;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AOnlineBeacon['__properties_AOnlineBeacon'] &
+        AActor['__propertyRegistry'];
 }
-declare const AOnlineBeacon: AOnlineBeacon;
 
 declare interface AOnlineBeaconClient extends AOnlineBeacon {
-    BeaconOwner: AOnlineBeaconHostObject;
-    BeaconConnection: UNetConnection;
-    ConnectionState: EBeaconConnectionState;
-    ClientOnConnected(): void;
+    readonly __static_AOnlineBeaconClient: {
+        ClientOnConnected(): void;
+    };
+    readonly __properties_AOnlineBeaconClient: {
+        BeaconOwner: AOnlineBeaconHostObject;
+        BeaconConnection: UNetConnection;
+        ConnectionState: EBeaconConnectionState;
+    };
+    readonly __staticRegistry: 
+        AOnlineBeaconClient['__static_AOnlineBeaconClient'] &
+        AOnlineBeacon['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AOnlineBeaconClient['__properties_AOnlineBeaconClient'] &
+        AOnlineBeacon['__propertyRegistry'];
 }
-declare const AOnlineBeaconClient: AOnlineBeaconClient;
 
 declare interface AOnlineBeaconHost extends AOnlineBeacon {
-    ListenPort: number;
-    bReuseAddressAndPort: boolean;
-    bAuthRequired: boolean;
-    MaxAuthTokenSize: uint32;
-    ClientActors: TArray<AOnlineBeaconClient>;
+    readonly __properties_AOnlineBeaconHost: {
+        ListenPort: number;
+        bReuseAddressAndPort: boolean;
+        bAuthRequired: boolean;
+        MaxAuthTokenSize: number;
+        ClientActors: AOnlineBeaconClient[];
+    };
+    readonly __staticRegistry: 
+        AOnlineBeacon['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AOnlineBeaconHost['__properties_AOnlineBeaconHost'] &
+        AOnlineBeacon['__propertyRegistry'];
 }
-declare const AOnlineBeaconHost: AOnlineBeaconHost;
 
 declare interface AOnlineBeaconHostObject extends AActor {
-    BeaconTypeName: FString;
-    ClientBeaconActorClass: TSubclassOf<AOnlineBeaconClient>;
-    ClientActors: TArray<AOnlineBeaconClient>;
+    readonly __properties_AOnlineBeaconHostObject: {
+        BeaconTypeName: string;
+        ClientBeaconActorClass: TSubclassOf<AOnlineBeaconClient>;
+        ClientActors: AOnlineBeaconClient[];
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AOnlineBeaconHostObject['__properties_AOnlineBeaconHostObject'] &
+        AActor['__propertyRegistry'];
 }
-declare const AOnlineBeaconHostObject: AOnlineBeaconHostObject;
 
 declare interface AOnlineBeaconUnitTestClient extends AOnlineBeaconClient {
-
+    readonly __staticRegistry: 
+        AOnlineBeaconClient['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AOnlineBeaconClient['__propertyRegistry'];
 }
-declare const AOnlineBeaconUnitTestClient: AOnlineBeaconUnitTestClient;
 
 declare interface AOnlineBeaconUnitTestHost extends AOnlineBeaconHost {
-
+    readonly __staticRegistry: 
+        AOnlineBeaconHost['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AOnlineBeaconHost['__propertyRegistry'];
 }
-declare const AOnlineBeaconUnitTestHost: AOnlineBeaconUnitTestHost;
 
 declare interface AOnlineBeaconUnitTestHostObject extends AOnlineBeaconHostObject {
-
+    readonly __staticRegistry: 
+        AOnlineBeaconHostObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AOnlineBeaconHostObject['__propertyRegistry'];
 }
-declare const AOnlineBeaconUnitTestHostObject: AOnlineBeaconUnitTestHostObject;
 
 declare interface APartyBeaconClient extends AOnlineBeaconClient {
-    DestSessionId: FString;
-    PendingReservation: FPartyReservation;
-    RequestType: EClientRequestType;
-    bPendingReservationSent: boolean;
-    bCancelReservation: boolean;
-    ServerUpdateReservationRequest(SessionId: string | FString, ReservationUpdate: FPartyReservation): void;
-    ServerReservationRequest(SessionId: string | FString, Reservation: FPartyReservation): void;
-    ServerRemoveMemberFromReservationRequest(SessionId: string | FString, ReservationUpdate: FPartyReservation): void;
-    ServerCancelReservationRequest(PartyLeader: FUniqueNetIdRepl): void;
-    ServerAddOrUpdateReservationRequest(SessionId: string | FString, Reservation: FPartyReservation): void;
-    ClientSendReservationUpdates(NumRemainingReservations: number): void;
-    ClientSendReservationFull(): void;
-    ClientReservationResponse(ReservationResponse: EPartyReservationResult): void;
-    ClientCancelReservationResponse(ReservationResponse: EPartyReservationResult): void;
+    readonly __static_APartyBeaconClient: {
+        ServerUpdateReservationRequest(SessionId: string, ReservationUpdate: FPartyReservation): void;
+        ServerReservationRequest(SessionId: string, Reservation: FPartyReservation): void;
+        ServerRemoveMemberFromReservationRequest(SessionId: string, ReservationUpdate: FPartyReservation): void;
+        ServerCancelReservationRequest(PartyLeader: FUniqueNetIdRepl): void;
+        ServerAddOrUpdateReservationRequest(SessionId: string, Reservation: FPartyReservation): void;
+        ClientSendReservationUpdates(NumRemainingReservations: number): void;
+        ClientSendReservationFull(): void;
+        ClientReservationResponse(ReservationResponse: EPartyReservationResult): void;
+        ClientCancelReservationResponse(ReservationResponse: EPartyReservationResult): void;
+    };
+    readonly __properties_APartyBeaconClient: {
+        DestSessionId: string;
+        PendingReservation: FPartyReservation;
+        RequestType: EClientRequestType;
+        bPendingReservationSent: boolean;
+        bCancelReservation: boolean;
+    };
+    readonly __staticRegistry: 
+        APartyBeaconClient['__static_APartyBeaconClient'] &
+        AOnlineBeaconClient['__staticRegistry'];
+    readonly __propertyRegistry: 
+        APartyBeaconClient['__properties_APartyBeaconClient'] &
+        AOnlineBeaconClient['__propertyRegistry'];
 }
-declare const APartyBeaconClient: APartyBeaconClient;
 
 declare interface APartyBeaconHost extends AOnlineBeaconHostObject {
-    State: UPartyBeaconState;
-    bLogoutOnSessionTimeout: boolean;
-    bIsValidationStrRequired: boolean;
-    SessionTimeoutSecs: number;
-    TravelSessionTimeoutSecs: number;
+    readonly __properties_APartyBeaconHost: {
+        State: UPartyBeaconState;
+        bLogoutOnSessionTimeout: boolean;
+        bIsValidationStrRequired: boolean;
+        SessionTimeoutSecs: number;
+        TravelSessionTimeoutSecs: number;
+    };
+    readonly __staticRegistry: 
+        AOnlineBeaconHostObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        APartyBeaconHost['__properties_APartyBeaconHost'] &
+        AOnlineBeaconHostObject['__propertyRegistry'];
 }
-declare const APartyBeaconHost: APartyBeaconHost;
 
 declare interface ASpectatorBeaconClient extends AOnlineBeaconClient {
-    DestSessionId: FString;
-    PendingReservation: FSpectatorReservation;
-    RequestType: ESpectatorClientRequestType;
-    bPendingReservationSent: boolean;
-    bCancelReservation: boolean;
-    ServerReservationRequest(SessionId: string | FString, Reservation: FSpectatorReservation): void;
-    ServerCancelReservationRequest(Spectator: FUniqueNetIdRepl): void;
-    ClientSendReservationUpdates(NumRemainingReservations: number): void;
-    ClientSendReservationFull(): void;
-    ClientReservationResponse(ReservationResponse: ESpectatorReservationResult): void;
-    ClientCancelReservationResponse(ReservationResponse: ESpectatorReservationResult): void;
+    readonly __static_ASpectatorBeaconClient: {
+        ServerReservationRequest(SessionId: string, Reservation: FSpectatorReservation): void;
+        ServerCancelReservationRequest(Spectator: FUniqueNetIdRepl): void;
+        ClientSendReservationUpdates(NumRemainingReservations: number): void;
+        ClientSendReservationFull(): void;
+        ClientReservationResponse(ReservationResponse: ESpectatorReservationResult): void;
+        ClientCancelReservationResponse(ReservationResponse: ESpectatorReservationResult): void;
+    };
+    readonly __properties_ASpectatorBeaconClient: {
+        DestSessionId: string;
+        PendingReservation: FSpectatorReservation;
+        RequestType: ESpectatorClientRequestType;
+        bPendingReservationSent: boolean;
+        bCancelReservation: boolean;
+    };
+    readonly __staticRegistry: 
+        ASpectatorBeaconClient['__static_ASpectatorBeaconClient'] &
+        AOnlineBeaconClient['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ASpectatorBeaconClient['__properties_ASpectatorBeaconClient'] &
+        AOnlineBeaconClient['__propertyRegistry'];
 }
-declare const ASpectatorBeaconClient: ASpectatorBeaconClient;
 
 declare interface ASpectatorBeaconHost extends AOnlineBeaconHostObject {
-    State: USpectatorBeaconState;
-    bLogoutOnSessionTimeout: boolean;
-    bIsValidationStrRequired: boolean;
-    SessionTimeoutSecs: number;
-    TravelSessionTimeoutSecs: number;
+    readonly __properties_ASpectatorBeaconHost: {
+        State: USpectatorBeaconState;
+        bLogoutOnSessionTimeout: boolean;
+        bIsValidationStrRequired: boolean;
+        SessionTimeoutSecs: number;
+        TravelSessionTimeoutSecs: number;
+    };
+    readonly __staticRegistry: 
+        AOnlineBeaconHostObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ASpectatorBeaconHost['__properties_ASpectatorBeaconHost'] &
+        AOnlineBeaconHostObject['__propertyRegistry'];
 }
-declare const ASpectatorBeaconHost: ASpectatorBeaconHost;
 
 declare interface ATestBeaconClient extends AOnlineBeaconClient {
-    ServerPong(): void;
-    ClientPing(): void;
+    readonly __static_ATestBeaconClient: {
+        ServerPong(): void;
+        ClientPing(): void;
+    };
+    readonly __staticRegistry: 
+        ATestBeaconClient['__static_ATestBeaconClient'] &
+        AOnlineBeaconClient['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AOnlineBeaconClient['__propertyRegistry'];
 }
-declare const ATestBeaconClient: ATestBeaconClient;
 
 declare interface ATestBeaconHost extends AOnlineBeaconHostObject {
-
+    readonly __staticRegistry: 
+        AOnlineBeaconHostObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AOnlineBeaconHostObject['__propertyRegistry'];
 }
-declare const ATestBeaconHost: ATestBeaconHost;
 
-declare interface FBlueprintSessionResult {
-
-}
-declare const FBlueprintSessionResult: FBlueprintSessionResult;
+declare type FBlueprintSessionResult = object;
 
 declare interface FInAppPurchaseProductInfo2 {
-    Identifier: FString;
-    TransactionIdentifier: FString;
-    DisplayName: FString;
-    DisplayDescription: FString;
-    DisplayPrice: FString;
+    Identifier: string;
+    TransactionIdentifier: string;
+    DisplayName: string;
+    DisplayDescription: string;
+    DisplayPrice: string;
     RawPrice: number;
-    CurrencyCode: FString;
-    CurrencySymbol: FString;
-    DecimalSeparator: FString;
-    GroupingSeparator: FString;
-    ReceiptData: FString;
-    DynamicFields: Record<FString, FString>;
+    CurrencyCode: string;
+    CurrencySymbol: string;
+    DecimalSeparator: string;
+    GroupingSeparator: string;
+    ReceiptData: string;
+    DynamicFields: TMap<string, string>;
 }
-declare const FInAppPurchaseProductInfo2: FInAppPurchaseProductInfo2;
 
 declare interface FInAppPurchaseProductRequest2 {
-    ProductIdentifier: FString;
+    ProductIdentifier: string;
     bIsConsumable: boolean;
 }
-declare const FInAppPurchaseProductRequest2: FInAppPurchaseProductRequest2;
 
 declare interface FInAppPurchaseReceiptInfo2 {
-    ItemName: FString;
-    ItemID: FString;
-    ValidationInfo: FString;
-    TransactionIdentifier: FString;
+    ItemName: string;
+    ItemID: string;
+    ValidationInfo: string;
+    TransactionIdentifier: string;
 }
-declare const FInAppPurchaseReceiptInfo2: FInAppPurchaseReceiptInfo2;
 
 declare interface FInAppPurchaseRestoreInfo2 {
-    ItemName: FString;
-    ItemID: FString;
-    ValidationInfo: FString;
+    ItemName: string;
+    ItemID: string;
+    ValidationInfo: string;
 }
-declare const FInAppPurchaseRestoreInfo2: FInAppPurchaseRestoreInfo2;
 
 declare interface FOnlineAccountStoredCredentials {
-    ID: FString;
-    Token: FString;
-    Type: FString;
-    TokenBytes: TArray<uint8>;
+    ID: string;
+    Token: string;
+    Type: string;
+    TokenBytes: number[];
 }
-declare const FOnlineAccountStoredCredentials: FOnlineAccountStoredCredentials;
 
 declare interface FOnlineProxyStoreOffer {
-    OfferId: FString;
-    Title: FText;
-    Description: FText;
-    LongDescription: FText;
-    RegularPriceText: FText;
+    OfferId: string;
+    Title: string;
+    Description: string;
+    LongDescription: string;
+    RegularPriceText: string;
     RegularPrice: number;
-    PriceText: FText;
+    PriceText: string;
     NumericPrice: number;
-    CurrencyCode: FString;
+    CurrencyCode: string;
     ReleaseDate: FDateTime;
     ExpirationDate: FDateTime;
     DiscountType: EOnlineProxyStoreOfferDiscountType;
-    DynamicFields: Record<FString, FString>;
+    DynamicFields: TMap<string, string>;
 }
-declare const FOnlineProxyStoreOffer: FOnlineProxyStoreOffer;
 
 declare interface FPartyBeaconCrossplayPlatformMapping {
-    PlatformName: FString;
-    PlatformType: FString;
+    PlatformName: string;
+    PlatformType: string;
 }
-declare const FPartyBeaconCrossplayPlatformMapping: FPartyBeaconCrossplayPlatformMapping;
 
 declare interface FPartyReservation {
     TeamNum: number;
     PartyLeader: FUniqueNetIdRepl;
-    PartyMembers: TArray<FPlayerReservation>;
-    RemovedPartyMembers: TArray<FPlayerReservation>;
+    PartyMembers: FPlayerReservation[];
+    RemovedPartyMembers: FPlayerReservation[];
 }
-declare const FPartyReservation: FPartyReservation;
 
 declare interface FPlayerReservation {
     UniqueID: FUniqueNetIdRepl;
-    ValidationStr: FString;
-    Platform: FString;
+    ValidationStr: string;
+    Platform: string;
     bAllowCrossplay: boolean;
     ElapsedTime: number;
 }
-declare const FPlayerReservation: FPlayerReservation;
 
 declare interface FSpectatorReservation {
     SpectatorId: FUniqueNetIdRepl;
     Spectator: FPlayerReservation;
 }
-declare const FSpectatorReservation: FSpectatorReservation;
 
 declare interface UAchievementBlueprintLibrary extends UBlueprintFunctionLibrary {
-    GetCachedAchievementProgress(WorldContextObject: UObject, PlayerController: APlayerController, AchievementID: FName, bFoundID: boolean, Progress: number): void;
-    GetCachedAchievementDescription(WorldContextObject: UObject, PlayerController: APlayerController, AchievementID: FName, bFoundID: boolean, Title: FText, LockedDescription: FText, UnlockedDescription: FText, bHidden: boolean): void;
+    readonly __static_UAchievementBlueprintLibrary: {
+        GetCachedAchievementProgress(WorldContextObject: UObject, PlayerController: APlayerController, AchievementID: string, bFoundID: boolean, Progress: number): void;
+        GetCachedAchievementDescription(WorldContextObject: UObject, PlayerController: APlayerController, AchievementID: string, bFoundID: boolean, Title: string, LockedDescription: string, UnlockedDescription: string, bHidden: boolean): void;
+    };
+    readonly __staticRegistry: 
+        UAchievementBlueprintLibrary['__static_UAchievementBlueprintLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UAchievementBlueprintLibrary: UAchievementBlueprintLibrary;
 
 declare interface UAchievementQueryCallbackProxy extends UOnlineBlueprintCallProxyBase {
-    OnSuccess: FAchievementQueryCallbackProxyOnSuccess;
-    OnFailure: FAchievementQueryCallbackProxyOnFailure;
-    CacheAchievements(WorldContextObject: UObject, PlayerController: APlayerController): UAchievementQueryCallbackProxy;
-    CacheAchievementDescriptions(WorldContextObject: UObject, PlayerController: APlayerController): UAchievementQueryCallbackProxy;
+    readonly __static_UAchievementQueryCallbackProxy: {
+        CacheAchievements(WorldContextObject: UObject, PlayerController: APlayerController): UAchievementQueryCallbackProxy;
+        CacheAchievementDescriptions(WorldContextObject: UObject, PlayerController: APlayerController): UAchievementQueryCallbackProxy;
+    };
+    readonly __properties_UAchievementQueryCallbackProxy: {
+        OnSuccess: FAchievementQueryCallbackProxyOnSuccess;
+        OnFailure: FAchievementQueryCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UAchievementQueryCallbackProxy['__static_UAchievementQueryCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAchievementQueryCallbackProxy['__properties_UAchievementQueryCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__propertyRegistry'];
 }
-declare const UAchievementQueryCallbackProxy: UAchievementQueryCallbackProxy;
 
 declare interface UAchievementWriteCallbackProxy extends UOnlineBlueprintCallProxyBase {
-    OnWriteSuccess: FAchievementWriteCallbackProxyOnWriteSuccess;
-    OnWriteFailure: FAchievementWriteCallbackProxyOnWriteFailure;
-    OnSuccess: FAchievementWriteCallbackProxyOnSuccess;
-    OnFailure: FAchievementWriteCallbackProxyOnFailure;
-    WriteProgress(WorldContextObject: UObject, PlayerController: APlayerController, AchievementName: string | FString, Progress: number, UserTag: number): UAchievementWriteCallbackProxy;
-    WriteAchievementProgress(WorldContextObject: UObject, PlayerController: APlayerController, AchievementName: FName, Progress: number, UserTag: number): UAchievementWriteCallbackProxy;
+    readonly __static_UAchievementWriteCallbackProxy: {
+        WriteProgress(WorldContextObject: UObject, PlayerController: APlayerController, AchievementName: string, Progress: number, UserTag: number): UAchievementWriteCallbackProxy;
+        WriteAchievementProgress(WorldContextObject: UObject, PlayerController: APlayerController, AchievementName: string, Progress: number, UserTag: number): UAchievementWriteCallbackProxy;
+    };
+    readonly __properties_UAchievementWriteCallbackProxy: {
+        OnWriteSuccess: FAchievementWriteCallbackProxyOnWriteSuccess;
+        OnWriteFailure: FAchievementWriteCallbackProxyOnWriteFailure;
+        OnSuccess: FAchievementWriteCallbackProxyOnSuccess;
+        OnFailure: FAchievementWriteCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UAchievementWriteCallbackProxy['__static_UAchievementWriteCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAchievementWriteCallbackProxy['__properties_UAchievementWriteCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__propertyRegistry'];
 }
-declare const UAchievementWriteCallbackProxy: UAchievementWriteCallbackProxy;
 
 declare interface UConnectionCallbackProxy extends UOnlineBlueprintCallProxyBase {
-    OnSuccess: FConnectionCallbackProxyOnSuccess;
-    OnFailure: FConnectionCallbackProxyOnFailure;
-    ConnectToService(WorldContextObject: UObject, PlayerController: APlayerController): UConnectionCallbackProxy;
+    readonly __static_UConnectionCallbackProxy: {
+        ConnectToService(WorldContextObject: UObject, PlayerController: APlayerController): UConnectionCallbackProxy;
+    };
+    readonly __properties_UConnectionCallbackProxy: {
+        OnSuccess: FConnectionCallbackProxyOnSuccess;
+        OnFailure: FConnectionCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UConnectionCallbackProxy['__static_UConnectionCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UConnectionCallbackProxy['__properties_UConnectionCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__propertyRegistry'];
 }
-declare const UConnectionCallbackProxy: UConnectionCallbackProxy;
 
 declare interface UCreateSessionCallbackProxy extends UOnlineBlueprintCallProxyBase {
-    OnSuccess: FCreateSessionCallbackProxyOnSuccess;
-    OnFailure: FCreateSessionCallbackProxyOnFailure;
-    CreateSession(WorldContextObject: UObject, PlayerController: APlayerController, PublicConnections: number, bUseLAN: boolean, bUseLobbiesIfAvailable: boolean): UCreateSessionCallbackProxy;
+    readonly __static_UCreateSessionCallbackProxy: {
+        CreateSession(WorldContextObject: UObject, PlayerController: APlayerController, PublicConnections: number, bUseLAN: boolean, bUseLobbiesIfAvailable: boolean): UCreateSessionCallbackProxy;
+    };
+    readonly __properties_UCreateSessionCallbackProxy: {
+        OnSuccess: FCreateSessionCallbackProxyOnSuccess;
+        OnFailure: FCreateSessionCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UCreateSessionCallbackProxy['__static_UCreateSessionCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCreateSessionCallbackProxy['__properties_UCreateSessionCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__propertyRegistry'];
 }
-declare const UCreateSessionCallbackProxy: UCreateSessionCallbackProxy;
 
 declare interface UDestroySessionCallbackProxy extends UOnlineBlueprintCallProxyBase {
-    OnSuccess: FDestroySessionCallbackProxyOnSuccess;
-    OnFailure: FDestroySessionCallbackProxyOnFailure;
-    DestroySession(WorldContextObject: UObject, PlayerController: APlayerController): UDestroySessionCallbackProxy;
+    readonly __static_UDestroySessionCallbackProxy: {
+        DestroySession(WorldContextObject: UObject, PlayerController: APlayerController): UDestroySessionCallbackProxy;
+    };
+    readonly __properties_UDestroySessionCallbackProxy: {
+        OnSuccess: FDestroySessionCallbackProxyOnSuccess;
+        OnFailure: FDestroySessionCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UDestroySessionCallbackProxy['__static_UDestroySessionCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDestroySessionCallbackProxy['__properties_UDestroySessionCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__propertyRegistry'];
 }
-declare const UDestroySessionCallbackProxy: UDestroySessionCallbackProxy;
 
 declare interface UEndMatchCallbackProxy extends UOnlineBlueprintCallProxyBase {
-    OnSuccess: FEndMatchCallbackProxyOnSuccess;
-    OnFailure: FEndMatchCallbackProxyOnFailure;
-    EndMatch(WorldContextObject: UObject, PlayerController: APlayerController, MatchActor: TScriptInterface<ITurnBasedMatchInterface>, MatchID: string | FString, LocalPlayerOutcome: EMPMatchOutcome, OtherPlayersOutcome: EMPMatchOutcome): UEndMatchCallbackProxy;
+    readonly __static_UEndMatchCallbackProxy: {
+        EndMatch(WorldContextObject: UObject, PlayerController: APlayerController, MatchActor: TScriptInterface<ITurnBasedMatchInterface>, MatchID: string, LocalPlayerOutcome: EMPMatchOutcome, OtherPlayersOutcome: EMPMatchOutcome): UEndMatchCallbackProxy;
+    };
+    readonly __properties_UEndMatchCallbackProxy: {
+        OnSuccess: FEndMatchCallbackProxyOnSuccess;
+        OnFailure: FEndMatchCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UEndMatchCallbackProxy['__static_UEndMatchCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEndMatchCallbackProxy['__properties_UEndMatchCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__propertyRegistry'];
 }
-declare const UEndMatchCallbackProxy: UEndMatchCallbackProxy;
 
 declare interface UEndTurnCallbackProxy extends UOnlineBlueprintCallProxyBase {
-    OnSuccess: FEndTurnCallbackProxyOnSuccess;
-    OnFailure: FEndTurnCallbackProxyOnFailure;
-    EndTurn(WorldContextObject: UObject, PlayerController: APlayerController, MatchID: string | FString, TurnBasedMatchInterface: TScriptInterface<ITurnBasedMatchInterface>): UEndTurnCallbackProxy;
+    readonly __static_UEndTurnCallbackProxy: {
+        EndTurn(WorldContextObject: UObject, PlayerController: APlayerController, MatchID: string, TurnBasedMatchInterface: TScriptInterface<ITurnBasedMatchInterface>): UEndTurnCallbackProxy;
+    };
+    readonly __properties_UEndTurnCallbackProxy: {
+        OnSuccess: FEndTurnCallbackProxyOnSuccess;
+        OnFailure: FEndTurnCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UEndTurnCallbackProxy['__static_UEndTurnCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEndTurnCallbackProxy['__properties_UEndTurnCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__propertyRegistry'];
 }
-declare const UEndTurnCallbackProxy: UEndTurnCallbackProxy;
 
 declare interface UFindSessionsCallbackProxy extends UOnlineBlueprintCallProxyBase {
-    OnSuccess: FFindSessionsCallbackProxyOnSuccess;
-    OnFailure: FFindSessionsCallbackProxyOnFailure;
-    GetServerName(Result: FBlueprintSessionResult): FString;
-    GetPingInMs(Result: FBlueprintSessionResult): number;
-    GetMaxPlayers(Result: FBlueprintSessionResult): number;
-    GetCurrentPlayers(Result: FBlueprintSessionResult): number;
-    FindSessions(WorldContextObject: UObject, PlayerController: APlayerController, MaxResults: number, bUseLAN: boolean, bUseLobbies: boolean): UFindSessionsCallbackProxy;
+    readonly __static_UFindSessionsCallbackProxy: {
+        GetServerName(Result: FBlueprintSessionResult): string;
+        GetPingInMs(Result: FBlueprintSessionResult): number;
+        GetMaxPlayers(Result: FBlueprintSessionResult): number;
+        GetCurrentPlayers(Result: FBlueprintSessionResult): number;
+        FindSessions(WorldContextObject: UObject, PlayerController: APlayerController, MaxResults: number, bUseLAN: boolean, bUseLobbies: boolean): UFindSessionsCallbackProxy;
+    };
+    readonly __properties_UFindSessionsCallbackProxy: {
+        OnSuccess: FFindSessionsCallbackProxyOnSuccess;
+        OnFailure: FFindSessionsCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UFindSessionsCallbackProxy['__static_UFindSessionsCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFindSessionsCallbackProxy['__properties_UFindSessionsCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__propertyRegistry'];
 }
-declare const UFindSessionsCallbackProxy: UFindSessionsCallbackProxy;
 
 declare interface UFindTurnBasedMatchCallbackProxy extends UOnlineBlueprintCallProxyBase {
-    OnSuccess: FFindTurnBasedMatchCallbackProxyOnSuccess;
-    OnFailure: FFindTurnBasedMatchCallbackProxyOnFailure;
-    FindTurnBasedMatch(WorldContextObject: UObject, PlayerController: APlayerController, MatchActor: TScriptInterface<ITurnBasedMatchInterface>, MinPlayers: number, MaxPlayers: number, PlayerGroup: number, ShowExistingMatches: boolean): UFindTurnBasedMatchCallbackProxy;
+    readonly __static_UFindTurnBasedMatchCallbackProxy: {
+        FindTurnBasedMatch(WorldContextObject: UObject, PlayerController: APlayerController, MatchActor: TScriptInterface<ITurnBasedMatchInterface>, MinPlayers: number, MaxPlayers: number, PlayerGroup: number, ShowExistingMatches: boolean): UFindTurnBasedMatchCallbackProxy;
+    };
+    readonly __properties_UFindTurnBasedMatchCallbackProxy: {
+        OnSuccess: FFindTurnBasedMatchCallbackProxyOnSuccess;
+        OnFailure: FFindTurnBasedMatchCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UFindTurnBasedMatchCallbackProxy['__static_UFindTurnBasedMatchCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFindTurnBasedMatchCallbackProxy['__properties_UFindTurnBasedMatchCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__propertyRegistry'];
 }
-declare const UFindTurnBasedMatchCallbackProxy: UFindTurnBasedMatchCallbackProxy;
 
 declare interface UInAppPurchaseCallbackProxy2 extends UObject {
-    OnSuccess: FInAppPurchaseCallbackProxy2OnSuccess;
-    OnFailure: FInAppPurchaseCallbackProxy2OnFailure;
-    CreateProxyObjectForInAppPurchaseUnprocessedPurchases(PlayerController: APlayerController): UInAppPurchaseCallbackProxy2;
-    CreateProxyObjectForInAppPurchaseQueryOwned(PlayerController: APlayerController): UInAppPurchaseCallbackProxy2;
-    CreateProxyObjectForInAppPurchase(PlayerController: APlayerController, ProductRequest: FInAppPurchaseProductRequest2): UInAppPurchaseCallbackProxy2;
+    readonly __static_UInAppPurchaseCallbackProxy2: {
+        CreateProxyObjectForInAppPurchaseUnprocessedPurchases(PlayerController: APlayerController): UInAppPurchaseCallbackProxy2;
+        CreateProxyObjectForInAppPurchaseQueryOwned(PlayerController: APlayerController): UInAppPurchaseCallbackProxy2;
+        CreateProxyObjectForInAppPurchase(PlayerController: APlayerController, ProductRequest: FInAppPurchaseProductRequest2): UInAppPurchaseCallbackProxy2;
+    };
+    readonly __properties_UInAppPurchaseCallbackProxy2: {
+        OnSuccess: FInAppPurchaseCallbackProxy2OnSuccess;
+        OnFailure: FInAppPurchaseCallbackProxy2OnFailure;
+    };
+    readonly __staticRegistry: 
+        UInAppPurchaseCallbackProxy2['__static_UInAppPurchaseCallbackProxy2'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInAppPurchaseCallbackProxy2['__properties_UInAppPurchaseCallbackProxy2'] &
+        UObject['__propertyRegistry'];
 }
-declare const UInAppPurchaseCallbackProxy2: UInAppPurchaseCallbackProxy2;
 
 declare interface UInAppPurchaseCheckoutCallbackProxy extends UObject {
-    OnSuccess: FInAppPurchaseCheckoutCallbackProxyOnSuccess;
-    OnFailure: FInAppPurchaseCheckoutCallbackProxyOnFailure;
-    CreateProxyObjectForInAppPurchaseCheckout(PlayerController: APlayerController, ProductRequest: FInAppPurchaseProductRequest2): UInAppPurchaseCheckoutCallbackProxy;
+    readonly __static_UInAppPurchaseCheckoutCallbackProxy: {
+        CreateProxyObjectForInAppPurchaseCheckout(PlayerController: APlayerController, ProductRequest: FInAppPurchaseProductRequest2): UInAppPurchaseCheckoutCallbackProxy;
+    };
+    readonly __properties_UInAppPurchaseCheckoutCallbackProxy: {
+        OnSuccess: FInAppPurchaseCheckoutCallbackProxyOnSuccess;
+        OnFailure: FInAppPurchaseCheckoutCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UInAppPurchaseCheckoutCallbackProxy['__static_UInAppPurchaseCheckoutCallbackProxy'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInAppPurchaseCheckoutCallbackProxy['__properties_UInAppPurchaseCheckoutCallbackProxy'] &
+        UObject['__propertyRegistry'];
 }
-declare const UInAppPurchaseCheckoutCallbackProxy: UInAppPurchaseCheckoutCallbackProxy;
 
 declare interface UInAppPurchaseFinalizeProxy extends UObject {
-    CreateProxyObjectForInAppPurchaseFinalize(InAppPurchaseReceipt: FInAppPurchaseReceiptInfo2, PlayerController: APlayerController): UInAppPurchaseFinalizeProxy;
+    readonly __static_UInAppPurchaseFinalizeProxy: {
+        CreateProxyObjectForInAppPurchaseFinalize(InAppPurchaseReceipt: FInAppPurchaseReceiptInfo2, PlayerController: APlayerController): UInAppPurchaseFinalizeProxy;
+    };
+    readonly __staticRegistry: 
+        UInAppPurchaseFinalizeProxy['__static_UInAppPurchaseFinalizeProxy'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UInAppPurchaseFinalizeProxy: UInAppPurchaseFinalizeProxy;
 
 declare interface UInAppPurchaseQueryCallbackProxy2 extends UObject {
-    OnSuccess: FInAppPurchaseQueryCallbackProxy2OnSuccess;
-    OnFailure: FInAppPurchaseQueryCallbackProxy2OnFailure;
-    CreateProxyObjectForInAppPurchaseQuery(PlayerController: APlayerController, ProductIdentifiers: string | FString[]): UInAppPurchaseQueryCallbackProxy2;
+    readonly __static_UInAppPurchaseQueryCallbackProxy2: {
+        CreateProxyObjectForInAppPurchaseQuery(PlayerController: APlayerController, ProductIdentifiers: string[]): UInAppPurchaseQueryCallbackProxy2;
+    };
+    readonly __properties_UInAppPurchaseQueryCallbackProxy2: {
+        OnSuccess: FInAppPurchaseQueryCallbackProxy2OnSuccess;
+        OnFailure: FInAppPurchaseQueryCallbackProxy2OnFailure;
+    };
+    readonly __staticRegistry: 
+        UInAppPurchaseQueryCallbackProxy2['__static_UInAppPurchaseQueryCallbackProxy2'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInAppPurchaseQueryCallbackProxy2['__properties_UInAppPurchaseQueryCallbackProxy2'] &
+        UObject['__propertyRegistry'];
 }
-declare const UInAppPurchaseQueryCallbackProxy2: UInAppPurchaseQueryCallbackProxy2;
 
 declare interface UInAppPurchaseReceiptsCallbackProxy extends UObject {
-    OnSuccess: FInAppPurchaseReceiptsCallbackProxyOnSuccess;
-    OnFailure: FInAppPurchaseReceiptsCallbackProxyOnFailure;
-    CreateProxyObjectForInAppPurchaseRestoreOwnedProducts(PlayerController: APlayerController): UInAppPurchaseReceiptsCallbackProxy;
-    CreateProxyObjectForInAppPurchaseQueryOwnedProducts(PlayerController: APlayerController): UInAppPurchaseReceiptsCallbackProxy;
-    CreateProxyObjectForInAppPurchaseGetKnownReceipts(PlayerController: APlayerController): UInAppPurchaseReceiptsCallbackProxy;
+    readonly __static_UInAppPurchaseReceiptsCallbackProxy: {
+        CreateProxyObjectForInAppPurchaseRestoreOwnedProducts(PlayerController: APlayerController): UInAppPurchaseReceiptsCallbackProxy;
+        CreateProxyObjectForInAppPurchaseQueryOwnedProducts(PlayerController: APlayerController): UInAppPurchaseReceiptsCallbackProxy;
+        CreateProxyObjectForInAppPurchaseGetKnownReceipts(PlayerController: APlayerController): UInAppPurchaseReceiptsCallbackProxy;
+    };
+    readonly __properties_UInAppPurchaseReceiptsCallbackProxy: {
+        OnSuccess: FInAppPurchaseReceiptsCallbackProxyOnSuccess;
+        OnFailure: FInAppPurchaseReceiptsCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UInAppPurchaseReceiptsCallbackProxy['__static_UInAppPurchaseReceiptsCallbackProxy'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInAppPurchaseReceiptsCallbackProxy['__properties_UInAppPurchaseReceiptsCallbackProxy'] &
+        UObject['__propertyRegistry'];
 }
-declare const UInAppPurchaseReceiptsCallbackProxy: UInAppPurchaseReceiptsCallbackProxy;
 
 declare interface UInAppPurchaseRestoreCallbackProxy2 extends UObject {
-    OnSuccess: FInAppPurchaseRestoreCallbackProxy2OnSuccess;
-    OnFailure: FInAppPurchaseRestoreCallbackProxy2OnFailure;
-    CreateProxyObjectForInAppPurchaseRestore(ConsumableProductFlags: TArray<FInAppPurchaseProductRequest2>, PlayerController: APlayerController): UInAppPurchaseRestoreCallbackProxy2;
+    readonly __static_UInAppPurchaseRestoreCallbackProxy2: {
+        CreateProxyObjectForInAppPurchaseRestore(ConsumableProductFlags: FInAppPurchaseProductRequest2[], PlayerController: APlayerController): UInAppPurchaseRestoreCallbackProxy2;
+    };
+    readonly __properties_UInAppPurchaseRestoreCallbackProxy2: {
+        OnSuccess: FInAppPurchaseRestoreCallbackProxy2OnSuccess;
+        OnFailure: FInAppPurchaseRestoreCallbackProxy2OnFailure;
+    };
+    readonly __staticRegistry: 
+        UInAppPurchaseRestoreCallbackProxy2['__static_UInAppPurchaseRestoreCallbackProxy2'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInAppPurchaseRestoreCallbackProxy2['__properties_UInAppPurchaseRestoreCallbackProxy2'] &
+        UObject['__propertyRegistry'];
 }
-declare const UInAppPurchaseRestoreCallbackProxy2: UInAppPurchaseRestoreCallbackProxy2;
 
 declare interface UIpConnection extends UNetConnection {
-    SocketErrorDisconnectDelay: number;
+    readonly __properties_UIpConnection: {
+        SocketErrorDisconnectDelay: number;
+    };
+    readonly __staticRegistry: 
+        UNetConnection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIpConnection['__properties_UIpConnection'] &
+        UNetConnection['__propertyRegistry'];
 }
-declare const UIpConnection: UIpConnection;
 
 declare interface UIpNetDriver extends UNetDriver {
-    LogPortUnreach: boolean;
-    AllowPlayerPortUnreach: boolean;
-    bExitOnBindFailure: boolean;
-    MaxPortCountToTry: uint32;
-    ServerDesiredSocketReceiveBufferBytes: uint32;
-    ServerDesiredSocketSendBufferBytes: uint32;
-    ClientDesiredSocketReceiveBufferBytes: uint32;
-    ClientDesiredSocketSendBufferBytes: uint32;
-    MaxSecondsInReceive: number;
-    NbPacketsBetweenReceiveTimeTest: number;
-    ResolutionConnectionTimeout: number;
+    readonly __properties_UIpNetDriver: {
+        LogPortUnreach: boolean;
+        AllowPlayerPortUnreach: boolean;
+        bExitOnBindFailure: boolean;
+        MaxPortCountToTry: number;
+        ServerDesiredSocketReceiveBufferBytes: number;
+        ServerDesiredSocketSendBufferBytes: number;
+        ClientDesiredSocketReceiveBufferBytes: number;
+        ClientDesiredSocketSendBufferBytes: number;
+        MaxSecondsInReceive: number;
+        NbPacketsBetweenReceiveTimeTest: number;
+        ResolutionConnectionTimeout: number;
+    };
+    readonly __staticRegistry: 
+        UNetDriver['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIpNetDriver['__properties_UIpNetDriver'] &
+        UNetDriver['__propertyRegistry'];
 }
-declare const UIpNetDriver: UIpNetDriver;
 
 declare interface UJoinSessionCallbackProxy extends UOnlineBlueprintCallProxyBase {
-    OnSuccess: FJoinSessionCallbackProxyOnSuccess;
-    OnFailure: FJoinSessionCallbackProxyOnFailure;
-    JoinSession(WorldContextObject: UObject, PlayerController: APlayerController, SearchResult: FBlueprintSessionResult): UJoinSessionCallbackProxy;
+    readonly __static_UJoinSessionCallbackProxy: {
+        JoinSession(WorldContextObject: UObject, PlayerController: APlayerController, SearchResult: FBlueprintSessionResult): UJoinSessionCallbackProxy;
+    };
+    readonly __properties_UJoinSessionCallbackProxy: {
+        OnSuccess: FJoinSessionCallbackProxyOnSuccess;
+        OnFailure: FJoinSessionCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UJoinSessionCallbackProxy['__static_UJoinSessionCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UJoinSessionCallbackProxy['__properties_UJoinSessionCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__propertyRegistry'];
 }
-declare const UJoinSessionCallbackProxy: UJoinSessionCallbackProxy;
 
 declare interface ULeaderboardBlueprintLibrary extends UBlueprintFunctionLibrary {
-    WriteLeaderboardInteger(PlayerController: APlayerController, StatName: FName, StatValue: number): boolean;
+    readonly __static_ULeaderboardBlueprintLibrary: {
+        WriteLeaderboardInteger(PlayerController: APlayerController, StatName: string, StatValue: number): boolean;
+    };
+    readonly __staticRegistry: 
+        ULeaderboardBlueprintLibrary['__static_ULeaderboardBlueprintLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const ULeaderboardBlueprintLibrary: ULeaderboardBlueprintLibrary;
 
 declare interface ULeaderboardFlushCallbackProxy extends UObject {
-    OnSuccess: FLeaderboardFlushCallbackProxyOnSuccess;
-    OnFailure: FLeaderboardFlushCallbackProxyOnFailure;
-    CreateProxyObjectForFlush(PlayerController: APlayerController, SessionName: FName): ULeaderboardFlushCallbackProxy;
+    readonly __static_ULeaderboardFlushCallbackProxy: {
+        CreateProxyObjectForFlush(PlayerController: APlayerController, SessionName: string): ULeaderboardFlushCallbackProxy;
+    };
+    readonly __properties_ULeaderboardFlushCallbackProxy: {
+        OnSuccess: FLeaderboardFlushCallbackProxyOnSuccess;
+        OnFailure: FLeaderboardFlushCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        ULeaderboardFlushCallbackProxy['__static_ULeaderboardFlushCallbackProxy'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULeaderboardFlushCallbackProxy['__properties_ULeaderboardFlushCallbackProxy'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULeaderboardFlushCallbackProxy: ULeaderboardFlushCallbackProxy;
 
 declare interface ULeaderboardQueryCallbackProxy extends UObject {
-    OnSuccess: FLeaderboardQueryCallbackProxyOnSuccess;
-    OnFailure: FLeaderboardQueryCallbackProxyOnFailure;
-    CreateProxyObjectForIntQuery(PlayerController: APlayerController, StatName: string | FString): ULeaderboardQueryCallbackProxy;
+    readonly __static_ULeaderboardQueryCallbackProxy: {
+        CreateProxyObjectForIntQuery(PlayerController: APlayerController, StatName: string): ULeaderboardQueryCallbackProxy;
+    };
+    readonly __properties_ULeaderboardQueryCallbackProxy: {
+        OnSuccess: FLeaderboardQueryCallbackProxyOnSuccess;
+        OnFailure: FLeaderboardQueryCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        ULeaderboardQueryCallbackProxy['__static_ULeaderboardQueryCallbackProxy'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULeaderboardQueryCallbackProxy['__properties_ULeaderboardQueryCallbackProxy'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULeaderboardQueryCallbackProxy: ULeaderboardQueryCallbackProxy;
 
 declare interface ULogoutCallbackProxy extends UBlueprintAsyncActionBase {
-    OnSuccess: FLogoutCallbackProxyOnSuccess;
-    OnFailure: FLogoutCallbackProxyOnFailure;
-    Logout(WorldContextObject: UObject, PlayerController: APlayerController): ULogoutCallbackProxy;
+    readonly __static_ULogoutCallbackProxy: {
+        Logout(WorldContextObject: UObject, PlayerController: APlayerController): ULogoutCallbackProxy;
+    };
+    readonly __properties_ULogoutCallbackProxy: {
+        OnSuccess: FLogoutCallbackProxyOnSuccess;
+        OnFailure: FLogoutCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        ULogoutCallbackProxy['__static_ULogoutCallbackProxy'] &
+        UBlueprintAsyncActionBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULogoutCallbackProxy['__properties_ULogoutCallbackProxy'] &
+        UBlueprintAsyncActionBase['__propertyRegistry'];
 }
-declare const ULogoutCallbackProxy: ULogoutCallbackProxy;
 
 declare interface UOnlineBeaconUnitTestNetConnection extends UIpConnection {
-
+    readonly __staticRegistry: 
+        UIpConnection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIpConnection['__propertyRegistry'];
 }
-declare const UOnlineBeaconUnitTestNetConnection: UOnlineBeaconUnitTestNetConnection;
 
 declare interface UOnlineBeaconUnitTestNetDriver extends UIpNetDriver {
-
+    readonly __staticRegistry: 
+        UIpNetDriver['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIpNetDriver['__propertyRegistry'];
 }
-declare const UOnlineBeaconUnitTestNetDriver: UOnlineBeaconUnitTestNetDriver;
 
 declare interface UOnlineEngineInterfaceImpl extends UOnlineEngineInterface {
-    MappedUniqueNetIdTypes: Record<FName, FName>;
-    CompatibleUniqueNetIdTypes: TArray<FName>;
-    VoiceSubsystemNameOverride: FName;
-    bOnlineServicesCompatibilityEnabled: boolean;
-    OnlineServicesCompatibilityInterface: UOnlineEngineInterface;
+    readonly __properties_UOnlineEngineInterfaceImpl: {
+        MappedUniqueNetIdTypes: TMap<string, string>;
+        CompatibleUniqueNetIdTypes: string[];
+        VoiceSubsystemNameOverride: string;
+        bOnlineServicesCompatibilityEnabled: boolean;
+        OnlineServicesCompatibilityInterface: UOnlineEngineInterface;
+    };
+    readonly __staticRegistry: 
+        UOnlineEngineInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOnlineEngineInterfaceImpl['__properties_UOnlineEngineInterfaceImpl'] &
+        UOnlineEngineInterface['__propertyRegistry'];
 }
-declare const UOnlineEngineInterfaceImpl: UOnlineEngineInterfaceImpl;
 
 declare interface UOnlinePIEConfig extends UObject {
-    LoginTypesAllowingDuplicates: TArray<FString>;
+    readonly __properties_UOnlinePIEConfig: {
+        LoginTypesAllowingDuplicates: string[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOnlinePIEConfig['__properties_UOnlinePIEConfig'] &
+        UObject['__propertyRegistry'];
 }
-declare const UOnlinePIEConfig: UOnlinePIEConfig;
 
 declare interface UOnlinePIESettings extends UDeveloperSettings {
-    bOnlinePIEEnabled: boolean;
-    Logins: TArray<FOnlineAccountStoredCredentials>;
+    readonly __properties_UOnlinePIESettings: {
+        bOnlinePIEEnabled: boolean;
+        Logins: FOnlineAccountStoredCredentials[];
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOnlinePIESettings['__properties_UOnlinePIESettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UOnlinePIESettings: UOnlinePIESettings;
 
 declare interface UOnlineServicesEngineInterfaceImpl extends UOnlineEngineInterface {
-
+    readonly __staticRegistry: 
+        UOnlineEngineInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOnlineEngineInterface['__propertyRegistry'];
 }
-declare const UOnlineServicesEngineInterfaceImpl: UOnlineServicesEngineInterfaceImpl;
 
 declare interface UOnlineSessionClient extends UOnlineSession {
-    bIsFromInvite: boolean;
-    bHandlingDisconnect: boolean;
+    readonly __properties_UOnlineSessionClient: {
+        bIsFromInvite: boolean;
+        bHandlingDisconnect: boolean;
+    };
+    readonly __staticRegistry: 
+        UOnlineSession['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOnlineSessionClient['__properties_UOnlineSessionClient'] &
+        UOnlineSession['__propertyRegistry'];
 }
-declare const UOnlineSessionClient: UOnlineSessionClient;
 
 declare interface UPartyBeaconState extends UObject {
-    SessionName: FName;
-    NumConsumedReservations: number;
-    MaxReservations: number;
-    NumTeams: number;
-    NumPlayersPerTeam: number;
-    TeamAssignmentMethod: FName;
-    ReservedHostTeamNum: number;
-    ForceTeamNum: number;
-    bRestrictCrossConsole: boolean;
-    PlatformCrossplayRestrictions: TArray<FString>;
-    PlatformTypeMapping: TArray<FPartyBeaconCrossplayPlatformMapping>;
-    bEnableRemovalRequests: boolean;
-    bRespectCompetitiveIntegrity: boolean;
-    Reservations: TArray<FPartyReservation>;
+    readonly __properties_UPartyBeaconState: {
+        SessionName: string;
+        NumConsumedReservations: number;
+        MaxReservations: number;
+        NumTeams: number;
+        NumPlayersPerTeam: number;
+        TeamAssignmentMethod: string;
+        ReservedHostTeamNum: number;
+        ForceTeamNum: number;
+        bRestrictCrossConsole: boolean;
+        PlatformCrossplayRestrictions: string[];
+        PlatformTypeMapping: FPartyBeaconCrossplayPlatformMapping[];
+        bEnableRemovalRequests: boolean;
+        bRespectCompetitiveIntegrity: boolean;
+        Reservations: FPartyReservation[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPartyBeaconState['__properties_UPartyBeaconState'] &
+        UObject['__propertyRegistry'];
 }
-declare const UPartyBeaconState: UPartyBeaconState;
 
 declare interface UQuitMatchCallbackProxy extends UOnlineBlueprintCallProxyBase {
-    OnSuccess: FQuitMatchCallbackProxyOnSuccess;
-    OnFailure: FQuitMatchCallbackProxyOnFailure;
-    QuitMatch(WorldContextObject: UObject, PlayerController: APlayerController, MatchID: string | FString, Outcome: EMPMatchOutcome, TurnTimeoutInSeconds: number): UQuitMatchCallbackProxy;
+    readonly __static_UQuitMatchCallbackProxy: {
+        QuitMatch(WorldContextObject: UObject, PlayerController: APlayerController, MatchID: string, Outcome: EMPMatchOutcome, TurnTimeoutInSeconds: number): UQuitMatchCallbackProxy;
+    };
+    readonly __properties_UQuitMatchCallbackProxy: {
+        OnSuccess: FQuitMatchCallbackProxyOnSuccess;
+        OnFailure: FQuitMatchCallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UQuitMatchCallbackProxy['__static_UQuitMatchCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UQuitMatchCallbackProxy['__properties_UQuitMatchCallbackProxy'] &
+        UOnlineBlueprintCallProxyBase['__propertyRegistry'];
 }
-declare const UQuitMatchCallbackProxy: UQuitMatchCallbackProxy;
 
 declare interface UShowLoginUICallbackProxy extends UBlueprintAsyncActionBase {
-    OnSuccess: FShowLoginUICallbackProxyOnSuccess;
-    OnFailure: FShowLoginUICallbackProxyOnFailure;
-    ShowExternalLoginUI(WorldContextObject: UObject, InPlayerController: APlayerController): UShowLoginUICallbackProxy;
+    readonly __static_UShowLoginUICallbackProxy: {
+        ShowExternalLoginUI(WorldContextObject: UObject, InPlayerController: APlayerController): UShowLoginUICallbackProxy;
+    };
+    readonly __properties_UShowLoginUICallbackProxy: {
+        OnSuccess: FShowLoginUICallbackProxyOnSuccess;
+        OnFailure: FShowLoginUICallbackProxyOnFailure;
+    };
+    readonly __staticRegistry: 
+        UShowLoginUICallbackProxy['__static_UShowLoginUICallbackProxy'] &
+        UBlueprintAsyncActionBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UShowLoginUICallbackProxy['__properties_UShowLoginUICallbackProxy'] &
+        UBlueprintAsyncActionBase['__propertyRegistry'];
 }
-declare const UShowLoginUICallbackProxy: UShowLoginUICallbackProxy;
 
 declare interface USpectatorBeaconState extends UObject {
-    SessionName: FName;
-    NumConsumedReservations: number;
-    MaxReservations: number;
-    bRestrictCrossConsole: boolean;
-    Reservations: TArray<FSpectatorReservation>;
+    readonly __properties_USpectatorBeaconState: {
+        SessionName: string;
+        NumConsumedReservations: number;
+        MaxReservations: number;
+        bRestrictCrossConsole: boolean;
+        Reservations: FSpectatorReservation[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USpectatorBeaconState['__properties_USpectatorBeaconState'] &
+        UObject['__propertyRegistry'];
 }
-declare const USpectatorBeaconState: USpectatorBeaconState;
 
 declare interface UTurnBasedBlueprintLibrary extends UBlueprintFunctionLibrary {
-    RegisterTurnBasedMatchInterfaceObject(WorldContextObject: UObject, PlayerController: APlayerController, Object: UObject): void;
-    GetPlayerDisplayName(WorldContextObject: UObject, PlayerController: APlayerController, MatchID: string | FString, PlayerIndex: number, PlayerDisplayName: string | FString): void;
-    GetMyPlayerIndex(WorldContextObject: UObject, PlayerController: APlayerController, MatchID: string | FString, PlayerIndex: number): void;
-    GetIsMyTurn(WorldContextObject: UObject, PlayerController: APlayerController, MatchID: string | FString, bIsMyTurn: boolean): void;
+    readonly __static_UTurnBasedBlueprintLibrary: {
+        RegisterTurnBasedMatchInterfaceObject(WorldContextObject: UObject, PlayerController: APlayerController, Object: UObject): void;
+        GetPlayerDisplayName(WorldContextObject: UObject, PlayerController: APlayerController, MatchID: string, PlayerIndex: number, PlayerDisplayName: string): void;
+        GetMyPlayerIndex(WorldContextObject: UObject, PlayerController: APlayerController, MatchID: string, PlayerIndex: number): void;
+        GetIsMyTurn(WorldContextObject: UObject, PlayerController: APlayerController, MatchID: string, bIsMyTurn: boolean): void;
+    };
+    readonly __staticRegistry: 
+        UTurnBasedBlueprintLibrary['__static_UTurnBasedBlueprintLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UTurnBasedBlueprintLibrary: UTurnBasedBlueprintLibrary;
 
 declare interface UVoipListenerSynthComponent extends USynthComponent {
-    IsIdling(): boolean;
+    readonly __static_UVoipListenerSynthComponent: {
+        IsIdling(): boolean;
+    };
+    readonly __staticRegistry: 
+        UVoipListenerSynthComponent['__static_UVoipListenerSynthComponent'] &
+        USynthComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USynthComponent['__propertyRegistry'];
 }
-declare const UVoipListenerSynthComponent: UVoipListenerSynthComponent;
 

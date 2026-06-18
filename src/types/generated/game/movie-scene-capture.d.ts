@@ -2,22 +2,16 @@ declare interface FCaptureResolution {
     ResX: number;
     ResY: number;
 }
-declare const FCaptureResolution: FCaptureResolution;
 
-declare interface FCapturedPixels {
-
-}
-declare const FCapturedPixels: FCapturedPixels;
+declare type FCapturedPixels = object;
 
 declare interface FCapturedPixelsID {
-    Identifiers: Record<FName, FName>;
+    Identifiers: TMap<string, string>;
 }
-declare const FCapturedPixelsID: FCapturedPixelsID;
 
 declare interface FCompositionGraphCapturePasses {
-    Value: TArray<FString>;
+    Value: string[];
 }
-declare const FCompositionGraphCapturePasses: FCompositionGraphCapturePasses;
 
 declare interface FFrameMetrics {
     TotalElapsedTime: number;
@@ -25,17 +19,16 @@ declare interface FFrameMetrics {
     FrameNumber: number;
     NumDroppedFrames: number;
 }
-declare const FFrameMetrics: FFrameMetrics;
 
 declare interface FMovieSceneCaptureSettings {
     OutputDirectory: FDirectoryPath;
     GameModeOverride: TSubclassOf<AGameModeBase>;
-    OutputFormat: FString;
+    OutputFormat: string;
     bOverwriteExisting: boolean;
     bUseRelativeFrameNumbers: boolean;
     HandleFrames: number;
-    MovieExtension: FString;
-    ZeroPadFrameNumbers: uint8;
+    MovieExtension: string;
+    ZeroPadFrameNumbers: number;
     FrameRate: FFrameRate;
     bUseCustomFrameRate: boolean;
     CustomFrameRate: FFrameRate;
@@ -50,153 +43,248 @@ declare interface FMovieSceneCaptureSettings {
     bUsePathTracer: boolean;
     PathTracerSamplePerPixel: number;
 }
-declare const FMovieSceneCaptureSettings: FMovieSceneCaptureSettings;
 
 declare interface IMovieSceneCaptureInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMovieSceneCaptureInterface: IMovieSceneCaptureInterface;
 
 declare interface UCompositionGraphCaptureProtocol extends UMovieSceneImageCaptureProtocolBase {
-    IncludeRenderPasses: FCompositionGraphCapturePasses;
-    bCaptureFramesInHDR: boolean;
-    HDRCompressionQuality: number;
-    CaptureGamut: EHDRCaptureGamut;
-    PostProcessingMaterial: FSoftObjectPath;
-    bDisableScreenPercentage: boolean;
-    PostProcessingMaterialPtr: UMaterialInterface;
+    readonly __properties_UCompositionGraphCaptureProtocol: {
+        IncludeRenderPasses: FCompositionGraphCapturePasses;
+        bCaptureFramesInHDR: boolean;
+        HDRCompressionQuality: number;
+        CaptureGamut: EHDRCaptureGamut;
+        PostProcessingMaterial: FSoftObjectPath;
+        bDisableScreenPercentage: boolean;
+        PostProcessingMaterialPtr: UMaterialInterface;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneImageCaptureProtocolBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCompositionGraphCaptureProtocol['__properties_UCompositionGraphCaptureProtocol'] &
+        UMovieSceneImageCaptureProtocolBase['__propertyRegistry'];
 }
-declare const UCompositionGraphCaptureProtocol: UCompositionGraphCaptureProtocol;
 
 declare interface UCompressedImageSequenceProtocol extends UImageSequenceProtocol {
-    CompressionQuality: number;
+    readonly __properties_UCompressedImageSequenceProtocol: {
+        CompressionQuality: number;
+    };
+    readonly __staticRegistry: 
+        UImageSequenceProtocol['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCompressedImageSequenceProtocol['__properties_UCompressedImageSequenceProtocol'] &
+        UImageSequenceProtocol['__propertyRegistry'];
 }
-declare const UCompressedImageSequenceProtocol: UCompressedImageSequenceProtocol;
 
 declare interface UFrameGrabberProtocol extends UMovieSceneImageCaptureProtocolBase {
-
+    readonly __staticRegistry: 
+        UMovieSceneImageCaptureProtocolBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneImageCaptureProtocolBase['__propertyRegistry'];
 }
-declare const UFrameGrabberProtocol: UFrameGrabberProtocol;
 
 declare interface UImageSequenceProtocol extends UFrameGrabberProtocol {
-
+    readonly __staticRegistry: 
+        UFrameGrabberProtocol['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFrameGrabberProtocol['__propertyRegistry'];
 }
-declare const UImageSequenceProtocol: UImageSequenceProtocol;
 
 declare interface UImageSequenceProtocol_BMP extends UImageSequenceProtocol {
-
+    readonly __staticRegistry: 
+        UImageSequenceProtocol['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UImageSequenceProtocol['__propertyRegistry'];
 }
-declare const UImageSequenceProtocol_BMP: UImageSequenceProtocol_BMP;
 
 declare interface UImageSequenceProtocol_EXR extends UImageSequenceProtocol {
-    bCompressed: boolean;
-    CaptureGamut: EHDRCaptureGamut;
+    readonly __properties_UImageSequenceProtocol_EXR: {
+        bCompressed: boolean;
+        CaptureGamut: EHDRCaptureGamut;
+    };
+    readonly __staticRegistry: 
+        UImageSequenceProtocol['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UImageSequenceProtocol_EXR['__properties_UImageSequenceProtocol_EXR'] &
+        UImageSequenceProtocol['__propertyRegistry'];
 }
-declare const UImageSequenceProtocol_EXR: UImageSequenceProtocol_EXR;
 
 declare interface UImageSequenceProtocol_JPG extends UCompressedImageSequenceProtocol {
-
+    readonly __staticRegistry: 
+        UCompressedImageSequenceProtocol['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCompressedImageSequenceProtocol['__propertyRegistry'];
 }
-declare const UImageSequenceProtocol_JPG: UImageSequenceProtocol_JPG;
 
 declare interface UImageSequenceProtocol_PNG extends UCompressedImageSequenceProtocol {
-
+    readonly __staticRegistry: 
+        UCompressedImageSequenceProtocol['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCompressedImageSequenceProtocol['__propertyRegistry'];
 }
-declare const UImageSequenceProtocol_PNG: UImageSequenceProtocol_PNG;
 
 declare interface ULevelCapture extends UMovieSceneCapture {
-    bAutoStartCapture: boolean;
-    PrerequisiteActorId: FGuid;
+    readonly __properties_ULevelCapture: {
+        bAutoStartCapture: boolean;
+        PrerequisiteActorId: FGuid;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneCapture['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULevelCapture['__properties_ULevelCapture'] &
+        UMovieSceneCapture['__propertyRegistry'];
 }
-declare const ULevelCapture: ULevelCapture;
 
 declare interface UMasterAudioSubmixCaptureProtocol extends UMovieSceneAudioCaptureProtocolBase {
-    Filename: FString;
+    readonly __properties_UMasterAudioSubmixCaptureProtocol: {
+        Filename: string;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneAudioCaptureProtocolBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMasterAudioSubmixCaptureProtocol['__properties_UMasterAudioSubmixCaptureProtocol'] &
+        UMovieSceneAudioCaptureProtocolBase['__propertyRegistry'];
 }
-declare const UMasterAudioSubmixCaptureProtocol: UMasterAudioSubmixCaptureProtocol;
 
 declare interface UMovieSceneAudioCaptureProtocolBase extends UMovieSceneCaptureProtocolBase {
-
+    readonly __staticRegistry: 
+        UMovieSceneCaptureProtocolBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneCaptureProtocolBase['__propertyRegistry'];
 }
-declare const UMovieSceneAudioCaptureProtocolBase: UMovieSceneAudioCaptureProtocolBase;
 
 declare interface UMovieSceneCapture extends UObject {
-    ImageCaptureProtocolType: FSoftClassPath;
-    AudioCaptureProtocolType: FSoftClassPath;
-    ImageCaptureProtocol: UMovieSceneImageCaptureProtocolBase;
-    AudioCaptureProtocol: UMovieSceneAudioCaptureProtocolBase;
-    Settings: FMovieSceneCaptureSettings;
-    bUseSeparateProcess: boolean;
-    bCloseEditorWhenCaptureStarts: boolean;
-    AdditionalCommandLineArguments: FString;
-    InheritedCommandLineArguments: FString;
-    SetImageCaptureProtocolType(ProtocolType: TSubclassOf<UMovieSceneCaptureProtocolBase>): void;
-    SetAudioCaptureProtocolType(ProtocolType: TSubclassOf<UMovieSceneCaptureProtocolBase>): void;
-    GetImageCaptureProtocol(): UMovieSceneCaptureProtocolBase;
-    GetAudioCaptureProtocol(): UMovieSceneCaptureProtocolBase;
+    readonly __static_UMovieSceneCapture: {
+        SetImageCaptureProtocolType(ProtocolType: TSubclassOf<UMovieSceneCaptureProtocolBase>): void;
+        SetAudioCaptureProtocolType(ProtocolType: TSubclassOf<UMovieSceneCaptureProtocolBase>): void;
+        GetImageCaptureProtocol(): UMovieSceneCaptureProtocolBase;
+        GetAudioCaptureProtocol(): UMovieSceneCaptureProtocolBase;
+    };
+    readonly __properties_UMovieSceneCapture: {
+        ImageCaptureProtocolType: FSoftClassPath;
+        AudioCaptureProtocolType: FSoftClassPath;
+        ImageCaptureProtocol: UMovieSceneImageCaptureProtocolBase;
+        AudioCaptureProtocol: UMovieSceneAudioCaptureProtocolBase;
+        Settings: FMovieSceneCaptureSettings;
+        bUseSeparateProcess: boolean;
+        bCloseEditorWhenCaptureStarts: boolean;
+        AdditionalCommandLineArguments: string;
+        InheritedCommandLineArguments: string;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneCapture['__static_UMovieSceneCapture'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneCapture['__properties_UMovieSceneCapture'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneCapture: UMovieSceneCapture;
 
 declare interface UMovieSceneCaptureEnvironment extends UObject {
-    IsCaptureInProgress(): boolean;
-    GetCaptureFrameNumber(): number;
-    GetCaptureElapsedTime(): number;
-    FindImageCaptureProtocol(): UMovieSceneImageCaptureProtocolBase;
-    FindAudioCaptureProtocol(): UMovieSceneAudioCaptureProtocolBase;
+    readonly __static_UMovieSceneCaptureEnvironment: {
+        IsCaptureInProgress(): boolean;
+        GetCaptureFrameNumber(): number;
+        GetCaptureElapsedTime(): number;
+        FindImageCaptureProtocol(): UMovieSceneImageCaptureProtocolBase;
+        FindAudioCaptureProtocol(): UMovieSceneAudioCaptureProtocolBase;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneCaptureEnvironment['__static_UMovieSceneCaptureEnvironment'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneCaptureEnvironment: UMovieSceneCaptureEnvironment;
 
 declare interface UMovieSceneCaptureProtocolBase extends UObject {
-    State: EMovieSceneCaptureProtocolState;
-    IsCapturing(): boolean;
-    GetState(): EMovieSceneCaptureProtocolState;
+    readonly __static_UMovieSceneCaptureProtocolBase: {
+        IsCapturing(): boolean;
+        GetState(): EMovieSceneCaptureProtocolState;
+    };
+    readonly __properties_UMovieSceneCaptureProtocolBase: {
+        State: EMovieSceneCaptureProtocolState;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneCaptureProtocolBase['__static_UMovieSceneCaptureProtocolBase'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneCaptureProtocolBase['__properties_UMovieSceneCaptureProtocolBase'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneCaptureProtocolBase: UMovieSceneCaptureProtocolBase;
 
 declare interface UMovieSceneImageCaptureProtocolBase extends UMovieSceneCaptureProtocolBase {
-
+    readonly __staticRegistry: 
+        UMovieSceneCaptureProtocolBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneCaptureProtocolBase['__propertyRegistry'];
 }
-declare const UMovieSceneImageCaptureProtocolBase: UMovieSceneImageCaptureProtocolBase;
 
 declare interface UNullAudioCaptureProtocol extends UMovieSceneAudioCaptureProtocolBase {
-
+    readonly __staticRegistry: 
+        UMovieSceneAudioCaptureProtocolBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneAudioCaptureProtocolBase['__propertyRegistry'];
 }
-declare const UNullAudioCaptureProtocol: UNullAudioCaptureProtocol;
 
 declare interface UUserDefinedCaptureProtocol extends UMovieSceneImageCaptureProtocolBase {
-    World: UWorld;
-    StopCapturingFinalPixels(): void;
-    StartCapturingFinalPixels(StreamID: FCapturedPixelsID): void;
-    ResolveBuffer(Buffer: UTexture, BufferID: FCapturedPixelsID): void;
-    OnWarmUp(): void;
-    OnTick(): void;
-    OnStartCapture(): void;
-    OnSetup(): boolean;
-    OnPreTick(): void;
-    OnPixelsReceived(Pixels: FCapturedPixels, ID: FCapturedPixelsID, FrameMetrics: FFrameMetrics): void;
-    OnPauseCapture(): void;
-    OnFinalize(): void;
-    OnCaptureFrame(): void;
-    OnCanFinalize(): boolean;
-    OnBeginFinalize(): void;
-    GetCurrentFrameMetrics(): FFrameMetrics;
-    GenerateFilename(InFrameMetrics: FFrameMetrics): FString;
+    readonly __static_UUserDefinedCaptureProtocol: {
+        StopCapturingFinalPixels(): void;
+        StartCapturingFinalPixels(StreamID: FCapturedPixelsID): void;
+        ResolveBuffer(Buffer: UTexture, BufferID: FCapturedPixelsID): void;
+        OnWarmUp(): void;
+        OnTick(): void;
+        OnStartCapture(): void;
+        OnSetup(): boolean;
+        OnPreTick(): void;
+        OnPixelsReceived(Pixels: FCapturedPixels, ID: FCapturedPixelsID, FrameMetrics: FFrameMetrics): void;
+        OnPauseCapture(): void;
+        OnFinalize(): void;
+        OnCaptureFrame(): void;
+        OnCanFinalize(): boolean;
+        OnBeginFinalize(): void;
+        GetCurrentFrameMetrics(): FFrameMetrics;
+        GenerateFilename(InFrameMetrics: FFrameMetrics): string;
+    };
+    readonly __properties_UUserDefinedCaptureProtocol: {
+        World: UWorld;
+    };
+    readonly __staticRegistry: 
+        UUserDefinedCaptureProtocol['__static_UUserDefinedCaptureProtocol'] &
+        UMovieSceneImageCaptureProtocolBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UUserDefinedCaptureProtocol['__properties_UUserDefinedCaptureProtocol'] &
+        UMovieSceneImageCaptureProtocolBase['__propertyRegistry'];
 }
-declare const UUserDefinedCaptureProtocol: UUserDefinedCaptureProtocol;
 
 declare interface UUserDefinedImageCaptureProtocol extends UUserDefinedCaptureProtocol {
-    Format: EDesiredImageFormat;
-    bEnableCompression: boolean;
-    CompressionQuality: number;
-    WriteImageToDisk(PixelData: FCapturedPixels, StreamID: FCapturedPixelsID, FrameMetrics: FFrameMetrics, bCopyImageData: boolean): void;
-    GenerateFilenameForCurrentFrame(): FString;
-    GenerateFilenameForBuffer(Buffer: UTexture, StreamID: FCapturedPixelsID): FString;
+    readonly __static_UUserDefinedImageCaptureProtocol: {
+        WriteImageToDisk(PixelData: FCapturedPixels, StreamID: FCapturedPixelsID, FrameMetrics: FFrameMetrics, bCopyImageData: boolean): void;
+        GenerateFilenameForCurrentFrame(): string;
+        GenerateFilenameForBuffer(Buffer: UTexture, StreamID: FCapturedPixelsID): string;
+    };
+    readonly __properties_UUserDefinedImageCaptureProtocol: {
+        Format: EDesiredImageFormat;
+        bEnableCompression: boolean;
+        CompressionQuality: number;
+    };
+    readonly __staticRegistry: 
+        UUserDefinedImageCaptureProtocol['__static_UUserDefinedImageCaptureProtocol'] &
+        UUserDefinedCaptureProtocol['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UUserDefinedImageCaptureProtocol['__properties_UUserDefinedImageCaptureProtocol'] &
+        UUserDefinedCaptureProtocol['__propertyRegistry'];
 }
-declare const UUserDefinedImageCaptureProtocol: UUserDefinedImageCaptureProtocol;
 
 declare interface UVideoCaptureProtocol extends UFrameGrabberProtocol {
-    bUseCompression: boolean;
-    CompressionQuality: number;
+    readonly __properties_UVideoCaptureProtocol: {
+        bUseCompression: boolean;
+        CompressionQuality: number;
+    };
+    readonly __staticRegistry: 
+        UFrameGrabberProtocol['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVideoCaptureProtocol['__properties_UVideoCaptureProtocol'] &
+        UFrameGrabberProtocol['__propertyRegistry'];
 }
-declare const UVideoCaptureProtocol: UVideoCaptureProtocol;
 

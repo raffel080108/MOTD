@@ -1,26 +1,37 @@
 declare interface AChaosCacheManager extends AActor {
-    CacheCollection: UChaosCacheCollection;
-    CacheMode: ECacheMode;
-    StartMode: EStartMode;
-    StartTime: number;
-    ObservedComponents: TArray<FObservedComponent>;
-    TriggerComponentByCache(InCacheName: FName): void;
-    TriggerComponent(InComponent: UPrimitiveComponent): void;
-    TriggerAll(): void;
-    SetStartTime(InStartTime: number): void;
-    SetCurrentTime(CurrentTime: number): void;
-    SetCacheCollection(InCacheCollection: UChaosCacheCollection): void;
-    ResetSingleTransform(InIndex: number): void;
-    ResetAllComponentTransforms(): void;
-    EnablePlaybackByCache(InCacheName: FName, bEnable: boolean): void;
-    EnablePlayback(Index: number, bEnable: boolean): void;
+    readonly __static_AChaosCacheManager: {
+        TriggerComponentByCache(InCacheName: string): void;
+        TriggerComponent(InComponent: UPrimitiveComponent): void;
+        TriggerAll(): void;
+        SetStartTime(InStartTime: number): void;
+        SetCurrentTime(CurrentTime: number): void;
+        SetCacheCollection(InCacheCollection: UChaosCacheCollection): void;
+        ResetSingleTransform(InIndex: number): void;
+        ResetAllComponentTransforms(): void;
+        EnablePlaybackByCache(InCacheName: string, bEnable: boolean): void;
+        EnablePlayback(Index: number, bEnable: boolean): void;
+    };
+    readonly __properties_AChaosCacheManager: {
+        CacheCollection: UChaosCacheCollection;
+        CacheMode: ECacheMode;
+        StartMode: EStartMode;
+        StartTime: number;
+        ObservedComponents: FObservedComponent[];
+    };
+    readonly __staticRegistry: 
+        AChaosCacheManager['__static_AChaosCacheManager'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AChaosCacheManager['__properties_AChaosCacheManager'] &
+        AActor['__propertyRegistry'];
 }
-declare const AChaosCacheManager: AChaosCacheManager;
 
 declare interface AChaosCachePlayer extends AChaosCacheManager {
-
+    readonly __staticRegistry: 
+        AChaosCacheManager['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AChaosCacheManager['__propertyRegistry'];
 }
-declare const AChaosCachePlayer: AChaosCachePlayer;
 
 declare interface FBreakingEvent extends FCacheEventBase {
     Index: number;
@@ -32,26 +43,20 @@ declare interface FBreakingEvent extends FCacheEventBase {
     BoundingBoxMin: FVector;
     BoundingBoxMax: FVector;
 }
-declare const FBreakingEvent: FBreakingEvent;
 
-declare interface FCacheEventBase {
-
-}
-declare const FCacheEventBase: FCacheEventBase;
+declare type FCacheEventBase = object;
 
 declare interface FCacheEventTrack {
-    Name: FName;
+    Name: string;
     Struct: UScriptStruct;
-    TimeStamps: TArray<number>;
+    TimeStamps: number[];
 }
-declare const FCacheEventTrack: FCacheEventTrack;
 
 declare interface FCacheSpawnableTemplate {
     DuplicatedTemplate: UObject;
     InitialTransform: FTransform;
     ComponentTransform: FTransform;
 }
-declare const FCacheSpawnableTemplate: FCacheSpawnableTemplate;
 
 declare interface FCollisionEvent extends FCacheEventBase {
     Location: FVector;
@@ -67,62 +72,52 @@ declare interface FCollisionEvent extends FCacheEventBase {
     Mass2: number;
     PenetrationDepth: number;
 }
-declare const FCollisionEvent: FCollisionEvent;
 
 declare interface FCompressedRichCurves {
-    CompressedRichCurves: TArray<FCompressedRichCurve>;
+    CompressedRichCurves: FCompressedRichCurve[];
 }
-declare const FCompressedRichCurves: FCompressedRichCurves;
 
 declare interface FEnableStateEvent extends FCacheEventBase {
     Index: number;
     bEnable: boolean;
 }
-declare const FEnableStateEvent: FEnableStateEvent;
 
 declare interface FMovieSceneChaosCacheParams extends FMovieSceneBaseCacheParams {
     CacheCollection: UChaosCacheCollection;
 }
-declare const FMovieSceneChaosCacheParams: FMovieSceneChaosCacheParams;
 
 declare interface FMovieSceneChaosCacheSectionTemplate extends FMovieSceneEvalTemplate {
     Params: FMovieSceneChaosCacheSectionTemplateParameters;
 }
-declare const FMovieSceneChaosCacheSectionTemplate: FMovieSceneChaosCacheSectionTemplate;
 
 declare interface FMovieSceneChaosCacheSectionTemplateParameters extends FMovieSceneBaseCacheSectionTemplateParameters {
     ChaosCacheParams: FMovieSceneChaosCacheParams;
 }
-declare const FMovieSceneChaosCacheSectionTemplateParameters: FMovieSceneChaosCacheSectionTemplateParameters;
 
 declare interface FObservedComponent {
-    CacheName: FName;
+    CacheName: string;
     ComponentRef: FComponentReference;
     SoftComponentRef: FSoftComponentReference;
     bIsSimulating: boolean;
     bPlaybackEnabled: boolean;
     USDCacheDirectory: FDirectoryPath;
 }
-declare const FObservedComponent: FObservedComponent;
 
 declare interface FParticleTransformTrack {
     RawTransformTrack: FRawAnimSequenceTrack;
     BeginOffset: number;
     bDeactivateOnEnd: boolean;
-    KeyTimestamps: TArray<number>;
+    KeyTimestamps: number[];
 }
-declare const FParticleTransformTrack: FParticleTransformTrack;
 
 declare interface FPerParticleCacheData {
     TransformData: FParticleTransformTrack;
-    CurveData: Record<FName, FRichCurve>;
+    CurveData: TMap<string, FRichCurve>;
 }
-declare const FPerParticleCacheData: FPerParticleCacheData;
 
 declare interface FRichCurves {
-    RichCurves: TArray<FRichCurve>;
+    RichCurves: FRichCurve[];
 }
-declare const FRichCurves: FRichCurves;
 
 declare interface FTrailingEvent extends FCacheEventBase {
     Index: number;
@@ -133,53 +128,80 @@ declare interface FTrailingEvent extends FCacheEventBase {
     BoundingBoxMin: FVector;
     BoundingBoxMax: FVector;
 }
-declare const FTrailingEvent: FTrailingEvent;
 
 declare interface IChaosCacheData extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IChaosCacheData: IChaosCacheData;
 
 declare interface UChaosCache extends UObject {
-    RecordedDuration: number;
-    NumRecordedFrames: uint32;
-    InterpolationMode: EChaosCacheInterpolationMode;
-    TrackToParticle: TArray<number>;
-    ParticleTracks: TArray<FPerParticleCacheData>;
-    ChannelCurveToParticle: TArray<number>;
-    ChannelsTracks: Record<FName, FRichCurves>;
-    CompressedChannelsTracks: Record<FName, FCompressedRichCurves>;
-    CurveData: Record<FName, FRichCurve>;
-    NamedTransformTracks: Record<FName, FParticleTransformTrack>;
-    bCompressChannels: boolean;
-    ChannelsCompressionErrorThreshold: number;
-    ChannelsCompressionSampleRate: number;
-    CacheData: TScriptInterface<IChaosCacheData>;
-    EventTracks: Record<FName, FCacheEventTrack>;
-    Spawnable: FCacheSpawnableTemplate;
-    AdapterGuid: FGuid;
-    Version: number;
+    readonly __properties_UChaosCache: {
+        RecordedDuration: number;
+        NumRecordedFrames: number;
+        InterpolationMode: EChaosCacheInterpolationMode;
+        TrackToParticle: number[];
+        ParticleTracks: FPerParticleCacheData[];
+        ChannelCurveToParticle: number[];
+        ChannelsTracks: TMap<string, FRichCurves>;
+        CompressedChannelsTracks: TMap<string, FCompressedRichCurves>;
+        CurveData: TMap<string, FRichCurve>;
+        NamedTransformTracks: TMap<string, FParticleTransformTrack>;
+        bCompressChannels: boolean;
+        ChannelsCompressionErrorThreshold: number;
+        ChannelsCompressionSampleRate: number;
+        CacheData: TScriptInterface<IChaosCacheData>;
+        EventTracks: TMap<string, FCacheEventTrack>;
+        Spawnable: FCacheSpawnableTemplate;
+        AdapterGuid: FGuid;
+        Version: number;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UChaosCache['__properties_UChaosCache'] &
+        UObject['__propertyRegistry'];
 }
-declare const UChaosCache: UChaosCache;
 
 declare interface UChaosCacheCollection extends UObject {
-    Caches: TArray<UChaosCache>;
-    InterpolationMode: EChaosCacheInterpolationMode;
+    readonly __properties_UChaosCacheCollection: {
+        Caches: UChaosCache[];
+        InterpolationMode: EChaosCacheInterpolationMode;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UChaosCacheCollection['__properties_UChaosCacheCollection'] &
+        UObject['__propertyRegistry'];
 }
-declare const UChaosCacheCollection: UChaosCacheCollection;
 
 declare interface UMovieSceneChaosCacheSection extends UMovieSceneBaseCacheSection {
-    Params: FMovieSceneChaosCacheParams;
+    readonly __properties_UMovieSceneChaosCacheSection: {
+        Params: FMovieSceneChaosCacheParams;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneBaseCacheSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneChaosCacheSection['__properties_UMovieSceneChaosCacheSection'] &
+        UMovieSceneBaseCacheSection['__propertyRegistry'];
 }
-declare const UMovieSceneChaosCacheSection: UMovieSceneChaosCacheSection;
 
 declare interface UMovieSceneChaosCacheTrack extends UMovieSceneNameableTrack {
-    AnimationSections: TArray<UMovieSceneSection>;
+    readonly __properties_UMovieSceneChaosCacheTrack: {
+        AnimationSections: UMovieSceneSection[];
+    };
+    readonly __staticRegistry: 
+        UMovieSceneNameableTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneChaosCacheTrack['__properties_UMovieSceneChaosCacheTrack'] &
+        UMovieSceneNameableTrack['__propertyRegistry'];
 }
-declare const UMovieSceneChaosCacheTrack: UMovieSceneChaosCacheTrack;
 
 declare interface UMovieSceneSpawnableChaosCacheBinding extends UMovieSceneSpawnableActorBinding {
-
+    readonly __staticRegistry: 
+        UMovieSceneSpawnableActorBinding['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneSpawnableActorBinding['__propertyRegistry'];
 }
-declare const UMovieSceneSpawnableChaosCacheBinding: UMovieSceneSpawnableChaosCacheBinding;
 

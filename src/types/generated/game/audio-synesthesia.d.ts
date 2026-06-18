@@ -1,8 +1,7 @@
 declare interface FConstantQResults {
     TimeSeconds: number;
-    SpectrumValues: TArray<number>;
+    SpectrumValues: number[];
 }
-declare const FConstantQResults: FConstantQResults;
 
 declare interface FLoudnessResults {
     Loudness: number;
@@ -10,7 +9,6 @@ declare interface FLoudnessResults {
     PerceptualEnergy: number;
     TimeSeconds: number;
 }
-declare const FLoudnessResults: FLoudnessResults;
 
 declare interface FMeterResults {
     TimeSeconds: number;
@@ -19,162 +17,265 @@ declare interface FMeterResults {
     NumSamplesClipping: number;
     ClippingValue: number;
 }
-declare const FMeterResults: FMeterResults;
 
 declare interface FSynesthesiaSpectrumResults {
     TimeSeconds: number;
-    SpectrumValues: TArray<number>;
+    SpectrumValues: number[];
 }
-declare const FSynesthesiaSpectrumResults: FSynesthesiaSpectrumResults;
 
 declare interface UAudioSynesthesiaNRT extends UAudioAnalyzerNRT {
-
+    readonly __staticRegistry: 
+        UAudioAnalyzerNRT['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioAnalyzerNRT['__propertyRegistry'];
 }
-declare const UAudioSynesthesiaNRT: UAudioSynesthesiaNRT;
 
 declare interface UAudioSynesthesiaNRTSettings extends UAudioAnalyzerNRTSettings {
-
+    readonly __staticRegistry: 
+        UAudioAnalyzerNRTSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioAnalyzerNRTSettings['__propertyRegistry'];
 }
-declare const UAudioSynesthesiaNRTSettings: UAudioSynesthesiaNRTSettings;
 
 declare interface UAudioSynesthesiaSettings extends UAudioAnalyzerSettings {
-
+    readonly __staticRegistry: 
+        UAudioAnalyzerSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioAnalyzerSettings['__propertyRegistry'];
 }
-declare const UAudioSynesthesiaSettings: UAudioSynesthesiaSettings;
 
 declare interface UConstantQAnalyzer extends UAudioAnalyzer {
-    Settings: UConstantQSettings;
-    OnConstantQResults: FConstantQAnalyzerOnConstantQResults;
-    OnLatestConstantQResults: FConstantQAnalyzerOnLatestConstantQResults;
-    GetNumCenterFrequencies(): number;
-    GetCenterFrequencies(OutCenterFrequencies: TArray<number>): void;
+    readonly __static_UConstantQAnalyzer: {
+        GetNumCenterFrequencies(): number;
+        GetCenterFrequencies(OutCenterFrequencies: number[]): void;
+    };
+    readonly __properties_UConstantQAnalyzer: {
+        Settings: UConstantQSettings;
+        OnConstantQResults: FConstantQAnalyzerOnConstantQResults;
+        OnLatestConstantQResults: FConstantQAnalyzerOnLatestConstantQResults;
+    };
+    readonly __staticRegistry: 
+        UConstantQAnalyzer['__static_UConstantQAnalyzer'] &
+        UAudioAnalyzer['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UConstantQAnalyzer['__properties_UConstantQAnalyzer'] &
+        UAudioAnalyzer['__propertyRegistry'];
 }
-declare const UConstantQAnalyzer: UConstantQAnalyzer;
 
 declare interface UConstantQNRT extends UAudioSynesthesiaNRT {
-    Settings: UConstantQNRTSettings;
-    GetNormalizedChannelConstantQAtTime(InSeconds: number, InChannel: number, OutConstantQ: TArray<number>): void;
-    GetChannelConstantQAtTime(InSeconds: number, InChannel: number, OutConstantQ: TArray<number>): void;
+    readonly __static_UConstantQNRT: {
+        GetNormalizedChannelConstantQAtTime(InSeconds: number, InChannel: number, OutConstantQ: number[]): void;
+        GetChannelConstantQAtTime(InSeconds: number, InChannel: number, OutConstantQ: number[]): void;
+    };
+    readonly __properties_UConstantQNRT: {
+        Settings: UConstantQNRTSettings;
+    };
+    readonly __staticRegistry: 
+        UConstantQNRT['__static_UConstantQNRT'] &
+        UAudioSynesthesiaNRT['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UConstantQNRT['__properties_UConstantQNRT'] &
+        UAudioSynesthesiaNRT['__propertyRegistry'];
 }
-declare const UConstantQNRT: UConstantQNRT;
 
 declare interface UConstantQNRTSettings extends UAudioSynesthesiaNRTSettings {
-    StartingFrequency: number;
-    NumBands: number;
-    NumBandsPerOctave: number;
-    AnalysisPeriod: number;
-    bDownmixToMono: boolean;
-    FFTSize: EConstantQFFTSizeEnum;
-    WindowType: EFFTWindowType;
-    SpectrumType: EAudioSpectrumType;
-    BandWidthStretch: number;
-    CQTNormalization: EConstantQNormalizationEnum;
-    NoiseFloorDb: number;
+    readonly __properties_UConstantQNRTSettings: {
+        StartingFrequency: number;
+        NumBands: number;
+        NumBandsPerOctave: number;
+        AnalysisPeriod: number;
+        bDownmixToMono: boolean;
+        FFTSize: EConstantQFFTSizeEnum;
+        WindowType: EFFTWindowType;
+        SpectrumType: EAudioSpectrumType;
+        BandWidthStretch: number;
+        CQTNormalization: EConstantQNormalizationEnum;
+        NoiseFloorDb: number;
+    };
+    readonly __staticRegistry: 
+        UAudioSynesthesiaNRTSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UConstantQNRTSettings['__properties_UConstantQNRTSettings'] &
+        UAudioSynesthesiaNRTSettings['__propertyRegistry'];
 }
-declare const UConstantQNRTSettings: UConstantQNRTSettings;
 
 declare interface UConstantQSettings extends UAudioSynesthesiaSettings {
-    StartingFrequencyHz: number;
-    NumBands: number;
-    NumBandsPerOctave: number;
-    AnalysisPeriodInSeconds: number;
-    bDownmixToMono: boolean;
-    FFTSize: EConstantQFFTSizeEnum;
-    WindowType: EFFTWindowType;
-    SpectrumType: EAudioSpectrumType;
-    BandWidthStretch: number;
-    CQTNormalization: EConstantQNormalizationEnum;
-    NoiseFloorDb: number;
+    readonly __properties_UConstantQSettings: {
+        StartingFrequencyHz: number;
+        NumBands: number;
+        NumBandsPerOctave: number;
+        AnalysisPeriodInSeconds: number;
+        bDownmixToMono: boolean;
+        FFTSize: EConstantQFFTSizeEnum;
+        WindowType: EFFTWindowType;
+        SpectrumType: EAudioSpectrumType;
+        BandWidthStretch: number;
+        CQTNormalization: EConstantQNormalizationEnum;
+        NoiseFloorDb: number;
+    };
+    readonly __staticRegistry: 
+        UAudioSynesthesiaSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UConstantQSettings['__properties_UConstantQSettings'] &
+        UAudioSynesthesiaSettings['__propertyRegistry'];
 }
-declare const UConstantQSettings: UConstantQSettings;
 
 declare interface ULoudnessAnalyzer extends UAudioAnalyzer {
-    Settings: ULoudnessSettings;
-    OnOverallLoudnessResults: FLoudnessAnalyzerOnOverallLoudnessResults;
-    OnPerChannelLoudnessResults: FLoudnessAnalyzerOnPerChannelLoudnessResults;
-    OnLatestOverallLoudnessResults: FLoudnessAnalyzerOnLatestOverallLoudnessResults;
-    OnLatestPerChannelLoudnessResults: FLoudnessAnalyzerOnLatestPerChannelLoudnessResults;
+    readonly __properties_ULoudnessAnalyzer: {
+        Settings: ULoudnessSettings;
+        OnOverallLoudnessResults: FLoudnessAnalyzerOnOverallLoudnessResults;
+        OnPerChannelLoudnessResults: FLoudnessAnalyzerOnPerChannelLoudnessResults;
+        OnLatestOverallLoudnessResults: FLoudnessAnalyzerOnLatestOverallLoudnessResults;
+        OnLatestPerChannelLoudnessResults: FLoudnessAnalyzerOnLatestPerChannelLoudnessResults;
+    };
+    readonly __staticRegistry: 
+        UAudioAnalyzer['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULoudnessAnalyzer['__properties_ULoudnessAnalyzer'] &
+        UAudioAnalyzer['__propertyRegistry'];
 }
-declare const ULoudnessAnalyzer: ULoudnessAnalyzer;
 
 declare interface ULoudnessNRT extends UAudioSynesthesiaNRT {
-    Settings: ULoudnessNRTSettings;
-    GetNormalizedLoudnessAtTime(InSeconds: number, OutLoudness: number): void;
-    GetNormalizedChannelLoudnessAtTime(InSeconds: number, InChannel: number, OutLoudness: number): void;
-    GetLoudnessAtTime(InSeconds: number, OutLoudness: number): void;
-    GetChannelLoudnessAtTime(InSeconds: number, InChannel: number, OutLoudness: number): void;
+    readonly __static_ULoudnessNRT: {
+        GetNormalizedLoudnessAtTime(InSeconds: number, OutLoudness: number): void;
+        GetNormalizedChannelLoudnessAtTime(InSeconds: number, InChannel: number, OutLoudness: number): void;
+        GetLoudnessAtTime(InSeconds: number, OutLoudness: number): void;
+        GetChannelLoudnessAtTime(InSeconds: number, InChannel: number, OutLoudness: number): void;
+    };
+    readonly __properties_ULoudnessNRT: {
+        Settings: ULoudnessNRTSettings;
+    };
+    readonly __staticRegistry: 
+        ULoudnessNRT['__static_ULoudnessNRT'] &
+        UAudioSynesthesiaNRT['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULoudnessNRT['__properties_ULoudnessNRT'] &
+        UAudioSynesthesiaNRT['__propertyRegistry'];
 }
-declare const ULoudnessNRT: ULoudnessNRT;
 
 declare interface ULoudnessNRTSettings extends UAudioSynesthesiaNRTSettings {
-    AnalysisPeriod: number;
-    MinimumFrequency: number;
-    MaximumFrequency: number;
-    CurveType: ELoudnessNRTCurveTypeEnum;
-    NoiseFloorDb: number;
+    readonly __properties_ULoudnessNRTSettings: {
+        AnalysisPeriod: number;
+        MinimumFrequency: number;
+        MaximumFrequency: number;
+        CurveType: ELoudnessNRTCurveTypeEnum;
+        NoiseFloorDb: number;
+    };
+    readonly __staticRegistry: 
+        UAudioSynesthesiaNRTSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULoudnessNRTSettings['__properties_ULoudnessNRTSettings'] &
+        UAudioSynesthesiaNRTSettings['__propertyRegistry'];
 }
-declare const ULoudnessNRTSettings: ULoudnessNRTSettings;
 
 declare interface ULoudnessSettings extends UAudioSynesthesiaSettings {
-    AnalysisPeriod: number;
-    MinimumFrequency: number;
-    MaximumFrequency: number;
-    CurveType: ELoudnessCurveTypeEnum;
-    NoiseFloorDb: number;
-    ExpectedMaxLoudness: number;
+    readonly __properties_ULoudnessSettings: {
+        AnalysisPeriod: number;
+        MinimumFrequency: number;
+        MaximumFrequency: number;
+        CurveType: ELoudnessCurveTypeEnum;
+        NoiseFloorDb: number;
+        ExpectedMaxLoudness: number;
+    };
+    readonly __staticRegistry: 
+        UAudioSynesthesiaSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULoudnessSettings['__properties_ULoudnessSettings'] &
+        UAudioSynesthesiaSettings['__propertyRegistry'];
 }
-declare const ULoudnessSettings: ULoudnessSettings;
 
 declare interface UMeterAnalyzer extends UAudioAnalyzer {
-    Settings: UMeterSettings;
-    OnOverallMeterResults: FMeterAnalyzerOnOverallMeterResults;
-    OnPerChannelMeterResults: FMeterAnalyzerOnPerChannelMeterResults;
-    OnLatestOverallMeterResults: FMeterAnalyzerOnLatestOverallMeterResults;
-    OnLatestPerChannelMeterResults: FMeterAnalyzerOnLatestPerChannelMeterResults;
+    readonly __properties_UMeterAnalyzer: {
+        Settings: UMeterSettings;
+        OnOverallMeterResults: FMeterAnalyzerOnOverallMeterResults;
+        OnPerChannelMeterResults: FMeterAnalyzerOnPerChannelMeterResults;
+        OnLatestOverallMeterResults: FMeterAnalyzerOnLatestOverallMeterResults;
+        OnLatestPerChannelMeterResults: FMeterAnalyzerOnLatestPerChannelMeterResults;
+    };
+    readonly __staticRegistry: 
+        UAudioAnalyzer['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMeterAnalyzer['__properties_UMeterAnalyzer'] &
+        UAudioAnalyzer['__propertyRegistry'];
 }
-declare const UMeterAnalyzer: UMeterAnalyzer;
 
 declare interface UMeterSettings extends UAudioSynesthesiaSettings {
-    AnalysisPeriod: number;
-    PeakMode: EMeterPeakType;
-    MeterAttackTime: number;
-    MeterReleaseTime: number;
-    PeakHoldTime: number;
-    ClippingThreshold: number;
+    readonly __properties_UMeterSettings: {
+        AnalysisPeriod: number;
+        PeakMode: EMeterPeakType;
+        MeterAttackTime: number;
+        MeterReleaseTime: number;
+        PeakHoldTime: number;
+        ClippingThreshold: number;
+    };
+    readonly __staticRegistry: 
+        UAudioSynesthesiaSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMeterSettings['__properties_UMeterSettings'] &
+        UAudioSynesthesiaSettings['__propertyRegistry'];
 }
-declare const UMeterSettings: UMeterSettings;
 
 declare interface UOnsetNRT extends UAudioSynesthesiaNRT {
-    Settings: UOnsetNRTSettings;
-    GetNormalizedChannelOnsetsBetweenTimes(InStartSeconds: number, InEndSeconds: number, InChannel: number, OutOnsetTimestamps: TArray<number>, OutOnsetStrengths: TArray<number>): void;
-    GetChannelOnsetsBetweenTimes(InStartSeconds: number, InEndSeconds: number, InChannel: number, OutOnsetTimestamps: TArray<number>, OutOnsetStrengths: TArray<number>): void;
+    readonly __static_UOnsetNRT: {
+        GetNormalizedChannelOnsetsBetweenTimes(InStartSeconds: number, InEndSeconds: number, InChannel: number, OutOnsetTimestamps: number[], OutOnsetStrengths: number[]): void;
+        GetChannelOnsetsBetweenTimes(InStartSeconds: number, InEndSeconds: number, InChannel: number, OutOnsetTimestamps: number[], OutOnsetStrengths: number[]): void;
+    };
+    readonly __properties_UOnsetNRT: {
+        Settings: UOnsetNRTSettings;
+    };
+    readonly __staticRegistry: 
+        UOnsetNRT['__static_UOnsetNRT'] &
+        UAudioSynesthesiaNRT['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOnsetNRT['__properties_UOnsetNRT'] &
+        UAudioSynesthesiaNRT['__propertyRegistry'];
 }
-declare const UOnsetNRT: UOnsetNRT;
 
 declare interface UOnsetNRTSettings extends UAudioSynesthesiaNRTSettings {
-    bDownmixToMono: boolean;
-    GranularityInSeconds: number;
-    Sensitivity: number;
-    MinimumFrequency: number;
-    MaximumFrequency: number;
+    readonly __properties_UOnsetNRTSettings: {
+        bDownmixToMono: boolean;
+        GranularityInSeconds: number;
+        Sensitivity: number;
+        MinimumFrequency: number;
+        MaximumFrequency: number;
+    };
+    readonly __staticRegistry: 
+        UAudioSynesthesiaNRTSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOnsetNRTSettings['__properties_UOnsetNRTSettings'] &
+        UAudioSynesthesiaNRTSettings['__propertyRegistry'];
 }
-declare const UOnsetNRTSettings: UOnsetNRTSettings;
 
 declare interface USynesthesiaSpectrumAnalysisSettings extends UAudioSynesthesiaSettings {
-    AnalysisPeriod: number;
-    FFTSize: EFFTSize;
-    SpectrumType: EAudioSpectrumType;
-    WindowType: EFFTWindowType;
-    bDownmixToMono: boolean;
+    readonly __properties_USynesthesiaSpectrumAnalysisSettings: {
+        AnalysisPeriod: number;
+        FFTSize: EFFTSize;
+        SpectrumType: EAudioSpectrumType;
+        WindowType: EFFTWindowType;
+        bDownmixToMono: boolean;
+    };
+    readonly __staticRegistry: 
+        UAudioSynesthesiaSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USynesthesiaSpectrumAnalysisSettings['__properties_USynesthesiaSpectrumAnalysisSettings'] &
+        UAudioSynesthesiaSettings['__propertyRegistry'];
 }
-declare const USynesthesiaSpectrumAnalysisSettings: USynesthesiaSpectrumAnalysisSettings;
 
 declare interface USynesthesiaSpectrumAnalyzer extends UAudioAnalyzer {
-    Settings: USynesthesiaSpectrumAnalysisSettings;
-    OnSpectrumResults: FSynesthesiaSpectrumAnalyzerOnSpectrumResults;
-    OnLatestSpectrumResults: FSynesthesiaSpectrumAnalyzerOnLatestSpectrumResults;
-    GetNumCenterFrequencies(): number;
-    GetCenterFrequencies(InSampleRate: number, OutCenterFrequencies: TArray<number>): void;
+    readonly __static_USynesthesiaSpectrumAnalyzer: {
+        GetNumCenterFrequencies(): number;
+        GetCenterFrequencies(InSampleRate: number, OutCenterFrequencies: number[]): void;
+    };
+    readonly __properties_USynesthesiaSpectrumAnalyzer: {
+        Settings: USynesthesiaSpectrumAnalysisSettings;
+        OnSpectrumResults: FSynesthesiaSpectrumAnalyzerOnSpectrumResults;
+        OnLatestSpectrumResults: FSynesthesiaSpectrumAnalyzerOnLatestSpectrumResults;
+    };
+    readonly __staticRegistry: 
+        USynesthesiaSpectrumAnalyzer['__static_USynesthesiaSpectrumAnalyzer'] &
+        UAudioAnalyzer['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USynesthesiaSpectrumAnalyzer['__properties_USynesthesiaSpectrumAnalyzer'] &
+        UAudioAnalyzer['__propertyRegistry'];
 }
-declare const USynesthesiaSpectrumAnalyzer: USynesthesiaSpectrumAnalyzer;
 

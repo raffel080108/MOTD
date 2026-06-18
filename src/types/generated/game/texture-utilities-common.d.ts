@@ -1,15 +1,27 @@
 declare interface UTextureImportSettings extends UDeveloperSettings {
-    AutoVTSize: number;
-    AutoLimitDimension: number;
-    bEnableNormalizeNormals: boolean;
-    bEnableFastMipFilter: boolean;
-    CompressedFormatForFloatTextures: ETextureImportFloatingPointFormat;
-    PNGInfill: ETextureImportPNGInfill;
+    readonly __properties_UTextureImportSettings: {
+        AutoVTSize: number;
+        AutoLimitDimension: number;
+        bEnableNormalizeNormals: boolean;
+        bEnableFastMipFilter: boolean;
+        CompressedFormatForFloatTextures: ETextureImportFloatingPointFormat;
+        PNGInfill: ETextureImportPNGInfill;
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTextureImportSettings['__properties_UTextureImportSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UTextureImportSettings: UTextureImportSettings;
 
 declare interface UTextureImportUserSettings extends UDeveloperSettings {
-    PNGInfill: ETextureImportPNGInfill;
+    readonly __properties_UTextureImportUserSettings: {
+        PNGInfill: ETextureImportPNGInfill;
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTextureImportUserSettings['__properties_UTextureImportUserSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UTextureImportUserSettings: UTextureImportUserSettings;
 

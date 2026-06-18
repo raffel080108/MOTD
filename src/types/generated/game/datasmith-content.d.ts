@@ -1,64 +1,80 @@
 declare interface ADatasmithAreaLightActor extends AActor {
-    Mobility: EComponentMobility;
-    LightType: EDatasmithAreaLightActorType;
-    LightShape: EDatasmithAreaLightActorShape;
-    Dimensions: FVector2D;
-    Intensity: number;
-    IntensityUnits: ELightUnits;
-    Color: FLinearColor;
-    temperature: number;
-    IESTexture: UTextureLightProfile;
-    bUseIESBrightness: boolean;
-    IESBrightnessScale: number;
-    Rotation: FRotator;
-    SourceRadius: number;
-    SourceLength: number;
-    AttenuationRadius: number;
-    SpotlightInnerAngle: number;
-    SpotlightOuterAngle: number;
+    readonly __properties_ADatasmithAreaLightActor: {
+        Mobility: EComponentMobility;
+        LightType: EDatasmithAreaLightActorType;
+        LightShape: EDatasmithAreaLightActorShape;
+        Dimensions: FVector2D;
+        Intensity: number;
+        IntensityUnits: ELightUnits;
+        Color: FLinearColor;
+        temperature: number;
+        IESTexture: UTextureLightProfile;
+        bUseIESBrightness: boolean;
+        IESBrightnessScale: number;
+        Rotation: FRotator;
+        SourceRadius: number;
+        SourceLength: number;
+        AttenuationRadius: number;
+        SpotlightInnerAngle: number;
+        SpotlightOuterAngle: number;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ADatasmithAreaLightActor['__properties_ADatasmithAreaLightActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const ADatasmithAreaLightActor: ADatasmithAreaLightActor;
 
 declare interface ADatasmithImportedSequencesActor extends AActor {
-    ImportedSequences: TArray<ULevelSequence>;
-    PlayLevelSequence(SequenceToPlay: ULevelSequence): void;
+    readonly __static_ADatasmithImportedSequencesActor: {
+        PlayLevelSequence(SequenceToPlay: ULevelSequence): void;
+    };
+    readonly __properties_ADatasmithImportedSequencesActor: {
+        ImportedSequences: ULevelSequence[];
+    };
+    readonly __staticRegistry: 
+        ADatasmithImportedSequencesActor['__static_ADatasmithImportedSequencesActor'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ADatasmithImportedSequencesActor['__properties_ADatasmithImportedSequencesActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const ADatasmithImportedSequencesActor: ADatasmithImportedSequencesActor;
 
 declare interface ADatasmithSceneActor extends AActor {
-    Scene: UDatasmithScene;
-    RelatedActors: Record<FName, TSoftObjectPtr<AActor>>;
+    readonly __properties_ADatasmithSceneActor: {
+        Scene: UDatasmithScene;
+        RelatedActors: TMap<string, TSoftObjectPtr<AActor>>;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ADatasmithSceneActor['__properties_ADatasmithSceneActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const ADatasmithSceneActor: ADatasmithSceneActor;
 
 declare interface FDatasmithAssetImportOptions {
-    PackagePath: FName;
+    PackagePath: string;
 }
-declare const FDatasmithAssetImportOptions: FDatasmithAssetImportOptions;
 
 declare interface FDatasmithCameraFilmbackSettingsTemplate {
     SensorWidth: number;
     SensorHeight: number;
 }
-declare const FDatasmithCameraFilmbackSettingsTemplate: FDatasmithCameraFilmbackSettingsTemplate;
 
 declare interface FDatasmithCameraFocusSettingsTemplate {
     FocusMethod: ECameraFocusMethod;
     ManualFocusDistance: number;
 }
-declare const FDatasmithCameraFocusSettingsTemplate: FDatasmithCameraFocusSettingsTemplate;
 
 declare interface FDatasmithCameraLensSettingsTemplate {
     MaxFStop: number;
 }
-declare const FDatasmithCameraLensSettingsTemplate: FDatasmithCameraLensSettingsTemplate;
 
 declare interface FDatasmithCameraLookatTrackingSettingsTemplate {
     bEnableLookAtTracking: boolean;
     bAllowRoll: boolean;
     ActorToTrack: TSoftObjectPtr<AActor>;
 }
-declare const FDatasmithCameraLookatTrackingSettingsTemplate: FDatasmithCameraLookatTrackingSettingsTemplate;
 
 declare interface FDatasmithImportBaseOptions {
     SceneHandling: EDatasmithImportScene;
@@ -70,12 +86,8 @@ declare interface FDatasmithImportBaseOptions {
     AssetOptions: FDatasmithAssetImportOptions;
     StaticMeshOptions: FDatasmithStaticMeshImportOptions;
 }
-declare const FDatasmithImportBaseOptions: FDatasmithImportBaseOptions;
 
-declare interface FDatasmithImportInfo {
-
-}
-declare const FDatasmithImportInfo: FDatasmithImportInfo;
+declare type FDatasmithImportInfo = object;
 
 declare interface FDatasmithMeshBuildSettingsTemplate {
     bUseMikkTSpace: boolean;
@@ -89,17 +101,14 @@ declare interface FDatasmithMeshBuildSettingsTemplate {
     SrcLightmapIndex: number;
     DstLightmapIndex: number;
 }
-declare const FDatasmithMeshBuildSettingsTemplate: FDatasmithMeshBuildSettingsTemplate;
 
 declare interface FDatasmithMeshSectionInfoMapTemplate {
-    Map: Record<string | number | symbol, FDatasmithMeshSectionInfoTemplate>;
+    Map: TMap<number, FDatasmithMeshSectionInfoTemplate>;
 }
-declare const FDatasmithMeshSectionInfoMapTemplate: FDatasmithMeshSectionInfoMapTemplate;
 
 declare interface FDatasmithMeshSectionInfoTemplate {
     MaterialIndex: number;
 }
-declare const FDatasmithMeshSectionInfoTemplate: FDatasmithMeshSectionInfoTemplate;
 
 declare interface FDatasmithPostProcessSettingsTemplate {
     bOverride_WhiteTemp: boolean;
@@ -117,24 +126,20 @@ declare interface FDatasmithPostProcessSettingsTemplate {
     CameraShutterSpeed: number;
     DepthOfFieldFstop: number;
 }
-declare const FDatasmithPostProcessSettingsTemplate: FDatasmithPostProcessSettingsTemplate;
 
 declare interface FDatasmithReimportOptions {
     bUpdateActors: boolean;
     bRespawnDeletedActors: boolean;
 }
-declare const FDatasmithReimportOptions: FDatasmithReimportOptions;
 
 declare interface FDatasmithRetessellationOptions extends FDatasmithTessellationOptions {
     RetessellationRule: EDatasmithCADRetessellationRule;
 }
-declare const FDatasmithRetessellationOptions: FDatasmithRetessellationOptions;
 
 declare interface FDatasmithStaticMaterialTemplate {
-    MaterialSlotName: FName;
+    MaterialSlotName: string;
     MaterialInterface: UMaterialInterface;
 }
-declare const FDatasmithStaticMaterialTemplate: FDatasmithStaticMaterialTemplate;
 
 declare interface FDatasmithStaticMeshImportOptions {
     MinLightmapResolution: EDatasmithImportLightmapMin;
@@ -142,12 +147,10 @@ declare interface FDatasmithStaticMeshImportOptions {
     bGenerateLightmapUVs: boolean;
     bRemoveDegenerates: boolean;
 }
-declare const FDatasmithStaticMeshImportOptions: FDatasmithStaticMeshImportOptions;
 
 declare interface FDatasmithStaticParameterSetTemplate {
-    StaticSwitchParameters: Record<FName, boolean>;
+    StaticSwitchParameters: TMap<string, boolean>;
 }
-declare const FDatasmithStaticParameterSetTemplate: FDatasmithStaticParameterSetTemplate;
 
 declare interface FDatasmithTessellationOptions {
     ChordTolerance: number;
@@ -157,289 +160,460 @@ declare interface FDatasmithTessellationOptions {
     GeometricTolerance: number;
     StitchingTolerance: number;
 }
-declare const FDatasmithTessellationOptions: FDatasmithTessellationOptions;
 
 declare interface UDatasmithActorTemplate extends UDatasmithObjectTemplate {
-    Layers: TSet<FName>;
-    Tags: TSet<FName>;
+    readonly __properties_UDatasmithActorTemplate: {
+        Layers: string[];
+        Tags: string[];
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithActorTemplate['__properties_UDatasmithActorTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithActorTemplate: UDatasmithActorTemplate;
 
 declare interface UDatasmithAdditionalData extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UDatasmithAdditionalData: UDatasmithAdditionalData;
 
 declare interface UDatasmithAreaLightActorTemplate extends UDatasmithObjectTemplate {
-    LightType: EDatasmithAreaLightActorType;
-    LightShape: EDatasmithAreaLightActorShape;
-    Dimensions: FVector2D;
-    Color: FLinearColor;
-    Intensity: number;
-    IntensityUnits: ELightUnits;
-    temperature: number;
-    IESTexture: TSoftObjectPtr<UTextureLightProfile>;
-    bUseIESBrightness: boolean;
-    IESBrightnessScale: number;
-    Rotation: FRotator;
-    SourceRadius: number;
-    SourceLength: number;
-    AttenuationRadius: number;
+    readonly __properties_UDatasmithAreaLightActorTemplate: {
+        LightType: EDatasmithAreaLightActorType;
+        LightShape: EDatasmithAreaLightActorShape;
+        Dimensions: FVector2D;
+        Color: FLinearColor;
+        Intensity: number;
+        IntensityUnits: ELightUnits;
+        temperature: number;
+        IESTexture: TSoftObjectPtr<UTextureLightProfile>;
+        bUseIESBrightness: boolean;
+        IESBrightnessScale: number;
+        Rotation: FRotator;
+        SourceRadius: number;
+        SourceLength: number;
+        AttenuationRadius: number;
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithAreaLightActorTemplate['__properties_UDatasmithAreaLightActorTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithAreaLightActorTemplate: UDatasmithAreaLightActorTemplate;
 
 declare interface UDatasmithAssetImportData extends UAssetImportData {
-
+    readonly __staticRegistry: 
+        UAssetImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAssetImportData['__propertyRegistry'];
 }
-declare const UDatasmithAssetImportData: UDatasmithAssetImportData;
 
 declare interface UDatasmithAssetUserData extends UAssetUserData {
-    MetaData: Record<FName, FString>;
+    readonly __properties_UDatasmithAssetUserData: {
+        MetaData: TMap<string, string>;
+    };
+    readonly __staticRegistry: 
+        UAssetUserData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithAssetUserData['__properties_UDatasmithAssetUserData'] &
+        UAssetUserData['__propertyRegistry'];
 }
-declare const UDatasmithAssetUserData: UDatasmithAssetUserData;
 
 declare interface UDatasmithCADImportSceneData extends UDatasmithSceneImportData {
-
+    readonly __staticRegistry: 
+        UDatasmithSceneImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithSceneImportData['__propertyRegistry'];
 }
-declare const UDatasmithCADImportSceneData: UDatasmithCADImportSceneData;
 
 declare interface UDatasmithCineCameraActorTemplate extends UDatasmithObjectTemplate {
-    LookatTrackingSettings: FDatasmithCameraLookatTrackingSettingsTemplate;
+    readonly __properties_UDatasmithCineCameraActorTemplate: {
+        LookatTrackingSettings: FDatasmithCameraLookatTrackingSettingsTemplate;
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithCineCameraActorTemplate['__properties_UDatasmithCineCameraActorTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithCineCameraActorTemplate: UDatasmithCineCameraActorTemplate;
 
 declare interface UDatasmithCineCameraComponentTemplate extends UDatasmithObjectTemplate {
-    FilmbackSettings: FDatasmithCameraFilmbackSettingsTemplate;
-    LensSettings: FDatasmithCameraLensSettingsTemplate;
-    FocusSettings: FDatasmithCameraFocusSettingsTemplate;
-    CurrentFocalLength: number;
-    CurrentAperture: number;
-    PostProcessSettings: FDatasmithPostProcessSettingsTemplate;
+    readonly __properties_UDatasmithCineCameraComponentTemplate: {
+        FilmbackSettings: FDatasmithCameraFilmbackSettingsTemplate;
+        LensSettings: FDatasmithCameraLensSettingsTemplate;
+        FocusSettings: FDatasmithCameraFocusSettingsTemplate;
+        CurrentFocalLength: number;
+        CurrentAperture: number;
+        PostProcessSettings: FDatasmithPostProcessSettingsTemplate;
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithCineCameraComponentTemplate['__properties_UDatasmithCineCameraComponentTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithCineCameraComponentTemplate: UDatasmithCineCameraComponentTemplate;
 
 declare interface UDatasmithCommonTessellationOptions extends UDatasmithOptionsBase {
-    Options: FDatasmithTessellationOptions;
+    readonly __properties_UDatasmithCommonTessellationOptions: {
+        Options: FDatasmithTessellationOptions;
+    };
+    readonly __staticRegistry: 
+        UDatasmithOptionsBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithCommonTessellationOptions['__properties_UDatasmithCommonTessellationOptions'] &
+        UDatasmithOptionsBase['__propertyRegistry'];
 }
-declare const UDatasmithCommonTessellationOptions: UDatasmithCommonTessellationOptions;
 
 declare interface UDatasmithContentBlueprintLibrary extends UBlueprintFunctionLibrary {
-    GetDatasmithUserDataValuesForKey(Object: UObject, Key: FName, bPartialMatchKey: boolean): TArray<FString>;
-    GetDatasmithUserDataValueForKey(Object: UObject, Key: FName, bPartialMatchKey: boolean): FString;
-    GetDatasmithUserDataKeysAndValuesForValue(Object: UObject, StringToMatch: string | FString, OutKeys: TArray<FName>, OutValues: string | FString[]): void;
-    GetDatasmithUserData(Object: UObject): UDatasmithAssetUserData;
+    readonly __static_UDatasmithContentBlueprintLibrary: {
+        GetDatasmithUserDataValuesForKey(Object: UObject, Key: string, bPartialMatchKey: boolean): string[];
+        GetDatasmithUserDataValueForKey(Object: UObject, Key: string, bPartialMatchKey: boolean): string;
+        GetDatasmithUserDataKeysAndValuesForValue(Object: UObject, StringToMatch: string, OutKeys: string[], OutValues: string[]): void;
+        GetDatasmithUserData(Object: UObject): UDatasmithAssetUserData;
+    };
+    readonly __staticRegistry: 
+        UDatasmithContentBlueprintLibrary['__static_UDatasmithContentBlueprintLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UDatasmithContentBlueprintLibrary: UDatasmithContentBlueprintLibrary;
 
 declare interface UDatasmithCustomActionBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UDatasmithCustomActionBase: UDatasmithCustomActionBase;
 
 declare interface UDatasmithDecalComponentTemplate extends UDatasmithObjectTemplate {
-    SortOrder: number;
-    DecalSize: FVector;
-    Material: UMaterialInterface;
+    readonly __properties_UDatasmithDecalComponentTemplate: {
+        SortOrder: number;
+        DecalSize: FVector;
+        Material: UMaterialInterface;
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithDecalComponentTemplate['__properties_UDatasmithDecalComponentTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithDecalComponentTemplate: UDatasmithDecalComponentTemplate;
 
 declare interface UDatasmithDeltaGenAssetImportData extends UDatasmithAssetImportData {
-
+    readonly __staticRegistry: 
+        UDatasmithAssetImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithAssetImportData['__propertyRegistry'];
 }
-declare const UDatasmithDeltaGenAssetImportData: UDatasmithDeltaGenAssetImportData;
 
 declare interface UDatasmithDeltaGenSceneImportData extends UDatasmithFBXSceneImportData {
-    bMergeNodes: boolean;
-    bOptimizeDuplicatedNodes: boolean;
-    bRemoveInvisibleNodes: boolean;
-    bSimplifyNodeHierarchy: boolean;
-    bImportVar: boolean;
-    VarPath: FString;
-    bImportPos: boolean;
-    PosPath: FString;
-    bImportTml: boolean;
-    TmlPath: FString;
+    readonly __properties_UDatasmithDeltaGenSceneImportData: {
+        bMergeNodes: boolean;
+        bOptimizeDuplicatedNodes: boolean;
+        bRemoveInvisibleNodes: boolean;
+        bSimplifyNodeHierarchy: boolean;
+        bImportVar: boolean;
+        VarPath: string;
+        bImportPos: boolean;
+        PosPath: string;
+        bImportTml: boolean;
+        TmlPath: string;
+    };
+    readonly __staticRegistry: 
+        UDatasmithFBXSceneImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithDeltaGenSceneImportData['__properties_UDatasmithDeltaGenSceneImportData'] &
+        UDatasmithFBXSceneImportData['__propertyRegistry'];
 }
-declare const UDatasmithDeltaGenSceneImportData: UDatasmithDeltaGenSceneImportData;
 
 declare interface UDatasmithFBXSceneImportData extends UDatasmithSceneImportData {
-    bGenerateLightmapUVs: boolean;
-    TexturesDir: FString;
-    IntermediateSerialization: uint8;
-    bColorizeMaterials: boolean;
+    readonly __properties_UDatasmithFBXSceneImportData: {
+        bGenerateLightmapUVs: boolean;
+        TexturesDir: string;
+        IntermediateSerialization: number;
+        bColorizeMaterials: boolean;
+    };
+    readonly __staticRegistry: 
+        UDatasmithSceneImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithFBXSceneImportData['__properties_UDatasmithFBXSceneImportData'] &
+        UDatasmithSceneImportData['__propertyRegistry'];
 }
-declare const UDatasmithFBXSceneImportData: UDatasmithFBXSceneImportData;
 
 declare interface UDatasmithGLTFSceneImportData extends UDatasmithSceneImportData {
-    Generator: FString;
-    Version: number;
-    Author: FString;
-    License: FString;
-    Source: FString;
+    readonly __properties_UDatasmithGLTFSceneImportData: {
+        Generator: string;
+        Version: number;
+        Author: string;
+        License: string;
+        Source: string;
+    };
+    readonly __staticRegistry: 
+        UDatasmithSceneImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithGLTFSceneImportData['__properties_UDatasmithGLTFSceneImportData'] &
+        UDatasmithSceneImportData['__propertyRegistry'];
 }
-declare const UDatasmithGLTFSceneImportData: UDatasmithGLTFSceneImportData;
 
 declare interface UDatasmithImportOptions extends UDatasmithOptionsBase {
-    SearchPackagePolicy: EDatasmithImportSearchPackagePolicy;
-    MaterialConflictPolicy: EDatasmithImportAssetConflictPolicy;
-    TextureConflictPolicy: EDatasmithImportAssetConflictPolicy;
-    StaticMeshActorImportPolicy: EDatasmithImportActorPolicy;
-    LightImportPolicy: EDatasmithImportActorPolicy;
-    CameraImportPolicy: EDatasmithImportActorPolicy;
-    OtherActorImportPolicy: EDatasmithImportActorPolicy;
-    MaterialQuality: EDatasmithImportMaterialQuality;
-    BaseOptions: FDatasmithImportBaseOptions;
-    ReimportOptions: FDatasmithReimportOptions;
-    Filename: FString;
-    FilePath: FString;
-    SourceUri: FString;
+    readonly __properties_UDatasmithImportOptions: {
+        SearchPackagePolicy: EDatasmithImportSearchPackagePolicy;
+        MaterialConflictPolicy: EDatasmithImportAssetConflictPolicy;
+        TextureConflictPolicy: EDatasmithImportAssetConflictPolicy;
+        StaticMeshActorImportPolicy: EDatasmithImportActorPolicy;
+        LightImportPolicy: EDatasmithImportActorPolicy;
+        CameraImportPolicy: EDatasmithImportActorPolicy;
+        OtherActorImportPolicy: EDatasmithImportActorPolicy;
+        MaterialQuality: EDatasmithImportMaterialQuality;
+        BaseOptions: FDatasmithImportBaseOptions;
+        ReimportOptions: FDatasmithReimportOptions;
+        Filename: string;
+        FilePath: string;
+        SourceUri: string;
+    };
+    readonly __staticRegistry: 
+        UDatasmithOptionsBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithImportOptions['__properties_UDatasmithImportOptions'] &
+        UDatasmithOptionsBase['__propertyRegistry'];
 }
-declare const UDatasmithImportOptions: UDatasmithImportOptions;
 
 declare interface UDatasmithLandscapeTemplate extends UDatasmithObjectTemplate {
-    LandscapeMaterial: UMaterialInterface;
-    StaticLightingLOD: number;
+    readonly __properties_UDatasmithLandscapeTemplate: {
+        LandscapeMaterial: UMaterialInterface;
+        StaticLightingLOD: number;
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithLandscapeTemplate['__properties_UDatasmithLandscapeTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithLandscapeTemplate: UDatasmithLandscapeTemplate;
 
 declare interface UDatasmithLightComponentTemplate extends UDatasmithObjectTemplate {
-    bVisible: boolean;
-    CastShadows: boolean;
-    bUseTemperature: boolean;
-    bUseIESBrightness: boolean;
-    Intensity: number;
-    temperature: number;
-    IESBrightnessScale: number;
-    LightColor: FLinearColor;
-    LightFunctionMaterial: UMaterialInterface;
-    IESTexture: UTextureLightProfile;
+    readonly __properties_UDatasmithLightComponentTemplate: {
+        bVisible: boolean;
+        CastShadows: boolean;
+        bUseTemperature: boolean;
+        bUseIESBrightness: boolean;
+        Intensity: number;
+        temperature: number;
+        IESBrightnessScale: number;
+        LightColor: FLinearColor;
+        LightFunctionMaterial: UMaterialInterface;
+        IESTexture: UTextureLightProfile;
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithLightComponentTemplate['__properties_UDatasmithLightComponentTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithLightComponentTemplate: UDatasmithLightComponentTemplate;
 
 declare interface UDatasmithMDLSceneImportData extends UDatasmithSceneImportData {
-
+    readonly __staticRegistry: 
+        UDatasmithSceneImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithSceneImportData['__propertyRegistry'];
 }
-declare const UDatasmithMDLSceneImportData: UDatasmithMDLSceneImportData;
 
 declare interface UDatasmithMaterialInstanceTemplate extends UDatasmithObjectTemplate {
-    ParentMaterial: TSoftObjectPtr<UMaterialInterface>;
-    ScalarParameterValues: Record<FName, number>;
-    VectorParameterValues: Record<FName, FLinearColor>;
-    TextureParameterValues: Record<FName, TSoftObjectPtr<UTexture>>;
-    StaticParameters: FDatasmithStaticParameterSetTemplate;
+    readonly __properties_UDatasmithMaterialInstanceTemplate: {
+        ParentMaterial: TSoftObjectPtr<UMaterialInterface>;
+        ScalarParameterValues: TMap<string, number>;
+        VectorParameterValues: TMap<string, FLinearColor>;
+        TextureParameterValues: TMap<string, TSoftObjectPtr<UTexture>>;
+        StaticParameters: FDatasmithStaticParameterSetTemplate;
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithMaterialInstanceTemplate['__properties_UDatasmithMaterialInstanceTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithMaterialInstanceTemplate: UDatasmithMaterialInstanceTemplate;
 
 declare interface UDatasmithObjectTemplate extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UDatasmithObjectTemplate: UDatasmithObjectTemplate;
 
 declare interface UDatasmithOptionsBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UDatasmithOptionsBase: UDatasmithOptionsBase;
 
 declare interface UDatasmithPointLightComponentTemplate extends UDatasmithObjectTemplate {
-    IntensityUnits: ELightUnits;
-    SourceRadius: number;
-    SourceLength: number;
-    AttenuationRadius: number;
+    readonly __properties_UDatasmithPointLightComponentTemplate: {
+        IntensityUnits: ELightUnits;
+        SourceRadius: number;
+        SourceLength: number;
+        AttenuationRadius: number;
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithPointLightComponentTemplate['__properties_UDatasmithPointLightComponentTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithPointLightComponentTemplate: UDatasmithPointLightComponentTemplate;
 
 declare interface UDatasmithPostProcessVolumeTemplate extends UDatasmithObjectTemplate {
-    Settings: FDatasmithPostProcessSettingsTemplate;
-    bEnabled: boolean;
-    bUnbound: boolean;
+    readonly __properties_UDatasmithPostProcessVolumeTemplate: {
+        Settings: FDatasmithPostProcessSettingsTemplate;
+        bEnabled: boolean;
+        bUnbound: boolean;
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithPostProcessVolumeTemplate['__properties_UDatasmithPostProcessVolumeTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithPostProcessVolumeTemplate: UDatasmithPostProcessVolumeTemplate;
 
 declare interface UDatasmithScene extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UDatasmithScene: UDatasmithScene;
 
 declare interface UDatasmithSceneComponentTemplate extends UDatasmithObjectTemplate {
-    RelativeTransform: FTransform;
-    Mobility: EComponentMobility;
-    AttachParent: TSoftObjectPtr<USceneComponent>;
-    bVisible: boolean;
-    bCastShadow: boolean;
-    Tags: TSet<FName>;
+    readonly __properties_UDatasmithSceneComponentTemplate: {
+        RelativeTransform: FTransform;
+        Mobility: EComponentMobility;
+        AttachParent: TSoftObjectPtr<USceneComponent>;
+        bVisible: boolean;
+        bCastShadow: boolean;
+        Tags: string[];
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithSceneComponentTemplate['__properties_UDatasmithSceneComponentTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithSceneComponentTemplate: UDatasmithSceneComponentTemplate;
 
 declare interface UDatasmithSceneImportData extends UAssetImportData {
-
+    readonly __staticRegistry: 
+        UAssetImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAssetImportData['__propertyRegistry'];
 }
-declare const UDatasmithSceneImportData: UDatasmithSceneImportData;
 
 declare interface UDatasmithSkyLightComponentTemplate extends UDatasmithObjectTemplate {
-    SourceType: ESkyLightSourceType;
-    CubemapResolution: number;
-    Cubemap: UTextureCube;
+    readonly __properties_UDatasmithSkyLightComponentTemplate: {
+        SourceType: ESkyLightSourceType;
+        CubemapResolution: number;
+        Cubemap: UTextureCube;
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithSkyLightComponentTemplate['__properties_UDatasmithSkyLightComponentTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithSkyLightComponentTemplate: UDatasmithSkyLightComponentTemplate;
 
 declare interface UDatasmithSpotLightComponentTemplate extends UDatasmithObjectTemplate {
-    InnerConeAngle: number;
-    OuterConeAngle: number;
+    readonly __properties_UDatasmithSpotLightComponentTemplate: {
+        InnerConeAngle: number;
+        OuterConeAngle: number;
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithSpotLightComponentTemplate['__properties_UDatasmithSpotLightComponentTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithSpotLightComponentTemplate: UDatasmithSpotLightComponentTemplate;
 
 declare interface UDatasmithStaticMeshCADImportData extends UDatasmithStaticMeshImportData {
-
+    readonly __staticRegistry: 
+        UDatasmithStaticMeshImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithStaticMeshImportData['__propertyRegistry'];
 }
-declare const UDatasmithStaticMeshCADImportData: UDatasmithStaticMeshCADImportData;
 
 declare interface UDatasmithStaticMeshComponentTemplate extends UDatasmithObjectTemplate {
-    StaticMesh: UStaticMesh;
-    OverrideMaterials: TArray<UMaterialInterface>;
+    readonly __properties_UDatasmithStaticMeshComponentTemplate: {
+        StaticMesh: UStaticMesh;
+        OverrideMaterials: UMaterialInterface[];
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithStaticMeshComponentTemplate['__properties_UDatasmithStaticMeshComponentTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithStaticMeshComponentTemplate: UDatasmithStaticMeshComponentTemplate;
 
 declare interface UDatasmithStaticMeshGLTFImportData extends UDatasmithStaticMeshImportData {
-    SourceMeshName: FString;
+    readonly __properties_UDatasmithStaticMeshGLTFImportData: {
+        SourceMeshName: string;
+    };
+    readonly __staticRegistry: 
+        UDatasmithStaticMeshImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithStaticMeshGLTFImportData['__properties_UDatasmithStaticMeshGLTFImportData'] &
+        UDatasmithStaticMeshImportData['__propertyRegistry'];
 }
-declare const UDatasmithStaticMeshGLTFImportData: UDatasmithStaticMeshGLTFImportData;
 
 declare interface UDatasmithStaticMeshImportData extends UDatasmithAssetImportData {
-
+    readonly __staticRegistry: 
+        UDatasmithAssetImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithAssetImportData['__propertyRegistry'];
 }
-declare const UDatasmithStaticMeshImportData: UDatasmithStaticMeshImportData;
 
 declare interface UDatasmithStaticMeshTemplate extends UDatasmithObjectTemplate {
-    SectionInfoMap: FDatasmithMeshSectionInfoMapTemplate;
-    LightMapCoordinateIndex: number;
-    LightMapResolution: number;
-    BuildSettings: TArray<FDatasmithMeshBuildSettingsTemplate>;
-    StaticMaterials: TArray<FDatasmithStaticMaterialTemplate>;
+    readonly __properties_UDatasmithStaticMeshTemplate: {
+        SectionInfoMap: FDatasmithMeshSectionInfoMapTemplate;
+        LightMapCoordinateIndex: number;
+        LightMapResolution: number;
+        BuildSettings: FDatasmithMeshBuildSettingsTemplate[];
+        StaticMaterials: FDatasmithStaticMaterialTemplate[];
+    };
+    readonly __staticRegistry: 
+        UDatasmithObjectTemplate['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithStaticMeshTemplate['__properties_UDatasmithStaticMeshTemplate'] &
+        UDatasmithObjectTemplate['__propertyRegistry'];
 }
-declare const UDatasmithStaticMeshTemplate: UDatasmithStaticMeshTemplate;
 
 declare interface UDatasmithTranslatedSceneImportData extends UDatasmithSceneImportData {
-
+    readonly __staticRegistry: 
+        UDatasmithSceneImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithSceneImportData['__propertyRegistry'];
 }
-declare const UDatasmithTranslatedSceneImportData: UDatasmithTranslatedSceneImportData;
 
 declare interface UDatasmithVREDAssetImportData extends UDatasmithAssetImportData {
-
+    readonly __staticRegistry: 
+        UDatasmithAssetImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithAssetImportData['__propertyRegistry'];
 }
-declare const UDatasmithVREDAssetImportData: UDatasmithVREDAssetImportData;
 
 declare interface UDatasmithVREDSceneImportData extends UDatasmithFBXSceneImportData {
-    bMergeNodes: boolean;
-    bOptimizeDuplicatedNodes: boolean;
-    bImportMats: boolean;
-    MatsPath: FString;
-    bImportVar: boolean;
-    bCleanVar: boolean;
-    VarPath: FString;
-    bImportLightInfo: boolean;
-    LightInfoPath: FString;
-    bImportClipInfo: boolean;
-    ClipInfoPath: FString;
+    readonly __properties_UDatasmithVREDSceneImportData: {
+        bMergeNodes: boolean;
+        bOptimizeDuplicatedNodes: boolean;
+        bImportMats: boolean;
+        MatsPath: string;
+        bImportVar: boolean;
+        bCleanVar: boolean;
+        VarPath: string;
+        bImportLightInfo: boolean;
+        LightInfoPath: string;
+        bImportClipInfo: boolean;
+        ClipInfoPath: string;
+    };
+    readonly __staticRegistry: 
+        UDatasmithFBXSceneImportData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDatasmithVREDSceneImportData['__properties_UDatasmithVREDSceneImportData'] &
+        UDatasmithFBXSceneImportData['__propertyRegistry'];
 }
-declare const UDatasmithVREDSceneImportData: UDatasmithVREDSceneImportData;
 

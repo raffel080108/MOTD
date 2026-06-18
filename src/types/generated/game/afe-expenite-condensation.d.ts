@@ -1,5 +1,7 @@
 declare interface UAFE_ExpeniteCondensation_C extends UBoneParticlesAfflictionEffect {
-
+    readonly __staticRegistry: 
+        UBoneParticlesAfflictionEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBoneParticlesAfflictionEffect['__propertyRegistry'];
 }
-declare const UAFE_ExpeniteCondensation_C: UAFE_ExpeniteCondensation_C;
 

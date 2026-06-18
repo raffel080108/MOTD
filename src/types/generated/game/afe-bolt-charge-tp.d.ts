@@ -1,5 +1,7 @@
 declare interface UAFE_BoltCharge_TP_C extends UBoneParticlesAfflictionEffect {
-
+    readonly __staticRegistry: 
+        UBoneParticlesAfflictionEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBoneParticlesAfflictionEffect['__propertyRegistry'];
 }
-declare const UAFE_BoltCharge_TP_C: UAFE_BoltCharge_TP_C;
 

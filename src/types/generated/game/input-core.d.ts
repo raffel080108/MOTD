@@ -1,10 +1,11 @@
 declare interface FKey {
-    KeyName: FName;
+    KeyName: string;
 }
-declare const FKey: FKey;
 
 declare interface UInputCoreTypes extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UInputCoreTypes: UInputCoreTypes;
 

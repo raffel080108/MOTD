@@ -1,5 +1,7 @@
 declare interface UICF_ReclaimAnySite_C extends UIntelChallengeForStat {
-
+    readonly __staticRegistry: 
+        UIntelChallengeForStat['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIntelChallengeForStat['__propertyRegistry'];
 }
-declare const UICF_ReclaimAnySite_C: UICF_ReclaimAnySite_C;
 

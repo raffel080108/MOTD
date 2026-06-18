@@ -1,5 +1,7 @@
 declare interface UICF_UseDataTerminalMutatedSite_C extends UIntelChallengeUseDataTerminal {
-
+    readonly __staticRegistry: 
+        UIntelChallengeUseDataTerminal['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIntelChallengeUseDataTerminal['__propertyRegistry'];
 }
-declare const UICF_UseDataTerminalMutatedSite_C: UICF_UseDataTerminalMutatedSite_C;
 

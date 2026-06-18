@@ -1,5 +1,7 @@
 declare interface USTE_ShortCircuit_C extends UStatusEffect {
-
+    readonly __staticRegistry: 
+        UStatusEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStatusEffect['__propertyRegistry'];
 }
-declare const USTE_ShortCircuit_C: USTE_ShortCircuit_C;
 

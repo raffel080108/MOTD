@@ -1,16 +1,25 @@
 declare interface UITM_LoadoutIconSelector_C extends UUserWidget {
-    UberGraphFrame: FPointerToUberGraphFrame;
-    SkinLabel: UTextBlock;
-    IconGrid: UUniformGridPanel;
-    Border_1: UBorder;
-    Columns: number;
-    OnIconSelected: FITM_LoadoutIconSelector_COnIconSelected;
-    TempIconList: TArray<UTexture2D>;
-    FillGrid(): void;
-    SetData(): void;
-    OnIconClicked(Texture: UTexture2D, ImageIndex: number): void;
-    ExecuteUbergraph_ITM_LoadoutIconSelector(EntryPoint: number): void;
-    OnIconSelected__DelegateSignature(Texture: UTexture2D, ImageIndex: number): void;
+    readonly __static_UITM_LoadoutIconSelector_C: {
+        FillGrid(): void;
+        SetData(): void;
+        OnIconClicked(Texture: UTexture2D, ImageIndex: number): void;
+        ExecuteUbergraph_ITM_LoadoutIconSelector(EntryPoint: number): void;
+        OnIconSelected__DelegateSignature(Texture: UTexture2D, ImageIndex: number): void;
+    };
+    readonly __properties_UITM_LoadoutIconSelector_C: {
+        UberGraphFrame: FPointerToUberGraphFrame;
+        SkinLabel: UTextBlock;
+        IconGrid: UUniformGridPanel;
+        Border_1: UBorder;
+        Columns: number;
+        OnIconSelected: FITM_LoadoutIconSelector_COnIconSelected;
+        TempIconList: UTexture2D[];
+    };
+    readonly __staticRegistry: 
+        UITM_LoadoutIconSelector_C['__static_UITM_LoadoutIconSelector_C'] &
+        UUserWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UITM_LoadoutIconSelector_C['__properties_UITM_LoadoutIconSelector_C'] &
+        UUserWidget['__propertyRegistry'];
 }
-declare const UITM_LoadoutIconSelector_C: UITM_LoadoutIconSelector_C;
 

@@ -1,63 +1,79 @@
 declare interface ALevelSequenceActor extends AActor {
-    PlaybackSettings: FMovieSceneSequencePlaybackSettings;
-    SequencePlayer: ULevelSequencePlayer;
-    LevelSequenceAsset: ULevelSequence;
-    CameraSettings: FLevelSequenceCameraSettings;
-    BurnInOptions: ULevelSequenceBurnInOptions;
-    BindingOverrides: UMovieSceneBindingOverrides;
-    bAutoPlay: boolean;
-    bOverrideInstanceData: boolean;
-    bReplicatePlayback: boolean;
-    DefaultInstanceData: UObject;
-    BurnInInstance: ULevelSequenceBurnIn;
-    bShowBurnin: boolean;
-    WorldPartitionResolveData: FWorldPartitionResolveData;
-    ShowBurnin(): void;
-    SetSequence(InSequence: ULevelSequence): void;
-    SetReplicatePlayback(ReplicatePlayback: boolean): void;
-    SetBindingByTag(BindingTag: FName, Actors: TArray<AActor>, bAllowBindingsFromAsset: boolean): void;
-    SetBinding(Binding: FMovieSceneObjectBindingID, Actors: TArray<AActor>, bAllowBindingsFromAsset: boolean): void;
-    ResetBindings(): void;
-    ResetBinding(Binding: FMovieSceneObjectBindingID): void;
-    RemoveBindingByTag(Tag: FName, Actor: AActor): void;
-    RemoveBinding(Binding: FMovieSceneObjectBindingID, Actor: AActor): void;
-    OnLevelSequenceLoaded__DelegateSignature(): void;
-    HideBurnin(): void;
-    GetSequencePlayer(): ULevelSequencePlayer;
-    GetSequence(): ULevelSequence;
-    FindNamedBindings(Tag: FName): TArray<FMovieSceneObjectBindingID>;
-    FindNamedBinding(Tag: FName): FMovieSceneObjectBindingID;
-    AddBindingByTag(BindingTag: FName, Actor: AActor, bAllowBindingsFromAsset: boolean): void;
-    AddBinding(Binding: FMovieSceneObjectBindingID, Actor: AActor, bAllowBindingsFromAsset: boolean): void;
+    readonly __static_ALevelSequenceActor: {
+        ShowBurnin(): void;
+        SetSequence(InSequence: ULevelSequence): void;
+        SetReplicatePlayback(ReplicatePlayback: boolean): void;
+        SetBindingByTag(BindingTag: string, Actors: AActor[], bAllowBindingsFromAsset: boolean): void;
+        SetBinding(Binding: FMovieSceneObjectBindingID, Actors: AActor[], bAllowBindingsFromAsset: boolean): void;
+        ResetBindings(): void;
+        ResetBinding(Binding: FMovieSceneObjectBindingID): void;
+        RemoveBindingByTag(Tag: string, Actor: AActor): void;
+        RemoveBinding(Binding: FMovieSceneObjectBindingID, Actor: AActor): void;
+        OnLevelSequenceLoaded__DelegateSignature(): void;
+        HideBurnin(): void;
+        GetSequencePlayer(): ULevelSequencePlayer;
+        GetSequence(): ULevelSequence;
+        FindNamedBindings(Tag: string): FMovieSceneObjectBindingID[];
+        FindNamedBinding(Tag: string): FMovieSceneObjectBindingID;
+        AddBindingByTag(BindingTag: string, Actor: AActor, bAllowBindingsFromAsset: boolean): void;
+        AddBinding(Binding: FMovieSceneObjectBindingID, Actor: AActor, bAllowBindingsFromAsset: boolean): void;
+    };
+    readonly __properties_ALevelSequenceActor: {
+        PlaybackSettings: FMovieSceneSequencePlaybackSettings;
+        SequencePlayer: ULevelSequencePlayer;
+        LevelSequenceAsset: ULevelSequence;
+        CameraSettings: FLevelSequenceCameraSettings;
+        BurnInOptions: ULevelSequenceBurnInOptions;
+        BindingOverrides: UMovieSceneBindingOverrides;
+        bAutoPlay: boolean;
+        bOverrideInstanceData: boolean;
+        bReplicatePlayback: boolean;
+        DefaultInstanceData: UObject;
+        BurnInInstance: ULevelSequenceBurnIn;
+        bShowBurnin: boolean;
+        WorldPartitionResolveData: FWorldPartitionResolveData;
+    };
+    readonly __staticRegistry: 
+        ALevelSequenceActor['__static_ALevelSequenceActor'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ALevelSequenceActor['__properties_ALevelSequenceActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const ALevelSequenceActor: ALevelSequenceActor;
 
 declare interface ALevelSequenceMediaController extends AActor {
-    Sequence: ALevelSequenceActor;
-    MediaComponent: UMediaComponent;
-    ServerStartTimeSeconds: number;
-    SynchronizeToServer(DesyncThresholdSeconds: number): void;
-    Play(): void;
-    OnRep_ServerStartTimeSeconds(): void;
-    GetSequence(): ALevelSequenceActor;
-    GetMediaComponent(): UMediaComponent;
+    readonly __static_ALevelSequenceMediaController: {
+        SynchronizeToServer(DesyncThresholdSeconds: number): void;
+        Play(): void;
+        OnRep_ServerStartTimeSeconds(): void;
+        GetSequence(): ALevelSequenceActor;
+        GetMediaComponent(): UMediaComponent;
+    };
+    readonly __properties_ALevelSequenceMediaController: {
+        Sequence: ALevelSequenceActor;
+        MediaComponent: UMediaComponent;
+        ServerStartTimeSeconds: number;
+    };
+    readonly __staticRegistry: 
+        ALevelSequenceMediaController['__static_ALevelSequenceMediaController'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ALevelSequenceMediaController['__properties_ALevelSequenceMediaController'] &
+        AActor['__propertyRegistry'];
 }
-declare const ALevelSequenceMediaController: ALevelSequenceMediaController;
 
 declare interface AReplicatedLevelSequenceActor extends ALevelSequenceActor {
-
+    readonly __staticRegistry: 
+        ALevelSequenceActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ALevelSequenceActor['__propertyRegistry'];
 }
-declare const AReplicatedLevelSequenceActor: AReplicatedLevelSequenceActor;
 
-declare interface FBoundActorProxy {
-
-}
-declare const FBoundActorProxy: FBoundActorProxy;
+declare type FBoundActorProxy = object;
 
 declare interface FLegacyLazyObjectPtrFragment {
     LazyObjectId: FGuid;
 }
-declare const FLegacyLazyObjectPtrFragment: FLegacyLazyObjectPtrFragment;
 
 declare interface FLevelSequenceAnimSequenceLinkItem {
     SkelTrackGuid: FGuid;
@@ -70,8 +86,8 @@ declare interface FLevelSequenceAnimSequenceLinkItem {
     CurveInterpolation: ERichCurveInterpMode;
     bRecordInWorldSpace: boolean;
     bEvaluateAllSkeletalMeshComponents: boolean;
-    IncludeAnimationNames: TArray<FString>;
-    ExcludeAnimationNames: TArray<FString>;
+    IncludeAnimationNames: string[];
+    ExcludeAnimationNames: string[];
     WarmUpFrames: FFrameNumber;
     DelayBeforeStart: FFrameNumber;
     bUseCustomTimeRange: boolean;
@@ -81,193 +97,258 @@ declare interface FLevelSequenceAnimSequenceLinkItem {
     bUseCustomFrameRate: boolean;
     CustomFrameRate: FFrameRate;
 }
-declare const FLevelSequenceAnimSequenceLinkItem: FLevelSequenceAnimSequenceLinkItem;
 
 declare interface FLevelSequenceBindingReference {
-    PackageName: FString;
+    PackageName: string;
     ExternalObjectPath: FSoftObjectPath;
-    ObjectPath: FString;
+    ObjectPath: string;
 }
-declare const FLevelSequenceBindingReference: FLevelSequenceBindingReference;
 
 declare interface FLevelSequenceBindingReferenceArray {
-    References: TArray<FLevelSequenceBindingReference>;
+    References: FLevelSequenceBindingReference[];
 }
-declare const FLevelSequenceBindingReferenceArray: FLevelSequenceBindingReferenceArray;
 
 declare interface FLevelSequenceBindingReferences {
-    BindingIdToReferences: Record<string | number | symbol, FLevelSequenceBindingReferenceArray>;
-    AnimSequenceInstances: TSet<FGuid>;
-    PostProcessInstances: TSet<FGuid>;
+    BindingIdToReferences: TMap<FGuid, FLevelSequenceBindingReferenceArray>;
+    AnimSequenceInstances: FGuid[];
+    PostProcessInstances: FGuid[];
 }
-declare const FLevelSequenceBindingReferences: FLevelSequenceBindingReferences;
 
 declare interface FLevelSequenceCameraSettings {
     bOverrideAspectRatioAxisConstraint: boolean;
     AspectRatioAxisConstraint: EAspectRatioAxisConstraint;
 }
-declare const FLevelSequenceCameraSettings: FLevelSequenceCameraSettings;
 
-declare interface FLevelSequenceLegacyObjectReference {
-
-}
-declare const FLevelSequenceLegacyObjectReference: FLevelSequenceLegacyObjectReference;
+declare type FLevelSequenceLegacyObjectReference = object;
 
 declare interface FLevelSequenceObject {
     ObjectOrOwner: TLazyObjectPtr<UObject>;
-    ComponentName: FString;
+    ComponentName: string;
     CachedComponent: TWeakObjectPtr<UObject>;
 }
-declare const FLevelSequenceObject: FLevelSequenceObject;
 
-declare interface FLevelSequenceObjectReferenceMap {
-
-}
-declare const FLevelSequenceObjectReferenceMap: FLevelSequenceObjectReferenceMap;
+declare type FLevelSequenceObjectReferenceMap = object;
 
 declare interface FLevelSequencePlayerSnapshot {
-    RootName: FString;
+    RootName: string;
     RootTime: FQualifiedFrameTime;
     SourceTime: FQualifiedFrameTime;
-    CurrentShotName: FString;
+    CurrentShotName: string;
     CurrentShotLocalTime: FQualifiedFrameTime;
     CurrentShotSourceTime: FQualifiedFrameTime;
-    SourceTimecode: FString;
+    SourceTimecode: string;
     CameraComponent: TSoftObjectPtr<UCameraComponent>;
     ActiveShot: ULevelSequence;
     ShotID: FMovieSceneSequenceID;
 }
-declare const FLevelSequencePlayerSnapshot: FLevelSequencePlayerSnapshot;
 
 declare interface FUpgradedLevelSequenceBindingReferences extends FMovieSceneBindingReferences {
 
 }
-declare const FUpgradedLevelSequenceBindingReferences: FUpgradedLevelSequenceBindingReferences;
 
 declare interface UAnimSequenceLevelSequenceLink extends UAssetUserData {
-    SkelTrackGuid: FGuid;
-    PathToLevelSequence: FSoftObjectPath;
+    readonly __properties_UAnimSequenceLevelSequenceLink: {
+        SkelTrackGuid: FGuid;
+        PathToLevelSequence: FSoftObjectPath;
+    };
+    readonly __staticRegistry: 
+        UAssetUserData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAnimSequenceLevelSequenceLink['__properties_UAnimSequenceLevelSequenceLink'] &
+        UAssetUserData['__propertyRegistry'];
 }
-declare const UAnimSequenceLevelSequenceLink: UAnimSequenceLevelSequenceLink;
 
 declare interface UDefaultLevelSequenceInstanceData extends UObject {
-    TransformOriginActor: AActor;
-    TransformOrigin: FTransform;
+    readonly __properties_UDefaultLevelSequenceInstanceData: {
+        TransformOriginActor: AActor;
+        TransformOrigin: FTransform;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDefaultLevelSequenceInstanceData['__properties_UDefaultLevelSequenceInstanceData'] &
+        UObject['__propertyRegistry'];
 }
-declare const UDefaultLevelSequenceInstanceData: UDefaultLevelSequenceInstanceData;
 
 declare interface ULegacyLevelSequenceDirectorBlueprint extends UBlueprint {
-
+    readonly __staticRegistry: 
+        UBlueprint['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprint['__propertyRegistry'];
 }
-declare const ULegacyLevelSequenceDirectorBlueprint: ULegacyLevelSequenceDirectorBlueprint;
 
 declare interface ULevelSequence extends UMovieSceneSequence {
-    MovieScene: UMovieScene;
-    BindingReferences: FUpgradedLevelSequenceBindingReferences;
-    DirectorClass: UClass;
-    AssetUserData: TArray<UAssetUserData>;
-    RemoveMetaDataByClass(InClass: UClass): void;
-    FindOrAddMetaDataByClass(InClass: UClass): UObject;
-    FindMetaDataByClass(InClass: UClass): UObject;
-    CopyMetaData(InMetaData: UObject): UObject;
+    readonly __static_ULevelSequence: {
+        RemoveMetaDataByClass(InClass: UClass): void;
+        FindOrAddMetaDataByClass(InClass: UClass): UObject;
+        FindMetaDataByClass(InClass: UClass): UObject;
+        CopyMetaData(InMetaData: UObject): UObject;
+    };
+    readonly __properties_ULevelSequence: {
+        MovieScene: UMovieScene;
+        BindingReferences: FUpgradedLevelSequenceBindingReferences;
+        DirectorClass: UClass;
+        AssetUserData: UAssetUserData[];
+    };
+    readonly __staticRegistry: 
+        ULevelSequence['__static_ULevelSequence'] &
+        UMovieSceneSequence['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULevelSequence['__properties_ULevelSequence'] &
+        UMovieSceneSequence['__propertyRegistry'];
 }
-declare const ULevelSequence: ULevelSequence;
 
 declare interface ULevelSequenceAnimSequenceLink extends UAssetUserData {
-    AnimSequenceLinks: TArray<FLevelSequenceAnimSequenceLinkItem>;
+    readonly __properties_ULevelSequenceAnimSequenceLink: {
+        AnimSequenceLinks: FLevelSequenceAnimSequenceLinkItem[];
+    };
+    readonly __staticRegistry: 
+        UAssetUserData['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULevelSequenceAnimSequenceLink['__properties_ULevelSequenceAnimSequenceLink'] &
+        UAssetUserData['__propertyRegistry'];
 }
-declare const ULevelSequenceAnimSequenceLink: ULevelSequenceAnimSequenceLink;
 
 declare interface ULevelSequenceBurnIn extends UUserWidget {
-    FrameInformation: FLevelSequencePlayerSnapshot;
-    LevelSequenceActor: ALevelSequenceActor;
-    SetSettings(InSettings: UObject): void;
-    GetSettingsClass(): TSubclassOf<ULevelSequenceBurnInInitSettings>;
+    readonly __static_ULevelSequenceBurnIn: {
+        SetSettings(InSettings: UObject): void;
+        GetSettingsClass(): TSubclassOf<ULevelSequenceBurnInInitSettings>;
+    };
+    readonly __properties_ULevelSequenceBurnIn: {
+        FrameInformation: FLevelSequencePlayerSnapshot;
+        LevelSequenceActor: ALevelSequenceActor;
+    };
+    readonly __staticRegistry: 
+        ULevelSequenceBurnIn['__static_ULevelSequenceBurnIn'] &
+        UUserWidget['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULevelSequenceBurnIn['__properties_ULevelSequenceBurnIn'] &
+        UUserWidget['__propertyRegistry'];
 }
-declare const ULevelSequenceBurnIn: ULevelSequenceBurnIn;
 
 declare interface ULevelSequenceBurnInInitSettings extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULevelSequenceBurnInInitSettings: ULevelSequenceBurnInInitSettings;
 
 declare interface ULevelSequenceBurnInOptions extends UObject {
-    bUseBurnIn: boolean;
-    BurnInClass: FSoftClassPath;
-    Settings: ULevelSequenceBurnInInitSettings;
-    SetBurnIn(InBurnInClass: FSoftClassPath): void;
+    readonly __static_ULevelSequenceBurnInOptions: {
+        SetBurnIn(InBurnInClass: FSoftClassPath): void;
+    };
+    readonly __properties_ULevelSequenceBurnInOptions: {
+        bUseBurnIn: boolean;
+        BurnInClass: FSoftClassPath;
+        Settings: ULevelSequenceBurnInInitSettings;
+    };
+    readonly __staticRegistry: 
+        ULevelSequenceBurnInOptions['__static_ULevelSequenceBurnInOptions'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULevelSequenceBurnInOptions['__properties_ULevelSequenceBurnInOptions'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULevelSequenceBurnInOptions: ULevelSequenceBurnInOptions;
 
 declare interface ULevelSequenceDirector extends UObject {
-    SubSequenceID: number;
-    WeakLinker: TWeakObjectPtr<UMovieSceneEntitySystemLinker>;
-    InstanceId: uint16;
-    InstanceSerial: uint16;
-    Player: ULevelSequencePlayer;
-    MovieScenePlayerIndex: number;
-    OnCreated(): void;
-    GetSequence(): UMovieSceneSequence;
-    GetRootSequenceTime(): FQualifiedFrameTime;
-    GetCurrentTime(): FQualifiedFrameTime;
-    GetBoundObjects(ObjectBinding: FMovieSceneObjectBindingID): TArray<UObject>;
-    GetBoundObject(ObjectBinding: FMovieSceneObjectBindingID): UObject;
-    GetBoundActors(ObjectBinding: FMovieSceneObjectBindingID): TArray<AActor>;
-    GetBoundActor(ObjectBinding: FMovieSceneObjectBindingID): AActor;
+    readonly __static_ULevelSequenceDirector: {
+        OnCreated(): void;
+        GetSequence(): UMovieSceneSequence;
+        GetRootSequenceTime(): FQualifiedFrameTime;
+        GetCurrentTime(): FQualifiedFrameTime;
+        GetBoundObjects(ObjectBinding: FMovieSceneObjectBindingID): UObject[];
+        GetBoundObject(ObjectBinding: FMovieSceneObjectBindingID): UObject;
+        GetBoundActors(ObjectBinding: FMovieSceneObjectBindingID): AActor[];
+        GetBoundActor(ObjectBinding: FMovieSceneObjectBindingID): AActor;
+    };
+    readonly __properties_ULevelSequenceDirector: {
+        SubSequenceID: number;
+        WeakLinker: TWeakObjectPtr<UMovieSceneEntitySystemLinker>;
+        InstanceId: number;
+        InstanceSerial: number;
+        Player: ULevelSequencePlayer;
+        MovieScenePlayerIndex: number;
+    };
+    readonly __staticRegistry: 
+        ULevelSequenceDirector['__static_ULevelSequenceDirector'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULevelSequenceDirector['__properties_ULevelSequenceDirector'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULevelSequenceDirector: ULevelSequenceDirector;
 
 declare interface ULevelSequencePlayer extends UMovieSceneSequencePlayer {
-    OnCameraCut: FLevelSequencePlayerOnCameraCut;
-    GetActiveCameraComponent(): UCameraComponent;
-    CreateLevelSequencePlayer(WorldContextObject: UObject, LevelSequence: ULevelSequence, Settings: FMovieSceneSequencePlaybackSettings, OutActor: ALevelSequenceActor): ULevelSequencePlayer;
+    readonly __static_ULevelSequencePlayer: {
+        GetActiveCameraComponent(): UCameraComponent;
+        CreateLevelSequencePlayer(WorldContextObject: UObject, LevelSequence: ULevelSequence, Settings: FMovieSceneSequencePlaybackSettings, OutActor: ALevelSequenceActor): ULevelSequencePlayer;
+    };
+    readonly __properties_ULevelSequencePlayer: {
+        OnCameraCut: FLevelSequencePlayerOnCameraCut;
+    };
+    readonly __staticRegistry: 
+        ULevelSequencePlayer['__static_ULevelSequencePlayer'] &
+        UMovieSceneSequencePlayer['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULevelSequencePlayer['__properties_ULevelSequencePlayer'] &
+        UMovieSceneSequencePlayer['__propertyRegistry'];
 }
-declare const ULevelSequencePlayer: ULevelSequencePlayer;
 
 declare interface ULevelSequenceProjectSettings extends UDeveloperSettings {
-    bDefaultLockEngineToDisplayRate: boolean;
-    DefaultDisplayRate: FString;
-    DefaultTickResolution: FString;
-    DefaultClockSource: EUpdateClockSource;
+    readonly __properties_ULevelSequenceProjectSettings: {
+        bDefaultLockEngineToDisplayRate: boolean;
+        DefaultDisplayRate: string;
+        DefaultTickResolution: string;
+        DefaultClockSource: EUpdateClockSource;
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULevelSequenceProjectSettings['__properties_ULevelSequenceProjectSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const ULevelSequenceProjectSettings: ULevelSequenceProjectSettings;
 
 declare interface ULevelSequenceShotMetaDataLibrary extends UBlueprintFunctionLibrary {
-    SetIsSubSequence(InLevelSequence: ULevelSequence, bInIsSubSequence: boolean): void;
-    SetIsRecorded(InLevelSequence: ULevelSequence, bInIsRecorded: boolean): void;
-    SetIsNoGood(InLevelSequence: ULevelSequence, bInIsNoGood: boolean): void;
-    SetIsFlagged(InLevelSequence: ULevelSequence, bInIsFlagged: boolean): void;
-    SetFavoriteRating(InLevelSequence: ULevelSequence, InFavoriteRating: number): void;
-    HasIsSubSequenceByAssetData(InAssetData: FAssetData): boolean;
-    HasIsSubSequence(InLevelSequence: ULevelSequence): boolean;
-    HasIsRecordedByAssetData(InAssetData: FAssetData): boolean;
-    HasIsRecorded(InLevelSequence: ULevelSequence): boolean;
-    HasIsNoGoodByAssetData(InAssetData: FAssetData): boolean;
-    HasIsNoGood(InLevelSequence: ULevelSequence): boolean;
-    HasIsFlaggedByAssetData(InAssetData: FAssetData): boolean;
-    HasIsFlagged(InLevelSequence: ULevelSequence): boolean;
-    HasFavoriteRatingByAssetData(InAssetData: FAssetData): boolean;
-    HasFavoriteRating(InLevelSequence: ULevelSequence): boolean;
-    GetIsSubSequenceByAssetData(InAssetData: FAssetData, bOutIsSubSequence: boolean): boolean;
-    GetIsSubSequenceAssetTag(): FName;
-    GetIsSubSequence(InLevelSequence: ULevelSequence, bOutIsSubSequence: boolean): boolean;
-    GetIsRecordedByAssetData(InAssetData: FAssetData, bOutIsRecorded: boolean): boolean;
-    GetIsRecordedAssetTag(): FName;
-    GetIsRecorded(InLevelSequence: ULevelSequence, bOutIsRecorded: boolean): boolean;
-    GetIsNoGoodByAssetData(InAssetData: FAssetData, bOutNoGood: boolean): boolean;
-    GetIsNoGoodAssetTag(): FName;
-    GetIsNoGood(InLevelSequence: ULevelSequence, bOutNoGood: boolean): boolean;
-    GetIsFlaggedByAssetData(InAssetData: FAssetData, bOutIsFlagged: boolean): boolean;
-    GetIsFlaggedAssetTag(): FName;
-    GetIsFlagged(InLevelSequence: ULevelSequence, bOutIsFlagged: boolean): boolean;
-    GetFavoriteRatingByAssetData(InAssetData: FAssetData, OutFavoriteRating: number): boolean;
-    GetFavoriteRatingAssetTag(): FName;
-    GetFavoriteRating(InLevelSequence: ULevelSequence, OutFavoriteRating: number): boolean;
-    ClearIsSubSequence(InLevelSequence: ULevelSequence): void;
-    ClearIsRecorded(InLevelSequence: ULevelSequence): void;
-    ClearIsNoGood(InLevelSequence: ULevelSequence): void;
-    ClearIsFlagged(InLevelSequence: ULevelSequence): void;
-    ClearFavoriteRating(InLevelSequence: ULevelSequence): void;
+    readonly __static_ULevelSequenceShotMetaDataLibrary: {
+        SetIsSubSequence(InLevelSequence: ULevelSequence, bInIsSubSequence: boolean): void;
+        SetIsRecorded(InLevelSequence: ULevelSequence, bInIsRecorded: boolean): void;
+        SetIsNoGood(InLevelSequence: ULevelSequence, bInIsNoGood: boolean): void;
+        SetIsFlagged(InLevelSequence: ULevelSequence, bInIsFlagged: boolean): void;
+        SetFavoriteRating(InLevelSequence: ULevelSequence, InFavoriteRating: number): void;
+        HasIsSubSequenceByAssetData(InAssetData: FAssetData): boolean;
+        HasIsSubSequence(InLevelSequence: ULevelSequence): boolean;
+        HasIsRecordedByAssetData(InAssetData: FAssetData): boolean;
+        HasIsRecorded(InLevelSequence: ULevelSequence): boolean;
+        HasIsNoGoodByAssetData(InAssetData: FAssetData): boolean;
+        HasIsNoGood(InLevelSequence: ULevelSequence): boolean;
+        HasIsFlaggedByAssetData(InAssetData: FAssetData): boolean;
+        HasIsFlagged(InLevelSequence: ULevelSequence): boolean;
+        HasFavoriteRatingByAssetData(InAssetData: FAssetData): boolean;
+        HasFavoriteRating(InLevelSequence: ULevelSequence): boolean;
+        GetIsSubSequenceByAssetData(InAssetData: FAssetData, bOutIsSubSequence: boolean): boolean;
+        GetIsSubSequenceAssetTag(): string;
+        GetIsSubSequence(InLevelSequence: ULevelSequence, bOutIsSubSequence: boolean): boolean;
+        GetIsRecordedByAssetData(InAssetData: FAssetData, bOutIsRecorded: boolean): boolean;
+        GetIsRecordedAssetTag(): string;
+        GetIsRecorded(InLevelSequence: ULevelSequence, bOutIsRecorded: boolean): boolean;
+        GetIsNoGoodByAssetData(InAssetData: FAssetData, bOutNoGood: boolean): boolean;
+        GetIsNoGoodAssetTag(): string;
+        GetIsNoGood(InLevelSequence: ULevelSequence, bOutNoGood: boolean): boolean;
+        GetIsFlaggedByAssetData(InAssetData: FAssetData, bOutIsFlagged: boolean): boolean;
+        GetIsFlaggedAssetTag(): string;
+        GetIsFlagged(InLevelSequence: ULevelSequence, bOutIsFlagged: boolean): boolean;
+        GetFavoriteRatingByAssetData(InAssetData: FAssetData, OutFavoriteRating: number): boolean;
+        GetFavoriteRatingAssetTag(): string;
+        GetFavoriteRating(InLevelSequence: ULevelSequence, OutFavoriteRating: number): boolean;
+        ClearIsSubSequence(InLevelSequence: ULevelSequence): void;
+        ClearIsRecorded(InLevelSequence: ULevelSequence): void;
+        ClearIsNoGood(InLevelSequence: ULevelSequence): void;
+        ClearIsFlagged(InLevelSequence: ULevelSequence): void;
+        ClearFavoriteRating(InLevelSequence: ULevelSequence): void;
+    };
+    readonly __staticRegistry: 
+        ULevelSequenceShotMetaDataLibrary['__static_ULevelSequenceShotMetaDataLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const ULevelSequenceShotMetaDataLibrary: ULevelSequenceShotMetaDataLibrary;
 

@@ -1,5 +1,7 @@
 declare interface USTE_DeathTorrent_C extends UStatusEffect {
-
+    readonly __staticRegistry: 
+        UStatusEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStatusEffect['__propertyRegistry'];
 }
-declare const USTE_DeathTorrent_C: USTE_DeathTorrent_C;
 

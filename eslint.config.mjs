@@ -35,7 +35,7 @@ export default [
                 allowTypedFunctionExpressions: true
             }],
             "@typescript-eslint/no-namespace": "off",
-            "@typescript-eslint/no-explicit-any": "off",
+            "@typescript-eslint/no-explicit-any": "warn",
             "@typescript-eslint/no-unused-vars": ["warn", { 
                 "vars": "all", 
                 "args": "after-used", 
@@ -43,37 +43,25 @@ export default [
                 "varsIgnorePattern": "^[TKV]$|^_",
                 "argsIgnorePattern": "^_"
             }],
-            "no-empty": "off",
-            "@typescript-eslint/no-empty-object-type": "off",
+            "no-empty": "warn",
+            "@typescript-eslint/no-empty-object-type": ["warn", {
+                "allowInterfaces": "with-single-extends"
+            }],
             "@typescript-eslint/no-require-imports": "off",
             "prefer-const": "warn",
             "@typescript-eslint/no-duplicate-enum-values": "off",
             "no-var": "off",
-            "no-restricted-syntax": [
-                "error",
-                {
-                    "selector": "Literal[value=null]",
-                    "message": "Use 'undefined' instead of 'null'"
-                },
-                {
-                    "selector": "TSTypeReference[typeName.name='null']",
-                    "message": "Use 'undefined' instead of 'null'"
-                },
-                {
-                    "selector": "TSNullKeyword",
-                    "message": "Use 'undefined' instead of 'null'"
-                },
-                {
-                    "selector": "CallExpression[callee.property.name='lastIndexOf']",
-                    "message": "string.lastIndexOf() is not supported by TSTL."
-                },
-            ],
             "@typescript-eslint/strict-boolean-expressions": ["warn", {
                 "allowString": false,
                 "allowNumber": false,
                 "allowNullableObject": false
             }],
-            "no-useless-escape": "off"
+            "no-useless-escape": "warn",
+            "@typescript-eslint/no-unsafe-call": "error",
+            "@typescript-eslint/no-unsafe-member-access": "error",
+            "@typescript-eslint/no-unsafe-argument": "error",
+            "@typescript-eslint/no-unsafe-assignment": "error",
+            "@typescript-eslint/no-unnecessary-type-constraint": "warn"
         }
     }
 ];

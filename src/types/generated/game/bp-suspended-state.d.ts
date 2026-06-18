@@ -1,5 +1,7 @@
 declare interface UBP_SuspendedState_C extends USuspendedStateComponent {
-
+    readonly __staticRegistry: 
+        USuspendedStateComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USuspendedStateComponent['__propertyRegistry'];
 }
-declare const UBP_SuspendedState_C: UBP_SuspendedState_C;
 

@@ -1,64 +1,95 @@
 declare interface AGameplayCameraActor extends AGameplayCameraActorBase {
-    CameraComponent: UGameplayCameraComponent;
-    GetCameraComponent(): UGameplayCameraComponent;
+    readonly __static_AGameplayCameraActor: {
+        GetCameraComponent(): UGameplayCameraComponent;
+    };
+    readonly __properties_AGameplayCameraActor: {
+        CameraComponent: UGameplayCameraComponent;
+    };
+    readonly __staticRegistry: 
+        AGameplayCameraActor['__static_AGameplayCameraActor'] &
+        AGameplayCameraActorBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AGameplayCameraActor['__properties_AGameplayCameraActor'] &
+        AGameplayCameraActorBase['__propertyRegistry'];
 }
-declare const AGameplayCameraActor: AGameplayCameraActor;
 
 declare interface AGameplayCameraActorBase extends AActor {
-
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AActor['__propertyRegistry'];
 }
-declare const AGameplayCameraActorBase: AGameplayCameraActorBase;
 
 declare interface AGameplayCameraRigActor extends AGameplayCameraActorBase {
-    CameraRigComponent: UGameplayCameraRigComponent;
-    GetCameraRigComponent(): UGameplayCameraRigComponent;
+    readonly __static_AGameplayCameraRigActor: {
+        GetCameraRigComponent(): UGameplayCameraRigComponent;
+    };
+    readonly __properties_AGameplayCameraRigActor: {
+        CameraRigComponent: UGameplayCameraRigComponent;
+    };
+    readonly __staticRegistry: 
+        AGameplayCameraRigActor['__static_AGameplayCameraRigActor'] &
+        AGameplayCameraActorBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AGameplayCameraRigActor['__properties_AGameplayCameraRigActor'] &
+        AGameplayCameraActorBase['__propertyRegistry'];
 }
-declare const AGameplayCameraRigActor: AGameplayCameraRigActor;
 
 declare interface AGameplayCameraSystemActor extends AActor {
-    CameraSystemComponent: UGameplayCameraSystemComponent;
-    GetCameraSystemComponent(): UGameplayCameraSystemComponent;
+    readonly __static_AGameplayCameraSystemActor: {
+        GetCameraSystemComponent(): UGameplayCameraSystemComponent;
+    };
+    readonly __properties_AGameplayCameraSystemActor: {
+        CameraSystemComponent: UGameplayCameraSystemComponent;
+    };
+    readonly __staticRegistry: 
+        AGameplayCameraSystemActor['__static_AGameplayCameraSystemActor'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AGameplayCameraSystemActor['__properties_AGameplayCameraSystemActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const AGameplayCameraSystemActor: AGameplayCameraSystemActor;
 
 declare interface AGameplayCamerasPlayerCameraManager extends APlayerCameraManager {
-    ViewRotationMode: EGameplayCamerasViewRotationMode;
-    bOverrideViewRotationMode: boolean;
-    OriginalCameraManager: APlayerCameraManager;
-    StopCameraModifierRig(InstanceId: FCameraRigInstanceID, bImmediately: boolean): void;
-    StealPlayerController(PlayerController: APlayerController): void;
-    StartVisualCameraModifierRig(CameraRig: UCameraRigAsset, OrderKey: number): FCameraRigInstanceID;
-    StartGlobalCameraModifierRig(CameraRig: UCameraRigAsset, OrderKey: number): FCameraRigInstanceID;
-    ReleasePlayerController(): void;
+    readonly __static_AGameplayCamerasPlayerCameraManager: {
+        StopCameraModifierRig(InstanceId: FCameraRigInstanceID, bImmediately: boolean): void;
+        StealPlayerController(PlayerController: APlayerController): void;
+        StartVisualCameraModifierRig(CameraRig: UCameraRigAsset, OrderKey: number): FCameraRigInstanceID;
+        StartGlobalCameraModifierRig(CameraRig: UCameraRigAsset, OrderKey: number): FCameraRigInstanceID;
+        ReleasePlayerController(): void;
+    };
+    readonly __properties_AGameplayCamerasPlayerCameraManager: {
+        ViewRotationMode: EGameplayCamerasViewRotationMode;
+        bOverrideViewRotationMode: boolean;
+        OriginalCameraManager: APlayerCameraManager;
+    };
+    readonly __staticRegistry: 
+        AGameplayCamerasPlayerCameraManager['__static_AGameplayCamerasPlayerCameraManager'] &
+        APlayerCameraManager['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AGameplayCamerasPlayerCameraManager['__properties_AGameplayCamerasPlayerCameraManager'] &
+        APlayerCameraManager['__propertyRegistry'];
 }
-declare const AGameplayCamerasPlayerCameraManager: AGameplayCamerasPlayerCameraManager;
 
 declare interface FBaseCameraObjectReference {
     Parameters: FInstancedPropertyBag;
-    ParameterMetaData: TArray<FCameraObjectInterfaceParameterMetaData>;
+    ParameterMetaData: FCameraObjectInterfaceParameterMetaData[];
 }
-declare const FBaseCameraObjectReference: FBaseCameraObjectReference;
 
 declare interface FBlueprintCameraDirectorActivateParams {
     EvaluationContextOwner: UObject;
 }
-declare const FBlueprintCameraDirectorActivateParams: FBlueprintCameraDirectorActivateParams;
 
 declare interface FBlueprintCameraDirectorDeactivateParams {
     EvaluationContextOwner: UObject;
 }
-declare const FBlueprintCameraDirectorDeactivateParams: FBlueprintCameraDirectorDeactivateParams;
 
 declare interface FBlueprintCameraDirectorEvaluationParams {
     DeltaTime: number;
     EvaluationContextOwner: UObject;
 }
-declare const FBlueprintCameraDirectorEvaluationParams: FBlueprintCameraDirectorEvaluationParams;
 
-declare interface FBlueprintCameraEvaluationDataRef {
-
-}
-declare const FBlueprintCameraEvaluationDataRef: FBlueprintCameraEvaluationDataRef;
+declare type FBlueprintCameraEvaluationDataRef = object;
 
 declare interface FBlueprintCameraPose {
     Location: FVector;
@@ -87,57 +118,49 @@ declare interface FBlueprintCameraPose {
     AspectRatioAxisConstraint: EAspectRatioAxisConstraint;
     ProjectionMode: ECameraProjectionMode;
 }
-declare const FBlueprintCameraPose: FBlueprintCameraPose;
 
 declare interface FBooleanCameraParameter {
     Value: boolean;
     VariableID: FCameraVariableID;
     Variable: UBooleanCameraVariable;
 }
-declare const FBooleanCameraParameter: FBooleanCameraParameter;
 
 declare interface FBooleanCameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FBooleanCameraParameter;
 }
-declare const FBooleanCameraRigParameterOverride: FBooleanCameraRigParameterOverride;
 
 declare interface FBooleanCameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: UBooleanCameraVariable;
 }
-declare const FBooleanCameraVariableReference: FBooleanCameraVariableReference;
 
 declare interface FCameraActorAttachmentInfo {
     Actor: AActor;
-    SocketName: FName;
-    BoneName: FName;
+    SocketName: string;
+    BoneName: string;
     Weight: number;
 }
-declare const FCameraActorAttachmentInfo: FCameraActorAttachmentInfo;
 
 declare interface FCameraActorTargetInfo {
     Actor: AActor;
-    SocketName: FName;
-    BoneName: FName;
+    SocketName: string;
+    BoneName: string;
     TargetShape: ECameraTargetShape;
     TargetSize: number;
     Weight: number;
 }
-declare const FCameraActorTargetInfo: FCameraActorTargetInfo;
 
 declare interface FCameraAssetAllocationInfo {
     VariableTableInfo: FCameraVariableTableAllocationInfo;
     ContextDataTableInfo: FCameraContextDataTableAllocationInfo;
 }
-declare const FCameraAssetAllocationInfo: FCameraAssetAllocationInfo;
 
 declare interface FCameraAssetReference {
     CameraAsset: UCameraAsset;
     Parameters: FInstancedPropertyBag;
-    ParameterOverrideGuids: TArray<FGuid>;
-    ParameterAnimatedGuids: TArray<FGuid>;
+    ParameterOverrideGuids: FGuid[];
+    ParameterAnimatedGuids: FGuid[];
 }
-declare const FCameraAssetReference: FCameraAssetReference;
 
 declare interface FCameraContextDataDefinition {
     DataID: FCameraContextDataID;
@@ -146,23 +169,19 @@ declare interface FCameraContextDataDefinition {
     DataTypeObject: UObject;
     bAutoReset: boolean;
 }
-declare const FCameraContextDataDefinition: FCameraContextDataDefinition;
 
 declare interface FCameraContextDataID {
-    Value: uint32;
+    Value: number;
 }
-declare const FCameraContextDataID: FCameraContextDataID;
 
 declare interface FCameraContextDataTableAllocationInfo {
-    DataDefinitions: TArray<FCameraContextDataDefinition>;
+    DataDefinitions: FCameraContextDataDefinition[];
 }
-declare const FCameraContextDataTableAllocationInfo: FCameraContextDataTableAllocationInfo;
 
 declare interface FCameraDirectorStateTreeEvaluationData {
-    ActiveCameraRigs: TArray<UCameraRigAsset>;
-    ActiveCameraRigProxies: TArray<UCameraRigProxyAsset>;
+    ActiveCameraRigs: UCameraRigAsset[];
+    ActiveCameraRigProxies: UCameraRigProxyAsset[];
 }
-declare const FCameraDirectorStateTreeEvaluationData: FCameraDirectorStateTreeEvaluationData;
 
 declare interface FCameraFramingZone {
     Left: number;
@@ -170,36 +189,31 @@ declare interface FCameraFramingZone {
     Right: number;
     Bottom: number;
 }
-declare const FCameraFramingZone: FCameraFramingZone;
 
 declare interface FCameraFramingZoneParameter {
     Value: FCameraFramingZone;
     VariableID: FCameraVariableID;
 }
-declare const FCameraFramingZoneParameter: FCameraFramingZoneParameter;
 
 declare interface FCameraNodeEvaluatorAllocationInfo {
-    TotalSizeof: int16;
-    MaxAlignof: int16;
+    TotalSizeof: number;
+    MaxAlignof: number;
 }
-declare const FCameraNodeEvaluatorAllocationInfo: FCameraNodeEvaluatorAllocationInfo;
 
 declare interface FCameraObjectAllocationInfo {
     EvaluatorInfo: FCameraNodeEvaluatorAllocationInfo;
     VariableTableInfo: FCameraVariableTableAllocationInfo;
     ContextDataTableInfo: FCameraContextDataTableAllocationInfo;
 }
-declare const FCameraObjectAllocationInfo: FCameraObjectAllocationInfo;
 
 declare interface FCameraObjectInterface {
-    BlendableParameters: TArray<UCameraObjectInterfaceBlendableParameter>;
-    DataParameters: TArray<UCameraObjectInterfaceDataParameter>;
-    DisplayName: FString;
+    BlendableParameters: UCameraObjectInterfaceBlendableParameter[];
+    DataParameters: UCameraObjectInterfaceDataParameter[];
+    DisplayName: string;
 }
-declare const FCameraObjectInterface: FCameraObjectInterface;
 
 declare interface FCameraObjectInterfaceParameterDefinition {
-    ParameterName: FName;
+    ParameterName: string;
     ParameterGuid: FGuid;
     ParameterType: ECameraObjectInterfaceParameterType;
     VariableID: FCameraVariableID;
@@ -210,7 +224,6 @@ declare interface FCameraObjectInterfaceParameterDefinition {
     DataContainerType: ECameraContextDataContainerType;
     DataTypeObject: UObject;
 }
-declare const FCameraObjectInterfaceParameterDefinition: FCameraObjectInterfaceParameterDefinition;
 
 declare interface FCameraObjectInterfaceParameterMetaData {
     ParameterGuid: FGuid;
@@ -219,7 +232,6 @@ declare interface FCameraObjectInterfaceParameterMetaData {
     bIsOverridden: boolean;
     bIsAnimated: boolean;
 }
-declare const FCameraObjectInterfaceParameterMetaData: FCameraObjectInterfaceParameterMetaData;
 
 declare interface FCameraParameterClamping {
     MinValue: number;
@@ -227,13 +239,11 @@ declare interface FCameraParameterClamping {
     bClampMin: boolean;
     bClampMax: boolean;
 }
-declare const FCameraParameterClamping: FCameraParameterClamping;
 
 declare interface FCameraParameterNormalization {
     MaxValue: number;
     bNormalize: boolean;
 }
-declare const FCameraParameterNormalization: FCameraParameterNormalization;
 
 declare interface FCameraPose {
     Location: FVector3d;
@@ -262,78 +272,67 @@ declare interface FCameraPose {
     AspectRatioAxisConstraint: EAspectRatioAxisConstraint;
     ProjectionMode: ECameraProjectionMode;
 }
-declare const FCameraPose: FCameraPose;
 
 declare interface FCameraRigAssetReference extends FBaseCameraObjectReference {
     CameraRig: UCameraRigAsset;
-    ParameterOverrideGuids: TArray<FGuid>;
+    ParameterOverrideGuids: FGuid[];
     ParameterOverrides: FCameraRigParameterOverrides;
 }
-declare const FCameraRigAssetReference: FCameraRigAssetReference;
 
 declare interface FCameraRigInputSlotParameters {
     bIsAccumulated: boolean;
     bIsPreBlended: boolean;
 }
-declare const FCameraRigInputSlotParameters: FCameraRigInputSlotParameters;
 
 declare interface FCameraRigInstanceID {
-    Value: uint32;
+    Value: number;
     Layer: ECameraRigLayer;
 }
-declare const FCameraRigInstanceID: FCameraRigInstanceID;
 
 declare interface FCameraRigParameterOverrideBase {
     InterfaceParameterGuid: FGuid;
     PrivateVariableGuid: FGuid;
-    InterfaceParameterName: FString;
+    InterfaceParameterName: string;
     bInvalid: boolean;
 }
-declare const FCameraRigParameterOverrideBase: FCameraRigParameterOverrideBase;
 
 declare interface FCameraRigParameterOverrides {
-    BooleanOverrides: TArray<FBooleanCameraRigParameterOverride>;
-    Integer32Overrides: TArray<FInteger32CameraRigParameterOverride>;
-    FloatOverrides: TArray<FFloatCameraRigParameterOverride>;
-    DoubleOverrides: TArray<FDoubleCameraRigParameterOverride>;
-    Vector2fOverrides: TArray<FVector2fCameraRigParameterOverride>;
-    Vector2dOverrides: TArray<FVector2dCameraRigParameterOverride>;
-    Vector3fOverrides: TArray<FVector3fCameraRigParameterOverride>;
-    Vector3dOverrides: TArray<FVector3dCameraRigParameterOverride>;
-    Vector4fOverrides: TArray<FVector4fCameraRigParameterOverride>;
-    Vector4dOverrides: TArray<FVector4dCameraRigParameterOverride>;
-    Rotator3fOverrides: TArray<FRotator3fCameraRigParameterOverride>;
-    Rotator3dOverrides: TArray<FRotator3dCameraRigParameterOverride>;
-    Transform3fOverrides: TArray<FTransform3fCameraRigParameterOverride>;
-    Transform3dOverrides: TArray<FTransform3dCameraRigParameterOverride>;
+    BooleanOverrides: FBooleanCameraRigParameterOverride[];
+    Integer32Overrides: FInteger32CameraRigParameterOverride[];
+    FloatOverrides: FFloatCameraRigParameterOverride[];
+    DoubleOverrides: FDoubleCameraRigParameterOverride[];
+    Vector2fOverrides: FVector2fCameraRigParameterOverride[];
+    Vector2dOverrides: FVector2dCameraRigParameterOverride[];
+    Vector3fOverrides: FVector3fCameraRigParameterOverride[];
+    Vector3dOverrides: FVector3dCameraRigParameterOverride[];
+    Vector4fOverrides: FVector4fCameraRigParameterOverride[];
+    Vector4dOverrides: FVector4dCameraRigParameterOverride[];
+    Rotator3fOverrides: FRotator3fCameraRigParameterOverride[];
+    Rotator3dOverrides: FRotator3dCameraRigParameterOverride[];
+    Transform3fOverrides: FTransform3fCameraRigParameterOverride[];
+    Transform3dOverrides: FTransform3dCameraRigParameterOverride[];
 }
-declare const FCameraRigParameterOverrides: FCameraRigParameterOverrides;
 
 declare interface FCameraRigProxyRedirectTable {
-    Entries: TArray<FCameraRigProxyRedirectTableEntry>;
+    Entries: FCameraRigProxyRedirectTableEntry[];
 }
-declare const FCameraRigProxyRedirectTable: FCameraRigProxyRedirectTable;
 
 declare interface FCameraRigProxyRedirectTableEntry {
     CameraRigProxy: UCameraRigProxyAsset;
     CameraRig: UCameraRigAsset;
 }
-declare const FCameraRigProxyRedirectTableEntry: FCameraRigProxyRedirectTableEntry;
 
 declare interface FCameraRotatorCurve {
     Curves: FRichCurve;
 }
-declare const FCameraRotatorCurve: FCameraRotatorCurve;
 
 declare interface FCameraShakeAssetReference extends FBaseCameraObjectReference {
     CameraShake: UCameraShakeAsset;
 }
-declare const FCameraShakeAssetReference: FCameraShakeAssetReference;
 
 declare interface FCameraSingleCurve {
     Curve: FRichCurve;
 }
-declare const FCameraSingleCurve: FCameraSingleCurve;
 
 declare interface FCameraVariableDefinition {
     VariableID: FCameraVariableID;
@@ -343,178 +342,148 @@ declare interface FCameraVariableDefinition {
     bIsInput: boolean;
     bAutoReset: boolean;
 }
-declare const FCameraVariableDefinition: FCameraVariableDefinition;
 
 declare interface FCameraVariableID {
-    Value: uint32;
+    Value: number;
 }
-declare const FCameraVariableID: FCameraVariableID;
 
 declare interface FCameraVariableSetterHandle {
-    Value: uint32;
-    SerialNumber: uint32;
+    Value: number;
+    SerialNumber: number;
 }
-declare const FCameraVariableSetterHandle: FCameraVariableSetterHandle;
 
 declare interface FCameraVariableTableAllocationInfo {
-    VariableDefinitions: TArray<FCameraVariableDefinition>;
+    VariableDefinitions: FCameraVariableDefinition[];
 }
-declare const FCameraVariableTableAllocationInfo: FCameraVariableTableAllocationInfo;
 
 declare interface FCameraVectorCurve {
     Curves: FRichCurve;
 }
-declare const FCameraVectorCurve: FCameraVectorCurve;
 
 declare interface FCustomCameraNodeBlendableParameter {
-    ParameterName: FName;
+    ParameterName: string;
     ParameterType: ECameraVariableType;
     BlendableStructType: UScriptStruct;
     OverrideVariableID: FCameraVariableID;
     OverrideVariable: UCameraVariableAsset;
 }
-declare const FCustomCameraNodeBlendableParameter: FCustomCameraNodeBlendableParameter;
 
 declare interface FCustomCameraNodeDataParameter {
-    ParameterName: FName;
+    ParameterName: string;
     ParameterType: ECameraContextDataType;
     ParameterContainerType: ECameraContextDataContainerType;
     ParameterTypeObject: UObject;
     OverrideDataID: FCameraContextDataID;
 }
-declare const FCustomCameraNodeDataParameter: FCustomCameraNodeDataParameter;
 
 declare interface FCustomCameraNodeParameters {
-    BlendableParameters: TArray<FCustomCameraNodeBlendableParameter>;
-    DataParameters: TArray<FCustomCameraNodeDataParameter>;
+    BlendableParameters: FCustomCameraNodeBlendableParameter[];
+    DataParameters: FCustomCameraNodeDataParameter[];
 }
-declare const FCustomCameraNodeParameters: FCustomCameraNodeParameters;
 
 declare interface FDoubleCameraParameter {
     Value: number;
     VariableID: FCameraVariableID;
     Variable: UDoubleCameraVariable;
 }
-declare const FDoubleCameraParameter: FDoubleCameraParameter;
 
 declare interface FDoubleCameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FDoubleCameraParameter;
 }
-declare const FDoubleCameraRigParameterOverride: FDoubleCameraRigParameterOverride;
 
 declare interface FDoubleCameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: UDoubleCameraVariable;
 }
-declare const FDoubleCameraVariableReference: FDoubleCameraVariableReference;
 
 declare interface FFloatCameraParameter {
     Value: number;
     VariableID: FCameraVariableID;
     Variable: UFloatCameraVariable;
 }
-declare const FFloatCameraParameter: FFloatCameraParameter;
 
 declare interface FFloatCameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FFloatCameraParameter;
 }
-declare const FFloatCameraRigParameterOverride: FFloatCameraRigParameterOverride;
 
 declare interface FFloatCameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: UFloatCameraVariable;
 }
-declare const FFloatCameraVariableReference: FFloatCameraVariableReference;
 
 declare interface FGameplayCamerasActivateCameraRigTask extends FGameplayCamerasStateTreeTask {
     bRunOnce: boolean;
 }
-declare const FGameplayCamerasActivateCameraRigTask: FGameplayCamerasActivateCameraRigTask;
 
 declare interface FGameplayCamerasActivateCameraRigTaskInstanceData {
     CameraRig: UCameraRigAsset;
 }
-declare const FGameplayCamerasActivateCameraRigTaskInstanceData: FGameplayCamerasActivateCameraRigTaskInstanceData;
 
 declare interface FGameplayCamerasActivateCameraRigViaProxyTask extends FGameplayCamerasStateTreeTask {
     bRunOnce: boolean;
 }
-declare const FGameplayCamerasActivateCameraRigViaProxyTask: FGameplayCamerasActivateCameraRigViaProxyTask;
 
 declare interface FGameplayCamerasActivateCameraRigViaProxyTaskInstanceData {
     CameraRigProxy: UCameraRigProxyAsset;
 }
-declare const FGameplayCamerasActivateCameraRigViaProxyTaskInstanceData: FGameplayCamerasActivateCameraRigViaProxyTaskInstanceData;
 
 declare interface FGameplayCamerasStateTreeCondition extends FStateTreeConditionBase {
 
 }
-declare const FGameplayCamerasStateTreeCondition: FGameplayCamerasStateTreeCondition;
 
 declare interface FGameplayCamerasStateTreeTask extends FStateTreeTaskBase {
 
 }
-declare const FGameplayCamerasStateTreeTask: FGameplayCamerasStateTreeTask;
 
 declare interface FInteger32CameraParameter {
     Value: number;
     VariableID: FCameraVariableID;
     Variable: UInteger32CameraVariable;
 }
-declare const FInteger32CameraParameter: FInteger32CameraParameter;
 
 declare interface FInteger32CameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FInteger32CameraParameter;
 }
-declare const FInteger32CameraRigParameterOverride: FInteger32CameraRigParameterOverride;
 
 declare interface FInteger32CameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: UInteger32CameraVariable;
 }
-declare const FInteger32CameraVariableReference: FInteger32CameraVariableReference;
 
 declare interface FPerlinNoiseData {
     Amplitude: number;
     Frequency: number;
 }
-declare const FPerlinNoiseData: FPerlinNoiseData;
 
 declare interface FRotator3dCameraParameter {
     Value: FRotator;
     VariableID: FCameraVariableID;
     Variable: URotator3dCameraVariable;
 }
-declare const FRotator3dCameraParameter: FRotator3dCameraParameter;
 
 declare interface FRotator3dCameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FRotator3dCameraParameter;
 }
-declare const FRotator3dCameraRigParameterOverride: FRotator3dCameraRigParameterOverride;
 
 declare interface FRotator3dCameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: URotator3dCameraVariable;
 }
-declare const FRotator3dCameraVariableReference: FRotator3dCameraVariableReference;
 
 declare interface FRotator3fCameraParameter {
     Value: FRotator3f;
     VariableID: FCameraVariableID;
     Variable: URotator3fCameraVariable;
 }
-declare const FRotator3fCameraParameter: FRotator3fCameraParameter;
 
 declare interface FRotator3fCameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FRotator3fCameraParameter;
 }
-declare const FRotator3fCameraRigParameterOverride: FRotator3fCameraRigParameterOverride;
 
 declare interface FRotator3fCameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: URotator3fCameraVariable;
 }
-declare const FRotator3fCameraVariableReference: FRotator3fCameraVariableReference;
 
 declare interface FSplineOrbitControlPoint {
     LocationOffset: FVector3d;
@@ -522,1108 +491,1785 @@ declare interface FSplineOrbitControlPoint {
     RotationOffset: FRotator3d;
     PitchAngle: number;
 }
-declare const FSplineOrbitControlPoint: FSplineOrbitControlPoint;
 
 declare interface FTransform3dCameraParameter {
     Value: FTransform;
     VariableID: FCameraVariableID;
     Variable: UTransform3dCameraVariable;
 }
-declare const FTransform3dCameraParameter: FTransform3dCameraParameter;
 
 declare interface FTransform3dCameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FTransform3dCameraParameter;
 }
-declare const FTransform3dCameraRigParameterOverride: FTransform3dCameraRigParameterOverride;
 
 declare interface FTransform3dCameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: UTransform3dCameraVariable;
 }
-declare const FTransform3dCameraVariableReference: FTransform3dCameraVariableReference;
 
 declare interface FTransform3fCameraParameter {
     Value: FTransform3f;
     VariableID: FCameraVariableID;
     Variable: UTransform3fCameraVariable;
 }
-declare const FTransform3fCameraParameter: FTransform3fCameraParameter;
 
 declare interface FTransform3fCameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FTransform3fCameraParameter;
 }
-declare const FTransform3fCameraRigParameterOverride: FTransform3fCameraRigParameterOverride;
 
 declare interface FTransform3fCameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: UTransform3fCameraVariable;
 }
-declare const FTransform3fCameraVariableReference: FTransform3fCameraVariableReference;
 
 declare interface FVector2dCameraParameter {
     Value: FVector2D;
     VariableID: FCameraVariableID;
     Variable: UVector2dCameraVariable;
 }
-declare const FVector2dCameraParameter: FVector2dCameraParameter;
 
 declare interface FVector2dCameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FVector2dCameraParameter;
 }
-declare const FVector2dCameraRigParameterOverride: FVector2dCameraRigParameterOverride;
 
 declare interface FVector2dCameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: UVector2dCameraVariable;
 }
-declare const FVector2dCameraVariableReference: FVector2dCameraVariableReference;
 
 declare interface FVector2fCameraParameter {
     Value: FVector2f;
     VariableID: FCameraVariableID;
     Variable: UVector2fCameraVariable;
 }
-declare const FVector2fCameraParameter: FVector2fCameraParameter;
 
 declare interface FVector2fCameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FVector2fCameraParameter;
 }
-declare const FVector2fCameraRigParameterOverride: FVector2fCameraRigParameterOverride;
 
 declare interface FVector2fCameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: UVector2fCameraVariable;
 }
-declare const FVector2fCameraVariableReference: FVector2fCameraVariableReference;
 
 declare interface FVector3dCameraParameter {
     Value: FVector;
     VariableID: FCameraVariableID;
     Variable: UVector3dCameraVariable;
 }
-declare const FVector3dCameraParameter: FVector3dCameraParameter;
 
 declare interface FVector3dCameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FVector3dCameraParameter;
 }
-declare const FVector3dCameraRigParameterOverride: FVector3dCameraRigParameterOverride;
 
 declare interface FVector3dCameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: UVector3dCameraVariable;
 }
-declare const FVector3dCameraVariableReference: FVector3dCameraVariableReference;
 
 declare interface FVector3fCameraParameter {
     Value: FVector3f;
     VariableID: FCameraVariableID;
     Variable: UVector3fCameraVariable;
 }
-declare const FVector3fCameraParameter: FVector3fCameraParameter;
 
 declare interface FVector3fCameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FVector3fCameraParameter;
 }
-declare const FVector3fCameraRigParameterOverride: FVector3fCameraRigParameterOverride;
 
 declare interface FVector3fCameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: UVector3fCameraVariable;
 }
-declare const FVector3fCameraVariableReference: FVector3fCameraVariableReference;
 
 declare interface FVector4dCameraParameter {
     Value: FVector4;
     VariableID: FCameraVariableID;
     Variable: UVector4dCameraVariable;
 }
-declare const FVector4dCameraParameter: FVector4dCameraParameter;
 
 declare interface FVector4dCameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FVector4dCameraParameter;
 }
-declare const FVector4dCameraRigParameterOverride: FVector4dCameraRigParameterOverride;
 
 declare interface FVector4dCameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: UVector4dCameraVariable;
 }
-declare const FVector4dCameraVariableReference: FVector4dCameraVariableReference;
 
 declare interface FVector4fCameraParameter {
     Value: FVector4f;
     VariableID: FCameraVariableID;
     Variable: UVector4fCameraVariable;
 }
-declare const FVector4fCameraParameter: FVector4fCameraParameter;
 
 declare interface FVector4fCameraRigParameterOverride extends FCameraRigParameterOverrideBase {
     Value: FVector4fCameraParameter;
 }
-declare const FVector4fCameraRigParameterOverride: FVector4fCameraRigParameterOverride;
 
 declare interface FVector4fCameraVariableReference {
     VariableID: FCameraVariableID;
     Variable: UVector4fCameraVariable;
 }
-declare const FVector4fCameraVariableReference: FVector4fCameraVariableReference;
 
 declare interface IAssetReferenceCameraNode extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IAssetReferenceCameraNode: IAssetReferenceCameraNode;
 
 declare interface ICustomCameraNodeParameterProvider extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const ICustomCameraNodeParameterProvider: ICustomCameraNodeParameterProvider;
 
 declare interface IGameplayCameraSystemHost extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IGameplayCameraSystemHost: IGameplayCameraSystemHost;
 
 declare interface IHasCameraBuildStatus extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IHasCameraBuildStatus: IHasCameraBuildStatus;
 
 declare interface IObjectTreeGraphObject extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IObjectTreeGraphObject: IObjectTreeGraphObject;
 
 declare interface IObjectTreeGraphRootObject extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IObjectTreeGraphRootObject: IObjectTreeGraphRootObject;
 
 declare interface UAccelerationDecelerationValueInterpolator extends UCameraValueInterpolator {
-    Acceleration: number;
-    MaxSpeed: number;
-    Deceleration: number;
+    readonly __properties_UAccelerationDecelerationValueInterpolator: {
+        Acceleration: number;
+        MaxSpeed: number;
+        Deceleration: number;
+    };
+    readonly __staticRegistry: 
+        UCameraValueInterpolator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAccelerationDecelerationValueInterpolator['__properties_UAccelerationDecelerationValueInterpolator'] &
+        UCameraValueInterpolator['__propertyRegistry'];
 }
-declare const UAccelerationDecelerationValueInterpolator: UAccelerationDecelerationValueInterpolator;
 
 declare interface UActivateCameraRigFunctions extends UBlueprintFunctionLibrary {
-    ActivatePersistentVisualCameraRig(WorldContextObject: UObject, PlayerController: APlayerController, CameraRig: UCameraRigAsset): void;
-    ActivatePersistentGlobalCameraRig(WorldContextObject: UObject, PlayerController: APlayerController, CameraRig: UCameraRigAsset): void;
-    ActivatePersistentBaseCameraRig(WorldContextObject: UObject, PlayerController: APlayerController, CameraRig: UCameraRigAsset): void;
+    readonly __static_UActivateCameraRigFunctions: {
+        ActivatePersistentVisualCameraRig(WorldContextObject: UObject, PlayerController: APlayerController, CameraRig: UCameraRigAsset): void;
+        ActivatePersistentGlobalCameraRig(WorldContextObject: UObject, PlayerController: APlayerController, CameraRig: UCameraRigAsset): void;
+        ActivatePersistentBaseCameraRig(WorldContextObject: UObject, PlayerController: APlayerController, CameraRig: UCameraRigAsset): void;
+    };
+    readonly __staticRegistry: 
+        UActivateCameraRigFunctions['__static_UActivateCameraRigFunctions'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UActivateCameraRigFunctions: UActivateCameraRigFunctions;
 
 declare interface UArrayCameraNode extends UCameraNode {
-    Children: TArray<UCameraNode>;
+    readonly __properties_UArrayCameraNode: {
+        Children: UCameraNode[];
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UArrayCameraNode['__properties_UArrayCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UArrayCameraNode: UArrayCameraNode;
 
 declare interface UAttachToActorCameraNode extends UCameraNode {
-    Attachment: FCameraActorAttachmentInfo;
-    AttachmentDataID: FCameraContextDataID;
-    AttachToLocation: FBooleanCameraParameter;
-    AttachToRotation: FBooleanCameraParameter;
+    readonly __properties_UAttachToActorCameraNode: {
+        Attachment: FCameraActorAttachmentInfo;
+        AttachmentDataID: FCameraContextDataID;
+        AttachToLocation: FBooleanCameraParameter;
+        AttachToRotation: FBooleanCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAttachToActorCameraNode['__properties_UAttachToActorCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UAttachToActorCameraNode: UAttachToActorCameraNode;
 
 declare interface UAttachToActorGroupCameraNode extends UCameraNode {
-    Attachments: TArray<FCameraActorAttachmentInfo>;
-    AttachmentsDataID: FCameraContextDataID;
+    readonly __properties_UAttachToActorGroupCameraNode: {
+        Attachments: FCameraActorAttachmentInfo[];
+        AttachmentsDataID: FCameraContextDataID;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAttachToActorGroupCameraNode['__properties_UAttachToActorGroupCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UAttachToActorGroupCameraNode: UAttachToActorGroupCameraNode;
 
 declare interface UAttachToPlayerPawnCameraNode extends UCameraNode {
-    AttachToLocation: FBooleanCameraParameter;
-    AttachToRotation: FBooleanCameraParameter;
+    readonly __properties_UAttachToPlayerPawnCameraNode: {
+        AttachToLocation: FBooleanCameraParameter;
+        AttachToRotation: FBooleanCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAttachToPlayerPawnCameraNode['__properties_UAttachToPlayerPawnCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UAttachToPlayerPawnCameraNode: UAttachToPlayerPawnCameraNode;
 
 declare interface UAutoFocusCameraNode extends UCameraNode {
-    EnableAutoFocus: FBooleanCameraVariableReference;
-    AutoFocusDampingFactor: FFloatCameraParameter;
+    readonly __properties_UAutoFocusCameraNode: {
+        EnableAutoFocus: FBooleanCameraVariableReference;
+        AutoFocusDampingFactor: FFloatCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAutoFocusCameraNode['__properties_UAutoFocusCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UAutoFocusCameraNode: UAutoFocusCameraNode;
 
 declare interface UAutoRotateInput2DCameraNode extends UInput2DCameraNode {
-    Direction: ECameraAutoRotateDirection;
-    DirectionVector: FVector3dCameraVariableReference;
-    WaitTime: FFloatCameraParameter;
-    DeactivationThreshold: FFloatCameraParameter;
-    Interpolator: UCameraValueInterpolator;
-    FreezeControlRotation: FBooleanCameraParameter;
-    EnableAutoRotate: FBooleanCameraParameter;
-    AutoRotateYaw: FBooleanCameraParameter;
-    AutoRotatePitch: FBooleanCameraParameter;
-    InputNode: UInput2DCameraNode;
+    readonly __properties_UAutoRotateInput2DCameraNode: {
+        Direction: ECameraAutoRotateDirection;
+        DirectionVector: FVector3dCameraVariableReference;
+        WaitTime: FFloatCameraParameter;
+        DeactivationThreshold: FFloatCameraParameter;
+        Interpolator: UCameraValueInterpolator;
+        FreezeControlRotation: FBooleanCameraParameter;
+        EnableAutoRotate: FBooleanCameraParameter;
+        AutoRotateYaw: FBooleanCameraParameter;
+        AutoRotatePitch: FBooleanCameraParameter;
+        InputNode: UInput2DCameraNode;
+    };
+    readonly __staticRegistry: 
+        UInput2DCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAutoRotateInput2DCameraNode['__properties_UAutoRotateInput2DCameraNode'] &
+        UInput2DCameraNode['__propertyRegistry'];
 }
-declare const UAutoRotateInput2DCameraNode: UAutoRotateInput2DCameraNode;
 
 declare interface UBaseCameraObject extends UObject {
-    Interface: FCameraObjectInterface;
-    AllocationInfo: FCameraObjectAllocationInfo;
-    DefaultParameters: FInstancedPropertyBag;
-    ParameterDefinitions: TArray<FCameraObjectInterfaceParameterDefinition>;
+    readonly __properties_UBaseCameraObject: {
+        Interface: FCameraObjectInterface;
+        AllocationInfo: FCameraObjectAllocationInfo;
+        DefaultParameters: FInstancedPropertyBag;
+        ParameterDefinitions: FCameraObjectInterfaceParameterDefinition[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBaseCameraObject['__properties_UBaseCameraObject'] &
+        UObject['__propertyRegistry'];
 }
-declare const UBaseCameraObject: UBaseCameraObject;
 
 declare interface UBaseFramingCameraNode extends UCameraNode {
-    TargetLocation: FVector3dCameraVariableReference;
-    TargetInfos: TArray<FCameraActorTargetInfo>;
-    TargetInfosDataID: FCameraContextDataID;
-    SetTargetDistance: FBooleanCameraParameter;
-    InitializeWithIdealFraming: FBooleanCameraParameter;
-    IdealFramingLocation: FVector2dCameraParameter;
-    ReframeDampingFactor: FFloatCameraParameter;
-    LowReframeDampingFactor: FFloatCameraParameter;
-    ReengageTime: FFloatCameraParameter;
-    DisengageTime: FFloatCameraParameter;
-    TargetMovementAnticipationTime: FFloatCameraParameter;
-    DeadZone: FCameraFramingZoneParameter;
-    SoftZone: FCameraFramingZoneParameter;
-    TargetInfo: FCameraActorTargetInfo;
+    readonly __properties_UBaseFramingCameraNode: {
+        TargetLocation: FVector3dCameraVariableReference;
+        TargetInfos: FCameraActorTargetInfo[];
+        TargetInfosDataID: FCameraContextDataID;
+        SetTargetDistance: FBooleanCameraParameter;
+        InitializeWithIdealFraming: FBooleanCameraParameter;
+        IdealFramingLocation: FVector2dCameraParameter;
+        ReframeDampingFactor: FFloatCameraParameter;
+        LowReframeDampingFactor: FFloatCameraParameter;
+        ReengageTime: FFloatCameraParameter;
+        DisengageTime: FFloatCameraParameter;
+        TargetMovementAnticipationTime: FFloatCameraParameter;
+        DeadZone: FCameraFramingZoneParameter;
+        SoftZone: FCameraFramingZoneParameter;
+        TargetInfo: FCameraActorTargetInfo;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBaseFramingCameraNode['__properties_UBaseFramingCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UBaseFramingCameraNode: UBaseFramingCameraNode;
 
 declare interface UBlendCameraNode extends UCameraNode {
-
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraNode['__propertyRegistry'];
 }
-declare const UBlendCameraNode: UBlendCameraNode;
 
 declare interface UBlendStackCameraNode extends UCameraNode {
-    BlendStackType: ECameraBlendStackType;
-    Layer: ECameraRigLayer;
+    readonly __properties_UBlendStackCameraNode: {
+        BlendStackType: ECameraBlendStackType;
+        Layer: ECameraRigLayer;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlendStackCameraNode['__properties_UBlendStackCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UBlendStackCameraNode: UBlendStackCameraNode;
 
 declare interface UBlendStackRootCameraNode extends UCameraNode {
-    Blend: UBlendCameraNode;
-    RootNode: UCameraNode;
+    readonly __properties_UBlendStackRootCameraNode: {
+        Blend: UBlendCameraNode;
+        RootNode: UCameraNode;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlendStackRootCameraNode['__properties_UBlendStackRootCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UBlendStackRootCameraNode: UBlendStackRootCameraNode;
 
 declare interface UBlueprintCameraContextDataTableFunctionLibrary extends UBlueprintFunctionLibrary {
-    SetStructData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, Data: FInstancedStruct): boolean;
-    SetStringData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, Data: string | FString): boolean;
-    SetObjectData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, Data: UObject): boolean;
-    SetNameData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, Data: FName): boolean;
-    SetEnumData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, EnumType: UEnum, Data: uint8): boolean;
-    SetClassData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, Data: UClass): boolean;
-    GetStructData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, DataStructType: UScriptStruct): FInstancedStruct;
-    GetStringData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID): FString;
-    GetObjectData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID): UObject;
-    GetNameData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID): FName;
-    GetEnumData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, EnumType: UEnum): uint8;
-    GetClassData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID): UClass;
+    readonly __static_UBlueprintCameraContextDataTableFunctionLibrary: {
+        SetStructData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, Data: FInstancedStruct): boolean;
+        SetStringData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, Data: string): boolean;
+        SetObjectData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, Data: UObject): boolean;
+        SetNameData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, Data: string): boolean;
+        SetEnumData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, EnumType: UEnum, Data: number): boolean;
+        SetClassData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, Data: UClass): boolean;
+        GetStructData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, DataStructType: UScriptStruct): FInstancedStruct;
+        GetStringData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID): string;
+        GetObjectData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID): UObject;
+        GetNameData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID): string;
+        GetEnumData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID, EnumType: UEnum): number;
+        GetClassData(CameraData: FBlueprintCameraEvaluationDataRef, DataID: FCameraContextDataID): UClass;
+    };
+    readonly __staticRegistry: 
+        UBlueprintCameraContextDataTableFunctionLibrary['__static_UBlueprintCameraContextDataTableFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UBlueprintCameraContextDataTableFunctionLibrary: UBlueprintCameraContextDataTableFunctionLibrary;
 
 declare interface UBlueprintCameraDirector extends UCameraDirector {
-    CameraDirectorEvaluatorClass: TSubclassOf<UBlueprintCameraDirectorEvaluator>;
+    readonly __properties_UBlueprintCameraDirector: {
+        CameraDirectorEvaluatorClass: TSubclassOf<UBlueprintCameraDirectorEvaluator>;
+    };
+    readonly __staticRegistry: 
+        UCameraDirector['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintCameraDirector['__properties_UBlueprintCameraDirector'] &
+        UCameraDirector['__propertyRegistry'];
 }
-declare const UBlueprintCameraDirector: UBlueprintCameraDirector;
 
 declare interface UBlueprintCameraDirectorEvaluator extends UObject {
-    RunChildCameraDirector(DeltaTime: number, ChildSlotName: FName): boolean;
-    RunCameraDirector(DeltaTime: number, EvaluationContextOwner: UObject, Params: FBlueprintCameraDirectorEvaluationParams): void;
-    RemoveChildEvaluationContext(ChildEvaluationContextOwner: UObject, ChildSlotName: FName): boolean;
-    GetInitialContextResult(): FBlueprintCameraEvaluationDataRef;
-    GetConditionalContextResult(Condition: ECameraEvaluationDataCondition): FBlueprintCameraEvaluationDataRef;
-    FindEvaluationContextOwnerActor(ActorClass: TSubclassOf<AActor>): AActor;
-    DeactivatePersistentVisualCameraRig(CameraRigPrefab: UCameraRigAsset): void;
-    DeactivatePersistentGlobalCameraRig(CameraRigPrefab: UCameraRigAsset): void;
-    DeactivatePersistentBaseCameraRig(CameraRigPrefab: UCameraRigAsset): void;
-    DeactivateCameraDirector(EvaluationContextOwner: UObject, Params: FBlueprintCameraDirectorDeactivateParams): void;
-    AddChildEvaluationContext(ChildEvaluationContextOwner: UObject): FName;
-    ActivatePersistentVisualCameraRig(CameraRigPrefab: UCameraRigAsset): void;
-    ActivatePersistentGlobalCameraRig(CameraRigPrefab: UCameraRigAsset): void;
-    ActivatePersistentBaseCameraRig(CameraRigPrefab: UCameraRigAsset): void;
-    ActivateCameraRigViaProxy(CameraRigProxy: UCameraRigProxyAsset, bForceNewInstance: boolean): void;
-    ActivateCameraRig(CameraRig: UCameraRigAsset, bForceNewInstance: boolean): void;
-    ActivateCameraDirector(EvaluationContextOwner: UObject, Params: FBlueprintCameraDirectorActivateParams): void;
+    readonly __static_UBlueprintCameraDirectorEvaluator: {
+        RunChildCameraDirector(DeltaTime: number, ChildSlotName: string): boolean;
+        RunCameraDirector(DeltaTime: number, EvaluationContextOwner: UObject, Params: FBlueprintCameraDirectorEvaluationParams): void;
+        RemoveChildEvaluationContext(ChildEvaluationContextOwner: UObject, ChildSlotName: string): boolean;
+        GetInitialContextResult(): FBlueprintCameraEvaluationDataRef;
+        GetConditionalContextResult(Condition: ECameraEvaluationDataCondition): FBlueprintCameraEvaluationDataRef;
+        FindEvaluationContextOwnerActor(ActorClass: TSubclassOf<AActor>): AActor;
+        DeactivatePersistentVisualCameraRig(CameraRigPrefab: UCameraRigAsset): void;
+        DeactivatePersistentGlobalCameraRig(CameraRigPrefab: UCameraRigAsset): void;
+        DeactivatePersistentBaseCameraRig(CameraRigPrefab: UCameraRigAsset): void;
+        DeactivateCameraDirector(EvaluationContextOwner: UObject, Params: FBlueprintCameraDirectorDeactivateParams): void;
+        AddChildEvaluationContext(ChildEvaluationContextOwner: UObject): string;
+        ActivatePersistentVisualCameraRig(CameraRigPrefab: UCameraRigAsset): void;
+        ActivatePersistentGlobalCameraRig(CameraRigPrefab: UCameraRigAsset): void;
+        ActivatePersistentBaseCameraRig(CameraRigPrefab: UCameraRigAsset): void;
+        ActivateCameraRigViaProxy(CameraRigProxy: UCameraRigProxyAsset, bForceNewInstance: boolean): void;
+        ActivateCameraRig(CameraRig: UCameraRigAsset, bForceNewInstance: boolean): void;
+        ActivateCameraDirector(EvaluationContextOwner: UObject, Params: FBlueprintCameraDirectorActivateParams): void;
+    };
+    readonly __staticRegistry: 
+        UBlueprintCameraDirectorEvaluator['__static_UBlueprintCameraDirectorEvaluator'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UBlueprintCameraDirectorEvaluator: UBlueprintCameraDirectorEvaluator;
 
 declare interface UBlueprintCameraEvaluationDataFunctionLibrary extends UBlueprintFunctionLibrary {
-    SetDefaultCameraRigParameters(CameraData: FBlueprintCameraEvaluationDataRef, CameraRig: UCameraRigAsset): void;
-    SetCameraPose(CameraData: FBlueprintCameraEvaluationDataRef, CameraPose: FBlueprintCameraPose): void;
-    MakeCameraEvaluationData(): FBlueprintCameraEvaluationDataRef;
-    GetCameraPose(CameraData: FBlueprintCameraEvaluationDataRef): FBlueprintCameraPose;
-    BlendCameraEvaluationData(FromCameraData: FBlueprintCameraEvaluationDataRef, ToCameraData: FBlueprintCameraEvaluationDataRef, Factor: number): void;
+    readonly __static_UBlueprintCameraEvaluationDataFunctionLibrary: {
+        SetDefaultCameraRigParameters(CameraData: FBlueprintCameraEvaluationDataRef, CameraRig: UCameraRigAsset): void;
+        SetCameraPose(CameraData: FBlueprintCameraEvaluationDataRef, CameraPose: FBlueprintCameraPose): void;
+        MakeCameraEvaluationData(): FBlueprintCameraEvaluationDataRef;
+        GetCameraPose(CameraData: FBlueprintCameraEvaluationDataRef): FBlueprintCameraPose;
+        BlendCameraEvaluationData(FromCameraData: FBlueprintCameraEvaluationDataRef, ToCameraData: FBlueprintCameraEvaluationDataRef, Factor: number): void;
+    };
+    readonly __staticRegistry: 
+        UBlueprintCameraEvaluationDataFunctionLibrary['__static_UBlueprintCameraEvaluationDataFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UBlueprintCameraEvaluationDataFunctionLibrary: UBlueprintCameraEvaluationDataFunctionLibrary;
 
 declare interface UBlueprintCameraNode extends UCameraNode {
-    CameraNodeEvaluatorTemplate: UBlueprintCameraNodeEvaluator;
-    CameraNodeEvaluatorOverrides: FCustomCameraNodeParameters;
-    CameraNodeEvaluatorClass: TSubclassOf<UBlueprintCameraNodeEvaluator>;
+    readonly __properties_UBlueprintCameraNode: {
+        CameraNodeEvaluatorTemplate: UBlueprintCameraNodeEvaluator;
+        CameraNodeEvaluatorOverrides: FCustomCameraNodeParameters;
+        CameraNodeEvaluatorClass: TSubclassOf<UBlueprintCameraNodeEvaluator>;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintCameraNode['__properties_UBlueprintCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UBlueprintCameraNode: UBlueprintCameraNode;
 
 declare interface UBlueprintCameraNodeEvaluator extends UObject {
-    bIsFirstFrame: boolean;
-    EvaluationContextOwner: UObject;
-    CameraData: FBlueprintCameraEvaluationDataRef;
-    CameraPose: FBlueprintCameraPose;
-    VariableTable: FBlueprintCameraEvaluationDataRef;
-    TickCameraNode(DeltaTime: number): void;
-    SetDefaultOwningCameraRigParameters(TargetCameraData: FBlueprintCameraEvaluationDataRef): void;
-    SetCurrentCameraPose(CameraPose: FBlueprintCameraPose): void;
-    SetCameraPose(InCameraPose: FBlueprintCameraPose): void;
-    InitializeCameraNode(): void;
-    GetPlayerController(): APlayerController;
-    GetCurrentCameraPose(): FBlueprintCameraPose;
-    GetCameraPose(): FBlueprintCameraPose;
-    FindEvaluationContextOwnerActor(ActorClass: TSubclassOf<AActor>): AActor;
+    readonly __static_UBlueprintCameraNodeEvaluator: {
+        TickCameraNode(DeltaTime: number): void;
+        SetDefaultOwningCameraRigParameters(TargetCameraData: FBlueprintCameraEvaluationDataRef): void;
+        SetCurrentCameraPose(CameraPose: FBlueprintCameraPose): void;
+        SetCameraPose(InCameraPose: FBlueprintCameraPose): void;
+        InitializeCameraNode(): void;
+        GetPlayerController(): APlayerController;
+        GetCurrentCameraPose(): FBlueprintCameraPose;
+        GetCameraPose(): FBlueprintCameraPose;
+        FindEvaluationContextOwnerActor(ActorClass: TSubclassOf<AActor>): AActor;
+    };
+    readonly __properties_UBlueprintCameraNodeEvaluator: {
+        bIsFirstFrame: boolean;
+        EvaluationContextOwner: UObject;
+        CameraData: FBlueprintCameraEvaluationDataRef;
+        CameraPose: FBlueprintCameraPose;
+        VariableTable: FBlueprintCameraEvaluationDataRef;
+    };
+    readonly __staticRegistry: 
+        UBlueprintCameraNodeEvaluator['__static_UBlueprintCameraNodeEvaluator'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintCameraNodeEvaluator['__properties_UBlueprintCameraNodeEvaluator'] &
+        UObject['__propertyRegistry'];
 }
-declare const UBlueprintCameraNodeEvaluator: UBlueprintCameraNodeEvaluator;
 
 declare interface UBlueprintCameraPoseFunctionLibrary extends UBlueprintFunctionLibrary {
-    SetTransform(CameraPose: FBlueprintCameraPose, Transform: FTransform): FBlueprintCameraPose;
-    SetTargetDistance(CameraPose: FBlueprintCameraPose, TargetDistance: number): FBlueprintCameraPose;
-    SetRotation(CameraPose: FBlueprintCameraPose, Rotation: FRotator): FBlueprintCameraPose;
-    SetLocation(CameraPose: FBlueprintCameraPose, Location: FVector): FBlueprintCameraPose;
-    SetFocalLength(CameraPose: FBlueprintCameraPose, FocalLength: number): FBlueprintCameraPose;
-    SetFieldOfView(CameraPose: FBlueprintCameraPose, FieldOfView: number): FBlueprintCameraPose;
-    MakeCameraPoseFromCineCameraComponent(CameraComponent: UCineCameraComponent): FBlueprintCameraPose;
-    MakeCameraPoseFromCameraComponent(CameraComponent: UCameraComponent): FBlueprintCameraPose;
-    GetTransform(CameraPose: FBlueprintCameraPose): FTransform;
-    GetTargetDistance(CameraPose: FBlueprintCameraPose): number;
-    GetTargetAtDistance(CameraPose: FBlueprintCameraPose, TargetDistance: number): FVector;
-    GetTarget(CameraPose: FBlueprintCameraPose): FVector;
-    GetSensorAspectRatio(CameraPose: FBlueprintCameraPose): number;
-    GetRotation(CameraPose: FBlueprintCameraPose): FRotator;
-    GetLocation(CameraPose: FBlueprintCameraPose): FVector;
-    GetFocalLength(CameraPose: FBlueprintCameraPose): number;
-    GetFieldOfView(CameraPose: FBlueprintCameraPose): number;
-    GetEffectiveFieldOfView(CameraPose: FBlueprintCameraPose): number;
-    GetAimRay(CameraPose: FBlueprintCameraPose): FRay;
-    GetAimDir(CameraPose: FBlueprintCameraPose): FVector;
+    readonly __static_UBlueprintCameraPoseFunctionLibrary: {
+        SetTransform(CameraPose: FBlueprintCameraPose, Transform: FTransform): FBlueprintCameraPose;
+        SetTargetDistance(CameraPose: FBlueprintCameraPose, TargetDistance: number): FBlueprintCameraPose;
+        SetRotation(CameraPose: FBlueprintCameraPose, Rotation: FRotator): FBlueprintCameraPose;
+        SetLocation(CameraPose: FBlueprintCameraPose, Location: FVector): FBlueprintCameraPose;
+        SetFocalLength(CameraPose: FBlueprintCameraPose, FocalLength: number): FBlueprintCameraPose;
+        SetFieldOfView(CameraPose: FBlueprintCameraPose, FieldOfView: number): FBlueprintCameraPose;
+        MakeCameraPoseFromCineCameraComponent(CameraComponent: UCineCameraComponent): FBlueprintCameraPose;
+        MakeCameraPoseFromCameraComponent(CameraComponent: UCameraComponent): FBlueprintCameraPose;
+        GetTransform(CameraPose: FBlueprintCameraPose): FTransform;
+        GetTargetDistance(CameraPose: FBlueprintCameraPose): number;
+        GetTargetAtDistance(CameraPose: FBlueprintCameraPose, TargetDistance: number): FVector;
+        GetTarget(CameraPose: FBlueprintCameraPose): FVector;
+        GetSensorAspectRatio(CameraPose: FBlueprintCameraPose): number;
+        GetRotation(CameraPose: FBlueprintCameraPose): FRotator;
+        GetLocation(CameraPose: FBlueprintCameraPose): FVector;
+        GetFocalLength(CameraPose: FBlueprintCameraPose): number;
+        GetFieldOfView(CameraPose: FBlueprintCameraPose): number;
+        GetEffectiveFieldOfView(CameraPose: FBlueprintCameraPose): number;
+        GetAimRay(CameraPose: FBlueprintCameraPose): FRay;
+        GetAimDir(CameraPose: FBlueprintCameraPose): FVector;
+    };
+    readonly __staticRegistry: 
+        UBlueprintCameraPoseFunctionLibrary['__static_UBlueprintCameraPoseFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UBlueprintCameraPoseFunctionLibrary: UBlueprintCameraPoseFunctionLibrary;
 
 declare interface UBlueprintCameraVariableTableFunctionLibrary extends UBlueprintFunctionLibrary {
-    SetVector4CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UVector4dCameraVariable, Value: FVector4): void;
-    SetVector3CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UVector3dCameraVariable, Value: FVector): void;
-    SetVector2CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UVector2dCameraVariable, Value: FVector2D): void;
-    SetTransformCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UTransform3dCameraVariable, Value: FTransform): void;
-    SetRotatorCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: URotator3dCameraVariable, Value: FRotator): void;
-    SetInteger32CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UInteger32CameraVariable, Value: number): void;
-    SetFloatCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UFloatCameraVariable, Value: number): void;
-    SetDoubleCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UDoubleCameraVariable, Value: number): void;
-    SetBooleanCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UBooleanCameraVariable, Value: boolean): void;
-    GetVector4CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UVector4dCameraVariable): FVector4;
-    GetVector3CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UVector3dCameraVariable): FVector;
-    GetVector2CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UVector2dCameraVariable): FVector2D;
-    GetTransformCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UTransform3dCameraVariable): FTransform;
-    GetRotatorCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: URotator3dCameraVariable): FRotator;
-    GetInteger32CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UInteger32CameraVariable): number;
-    GetFloatCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UFloatCameraVariable): number;
-    GetDoubleCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UDoubleCameraVariable): number;
-    GetBooleanCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UBooleanCameraVariable): boolean;
+    readonly __static_UBlueprintCameraVariableTableFunctionLibrary: {
+        SetVector4CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UVector4dCameraVariable, Value: FVector4): void;
+        SetVector3CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UVector3dCameraVariable, Value: FVector): void;
+        SetVector2CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UVector2dCameraVariable, Value: FVector2D): void;
+        SetTransformCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UTransform3dCameraVariable, Value: FTransform): void;
+        SetRotatorCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: URotator3dCameraVariable, Value: FRotator): void;
+        SetInteger32CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UInteger32CameraVariable, Value: number): void;
+        SetFloatCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UFloatCameraVariable, Value: number): void;
+        SetDoubleCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UDoubleCameraVariable, Value: number): void;
+        SetBooleanCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UBooleanCameraVariable, Value: boolean): void;
+        GetVector4CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UVector4dCameraVariable): FVector4;
+        GetVector3CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UVector3dCameraVariable): FVector;
+        GetVector2CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UVector2dCameraVariable): FVector2D;
+        GetTransformCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UTransform3dCameraVariable): FTransform;
+        GetRotatorCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: URotator3dCameraVariable): FRotator;
+        GetInteger32CameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UInteger32CameraVariable): number;
+        GetFloatCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UFloatCameraVariable): number;
+        GetDoubleCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UDoubleCameraVariable): number;
+        GetBooleanCameraVariable(CameraData: FBlueprintCameraEvaluationDataRef, Variable: UBooleanCameraVariable): boolean;
+    };
+    readonly __staticRegistry: 
+        UBlueprintCameraVariableTableFunctionLibrary['__static_UBlueprintCameraVariableTableFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UBlueprintCameraVariableTableFunctionLibrary: UBlueprintCameraVariableTableFunctionLibrary;
 
 declare interface UBodyParametersCameraNode extends UCameraNode {
-    ShutterSpeed: FFloatCameraParameter;
-    ISO: FFloatCameraParameter;
+    readonly __properties_UBodyParametersCameraNode: {
+        ShutterSpeed: FFloatCameraParameter;
+        ISO: FFloatCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBodyParametersCameraNode['__properties_UBodyParametersCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UBodyParametersCameraNode: UBodyParametersCameraNode;
 
 declare interface UBooleanCameraVariable extends UCameraVariableAsset {
-    bDefaultValue: boolean;
+    readonly __properties_UBooleanCameraVariable: {
+        bDefaultValue: boolean;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBooleanCameraVariable['__properties_UBooleanCameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const UBooleanCameraVariable: UBooleanCameraVariable;
 
 declare interface UBoomArmCameraNode extends UCameraNode {
-    BoomOffset: FVector3dCameraParameter;
-    BoomLengthInterpolator: UCameraValueInterpolator;
-    MaxForwardInterpolationFactor: FDoubleCameraParameter;
-    MaxBackwardInterpolationFactor: FDoubleCameraParameter;
-    InputSlot: UInput2DCameraNode;
+    readonly __properties_UBoomArmCameraNode: {
+        BoomOffset: FVector3dCameraParameter;
+        BoomLengthInterpolator: UCameraValueInterpolator;
+        MaxForwardInterpolationFactor: FDoubleCameraParameter;
+        MaxBackwardInterpolationFactor: FDoubleCameraParameter;
+        InputSlot: UInput2DCameraNode;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBoomArmCameraNode['__properties_UBoomArmCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UBoomArmCameraNode: UBoomArmCameraNode;
 
 declare interface UCalcCameraActorCameraNode extends UCameraNode {
-
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraNode['__propertyRegistry'];
 }
-declare const UCalcCameraActorCameraNode: UCalcCameraActorCameraNode;
 
 declare interface UCameraAsset extends UObject {
-    CameraDirector: UCameraDirector;
-    EnterTransitions: TArray<UCameraRigTransition>;
-    ExitTransitions: TArray<UCameraRigTransition>;
-    BuildStatus: ECameraBuildStatus;
-    DefaultParameters: FInstancedPropertyBag;
-    ParameterDefinitions: TArray<FCameraObjectInterfaceParameterDefinition>;
-    ParameterOwners: TArray<UCameraRigAsset>;
-    AllocationInfo: FCameraAssetAllocationInfo;
-    CameraRigs: TArray<UCameraRigAsset>;
+    readonly __properties_UCameraAsset: {
+        CameraDirector: UCameraDirector;
+        EnterTransitions: UCameraRigTransition[];
+        ExitTransitions: UCameraRigTransition[];
+        BuildStatus: ECameraBuildStatus;
+        DefaultParameters: FInstancedPropertyBag;
+        ParameterDefinitions: FCameraObjectInterfaceParameterDefinition[];
+        ParameterOwners: UCameraRigAsset[];
+        AllocationInfo: FCameraAssetAllocationInfo;
+        CameraRigs: UCameraRigAsset[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraAsset['__properties_UCameraAsset'] &
+        UObject['__propertyRegistry'];
 }
-declare const UCameraAsset: UCameraAsset;
 
 declare interface UCameraComponentCameraNode extends UCameraNode {
-
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraNode['__propertyRegistry'];
 }
-declare const UCameraComponentCameraNode: UCameraComponentCameraNode;
 
 declare interface UCameraDirector extends UObject {
-    CameraRigProxyRedirectTable: FCameraRigProxyRedirectTable;
-    CameraRigProxyTable: UCameraRigProxyTable;
+    readonly __properties_UCameraDirector: {
+        CameraRigProxyRedirectTable: FCameraRigProxyRedirectTable;
+        CameraRigProxyTable: UCameraRigProxyTable;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraDirector['__properties_UCameraDirector'] &
+        UObject['__propertyRegistry'];
 }
-declare const UCameraDirector: UCameraDirector;
 
 declare interface UCameraDirectorStateTreeSchema extends UStateTreeSchema {
-    ContextDataDescs: TArray<FStateTreeExternalDataDesc>;
+    readonly __properties_UCameraDirectorStateTreeSchema: {
+        ContextDataDescs: FStateTreeExternalDataDesc[];
+    };
+    readonly __staticRegistry: 
+        UStateTreeSchema['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraDirectorStateTreeSchema['__properties_UCameraDirectorStateTreeSchema'] &
+        UStateTreeSchema['__propertyRegistry'];
 }
-declare const UCameraDirectorStateTreeSchema: UCameraDirectorStateTreeSchema;
 
 declare interface UCameraNode extends UObject {
-    bIsEnabled: boolean;
+    readonly __properties_UCameraNode: {
+        bIsEnabled: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraNode['__properties_UCameraNode'] &
+        UObject['__propertyRegistry'];
 }
-declare const UCameraNode: UCameraNode;
 
 declare interface UCameraObjectInterfaceBlendableParameter extends UCameraObjectInterfaceParameterBase {
-    ParameterType: ECameraVariableType;
-    BlendableStructType: UScriptStruct;
-    bIsPreBlended: boolean;
-    PrivateVariableID: FCameraVariableID;
-    PrivateVariable: UCameraVariableAsset;
+    readonly __properties_UCameraObjectInterfaceBlendableParameter: {
+        ParameterType: ECameraVariableType;
+        BlendableStructType: UScriptStruct;
+        bIsPreBlended: boolean;
+        PrivateVariableID: FCameraVariableID;
+        PrivateVariable: UCameraVariableAsset;
+    };
+    readonly __staticRegistry: 
+        UCameraObjectInterfaceParameterBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraObjectInterfaceBlendableParameter['__properties_UCameraObjectInterfaceBlendableParameter'] &
+        UCameraObjectInterfaceParameterBase['__propertyRegistry'];
 }
-declare const UCameraObjectInterfaceBlendableParameter: UCameraObjectInterfaceBlendableParameter;
 
 declare interface UCameraObjectInterfaceDataParameter extends UCameraObjectInterfaceParameterBase {
-    DataType: ECameraContextDataType;
-    DataContainerType: ECameraContextDataContainerType;
-    DataTypeObject: UObject;
-    PrivateDataID: FCameraContextDataID;
+    readonly __properties_UCameraObjectInterfaceDataParameter: {
+        DataType: ECameraContextDataType;
+        DataContainerType: ECameraContextDataContainerType;
+        DataTypeObject: UObject;
+        PrivateDataID: FCameraContextDataID;
+    };
+    readonly __staticRegistry: 
+        UCameraObjectInterfaceParameterBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraObjectInterfaceDataParameter['__properties_UCameraObjectInterfaceDataParameter'] &
+        UCameraObjectInterfaceParameterBase['__propertyRegistry'];
 }
-declare const UCameraObjectInterfaceDataParameter: UCameraObjectInterfaceDataParameter;
 
 declare interface UCameraObjectInterfaceParameterBase extends UObject {
-    InterfaceParameterName: FString;
-    Target: UCameraNode;
-    TargetPropertyName: FName;
-    Guid: FGuid;
+    readonly __properties_UCameraObjectInterfaceParameterBase: {
+        InterfaceParameterName: string;
+        Target: UCameraNode;
+        TargetPropertyName: string;
+        Guid: FGuid;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraObjectInterfaceParameterBase['__properties_UCameraObjectInterfaceParameterBase'] &
+        UObject['__propertyRegistry'];
 }
-declare const UCameraObjectInterfaceParameterBase: UCameraObjectInterfaceParameterBase;
 
 declare interface UCameraRigAsset extends UBaseCameraObject {
-    RootNode: UCameraNode;
-    GameplayTags: FGameplayTagContainer;
-    EnterTransitions: TArray<UCameraRigTransition>;
-    ExitTransitions: TArray<UCameraRigTransition>;
-    InitialOrientation: ECameraRigInitialOrientation;
-    BuildStatus: ECameraBuildStatus;
-    Guid: FGuid;
+    readonly __properties_UCameraRigAsset: {
+        RootNode: UCameraNode;
+        GameplayTags: FGameplayTagContainer;
+        EnterTransitions: UCameraRigTransition[];
+        ExitTransitions: UCameraRigTransition[];
+        InitialOrientation: ECameraRigInitialOrientation;
+        BuildStatus: ECameraBuildStatus;
+        Guid: FGuid;
+    };
+    readonly __staticRegistry: 
+        UBaseCameraObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraRigAsset['__properties_UCameraRigAsset'] &
+        UBaseCameraObject['__propertyRegistry'];
 }
-declare const UCameraRigAsset: UCameraRigAsset;
 
 declare interface UCameraRigCameraNode extends UCameraNode {
-    CameraRigReference: FCameraRigAssetReference;
+    readonly __properties_UCameraRigCameraNode: {
+        CameraRigReference: FCameraRigAssetReference;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraRigCameraNode['__properties_UCameraRigCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UCameraRigCameraNode: UCameraRigCameraNode;
 
 declare interface UCameraRigInput1DSlot extends UInput1DCameraNode {
-    InputSlotParameters: FCameraRigInputSlotParameters;
-    clamp: FCameraParameterClamping;
-    Normalize: FCameraParameterNormalization;
-    BuiltInVariable: EBuiltInDoubleCameraVariable;
-    CustomVariable: FDoubleCameraVariableReference;
-    TransientVariableID: FCameraVariableID;
-    VariableID: FCameraVariableID;
+    readonly __properties_UCameraRigInput1DSlot: {
+        InputSlotParameters: FCameraRigInputSlotParameters;
+        clamp: FCameraParameterClamping;
+        Normalize: FCameraParameterNormalization;
+        BuiltInVariable: EBuiltInDoubleCameraVariable;
+        CustomVariable: FDoubleCameraVariableReference;
+        TransientVariableID: FCameraVariableID;
+        VariableID: FCameraVariableID;
+    };
+    readonly __staticRegistry: 
+        UInput1DCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraRigInput1DSlot['__properties_UCameraRigInput1DSlot'] &
+        UInput1DCameraNode['__propertyRegistry'];
 }
-declare const UCameraRigInput1DSlot: UCameraRigInput1DSlot;
 
 declare interface UCameraRigInput2DSlot extends UInput2DCameraNode {
-    InputSlotParameters: FCameraRigInputSlotParameters;
-    ClampX: FCameraParameterClamping;
-    ClampY: FCameraParameterClamping;
-    NormalizeX: FCameraParameterNormalization;
-    NormalizeY: FCameraParameterNormalization;
-    BuiltInVariable: EBuiltInVector2dCameraVariable;
-    CustomVariable: FVector2dCameraVariableReference;
-    TransientVariableID: FCameraVariableID;
-    VariableID: FCameraVariableID;
+    readonly __properties_UCameraRigInput2DSlot: {
+        InputSlotParameters: FCameraRigInputSlotParameters;
+        ClampX: FCameraParameterClamping;
+        ClampY: FCameraParameterClamping;
+        NormalizeX: FCameraParameterNormalization;
+        NormalizeY: FCameraParameterNormalization;
+        BuiltInVariable: EBuiltInVector2dCameraVariable;
+        CustomVariable: FVector2dCameraVariableReference;
+        TransientVariableID: FCameraVariableID;
+        VariableID: FCameraVariableID;
+    };
+    readonly __staticRegistry: 
+        UInput2DCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraRigInput2DSlot['__properties_UCameraRigInput2DSlot'] &
+        UInput2DCameraNode['__propertyRegistry'];
 }
-declare const UCameraRigInput2DSlot: UCameraRigInput2DSlot;
 
 declare interface UCameraRigInstanceFunctions extends UBlueprintFunctionLibrary {
-    IsValid(InstanceId: FCameraRigInstanceID): boolean;
-    IsValid(): boolean;
+    readonly __static_UCameraRigInstanceFunctions: {
+        IsValid(InstanceId: FCameraRigInstanceID): boolean;
+    };
+    readonly __staticRegistry: 
+        UCameraRigInstanceFunctions['__static_UCameraRigInstanceFunctions'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UCameraRigInstanceFunctions: UCameraRigInstanceFunctions;
 
 declare interface UCameraRigParameterInterop extends UBlueprintFunctionLibrary {
-    SetCameraParameter(CameraData: FBlueprintCameraEvaluationDataRef, CameraRig: UCameraRigAsset, ParameterName: FName, NewValue: number): void;
-    GetCameraParameter(CameraData: FBlueprintCameraEvaluationDataRef, CameraRig: UCameraRigAsset, ParameterName: FName, ReturnValue: number): void;
+    readonly __static_UCameraRigParameterInterop: {
+        SetCameraParameter(CameraData: FBlueprintCameraEvaluationDataRef, CameraRig: UCameraRigAsset, ParameterName: string, NewValue: number): void;
+        GetCameraParameter(CameraData: FBlueprintCameraEvaluationDataRef, CameraRig: UCameraRigAsset, ParameterName: string, ReturnValue: number): void;
+    };
+    readonly __staticRegistry: 
+        UCameraRigParameterInterop['__static_UCameraRigParameterInterop'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UCameraRigParameterInterop: UCameraRigParameterInterop;
 
 declare interface UCameraRigParameterInteropLibrary extends UBlueprintFunctionLibrary {
-    MakeLiteralVector3f(Value: FVector3f): FVector3f;
-    MakeLiteralVector2D(Value: FVector2D): FVector2D;
-    MakeLiteralVector(Value: FVector): FVector;
-    MakeLiteralRotator(Value: FRotator): FRotator;
-    MakeLiteralLinearColor(Value: FLinearColor): FLinearColor;
+    readonly __static_UCameraRigParameterInteropLibrary: {
+        MakeLiteralVector3f(Value: FVector3f): FVector3f;
+        MakeLiteralVector2D(Value: FVector2D): FVector2D;
+        MakeLiteralVector(Value: FVector): FVector;
+        MakeLiteralRotator(Value: FRotator): FRotator;
+        MakeLiteralLinearColor(Value: FLinearColor): FLinearColor;
+    };
+    readonly __staticRegistry: 
+        UCameraRigParameterInteropLibrary['__static_UCameraRigParameterInteropLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UCameraRigParameterInteropLibrary: UCameraRigParameterInteropLibrary;
 
 declare interface UCameraRigProxyAsset extends UObject {
-    Guid: FGuid;
+    readonly __properties_UCameraRigProxyAsset: {
+        Guid: FGuid;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraRigProxyAsset['__properties_UCameraRigProxyAsset'] &
+        UObject['__propertyRegistry'];
 }
-declare const UCameraRigProxyAsset: UCameraRigProxyAsset;
 
 declare interface UCameraRigProxyTable extends UObject {
-    Entries: TArray<FCameraRigProxyRedirectTableEntry>;
+    readonly __properties_UCameraRigProxyTable: {
+        Entries: FCameraRigProxyRedirectTableEntry[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraRigProxyTable['__properties_UCameraRigProxyTable'] &
+        UObject['__propertyRegistry'];
 }
-declare const UCameraRigProxyTable: UCameraRigProxyTable;
 
 declare interface UCameraRigTransition extends UObject {
-    Conditions: TArray<UCameraRigTransitionCondition>;
-    Blend: UBlendCameraNode;
-    InitialOrientation: ECameraRigInitialOrientation;
-    bOverrideInitialOrientation: boolean;
-    bAllowCameraRigMerging: boolean;
+    readonly __properties_UCameraRigTransition: {
+        Conditions: UCameraRigTransitionCondition[];
+        Blend: UBlendCameraNode;
+        InitialOrientation: ECameraRigInitialOrientation;
+        bOverrideInitialOrientation: boolean;
+        bAllowCameraRigMerging: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraRigTransition['__properties_UCameraRigTransition'] &
+        UObject['__propertyRegistry'];
 }
-declare const UCameraRigTransition: UCameraRigTransition;
 
 declare interface UCameraRigTransitionCondition extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UCameraRigTransitionCondition: UCameraRigTransitionCondition;
 
 declare interface UCameraShakeAsset extends UBaseCameraObject {
-    RootNode: UShakeCameraNode;
-    BlendIn: USimpleFixedTimeBlendCameraNode;
-    BlendOut: USimpleFixedTimeBlendCameraNode;
-    bIsSingleInstance: boolean;
-    BuildStatus: ECameraBuildStatus;
-    Guid: FGuid;
+    readonly __properties_UCameraShakeAsset: {
+        RootNode: UShakeCameraNode;
+        BlendIn: USimpleFixedTimeBlendCameraNode;
+        BlendOut: USimpleFixedTimeBlendCameraNode;
+        bIsSingleInstance: boolean;
+        BuildStatus: ECameraBuildStatus;
+        Guid: FGuid;
+    };
+    readonly __staticRegistry: 
+        UBaseCameraObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraShakeAsset['__properties_UCameraShakeAsset'] &
+        UBaseCameraObject['__propertyRegistry'];
 }
-declare const UCameraShakeAsset: UCameraShakeAsset;
 
 declare interface UCameraShakeCameraNode extends UCameraNode {
-    CameraShakeReference: FCameraShakeAssetReference;
-    EvaluationMode: ECameraShakeEvaluationMode;
+    readonly __properties_UCameraShakeCameraNode: {
+        CameraShakeReference: FCameraShakeAssetReference;
+        EvaluationMode: ECameraShakeEvaluationMode;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraShakeCameraNode['__properties_UCameraShakeCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UCameraShakeCameraNode: UCameraShakeCameraNode;
 
 declare interface UCameraShakeServiceCameraNode extends UCameraNode {
-
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraNode['__propertyRegistry'];
 }
-declare const UCameraShakeServiceCameraNode: UCameraShakeServiceCameraNode;
 
 declare interface UCameraValueInterpolator extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UCameraValueInterpolator: UCameraValueInterpolator;
 
 declare interface UCameraVariableAsset extends UObject {
-    bAutoReset: boolean;
-    bIsPrivate: boolean;
-    bIsInput: boolean;
-    Guid: FGuid;
+    readonly __properties_UCameraVariableAsset: {
+        bAutoReset: boolean;
+        bIsPrivate: boolean;
+        bIsInput: boolean;
+        Guid: FGuid;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraVariableAsset['__properties_UCameraVariableAsset'] &
+        UObject['__propertyRegistry'];
 }
-declare const UCameraVariableAsset: UCameraVariableAsset;
 
 declare interface UCameraVariableCollection extends UObject {
-    Variables: TArray<UCameraVariableAsset>;
+    readonly __properties_UCameraVariableCollection: {
+        Variables: UCameraVariableAsset[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraVariableCollection['__properties_UCameraVariableCollection'] &
+        UObject['__propertyRegistry'];
 }
-declare const UCameraVariableCollection: UCameraVariableCollection;
 
 declare interface UClippingPlanesCameraNode extends UCameraNode {
-    NearPlane: FDoubleCameraParameter;
-    FarPlane: FDoubleCameraParameter;
+    readonly __properties_UClippingPlanesCameraNode: {
+        NearPlane: FDoubleCameraParameter;
+        FarPlane: FDoubleCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UClippingPlanesCameraNode['__properties_UClippingPlanesCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UClippingPlanesCameraNode: UClippingPlanesCameraNode;
 
 declare interface UCollisionPushCameraNode extends UCameraNode {
-    SafePosition: ECollisionSafePosition;
-    CustomSafePosition: FVector3dCameraVariableReference;
-    SafePositionOffset: FVector3dCameraParameter;
-    SafePositionOffsetSpace: ECollisionSafePositionOffsetSpace;
-    EnableCollision: FBooleanCameraVariableReference;
-    CollisionSphereRadius: FFloatCameraParameter;
-    CollisionChannel: ECollisionChannel;
-    PushInterpolator: UCameraValueInterpolator;
-    PullInterpolator: UCameraValueInterpolator;
-    bRunAsyncCollision: boolean;
+    readonly __properties_UCollisionPushCameraNode: {
+        SafePosition: ECollisionSafePosition;
+        CustomSafePosition: FVector3dCameraVariableReference;
+        SafePositionOffset: FVector3dCameraParameter;
+        SafePositionOffsetSpace: ECollisionSafePositionOffsetSpace;
+        EnableCollision: FBooleanCameraVariableReference;
+        CollisionSphereRadius: FFloatCameraParameter;
+        CollisionChannel: ECollisionChannel;
+        PushInterpolator: UCameraValueInterpolator;
+        PullInterpolator: UCameraValueInterpolator;
+        bRunAsyncCollision: boolean;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCollisionPushCameraNode['__properties_UCollisionPushCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UCollisionPushCameraNode: UCollisionPushCameraNode;
 
 declare interface UCombinedCameraRigsCameraNode extends UCameraNode {
-    CameraRigReferences: TArray<FCameraRigAssetReference>;
+    readonly __properties_UCombinedCameraRigsCameraNode: {
+        CameraRigReferences: FCameraRigAssetReference[];
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCombinedCameraRigsCameraNode['__properties_UCombinedCameraRigsCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UCombinedCameraRigsCameraNode: UCombinedCameraRigsCameraNode;
 
 declare interface UCompositeShakeCameraNode extends UShakeCameraNode {
-    Shakes: TArray<UShakeCameraNode>;
+    readonly __properties_UCompositeShakeCameraNode: {
+        Shakes: UShakeCameraNode[];
+    };
+    readonly __staticRegistry: 
+        UShakeCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCompositeShakeCameraNode['__properties_UCompositeShakeCameraNode'] &
+        UShakeCameraNode['__propertyRegistry'];
 }
-declare const UCompositeShakeCameraNode: UCompositeShakeCameraNode;
 
 declare interface UControllerGameplayCameraEvaluationComponent extends UActorComponent {
-    CameraSystemHost: TScriptInterface<IGameplayCameraSystemHost>;
+    readonly __properties_UControllerGameplayCameraEvaluationComponent: {
+        CameraSystemHost: TScriptInterface<IGameplayCameraSystemHost>;
+    };
+    readonly __staticRegistry: 
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UControllerGameplayCameraEvaluationComponent['__properties_UControllerGameplayCameraEvaluationComponent'] &
+        UActorComponent['__propertyRegistry'];
 }
-declare const UControllerGameplayCameraEvaluationComponent: UControllerGameplayCameraEvaluationComponent;
 
 declare interface UCriticalDamperValueInterpolator extends UCameraValueInterpolator {
-    DampingFactor: number;
+    readonly __properties_UCriticalDamperValueInterpolator: {
+        DampingFactor: number;
+    };
+    readonly __staticRegistry: 
+        UCameraValueInterpolator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCriticalDamperValueInterpolator['__properties_UCriticalDamperValueInterpolator'] &
+        UCameraValueInterpolator['__propertyRegistry'];
 }
-declare const UCriticalDamperValueInterpolator: UCriticalDamperValueInterpolator;
 
 declare interface UDampenPositionCameraNode extends UCameraNode {
-    ForwardDampingFactor: FFloatCameraParameter;
-    LateralDampingFactor: FFloatCameraParameter;
-    VerticalDampingFactor: FFloatCameraParameter;
-    DampenSpace: ECameraNodeSpace;
+    readonly __properties_UDampenPositionCameraNode: {
+        ForwardDampingFactor: FFloatCameraParameter;
+        LateralDampingFactor: FFloatCameraParameter;
+        VerticalDampingFactor: FFloatCameraParameter;
+        DampenSpace: ECameraNodeSpace;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDampenPositionCameraNode['__properties_UDampenPositionCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UDampenPositionCameraNode: UDampenPositionCameraNode;
 
 declare interface UDampenRotationCameraNode extends UCameraNode {
-    YawDampingFactor: FFloatCameraParameter;
-    PitchDampingFactor: FFloatCameraParameter;
-    RollDampingFactor: FFloatCameraParameter;
+    readonly __properties_UDampenRotationCameraNode: {
+        YawDampingFactor: FFloatCameraParameter;
+        PitchDampingFactor: FFloatCameraParameter;
+        RollDampingFactor: FFloatCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDampenRotationCameraNode['__properties_UDampenRotationCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UDampenRotationCameraNode: UDampenRotationCameraNode;
 
 declare interface UDefaultRootCameraNode extends URootCameraNode {
-    BaseLayer: UBlendStackCameraNode;
-    MainLayer: UBlendStackCameraNode;
-    GlobalLayer: UBlendStackCameraNode;
-    VisualLayer: UBlendStackCameraNode;
+    readonly __properties_UDefaultRootCameraNode: {
+        BaseLayer: UBlendStackCameraNode;
+        MainLayer: UBlendStackCameraNode;
+        GlobalLayer: UBlendStackCameraNode;
+        VisualLayer: UBlendStackCameraNode;
+    };
+    readonly __staticRegistry: 
+        URootCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDefaultRootCameraNode['__properties_UDefaultRootCameraNode'] &
+        URootCameraNode['__propertyRegistry'];
 }
-declare const UDefaultRootCameraNode: UDefaultRootCameraNode;
 
 declare interface UDollyFramingCameraNode extends UBaseFramingCameraNode {
-    CanMoveLaterally: FBooleanCameraParameter;
-    CanMoveVertically: FBooleanCameraParameter;
+    readonly __properties_UDollyFramingCameraNode: {
+        CanMoveLaterally: FBooleanCameraParameter;
+        CanMoveVertically: FBooleanCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UBaseFramingCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDollyFramingCameraNode['__properties_UDollyFramingCameraNode'] &
+        UBaseFramingCameraNode['__propertyRegistry'];
 }
-declare const UDollyFramingCameraNode: UDollyFramingCameraNode;
 
 declare interface UDoubleCameraVariable extends UCameraVariableAsset {
-    DefaultValue: number;
+    readonly __properties_UDoubleCameraVariable: {
+        DefaultValue: number;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDoubleCameraVariable['__properties_UDoubleCameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const UDoubleCameraVariable: UDoubleCameraVariable;
 
 declare interface UDoubleIIRValueInterpolator extends UCameraValueInterpolator {
-    PrimarySpeed: number;
-    IntermediateSpeed: number;
-    bUseFixedStep: boolean;
+    readonly __properties_UDoubleIIRValueInterpolator: {
+        PrimarySpeed: number;
+        IntermediateSpeed: number;
+        bUseFixedStep: boolean;
+    };
+    readonly __staticRegistry: 
+        UCameraValueInterpolator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDoubleIIRValueInterpolator['__properties_UDoubleIIRValueInterpolator'] &
+        UCameraValueInterpolator['__propertyRegistry'];
 }
-declare const UDoubleIIRValueInterpolator: UDoubleIIRValueInterpolator;
 
 declare interface UEnvelopeShakeCameraNode extends UShakeCameraNode {
-    EaseInTime: FFloatCameraParameter;
-    EaseOutTime: FFloatCameraParameter;
-    TotalTime: FFloatCameraParameter;
-    Shake: UShakeCameraNode;
+    readonly __properties_UEnvelopeShakeCameraNode: {
+        EaseInTime: FFloatCameraParameter;
+        EaseOutTime: FFloatCameraParameter;
+        TotalTime: FFloatCameraParameter;
+        Shake: UShakeCameraNode;
+    };
+    readonly __staticRegistry: 
+        UShakeCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEnvelopeShakeCameraNode['__properties_UEnvelopeShakeCameraNode'] &
+        UShakeCameraNode['__propertyRegistry'];
 }
-declare const UEnvelopeShakeCameraNode: UEnvelopeShakeCameraNode;
 
 declare interface UFieldOfViewCameraNode extends UCameraNode {
-    FieldOfView: FFloatCameraParameter;
+    readonly __properties_UFieldOfViewCameraNode: {
+        FieldOfView: FFloatCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFieldOfViewCameraNode['__properties_UFieldOfViewCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UFieldOfViewCameraNode: UFieldOfViewCameraNode;
 
 declare interface UFilmbackCameraNode extends UCameraNode {
-    SensorWidth: FFloatCameraParameter;
-    SensorHeight: FFloatCameraParameter;
-    SensorHorizontalOffset: FFloatCameraParameter;
-    SensorVerticalOffset: FFloatCameraParameter;
-    Overscan: FFloatCameraParameter;
-    ConstrainAspectRatio: FBooleanCameraParameter;
-    OverrideAspectRatioAxisConstraint: FBooleanCameraParameter;
-    AspectRatioAxisConstraint: EAspectRatioAxisConstraint;
+    readonly __properties_UFilmbackCameraNode: {
+        SensorWidth: FFloatCameraParameter;
+        SensorHeight: FFloatCameraParameter;
+        SensorHorizontalOffset: FFloatCameraParameter;
+        SensorVerticalOffset: FFloatCameraParameter;
+        Overscan: FFloatCameraParameter;
+        ConstrainAspectRatio: FBooleanCameraParameter;
+        OverrideAspectRatioAxisConstraint: FBooleanCameraParameter;
+        AspectRatioAxisConstraint: EAspectRatioAxisConstraint;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFilmbackCameraNode['__properties_UFilmbackCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UFilmbackCameraNode: UFilmbackCameraNode;
 
 declare interface UFloatCameraVariable extends UCameraVariableAsset {
-    DefaultValue: number;
+    readonly __properties_UFloatCameraVariable: {
+        DefaultValue: number;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFloatCameraVariable['__properties_UFloatCameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const UFloatCameraVariable: UFloatCameraVariable;
 
 declare interface UGameplayCameraComponent extends UGameplayCameraComponentBase {
-    CameraReference: FCameraAssetReference;
-    Camera: UCameraAsset;
+    readonly __properties_UGameplayCameraComponent: {
+        CameraReference: FCameraAssetReference;
+        Camera: UCameraAsset;
+    };
+    readonly __staticRegistry: 
+        UGameplayCameraComponentBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayCameraComponent['__properties_UGameplayCameraComponent'] &
+        UGameplayCameraComponentBase['__propertyRegistry'];
 }
-declare const UGameplayCameraComponent: UGameplayCameraComponent;
 
 declare interface UGameplayCameraComponentBase extends USceneComponent {
-    AutoActivateForPlayer: EAutoReceiveInput;
-    bSetControlRotationWhenViewTarget: boolean;
-    OutputCameraComponent: UCineCameraComponent;
-    GetOutputCameraComponent(): UCineCameraComponent;
-    GetInitialResult(): FBlueprintCameraEvaluationDataRef;
-    GetConditionalResult(Condition: ECameraEvaluationDataCondition): FBlueprintCameraEvaluationDataRef;
-    DeactivateCamera(bImmediately: boolean): void;
-    ActivateCameraForPlayerIndex(PlayerIndex: number, bSetAsViewTarget: boolean, ActivationMode: EGameplayCameraComponentActivationMode): void;
-    ActivateCameraForPlayerController(PlayerController: APlayerController, bSetAsViewTarget: boolean, ActivationMode: EGameplayCameraComponentActivationMode): void;
+    readonly __static_UGameplayCameraComponentBase: {
+        GetOutputCameraComponent(): UCineCameraComponent;
+        GetInitialResult(): FBlueprintCameraEvaluationDataRef;
+        GetConditionalResult(Condition: ECameraEvaluationDataCondition): FBlueprintCameraEvaluationDataRef;
+        DeactivateCamera(bImmediately: boolean): void;
+        ActivateCameraForPlayerIndex(PlayerIndex: number, bSetAsViewTarget: boolean, ActivationMode: EGameplayCameraComponentActivationMode): void;
+        ActivateCameraForPlayerController(PlayerController: APlayerController, bSetAsViewTarget: boolean, ActivationMode: EGameplayCameraComponentActivationMode): void;
+    };
+    readonly __properties_UGameplayCameraComponentBase: {
+        AutoActivateForPlayer: EAutoReceiveInput;
+        bSetControlRotationWhenViewTarget: boolean;
+        OutputCameraComponent: UCineCameraComponent;
+    };
+    readonly __staticRegistry: 
+        UGameplayCameraComponentBase['__static_UGameplayCameraComponentBase'] &
+        USceneComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayCameraComponentBase['__properties_UGameplayCameraComponentBase'] &
+        USceneComponent['__propertyRegistry'];
 }
-declare const UGameplayCameraComponentBase: UGameplayCameraComponentBase;
 
 declare interface UGameplayCameraParameterSetterComponent extends UActorComponent {
-    CameraRigReference: FCameraRigAssetReference;
-    BlendInTime: number;
-    blendOutTime: number;
-    BlendType: ECameraVariableSetterBlendType;
-    StopParameterSetters(bImmediately: boolean): void;
-    StartParameterSetters(): void;
-    OnActorEndOverlap(OverlappedActor: AActor, OtherActor: AActor): void;
-    OnActorBeginOverlap(OverlappedActor: AActor, OtherActor: AActor): void;
+    readonly __static_UGameplayCameraParameterSetterComponent: {
+        StopParameterSetters(bImmediately: boolean): void;
+        StartParameterSetters(): void;
+        OnActorEndOverlap(OverlappedActor: AActor, OtherActor: AActor): void;
+        OnActorBeginOverlap(OverlappedActor: AActor, OtherActor: AActor): void;
+    };
+    readonly __properties_UGameplayCameraParameterSetterComponent: {
+        CameraRigReference: FCameraRigAssetReference;
+        BlendInTime: number;
+        blendOutTime: number;
+        BlendType: ECameraVariableSetterBlendType;
+    };
+    readonly __staticRegistry: 
+        UGameplayCameraParameterSetterComponent['__static_UGameplayCameraParameterSetterComponent'] &
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayCameraParameterSetterComponent['__properties_UGameplayCameraParameterSetterComponent'] &
+        UActorComponent['__propertyRegistry'];
 }
-declare const UGameplayCameraParameterSetterComponent: UGameplayCameraParameterSetterComponent;
 
 declare interface UGameplayCameraRigComponent extends UGameplayCameraComponentBase {
-    CameraRigReference: FCameraRigAssetReference;
-    GeneratedCameraAsset: UCameraAsset;
+    readonly __properties_UGameplayCameraRigComponent: {
+        CameraRigReference: FCameraRigAssetReference;
+        GeneratedCameraAsset: UCameraAsset;
+    };
+    readonly __staticRegistry: 
+        UGameplayCameraComponentBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayCameraRigComponent['__properties_UGameplayCameraRigComponent'] &
+        UGameplayCameraComponentBase['__propertyRegistry'];
 }
-declare const UGameplayCameraRigComponent: UGameplayCameraRigComponent;
 
 declare interface UGameplayCameraSystemComponent extends USceneComponent {
-    AutoActivateForPlayer: EAutoReceiveInput;
-    bSetPlayerControllerRotation: boolean;
-    WeakPlayerController: TWeakObjectPtr<APlayerController>;
-    StopCameraModifierRig(InstanceId: FCameraRigInstanceID, bImmediately: boolean): void;
-    StartVisualCameraModifierRig(CameraRig: UCameraRigAsset, OrderKey: number): FCameraRigInstanceID;
-    StartGlobalCameraModifierRig(CameraRig: UCameraRigAsset, OrderKey: number): FCameraRigInstanceID;
-    IsCameraSystemActiveForPlayController(PlayerController: APlayerController): boolean;
-    DeactivateCameraSystem(NextViewTarget: AActor): void;
-    ActivateCameraSystemForPlayerIndex(PlayerIndex: number): void;
-    ActivateCameraSystemForPlayerController(PlayerController: APlayerController): void;
+    readonly __static_UGameplayCameraSystemComponent: {
+        StopCameraModifierRig(InstanceId: FCameraRigInstanceID, bImmediately: boolean): void;
+        StartVisualCameraModifierRig(CameraRig: UCameraRigAsset, OrderKey: number): FCameraRigInstanceID;
+        StartGlobalCameraModifierRig(CameraRig: UCameraRigAsset, OrderKey: number): FCameraRigInstanceID;
+        IsCameraSystemActiveForPlayController(PlayerController: APlayerController): boolean;
+        DeactivateCameraSystem(NextViewTarget: AActor): void;
+        ActivateCameraSystemForPlayerIndex(PlayerIndex: number): void;
+        ActivateCameraSystemForPlayerController(PlayerController: APlayerController): void;
+    };
+    readonly __properties_UGameplayCameraSystemComponent: {
+        AutoActivateForPlayer: EAutoReceiveInput;
+        bSetPlayerControllerRotation: boolean;
+        WeakPlayerController: TWeakObjectPtr<APlayerController>;
+    };
+    readonly __staticRegistry: 
+        UGameplayCameraSystemComponent['__static_UGameplayCameraSystemComponent'] &
+        USceneComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayCameraSystemComponent['__properties_UGameplayCameraSystemComponent'] &
+        USceneComponent['__propertyRegistry'];
 }
-declare const UGameplayCameraSystemComponent: UGameplayCameraSystemComponent;
 
 declare interface UGameplayCamerasSettings extends UDeveloperSettings {
-    bAutoBuildInPIE: boolean;
-    DefaultViewRotationMode: EGameplayCamerasViewRotationMode;
-    CombinedCameraRigNumThreshold: number;
-    DefaultIKAimingAngleTolerance: number;
-    DefaultIKAimingDistanceTolerance: number;
-    DefaultIKAimingMaxIterations: uint8;
-    DefaultIKAimingMinDistance: number;
+    readonly __properties_UGameplayCamerasSettings: {
+        bAutoBuildInPIE: boolean;
+        DefaultViewRotationMode: EGameplayCamerasViewRotationMode;
+        CombinedCameraRigNumThreshold: number;
+        DefaultIKAimingAngleTolerance: number;
+        DefaultIKAimingDistanceTolerance: number;
+        DefaultIKAimingMaxIterations: number;
+        DefaultIKAimingMinDistance: number;
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayCamerasSettings['__properties_UGameplayCamerasSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UGameplayCamerasSettings: UGameplayCamerasSettings;
 
 declare interface UGameplayControlRotationComponent extends UActorComponent {
-    AxisActions: TArray<UInputAction>;
-    AxisActionAngularSpeedThreshold: number;
-    AxisActionMagnitudeThreshold: number;
-    AutoActivateForPlayer: EAutoReceiveInput;
-    PlayerController: APlayerController;
-    CameraSystemHost: TScriptInterface<IGameplayCameraSystemHost>;
-    DeactivateControlRotationManagement(): void;
-    ActivateControlRotationManagementForPlayerIndex(PlayerIndex: number): void;
-    ActivateControlRotationManagementForPlayerController(PlayerController: APlayerController): void;
+    readonly __static_UGameplayControlRotationComponent: {
+        DeactivateControlRotationManagement(): void;
+        ActivateControlRotationManagementForPlayerIndex(PlayerIndex: number): void;
+        ActivateControlRotationManagementForPlayerController(PlayerController: APlayerController): void;
+    };
+    readonly __properties_UGameplayControlRotationComponent: {
+        AxisActions: UInputAction[];
+        AxisActionAngularSpeedThreshold: number;
+        AxisActionMagnitudeThreshold: number;
+        AutoActivateForPlayer: EAutoReceiveInput;
+        PlayerController: APlayerController;
+        CameraSystemHost: TScriptInterface<IGameplayCameraSystemHost>;
+    };
+    readonly __staticRegistry: 
+        UGameplayControlRotationComponent['__static_UGameplayControlRotationComponent'] &
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayControlRotationComponent['__properties_UGameplayControlRotationComponent'] &
+        UActorComponent['__propertyRegistry'];
 }
-declare const UGameplayControlRotationComponent: UGameplayControlRotationComponent;
 
 declare interface UGameplayTagTransitionCondition extends UCameraRigTransitionCondition {
-    PreviousGameplayTagQuery: FGameplayTagQuery;
-    NextGameplayTagQuery: FGameplayTagQuery;
+    readonly __properties_UGameplayTagTransitionCondition: {
+        PreviousGameplayTagQuery: FGameplayTagQuery;
+        NextGameplayTagQuery: FGameplayTagQuery;
+    };
+    readonly __staticRegistry: 
+        UCameraRigTransitionCondition['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UGameplayTagTransitionCondition['__properties_UGameplayTagTransitionCondition'] &
+        UCameraRigTransitionCondition['__propertyRegistry'];
 }
-declare const UGameplayTagTransitionCondition: UGameplayTagTransitionCondition;
 
 declare interface UIIRValueInterpolator extends UCameraValueInterpolator {
-    Speed: number;
-    bUseFixedStep: boolean;
+    readonly __properties_UIIRValueInterpolator: {
+        Speed: number;
+        bUseFixedStep: boolean;
+    };
+    readonly __staticRegistry: 
+        UCameraValueInterpolator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIIRValueInterpolator['__properties_UIIRValueInterpolator'] &
+        UCameraValueInterpolator['__propertyRegistry'];
 }
-declare const UIIRValueInterpolator: UIIRValueInterpolator;
 
 declare interface UInput1DCameraNode extends UCameraNode {
-
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraNode['__propertyRegistry'];
 }
-declare const UInput1DCameraNode: UInput1DCameraNode;
 
 declare interface UInput2DCameraNode extends UCameraNode {
-
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraNode['__propertyRegistry'];
 }
-declare const UInput2DCameraNode: UInput2DCameraNode;
 
 declare interface UInputAxisBinding2DCameraNode extends UCameraRigInput2DSlot {
-    AxisActions: TArray<UInputAction>;
-    RevertAxisX: FBooleanCameraParameter;
-    RevertAxisY: FBooleanCameraParameter;
-    Multiplier: FVector2dCameraParameter;
+    readonly __properties_UInputAxisBinding2DCameraNode: {
+        AxisActions: UInputAction[];
+        RevertAxisX: FBooleanCameraParameter;
+        RevertAxisY: FBooleanCameraParameter;
+        Multiplier: FVector2dCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UCameraRigInput2DSlot['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInputAxisBinding2DCameraNode['__properties_UInputAxisBinding2DCameraNode'] &
+        UCameraRigInput2DSlot['__propertyRegistry'];
 }
-declare const UInputAxisBinding2DCameraNode: UInputAxisBinding2DCameraNode;
 
 declare interface UInteger32CameraVariable extends UCameraVariableAsset {
-    DefaultValue: number;
+    readonly __properties_UInteger32CameraVariable: {
+        DefaultValue: number;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UInteger32CameraVariable['__properties_UInteger32CameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const UInteger32CameraVariable: UInteger32CameraVariable;
 
 declare interface UIsCameraRigTransitionCondition extends UCameraRigTransitionCondition {
-    PreviousCameraRig: UCameraRigAsset;
-    NextCameraRig: UCameraRigAsset;
+    readonly __properties_UIsCameraRigTransitionCondition: {
+        PreviousCameraRig: UCameraRigAsset;
+        NextCameraRig: UCameraRigAsset;
+    };
+    readonly __staticRegistry: 
+        UCameraRigTransitionCondition['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UIsCameraRigTransitionCondition['__properties_UIsCameraRigTransitionCondition'] &
+        UCameraRigTransitionCondition['__propertyRegistry'];
 }
-declare const UIsCameraRigTransitionCondition: UIsCameraRigTransitionCondition;
 
 declare interface ULensCalibrationCameraNode extends UCameraNode {
-    LensFile: ULensFile;
+    readonly __properties_ULensCalibrationCameraNode: {
+        LensFile: ULensFile;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULensCalibrationCameraNode['__properties_ULensCalibrationCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const ULensCalibrationCameraNode: ULensCalibrationCameraNode;
 
 declare interface ULensParametersCameraNode extends UCameraNode {
-    FocalLength: FFloatCameraParameter;
-    FocusDistance: FFloatCameraParameter;
-    Aperture: FFloatCameraParameter;
-    EnablePhysicalCamera: FBooleanCameraParameter;
+    readonly __properties_ULensParametersCameraNode: {
+        FocalLength: FFloatCameraParameter;
+        FocusDistance: FFloatCameraParameter;
+        Aperture: FFloatCameraParameter;
+        EnablePhysicalCamera: FBooleanCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULensParametersCameraNode['__properties_ULensParametersCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const ULensParametersCameraNode: ULensParametersCameraNode;
 
 declare interface ULinearBlendCameraNode extends USimpleFixedTimeBlendCameraNode {
-
+    readonly __staticRegistry: 
+        USimpleFixedTimeBlendCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USimpleFixedTimeBlendCameraNode['__propertyRegistry'];
 }
-declare const ULinearBlendCameraNode: ULinearBlendCameraNode;
 
 declare interface ULocationRotationBlendCameraNode extends UBlendCameraNode {
-    LocationBlend: USimpleBlendCameraNode;
-    RotationBlend: USimpleBlendCameraNode;
-    OtherBlend: USimpleBlendCameraNode;
+    readonly __properties_ULocationRotationBlendCameraNode: {
+        LocationBlend: USimpleBlendCameraNode;
+        RotationBlend: USimpleBlendCameraNode;
+        OtherBlend: USimpleBlendCameraNode;
+    };
+    readonly __staticRegistry: 
+        UBlendCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULocationRotationBlendCameraNode['__properties_ULocationRotationBlendCameraNode'] &
+        UBlendCameraNode['__propertyRegistry'];
 }
-declare const ULocationRotationBlendCameraNode: ULocationRotationBlendCameraNode;
 
 declare interface UMovieSceneCameraFramingZonePropertySystem extends UMovieScenePropertySystem {
-
+    readonly __staticRegistry: 
+        UMovieScenePropertySystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieScenePropertySystem['__propertyRegistry'];
 }
-declare const UMovieSceneCameraFramingZonePropertySystem: UMovieSceneCameraFramingZonePropertySystem;
 
 declare interface UMovieSceneCameraFramingZoneSection extends UMovieSceneSection {
-    LeftMarginCurve: FMovieSceneDoubleChannel;
-    TopMarginCurve: FMovieSceneDoubleChannel;
-    RightMarginCurve: FMovieSceneDoubleChannel;
-    BottomMarginCurve: FMovieSceneDoubleChannel;
+    readonly __properties_UMovieSceneCameraFramingZoneSection: {
+        LeftMarginCurve: FMovieSceneDoubleChannel;
+        TopMarginCurve: FMovieSceneDoubleChannel;
+        RightMarginCurve: FMovieSceneDoubleChannel;
+        BottomMarginCurve: FMovieSceneDoubleChannel;
+    };
+    readonly __staticRegistry: 
+        UMovieSceneSection['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneCameraFramingZoneSection['__properties_UMovieSceneCameraFramingZoneSection'] &
+        UMovieSceneSection['__propertyRegistry'];
 }
-declare const UMovieSceneCameraFramingZoneSection: UMovieSceneCameraFramingZoneSection;
 
 declare interface UMovieSceneCameraFramingZoneTrack extends UMovieScenePropertyTrack {
-
+    readonly __staticRegistry: 
+        UMovieScenePropertyTrack['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieScenePropertyTrack['__propertyRegistry'];
 }
-declare const UMovieSceneCameraFramingZoneTrack: UMovieSceneCameraFramingZoneTrack;
 
 declare interface UMovieSceneCameraParameterDecoration extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UMovieSceneCameraParameterDecoration: UMovieSceneCameraParameterDecoration;
 
 declare interface UMovieSceneCameraParameterInstantiator extends UMovieSceneEntityInstantiatorSystem {
-
+    readonly __staticRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMovieSceneEntityInstantiatorSystem['__propertyRegistry'];
 }
-declare const UMovieSceneCameraParameterInstantiator: UMovieSceneCameraParameterInstantiator;
 
 declare interface UObjectTreeGraphComment extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UObjectTreeGraphComment: UObjectTreeGraphComment;
 
 declare interface UOcclusionMaterialCameraNode extends UCameraNode {
-    OcclusionTransparencyMaterial: UMaterialInterface;
-    OcclusionSphereRadius: FFloatCameraParameter;
-    OcclusionChannel: ECollisionChannel;
-    OcclusionTargetPosition: ECameraNodeOriginPosition;
-    OcclusionTargetOffsetSpace: ECameraNodeSpace;
-    OcclusionTargetOffset: FVector3dCameraParameter;
+    readonly __properties_UOcclusionMaterialCameraNode: {
+        OcclusionTransparencyMaterial: UMaterialInterface;
+        OcclusionSphereRadius: FFloatCameraParameter;
+        OcclusionChannel: ECollisionChannel;
+        OcclusionTargetPosition: ECameraNodeOriginPosition;
+        OcclusionTargetOffsetSpace: ECameraNodeSpace;
+        OcclusionTargetOffset: FVector3dCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOcclusionMaterialCameraNode['__properties_UOcclusionMaterialCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UOcclusionMaterialCameraNode: UOcclusionMaterialCameraNode;
 
 declare interface UOffsetCameraNode extends UCameraNode {
-    TranslationOffset: FVector3dCameraParameter;
-    RotationOffset: FRotator3dCameraParameter;
-    OffsetSpace: ECameraNodeSpace;
+    readonly __properties_UOffsetCameraNode: {
+        TranslationOffset: FVector3dCameraParameter;
+        RotationOffset: FRotator3dCameraParameter;
+        OffsetSpace: ECameraNodeSpace;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOffsetCameraNode['__properties_UOffsetCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UOffsetCameraNode: UOffsetCameraNode;
 
 declare interface UOrbitBlendCameraNode extends UBlendCameraNode {
-    DrivingBlend: USimpleBlendCameraNode;
+    readonly __properties_UOrbitBlendCameraNode: {
+        DrivingBlend: USimpleBlendCameraNode;
+    };
+    readonly __staticRegistry: 
+        UBlendCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOrbitBlendCameraNode['__properties_UOrbitBlendCameraNode'] &
+        UBlendCameraNode['__propertyRegistry'];
 }
-declare const UOrbitBlendCameraNode: UOrbitBlendCameraNode;
 
 declare interface UOrthographicCameraNode extends UCameraNode {
-    EnableOrthographicMode: FBooleanCameraParameter;
-    OrthographicWidth: FFloatCameraParameter;
+    readonly __properties_UOrthographicCameraNode: {
+        EnableOrthographicMode: FBooleanCameraParameter;
+        OrthographicWidth: FFloatCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOrthographicCameraNode['__properties_UOrthographicCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UOrthographicCameraNode: UOrthographicCameraNode;
 
 declare interface UPanningFramingCameraNode extends UBaseFramingCameraNode {
-    CanPanLaterally: FBooleanCameraParameter;
-    CanPanVertically: FBooleanCameraParameter;
+    readonly __properties_UPanningFramingCameraNode: {
+        CanPanLaterally: FBooleanCameraParameter;
+        CanPanVertically: FBooleanCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UBaseFramingCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPanningFramingCameraNode['__properties_UPanningFramingCameraNode'] &
+        UBaseFramingCameraNode['__propertyRegistry'];
 }
-declare const UPanningFramingCameraNode: UPanningFramingCameraNode;
 
 declare interface UPerlinNoiseLocationShakeCameraNode extends UShakeCameraNode {
-    AmplitudeMultiplier: FFloatCameraParameter;
-    FrequencyMultiplier: FFloatCameraParameter;
-    Octaves: FInteger32CameraParameter;
-    X: FPerlinNoiseData;
-    Y: FPerlinNoiseData;
-    Z: FPerlinNoiseData;
+    readonly __properties_UPerlinNoiseLocationShakeCameraNode: {
+        AmplitudeMultiplier: FFloatCameraParameter;
+        FrequencyMultiplier: FFloatCameraParameter;
+        Octaves: FInteger32CameraParameter;
+        X: FPerlinNoiseData;
+        Y: FPerlinNoiseData;
+        Z: FPerlinNoiseData;
+    };
+    readonly __staticRegistry: 
+        UShakeCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPerlinNoiseLocationShakeCameraNode['__properties_UPerlinNoiseLocationShakeCameraNode'] &
+        UShakeCameraNode['__propertyRegistry'];
 }
-declare const UPerlinNoiseLocationShakeCameraNode: UPerlinNoiseLocationShakeCameraNode;
 
 declare interface UPerlinNoiseRotationShakeCameraNode extends UShakeCameraNode {
-    AmplitudeMultiplier: FFloatCameraParameter;
-    FrequencyMultiplier: FFloatCameraParameter;
-    Octaves: FInteger32CameraParameter;
-    Yaw: FPerlinNoiseData;
-    pitch: FPerlinNoiseData;
-    Roll: FPerlinNoiseData;
+    readonly __properties_UPerlinNoiseRotationShakeCameraNode: {
+        AmplitudeMultiplier: FFloatCameraParameter;
+        FrequencyMultiplier: FFloatCameraParameter;
+        Octaves: FInteger32CameraParameter;
+        Yaw: FPerlinNoiseData;
+        pitch: FPerlinNoiseData;
+        Roll: FPerlinNoiseData;
+    };
+    readonly __staticRegistry: 
+        UShakeCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPerlinNoiseRotationShakeCameraNode['__properties_UPerlinNoiseRotationShakeCameraNode'] &
+        UShakeCameraNode['__propertyRegistry'];
 }
-declare const UPerlinNoiseRotationShakeCameraNode: UPerlinNoiseRotationShakeCameraNode;
 
 declare interface UPopBlendCameraNode extends UBlendCameraNode {
-
+    readonly __staticRegistry: 
+        UBlendCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlendCameraNode['__propertyRegistry'];
 }
-declare const UPopBlendCameraNode: UPopBlendCameraNode;
 
 declare interface UPopValueInterpolator extends UCameraValueInterpolator {
-
+    readonly __staticRegistry: 
+        UCameraValueInterpolator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraValueInterpolator['__propertyRegistry'];
 }
-declare const UPopValueInterpolator: UPopValueInterpolator;
 
 declare interface UPostProcessCameraNode extends UCameraNode {
-    PostProcessSettings: FPostProcessSettings;
+    readonly __properties_UPostProcessCameraNode: {
+        PostProcessSettings: FPostProcessSettings;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPostProcessCameraNode['__properties_UPostProcessCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UPostProcessCameraNode: UPostProcessCameraNode;
 
 declare interface UPriorityQueueCameraDirector extends UCameraDirector {
-
+    readonly __staticRegistry: 
+        UCameraDirector['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraDirector['__propertyRegistry'];
 }
-declare const UPriorityQueueCameraDirector: UPriorityQueueCameraDirector;
 
 declare interface URootCameraNode extends UCameraNode {
-
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraNode['__propertyRegistry'];
 }
-declare const URootCameraNode: URootCameraNode;
 
 declare interface URotator3dCameraVariable extends UCameraVariableAsset {
-    DefaultValue: FRotator3d;
+    readonly __properties_URotator3dCameraVariable: {
+        DefaultValue: FRotator3d;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        URotator3dCameraVariable['__properties_URotator3dCameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const URotator3dCameraVariable: URotator3dCameraVariable;
 
 declare interface URotator3fCameraVariable extends UCameraVariableAsset {
-    DefaultValue: FRotator3f;
+    readonly __properties_URotator3fCameraVariable: {
+        DefaultValue: FRotator3f;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        URotator3fCameraVariable['__properties_URotator3fCameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const URotator3fCameraVariable: URotator3fCameraVariable;
 
 declare interface USetLocationCameraNode extends UCameraNode {
-    Location: FVector3dCameraParameter;
-    OffsetSpace: ECameraNodeSpace;
+    readonly __properties_USetLocationCameraNode: {
+        Location: FVector3dCameraParameter;
+        OffsetSpace: ECameraNodeSpace;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USetLocationCameraNode['__properties_USetLocationCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const USetLocationCameraNode: USetLocationCameraNode;
 
 declare interface USetRotationCameraNode extends UCameraNode {
-    Rotation: FRotator3dCameraParameter;
-    OffsetSpace: ECameraNodeSpace;
+    readonly __properties_USetRotationCameraNode: {
+        Rotation: FRotator3dCameraParameter;
+        OffsetSpace: ECameraNodeSpace;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USetRotationCameraNode['__properties_USetRotationCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const USetRotationCameraNode: USetRotationCameraNode;
 
 declare interface UShakeCameraNode extends UCameraNode {
-
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraNode['__propertyRegistry'];
 }
-declare const UShakeCameraNode: UShakeCameraNode;
 
 declare interface USimpleBlendCameraNode extends UBlendCameraNode {
-
+    readonly __staticRegistry: 
+        UBlendCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlendCameraNode['__propertyRegistry'];
 }
-declare const USimpleBlendCameraNode: USimpleBlendCameraNode;
 
 declare interface USimpleFixedTimeBlendCameraNode extends USimpleBlendCameraNode {
-    BlendTime: number;
+    readonly __properties_USimpleFixedTimeBlendCameraNode: {
+        BlendTime: number;
+    };
+    readonly __staticRegistry: 
+        USimpleBlendCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USimpleFixedTimeBlendCameraNode['__properties_USimpleFixedTimeBlendCameraNode'] &
+        USimpleBlendCameraNode['__propertyRegistry'];
 }
-declare const USimpleFixedTimeBlendCameraNode: USimpleFixedTimeBlendCameraNode;
 
 declare interface USingleCameraDirector extends UCameraDirector {
-    CameraRig: UCameraRigAsset;
+    readonly __properties_USingleCameraDirector: {
+        CameraRig: UCameraRigAsset;
+    };
+    readonly __staticRegistry: 
+        UCameraDirector['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USingleCameraDirector['__properties_USingleCameraDirector'] &
+        UCameraDirector['__propertyRegistry'];
 }
-declare const USingleCameraDirector: USingleCameraDirector;
 
 declare interface USmoothBlendCameraNode extends USimpleFixedTimeBlendCameraNode {
-    BlendType: ESmoothCameraBlendType;
+    readonly __properties_USmoothBlendCameraNode: {
+        BlendType: ESmoothCameraBlendType;
+    };
+    readonly __staticRegistry: 
+        USimpleFixedTimeBlendCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USmoothBlendCameraNode['__properties_USmoothBlendCameraNode'] &
+        USimpleFixedTimeBlendCameraNode['__propertyRegistry'];
 }
-declare const USmoothBlendCameraNode: USmoothBlendCameraNode;
 
 declare interface USplineFieldOfViewCameraNode extends UCameraNode {
-    SplineInput: FFloatCameraParameter;
-    FieldOfViewSpline: FCameraSingleCurve;
+    readonly __properties_USplineFieldOfViewCameraNode: {
+        SplineInput: FFloatCameraParameter;
+        FieldOfViewSpline: FCameraSingleCurve;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USplineFieldOfViewCameraNode['__properties_USplineFieldOfViewCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const USplineFieldOfViewCameraNode: USplineFieldOfViewCameraNode;
 
 declare interface USplineOffsetCameraNode extends UCameraNode {
-    SplineInput: FFloatCameraParameter;
-    TranslationOffsetSpline: FCameraVectorCurve;
-    RotationOffsetSpline: FCameraRotatorCurve;
-    OffsetSpace: ECameraNodeSpace;
+    readonly __properties_USplineOffsetCameraNode: {
+        SplineInput: FFloatCameraParameter;
+        TranslationOffsetSpline: FCameraVectorCurve;
+        RotationOffsetSpline: FCameraRotatorCurve;
+        OffsetSpace: ECameraNodeSpace;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USplineOffsetCameraNode['__properties_USplineOffsetCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const USplineOffsetCameraNode: USplineOffsetCameraNode;
 
 declare interface USplineOrbitCameraNode extends UCameraNode {
-    LocationOffsetSpline: FCameraVectorCurve;
-    TargetOffsetSpline: FCameraVectorCurve;
-    RotationOffsetSpline: FCameraRotatorCurve;
-    LocationOffsetMultiplier: FFloatCameraParameter;
-    TargetOffsetSpace: ECameraNodeSpace;
-    InputSlot: UInput2DCameraNode;
+    readonly __properties_USplineOrbitCameraNode: {
+        LocationOffsetSpline: FCameraVectorCurve;
+        TargetOffsetSpline: FCameraVectorCurve;
+        RotationOffsetSpline: FCameraRotatorCurve;
+        LocationOffsetMultiplier: FFloatCameraParameter;
+        TargetOffsetSpace: ECameraNodeSpace;
+        InputSlot: UInput2DCameraNode;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USplineOrbitCameraNode['__properties_USplineOrbitCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const USplineOrbitCameraNode: USplineOrbitCameraNode;
 
 declare interface UStateTreeCameraDirector extends UCameraDirector {
-    StateTreeReference: FStateTreeReference;
+    readonly __properties_UStateTreeCameraDirector: {
+        StateTreeReference: FStateTreeReference;
+    };
+    readonly __staticRegistry: 
+        UCameraDirector['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStateTreeCameraDirector['__properties_UStateTreeCameraDirector'] &
+        UCameraDirector['__propertyRegistry'];
 }
-declare const UStateTreeCameraDirector: UStateTreeCameraDirector;
 
 declare interface UTargetRayCastCameraNode extends UCameraNode {
-    TraceChannel: ECollisionChannel;
-    AutoFocus: FBooleanCameraParameter;
+    readonly __properties_UTargetRayCastCameraNode: {
+        TraceChannel: ECollisionChannel;
+        AutoFocus: FBooleanCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTargetRayCastCameraNode['__properties_UTargetRayCastCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UTargetRayCastCameraNode: UTargetRayCastCameraNode;
 
 declare interface UTransform3dCameraVariable extends UCameraVariableAsset {
-    DefaultValue: FTransform3d;
+    readonly __properties_UTransform3dCameraVariable: {
+        DefaultValue: FTransform3d;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTransform3dCameraVariable['__properties_UTransform3dCameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const UTransform3dCameraVariable: UTransform3dCameraVariable;
 
 declare interface UTransform3fCameraVariable extends UCameraVariableAsset {
-    DefaultValue: FTransform3f;
+    readonly __properties_UTransform3fCameraVariable: {
+        DefaultValue: FTransform3f;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTransform3fCameraVariable['__properties_UTransform3fCameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const UTransform3fCameraVariable: UTransform3fCameraVariable;
 
 declare interface UUpdateTrackerCameraNode extends UCameraNode {
-    DoubleParameter: FDoubleCameraParameter;
-    VectorParameter: FVector3dCameraParameter;
+    readonly __properties_UUpdateTrackerCameraNode: {
+        DoubleParameter: FDoubleCameraParameter;
+        VectorParameter: FVector3dCameraParameter;
+    };
+    readonly __staticRegistry: 
+        UCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UUpdateTrackerCameraNode['__properties_UUpdateTrackerCameraNode'] &
+        UCameraNode['__propertyRegistry'];
 }
-declare const UUpdateTrackerCameraNode: UUpdateTrackerCameraNode;
 
 declare interface UVector2dCameraVariable extends UCameraVariableAsset {
-    DefaultValue: FVector2D;
+    readonly __properties_UVector2dCameraVariable: {
+        DefaultValue: FVector2D;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVector2dCameraVariable['__properties_UVector2dCameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const UVector2dCameraVariable: UVector2dCameraVariable;
 
 declare interface UVector2fCameraVariable extends UCameraVariableAsset {
-    DefaultValue: FVector2f;
+    readonly __properties_UVector2fCameraVariable: {
+        DefaultValue: FVector2f;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVector2fCameraVariable['__properties_UVector2fCameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const UVector2fCameraVariable: UVector2fCameraVariable;
 
 declare interface UVector3dCameraVariable extends UCameraVariableAsset {
-    DefaultValue: FVector3d;
+    readonly __properties_UVector3dCameraVariable: {
+        DefaultValue: FVector3d;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVector3dCameraVariable['__properties_UVector3dCameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const UVector3dCameraVariable: UVector3dCameraVariable;
 
 declare interface UVector3fCameraVariable extends UCameraVariableAsset {
-    DefaultValue: FVector3f;
+    readonly __properties_UVector3fCameraVariable: {
+        DefaultValue: FVector3f;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVector3fCameraVariable['__properties_UVector3fCameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const UVector3fCameraVariable: UVector3fCameraVariable;
 
 declare interface UVector4dCameraVariable extends UCameraVariableAsset {
-    DefaultValue: FVector4d;
+    readonly __properties_UVector4dCameraVariable: {
+        DefaultValue: FVector4d;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVector4dCameraVariable['__properties_UVector4dCameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const UVector4dCameraVariable: UVector4dCameraVariable;
 
 declare interface UVector4fCameraVariable extends UCameraVariableAsset {
-    DefaultValue: FVector4f;
+    readonly __properties_UVector4fCameraVariable: {
+        DefaultValue: FVector4f;
+    };
+    readonly __staticRegistry: 
+        UCameraVariableAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UVector4fCameraVariable['__properties_UVector4fCameraVariable'] &
+        UCameraVariableAsset['__propertyRegistry'];
 }
-declare const UVector4fCameraVariable: UVector4fCameraVariable;
 
 declare interface UViewTargetTransitionParamsBlendCameraNode extends USimpleBlendCameraNode {
-    TransitionParams: FViewTargetTransitionParams;
+    readonly __properties_UViewTargetTransitionParamsBlendCameraNode: {
+        TransitionParams: FViewTargetTransitionParams;
+    };
+    readonly __staticRegistry: 
+        USimpleBlendCameraNode['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UViewTargetTransitionParamsBlendCameraNode['__properties_UViewTargetTransitionParamsBlendCameraNode'] &
+        USimpleBlendCameraNode['__propertyRegistry'];
 }
-declare const UViewTargetTransitionParamsBlendCameraNode: UViewTargetTransitionParamsBlendCameraNode;
 

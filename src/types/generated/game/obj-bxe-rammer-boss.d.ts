@@ -1,5 +1,11 @@
 declare interface UOBJ_BXE_RammerBoss_C extends UBXEBlueprintControlledObjective {
-    GetInMissionText(): FText;
+    readonly __static_UOBJ_BXE_RammerBoss_C: {
+        GetInMissionText(): string;
+    };
+    readonly __staticRegistry: 
+        UOBJ_BXE_RammerBoss_C['__static_UOBJ_BXE_RammerBoss_C'] &
+        UBXEBlueprintControlledObjective['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBXEBlueprintControlledObjective['__propertyRegistry'];
 }
-declare const UOBJ_BXE_RammerBoss_C: UOBJ_BXE_RammerBoss_C;
 

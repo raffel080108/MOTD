@@ -2,107 +2,82 @@ declare interface FMetaSoundAssetKey {
     ClassName: FMetasoundFrontendClassName;
     Version: FMetasoundFrontendVersionNumber;
 }
-declare const FMetaSoundAssetKey: FMetaSoundAssetKey;
 
-declare interface FMetaSoundAssetTagClassCollections {
+declare type FMetaSoundAssetTagClassCollections = object;
 
-}
-declare const FMetaSoundAssetTagClassCollections: FMetaSoundAssetTagClassCollections;
-
-declare interface FMetaSoundAssetTagCollections {
-
-}
-declare const FMetaSoundAssetTagCollections: FMetaSoundAssetTagCollections;
+declare type FMetaSoundAssetTagCollections = object;
 
 declare interface FMetaSoundClassInterfaceInfo {
-    DefinedInterfaces: TArray<FMetasoundFrontendInterfaceMetadata>;
+    DefinedInterfaces: FMetasoundFrontendInterfaceMetadata[];
     SearchInfo: FMetaSoundClassSearchInfo;
-    Inputs: TArray<FMetaSoundClassVertexInfo>;
-    Outputs: TArray<FMetaSoundClassVertexInfo>;
-    InheritedInterfaces: TArray<FMetasoundFrontendVersion>;
+    Inputs: FMetaSoundClassVertexInfo[];
+    Outputs: FMetaSoundClassVertexInfo[];
+    InheritedInterfaces: FMetasoundFrontendVersion[];
 }
-declare const FMetaSoundClassInterfaceInfo: FMetaSoundClassInterfaceInfo;
 
 declare interface FMetaSoundClassSearchInfo {
-    ClassDisplayName: FText;
-    ClassDescription: FText;
-    Hierarchy: TArray<FText>;
-    Keywords: TArray<FText>;
+    ClassDisplayName: string;
+    ClassDescription: string;
+    Hierarchy: string[];
+    Keywords: string[];
 }
-declare const FMetaSoundClassSearchInfo: FMetaSoundClassSearchInfo;
 
 declare interface FMetaSoundClassVertexCollectionInfo {
-    ClassVertexInfo: TArray<FMetaSoundClassVertexInfo>;
+    ClassVertexInfo: FMetaSoundClassVertexInfo[];
 }
-declare const FMetaSoundClassVertexCollectionInfo: FMetaSoundClassVertexCollectionInfo;
 
 declare interface FMetaSoundClassVertexInfo {
-    Name: FName;
-    TypeName: FName;
+    Name: string;
+    TypeName: string;
     AccessType: EMetasoundFrontendVertexAccessType;
 }
-declare const FMetaSoundClassVertexInfo: FMetaSoundClassVertexInfo;
 
 declare interface FMetaSoundDocumentInfo {
     DocumentVersion: FMetasoundFrontendVersionNumber;
-    ReferencedAssetKeys: TArray<FMetaSoundAssetKey>;
+    ReferencedAssetKeys: FMetaSoundAssetKey[];
     bIsPreset: boolean;
 }
-declare const FMetaSoundDocumentInfo: FMetaSoundDocumentInfo;
 
 declare interface FMetaSoundFrontendDocumentBuilder {
     DocumentInterface: TScriptInterface<IMetaSoundDocumentInterface>;
     BuildPageID: FGuid;
 }
-declare const FMetaSoundFrontendDocumentBuilder: FMetaSoundFrontendDocumentBuilder;
 
-declare interface FMetaSoundFrontendGraphComment {
+declare type FMetaSoundFrontendGraphComment = object;
 
-}
-declare const FMetaSoundFrontendGraphComment: FMetaSoundFrontendGraphComment;
-
-declare interface FMetaSoundFrontendNodeConfiguration {
-
-}
-declare const FMetaSoundFrontendNodeConfiguration: FMetaSoundFrontendNodeConfiguration;
+declare type FMetaSoundFrontendNodeConfiguration = object;
 
 declare interface FMetasoundCommentNodeIntVector extends FIntVector2 {
 
 }
-declare const FMetasoundCommentNodeIntVector: FMetasoundCommentNodeIntVector;
 
 declare interface FMetasoundFrontendClass {
     ID: FGuid;
     MetaData: FMetasoundFrontendClassMetadata;
     Interface: FMetasoundFrontendClassInterface;
 }
-declare const FMetasoundFrontendClass: FMetasoundFrontendClass;
 
 declare interface FMetasoundFrontendClassEnvironmentVariable {
-    Name: FName;
-    TypeName: FName;
+    Name: string;
+    TypeName: string;
     bIsRequired: boolean;
 }
-declare const FMetasoundFrontendClassEnvironmentVariable: FMetasoundFrontendClassEnvironmentVariable;
 
 declare interface FMetasoundFrontendClassInput extends FMetasoundFrontendClassVertex {
-    Defaults: TArray<FMetasoundFrontendClassInputDefault>;
+    Defaults: FMetasoundFrontendClassInputDefault[];
 }
-declare const FMetasoundFrontendClassInput: FMetasoundFrontendClassInput;
 
 declare interface FMetasoundFrontendClassInputDefault {
     Literal: FMetasoundFrontendLiteral;
     PageID: FGuid;
 }
-declare const FMetasoundFrontendClassInputDefault: FMetasoundFrontendClassInputDefault;
 
 declare interface FMetasoundFrontendClassInterface {
-    Inputs: TArray<FMetasoundFrontendClassInput>;
-    Outputs: TArray<FMetasoundFrontendClassOutput>;
-    Environment: TArray<FMetasoundFrontendClassEnvironmentVariable>;
+    Inputs: FMetasoundFrontendClassInput[];
+    Outputs: FMetasoundFrontendClassOutput[];
+    Environment: FMetasoundFrontendClassEnvironmentVariable[];
     ChangeID: FGuid;
 }
-declare const FMetasoundFrontendClassInterface: FMetasoundFrontendClassInterface;
 
 declare interface FMetasoundFrontendClassMetadata {
     ClassName: FMetasoundFrontendClassName;
@@ -111,55 +86,42 @@ declare interface FMetasoundFrontendClassMetadata {
     bIsDeprecated: boolean;
     ChangeID: FGuid;
 }
-declare const FMetasoundFrontendClassMetadata: FMetasoundFrontendClassMetadata;
 
 declare interface FMetasoundFrontendClassName {
-    Namespace: FName;
-    Name: FName;
-    Variant: FName;
+    Namespace: string;
+    Name: string;
+    Variant: string;
 }
-declare const FMetasoundFrontendClassName: FMetasoundFrontendClassName;
 
 declare interface FMetasoundFrontendClassOutput extends FMetasoundFrontendClassVertex {
 
 }
-declare const FMetasoundFrontendClassOutput: FMetasoundFrontendClassOutput;
 
-declare interface FMetasoundFrontendClassStyle {
+declare type FMetasoundFrontendClassStyle = object;
 
-}
-declare const FMetasoundFrontendClassStyle: FMetasoundFrontendClassStyle;
-
-declare interface FMetasoundFrontendClassStyleDisplay {
-
-}
-declare const FMetasoundFrontendClassStyleDisplay: FMetasoundFrontendClassStyleDisplay;
+declare type FMetasoundFrontendClassStyleDisplay = object;
 
 declare interface FMetasoundFrontendClassVariable extends FMetasoundFrontendClassVertex {
     DefaultLiteral: FMetasoundFrontendLiteral;
 }
-declare const FMetasoundFrontendClassVariable: FMetasoundFrontendClassVariable;
 
 declare interface FMetasoundFrontendClassVertex extends FMetasoundFrontendVertex {
     NodeID: FGuid;
     AccessType: EMetasoundFrontendVertexAccessType;
 }
-declare const FMetasoundFrontendClassVertex: FMetasoundFrontendClassVertex;
 
 declare interface FMetasoundFrontendDocument {
     MetaData: FMetasoundFrontendDocumentMetadata;
-    Interfaces: TSet<FMetasoundFrontendVersion>;
+    Interfaces: FMetasoundFrontendVersion[];
     RootGraph: FMetasoundFrontendGraphClass;
-    Subgraphs: TArray<FMetasoundFrontendGraphClass>;
-    Dependencies: TArray<FMetasoundFrontendClass>;
-    IDCounter: uint32;
+    Subgraphs: FMetasoundFrontendGraphClass[];
+    Dependencies: FMetasoundFrontendClass[];
+    IDCounter: number;
 }
-declare const FMetasoundFrontendDocument: FMetasoundFrontendDocument;
 
 declare interface FMetasoundFrontendDocumentMetadata {
     Version: FMetasoundFrontendVersion;
 }
-declare const FMetasoundFrontendDocumentMetadata: FMetasoundFrontendDocumentMetadata;
 
 declare interface FMetasoundFrontendEdge {
     FromNodeID: FGuid;
@@ -167,210 +129,190 @@ declare interface FMetasoundFrontendEdge {
     ToNodeID: FGuid;
     ToVertexID: FGuid;
 }
-declare const FMetasoundFrontendEdge: FMetasoundFrontendEdge;
 
 declare interface FMetasoundFrontendEdgeStyle {
     NodeID: FGuid;
-    OutputName: FName;
-    LiteralColorPairs: TArray<FMetasoundFrontendEdgeStyleLiteralColorPair>;
+    OutputName: string;
+    LiteralColorPairs: FMetasoundFrontendEdgeStyleLiteralColorPair[];
 }
-declare const FMetasoundFrontendEdgeStyle: FMetasoundFrontendEdgeStyle;
 
 declare interface FMetasoundFrontendEdgeStyleLiteralColorPair {
     Value: FMetasoundFrontendLiteral;
     Color: FLinearColor;
 }
-declare const FMetasoundFrontendEdgeStyleLiteralColorPair: FMetasoundFrontendEdgeStyleLiteralColorPair;
 
 declare interface FMetasoundFrontendGraph {
-    Nodes: TArray<FMetasoundFrontendNode>;
-    Edges: TArray<FMetasoundFrontendEdge>;
-    Variables: TArray<FMetasoundFrontendVariable>;
+    Nodes: FMetasoundFrontendNode[];
+    Edges: FMetasoundFrontendEdge[];
+    Variables: FMetasoundFrontendVariable[];
     PageID: FGuid;
 }
-declare const FMetasoundFrontendGraph: FMetasoundFrontendGraph;
 
 declare interface FMetasoundFrontendGraphClass extends FMetasoundFrontendClass {
-    PagedGraphs: TArray<FMetasoundFrontendGraph>;
+    PagedGraphs: FMetasoundFrontendGraph[];
     PresetOptions: FMetasoundFrontendGraphClassPresetOptions;
 }
-declare const FMetasoundFrontendGraphClass: FMetasoundFrontendGraphClass;
 
 declare interface FMetasoundFrontendGraphClassPresetOptions {
     bIsPreset: boolean;
-    InputsInheritingDefault: TSet<FName>;
+    InputsInheritingDefault: string[];
 }
-declare const FMetasoundFrontendGraphClassPresetOptions: FMetasoundFrontendGraphClassPresetOptions;
 
-declare interface FMetasoundFrontendGraphStyle {
-
-}
-declare const FMetasoundFrontendGraphStyle: FMetasoundFrontendGraphStyle;
+declare type FMetasoundFrontendGraphStyle = object;
 
 declare interface FMetasoundFrontendInterface extends FMetasoundFrontendClassInterface {
     MetaData: FMetasoundFrontendInterfaceMetadata;
 }
-declare const FMetasoundFrontendInterface: FMetasoundFrontendInterface;
 
 declare interface FMetasoundFrontendInterfaceBinding {
     OutputInterfaceVersion: FMetasoundFrontendVersion;
     InputInterfaceVersion: FMetasoundFrontendVersion;
     BindingPriority: number;
-    VertexBindings: TArray<FMetasoundFrontendInterfaceVertexBinding>;
+    VertexBindings: FMetasoundFrontendInterfaceVertexBinding[];
 }
-declare const FMetasoundFrontendInterfaceBinding: FMetasoundFrontendInterfaceBinding;
 
 declare interface FMetasoundFrontendInterfaceMetadata {
     Version: FMetasoundFrontendVersion;
-    UClassOptions: TArray<FMetasoundFrontendInterfaceUClassOptions>;
+    UClassOptions: FMetasoundFrontendInterfaceUClassOptions[];
 }
-declare const FMetasoundFrontendInterfaceMetadata: FMetasoundFrontendInterfaceMetadata;
 
-declare interface FMetasoundFrontendInterfaceStyle {
-
-}
-declare const FMetasoundFrontendInterfaceStyle: FMetasoundFrontendInterfaceStyle;
+declare type FMetasoundFrontendInterfaceStyle = object;
 
 declare interface FMetasoundFrontendInterfaceUClassOptions {
     ClassPath: FTopLevelAssetPath;
     bIsModifiable: boolean;
     bIsDefault: boolean;
 }
-declare const FMetasoundFrontendInterfaceUClassOptions: FMetasoundFrontendInterfaceUClassOptions;
 
 declare interface FMetasoundFrontendInterfaceVertexBinding {
-    OutputName: FName;
-    InputName: FName;
+    OutputName: string;
+    InputName: string;
 }
-declare const FMetasoundFrontendInterfaceVertexBinding: FMetasoundFrontendInterfaceVertexBinding;
 
 declare interface FMetasoundFrontendLiteral {
     Type: EMetasoundFrontendLiteralType;
     AsNumDefault: number;
-    AsBoolean: TArray<boolean>;
-    AsInteger: TArray<number>;
-    AsFloat: TArray<number>;
-    AsString: TArray<FString>;
-    AsUObject: TArray<UObject>;
+    AsBoolean: boolean[];
+    AsInteger: number[];
+    AsFloat: number[];
+    AsString: string[];
+    AsUObject: UObject[];
 }
-declare const FMetasoundFrontendLiteral: FMetasoundFrontendLiteral;
 
 declare interface FMetasoundFrontendNode {
     ID: FGuid;
     ClassID: FGuid;
-    Name: FName;
+    Name: string;
     Interface: FMetasoundFrontendNodeInterface;
-    InputLiterals: TArray<FMetasoundFrontendVertexLiteral>;
+    InputLiterals: FMetasoundFrontendVertexLiteral[];
     Configuration: FInstancedStruct;
     ClassInterfaceOverride: FInstancedStruct;
 }
-declare const FMetasoundFrontendNode: FMetasoundFrontendNode;
 
 declare interface FMetasoundFrontendNodeInterface {
-    Inputs: TArray<FMetasoundFrontendVertex>;
-    Outputs: TArray<FMetasoundFrontendVertex>;
-    Environment: TArray<FMetasoundFrontendVertex>;
+    Inputs: FMetasoundFrontendVertex[];
+    Outputs: FMetasoundFrontendVertex[];
+    Environment: FMetasoundFrontendVertex[];
 }
-declare const FMetasoundFrontendNodeInterface: FMetasoundFrontendNodeInterface;
 
-declare interface FMetasoundFrontendNodeStyle {
+declare type FMetasoundFrontendNodeStyle = object;
 
-}
-declare const FMetasoundFrontendNodeStyle: FMetasoundFrontendNodeStyle;
-
-declare interface FMetasoundFrontendNodeStyleDisplay {
-
-}
-declare const FMetasoundFrontendNodeStyleDisplay: FMetasoundFrontendNodeStyleDisplay;
+declare type FMetasoundFrontendNodeStyleDisplay = object;
 
 declare interface FMetasoundFrontendVariable {
-    Name: FName;
-    TypeName: FName;
+    Name: string;
+    TypeName: string;
     Literal: FMetasoundFrontendLiteral;
     ID: FGuid;
     VariableNodeID: FGuid;
     MutatorNodeID: FGuid;
-    AccessorNodeIDs: TArray<FGuid>;
-    DeferredAccessorNodeIDs: TArray<FGuid>;
+    AccessorNodeIDs: FGuid[];
+    DeferredAccessorNodeIDs: FGuid[];
 }
-declare const FMetasoundFrontendVariable: FMetasoundFrontendVariable;
 
 declare interface FMetasoundFrontendVersion {
-    Name: FName;
+    Name: string;
     Number: FMetasoundFrontendVersionNumber;
 }
-declare const FMetasoundFrontendVersion: FMetasoundFrontendVersion;
 
 declare interface FMetasoundFrontendVersionNumber {
     Major: number;
     Minor: number;
 }
-declare const FMetasoundFrontendVersionNumber: FMetasoundFrontendVersionNumber;
 
 declare interface FMetasoundFrontendVertex {
-    Name: FName;
-    TypeName: FName;
+    Name: string;
+    TypeName: string;
     VertexID: FGuid;
 }
-declare const FMetasoundFrontendVertex: FMetasoundFrontendVertex;
 
 declare interface FMetasoundFrontendVertexHandle {
     NodeID: FGuid;
     VertexID: FGuid;
 }
-declare const FMetasoundFrontendVertexHandle: FMetasoundFrontendVertexHandle;
 
 declare interface FMetasoundFrontendVertexLiteral {
     VertexID: FGuid;
     Value: FMetasoundFrontendLiteral;
 }
-declare const FMetasoundFrontendVertexLiteral: FMetasoundFrontendVertexLiteral;
 
-declare interface FMetasoundFrontendVertexMetadata {
-
-}
-declare const FMetasoundFrontendVertexMetadata: FMetasoundFrontendVertexMetadata;
+declare type FMetasoundFrontendVertexMetadata = object;
 
 declare interface FNodeTemplateGenerateInterfaceParams {
-    InputsToConnect: TArray<FName>;
-    OutputsToConnect: TArray<FName>;
+    InputsToConnect: string[];
+    OutputsToConnect: string[];
 }
-declare const FNodeTemplateGenerateInterfaceParams: FNodeTemplateGenerateInterfaceParams;
 
 declare interface IMetaSoundDocumentInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IMetaSoundDocumentInterface: IMetaSoundDocumentInterface;
 
 declare interface UMetaSoundBuilderDocument extends UObject {
-    Document: FMetasoundFrontendDocument;
-    MetaSoundUClass: UClass;
-    BuilderUClass: UClass;
+    readonly __properties_UMetaSoundBuilderDocument: {
+        Document: FMetasoundFrontendDocument;
+        MetaSoundUClass: UClass;
+        BuilderUClass: UClass;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMetaSoundBuilderDocument['__properties_UMetaSoundBuilderDocument'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMetaSoundBuilderDocument: UMetaSoundBuilderDocument;
 
 declare interface UMetaSoundFrontendMemberMetadata extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UMetaSoundFrontendMemberMetadata: UMetaSoundFrontendMemberMetadata;
 
 declare interface UMetasoundParameterPack extends UObject {
-    SetTrigger(ParameterName: FName, OnlyIfExists: boolean): ESetParamResult;
-    SetString(ParameterName: FName, InValue: string | FString, OnlyIfExists: boolean): ESetParamResult;
-    SetInt(ParameterName: FName, InValue: number, OnlyIfExists: boolean): ESetParamResult;
-    SetFloat(ParameterName: FName, InValue: number, OnlyIfExists: boolean): ESetParamResult;
-    SetBool(ParameterName: FName, InValue: boolean, OnlyIfExists: boolean): ESetParamResult;
-    MakeMetasoundParameterPack(): UMetasoundParameterPack;
-    HasTrigger(ParameterName: FName): boolean;
-    HasString(ParameterName: FName): boolean;
-    HasInt(ParameterName: FName): boolean;
-    HasFloat(ParameterName: FName): boolean;
-    HasBool(ParameterName: FName): boolean;
-    GetTrigger(ParameterName: FName, Result: ESetParamResult): boolean;
-    GetString(ParameterName: FName, Result: ESetParamResult): FString;
-    GetInt(ParameterName: FName, Result: ESetParamResult): number;
-    GetFloat(ParameterName: FName, Result: ESetParamResult): number;
-    GetBool(ParameterName: FName, Result: ESetParamResult): boolean;
+    readonly __static_UMetasoundParameterPack: {
+        SetTrigger(ParameterName: string, OnlyIfExists: boolean): ESetParamResult;
+        SetString(ParameterName: string, InValue: string, OnlyIfExists: boolean): ESetParamResult;
+        SetInt(ParameterName: string, InValue: number, OnlyIfExists: boolean): ESetParamResult;
+        SetFloat(ParameterName: string, InValue: number, OnlyIfExists: boolean): ESetParamResult;
+        SetBool(ParameterName: string, InValue: boolean, OnlyIfExists: boolean): ESetParamResult;
+        MakeMetasoundParameterPack(): UMetasoundParameterPack;
+        HasTrigger(ParameterName: string): boolean;
+        HasString(ParameterName: string): boolean;
+        HasInt(ParameterName: string): boolean;
+        HasFloat(ParameterName: string): boolean;
+        HasBool(ParameterName: string): boolean;
+        GetTrigger(ParameterName: string, Result: ESetParamResult): boolean;
+        GetString(ParameterName: string, Result: ESetParamResult): string;
+        GetInt(ParameterName: string, Result: ESetParamResult): number;
+        GetFloat(ParameterName: string, Result: ESetParamResult): number;
+        GetBool(ParameterName: string, Result: ESetParamResult): boolean;
+    };
+    readonly __staticRegistry: 
+        UMetasoundParameterPack['__static_UMetasoundParameterPack'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UMetasoundParameterPack: UMetasoundParameterPack;
 

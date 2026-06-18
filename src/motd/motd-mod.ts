@@ -1,84 +1,72 @@
-import { ModManagerMod } from "mod-manager-types";
-import { ModActorLoader } from "../util/mod/mod-actor-loader";
-import { MOTDModActor, MOTDModPage } from "./mod-types";
 import { GameUtil } from "../util/game/game-util";
-import { UObjectContainer } from "../util/uobject-container";
 import { UEUtil } from "../util/ue-util";
-import { ModUtil } from "../util/mod/mod-util";
-import { Logger } from "../util/mod/logger";
 import { Util } from "../util/util";
 import { MOTDModPageHandler } from "./ui/motd-mod-page-handler";
 import { ModConfig } from "./config/mod-config";
 import { JoinHistory } from "./config/join-history";
 import { TextInputHandler } from "../ui/text-input-handler";
 import { ModInfo } from "./mod-info";
-import { ModInitHook } from "../util/mod/mod-init-hook";
+import { Logger } from "../util/mod/logger";
+import { ModUtil } from "../util/mod/mod-util";
 
 export class MOTDMod {
-    public readonly modActorLoader = new ModActorLoader();
     public readonly config = new ModConfig();
     public readonly joinHistory = new JoinHistory();
-    public readonly modManager: UObjectContainer<UWBP_ModManagerConfigUI_C> = new UObjectContainer();
-    public readonly modActor: UObjectContainer<MOTDModActor> = new UObjectContainer();
-    public readonly modPage: UObjectContainer<MOTDModPage> = new UObjectContainer();
     public modPageHandler: MOTDModPageHandler | undefined;
     public textInputHandler: TextInputHandler | undefined;
-    public postModActorSpawnedHooksActive = false;
-    public postModLoadedHooksActive = false;
+    public modActorHooksActive = false;
+    public modPageHooksActive = false;
     public joinedPlayerIds: number[] = [];
 
-    public setupHooks(): void {
-        this.modActorLoader.hookModManagerLoaded((modManager: UWBP_ModManagerConfigUI_C) => {
-            // ModHub loaded
-            this.modManager.set(modManager);
-        }, (modActor: ModManagerMod) => {
-            // Mod actor spawned
-            this.modActor.set(modActor as MOTDModActor);
-
-            this.config.loadConfig();
-            this.joinHistory.loadConfig();
-        
-            this.findModHubPage();
-            this.setupPostModActorSpawnedHooks();
+    public init(): void {
+        this.config.loadConfig();
+        this.joinHistory.loadConfig();
             
-            if (this.modPageHandler !== undefined) {
-                this.modPageHandler.setupModPageUIElements();
-            }
-        }, () => {
-            // Mod registered
-        });
-        
-        new ModInitHook().hook(() => {
-            if (this.textInputHandler !== undefined) {
-                this.textInputHandler.lastInputText.clear();
-                this.textInputHandler.lastValidText.clear();
-            }
+        UEUtil.waitForObject("BP_MOTD_Mod_C", () => {
+            Logger.log("Mod actor found");
+
+            this.setupModActorHooks();
+
+            const handle = setInterval(() => {
+                if (this.getModPage() == undefined) {
+                    return;
+                }
+
+                Logger.log("Mod page found");
+
+                clearInterval(handle);
+                this.triggerModPageFound();
+            }, 20);
         });
     }
 
-    public findModHubPage(): void {
-        const modPage = FindFirstOf("WBP_MOTD_ModPage_C") as MOTDModPage | undefined;
-        if (modPage === undefined || !(modPage.IsValid() as boolean)) {
-            Logger.log("Error: Failed to find Mod Page");
+    public triggerModPageFound(): void {
+        const modPage = this.getModPage();
+        if (modPage == undefined) {
             return;
         }
 
-        this.modPage.set(modPage);
-        this.modPageHandler = new MOTDModPageHandler(this, modPage);
+        if (this.modPageHandler == undefined) {
+            this.modPageHandler = new MOTDModPageHandler(this, modPage);
+        }
+
+        this.setupModPageHooks();
     }
 
-    public setupPostModActorSpawnedHooks(): void {
-        if (this.postModActorSpawnedHooksActive) { 
-            return;
-        }
+    public setupModActorHooks(): void {
+        ModUtil.hookModActorFunction("FSDGameState_OnPlayerCharacterRegistered", (_self, args: unknown[]) => {
+            const playerCharacter = args[0] as ABP_PlayerCharacter_C;
+            const playerState = CallFunction(playerCharacter, "GetPlayerState");
+            const playerId = CallFunction(playerState, "GetPlayerId");
 
-        ModUtil.hookModActorFunction("FSDGameState_OnPlayerCharacterRegistered", (_self, playerCharacterParam: RemoteUnrealParam<ABP_PlayerCharacter_C>) => {
-            if (!UEUtil.isServer() || playerCharacterParam.get().GetPlayerState().GetPlayerId() === GameUtil.getLocalPlayerId()) {
+            const playerController = this.getLocalPlayerController();
+            if (playerController == undefined) {
+                throw new Error("Failed to process OnPlayerCharacterRegistered | Local PlayerController is null");
+            }
+
+            if (!UEUtil.isServer(playerController) || playerId === GameUtil.getLocalPlayerId(playerController)) {
                 return;
             }
-
-            const playerState = playerCharacterParam.get().GetPlayerState();
-            const playerId = playerState.GetPlayerId();
 
             if (this.joinedPlayerIds.includes(playerId)) {
                 return;
@@ -86,67 +74,130 @@ export class MOTDMod {
 
             this.joinedPlayerIds.push(playerId);
 
-            Util.mapIncrementValue(this.joinHistory.data.playersJoinCount, playerState.GetPlayerName().ToString());
+            const playerName = CallFunction(playerState, "GetPlayerName");
+
+            Util.mapIncrementValue(this.joinHistory.data.playersJoinCount, playerName);
             this.joinHistory.saveConfig();
 
             this.sendMotdMessage(playerState, 
-                UEUtil.getCurrentLevelName() === "LVL_Ramrod_MAIN" ? this.config.data.lobbyMessageDelayMillis : this.config.data.missionMessageDelayMillis);
+                UEUtil.getCurrentLevelName(playerController) === "LVL_Ramrod_MAIN" ? this.config.data.lobbyMessageDelayMillis : this.config.data.missionMessageDelayMillis);
         });
 
-        ModUtil.hookModActorFunction("FSDGameState_OnPlayerLeave", (_self, playerStateParam: RemoteUnrealParam<AFSDPlayerState>) => {
-            if (!UEUtil.isServer() || playerStateParam.get().GetPlayerId() === GameUtil.getLocalPlayerId()) {
+        ModUtil.hookModActorFunction("FSDGameState_OnPlayerLeave", (_self, args: unknown[]) => {
+            const playerState = args[0] as AFSDPlayerState;
+            const playerId = CallFunction(playerState, "GetPlayerId");
+
+            const playerController = this.getLocalPlayerController();
+            if (playerController == undefined) {
+                throw new Error("Failed to process OnPlayerLeave | Local PlayerController is null");
+            }
+            
+            if (!UEUtil.isServer(playerController) || playerId === GameUtil.getLocalPlayerId(playerController)) {
                 return;
             }
             
-            const playerState = playerStateParam.get();
-            Util.arrayRemove(this.joinedPlayerIds, playerState.GetPlayerId());
+            Util.arrayRemove(this.joinedPlayerIds, playerId);
         });
+    }
+
+    public setupModPageHooks(): void {
+        if (this.modPageHooksActive) { 
+            return;
+        }
 
         this.textInputHandler = new TextInputHandler(UEUtil.getFullClassPath(ModInfo.MOD_ACTOR_DIRECTORY + "UI/Components/", "WBP_TextInput"));
         this.textInputHandler.registerHooks();
 
-        if (this.modPageHandler !== undefined) {
+        if (this.modPageHandler != undefined) {
             this.modPageHandler.registerAllHooks();
         }
                 
-        this.postModActorSpawnedHooksActive = true;
+        this.modPageHooksActive = true;
     }
 
     public sendMotdMessage(targetPlayerState: AFSDPlayerState, delayMillis: number = 0): void {
-        const characterId = targetPlayerState.GetSelectedCharacterID();
+        const motdMessage = this.config.data.motdMessage;
+        if (motdMessage === "") {
+            return;
+        }
 
-        const characterProgress = targetPlayerState.GetCharacterProgress(characterId);
-        const playerName = targetPlayerState.GetPlayerName().ToString();
-        const playerRank = tostring(targetPlayerState.GetPlayerRank());
+        const characterId = CallFunction(targetPlayerState, "GetSelectedCharacterID");
 
-        const characterNameId = characterId.GetFName().ToString();
-        const [characterName] = string.gsub(characterNameId, "ID$", "");
+        const characterProgress = CallFunction(targetPlayerState, "GetCharacterProgress", characterId);
+        
+        const playerName = CallFunction(targetPlayerState, "GetPlayerName");
+        const playerRank = String(CallFunction(targetPlayerState, "GetPlayerRank"));
 
-        const characterAscensions = tostring(characterProgress.TimesAscended);
-        const characterLevel = tostring(characterProgress.Level);
+        const characterNameId = characterId.GetName();
+        const characterName = characterNameId.replace(/ID$/, "");
 
-        const characterProgressString = tostring(Util.round(characterProgress.Progress, 3) * 100);
-        const [characterLevelProgress] = string.gsub(characterProgressString, "%.0", "");
+        const characterAscensions = String(characterProgress.TimesAscended);
+        const characterLevel = String(characterProgress.Level);
+
+        const characterProgressString = String(Util.round(characterProgress.Progress, 3) * 100);
+        const characterLevelProgress = characterProgressString.replace(/\.0$/, "");
 
         const joinCount = this.joinHistory.data.playersJoinCount.get(playerName) ?? 1;
 
-        const pingString = tostring(Util.round(targetPlayerState.GetPingInMilliseconds()));
-        const [ping] = string.gsub(pingString, "%.0", "");
+        const pingString = String(Util.round(CallFunction(targetPlayerState, "GetPingInMilliseconds")));
+        const ping = pingString.replace(/\.0$/, "");
 
-        const message = Util.substitutePlaceholders(this.config.data.motdMessage, new Map([
+        const message = Util.substitutePlaceholders(motdMessage, new Map([
             ["playerName", playerName],
             ["playerRank", playerRank],
             ["characterName", characterName],
             ["characterAscensions", characterAscensions],
             ["characterLevel", characterLevel],
             ["characterLevelProgress", characterLevelProgress],
-            ["previousJoinCount", tostring(joinCount - 1)],
-            ["totalJoinCount", tostring(joinCount)],
+            ["previousJoinCount", String(joinCount - 1)],
+            ["totalJoinCount", String(joinCount)],
             ["ping", ping]
         ]));
 
-        ExecuteInGameThreadWithDelay(delayMillis, () => {
-            GameUtil.sendGameMessage(message);
-        });
+        setTimeout(() => {
+            const playerController = this.getLocalPlayerController();
+            if (playerController == undefined) {
+                throw new Error("Failed to send MOTD message | Local PlayerController is null");
+            }
+
+            GameUtil.sendGameMessage(playerController, message);
+        }, delayMillis);
+    }
+
+    public getModActor(): MOTDModActor | undefined {
+        const modActor = FindFirstOf("BP_MOTD_Mod_C");
+        if (modActor == undefined || !modActor.IsValid()) {
+            return undefined;
+        }
+
+        return modActor as MOTDModActor;
+    }
+
+    public getModPage(): MOTDModPage | undefined {
+        const modActor = this.getModActor();
+        if (modActor == undefined) {
+            return undefined;
+        }
+
+        const modPage = GetProperty(modActor, "ModPage");
+        if (modPage == undefined || !modPage.IsValid()) {
+            return undefined;
+        }
+
+        return modPage;
+    }
+
+    public getLocalPlayerController(): APlayerController | undefined {
+        const modActor = this.getModActor();
+        if (modActor == undefined) {
+            return undefined;
+        }
+
+        const playerController = GetProperty(modActor, "LocalPlayerController");
+        if (playerController == undefined) {
+            return undefined;
+        }
+
+        return playerController;
     }
 }

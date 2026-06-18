@@ -1,12 +1,17 @@
 declare interface FActorLayer {
-    Name: FName;
+    Name: string;
 }
-declare const FActorLayer: FActorLayer;
 
 declare interface ULayersBlueprintLibrary extends UBlueprintFunctionLibrary {
-    RemoveActorFromLayer(InActor: AActor, Layer: FActorLayer): void;
-    GetActors(WorldContextObject: UObject, ActorLayer: FActorLayer): TArray<AActor>;
-    AddActorToLayer(InActor: AActor, Layer: FActorLayer): void;
+    readonly __static_ULayersBlueprintLibrary: {
+        RemoveActorFromLayer(InActor: AActor, Layer: FActorLayer): void;
+        GetActors(WorldContextObject: UObject, ActorLayer: FActorLayer): AActor[];
+        AddActorToLayer(InActor: AActor, Layer: FActorLayer): void;
+    };
+    readonly __staticRegistry: 
+        ULayersBlueprintLibrary['__static_ULayersBlueprintLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const ULayersBlueprintLibrary: ULayersBlueprintLibrary;
 

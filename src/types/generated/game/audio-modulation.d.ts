@@ -6,27 +6,23 @@ declare interface FEnvelopeFollowerGeneratorParams {
     AttackTime: number;
     ReleaseTime: number;
 }
-declare const FEnvelopeFollowerGeneratorParams: FEnvelopeFollowerGeneratorParams;
 
 declare interface FSoundControlBusMixStage {
     Bus: USoundControlBus;
     Value: FSoundModulationMixValue;
 }
-declare const FSoundControlBusMixStage: FSoundControlBusMixStage;
 
 declare interface FSoundControlModulationInput {
     bSampleAndHold: boolean;
     Transform: FSoundModulationTransform;
     Bus: USoundControlBus;
 }
-declare const FSoundControlModulationInput: FSoundControlModulationInput;
 
 declare interface FSoundControlModulationPatch {
     bBypass: boolean;
     OutputParameter: USoundModulationParameter;
-    Inputs: TArray<FSoundControlModulationInput>;
+    Inputs: FSoundControlModulationInput[];
 }
-declare const FSoundControlModulationPatch: FSoundControlModulationPatch;
 
 declare interface FSoundModulationADEnvelopeParams {
     AttackTime: number;
@@ -36,7 +32,6 @@ declare interface FSoundModulationADEnvelopeParams {
     bLooping: boolean;
     bBypass: boolean;
 }
-declare const FSoundModulationADEnvelopeParams: FSoundModulationADEnvelopeParams;
 
 declare interface FSoundModulationLFOParams {
     Shape: ESoundModulationLFOShape;
@@ -49,177 +44,285 @@ declare interface FSoundModulationLFOParams {
     bLooping: boolean;
     bBypass: boolean;
 }
-declare const FSoundModulationLFOParams: FSoundModulationLFOParams;
 
 declare interface FSoundModulationMixValue {
     TargetValue: number;
     AttackTime: number;
     ReleaseTime: number;
 }
-declare const FSoundModulationMixValue: FSoundModulationMixValue;
 
 declare interface FSoundModulationParameterSettings {
     ValueNormalized: number;
 }
-declare const FSoundModulationParameterSettings: FSoundModulationParameterSettings;
 
 declare interface FSoundModulationTransform extends FWaveTableTransform {
 
 }
-declare const FSoundModulationTransform: FSoundModulationTransform;
 
 declare interface UAudioModulationDestination extends UObject {
-    Modulator: USoundModulatorBase;
-    SetModulator(InModulator: USoundModulatorBase): boolean;
-    GetValue(): number;
-    GetModulator(): USoundModulatorBase;
-    ClearModulator(): boolean;
+    readonly __static_UAudioModulationDestination: {
+        SetModulator(InModulator: USoundModulatorBase): boolean;
+        GetValue(): number;
+        GetModulator(): USoundModulatorBase;
+        ClearModulator(): boolean;
+    };
+    readonly __properties_UAudioModulationDestination: {
+        Modulator: USoundModulatorBase;
+    };
+    readonly __staticRegistry: 
+        UAudioModulationDestination['__static_UAudioModulationDestination'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioModulationDestination['__properties_UAudioModulationDestination'] &
+        UObject['__propertyRegistry'];
 }
-declare const UAudioModulationDestination: UAudioModulationDestination;
 
 declare interface UAudioModulationSettings extends UDeveloperSettings {
-    Parameters: TArray<FSoftObjectPath>;
+    readonly __properties_UAudioModulationSettings: {
+        Parameters: FSoftObjectPath[];
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAudioModulationSettings['__properties_UAudioModulationSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UAudioModulationSettings: UAudioModulationSettings;
 
 declare interface UAudioModulationStatics extends UBlueprintFunctionLibrary {
-    UpdateModulator(WorldContextObject: UObject, Modulator: USoundModulatorBase): void;
-    UpdateMixFromObject(WorldContextObject: UObject, mix: USoundControlBusMix, FadeTime: number): void;
-    UpdateMixByFilter(WorldContextObject: UObject, mix: USoundControlBusMix, AddressFilter: string | FString, ParamClassFilter: TSubclassOf<USoundModulationParameter>, ParamFilter: USoundModulationParameter, Value: number, FadeTime: number): void;
-    UpdateMix(WorldContextObject: UObject, mix: USoundControlBusMix, Stages: TArray<FSoundControlBusMixStage>, FadeTime: number, duration: number, bRetriggerOnActivation: boolean): void;
-    SetGlobalBusMixValue(WorldContextObject: UObject, Bus: USoundControlBus, Value: number, FadeTime: number): void;
-    SaveMixToProfile(WorldContextObject: UObject, mix: USoundControlBusMix, ProfileIndex: number): void;
-    LoadMixFromProfile(WorldContextObject: UObject, mix: USoundControlBusMix, bActivate: boolean, ProfileIndex: number): TArray<FSoundControlBusMixStage>;
-    IsControlBusMixActive(WorldContextObject: UObject, mix: USoundControlBusMix): boolean;
-    GetModulatorValue(WorldContextObject: UObject, Modulator: USoundModulatorBase): number;
-    GetModulatorsFromDestination(Destination: FSoundModulationDestinationSettings): TSet<USoundModulatorBase>;
-    DeactivateGenerator(WorldContextObject: UObject, Generator: USoundModulationGenerator): void;
-    DeactivateBusMix(WorldContextObject: UObject, mix: USoundControlBusMix): void;
-    DeactivateBus(WorldContextObject: UObject, Bus: USoundControlBus): void;
-    DeactivateAllBusMixes(WorldContextObject: UObject): void;
-    CreateModulationParameter(WorldContextObject: UObject, Name: FName, ParamClass: TSubclassOf<USoundModulationParameter>, DefaultValue: number): USoundModulationParameter;
-    CreateModulationDestination(WorldContextObject: UObject, Name: FName, Modulator: USoundModulatorBase): UAudioModulationDestination;
-    CreateLFOGenerator(WorldContextObject: UObject, Name: FName, Params: FSoundModulationLFOParams): USoundModulationGeneratorLFO;
-    CreateEnvelopeFollowerGenerator(WorldContextObject: UObject, Name: FName, Params: FEnvelopeFollowerGeneratorParams): USoundModulationGeneratorEnvelopeFollower;
-    CreateBusMixStage(WorldContextObject: UObject, Bus: USoundControlBus, Value: number, AttackTime: number, ReleaseTime: number): FSoundControlBusMixStage;
-    CreateBusMixFromValue(WorldContextObject: UObject, Name: FName, Buses: TArray<USoundControlBus>, Value: number, AttackTime: number, ReleaseTime: number, bActivate: boolean): USoundControlBusMix;
-    CreateBusMix(WorldContextObject: UObject, Name: FName, Stages: TArray<FSoundControlBusMixStage>, Activate: boolean, duration: number, bRetriggerOnActivation: boolean): USoundControlBusMix;
-    CreateBus(WorldContextObject: UObject, Name: FName, Parameter: USoundModulationParameter, Activate: boolean): USoundControlBus;
-    CreateADEnvelopeGenerator(WorldContextObject: UObject, Name: FName, Params: FSoundModulationADEnvelopeParams): USoundModulationGeneratorADEnvelope;
-    ClearGlobalBusMixValue(WorldContextObject: UObject, Bus: USoundControlBus, FadeTime: number): void;
-    ClearAllGlobalBusMixValues(WorldContextObject: UObject, FadeTime: number): void;
-    ActivateGenerator(WorldContextObject: UObject, Generator: USoundModulationGenerator): void;
-    ActivateBusMix(WorldContextObject: UObject, mix: USoundControlBusMix): void;
-    ActivateBus(WorldContextObject: UObject, Bus: USoundControlBus): void;
+    readonly __static_UAudioModulationStatics: {
+        UpdateModulator(WorldContextObject: UObject, Modulator: USoundModulatorBase): void;
+        UpdateMixFromObject(WorldContextObject: UObject, mix: USoundControlBusMix, FadeTime: number): void;
+        UpdateMixByFilter(WorldContextObject: UObject, mix: USoundControlBusMix, AddressFilter: string, ParamClassFilter: TSubclassOf<USoundModulationParameter>, ParamFilter: USoundModulationParameter, Value: number, FadeTime: number): void;
+        UpdateMix(WorldContextObject: UObject, mix: USoundControlBusMix, Stages: FSoundControlBusMixStage[], FadeTime: number, duration: number, bRetriggerOnActivation: boolean): void;
+        SetGlobalBusMixValue(WorldContextObject: UObject, Bus: USoundControlBus, Value: number, FadeTime: number): void;
+        SaveMixToProfile(WorldContextObject: UObject, mix: USoundControlBusMix, ProfileIndex: number): void;
+        LoadMixFromProfile(WorldContextObject: UObject, mix: USoundControlBusMix, bActivate: boolean, ProfileIndex: number): FSoundControlBusMixStage[];
+        IsControlBusMixActive(WorldContextObject: UObject, mix: USoundControlBusMix): boolean;
+        GetModulatorValue(WorldContextObject: UObject, Modulator: USoundModulatorBase): number;
+        GetModulatorsFromDestination(Destination: FSoundModulationDestinationSettings): USoundModulatorBase[];
+        DeactivateGenerator(WorldContextObject: UObject, Generator: USoundModulationGenerator): void;
+        DeactivateBusMix(WorldContextObject: UObject, mix: USoundControlBusMix): void;
+        DeactivateBus(WorldContextObject: UObject, Bus: USoundControlBus): void;
+        DeactivateAllBusMixes(WorldContextObject: UObject): void;
+        CreateModulationParameter(WorldContextObject: UObject, Name: string, ParamClass: TSubclassOf<USoundModulationParameter>, DefaultValue: number): USoundModulationParameter;
+        CreateModulationDestination(WorldContextObject: UObject, Name: string, Modulator: USoundModulatorBase): UAudioModulationDestination;
+        CreateLFOGenerator(WorldContextObject: UObject, Name: string, Params: FSoundModulationLFOParams): USoundModulationGeneratorLFO;
+        CreateEnvelopeFollowerGenerator(WorldContextObject: UObject, Name: string, Params: FEnvelopeFollowerGeneratorParams): USoundModulationGeneratorEnvelopeFollower;
+        CreateBusMixStage(WorldContextObject: UObject, Bus: USoundControlBus, Value: number, AttackTime: number, ReleaseTime: number): FSoundControlBusMixStage;
+        CreateBusMixFromValue(WorldContextObject: UObject, Name: string, Buses: USoundControlBus[], Value: number, AttackTime: number, ReleaseTime: number, bActivate: boolean): USoundControlBusMix;
+        CreateBusMix(WorldContextObject: UObject, Name: string, Stages: FSoundControlBusMixStage[], Activate: boolean, duration: number, bRetriggerOnActivation: boolean): USoundControlBusMix;
+        CreateBus(WorldContextObject: UObject, Name: string, Parameter: USoundModulationParameter, Activate: boolean): USoundControlBus;
+        CreateADEnvelopeGenerator(WorldContextObject: UObject, Name: string, Params: FSoundModulationADEnvelopeParams): USoundModulationGeneratorADEnvelope;
+        ClearGlobalBusMixValue(WorldContextObject: UObject, Bus: USoundControlBus, FadeTime: number): void;
+        ClearAllGlobalBusMixValues(WorldContextObject: UObject, FadeTime: number): void;
+        ActivateGenerator(WorldContextObject: UObject, Generator: USoundModulationGenerator): void;
+        ActivateBusMix(WorldContextObject: UObject, mix: USoundControlBusMix): void;
+        ActivateBus(WorldContextObject: UObject, Bus: USoundControlBus): void;
+    };
+    readonly __staticRegistry: 
+        UAudioModulationStatics['__static_UAudioModulationStatics'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UAudioModulationStatics: UAudioModulationStatics;
 
 declare interface UAudioModulationStyle extends UBlueprintFunctionLibrary {
-    GetPatchColor(): FColor;
-    GetParameterColor(): FColor;
-    GetModulationGeneratorColor(): FColor;
-    GetControlBusMixColor(): FColor;
-    GetControlBusColor(): FColor;
+    readonly __static_UAudioModulationStyle: {
+        GetPatchColor(): FColor;
+        GetParameterColor(): FColor;
+        GetModulationGeneratorColor(): FColor;
+        GetControlBusMixColor(): FColor;
+        GetControlBusColor(): FColor;
+    };
+    readonly __staticRegistry: 
+        UAudioModulationStyle['__static_UAudioModulationStyle'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UAudioModulationStyle: UAudioModulationStyle;
 
 declare interface USoundControlBus extends USoundModulatorBase {
-    bBypass: boolean;
-    address: FString;
-    Generators: TArray<USoundModulationGenerator>;
-    Parameter: USoundModulationParameter;
+    readonly __properties_USoundControlBus: {
+        bBypass: boolean;
+        address: string;
+        Generators: USoundModulationGenerator[];
+        Parameter: USoundModulationParameter;
+    };
+    readonly __staticRegistry: 
+        USoundModulatorBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundControlBus['__properties_USoundControlBus'] &
+        USoundModulatorBase['__propertyRegistry'];
 }
-declare const USoundControlBus: USoundControlBus;
 
 declare interface USoundControlBusMix extends UObject {
-    ProfileIndex: uint32;
-    duration: number;
-    bRetriggerOnActivation: boolean;
-    MixStages: TArray<FSoundControlBusMixStage>;
-    SoloMix(): void;
-    SaveMixToProfile(): void;
-    LoadMixFromProfile(): void;
-    DeactivateMix(): void;
-    DeactivateAllMixes(): void;
-    ActivateMix(): void;
+    readonly __static_USoundControlBusMix: {
+        SoloMix(): void;
+        SaveMixToProfile(): void;
+        LoadMixFromProfile(): void;
+        DeactivateMix(): void;
+        DeactivateAllMixes(): void;
+        ActivateMix(): void;
+    };
+    readonly __properties_USoundControlBusMix: {
+        ProfileIndex: number;
+        duration: number;
+        bRetriggerOnActivation: boolean;
+        MixStages: FSoundControlBusMixStage[];
+    };
+    readonly __staticRegistry: 
+        USoundControlBusMix['__static_USoundControlBusMix'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundControlBusMix['__properties_USoundControlBusMix'] &
+        UObject['__propertyRegistry'];
 }
-declare const USoundControlBusMix: USoundControlBusMix;
 
 declare interface USoundModulationGenerator extends USoundModulatorBase {
-
+    readonly __staticRegistry: 
+        USoundModulatorBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulatorBase['__propertyRegistry'];
 }
-declare const USoundModulationGenerator: USoundModulationGenerator;
 
 declare interface USoundModulationGeneratorADEnvelope extends USoundModulationGenerator {
-    Params: FSoundModulationADEnvelopeParams;
+    readonly __properties_USoundModulationGeneratorADEnvelope: {
+        Params: FSoundModulationADEnvelopeParams;
+    };
+    readonly __staticRegistry: 
+        USoundModulationGenerator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationGeneratorADEnvelope['__properties_USoundModulationGeneratorADEnvelope'] &
+        USoundModulationGenerator['__propertyRegistry'];
 }
-declare const USoundModulationGeneratorADEnvelope: USoundModulationGeneratorADEnvelope;
 
 declare interface USoundModulationGeneratorEnvelopeFollower extends USoundModulationGenerator {
-    Params: FEnvelopeFollowerGeneratorParams;
+    readonly __properties_USoundModulationGeneratorEnvelopeFollower: {
+        Params: FEnvelopeFollowerGeneratorParams;
+    };
+    readonly __staticRegistry: 
+        USoundModulationGenerator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationGeneratorEnvelopeFollower['__properties_USoundModulationGeneratorEnvelopeFollower'] &
+        USoundModulationGenerator['__propertyRegistry'];
 }
-declare const USoundModulationGeneratorEnvelopeFollower: USoundModulationGeneratorEnvelopeFollower;
 
 declare interface USoundModulationGeneratorLFO extends USoundModulationGenerator {
-    Params: FSoundModulationLFOParams;
+    readonly __properties_USoundModulationGeneratorLFO: {
+        Params: FSoundModulationLFOParams;
+    };
+    readonly __staticRegistry: 
+        USoundModulationGenerator['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationGeneratorLFO['__properties_USoundModulationGeneratorLFO'] &
+        USoundModulationGenerator['__propertyRegistry'];
 }
-declare const USoundModulationGeneratorLFO: USoundModulationGeneratorLFO;
 
 declare interface USoundModulationParameter extends UObject {
-    Settings: FSoundModulationParameterSettings;
+    readonly __properties_USoundModulationParameter: {
+        Settings: FSoundModulationParameterSettings;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationParameter['__properties_USoundModulationParameter'] &
+        UObject['__propertyRegistry'];
 }
-declare const USoundModulationParameter: USoundModulationParameter;
 
 declare interface USoundModulationParameterAdditive extends USoundModulationParameter {
-    UnitMin: number;
-    UnitMax: number;
+    readonly __properties_USoundModulationParameterAdditive: {
+        UnitMin: number;
+        UnitMax: number;
+    };
+    readonly __staticRegistry: 
+        USoundModulationParameter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationParameterAdditive['__properties_USoundModulationParameterAdditive'] &
+        USoundModulationParameter['__propertyRegistry'];
 }
-declare const USoundModulationParameterAdditive: USoundModulationParameterAdditive;
 
 declare interface USoundModulationParameterBipolar extends USoundModulationParameter {
-    UnitRange: number;
+    readonly __properties_USoundModulationParameterBipolar: {
+        UnitRange: number;
+    };
+    readonly __staticRegistry: 
+        USoundModulationParameter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationParameterBipolar['__properties_USoundModulationParameterBipolar'] &
+        USoundModulationParameter['__propertyRegistry'];
 }
-declare const USoundModulationParameterBipolar: USoundModulationParameterBipolar;
 
 declare interface USoundModulationParameterFilterFrequency extends USoundModulationParameterFrequencyBase {
-
+    readonly __staticRegistry: 
+        USoundModulationParameterFrequencyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationParameterFrequencyBase['__propertyRegistry'];
 }
-declare const USoundModulationParameterFilterFrequency: USoundModulationParameterFilterFrequency;
 
 declare interface USoundModulationParameterFrequency extends USoundModulationParameterFrequencyBase {
-    UnitMin: number;
-    UnitMax: number;
+    readonly __properties_USoundModulationParameterFrequency: {
+        UnitMin: number;
+        UnitMax: number;
+    };
+    readonly __staticRegistry: 
+        USoundModulationParameterFrequencyBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationParameterFrequency['__properties_USoundModulationParameterFrequency'] &
+        USoundModulationParameterFrequencyBase['__propertyRegistry'];
 }
-declare const USoundModulationParameterFrequency: USoundModulationParameterFrequency;
 
 declare interface USoundModulationParameterFrequencyBase extends USoundModulationParameter {
-
+    readonly __staticRegistry: 
+        USoundModulationParameter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationParameter['__propertyRegistry'];
 }
-declare const USoundModulationParameterFrequencyBase: USoundModulationParameterFrequencyBase;
 
 declare interface USoundModulationParameterHPFFrequency extends USoundModulationParameterFilterFrequency {
-
+    readonly __staticRegistry: 
+        USoundModulationParameterFilterFrequency['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationParameterFilterFrequency['__propertyRegistry'];
 }
-declare const USoundModulationParameterHPFFrequency: USoundModulationParameterHPFFrequency;
 
 declare interface USoundModulationParameterLPFFrequency extends USoundModulationParameterFilterFrequency {
-
+    readonly __staticRegistry: 
+        USoundModulationParameterFilterFrequency['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationParameterFilterFrequency['__propertyRegistry'];
 }
-declare const USoundModulationParameterLPFFrequency: USoundModulationParameterLPFFrequency;
 
 declare interface USoundModulationParameterScaled extends USoundModulationParameter {
-    UnitMin: number;
-    UnitMax: number;
+    readonly __properties_USoundModulationParameterScaled: {
+        UnitMin: number;
+        UnitMax: number;
+    };
+    readonly __staticRegistry: 
+        USoundModulationParameter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationParameterScaled['__properties_USoundModulationParameterScaled'] &
+        USoundModulationParameter['__propertyRegistry'];
 }
-declare const USoundModulationParameterScaled: USoundModulationParameterScaled;
 
 declare interface USoundModulationParameterVolume extends USoundModulationParameter {
-    MinVolume: number;
+    readonly __properties_USoundModulationParameterVolume: {
+        MinVolume: number;
+    };
+    readonly __staticRegistry: 
+        USoundModulationParameter['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationParameterVolume['__properties_USoundModulationParameterVolume'] &
+        USoundModulationParameter['__propertyRegistry'];
 }
-declare const USoundModulationParameterVolume: USoundModulationParameterVolume;
 
 declare interface USoundModulationPatch extends USoundModulatorBase {
-    PatchSettings: FSoundControlModulationPatch;
+    readonly __properties_USoundModulationPatch: {
+        PatchSettings: FSoundControlModulationPatch;
+    };
+    readonly __staticRegistry: 
+        USoundModulatorBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USoundModulationPatch['__properties_USoundModulationPatch'] &
+        USoundModulatorBase['__propertyRegistry'];
 }
-declare const USoundModulationPatch: USoundModulationPatch;
 

@@ -1,5 +1,7 @@
 declare interface USTE_IronWill_C extends UStatusEffect {
-
+    readonly __staticRegistry: 
+        UStatusEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStatusEffect['__propertyRegistry'];
 }
-declare const USTE_IronWill_C: USTE_IronWill_C;
 

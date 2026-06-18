@@ -1,20 +1,29 @@
 declare interface ACameraCalibrationCheckerboard extends AActor {
-    Root: USceneComponent;
-    TopLeft: UCalibrationPointComponent;
-    TopRight: UCalibrationPointComponent;
-    BottomLeft: UCalibrationPointComponent;
-    BottomRight: UCalibrationPointComponent;
-    Center: UCalibrationPointComponent;
-    NumCornerRows: number;
-    NumCornerCols: number;
-    SquareSideLength: number;
-    Thickness: number;
-    CubeMesh: UStaticMesh;
-    OddCubeMaterial: UMaterialInterface;
-    EvenCubeMaterial: UMaterialInterface;
-    Rebuild(): void;
+    readonly __static_ACameraCalibrationCheckerboard: {
+        Rebuild(): void;
+    };
+    readonly __properties_ACameraCalibrationCheckerboard: {
+        Root: USceneComponent;
+        TopLeft: UCalibrationPointComponent;
+        TopRight: UCalibrationPointComponent;
+        BottomLeft: UCalibrationPointComponent;
+        BottomRight: UCalibrationPointComponent;
+        Center: UCalibrationPointComponent;
+        NumCornerRows: number;
+        NumCornerCols: number;
+        SquareSideLength: number;
+        Thickness: number;
+        CubeMesh: UStaticMesh;
+        OddCubeMaterial: UMaterialInterface;
+        EvenCubeMaterial: UMaterialInterface;
+    };
+    readonly __staticRegistry: 
+        ACameraCalibrationCheckerboard['__static_ACameraCalibrationCheckerboard'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ACameraCalibrationCheckerboard['__properties_ACameraCalibrationCheckerboard'] &
+        AActor['__propertyRegistry'];
 }
-declare const ACameraCalibrationCheckerboard: ACameraCalibrationCheckerboard;
 
 declare interface FAnamorphicDistortionParameters {
     PixelAspect: number;
@@ -32,48 +41,36 @@ declare interface FAnamorphicDistortionParameters {
     SqueezeY: number;
     LensRotation: number;
 }
-declare const FAnamorphicDistortionParameters: FAnamorphicDistortionParameters;
 
-declare interface FBaseFocusCurve {
+declare type FBaseFocusCurve = object;
 
-}
-declare const FBaseFocusCurve: FBaseFocusCurve;
-
-declare interface FBaseFocusPoint {
-
-}
-declare const FBaseFocusPoint: FBaseFocusPoint;
+declare type FBaseFocusPoint = object;
 
 declare interface FBaseLensTable {
     LensFile: TWeakObjectPtr<ULensFile>;
 }
-declare const FBaseLensTable: FBaseLensTable;
 
 declare interface FCalibratedMapFormat {
     PixelOrigin: ECalibratedMapPixelOrigin;
     UndistortionChannels: ECalibratedMapChannels;
     DistortionChannels: ECalibratedMapChannels;
 }
-declare const FCalibratedMapFormat: FCalibratedMapFormat;
 
 declare interface FCameraFeedInfo {
     Dimensions: FIntPoint;
     AspectRatio: number;
 }
-declare const FCameraFeedInfo: FCameraFeedInfo;
 
 declare interface FDataTablePointInfoBase {
     focus: number;
     Zoom: number;
 }
-declare const FDataTablePointInfoBase: FDataTablePointInfoBase;
 
 declare interface FDerivedDistortionData {
     DistortionData: FDistortionData;
     UndistortionDisplacementMap: UTextureRenderTarget2D;
     DistortionDisplacementMap: UTextureRenderTarget2D;
 }
-declare const FDerivedDistortionData: FDerivedDistortionData;
 
 declare interface FDistortionCalibrationResult {
     EvaluatedFocus: number;
@@ -81,136 +78,115 @@ declare interface FDistortionCalibrationResult {
     ReprojectionError: number;
     FocalLength: FFocalLengthInfo;
     ImageCenter: FImageCenterInfo;
-    CameraPoses: TArray<FTransform>;
+    CameraPoses: FTransform[];
     NodalOffset: FNodalPointOffset;
     Parameters: FDistortionInfo;
     STMap: FSTMapInfo;
-    STMapFullPath: FString;
-    ErrorMessage: FText;
+    STMapFullPath: string;
+    ErrorMessage: string;
 }
-declare const FDistortionCalibrationResult: FDistortionCalibrationResult;
 
 declare interface FDistortionData {
-    DistortedUVs: TArray<FVector2D>;
+    DistortedUVs: FVector2D[];
     OverscanFactor: number;
 }
-declare const FDistortionData: FDistortionData;
 
 declare interface FDistortionFocusCurve extends FBaseFocusCurve {
     MapBlendingCurve: FRichCurve;
     Zoom: number;
 }
-declare const FDistortionFocusCurve: FDistortionFocusCurve;
 
 declare interface FDistortionFocusPoint extends FBaseFocusPoint {
     focus: number;
     MapBlendingCurve: FRichCurve;
-    ZoomPoints: TArray<FDistortionZoomPoint>;
+    ZoomPoints: FDistortionZoomPoint[];
 }
-declare const FDistortionFocusPoint: FDistortionFocusPoint;
 
 declare interface FDistortionHandlerPicker {
     TargetCameraComponent: UCineCameraComponent;
     DistortionProducerID: FGuid;
-    HandlerDisplayName: FString;
+    HandlerDisplayName: string;
 }
-declare const FDistortionHandlerPicker: FDistortionHandlerPicker;
 
 declare interface FDistortionInfo {
-    Parameters: TArray<number>;
+    Parameters: number[];
 }
-declare const FDistortionInfo: FDistortionInfo;
 
 declare interface FDistortionPointInfo extends FDataTablePointInfoBase {
     DistortionInfo: FDistortionInfo;
 }
-declare const FDistortionPointInfo: FDistortionPointInfo;
 
 declare interface FDistortionTable extends FBaseLensTable {
-    FocusPoints: TArray<FDistortionFocusPoint>;
-    FocusCurves: TArray<FDistortionFocusCurve>;
+    FocusPoints: FDistortionFocusPoint[];
+    FocusCurves: FDistortionFocusCurve[];
 }
-declare const FDistortionTable: FDistortionTable;
 
 declare interface FDistortionZoomPoint {
     Zoom: number;
     DistortionInfo: FDistortionInfo;
 }
-declare const FDistortionZoomPoint: FDistortionZoomPoint;
 
 declare interface FEncodersTable {
     focus: FRichCurve;
     Iris: FRichCurve;
 }
-declare const FEncodersTable: FEncodersTable;
 
 declare interface FFocalLengthFocusCurve extends FBaseFocusCurve {
     Fx: FRichCurve;
     Fy: FRichCurve;
     Zoom: number;
 }
-declare const FFocalLengthFocusCurve: FFocalLengthFocusCurve;
 
 declare interface FFocalLengthFocusPoint extends FBaseFocusPoint {
     focus: number;
     Fx: FRichCurve;
     Fy: FRichCurve;
-    ZoomPoints: TArray<FFocalLengthZoomPoint>;
+    ZoomPoints: FFocalLengthZoomPoint[];
 }
-declare const FFocalLengthFocusPoint: FFocalLengthFocusPoint;
 
 declare interface FFocalLengthInfo {
     FxFy: FVector2D;
 }
-declare const FFocalLengthInfo: FFocalLengthInfo;
 
 declare interface FFocalLengthPointInfo extends FDataTablePointInfoBase {
     FocalLengthInfo: FFocalLengthInfo;
 }
-declare const FFocalLengthPointInfo: FFocalLengthPointInfo;
 
 declare interface FFocalLengthTable extends FBaseLensTable {
-    FocusPoints: TArray<FFocalLengthFocusPoint>;
-    FocusCurves: TArray<FFocalLengthFocusCurve>;
+    FocusPoints: FFocalLengthFocusPoint[];
+    FocusCurves: FFocalLengthFocusCurve[];
 }
-declare const FFocalLengthTable: FFocalLengthTable;
 
 declare interface FFocalLengthZoomPoint {
     Zoom: number;
     FocalLengthInfo: FFocalLengthInfo;
     bIsCalibrationPoint: boolean;
 }
-declare const FFocalLengthZoomPoint: FFocalLengthZoomPoint;
 
 declare interface FImageCenterFocusCurve extends FBaseFocusCurve {
     Cx: FRichCurve;
     Cy: FRichCurve;
     Zoom: number;
 }
-declare const FImageCenterFocusCurve: FImageCenterFocusCurve;
 
 declare interface FImageCenterFocusPoint extends FBaseFocusPoint {
     focus: number;
     Cx: FRichCurve;
     Cy: FRichCurve;
 }
-declare const FImageCenterFocusPoint: FImageCenterFocusPoint;
 
 declare interface FImageCenterInfo {
     PrincipalPoint: FVector2D;
 }
-declare const FImageCenterInfo: FImageCenterInfo;
 
 declare interface FImageCenterPointInfo extends FDataTablePointInfoBase {
     ImageCenterInfo: FImageCenterInfo;
 }
-declare const FImageCenterPointInfo: FImageCenterPointInfo;
 
 declare interface FImageCenterTable extends FBaseLensTable {
-    FocusPoints: TArray<FImageCenterFocusPoint>;
-    FocusCurves: TArray<FImageCenterFocusCurve>;
+    FocusPoints: FImageCenterFocusPoint[];
+    FocusCurves: FImageCenterFocusCurve[];
 }
-declare const FImageCenterTable: FImageCenterTable;
 
 declare interface FLensDataCategoryEditorColor {
     focus: FColor;
@@ -221,14 +197,12 @@ declare interface FLensDataCategoryEditorColor {
     STMap: FColor;
     NodalOffset: FColor;
 }
-declare const FLensDataCategoryEditorColor: FLensDataCategoryEditorColor;
 
 declare interface FLensDistortionState {
     DistortionInfo: FDistortionInfo;
     FocalLengthInfo: FFocalLengthInfo;
     ImageCenter: FImageCenterInfo;
 }
-declare const FLensDistortionState: FLensDistortionState;
 
 declare interface FLensFileEvaluationInputs {
     focus: number;
@@ -237,84 +211,71 @@ declare interface FLensFileEvaluationInputs {
     Filmback: FCameraFilmbackSettings;
     bIsValid: boolean;
 }
-declare const FLensFileEvaluationInputs: FLensFileEvaluationInputs;
 
 declare interface FLensFilePicker {
     bUseDefaultLensFile: boolean;
     LensFile: ULensFile;
 }
-declare const FLensFilePicker: FLensFilePicker;
 
 declare interface FLensInfo {
-    LensModelName: FString;
-    LensSerialNumber: FString;
+    LensModelName: string;
+    LensSerialNumber: string;
     LensModel: TSubclassOf<ULensModel>;
     SensorDimensions: FVector2D;
     ImageDimensions: FIntPoint;
     SqueezeFactor: number;
 }
-declare const FLensInfo: FLensInfo;
 
 declare interface FNodalOffsetFocusCurve extends FBaseFocusCurve {
     LocationOffset: FRichCurve;
     RotationOffset: FRichCurve;
     Zoom: number;
 }
-declare const FNodalOffsetFocusCurve: FNodalOffsetFocusCurve;
 
 declare interface FNodalOffsetFocusPoint extends FBaseFocusPoint {
     focus: number;
     LocationOffset: FRichCurve;
     RotationOffset: FRichCurve;
 }
-declare const FNodalOffsetFocusPoint: FNodalOffsetFocusPoint;
 
 declare interface FNodalOffsetPointInfo extends FDataTablePointInfoBase {
     NodalPointOffset: FNodalPointOffset;
 }
-declare const FNodalOffsetPointInfo: FNodalOffsetPointInfo;
 
 declare interface FNodalOffsetTable extends FBaseLensTable {
-    FocusPoints: TArray<FNodalOffsetFocusPoint>;
-    FocusCurves: TArray<FNodalOffsetFocusCurve>;
+    FocusPoints: FNodalOffsetFocusPoint[];
+    FocusCurves: FNodalOffsetFocusCurve[];
 }
-declare const FNodalOffsetTable: FNodalOffsetTable;
 
 declare interface FNodalPointOffset {
     LocationOffset: FVector;
     RotationOffset: FQuat;
 }
-declare const FNodalPointOffset: FNodalPointOffset;
 
 declare interface FSTMapFocusCurve extends FBaseFocusCurve {
     MapBlendingCurve: FRichCurve;
     Zoom: number;
 }
-declare const FSTMapFocusCurve: FSTMapFocusCurve;
 
 declare interface FSTMapFocusPoint extends FBaseFocusPoint {
     focus: number;
     MapBlendingCurve: FRichCurve;
-    ZoomPoints: TArray<FSTMapZoomPoint>;
+    ZoomPoints: FSTMapZoomPoint[];
 }
-declare const FSTMapFocusPoint: FSTMapFocusPoint;
 
 declare interface FSTMapInfo {
     DistortionMap: UTexture;
     MapFormat: FCalibratedMapFormat;
 }
-declare const FSTMapInfo: FSTMapInfo;
 
 declare interface FSTMapPointInfo extends FDataTablePointInfoBase {
     STMapInfo: FSTMapInfo;
 }
-declare const FSTMapPointInfo: FSTMapPointInfo;
 
 declare interface FSTMapTable extends FBaseLensTable {
-    FocusPoints: TArray<FSTMapFocusPoint>;
-    FocusCurves: TArray<FSTMapFocusCurve>;
+    FocusPoints: FSTMapFocusPoint[];
+    FocusCurves: FSTMapFocusCurve[];
 }
-declare const FSTMapTable: FSTMapTable;
 
 declare interface FSTMapZoomPoint {
     Zoom: number;
@@ -322,14 +283,12 @@ declare interface FSTMapZoomPoint {
     DerivedDistortionData: FDerivedDistortionData;
     bIsCalibrationPoint: boolean;
 }
-declare const FSTMapZoomPoint: FSTMapZoomPoint;
 
 declare interface FSimulcamInfo {
     MediaResolution: FIntPoint;
     MediaPlateAspectRatio: number;
     CGLayerAspectRatio: number;
 }
-declare const FSimulcamInfo: FSimulcamInfo;
 
 declare interface FSphericalDistortionParameters {
     K1: number;
@@ -338,173 +297,234 @@ declare interface FSphericalDistortionParameters {
     P1: number;
     P2: number;
 }
-declare const FSphericalDistortionParameters: FSphericalDistortionParameters;
 
 declare interface UAnamorphicLensDistortionModelHandler extends ULensDistortionModelHandlerBase {
-
+    readonly __staticRegistry: 
+        ULensDistortionModelHandlerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULensDistortionModelHandlerBase['__propertyRegistry'];
 }
-declare const UAnamorphicLensDistortionModelHandler: UAnamorphicLensDistortionModelHandler;
 
 declare interface UAnamorphicLensModel extends ULensModel {
-
+    readonly __staticRegistry: 
+        ULensModel['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULensModel['__propertyRegistry'];
 }
-declare const UAnamorphicLensModel: UAnamorphicLensModel;
 
 declare interface UCalibrationPointComponent extends UProceduralMeshComponent {
-    SubPoints: Record<FString, FVector>;
-    bVisualizePointsInEditor: boolean;
-    PointVisualizationScale: number;
-    VisualizationShape: ECalibrationPointVisualization;
-    RebuildVertices(): void;
-    NamespacedSubpointName(InSubpointName: string | FString, OutNamespacedName: string | FString): boolean;
-    GetWorldLocation(InPointName: string | FString, OutLocation: FVector): boolean;
-    GetNamespacedPointNames(OutNamespacedNames: string | FString[]): void;
+    readonly __static_UCalibrationPointComponent: {
+        RebuildVertices(): void;
+        NamespacedSubpointName(InSubpointName: string, OutNamespacedName: string): boolean;
+        GetWorldLocation(InPointName: string, OutLocation: FVector): boolean;
+        GetNamespacedPointNames(OutNamespacedNames: string[]): void;
+    };
+    readonly __properties_UCalibrationPointComponent: {
+        SubPoints: TMap<string, FVector>;
+        bVisualizePointsInEditor: boolean;
+        PointVisualizationScale: number;
+        VisualizationShape: ECalibrationPointVisualization;
+    };
+    readonly __staticRegistry: 
+        UCalibrationPointComponent['__static_UCalibrationPointComponent'] &
+        UProceduralMeshComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCalibrationPointComponent['__properties_UCalibrationPointComponent'] &
+        UProceduralMeshComponent['__propertyRegistry'];
 }
-declare const UCalibrationPointComponent: UCalibrationPointComponent;
 
 declare interface UCameraCalibrationEditorSettings extends UDeveloperSettings {
-
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UCameraCalibrationEditorSettings: UCameraCalibrationEditorSettings;
 
 declare interface UCameraCalibrationSettings extends UDeveloperSettings {
-    StartupLensFile: TSoftObjectPtr<ULensFile>;
-    DisplacementMapResolution: FIntPoint;
-    CalibrationInputTolerance: number;
-    CheckerboardDetectionTimeout: number;
-    DefaultUndistortionDisplacementMaterials: Record<string | number | symbol, TSoftObjectPtr<UMaterialInterface>>;
-    DefaultDistortionDisplacementMaterials: Record<string | number | symbol, TSoftObjectPtr<UMaterialInterface>>;
-    DefaultDistortionMaterials: Record<string | number | symbol, TSoftObjectPtr<UMaterialInterface>>;
-    bEnableCalibrationDatasetImportExport: boolean;
+    readonly __properties_UCameraCalibrationSettings: {
+        StartupLensFile: TSoftObjectPtr<ULensFile>;
+        DisplacementMapResolution: FIntPoint;
+        CalibrationInputTolerance: number;
+        CheckerboardDetectionTimeout: number;
+        DefaultUndistortionDisplacementMaterials: TMap<TSubclassOf<ULensDistortionModelHandlerBase>, TSoftObjectPtr<UMaterialInterface>>;
+        DefaultDistortionDisplacementMaterials: TMap<TSubclassOf<ULensDistortionModelHandlerBase>, TSoftObjectPtr<UMaterialInterface>>;
+        DefaultDistortionMaterials: TMap<TSubclassOf<ULensDistortionModelHandlerBase>, TSoftObjectPtr<UMaterialInterface>>;
+        bEnableCalibrationDatasetImportExport: boolean;
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraCalibrationSettings['__properties_UCameraCalibrationSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UCameraCalibrationSettings: UCameraCalibrationSettings;
 
 declare interface UCameraCalibrationStep extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UCameraCalibrationStep: UCameraCalibrationStep;
 
 declare interface UCameraCalibrationSubsystem extends UEngineSubsystem {
-    DefaultLensFile: ULensFile;
-    LensModelMap: Record<FName, TSubclassOf<ULensModel>>;
-    CameraNodalOffsetAlgosMap: Record<FName, TSubclassOf<UCameraNodalOffsetAlgo>>;
-    CameraImageCenterAlgosMap: Record<FName, TSubclassOf<UCameraImageCenterAlgo>>;
-    CameraCalibrationStepsMap: Record<FName, TSubclassOf<UCameraCalibrationStep>>;
-    UnregisterDistortionModelHandler(Component: UCineCameraComponent, Handler: ULensDistortionModelHandlerBase): void;
-    SetDefaultLensFile(NewDefaultLensFile: ULensFile): void;
-    GetRegisteredLensModel(ModelName: FName): TSubclassOf<ULensModel>;
-    GetOverlayMaterialNames(): TArray<FName>;
-    GetOverlayMaterial(OverlayName: FName): UMaterialInterface;
-    GetLensFile(Picker: FLensFilePicker): ULensFile;
-    GetDistortionModelHandlers(Component: UCineCameraComponent): TArray<ULensDistortionModelHandlerBase>;
-    GetDefaultLensFile(): ULensFile;
-    GetCameraNodalOffsetAlgos(): TArray<FName>;
-    GetCameraNodalOffsetAlgo(Name: FName): TSubclassOf<UCameraNodalOffsetAlgo>;
-    GetCameraImageCenterAlgos(): TArray<FName>;
-    GetCameraImageCenterAlgo(Name: FName): TSubclassOf<UCameraImageCenterAlgo>;
-    GetCameraCalibrationSteps(): TArray<FName>;
-    GetCameraCalibrationStep(Name: FName): TSubclassOf<UCameraCalibrationStep>;
-    FindOrCreateDistortionModelHandler(DistortionHandlerPicker: FDistortionHandlerPicker, LensModelClass: TSubclassOf<ULensModel>): ULensDistortionModelHandlerBase;
-    FindDistortionModelHandler(DistortionHandlerPicker: FDistortionHandlerPicker, bUpdatePicker: boolean): ULensDistortionModelHandlerBase;
+    readonly __static_UCameraCalibrationSubsystem: {
+        UnregisterDistortionModelHandler(Component: UCineCameraComponent, Handler: ULensDistortionModelHandlerBase): void;
+        SetDefaultLensFile(NewDefaultLensFile: ULensFile): void;
+        GetRegisteredLensModel(ModelName: string): TSubclassOf<ULensModel>;
+        GetOverlayMaterialNames(): string[];
+        GetOverlayMaterial(OverlayName: string): UMaterialInterface;
+        GetLensFile(Picker: FLensFilePicker): ULensFile;
+        GetDistortionModelHandlers(Component: UCineCameraComponent): ULensDistortionModelHandlerBase[];
+        GetDefaultLensFile(): ULensFile;
+        GetCameraNodalOffsetAlgos(): string[];
+        GetCameraNodalOffsetAlgo(Name: string): TSubclassOf<UCameraNodalOffsetAlgo>;
+        GetCameraImageCenterAlgos(): string[];
+        GetCameraImageCenterAlgo(Name: string): TSubclassOf<UCameraImageCenterAlgo>;
+        GetCameraCalibrationSteps(): string[];
+        GetCameraCalibrationStep(Name: string): TSubclassOf<UCameraCalibrationStep>;
+        FindOrCreateDistortionModelHandler(DistortionHandlerPicker: FDistortionHandlerPicker, LensModelClass: TSubclassOf<ULensModel>): ULensDistortionModelHandlerBase;
+        FindDistortionModelHandler(DistortionHandlerPicker: FDistortionHandlerPicker, bUpdatePicker: boolean): ULensDistortionModelHandlerBase;
+    };
+    readonly __properties_UCameraCalibrationSubsystem: {
+        DefaultLensFile: ULensFile;
+        LensModelMap: TMap<string, TSubclassOf<ULensModel>>;
+        CameraNodalOffsetAlgosMap: TMap<string, TSubclassOf<UCameraNodalOffsetAlgo>>;
+        CameraImageCenterAlgosMap: TMap<string, TSubclassOf<UCameraImageCenterAlgo>>;
+        CameraCalibrationStepsMap: TMap<string, TSubclassOf<UCameraCalibrationStep>>;
+    };
+    readonly __staticRegistry: 
+        UCameraCalibrationSubsystem['__static_UCameraCalibrationSubsystem'] &
+        UEngineSubsystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCameraCalibrationSubsystem['__properties_UCameraCalibrationSubsystem'] &
+        UEngineSubsystem['__propertyRegistry'];
 }
-declare const UCameraCalibrationSubsystem: UCameraCalibrationSubsystem;
 
 declare interface UCameraImageCenterAlgo extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UCameraImageCenterAlgo: UCameraImageCenterAlgo;
 
 declare interface UCameraLensDistortionAlgo extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UCameraLensDistortionAlgo: UCameraLensDistortionAlgo;
 
 declare interface UCameraNodalOffsetAlgo extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UCameraNodalOffsetAlgo: UCameraNodalOffsetAlgo;
 
 declare interface ULensDistortionModelHandlerBase extends UObject {
-    LensModelClass: TSubclassOf<ULensModel>;
-    DistortionPostProcessMID: UMaterialInstanceDynamic;
-    CurrentState: FLensDistortionState;
-    CameraFilmback: FCameraFilmbackSettings;
-    DisplayName: FString;
-    OverscanFactor: number;
-    UndistortionDisplacementMapMID: UMaterialInstanceDynamic;
-    DistortionDisplacementMapMID: UMaterialInstanceDynamic;
-    UndistortionDisplacementMapRT: UTextureRenderTarget2D;
-    DistortionDisplacementMapRT: UTextureRenderTarget2D;
-    DistortionProducerID: FGuid;
-    SetDistortionState(InNewState: FLensDistortionState): void;
-    IsModelSupported(ModelToSupport: TSubclassOf<ULensModel>): boolean;
-    GetUndistortionDisplacementMap(): UTextureRenderTarget2D;
-    GetDistortionDisplacementMap(): UTextureRenderTarget2D;
+    readonly __static_ULensDistortionModelHandlerBase: {
+        SetDistortionState(InNewState: FLensDistortionState): void;
+        IsModelSupported(ModelToSupport: TSubclassOf<ULensModel>): boolean;
+        GetUndistortionDisplacementMap(): UTextureRenderTarget2D;
+        GetDistortionDisplacementMap(): UTextureRenderTarget2D;
+    };
+    readonly __properties_ULensDistortionModelHandlerBase: {
+        LensModelClass: TSubclassOf<ULensModel>;
+        DistortionPostProcessMID: UMaterialInstanceDynamic;
+        CurrentState: FLensDistortionState;
+        CameraFilmback: FCameraFilmbackSettings;
+        DisplayName: string;
+        OverscanFactor: number;
+        UndistortionDisplacementMapMID: UMaterialInstanceDynamic;
+        DistortionDisplacementMapMID: UMaterialInstanceDynamic;
+        UndistortionDisplacementMapRT: UTextureRenderTarget2D;
+        DistortionDisplacementMapRT: UTextureRenderTarget2D;
+        DistortionProducerID: FGuid;
+    };
+    readonly __staticRegistry: 
+        ULensDistortionModelHandlerBase['__static_ULensDistortionModelHandlerBase'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULensDistortionModelHandlerBase['__properties_ULensDistortionModelHandlerBase'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULensDistortionModelHandlerBase: ULensDistortionModelHandlerBase;
 
 declare interface ULensFile extends UObject {
-    LensInfo: FLensInfo;
-    DataMode: ELensDataMode;
-    UserMetadata: Record<FString, FString>;
-    EncodersTable: FEncodersTable;
-    DistortionTable: FDistortionTable;
-    FocalLengthTable: FFocalLengthTable;
-    ImageCenterTable: FImageCenterTable;
-    NodalOffsetTable: FNodalOffsetTable;
-    STMapTable: FSTMapTable;
-    UndistortionDisplacementMapHolders: TArray<UTextureRenderTarget2D>;
-    DistortionDisplacementMapHolders: TArray<UTextureRenderTarget2D>;
-    RemoveZoomPoint(InDataCategory: ELensDataCategory, InFocus: number, InZoom: number): void;
-    RemoveFocusPoint(InDataCategory: ELensDataCategory, InFocus: number): void;
-    MergeFocusPoint(InDataCategory: ELensDataCategory, InSrcFocus: number, InDestFocus: number, bReplaceExistingZoomPoints: boolean): void;
-    HasZoomPoint(InDataCategory: ELensDataCategory, InFocus: number, InZoom: number): boolean;
-    HasSamples(InDataCategory: ELensDataCategory): boolean;
-    HasIrisEncoderMapping(): boolean;
-    HasFocusPoint(InDataCategory: ELensDataCategory, InFocus: number): boolean;
-    HasFocusEncoderMapping(): boolean;
-    GetTotalPointNum(InDataCategory: ELensDataCategory): number;
-    GetSTMapPoints(): TArray<FSTMapPointInfo>;
-    GetSTMapPoint(InFocus: number, InZoom: number, OutSTMapInfo: FSTMapInfo): boolean;
-    GetNodalOffsetPoints(): TArray<FNodalOffsetPointInfo>;
-    GetNodalOffsetPoint(InFocus: number, InZoom: number, OutNodalPointOffset: FNodalPointOffset): boolean;
-    GetImageCenterPoints(): TArray<FImageCenterPointInfo>;
-    GetImageCenterPoint(InFocus: number, InZoom: number, OutImageCenterInfo: FImageCenterInfo): boolean;
-    GetFocalLengthPoints(): TArray<FFocalLengthPointInfo>;
-    GetFocalLengthPoint(InFocus: number, InZoom: number, OutFocalLengthInfo: FFocalLengthInfo): boolean;
-    GetDistortionPoints(): TArray<FDistortionPointInfo>;
-    GetDistortionPoint(InFocus: number, InZoom: number, OutDistortionInfo: FDistortionInfo): boolean;
-    EvaluateNormalizedIris(InNormalizedValue: number): number;
-    EvaluateNormalizedFocus(InNormalizedValue: number): number;
-    EvaluateNodalPointOffset(InFocus: number, InZoom: number, OutEvaluatedValue: FNodalPointOffset): boolean;
-    EvaluateImageCenterParameters(InFocus: number, InZoom: number, OutEvaluatedValue: FImageCenterInfo): boolean;
-    EvaluateFocalLength(InFocus: number, InZoom: number, OutEvaluatedValue: FFocalLengthInfo): boolean;
-    EvaluateDistortionParameters(InFocus: number, InZoom: number, OutEvaluatedValue: FDistortionInfo): boolean;
-    EvaluateDistortionData(InFocus: number, InZoom: number, InFilmback: FVector2D, InLensHandler: ULensDistortionModelHandlerBase): boolean;
-    ClearData(InDataCategory: ELensDataCategory): void;
-    ClearAll(): void;
-    ChangeZoomPoint(InDataCategory: ELensDataCategory, InFocus: number, InExistingZoom: number, InNewZoom: number): void;
-    ChangeFocusPoint(InDataCategory: ELensDataCategory, InExistingFocus: number, InNewFocus: number): void;
-    AddSTMapPoint(NewFocus: number, NewZoom: number, NewPoint: FSTMapInfo): void;
-    AddNodalOffsetPoint(NewFocus: number, NewZoom: number, NewPoint: FNodalPointOffset): void;
-    AddImageCenterPoint(NewFocus: number, NewZoom: number, NewPoint: FImageCenterInfo): void;
-    AddFocalLengthPoint(NewFocus: number, NewZoom: number, NewFocalLength: FFocalLengthInfo): void;
-    AddDistortionPoint(NewFocus: number, NewZoom: number, NewPoint: FDistortionInfo, NewFocalLength: FFocalLengthInfo): void;
+    readonly __static_ULensFile: {
+        RemoveZoomPoint(InDataCategory: ELensDataCategory, InFocus: number, InZoom: number): void;
+        RemoveFocusPoint(InDataCategory: ELensDataCategory, InFocus: number): void;
+        MergeFocusPoint(InDataCategory: ELensDataCategory, InSrcFocus: number, InDestFocus: number, bReplaceExistingZoomPoints: boolean): void;
+        HasZoomPoint(InDataCategory: ELensDataCategory, InFocus: number, InZoom: number): boolean;
+        HasSamples(InDataCategory: ELensDataCategory): boolean;
+        HasIrisEncoderMapping(): boolean;
+        HasFocusPoint(InDataCategory: ELensDataCategory, InFocus: number): boolean;
+        HasFocusEncoderMapping(): boolean;
+        GetTotalPointNum(InDataCategory: ELensDataCategory): number;
+        GetSTMapPoints(): FSTMapPointInfo[];
+        GetSTMapPoint(InFocus: number, InZoom: number, OutSTMapInfo: FSTMapInfo): boolean;
+        GetNodalOffsetPoints(): FNodalOffsetPointInfo[];
+        GetNodalOffsetPoint(InFocus: number, InZoom: number, OutNodalPointOffset: FNodalPointOffset): boolean;
+        GetImageCenterPoints(): FImageCenterPointInfo[];
+        GetImageCenterPoint(InFocus: number, InZoom: number, OutImageCenterInfo: FImageCenterInfo): boolean;
+        GetFocalLengthPoints(): FFocalLengthPointInfo[];
+        GetFocalLengthPoint(InFocus: number, InZoom: number, OutFocalLengthInfo: FFocalLengthInfo): boolean;
+        GetDistortionPoints(): FDistortionPointInfo[];
+        GetDistortionPoint(InFocus: number, InZoom: number, OutDistortionInfo: FDistortionInfo): boolean;
+        EvaluateNormalizedIris(InNormalizedValue: number): number;
+        EvaluateNormalizedFocus(InNormalizedValue: number): number;
+        EvaluateNodalPointOffset(InFocus: number, InZoom: number, OutEvaluatedValue: FNodalPointOffset): boolean;
+        EvaluateImageCenterParameters(InFocus: number, InZoom: number, OutEvaluatedValue: FImageCenterInfo): boolean;
+        EvaluateFocalLength(InFocus: number, InZoom: number, OutEvaluatedValue: FFocalLengthInfo): boolean;
+        EvaluateDistortionParameters(InFocus: number, InZoom: number, OutEvaluatedValue: FDistortionInfo): boolean;
+        EvaluateDistortionData(InFocus: number, InZoom: number, InFilmback: FVector2D, InLensHandler: ULensDistortionModelHandlerBase): boolean;
+        ClearData(InDataCategory: ELensDataCategory): void;
+        ClearAll(): void;
+        ChangeZoomPoint(InDataCategory: ELensDataCategory, InFocus: number, InExistingZoom: number, InNewZoom: number): void;
+        ChangeFocusPoint(InDataCategory: ELensDataCategory, InExistingFocus: number, InNewFocus: number): void;
+        AddSTMapPoint(NewFocus: number, NewZoom: number, NewPoint: FSTMapInfo): void;
+        AddNodalOffsetPoint(NewFocus: number, NewZoom: number, NewPoint: FNodalPointOffset): void;
+        AddImageCenterPoint(NewFocus: number, NewZoom: number, NewPoint: FImageCenterInfo): void;
+        AddFocalLengthPoint(NewFocus: number, NewZoom: number, NewFocalLength: FFocalLengthInfo): void;
+        AddDistortionPoint(NewFocus: number, NewZoom: number, NewPoint: FDistortionInfo, NewFocalLength: FFocalLengthInfo): void;
+    };
+    readonly __properties_ULensFile: {
+        LensInfo: FLensInfo;
+        DataMode: ELensDataMode;
+        UserMetadata: TMap<string, string>;
+        EncodersTable: FEncodersTable;
+        DistortionTable: FDistortionTable;
+        FocalLengthTable: FFocalLengthTable;
+        ImageCenterTable: FImageCenterTable;
+        NodalOffsetTable: FNodalOffsetTable;
+        STMapTable: FSTMapTable;
+        UndistortionDisplacementMapHolders: UTextureRenderTarget2D[];
+        DistortionDisplacementMapHolders: UTextureRenderTarget2D[];
+    };
+    readonly __staticRegistry: 
+        ULensFile['__static_ULensFile'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULensFile['__properties_ULensFile'] &
+        UObject['__propertyRegistry'];
 }
-declare const ULensFile: ULensFile;
 
 declare interface ULensModel extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const ULensModel: ULensModel;
 
 declare interface USphericalLensDistortionModelHandler extends ULensDistortionModelHandlerBase {
-
+    readonly __staticRegistry: 
+        ULensDistortionModelHandlerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULensDistortionModelHandlerBase['__propertyRegistry'];
 }
-declare const USphericalLensDistortionModelHandler: USphericalLensDistortionModelHandler;
 
 declare interface USphericalLensModel extends ULensModel {
-
+    readonly __staticRegistry: 
+        ULensModel['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ULensModel['__propertyRegistry'];
 }
-declare const USphericalLensModel: USphericalLensModel;
 

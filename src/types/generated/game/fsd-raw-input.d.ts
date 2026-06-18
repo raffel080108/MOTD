@@ -6,42 +6,50 @@ declare interface FFSDRawInputDeviceAxisProperties {
     Offset: number;
     IsPlayStationDPad: boolean;
 }
-declare const FFSDRawInputDeviceAxisProperties: FFSDRawInputDeviceAxisProperties;
 
 declare interface FFSDRawInputDeviceButtonProperties {
     bEnabled: boolean;
     Key: FKey;
 }
-declare const FFSDRawInputDeviceButtonProperties: FFSDRawInputDeviceButtonProperties;
 
 declare interface FFSDRawInputDeviceConfiguration {
     DeviceType: EFSDRawInputControllerType;
-    VendorID: FString;
-    ProductId: FString;
+    VendorID: string;
+    ProductId: string;
     VersionID: number;
-    AxisProperties: TArray<FFSDRawInputDeviceAxisProperties>;
-    ButtonProperties: TArray<FFSDRawInputDeviceButtonProperties>;
+    AxisProperties: FFSDRawInputDeviceAxisProperties[];
+    ButtonProperties: FFSDRawInputDeviceButtonProperties[];
 }
-declare const FFSDRawInputDeviceConfiguration: FFSDRawInputDeviceConfiguration;
 
 declare interface FFSDRegisteredDeviceInfo {
     Handle: number;
     VendorID: number;
     ProductId: number;
     VersionID: number;
-    DeviceName: FString;
+    DeviceName: string;
 }
-declare const FFSDRegisteredDeviceInfo: FFSDRegisteredDeviceInfo;
 
 declare interface UFSDRawInputFunctionLibrary extends UBlueprintFunctionLibrary {
-    GetRegisteredDevices(): TArray<FFSDRegisteredDeviceInfo>;
+    readonly __static_UFSDRawInputFunctionLibrary: {
+        GetRegisteredDevices(): FFSDRegisteredDeviceInfo[];
+    };
+    readonly __staticRegistry: 
+        UFSDRawInputFunctionLibrary['__static_UFSDRawInputFunctionLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UFSDRawInputFunctionLibrary: UFSDRawInputFunctionLibrary;
 
 declare interface UFSDRawInputSettings extends UDeveloperSettings {
-    DeviceConfigurations: TArray<FFSDRawInputDeviceConfiguration>;
-    bRegisterDefaultDevice: boolean;
-    OnlyConnectConfiguredDevices: boolean;
+    readonly __properties_UFSDRawInputSettings: {
+        DeviceConfigurations: FFSDRawInputDeviceConfiguration[];
+        bRegisterDefaultDevice: boolean;
+        OnlyConnectConfiguredDevices: boolean;
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UFSDRawInputSettings['__properties_UFSDRawInputSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UFSDRawInputSettings: UFSDRawInputSettings;
 

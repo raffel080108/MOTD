@@ -1,45 +1,49 @@
 declare interface AChaosSolverActor extends AActor {
-    Properties: FChaosSolverConfiguration;
-    TimeStepMultiplier: number;
-    CollisionIterations: number;
-    PushOutIterations: number;
-    PushOutPairIterations: number;
-    ClusterConnectionFactor: number;
-    ClusterUnionConnectionType: EClusterConnectionTypeEnum;
-    DoGenerateCollisionData: boolean;
-    CollisionFilterSettings: FSolverCollisionFilterSettings;
-    DoGenerateBreakingData: boolean;
-    BreakingFilterSettings: FSolverBreakingFilterSettings;
-    DoGenerateTrailingData: boolean;
-    TrailingFilterSettings: FSolverTrailingFilterSettings;
-    MassScale: number;
-    bHasFloor: boolean;
-    FloorHeight: number;
-    ChaosDebugSubstepControl: FChaosDebugSubstepControl;
-    SpriteComponent: UBillboardComponent;
-    SimulationAsset: FDataflowSimulationAsset;
-    GameplayEventDispatcherComponent: UChaosGameplayEventDispatcher;
-    SetSolverActive(bActive: boolean): void;
-    SetAsCurrentWorldSolver(): void;
+    readonly __static_AChaosSolverActor: {
+        SetSolverActive(bActive: boolean): void;
+        SetAsCurrentWorldSolver(): void;
+    };
+    readonly __properties_AChaosSolverActor: {
+        Properties: FChaosSolverConfiguration;
+        TimeStepMultiplier: number;
+        CollisionIterations: number;
+        PushOutIterations: number;
+        PushOutPairIterations: number;
+        ClusterConnectionFactor: number;
+        ClusterUnionConnectionType: EClusterConnectionTypeEnum;
+        DoGenerateCollisionData: boolean;
+        CollisionFilterSettings: FSolverCollisionFilterSettings;
+        DoGenerateBreakingData: boolean;
+        BreakingFilterSettings: FSolverBreakingFilterSettings;
+        DoGenerateTrailingData: boolean;
+        TrailingFilterSettings: FSolverTrailingFilterSettings;
+        MassScale: number;
+        bHasFloor: boolean;
+        FloorHeight: number;
+        ChaosDebugSubstepControl: FChaosDebugSubstepControl;
+        SpriteComponent: UBillboardComponent;
+        SimulationAsset: FDataflowSimulationAsset;
+        GameplayEventDispatcherComponent: UChaosGameplayEventDispatcher;
+    };
+    readonly __staticRegistry: 
+        AChaosSolverActor['__static_AChaosSolverActor'] &
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AChaosSolverActor['__properties_AChaosSolverActor'] &
+        AActor['__propertyRegistry'];
 }
-declare const AChaosSolverActor: AChaosSolverActor;
 
-declare interface FBreakEventCallbackWrapper {
-
-}
-declare const FBreakEventCallbackWrapper: FBreakEventCallbackWrapper;
+declare type FBreakEventCallbackWrapper = object;
 
 declare interface FChaosDebugSubstepControl {
     bPause: boolean;
     bSubstep: boolean;
     bStep: boolean;
 }
-declare const FChaosDebugSubstepControl: FChaosDebugSubstepControl;
 
 declare interface FChaosHandlerSet {
-    ChaosHandlers: TSet<UObject>;
+    ChaosHandlers: UObject[];
 }
-declare const FChaosHandlerSet: FChaosHandlerSet;
 
 declare interface FChaosPhysicsCollisionInfo {
     Component: UPrimitiveComponent;
@@ -54,37 +58,29 @@ declare interface FChaosPhysicsCollisionInfo {
     Mass: number;
     OtherMass: number;
 }
-declare const FChaosPhysicsCollisionInfo: FChaosPhysicsCollisionInfo;
 
 declare interface FChaosVDChannelStateChangeCommandMessage {
     NewState: FChaosVDDataChannelState;
 }
-declare const FChaosVDChannelStateChangeCommandMessage: FChaosVDChannelStateChangeCommandMessage;
 
 declare interface FChaosVDChannelStateChangeResponseMessage {
     InstanceId: FGuid;
     NewState: FChaosVDDataChannelState;
 }
-declare const FChaosVDChannelStateChangeResponseMessage: FChaosVDChannelStateChangeResponseMessage;
 
 declare interface FChaosVDDataChannelState {
-    ChannelName: FString;
+    ChannelName: string;
     bIsEnabled: boolean;
     bCanChangeChannelState: boolean;
 }
-declare const FChaosVDDataChannelState: FChaosVDDataChannelState;
 
-declare interface FChaosVDFullSessionInfoRequestMessage {
-
-}
-declare const FChaosVDFullSessionInfoRequestMessage: FChaosVDFullSessionInfoRequestMessage;
+declare type FChaosVDFullSessionInfoRequestMessage = object;
 
 declare interface FChaosVDFullSessionInfoResponseMessage {
     InstanceId: FGuid;
-    DataChannelsStates: TArray<FChaosVDDataChannelState>;
+    DataChannelsStates: FChaosVDDataChannelState[];
     bIsRecording: boolean;
 }
-declare const FChaosVDFullSessionInfoResponseMessage: FChaosVDFullSessionInfoResponseMessage;
 
 declare interface FChaosVDRecordingStatusMessage {
     InstanceId: FGuid;
@@ -92,87 +88,101 @@ declare interface FChaosVDRecordingStatusMessage {
     ElapsedTime: number;
     TraceDetails: FChaosVDTraceDetails;
 }
-declare const FChaosVDRecordingStatusMessage: FChaosVDRecordingStatusMessage;
 
 declare interface FChaosVDSessionPing {
     ControllerInstanceId: FGuid;
 }
-declare const FChaosVDSessionPing: FChaosVDSessionPing;
 
 declare interface FChaosVDSessionPong {
     InstanceId: FGuid;
     SessionId: FGuid;
-    SessionName: FString;
-    BuildTargetType: uint8;
+    SessionName: string;
+    BuildTargetType: number;
 }
-declare const FChaosVDSessionPong: FChaosVDSessionPong;
 
 declare interface FChaosVDStartRecordingCommandMessage {
     RecordingMode: EChaosVDRecordingMode;
-    Target: FString;
+    Target: string;
 }
-declare const FChaosVDStartRecordingCommandMessage: FChaosVDStartRecordingCommandMessage;
 
-declare interface FChaosVDStopRecordingCommandMessage {
+declare type FChaosVDStopRecordingCommandMessage = object;
 
-}
-declare const FChaosVDStopRecordingCommandMessage: FChaosVDStopRecordingCommandMessage;
-
-declare interface FCrumblingEventCallbackWrapper {
-
-}
-declare const FCrumblingEventCallbackWrapper: FCrumblingEventCallbackWrapper;
+declare type FCrumblingEventCallbackWrapper = object;
 
 declare interface FDataflowRigidSolverProxy extends FDataflowPhysicsSolverProxy {
 
 }
-declare const FDataflowRigidSolverProxy: FDataflowRigidSolverProxy;
 
-declare interface FRemovalEventCallbackWrapper {
-
-}
-declare const FRemovalEventCallbackWrapper: FRemovalEventCallbackWrapper;
+declare type FRemovalEventCallbackWrapper = object;
 
 declare interface IChaosNotifyHandlerInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IChaosNotifyHandlerInterface: IChaosNotifyHandlerInterface;
 
 declare interface UChaosDebugDrawComponent extends UActorComponent {
-
+    readonly __staticRegistry: 
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UActorComponent['__propertyRegistry'];
 }
-declare const UChaosDebugDrawComponent: UChaosDebugDrawComponent;
 
 declare interface UChaosDebugDrawSubsystem extends UWorldSubsystem {
-
+    readonly __staticRegistry: 
+        UWorldSubsystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UWorldSubsystem['__propertyRegistry'];
 }
-declare const UChaosDebugDrawSubsystem: UChaosDebugDrawSubsystem;
 
 declare interface UChaosEventListenerComponent extends UActorComponent {
-
+    readonly __staticRegistry: 
+        UActorComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UActorComponent['__propertyRegistry'];
 }
-declare const UChaosEventListenerComponent: UChaosEventListenerComponent;
 
 declare interface UChaosGameplayEventDispatcher extends UChaosEventListenerComponent {
-    CollisionEventRegistrations: Record<string | number | symbol, FChaosHandlerSet>;
-    BreakEventRegistrations: Record<string | number | symbol, FBreakEventCallbackWrapper>;
-    RemovalEventRegistrations: Record<string | number | symbol, FRemovalEventCallbackWrapper>;
-    CrumblingEventRegistrations: Record<string | number | symbol, FCrumblingEventCallbackWrapper>;
+    readonly __properties_UChaosGameplayEventDispatcher: {
+        CollisionEventRegistrations: TMap<UPrimitiveComponent, FChaosHandlerSet>;
+        BreakEventRegistrations: TMap<UPrimitiveComponent, FBreakEventCallbackWrapper>;
+        RemovalEventRegistrations: TMap<UPrimitiveComponent, FRemovalEventCallbackWrapper>;
+        CrumblingEventRegistrations: TMap<UPrimitiveComponent, FCrumblingEventCallbackWrapper>;
+    };
+    readonly __staticRegistry: 
+        UChaosEventListenerComponent['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UChaosGameplayEventDispatcher['__properties_UChaosGameplayEventDispatcher'] &
+        UChaosEventListenerComponent['__propertyRegistry'];
 }
-declare const UChaosGameplayEventDispatcher: UChaosGameplayEventDispatcher;
 
 declare interface UChaosSolver extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UChaosSolver: UChaosSolver;
 
 declare interface UChaosSolverEngineBlueprintLibrary extends UBlueprintFunctionLibrary {
-    ConvertPhysicsCollisionToHitResult(PhysicsCollision: FChaosPhysicsCollisionInfo): FHitResult;
+    readonly __static_UChaosSolverEngineBlueprintLibrary: {
+        ConvertPhysicsCollisionToHitResult(PhysicsCollision: FChaosPhysicsCollisionInfo): FHitResult;
+    };
+    readonly __staticRegistry: 
+        UChaosSolverEngineBlueprintLibrary['__static_UChaosSolverEngineBlueprintLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UChaosSolverEngineBlueprintLibrary: UChaosSolverEngineBlueprintLibrary;
 
 declare interface UChaosSolverSettings extends UDeveloperSettings {
-    DefaultChaosSolverActorClass: FSoftClassPath;
+    readonly __properties_UChaosSolverSettings: {
+        DefaultChaosSolverActorClass: FSoftClassPath;
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UChaosSolverSettings['__properties_UChaosSolverSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UChaosSolverSettings: UChaosSolverSettings;
 

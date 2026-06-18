@@ -4,7 +4,6 @@ declare interface FFBIKBoneLimit {
     LimitType_Z: EFBIKBoneLimitType;
     Limit: FVector;
 }
-declare const FFBIKBoneLimit: FFBIKBoneLimit;
 
 declare interface FFBIKConstraintOption {
     Item: FRigElementKey;
@@ -19,7 +18,6 @@ declare interface FFBIKConstraintOption {
     PoleVector: FVector;
     OffsetRotation: FRotator;
 }
-declare const FFBIKConstraintOption: FFBIKConstraintOption;
 
 declare interface FFBIKDebugOption {
     bDrawDebugHierarchy: boolean;
@@ -31,7 +29,6 @@ declare interface FFBIKDebugOption {
     DrawWorldOffset: FTransform;
     DrawSize: number;
 }
-declare const FFBIKDebugOption: FFBIKDebugOption;
 
 declare interface FFBIKEndEffector {
     Item: FRigElementKey;
@@ -43,30 +40,24 @@ declare interface FFBIKEndEffector {
     RotationDepth: number;
     Pull: number;
 }
-declare const FFBIKEndEffector: FFBIKEndEffector;
 
 declare interface FMotionProcessInput {
     bForceEffectorRotationTarget: boolean;
     bOnlyApplyWhenReachedToTarget: boolean;
 }
-declare const FMotionProcessInput: FMotionProcessInput;
 
 declare interface FRigUnit_FullbodyIK extends FRigUnit_HighlevelBaseMutable {
     Root: FRigElementKey;
-    Effectors: TArray<FFBIKEndEffector>;
-    Constraints: TArray<FFBIKConstraintOption>;
+    Effectors: FFBIKEndEffector[];
+    Constraints: FFBIKConstraintOption[];
     SolverProperty: FSolverInput;
     MotionProperty: FMotionProcessInput;
     bPropagateToChildren: boolean;
     DebugOption: FFBIKDebugOption;
     WorkData: FRigUnit_FullbodyIK_WorkData;
 }
-declare const FRigUnit_FullbodyIK: FRigUnit_FullbodyIK;
 
-declare interface FRigUnit_FullbodyIK_WorkData {
-
-}
-declare const FRigUnit_FullbodyIK_WorkData: FRigUnit_FullbodyIK_WorkData;
+declare type FRigUnit_FullbodyIK_WorkData = object;
 
 declare interface FSolverInput {
     LinearMotionStrength: number;
@@ -79,5 +70,4 @@ declare interface FSolverInput {
     MaxIterations: number;
     bUseJacobianTranspose: boolean;
 }
-declare const FSolverInput: FSolverInput;
 

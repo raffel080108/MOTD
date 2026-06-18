@@ -1,15 +1,15 @@
 declare interface FBoneID extends FElementID {
 
 }
-declare const FBoneID: FBoneID;
 
 declare interface FSourceGeometryPartID extends FElementID {
 
 }
-declare const FSourceGeometryPartID: FSourceGeometryPartID;
 
 declare interface USkeletalMeshDescription extends UMeshDescriptionBase {
-
+    readonly __staticRegistry: 
+        UMeshDescriptionBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMeshDescriptionBase['__propertyRegistry'];
 }
-declare const USkeletalMeshDescription: USkeletalMeshDescription;
 

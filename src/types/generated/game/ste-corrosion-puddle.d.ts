@@ -1,5 +1,7 @@
 declare interface USTE_Corrosion_Puddle_C extends UStatusEffect {
-
+    readonly __staticRegistry: 
+        UStatusEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStatusEffect['__propertyRegistry'];
 }
-declare const USTE_Corrosion_Puddle_C: USTE_Corrosion_Puddle_C;
 

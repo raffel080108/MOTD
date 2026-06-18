@@ -5,70 +5,99 @@ declare interface FOpenColorIOColorConversionSettings {
     DestinationDisplayView: FOpenColorIODisplayView;
     DisplayViewDirection: EOpenColorIOViewTransformDirection;
 }
-declare const FOpenColorIOColorConversionSettings: FOpenColorIOColorConversionSettings;
 
 declare interface FOpenColorIOColorSpace {
-    ColorSpaceName: FString;
-    FamilyName: FString;
-    Description: FString;
+    ColorSpaceName: string;
+    FamilyName: string;
+    Description: string;
 }
-declare const FOpenColorIOColorSpace: FOpenColorIOColorSpace;
 
 declare interface FOpenColorIODisplayConfiguration {
     bIsEnabled: boolean;
     ColorConfiguration: FOpenColorIOColorConversionSettings;
 }
-declare const FOpenColorIODisplayConfiguration: FOpenColorIODisplayConfiguration;
 
 declare interface FOpenColorIODisplayView {
-    Display: FString;
-    View: FString;
-    Description: FString;
+    Display: string;
+    View: string;
+    Description: string;
 }
-declare const FOpenColorIODisplayView: FOpenColorIODisplayView;
 
 declare interface UOpenColorIOBlueprintLibrary extends UBlueprintFunctionLibrary {
-    ApplyColorSpaceTransform(WorldContextObject: UObject, ConversionSettings: FOpenColorIOColorConversionSettings, InputTexture: UTexture, OutputRenderTarget: UTextureRenderTarget2D): boolean;
+    readonly __static_UOpenColorIOBlueprintLibrary: {
+        ApplyColorSpaceTransform(WorldContextObject: UObject, ConversionSettings: FOpenColorIOColorConversionSettings, InputTexture: UTexture, OutputRenderTarget: UTextureRenderTarget2D): boolean;
+    };
+    readonly __staticRegistry: 
+        UOpenColorIOBlueprintLibrary['__static_UOpenColorIOBlueprintLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UOpenColorIOBlueprintLibrary: UOpenColorIOBlueprintLibrary;
 
 declare interface UOpenColorIOColorTransform extends UObject {
-    bIsDisplayViewType: boolean;
-    SourceColorSpace: FString;
-    DestinationColorSpace: FString;
-    Display: FString;
-    View: FString;
-    DisplayViewDirection: EOpenColorIOViewTransformDirection;
-    LookupTextures: TArray<UTexture>;
+    readonly __properties_UOpenColorIOColorTransform: {
+        bIsDisplayViewType: boolean;
+        SourceColorSpace: string;
+        DestinationColorSpace: string;
+        Display: string;
+        View: string;
+        DisplayViewDirection: EOpenColorIOViewTransformDirection;
+        LookupTextures: UTexture[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOpenColorIOColorTransform['__properties_UOpenColorIOColorTransform'] &
+        UObject['__propertyRegistry'];
 }
-declare const UOpenColorIOColorTransform: UOpenColorIOColorTransform;
 
 declare interface UOpenColorIOConfiguration extends UObject {
-    ConfigurationFile: FFilePath;
-    DesiredColorSpaces: TArray<FOpenColorIOColorSpace>;
-    DesiredDisplayViews: TArray<FOpenColorIODisplayView>;
-    Context: Record<FString, FString>;
-    ColorTransforms: TArray<UOpenColorIOColorTransform>;
-    ConfigHash: FString;
-    ReloadExistingColorspaces(bForce: boolean): void;
+    readonly __static_UOpenColorIOConfiguration: {
+        ReloadExistingColorspaces(bForce: boolean): void;
+    };
+    readonly __properties_UOpenColorIOConfiguration: {
+        ConfigurationFile: FFilePath;
+        DesiredColorSpaces: FOpenColorIOColorSpace[];
+        DesiredDisplayViews: FOpenColorIODisplayView[];
+        Context: TMap<string, string>;
+        ColorTransforms: UOpenColorIOColorTransform[];
+        ConfigHash: string;
+    };
+    readonly __staticRegistry: 
+        UOpenColorIOConfiguration['__static_UOpenColorIOConfiguration'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOpenColorIOConfiguration['__properties_UOpenColorIOConfiguration'] &
+        UObject['__propertyRegistry'];
 }
-declare const UOpenColorIOConfiguration: UOpenColorIOConfiguration;
 
 declare interface UOpenColorIODisplayExtensionWrapper extends UObject {
-    SetSceneExtensionIsActiveFunctions(IsActiveFunctions: TArray<FSceneViewExtensionIsActiveFunctor>): void;
-    SetSceneExtensionIsActiveFunction(IsActiveFunction: FSceneViewExtensionIsActiveFunctor): void;
-    SetOpenColorIOConfiguration(InDisplayConfiguration: FOpenColorIODisplayConfiguration): void;
-    RemoveSceneExtension(): void;
-    GetOpenColorIOConfiguration(): FOpenColorIODisplayConfiguration;
-    CreateOpenColorIODisplayExtension(InDisplayConfiguration: FOpenColorIODisplayConfiguration, IsActiveFunction: FSceneViewExtensionIsActiveFunctor): UOpenColorIODisplayExtensionWrapper;
-    CreateInGameOpenColorIODisplayExtension(InDisplayConfiguration: FOpenColorIODisplayConfiguration): UOpenColorIODisplayExtensionWrapper;
+    readonly __static_UOpenColorIODisplayExtensionWrapper: {
+        SetSceneExtensionIsActiveFunctions(IsActiveFunctions: FSceneViewExtensionIsActiveFunctor[]): void;
+        SetSceneExtensionIsActiveFunction(IsActiveFunction: FSceneViewExtensionIsActiveFunctor): void;
+        SetOpenColorIOConfiguration(InDisplayConfiguration: FOpenColorIODisplayConfiguration): void;
+        RemoveSceneExtension(): void;
+        GetOpenColorIOConfiguration(): FOpenColorIODisplayConfiguration;
+        CreateOpenColorIODisplayExtension(InDisplayConfiguration: FOpenColorIODisplayConfiguration, IsActiveFunction: FSceneViewExtensionIsActiveFunctor): UOpenColorIODisplayExtensionWrapper;
+        CreateInGameOpenColorIODisplayExtension(InDisplayConfiguration: FOpenColorIODisplayConfiguration): UOpenColorIODisplayExtensionWrapper;
+    };
+    readonly __staticRegistry: 
+        UOpenColorIODisplayExtensionWrapper['__static_UOpenColorIODisplayExtensionWrapper'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UOpenColorIODisplayExtensionWrapper: UOpenColorIODisplayExtensionWrapper;
 
 declare interface UOpenColorIOSettings extends UDeveloperSettings {
-    bUseLegacyProcessor: boolean;
-    bUse32fLUT: boolean;
-    bSupportInverseViewTransforms: boolean;
+    readonly __properties_UOpenColorIOSettings: {
+        bUseLegacyProcessor: boolean;
+        bUse32fLUT: boolean;
+        bSupportInverseViewTransforms: boolean;
+    };
+    readonly __staticRegistry: 
+        UDeveloperSettings['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UOpenColorIOSettings['__properties_UOpenColorIOSettings'] &
+        UDeveloperSettings['__propertyRegistry'];
 }
-declare const UOpenColorIOSettings: UOpenColorIOSettings;
 

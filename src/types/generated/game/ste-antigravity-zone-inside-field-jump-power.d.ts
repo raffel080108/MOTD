@@ -1,5 +1,0 @@
-declare interface USTE_AntigravityZone_InsideField_JumpPower_C extends UStatusEffect {
-
-}
-declare const USTE_AntigravityZone_InsideField_JumpPower_C: USTE_AntigravityZone_InsideField_JumpPower_C;
-

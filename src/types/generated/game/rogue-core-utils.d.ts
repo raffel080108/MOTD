@@ -1,31 +1,57 @@
 declare interface IAquisitionSource extends IInterface {
-    GetAquisitionSourceTag(): FGameplayTag;
+    readonly __static_IAquisitionSource: {
+        GetAquisitionSourceTag(): FGameplayTag;
+    };
+    readonly __staticRegistry: 
+        IAquisitionSource['__static_IAquisitionSource'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IAquisitionSource: IAquisitionSource;
 
 declare interface IAquisitionable extends IInterface {
-    GetAquisitionSource(): TScriptInterface<IAquisitionSource>;
+    readonly __static_IAquisitionable: {
+        GetAquisitionSource(): TScriptInterface<IAquisitionSource>;
+    };
+    readonly __staticRegistry: 
+        IAquisitionable['__static_IAquisitionable'] &
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const IAquisitionable: IAquisitionable;
 
 declare interface ISaveGameIDInterface extends IInterface {
-
+    readonly __staticRegistry: 
+        IInterface['__staticRegistry'];
+    readonly __propertyRegistry: 
+        IInterface['__propertyRegistry'];
 }
-declare const ISaveGameIDInterface: ISaveGameIDInterface;
 
 declare interface UBuildRestriction extends UDataAsset {
-    BuildType: number;
-    Platform: number;
+    readonly __properties_UBuildRestriction: {
+        BuildType: number;
+        Platform: number;
+    };
+    readonly __staticRegistry: 
+        UDataAsset['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBuildRestriction['__properties_UBuildRestriction'] &
+        UDataAsset['__propertyRegistry'];
 }
-declare const UBuildRestriction: UBuildRestriction;
 
 declare interface UFrontendBlueprintLibrary extends UBlueprintFunctionLibrary {
-    OpenURLInExternalBrowser(URL: string | FString): void;
-    IsShippingBuild(): boolean;
-    GetStringFromClipboard(fromClipboard: string | FString): void;
-    FSDTargetPlatformIsXSX(): boolean;
-    FSDTargetPlatform(): EFSDTargetPlatform;
-    CopyStringToClipboard(toClipboard: string | FString): void;
+    readonly __static_UFrontendBlueprintLibrary: {
+        OpenURLInExternalBrowser(URL: string): void;
+        IsShippingBuild(): boolean;
+        GetStringFromClipboard(fromClipboard: string): void;
+        FSDTargetPlatformIsXSX(): boolean;
+        FSDTargetPlatform(): EFSDTargetPlatform;
+        CopyStringToClipboard(toClipboard: string): void;
+    };
+    readonly __staticRegistry: 
+        UFrontendBlueprintLibrary['__static_UFrontendBlueprintLibrary'] &
+        UBlueprintFunctionLibrary['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UBlueprintFunctionLibrary['__propertyRegistry'];
 }
-declare const UFrontendBlueprintLibrary: UFrontendBlueprintLibrary;
 

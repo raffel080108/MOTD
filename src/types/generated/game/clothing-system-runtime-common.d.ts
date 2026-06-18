@@ -27,7 +27,6 @@ declare interface FClothConfig_Legacy {
     AnimDriveSpringStiffness: number;
     AnimDriveDamperStiffness: number;
 }
-declare const FClothConfig_Legacy: FClothConfig_Legacy;
 
 declare interface FClothConstraintSetup_Legacy {
     Stiffness: number;
@@ -35,7 +34,6 @@ declare interface FClothConstraintSetup_Legacy {
     StretchLimit: number;
     CompressionLimit: number;
 }
-declare const FClothConstraintSetup_Legacy: FClothConstraintSetup_Legacy;
 
 declare interface FClothLODDataCommon {
     PhysicalMeshData: FClothPhysicalMeshData;
@@ -43,74 +41,85 @@ declare interface FClothLODDataCommon {
     SkinningKernelRadius: number;
     bSmoothTransition: boolean;
 }
-declare const FClothLODDataCommon: FClothLODDataCommon;
 
 declare interface FClothParameterMask_Legacy {
-    MaskName: FName;
+    MaskName: string;
     CurrentTarget: EWeightMapTargetCommon;
     MaxValue: number;
     MinValue: number;
-    Values: TArray<number>;
+    Values: number[];
     bEnabled: boolean;
 }
-declare const FClothParameterMask_Legacy: FClothParameterMask_Legacy;
 
 declare interface FClothPhysicalMeshData {
-    Vertices: TArray<FVector3f>;
-    Normals: TArray<FVector3f>;
-    Indices: TArray<uint32>;
-    WeightMaps: Record<string | number | symbol, FPointWeightMap>;
-    InverseMasses: TArray<number>;
-    BoneData: TArray<FClothVertBoneData>;
-    SelfCollisionVertexSet: TSet<number>;
+    Vertices: FVector3f[];
+    Normals: FVector3f[];
+    Indices: number[];
+    WeightMaps: TMap<number, FPointWeightMap>;
+    InverseMasses: number[];
+    BoneData: FClothVertBoneData[];
+    SelfCollisionVertexSet: number[];
     EuclideanTethers: FClothTetherData;
     GeodesicTethers: FClothTetherData;
     MaxBoneWeights: number;
     NumFixedVerts: number;
-    SelfCollisionIndices: TArray<uint32>;
+    SelfCollisionIndices: number[];
 }
-declare const FClothPhysicalMeshData: FClothPhysicalMeshData;
 
-declare interface FClothTetherData {
-
-}
-declare const FClothTetherData: FClothTetherData;
+declare type FClothTetherData = object;
 
 declare interface FPointWeightMap {
-    Values: TArray<number>;
+    Values: number[];
 }
-declare const FPointWeightMap: FPointWeightMap;
 
 declare interface UClothConfigCommon extends UClothConfigBase {
-
+    readonly __staticRegistry: 
+        UClothConfigBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UClothConfigBase['__propertyRegistry'];
 }
-declare const UClothConfigCommon: UClothConfigCommon;
 
 declare interface UClothLODDataCommon_Legacy extends UObject {
-    PhysicalMeshData: UClothPhysicalMeshDataBase_Legacy;
-    ClothPhysicalMeshData: FClothPhysicalMeshData;
-    CollisionData: FClothCollisionData;
+    readonly __properties_UClothLODDataCommon_Legacy: {
+        PhysicalMeshData: UClothPhysicalMeshDataBase_Legacy;
+        ClothPhysicalMeshData: FClothPhysicalMeshData;
+        CollisionData: FClothCollisionData;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UClothLODDataCommon_Legacy['__properties_UClothLODDataCommon_Legacy'] &
+        UObject['__propertyRegistry'];
 }
-declare const UClothLODDataCommon_Legacy: UClothLODDataCommon_Legacy;
 
 declare interface UClothSharedConfigCommon extends UClothConfigCommon {
-
+    readonly __staticRegistry: 
+        UClothConfigCommon['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UClothConfigCommon['__propertyRegistry'];
 }
-declare const UClothSharedConfigCommon: UClothSharedConfigCommon;
 
 declare interface UClothingAssetCommon extends UClothingAssetBase {
-    PhysicsAsset: UPhysicsAsset;
-    ClothConfigs: Record<FName, UClothConfigBase>;
-    LODData: TArray<FClothLODDataCommon>;
-    LodMap: TArray<number>;
-    UsedBoneNames: TArray<FName>;
-    UsedBoneIndices: TArray<number>;
-    ReferenceBoneIndex: number;
+    readonly __properties_UClothingAssetCommon: {
+        PhysicsAsset: UPhysicsAsset;
+        ClothConfigs: TMap<string, UClothConfigBase>;
+        LODData: FClothLODDataCommon[];
+        LodMap: number[];
+        UsedBoneNames: string[];
+        UsedBoneIndices: number[];
+        ReferenceBoneIndex: number;
+    };
+    readonly __staticRegistry: 
+        UClothingAssetBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UClothingAssetCommon['__properties_UClothingAssetCommon'] &
+        UClothingAssetBase['__propertyRegistry'];
 }
-declare const UClothingAssetCommon: UClothingAssetCommon;
 
 declare interface UClothingAssetCustomData extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UClothingAssetCustomData: UClothingAssetCustomData;
 

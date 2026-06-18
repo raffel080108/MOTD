@@ -1,182 +1,141 @@
 declare interface FEngineServiceAuthDeny {
-    Username: FString;
-    UserToDeny: FString;
+    Username: string;
+    UserToDeny: string;
 }
-declare const FEngineServiceAuthDeny: FEngineServiceAuthDeny;
 
 declare interface FEngineServiceAuthGrant {
-    Username: FString;
-    UserToGrant: FString;
+    Username: string;
+    UserToGrant: string;
 }
-declare const FEngineServiceAuthGrant: FEngineServiceAuthGrant;
 
 declare interface FEngineServiceExecuteCommand {
-    Command: FString;
-    Username: FString;
+    Command: string;
+    Username: string;
 }
-declare const FEngineServiceExecuteCommand: FEngineServiceExecuteCommand;
 
 declare interface FEngineServiceNotification {
-    Text: FString;
+    Text: string;
     TimeSeconds: number;
 }
-declare const FEngineServiceNotification: FEngineServiceNotification;
 
-declare interface FEngineServicePing {
-
-}
-declare const FEngineServicePing: FEngineServicePing;
+declare type FEngineServicePing = object;
 
 declare interface FEngineServicePong {
-    CurrentLevel: FString;
+    CurrentLevel: string;
     EngineVersion: number;
     HasBegunPlay: boolean;
     InstanceId: FGuid;
-    InstanceType: FString;
+    InstanceType: string;
     SessionId: FGuid;
     WorldTimeSeconds: number;
 }
-declare const FEngineServicePong: FEngineServicePong;
 
 declare interface FEngineServiceTerminate {
-    Username: FString;
+    Username: string;
 }
-declare const FEngineServiceTerminate: FEngineServiceTerminate;
 
 declare interface FTraceChannelPreset {
-    Name: FString;
-    ChannelList: FString;
+    Name: string;
+    ChannelList: string;
     bIsReadOnly: boolean;
 }
-declare const FTraceChannelPreset: FTraceChannelPreset;
 
 declare interface FTraceControlBookmark {
-    Label: FString;
+    Label: string;
 }
-declare const FTraceControlBookmark: FTraceControlBookmark;
 
 declare interface FTraceControlChannelsDesc {
-    Channels: TArray<FString>;
-    Ids: TArray<uint32>;
-    Descriptions: TArray<FString>;
-    ReadOnlyIds: TArray<uint32>;
+    Channels: string[];
+    Ids: number[];
+    Descriptions: string[];
+    ReadOnlyIds: number[];
 }
-declare const FTraceControlChannelsDesc: FTraceControlChannelsDesc;
 
 declare interface FTraceControlChannelsPing {
-    KnownChannelCount: uint32;
+    KnownChannelCount: number;
 }
-declare const FTraceControlChannelsPing: FTraceControlChannelsPing;
 
 declare interface FTraceControlChannelsSet {
-    ChannelIdsToEnable: TArray<uint32>;
-    ChannelIdsToDisable: TArray<uint32>;
+    ChannelIdsToEnable: number[];
+    ChannelIdsToDisable: number[];
 }
-declare const FTraceControlChannelsSet: FTraceControlChannelsSet;
 
 declare interface FTraceControlChannelsStatus {
-    EnabledIds: TArray<uint32>;
+    EnabledIds: number[];
 }
-declare const FTraceControlChannelsStatus: FTraceControlChannelsStatus;
 
 declare interface FTraceControlDiscovery extends FTraceControlStatus {
     SessionId: FGuid;
     InstanceId: FGuid;
 }
-declare const FTraceControlDiscovery: FTraceControlDiscovery;
 
 declare interface FTraceControlDiscoveryPing {
     SessionId: FGuid;
     InstanceId: FGuid;
 }
-declare const FTraceControlDiscoveryPing: FTraceControlDiscoveryPing;
 
 declare interface FTraceControlFile extends FTraceControlStartCommon {
-    File: FString;
+    File: string;
     bTruncateFile: boolean;
 }
-declare const FTraceControlFile: FTraceControlFile;
 
-declare interface FTraceControlPause {
+declare type FTraceControlPause = object;
 
-}
-declare const FTraceControlPause: FTraceControlPause;
-
-declare interface FTraceControlResume {
-
-}
-declare const FTraceControlResume: FTraceControlResume;
+declare type FTraceControlResume = object;
 
 declare interface FTraceControlScreenshot {
-    Name: FString;
+    Name: string;
     bShowUI: boolean;
 }
-declare const FTraceControlScreenshot: FTraceControlScreenshot;
 
 declare interface FTraceControlSend extends FTraceControlStartCommon {
-    Host: FString;
+    Host: string;
 }
-declare const FTraceControlSend: FTraceControlSend;
 
 declare interface FTraceControlSetStatNamedEvents {
     bEnabled: boolean;
 }
-declare const FTraceControlSetStatNamedEvents: FTraceControlSetStatNamedEvents;
 
 declare interface FTraceControlSettings {
     bUseWorkerThread: boolean;
     bUseImportantCache: boolean;
-    TailSizeBytes: uint32;
-    ChannelPresets: TArray<FTraceChannelPreset>;
+    TailSizeBytes: number;
+    ChannelPresets: FTraceChannelPreset[];
 }
-declare const FTraceControlSettings: FTraceControlSettings;
 
-declare interface FTraceControlSettingsPing {
-
-}
-declare const FTraceControlSettingsPing: FTraceControlSettingsPing;
+declare type FTraceControlSettingsPing = object;
 
 declare interface FTraceControlSnapshotFile {
-    File: FString;
+    File: string;
 }
-declare const FTraceControlSnapshotFile: FTraceControlSnapshotFile;
 
 declare interface FTraceControlSnapshotSend {
-    Host: FString;
+    Host: string;
 }
-declare const FTraceControlSnapshotSend: FTraceControlSnapshotSend;
 
 declare interface FTraceControlStartCommon {
-    Channels: FString;
+    Channels: string;
     bExcludeTail: boolean;
 }
-declare const FTraceControlStartCommon: FTraceControlStartCommon;
 
 declare interface FTraceControlStatus {
-    EndPoint: FString;
+    EndPoint: string;
     SessionGuid: FGuid;
     TraceGuid: FGuid;
-    BytesSent: uint64;
-    BytesTraced: uint64;
-    MemoryUsed: uint64;
-    CacheAllocated: uint32;
-    CacheUsed: uint32;
-    CacheWaste: uint32;
+    BytesSent: number;
+    BytesTraced: number;
+    MemoryUsed: number;
+    CacheAllocated: number;
+    CacheUsed: number;
+    CacheWaste: number;
     bAreStatNamedEventsEnabled: boolean;
     bIsPaused: boolean;
     bIsTracing: boolean;
     StatusTimestamp: FDateTime;
-    TraceSystemStatus: uint8;
+    TraceSystemStatus: number;
 }
-declare const FTraceControlStatus: FTraceControlStatus;
 
-declare interface FTraceControlStatusPing {
+declare type FTraceControlStatusPing = object;
 
-}
-declare const FTraceControlStatusPing: FTraceControlStatusPing;
-
-declare interface FTraceControlStop {
-
-}
-declare const FTraceControlStop: FTraceControlStop;
+declare type FTraceControlStop = object;
 

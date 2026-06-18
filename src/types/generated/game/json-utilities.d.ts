@@ -1,10 +1,11 @@
 declare interface FJsonObjectWrapper {
-    JsonString: FString;
+    JsonString: string;
 }
-declare const FJsonObjectWrapper: FJsonObjectWrapper;
 
 declare interface UJsonUtilitiesDummyObject extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UJsonUtilitiesDummyObject: UJsonUtilitiesDummyObject;
 

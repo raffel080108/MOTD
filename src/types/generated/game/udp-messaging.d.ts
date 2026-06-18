@@ -1,28 +1,33 @@
 declare interface FUdpMockMessage {
-    Data: TArray<uint8>;
+    Data: number[];
 }
-declare const FUdpMockMessage: FUdpMockMessage;
 
 declare interface UUdpMessagingSettings extends UObject {
-    EnabledByDefault: boolean;
-    EnableTransport: boolean;
-    bAutoRepair: boolean;
-    MaxSendRate: number;
-    AutoRepairAttemptLimit: uint32;
-    WorkQueueSize: uint16;
-    bStopServiceWhenAppDeactivates: boolean;
-    UnicastEndpoint: FString;
-    MulticastEndpoint: FString;
-    MessageFormat: EUdpMessageFormat;
-    MulticastTimeToLive: uint8;
-    StaticEndpoints: TArray<FString>;
-    ExcludedEndpoints: TArray<FString>;
-    bShareKnownNodesWithActiveConnections: boolean;
-    MaxConcurrentDeserializationTasks: uint32;
-    EnableTunnel: boolean;
-    TunnelUnicastEndpoint: FString;
-    TunnelMulticastEndpoint: FString;
-    RemoteTunnelEndpoints: TArray<FString>;
+    readonly __properties_UUdpMessagingSettings: {
+        EnabledByDefault: boolean;
+        EnableTransport: boolean;
+        bAutoRepair: boolean;
+        MaxSendRate: number;
+        AutoRepairAttemptLimit: number;
+        WorkQueueSize: number;
+        bStopServiceWhenAppDeactivates: boolean;
+        UnicastEndpoint: string;
+        MulticastEndpoint: string;
+        MessageFormat: EUdpMessageFormat;
+        MulticastTimeToLive: number;
+        StaticEndpoints: string[];
+        ExcludedEndpoints: string[];
+        bShareKnownNodesWithActiveConnections: boolean;
+        MaxConcurrentDeserializationTasks: number;
+        EnableTunnel: boolean;
+        TunnelUnicastEndpoint: string;
+        TunnelMulticastEndpoint: string;
+        RemoteTunnelEndpoints: string[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UUdpMessagingSettings['__properties_UUdpMessagingSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const UUdpMessagingSettings: UUdpMessagingSettings;
 

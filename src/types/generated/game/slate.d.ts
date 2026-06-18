@@ -2,39 +2,32 @@ declare interface FAnchors {
     Minimum: FVector2D;
     Maximum: FVector2D;
 }
-declare const FAnchors: FAnchors;
 
 declare interface FCharRange {
-    First: uint16;
-    Last: uint16;
+    First: number;
+    Last: number;
 }
-declare const FCharRange: FCharRange;
 
 declare interface FCharRangeList {
-    Ranges: TArray<FCharRange>;
+    Ranges: FCharRange[];
 }
-declare const FCharRangeList: FCharRangeList;
 
 declare interface FCustomizedToolMenu extends FToolMenuProfile {
-    EntryOrder: Record<FName, FCustomizedToolMenuNameArray>;
-    SectionOrder: TArray<FName>;
+    EntryOrder: TMap<string, FCustomizedToolMenuNameArray>;
+    SectionOrder: string[];
 }
-declare const FCustomizedToolMenu: FCustomizedToolMenu;
 
 declare interface FCustomizedToolMenuEntry {
     Visibility: ECustomizedToolMenuVisibility;
 }
-declare const FCustomizedToolMenuEntry: FCustomizedToolMenuEntry;
 
 declare interface FCustomizedToolMenuNameArray {
-    Names: TArray<FName>;
+    Names: string[];
 }
-declare const FCustomizedToolMenuNameArray: FCustomizedToolMenuNameArray;
 
 declare interface FCustomizedToolMenuSection {
     Visibility: ECustomizedToolMenuVisibility;
 }
-declare const FCustomizedToolMenuSection: FCustomizedToolMenuSection;
 
 declare interface FInputChord {
     Key: FKey;
@@ -43,89 +36,159 @@ declare interface FInputChord {
     bAlt: boolean;
     bCmd: boolean;
 }
-declare const FInputChord: FInputChord;
 
 declare interface FInputPreprocessorRegistrationKey {
     Type: EInputPreProcessorType;
     Priority: number;
 }
-declare const FInputPreprocessorRegistrationKey: FInputPreprocessorRegistrationKey;
 
 declare interface FToolMenuProfile {
-    Name: FName;
-    Entries: Record<FName, FCustomizedToolMenuEntry>;
-    Sections: Record<FName, FCustomizedToolMenuSection>;
-    SuppressExtenders: TArray<FName>;
+    Name: string;
+    Entries: TMap<string, FCustomizedToolMenuEntry>;
+    Sections: TMap<string, FCustomizedToolMenuSection>;
+    SuppressExtenders: string[];
 }
-declare const FToolMenuProfile: FToolMenuProfile;
 
 declare interface FVirtualKeyboardOptions {
     bEnableAutocorrect: boolean;
 }
-declare const FVirtualKeyboardOptions: FVirtualKeyboardOptions;
 
 declare interface UButtonWidgetStyle extends USlateWidgetStyleContainerBase {
-    ButtonStyle: FButtonStyle;
+    readonly __properties_UButtonWidgetStyle: {
+        ButtonStyle: FButtonStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UButtonWidgetStyle['__properties_UButtonWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UButtonWidgetStyle: UButtonWidgetStyle;
 
 declare interface UCheckBoxWidgetStyle extends USlateWidgetStyleContainerBase {
-    CheckBoxStyle: FCheckBoxStyle;
+    readonly __properties_UCheckBoxWidgetStyle: {
+        CheckBoxStyle: FCheckBoxStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UCheckBoxWidgetStyle['__properties_UCheckBoxWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UCheckBoxWidgetStyle: UCheckBoxWidgetStyle;
 
 declare interface UComboBoxWidgetStyle extends USlateWidgetStyleContainerBase {
-    ComboBoxStyle: FComboBoxStyle;
+    readonly __properties_UComboBoxWidgetStyle: {
+        ComboBoxStyle: FComboBoxStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UComboBoxWidgetStyle['__properties_UComboBoxWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UComboBoxWidgetStyle: UComboBoxWidgetStyle;
 
 declare interface UComboButtonWidgetStyle extends USlateWidgetStyleContainerBase {
-    ComboButtonStyle: FComboButtonStyle;
+    readonly __properties_UComboButtonWidgetStyle: {
+        ComboButtonStyle: FComboButtonStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UComboButtonWidgetStyle['__properties_UComboButtonWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UComboButtonWidgetStyle: UComboButtonWidgetStyle;
 
 declare interface UEditableTextBoxWidgetStyle extends USlateWidgetStyleContainerBase {
-    EditableTextBoxStyle: FEditableTextBoxStyle;
+    readonly __properties_UEditableTextBoxWidgetStyle: {
+        EditableTextBoxStyle: FEditableTextBoxStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEditableTextBoxWidgetStyle['__properties_UEditableTextBoxWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UEditableTextBoxWidgetStyle: UEditableTextBoxWidgetStyle;
 
 declare interface UEditableTextWidgetStyle extends USlateWidgetStyleContainerBase {
-    EditableTextStyle: FEditableTextStyle;
+    readonly __properties_UEditableTextWidgetStyle: {
+        EditableTextStyle: FEditableTextStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEditableTextWidgetStyle['__properties_UEditableTextWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UEditableTextWidgetStyle: UEditableTextWidgetStyle;
 
 declare interface UProgressWidgetStyle extends USlateWidgetStyleContainerBase {
-    ProgressBarStyle: FProgressBarStyle;
+    readonly __properties_UProgressWidgetStyle: {
+        ProgressBarStyle: FProgressBarStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UProgressWidgetStyle['__properties_UProgressWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UProgressWidgetStyle: UProgressWidgetStyle;
 
 declare interface UScrollBarWidgetStyle extends USlateWidgetStyleContainerBase {
-    ScrollBarStyle: FScrollBarStyle;
+    readonly __properties_UScrollBarWidgetStyle: {
+        ScrollBarStyle: FScrollBarStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UScrollBarWidgetStyle['__properties_UScrollBarWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UScrollBarWidgetStyle: UScrollBarWidgetStyle;
 
 declare interface UScrollBoxWidgetStyle extends USlateWidgetStyleContainerBase {
-    ScrollBoxStyle: FScrollBoxStyle;
+    readonly __properties_UScrollBoxWidgetStyle: {
+        ScrollBoxStyle: FScrollBoxStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UScrollBoxWidgetStyle['__properties_UScrollBoxWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UScrollBoxWidgetStyle: UScrollBoxWidgetStyle;
 
 declare interface USlateSettings extends UObject {
-    bExplicitCanvasChildZOrder: boolean;
+    readonly __properties_USlateSettings: {
+        bExplicitCanvasChildZOrder: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USlateSettings['__properties_USlateSettings'] &
+        UObject['__propertyRegistry'];
 }
-declare const USlateSettings: USlateSettings;
 
 declare interface USpinBoxWidgetStyle extends USlateWidgetStyleContainerBase {
-    SpinBoxStyle: FSpinBoxStyle;
+    readonly __properties_USpinBoxWidgetStyle: {
+        SpinBoxStyle: FSpinBoxStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        USpinBoxWidgetStyle['__properties_USpinBoxWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const USpinBoxWidgetStyle: USpinBoxWidgetStyle;
 
 declare interface UTextBlockWidgetStyle extends USlateWidgetStyleContainerBase {
-    TextBlockStyle: FTextBlockStyle;
+    readonly __properties_UTextBlockWidgetStyle: {
+        TextBlockStyle: FTextBlockStyle;
+    };
+    readonly __staticRegistry: 
+        USlateWidgetStyleContainerBase['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UTextBlockWidgetStyle['__properties_UTextBlockWidgetStyle'] &
+        USlateWidgetStyleContainerBase['__propertyRegistry'];
 }
-declare const UTextBlockWidgetStyle: UTextBlockWidgetStyle;
 
 declare interface UToolMenuBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UToolMenuBase: UToolMenuBase;
 

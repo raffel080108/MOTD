@@ -1,10 +1,15 @@
 declare interface FMyPluginStruct {
-    TestString: FString;
+    TestString: string;
 }
-declare const FMyPluginStruct: FMyPluginStruct;
 
 declare interface UMyPluginObject extends UObject {
-    MyStruct: FMyPluginStruct;
+    readonly __properties_UMyPluginObject: {
+        MyStruct: FMyPluginStruct;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UMyPluginObject['__properties_UMyPluginObject'] &
+        UObject['__propertyRegistry'];
 }
-declare const UMyPluginObject: UMyPluginObject;
 

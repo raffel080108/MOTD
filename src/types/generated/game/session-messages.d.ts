@@ -1,38 +1,29 @@
 declare interface FSessionServiceLog {
-    Category: FName;
-    Data: FString;
+    Category: string;
+    Data: string;
     InstanceId: FGuid;
     TimeSeconds: number;
-    Verbosity: uint8;
+    Verbosity: number;
 }
-declare const FSessionServiceLog: FSessionServiceLog;
 
-declare interface FSessionServiceLogSubscribe {
+declare type FSessionServiceLogSubscribe = object;
 
-}
-declare const FSessionServiceLogSubscribe: FSessionServiceLogSubscribe;
-
-declare interface FSessionServiceLogUnsubscribe {
-
-}
-declare const FSessionServiceLogUnsubscribe: FSessionServiceLogUnsubscribe;
+declare type FSessionServiceLogUnsubscribe = object;
 
 declare interface FSessionServicePing {
-    Username: FString;
+    Username: string;
 }
-declare const FSessionServicePing: FSessionServicePing;
 
 declare interface FSessionServicePong {
     Authorized: boolean;
-    BuildDate: FString;
-    DeviceName: FString;
+    BuildDate: string;
+    DeviceName: string;
     InstanceId: FGuid;
-    InstanceName: FString;
-    PlatformName: FString;
+    InstanceName: string;
+    PlatformName: string;
     SessionId: FGuid;
-    SessionName: FString;
-    SessionOwner: FString;
+    SessionName: string;
+    SessionOwner: string;
     Standalone: boolean;
 }
-declare const FSessionServicePong: FSessionServicePong;
 

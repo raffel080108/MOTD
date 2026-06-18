@@ -1,61 +1,73 @@
 declare interface FEscalationState extends FStateStruct {
     bLogEscalate: boolean;
     bDormant: boolean;
-    CooloffTime: int16;
-    AutoEscalateTime: int16;
-    HighestTimePeriod: int8;
-    AllTimePeriods: TArray<int8>;
+    CooloffTime: number;
+    AutoEscalateTime: number;
+    HighestTimePeriod: number;
+    AllTimePeriods: number[];
 }
-declare const FEscalationState: FEscalationState;
 
 declare interface FFastArraySerializer {
     IDCounter: number;
     ArrayReplicationKey: number;
     DeltaFlags: EFastArraySerializerDeltaFlags;
 }
-declare const FFastArraySerializer: FFastArraySerializer;
 
 declare interface FFastArraySerializerItem {
     ReplicationID: number;
     ReplicationKey: number;
     MostRecentArrayReplicationKey: number;
 }
-declare const FFastArraySerializerItem: FFastArraySerializerItem;
 
 declare interface FNetAnalyticsDataConfig {
-    DataName: FName;
+    DataName: string;
     bEnabled: boolean;
 }
-declare const FNetAnalyticsDataConfig: FNetAnalyticsDataConfig;
 
 declare interface FNetFaultState extends FEscalationState {
     bCloseConnection: boolean;
-    EscalateQuotaFaultsPerPeriod: int16;
-    EscalateQuotaFaultPercentPerPeriod: int8;
-    DescalateQuotaFaultsPerPeriod: int16;
-    DescalateQuotaFaultPercentPerPeriod: int8;
-    EscalateQuotaTimePeriod: int8;
+    EscalateQuotaFaultsPerPeriod: number;
+    EscalateQuotaFaultPercentPerPeriod: number;
+    DescalateQuotaFaultsPerPeriod: number;
+    DescalateQuotaFaultPercentPerPeriod: number;
+    EscalateQuotaTimePeriod: number;
 }
-declare const FNetFaultState: FNetFaultState;
 
 declare interface FStateStruct {
-    StateName: FString;
+    StateName: string;
 }
-declare const FStateStruct: FStateStruct;
 
 declare interface UEscalationManagerConfig extends UStatePerObjectConfig {
-    EscalationSeverity: TArray<FString>;
+    readonly __properties_UEscalationManagerConfig: {
+        EscalationSeverity: string[];
+    };
+    readonly __staticRegistry: 
+        UStatePerObjectConfig['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UEscalationManagerConfig['__properties_UEscalationManagerConfig'] &
+        UStatePerObjectConfig['__propertyRegistry'];
 }
-declare const UEscalationManagerConfig: UEscalationManagerConfig;
 
 declare interface UNetAnalyticsAggregatorConfig extends UObject {
-    NetAnalyticsData: TArray<FNetAnalyticsDataConfig>;
+    readonly __properties_UNetAnalyticsAggregatorConfig: {
+        NetAnalyticsData: FNetAnalyticsDataConfig[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNetAnalyticsAggregatorConfig['__properties_UNetAnalyticsAggregatorConfig'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNetAnalyticsAggregatorConfig: UNetAnalyticsAggregatorConfig;
 
 declare interface UStatePerObjectConfig extends UObject {
-    PerObjectConfigSection: FString;
-    bEnabled: boolean;
+    readonly __properties_UStatePerObjectConfig: {
+        PerObjectConfigSection: string;
+        bEnabled: boolean;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UStatePerObjectConfig['__properties_UStatePerObjectConfig'] &
+        UObject['__propertyRegistry'];
 }
-declare const UStatePerObjectConfig: UStatePerObjectConfig;
 

@@ -1,69 +1,84 @@
 declare interface FNamingTokenData {
-    TokenKey: FString;
-    DisplayName: FText;
-    Description: FText;
-    FunctionName: FName;
+    TokenKey: string;
+    DisplayName: string;
+    Description: string;
+    FunctionName: string;
 }
-declare const FNamingTokenData: FNamingTokenData;
 
 declare interface FNamingTokenFilterArgs {
-    AdditionalNamespacesToInclude: TArray<FString>;
+    AdditionalNamespacesToInclude: string[];
     bIncludeGlobal: boolean;
     bForceCaseSensitive: boolean;
     bNativeOnly: boolean;
 }
-declare const FNamingTokenFilterArgs: FNamingTokenFilterArgs;
 
 declare interface FNamingTokenResultData {
-    OriginalText: FText;
-    EvaluatedText: FText;
-    TokenValues: TArray<FNamingTokenValueData>;
+    OriginalText: string;
+    EvaluatedText: string;
+    TokenValues: FNamingTokenValueData[];
 }
-declare const FNamingTokenResultData: FNamingTokenResultData;
 
 declare interface FNamingTokenValueData {
-    TokenKey: FString;
-    ProvidedNamespace: FString;
-    TokenValue: FText;
+    TokenKey: string;
+    ProvidedNamespace: string;
+    TokenValue: string;
     bWasEvaluated: boolean;
 }
-declare const FNamingTokenValueData: FNamingTokenValueData;
 
 declare interface FNamingTokensEvaluationData {
     CurrentDateTime: FDateTime;
-    Contexts: TArray<UObject>;
+    Contexts: UObject[];
 }
-declare const FNamingTokensEvaluationData: FNamingTokensEvaluationData;
 
 declare interface UGlobalNamingTokens extends UNamingTokens {
-
+    readonly __staticRegistry: 
+        UNamingTokens['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNamingTokens['__propertyRegistry'];
 }
-declare const UGlobalNamingTokens: UGlobalNamingTokens;
 
 declare interface UNamingTokens extends UObject {
-    CustomTokens: TArray<FNamingTokenData>;
-    CurrentEvaluationData: FNamingTokensEvaluationData;
-    Namespace: FString;
-    ProcessTokenTemplateFunction(): FText;
-    OnPreEvaluate(InEvaluationData: FNamingTokensEvaluationData): void;
-    OnPostEvaluate(): void;
-    GetCurrentDateTime(): FDateTime;
+    readonly __static_UNamingTokens: {
+        ProcessTokenTemplateFunction(): string;
+        OnPreEvaluate(InEvaluationData: FNamingTokensEvaluationData): void;
+        OnPostEvaluate(): void;
+        GetCurrentDateTime(): FDateTime;
+    };
+    readonly __properties_UNamingTokens: {
+        CustomTokens: FNamingTokenData[];
+        CurrentEvaluationData: FNamingTokensEvaluationData;
+        Namespace: string;
+    };
+    readonly __staticRegistry: 
+        UNamingTokens['__static_UNamingTokens'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNamingTokens['__properties_UNamingTokens'] &
+        UObject['__propertyRegistry'];
 }
-declare const UNamingTokens: UNamingTokens;
 
 declare interface UNamingTokensEngineSubsystem extends UEngineSubsystem {
-    CachedNamingTokens: Record<FString, UNamingTokens>;
-    UnregisterGlobalNamespace(InNameSpace: string | FString): void;
-    RegisterGlobalNamespace(InNameSpace: string | FString): void;
-    IsGlobalNamespaceRegistered(InNameSpace: string | FString): boolean;
-    GetNamingTokensNative(InNameSpace: string | FString): UNamingTokens;
-    GetNamingTokens(InNameSpace: string | FString): UNamingTokens;
-    GetMultipleNamingTokens(InNamespaces: string | FString[]): TArray<UNamingTokens>;
-    GetGlobalNamespaces(): TArray<FString>;
-    GetAllNamespaces(): TArray<FString>;
-    EvaluateTokenText(InTokenText: FText, InFilter: FNamingTokenFilterArgs, InContexts: TArray<UObject>): FNamingTokenResultData;
-    EvaluateTokenString(InTokenString: string | FString, InFilter: FNamingTokenFilterArgs, InContexts: TArray<UObject>): FNamingTokenResultData;
-    ClearCachedNamingTokens(): void;
+    readonly __static_UNamingTokensEngineSubsystem: {
+        UnregisterGlobalNamespace(InNameSpace: string): void;
+        RegisterGlobalNamespace(InNameSpace: string): void;
+        IsGlobalNamespaceRegistered(InNameSpace: string): boolean;
+        GetNamingTokensNative(InNameSpace: string): UNamingTokens;
+        GetNamingTokens(InNameSpace: string): UNamingTokens;
+        GetMultipleNamingTokens(InNamespaces: string[]): UNamingTokens[];
+        GetGlobalNamespaces(): string[];
+        GetAllNamespaces(): string[];
+        EvaluateTokenText(InTokenText: string, InFilter: FNamingTokenFilterArgs, InContexts: UObject[]): FNamingTokenResultData;
+        EvaluateTokenString(InTokenString: string, InFilter: FNamingTokenFilterArgs, InContexts: UObject[]): FNamingTokenResultData;
+        ClearCachedNamingTokens(): void;
+    };
+    readonly __properties_UNamingTokensEngineSubsystem: {
+        CachedNamingTokens: TMap<string, UNamingTokens>;
+    };
+    readonly __staticRegistry: 
+        UNamingTokensEngineSubsystem['__static_UNamingTokensEngineSubsystem'] &
+        UEngineSubsystem['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNamingTokensEngineSubsystem['__properties_UNamingTokensEngineSubsystem'] &
+        UEngineSubsystem['__propertyRegistry'];
 }
-declare const UNamingTokensEngineSubsystem: UNamingTokensEngineSubsystem;
 

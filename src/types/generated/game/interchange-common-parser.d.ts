@@ -1,7 +1,6 @@
 declare interface FInterchangeCurve {
-    Keys: TArray<FInterchangeCurveKey>;
+    Keys: FInterchangeCurveKey[];
 }
-declare const FInterchangeCurve: FInterchangeCurve;
 
 declare interface FInterchangeCurveKey {
     InterpMode: EInterchangeCurveInterpMode;
@@ -14,10 +13,8 @@ declare interface FInterchangeCurveKey {
     LeaveTangent: number;
     LeaveTangentWeight: number;
 }
-declare const FInterchangeCurveKey: FInterchangeCurveKey;
 
 declare interface FInterchangeStepCurve {
-    KeyTimes: TArray<number>;
+    KeyTimes: number[];
 }
-declare const FInterchangeStepCurve: FInterchangeStepCurve;
 

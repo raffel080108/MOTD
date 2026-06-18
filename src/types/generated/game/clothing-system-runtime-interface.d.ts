@@ -1,10 +1,9 @@
 declare interface FClothCollisionData {
-    Spheres: TArray<FClothCollisionPrim_Sphere>;
-    SphereConnections: TArray<FClothCollisionPrim_SphereConnection>;
-    Convexes: TArray<FClothCollisionPrim_Convex>;
-    Boxes: TArray<FClothCollisionPrim_Box>;
+    Spheres: FClothCollisionPrim_Sphere[];
+    SphereConnections: FClothCollisionPrim_SphereConnection[];
+    Convexes: FClothCollisionPrim_Convex[];
+    Boxes: FClothCollisionPrim_Box[];
 }
-declare const FClothCollisionData: FClothCollisionData;
 
 declare interface FClothCollisionPrim_Box {
     LocalPosition: FVector;
@@ -12,95 +11,118 @@ declare interface FClothCollisionPrim_Box {
     HalfExtents: FVector;
     BoneIndex: number;
 }
-declare const FClothCollisionPrim_Box: FClothCollisionPrim_Box;
 
 declare interface FClothCollisionPrim_Convex {
-    Faces: TArray<FClothCollisionPrim_ConvexFace>;
-    SurfacePoints: TArray<FVector>;
+    Faces: FClothCollisionPrim_ConvexFace[];
+    SurfacePoints: FVector[];
     BoneIndex: number;
 }
-declare const FClothCollisionPrim_Convex: FClothCollisionPrim_Convex;
 
 declare interface FClothCollisionPrim_ConvexFace {
     Plane: FPlane;
-    Indices: TArray<number>;
+    Indices: number[];
 }
-declare const FClothCollisionPrim_ConvexFace: FClothCollisionPrim_ConvexFace;
 
 declare interface FClothCollisionPrim_Sphere {
     BoneIndex: number;
     Radius: number;
     LocalPosition: FVector;
 }
-declare const FClothCollisionPrim_Sphere: FClothCollisionPrim_Sphere;
 
 declare interface FClothCollisionPrim_SphereConnection {
     SphereIndices: number;
     OneSidedPlaneNormal: FVector;
 }
-declare const FClothCollisionPrim_SphereConnection: FClothCollisionPrim_SphereConnection;
 
 declare interface FClothVertBoneData {
     NumInfluences: number;
-    BoneIndices: uint16;
+    BoneIndices: number;
     BoneWeights: number;
 }
-declare const FClothVertBoneData: FClothVertBoneData;
 
 declare interface UClothConfigBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UClothConfigBase: UClothConfigBase;
 
 declare interface UClothPhysicalMeshDataBase_Legacy extends UObject {
-    Vertices: TArray<FVector3f>;
-    Normals: TArray<FVector3f>;
-    Indices: TArray<uint32>;
-    InverseMasses: TArray<number>;
-    BoneData: TArray<FClothVertBoneData>;
-    NumFixedVerts: number;
-    MaxBoneWeights: number;
-    SelfCollisionIndices: TArray<uint32>;
+    readonly __properties_UClothPhysicalMeshDataBase_Legacy: {
+        Vertices: FVector3f[];
+        Normals: FVector3f[];
+        Indices: number[];
+        InverseMasses: number[];
+        BoneData: FClothVertBoneData[];
+        NumFixedVerts: number;
+        MaxBoneWeights: number;
+        SelfCollisionIndices: number[];
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UClothPhysicalMeshDataBase_Legacy['__properties_UClothPhysicalMeshDataBase_Legacy'] &
+        UObject['__propertyRegistry'];
 }
-declare const UClothPhysicalMeshDataBase_Legacy: UClothPhysicalMeshDataBase_Legacy;
 
 declare interface UClothingAssetBase extends UObject {
-    AssetGuid: FGuid;
+    readonly __properties_UClothingAssetBase: {
+        AssetGuid: FGuid;
+    };
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UClothingAssetBase['__properties_UClothingAssetBase'] &
+        UObject['__propertyRegistry'];
 }
-declare const UClothingAssetBase: UClothingAssetBase;
 
 declare interface UClothingInteractor extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UClothingInteractor: UClothingInteractor;
 
 declare interface UClothingSimulationFactory extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UClothingSimulationFactory: UClothingSimulationFactory;
 
 declare interface UClothingSimulationInteractor extends UObject {
-    ClothingInteractors: Record<FName, UClothingInteractor>;
-    SetNumSubsteps(NumSubSteps: number): void;
-    SetNumIterations(NumIterations: number): void;
-    SetMaxNumIterations(MaxNumIterations: number): void;
-    SetAnimDriveSpringStiffness(InStiffness: number): void;
-    PhysicsAssetUpdated(): void;
-    GetSimulationTime(): number;
-    GetNumSubsteps(): number;
-    GetNumKinematicParticles(): number;
-    GetNumIterations(): number;
-    GetNumDynamicParticles(): number;
-    GetNumCloths(): number;
-    GetClothingInteractor(ClothingAssetName: string | FString): UClothingInteractor;
-    EnableGravityOverride(InVector: FVector): void;
-    DisableGravityOverride(): void;
-    ClothConfigUpdated(): void;
+    readonly __static_UClothingSimulationInteractor: {
+        SetNumSubsteps(NumSubSteps: number): void;
+        SetNumIterations(NumIterations: number): void;
+        SetMaxNumIterations(MaxNumIterations: number): void;
+        SetAnimDriveSpringStiffness(InStiffness: number): void;
+        PhysicsAssetUpdated(): void;
+        GetSimulationTime(): number;
+        GetNumSubsteps(): number;
+        GetNumKinematicParticles(): number;
+        GetNumIterations(): number;
+        GetNumDynamicParticles(): number;
+        GetNumCloths(): number;
+        GetClothingInteractor(ClothingAssetName: string): UClothingInteractor;
+        EnableGravityOverride(InVector: FVector): void;
+        DisableGravityOverride(): void;
+        ClothConfigUpdated(): void;
+    };
+    readonly __properties_UClothingSimulationInteractor: {
+        ClothingInteractors: TMap<string, UClothingInteractor>;
+    };
+    readonly __staticRegistry: 
+        UClothingSimulationInteractor['__static_UClothingSimulationInteractor'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UClothingSimulationInteractor['__properties_UClothingSimulationInteractor'] &
+        UObject['__propertyRegistry'];
 }
-declare const UClothingSimulationInteractor: UClothingSimulationInteractor;
 
 declare interface UDEPRECATED_ClothSharedSimConfigBase extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UDEPRECATED_ClothSharedSimConfigBase: UDEPRECATED_ClothSharedSimConfigBase;
 

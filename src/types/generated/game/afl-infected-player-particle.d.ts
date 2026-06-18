@@ -1,5 +1,7 @@
 declare interface UAFL_InfectedPlayer_Particle_C extends UAttachedParticlesAfflictionEffect {
-
+    readonly __staticRegistry: 
+        UAttachedParticlesAfflictionEffect['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UAttachedParticlesAfflictionEffect['__propertyRegistry'];
 }
-declare const UAFL_InfectedPlayer_Particle_C: UAFL_InfectedPlayer_Particle_C;
 

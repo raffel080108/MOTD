@@ -4,5 +4,4 @@ declare interface FPlatformRuntimeAudioCompressionOverrides {
     MaxNumRandomBranches: number;
     SoundCueQualityIndex: number;
 }
-declare const FPlatformRuntimeAudioCompressionOverrides: FPlatformRuntimeAudioCompressionOverrides;
 

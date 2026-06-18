@@ -1,20 +1,15 @@
 declare interface FCachedPropertyPath {
-    Segments: TArray<FPropertyPathSegment>;
+    Segments: FPropertyPathSegment[];
     CachedFunction: UFunction;
 }
-declare const FCachedPropertyPath: FCachedPropertyPath;
 
 declare interface FPropertyPathSegment {
-    Name: FName;
+    Name: string;
     ArrayIndex: number;
     Struct: UStruct;
 }
-declare const FPropertyPathSegment: FPropertyPathSegment;
 
-declare interface FPropertyPathTestBaseStruct {
-
-}
-declare const FPropertyPathTestBaseStruct: FPropertyPathTestBaseStruct;
+declare type FPropertyPathTestBaseStruct = object;
 
 declare interface FPropertyPathTestBed {
     Object: UPropertyPathTestObject;
@@ -22,7 +17,6 @@ declare interface FPropertyPathTestBed {
     ModifiedStruct: FPropertyPathTestStruct;
     DefaultStruct: FPropertyPathTestStruct;
 }
-declare const FPropertyPathTestBed: FPropertyPathTestBed;
 
 declare interface FPropertyPathTestInnerStruct extends FPropertyPathTestBaseStruct {
     float: number;
@@ -32,9 +26,8 @@ declare interface FPropertyPathTestInnerStruct extends FPropertyPathTestBaseStru
     EnumThree: EPropertyPathTestEnum;
     EnumFour: EPropertyPathTestEnum;
     Integer: number;
-    String: FString;
+    String: string;
 }
-declare const FPropertyPathTestInnerStruct: FPropertyPathTestInnerStruct;
 
 declare interface FPropertyPathTestStruct extends FPropertyPathTestBaseStruct {
     bool: boolean;
@@ -43,34 +36,42 @@ declare interface FPropertyPathTestStruct extends FPropertyPathTestBaseStruct {
     EnumTwo: EPropertyPathTestEnum;
     EnumThree: EPropertyPathTestEnum;
     EnumFour: EPropertyPathTestEnum;
-    String: FString;
+    String: string;
     float: number;
     InnerStruct: FPropertyPathTestInnerStruct;
     InnerObject: UPropertyPathTestObject;
 }
-declare const FPropertyPathTestStruct: FPropertyPathTestStruct;
 
 declare interface UPropertyPathTestObject extends UObject {
-    bool: boolean;
-    EnumOne: EPropertyPathTestEnum;
-    EnumTwo: EPropertyPathTestEnum;
-    EnumThree: EPropertyPathTestEnum;
-    EnumFour: EPropertyPathTestEnum;
-    Integer: number;
-    String: FString;
-    float: number;
-    Struct: FPropertyPathTestStruct;
-    StructRef: FPropertyPathTestStruct;
-    StructConstRef: FPropertyPathTestStruct;
-    InnerObject: UPropertyPathTestObject;
-    SetStructRef(InStruct: FPropertyPathTestStruct): void;
-    SetStructConstRef(InStruct: FPropertyPathTestStruct): void;
-    SetStruct(InStruct: FPropertyPathTestStruct): void;
-    SetFloat(InFloat: number): void;
-    GetStructRef(): FPropertyPathTestStruct;
-    GetStructConstRef(): FPropertyPathTestStruct;
-    GetStruct(): FPropertyPathTestStruct;
-    GetFloat(): number;
+    readonly __static_UPropertyPathTestObject: {
+        SetStructRef(InStruct: FPropertyPathTestStruct): void;
+        SetStructConstRef(InStruct: FPropertyPathTestStruct): void;
+        SetStruct(InStruct: FPropertyPathTestStruct): void;
+        SetFloat(InFloat: number): void;
+        GetStructRef(): FPropertyPathTestStruct;
+        GetStructConstRef(): FPropertyPathTestStruct;
+        GetStruct(): FPropertyPathTestStruct;
+        GetFloat(): number;
+    };
+    readonly __properties_UPropertyPathTestObject: {
+        bool: boolean;
+        EnumOne: EPropertyPathTestEnum;
+        EnumTwo: EPropertyPathTestEnum;
+        EnumThree: EPropertyPathTestEnum;
+        EnumFour: EPropertyPathTestEnum;
+        Integer: number;
+        String: string;
+        float: number;
+        Struct: FPropertyPathTestStruct;
+        StructRef: FPropertyPathTestStruct;
+        StructConstRef: FPropertyPathTestStruct;
+        InnerObject: UPropertyPathTestObject;
+    };
+    readonly __staticRegistry: 
+        UPropertyPathTestObject['__static_UPropertyPathTestObject'] &
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UPropertyPathTestObject['__properties_UPropertyPathTestObject'] &
+        UObject['__propertyRegistry'];
 }
-declare const UPropertyPathTestObject: UPropertyPathTestObject;
 

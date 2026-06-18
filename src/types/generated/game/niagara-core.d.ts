@@ -1,21 +1,23 @@
 declare interface FNiagaraCompileHash {
-    DataHash: TArray<uint8>;
+    DataHash: number[];
 }
-declare const FNiagaraCompileHash: FNiagaraCompileHash;
 
 declare interface FNiagaraVariableCommonReference {
-    Name: FName;
+    Name: string;
     UnderlyingType: UObject;
 }
-declare const FNiagaraVariableCommonReference: FNiagaraVariableCommonReference;
 
 declare interface UNiagaraDataInterfaceBase extends UNiagaraMergeable {
-
+    readonly __staticRegistry: 
+        UNiagaraMergeable['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UNiagaraMergeable['__propertyRegistry'];
 }
-declare const UNiagaraDataInterfaceBase: UNiagaraDataInterfaceBase;
 
 declare interface UNiagaraMergeable extends UObject {
-
+    readonly __staticRegistry: 
+        UObject['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UObject['__propertyRegistry'];
 }
-declare const UNiagaraMergeable: UNiagaraMergeable;
 

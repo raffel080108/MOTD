@@ -1,11 +1,16 @@
 declare interface UABP_TimeRewinder_C extends UTimeRewinderAnimInstance {
-    AnimBlueprintClassConstantData: {
-        __NameProperty_126: FName;
-        __NameProperty_127: FName;
-        __NameProperty_128: FName;
+    readonly __static_UABP_TimeRewinder_C: {
+        AnimGraph(AnimGraph: FPoseLink): void;
+        OnInitialUpdate(Context: FAnimUpdateContext, Node: FAnimNodeReference): void;
+    };
+    readonly __properties_UABP_TimeRewinder_C: {
+        AnimBlueprintClassConstantData: {
+        __NameProperty_126: string;
+        __NameProperty_127: string;
+        __NameProperty_128: string;
         __StructProperty_129: FInputScaleBiasClampConstants;
         __FloatProperty_130: number;
-        __NameProperty_131: FName;
+        __NameProperty_131: string;
         __IntProperty_132: number;
         __ByteProperty_133: ESequenceEvalReinit;
         __BoolProperty_134: boolean;
@@ -13,16 +18,16 @@ declare interface UABP_TimeRewinder_C extends UTimeRewinderAnimInstance {
         __AnimSequenceBase_136: UAnimSequenceBase;
         __EnumProperty_137: EAnimSyncMethod;
         __ByteProperty_138: EAnimGroupRole;
-        __NameProperty_139: FName;
-        __NameProperty_140: FName;
-        __NameProperty_141: FName;
+        __NameProperty_139: string;
+        __NameProperty_140: string;
+        __NameProperty_141: string;
         __IntProperty_142: number;
         __StructProperty_143: FAnimNodeFunctionRef;
         __CurveFloat_144: UCurveFloat;
         __EnumProperty_145: EBlendListChildUpdateMode;
         __EnumProperty_146: EAlphaBlendOption;
         __EnumProperty_147: EBlendListTransitionType;
-        __ArrayProperty_148: TArray<number>;
+        __ArrayProperty_148: number[];
         __BoolProperty_149: boolean;
         __BlendProfile_150: UBlendProfile;
         AnimBlueprintExtension_PropertyAccess: FAnimSubsystem_PropertyAccess;
@@ -51,37 +56,41 @@ declare interface UABP_TimeRewinder_C extends UTimeRewinderAnimInstance {
         AnimGraphNode_ModifyBone: FAnimNodeExposedValueHandler_PropertyAccess;
         AnimGraphNode_BlendListByBool: FAnimNodeExposedValueHandler_PropertyAccess;
     };
-    __AnimBlueprintMutables: {
+        __AnimBlueprintMutables: {
         __BoolProperty: boolean;
     };
-    AnimBlueprintExtension_PropertyAccess: FAnimSubsystemInstance;
-    AnimBlueprintExtension_Base: FAnimSubsystemInstance;
-    AnimGraphNode_MeshRefPose: FAnimNode_MeshSpaceRefPose;
-    AnimGraphNode_ComponentToLocalSpace: FAnimNode_ConvertComponentToLocalSpace;
-    AnimGraphNode_ModifyBone_2: FAnimNode_ModifyBone;
-    AnimGraphNode_ApplyAdditive: FAnimNode_ApplyAdditive;
-    AnimGraphNode_ModifyBone_1: FAnimNode_ModifyBone;
-    AnimGraphNode_TransitionResult_3: FAnimNode_TransitionResult;
-    AnimGraphNode_TransitionResult_2: FAnimNode_TransitionResult;
-    AnimGraphNode_SequencePlayer_2: FAnimNode_SequencePlayer;
-    AnimGraphNode_StateResult_3: FAnimNode_StateResult;
-    AnimGraphNode_SequencePlayer_1: FAnimNode_SequencePlayer;
-    AnimGraphNode_StateResult_2: FAnimNode_StateResult;
-    AnimGraphNode_StateMachine_1: FAnimNode_StateMachine;
-    AnimGraphNode_Slot: FAnimNode_Slot;
-    AnimGraphNode_Root: FAnimNode_Root;
-    AnimGraphNode_TransitionResult_1: FAnimNode_TransitionResult;
-    AnimGraphNode_TransitionResult: FAnimNode_TransitionResult;
-    AnimGraphNode_SequencePlayer: FAnimNode_SequencePlayer;
-    AnimGraphNode_StateResult_1: FAnimNode_StateResult;
-    AnimGraphNode_SequenceEvaluator: FAnimNode_SequenceEvaluator;
-    AnimGraphNode_StateResult: FAnimNode_StateResult;
-    AnimGraphNode_StateMachine: FAnimNode_StateMachine;
-    AnimGraphNode_ModifyBone: FAnimNode_ModifyBone;
-    AnimGraphNode_BlendListByBool: FAnimNode_BlendListByBool;
-    IsActive: boolean;
-    AnimGraph(AnimGraph: FPoseLink): void;
-    OnInitialUpdate(Context: FAnimUpdateContext, Node: FAnimNodeReference): void;
+        AnimBlueprintExtension_PropertyAccess: FAnimSubsystemInstance;
+        AnimBlueprintExtension_Base: FAnimSubsystemInstance;
+        AnimGraphNode_MeshRefPose: FAnimNode_MeshSpaceRefPose;
+        AnimGraphNode_ComponentToLocalSpace: FAnimNode_ConvertComponentToLocalSpace;
+        AnimGraphNode_ModifyBone_2: FAnimNode_ModifyBone;
+        AnimGraphNode_ApplyAdditive: FAnimNode_ApplyAdditive;
+        AnimGraphNode_ModifyBone_1: FAnimNode_ModifyBone;
+        AnimGraphNode_TransitionResult_3: FAnimNode_TransitionResult;
+        AnimGraphNode_TransitionResult_2: FAnimNode_TransitionResult;
+        AnimGraphNode_SequencePlayer_2: FAnimNode_SequencePlayer;
+        AnimGraphNode_StateResult_3: FAnimNode_StateResult;
+        AnimGraphNode_SequencePlayer_1: FAnimNode_SequencePlayer;
+        AnimGraphNode_StateResult_2: FAnimNode_StateResult;
+        AnimGraphNode_StateMachine_1: FAnimNode_StateMachine;
+        AnimGraphNode_Slot: FAnimNode_Slot;
+        AnimGraphNode_Root: FAnimNode_Root;
+        AnimGraphNode_TransitionResult_1: FAnimNode_TransitionResult;
+        AnimGraphNode_TransitionResult: FAnimNode_TransitionResult;
+        AnimGraphNode_SequencePlayer: FAnimNode_SequencePlayer;
+        AnimGraphNode_StateResult_1: FAnimNode_StateResult;
+        AnimGraphNode_SequenceEvaluator: FAnimNode_SequenceEvaluator;
+        AnimGraphNode_StateResult: FAnimNode_StateResult;
+        AnimGraphNode_StateMachine: FAnimNode_StateMachine;
+        AnimGraphNode_ModifyBone: FAnimNode_ModifyBone;
+        AnimGraphNode_BlendListByBool: FAnimNode_BlendListByBool;
+        IsActive: boolean;
+    };
+    readonly __staticRegistry: 
+        UABP_TimeRewinder_C['__static_UABP_TimeRewinder_C'] &
+        UTimeRewinderAnimInstance['__staticRegistry'];
+    readonly __propertyRegistry: 
+        UABP_TimeRewinder_C['__properties_UABP_TimeRewinder_C'] &
+        UTimeRewinderAnimInstance['__propertyRegistry'];
 }
-declare const UABP_TimeRewinder_C: UABP_TimeRewinder_C;
 

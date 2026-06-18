@@ -1,5 +1,7 @@
 declare interface AITM_BarGlass_Item_LeafloversSpecial_C extends AITM_BarGlass_Item_C {
-
+    readonly __staticRegistry: 
+        AITM_BarGlass_Item_C['__staticRegistry'];
+    readonly __propertyRegistry: 
+        AITM_BarGlass_Item_C['__propertyRegistry'];
 }
-declare const AITM_BarGlass_Item_LeafloversSpecial_C: AITM_BarGlass_Item_LeafloversSpecial_C;
 

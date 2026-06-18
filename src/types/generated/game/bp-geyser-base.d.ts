@@ -1,5 +1,11 @@
 declare interface ABP_Geyser_Base_C extends AActor {
-    DefaultSceneRoot: USceneComponent;
+    readonly __properties_ABP_Geyser_Base_C: {
+        DefaultSceneRoot: USceneComponent;
+    };
+    readonly __staticRegistry: 
+        AActor['__staticRegistry'];
+    readonly __propertyRegistry: 
+        ABP_Geyser_Base_C['__properties_ABP_Geyser_Base_C'] &
+        AActor['__propertyRegistry'];
 }
-declare const ABP_Geyser_Base_C: ABP_Geyser_Base_C;
 

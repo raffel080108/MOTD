@@ -1,33 +1,26 @@
-import { UEHelpers } from "ue-helpers";
-import { Logger } from "./mod/logger";
+import { Util } from "./util";
 
 export namespace UEUtil {
-    export const UE_HELPERS: UEHelpers = _G.require("UEHelpers");
     export const ASSET_REGISTRY_HELPERS = StaticFindObject("/Script/AssetRegistry.Default__AssetRegistryHelpers") as UAssetRegistryHelpers;
+    export const KISMET_SYSTEM_LIBRARY = StaticFindObject("/Script/Engine.Default__KismetSystemLibrary") as UKismetSystemLibrary;
+    export const GAMEPLAY_STATICS = StaticFindObject("/Script/Engine.Default__GameplayStatics") as UGameplayStatics;
+    export const WIDGET_BLUEPRINT_LIBRARY = StaticFindObject("/Script/UMG.Default__WidgetBlueprintLibrary") as UWidgetBlueprintLibrary;
 
-    /**
-     * Uses local player controller as `worldContextObject`
-     */
-    export function isServer(): boolean {
-        return UEUtil.UE_HELPERS.GetKismetSystemLibrary(false).IsServer(UEUtil.UE_HELPERS.GetPlayerController());
+    export function isServer(worldContextObject: UObject): boolean {
+        return CallFunction(UEUtil.KISMET_SYSTEM_LIBRARY, "IsServer", worldContextObject);
     }
 
-    export function getClassName(object: UObject): string {
-        return object.GetClass().GetFName().ToString();
+    export function getClassName(object: UE4SSLUObject): string {
+        return object.GetClass().GetName();
     }
 
     /**
      * Useful for getting a reference to non-loaded classes
      */
     export function findObjectClassInAssetRegistry(path: string, assetName: string): UClass | undefined {
-        if (!UEUtil.ASSET_REGISTRY_HELPERS.IsValid()) {
-            Logger.log("Error: AssetRegistryHelpers is not valid");
-            return;
-        }
-                
-        const targetClass = UEUtil.ASSET_REGISTRY_HELPERS.GetAsset({
-            ["PackageName"]: UEUtil.UE_HELPERS.FindOrAddFName(path + assetName),
-            ["AssetName"]: UEUtil.UE_HELPERS.FindOrAddFName(assetName + "_C"),
+        const targetClass = CallFunction(UEUtil.ASSET_REGISTRY_HELPERS, "", {
+            ["PackageName"]: path + assetName,
+            ["AssetName"]: assetName + "_C",
         }) as UClass;
 
         if (!targetClass.IsValid()) {
@@ -45,15 +38,20 @@ export namespace UEUtil {
     }
 
     /**
-     * @param outer Defaults to using the local player controller if unset
+     * @param outer Defaults to using the Local PlayerController if unset
      * @returns The constructed object or `undefined` if the constructed object is not valid
      */
-    export function constructAndValidateObject(objectClass: UClass, outer?: UObject, name?: string): UObject | undefined {
+    export function constructAndValidateObject(objectClass: UClass, outer?: UObject): UE4SSLUObject | undefined {
         if (!objectClass.IsValid()) {
             return undefined;
         }
 
-        const newObject = StaticConstructObject(objectClass, outer ?? UEUtil.UE_HELPERS.GetPlayerController(), name !== undefined ? FName(name) : undefined);
+        const world = UEUtil.getWorld();
+        if (world == undefined || !world.IsValid()) {
+            throw new Error("Unable to construct UObjects at this time");
+        }
+
+        const newObject = NewUObject(objectClass, outer ?? world);
         if (newObject.IsValid()) {
             return newObject;
         } else {
@@ -85,18 +83,48 @@ export namespace UEUtil {
 
         return objectPath.substring(firstSlashIndex);
     }
-    
-    export function getCurrentLevelName(): string | undefined {
-        const level = UEUtil.UE_HELPERS.GetPersistentLevel();
-        if (!level.IsValid()) {
-            return undefined;
-        }
 
-        const levelName = level.GetFullName();
-        if (levelName === undefined) {
-            return undefined;
+    export function getWorld(): UWorld | undefined {
+        return FindFirstOf("World") as UWorld | undefined;
+    }
+    
+    export function getCurrentLevelName(worldContextObject: UObject): string | undefined {
+        const result = CallFunction(UEUtil.GAMEPLAY_STATICS, "GetCurrentLevelName", worldContextObject, true);
+        return result;
+    }
+
+    export function waitForObject(className: string, callback: (foundObject: UObject) => void): void {
+        Util.loop(20, () => {
+            const targetObject = FindFirstOf(className);
+            if (targetObject == undefined) {
+                return false;
+            }
+
+            callback(targetObject);
+
+            return true;
+        });
+    }
+
+    export function waitForLevel(worldContextObject: UObject, levelName: string, callback: () => void): void {
+        const handle = setInterval(() => {
+            const currentLevelName = UEUtil.getCurrentLevelName(worldContextObject);
+            if (currentLevelName == undefined || currentLevelName !== levelName) {
+                return;
+            }
+
+            clearInterval(handle);
+            callback();
+        });
+    }
+
+    export function getTextInputText(inputWidget: TextInput): string | undefined {
+        if (inputWidget.IsValid()) {
+            const editableTextWidget = GetProperty(inputWidget, "EditableText");
+
+            if (editableTextWidget != undefined && editableTextWidget.IsValid()) {
+                return CallFunction(editableTextWidget, "GetText");
+            }
         }
-        
-        return UEUtil.getObjectNameFromPath(levelName);
     }
 }

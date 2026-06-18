@@ -1,5 +1,5 @@
 declare interface FJoinabilitySettings {
-    SessionName: FName;
+    SessionName: string;
     bPublicSearchable: boolean;
     bAllowInvites: boolean;
     bJoinViaPresence: boolean;
@@ -7,10 +7,6 @@ declare interface FJoinabilitySettings {
     MaxPlayers: number;
     MaxPartySize: number;
 }
-declare const FJoinabilitySettings: FJoinabilitySettings;
 
-declare interface FUniqueNetIdWrapper {
-
-}
-declare const FUniqueNetIdWrapper: FUniqueNetIdWrapper;
+declare type FUniqueNetIdWrapper = object;
 
