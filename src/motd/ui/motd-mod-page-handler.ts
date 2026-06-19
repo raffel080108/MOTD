@@ -58,26 +58,28 @@ export class MOTDModPageHandler {
 
     public registerOnOpenedHook(): void {
         this.registerModPageHook("OnUI Opened", () => {
-            const modPage = this.mod.getModPage();
-            if (modPage == undefined) {
-                throw new Error("Failed to process OnUI Opened | ModPage is null");
-            }
-            
-            this.setupModPageUIElements();
+            setTimeout(() => {
+                const modPage = this.mod.getModPage();
+                if (modPage == undefined) {
+                    throw new Error("Failed to process OnUI Opened | ModPage is null");
+                }
+                
+                this.setupModPageUIElements();
 
-            const messageTextBoxWidget = GetProperty(modPage, "MOTDMessageTextBox");
-            const lobbyMessageDelayWidget = GetProperty(modPage, "LobbyMessageDelayInput");
-            const missionMessageDelayWidget = GetProperty(modPage, "MissionMessageDelayInput");
+                const messageTextBoxWidget = GetProperty(modPage, "MOTDMessageTextBox");
+                const lobbyMessageDelayWidget = GetProperty(modPage, "LobbyMessageDelayInput");
+                const missionMessageDelayWidget = GetProperty(modPage, "MissionMessageDelayInput");
 
-            const widgetsValid = messageTextBoxWidget != undefined && messageTextBoxWidget.IsValid() && lobbyMessageDelayWidget != undefined && lobbyMessageDelayWidget.IsValid() && missionMessageDelayWidget != undefined && missionMessageDelayWidget.IsValid();
+                const widgetsValid = messageTextBoxWidget != undefined && messageTextBoxWidget.IsValid() && lobbyMessageDelayWidget != undefined && lobbyMessageDelayWidget.IsValid() && missionMessageDelayWidget != undefined && missionMessageDelayWidget.IsValid();
 
-            if (widgetsValid) {
-                CallFunction(messageTextBoxWidget, "SetText", this.mod.config.data.motdMessage ?? "");
-                CallFunction(messageTextBoxWidget, "SetFocus");
-                CallFunction(UEUtil.WIDGET_BLUEPRINT_LIBRARY, "SetFocusToGameViewport");
-                CallFunction(lobbyMessageDelayWidget, "SetText", String(this.mod.config.data.lobbyMessageDelayMillis));
-                CallFunction(missionMessageDelayWidget, "SetText", String(this.mod.config.data.missionMessageDelayMillis));
-            }
+                if (widgetsValid) {
+                    CallFunction(messageTextBoxWidget, "SetText", this.mod.config.data.motdMessage ?? "");
+                    CallFunction(messageTextBoxWidget, "SetFocus");
+                    CallFunction(UEUtil.WIDGET_BLUEPRINT_LIBRARY, "SetFocusToGameViewport");
+                    CallFunction(lobbyMessageDelayWidget, "SetText", String(this.mod.config.data.lobbyMessageDelayMillis));
+                    CallFunction(missionMessageDelayWidget, "SetText", String(this.mod.config.data.missionMessageDelayMillis));
+                }
+            }, 40);
         });
     }
 
@@ -126,6 +128,7 @@ export class MOTDModPageHandler {
     public registerLobbyMessageDelayInputTextCommittedHook(): void {
         this.registerModPageHook("LobbyMessageDelayInputTextCommitted", (_self, args: unknown[]) => {
             let text = args[0] as string;
+
             if (text === "") {
                 const modPage = this.mod.getModPage();
                 if (modPage == undefined) {
