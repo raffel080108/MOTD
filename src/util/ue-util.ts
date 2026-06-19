@@ -38,7 +38,7 @@ export namespace UEUtil {
     }
 
     /**
-     * @param outer Defaults to using the Local PlayerController if unset
+     * @param outer Defaults to using current UWorld if unset
      * @returns The constructed object or `undefined` if the constructed object is not valid
      */
     export function constructAndValidateObject(objectClass: UClass, outer?: UObject): UE4SSLUObject | undefined {

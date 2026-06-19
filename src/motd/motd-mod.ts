@@ -27,16 +27,17 @@ export class MOTDMod {
 
             this.setupModActorHooks();
 
-            const handle = setInterval(() => {
+            Util.loop(20, () => {
                 if (this.getModPage() == undefined) {
-                    return;
+                    return false;
                 }
 
                 Logger.log("Mod page found");
 
-                clearInterval(handle);
                 this.triggerModPageFound();
-            }, 20);
+                
+                return true;
+            });
         });
     }
 
