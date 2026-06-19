@@ -10,7 +10,7 @@ export namespace ModUtil {
     }
     
     export function getConfigFilePath(configName: string): string {
-        return getGameDirectory() + `/Binaries/Win64/ue4ss/config/MOTD/${configName}.json`;
+        return getGameDirectory() + `/Saved/Mods/MOTD/${configName}.json`;
     }
 
     export function saveConfig(configName: string, data: unknown): void {
